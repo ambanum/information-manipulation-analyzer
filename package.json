@@ -1,11 +1,14 @@
 {
-  "name": "with-typescript",
-  "version": "1.0.0",
+  "name": "information-manipulation-analyzer",
+  "version": "0.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "docker:build": "docker build -t $npm_package_name .",
+    "docker:run": "(docker rm $npm_package_name || true) && docker run --rm -p 3000:3000 --name $npm_package_name -it $npm_package_name",
+    "docker:ssh": "docker exec -it $npm_package_name /bin/bash"
   },
   "dependencies": {
     "next": "latest",
