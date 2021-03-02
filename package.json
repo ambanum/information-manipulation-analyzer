@@ -6,6 +6,10 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
+    "deploy:local:preproduction": "ansible-playbook ops/site.yml -i ops/inventories/dev.yml -e \"ENV=preproduction\"",
+    "deploy:local:production": "ansible-playbook ops/site.yml -i ops/inventories/dev.yml -e \"ENV=production\"",
+    "deploy:preproduction": "ansible-playbook ops/site.yml -i ops/inventories/production.yml -e \"ENV=preproduction\"",
+    "deploy:production": "ansible-playbook ops/site.yml -i ops/inventories/production.yml -e \"ENV=production\"",
     "docker:build": "docker build -t $npm_package_name .",
     "docker:run": "(docker rm $npm_package_name || true) && docker run --rm -p 3000:3000 --name $npm_package_name -it $npm_package_name",
     "docker:ssh": "docker exec -it $npm_package_name /bin/bash"
