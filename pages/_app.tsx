@@ -1,3 +1,4 @@
+import './reset.css';
 import '@gouvfr/all/dist/css/all.css';
 
 import dynamic from 'next/dynamic';
