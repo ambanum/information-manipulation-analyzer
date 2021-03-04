@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Layout from "../components/Layout";
-import styles from "./index.module.css";
+import Link from 'next/link';
+import Layout from '../components/Layout';
+import styles from './index.module.css';
 
 const IndexPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">

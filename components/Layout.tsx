@@ -3,9 +3,9 @@ import Link from 'next/link';
 import React, { ReactNode } from 'react';
 
 type Props = {
-  children?: ReactNode
-  title?: string
-}
+  children?: ReactNode;
+  title?: string;
+};
 
 const Layout = ({ children, title = 'This is the default title' }: Props) => (
   <div>

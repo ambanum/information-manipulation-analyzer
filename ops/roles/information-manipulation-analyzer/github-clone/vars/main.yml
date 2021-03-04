@@ -1,5 +1,5 @@
-app: "information-manipulation-analyzer-{{ ENV }}"
-repository: "https://github.com/ambanum/information-manipulation-analyzer.git"
+app: 'information-manipulation-analyzer-{{ ENV }}'
+repository: 'https://github.com/ambanum/information-manipulation-analyzer.git'
 branch: "{{ 'main' if ENV == 'production' else 'develop' }}"
 app_port: "{{ '7001' if ENV == 'production' else '7002' }}"
 pre_prod: "{{ 'false' if ENV == 'production' else 'true' }}"
