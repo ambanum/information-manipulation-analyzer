@@ -11,6 +11,7 @@ COPY yarn.lock /usr/src/app
 # Production use node instead of root
 # USER node
 
+RUN apt-get clean
 RUN yarn install
 
 COPY . /usr/src/app
