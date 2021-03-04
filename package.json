@@ -1,6 +1,7 @@
 {
   "name": "information-manipulation-analyzer",
   "version": "0.0.0",
+  "prettier": "prettier-config-ambanum",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -17,6 +18,7 @@
   "dependencies": {
     "@gouvfr/all": "^0.5.3",
     "next": "latest",
+    "prettier-config-ambanum": "^1.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },

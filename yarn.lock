@@ -1670,6 +1670,11 @@ prebuild-install@^6.0.0:
     tunnel-agent "^0.6.0"
     which-pm-runs "^1.0.0"
 
+prettier-config-ambanum@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/prettier-config-ambanum/-/prettier-config-ambanum-1.0.1.tgz#86081b5dbc8e08db668a39bed81990a55112ed92"
+  integrity sha512-AtvG9ESaOxJ5jPg9wgfQCqwrAlBpOMVjtjXJ4s/95IFinKGdczY2QDdhKeiQwxepC57ZFSmm9bZWJTdWy6tDBA==
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
