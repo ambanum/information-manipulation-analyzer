@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
-import styles from './index.module.css';
+import styles from './index.module.scss';
 
 const IndexPage = () => (
   <Layout title="Information Manipulation Analyzer">
