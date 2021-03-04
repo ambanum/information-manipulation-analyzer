@@ -1,10 +1,9 @@
-import Link from "next/link";
 import Layout from "../components/Layout";
-import styles from "./index.module.css";
+import Link from "next/link";
 
-const IndexPage = () => (
+const DesignSystem = () => {return (
   <Layout title="Home | Next.js + TypeScript Example">
-    <h1 className={styles.body}>Hello Next.js 👋</h1>
+    <h1>Design system</h1>
     <div className="rf-table rf-table--no-scroll">
       <table>
         <caption>Résumé du tableau (accessibilité)</caption>
@@ -33,6 +32,6 @@ const IndexPage = () => (
       </Link>
     </p>
   </Layout>
-);
+);}
 
-export default IndexPage;
+export default DesignSystem;

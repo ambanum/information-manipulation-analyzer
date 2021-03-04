@@ -15,6 +15,7 @@
     "docker:ssh": "docker exec -it $npm_package_name /bin/bash"
   },
   "dependencies": {
+    "@gouvfr/all": "^0.5.3",
     "next": "latest",
     "react": "17.0.1",
     "react-dom": "17.0.1"
