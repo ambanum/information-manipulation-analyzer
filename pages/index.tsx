@@ -1,35 +1,14 @@
-import Link from 'next/link';
 import Layout from '../components/Layout';
+import Link from 'next/link';
 import styles from './index.module.css';
 
 const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1 className={styles.body}>Hello Next.js 👋</h1>
-    <div className="rf-table rf-table--no-scroll">
-      <table>
-        <caption>Résumé du tableau (accessibilité)</caption>
-        <thead>
-          <tr>
-            <th scope="col">Titre</th>
-            <th scope="col"> Titre </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Donnée</td>
-            <td>Donnée</td>
-          </tr>
-          <tr>
-            <td>Donnée</td>
-            <td>Donnée</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <Layout title="Information Manipulation Analyzer">
+    <h1 className={styles.title}>Information Manipulation Analyzer</h1>
 
     <p>
-      <Link href="/about">
-        <a>About</a>
+      <Link href="/design-system">
+        <a>See design system in action</a>
       </Link>
     </p>
   </Layout>

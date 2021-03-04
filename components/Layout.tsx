@@ -20,19 +20,23 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <div className="rf-container">
         <div className="rf-header__body">
           <div className="rf-header__brand">
-            <a className="rf-logo" href="#" title="République française">
-              <span className="rf-logo__title">
-                République
-                <br />
-                française
-              </span>
-            </a>
+            <Link href="/">
+              <a className="rf-logo" title="République française">
+                <span className="rf-logo__title">
+                  République
+                  <br />
+                  française
+                </span>
+              </a>
+            </Link>
           </div>
           <div className="rf-header__navbar">
             <div className="rf-service">
-              <a className="rf-service__title" href="/" title="Nom du service">
-                Nom du service
-              </a>
+              <Link href="/">
+                <a className="rf-service__title" title="Nom du service">
+                  Nom du service
+                </a>
+              </Link>
               <p className="rf-service__tagline">baseline - précisions sur l‘organisation</p>
             </div>
           </div>
