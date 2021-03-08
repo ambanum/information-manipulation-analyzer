@@ -27,4 +27,4 @@ const schema = new Schema(
   }
 );
 
-export default mongoose.models.Hashtag || mongoose.model('Hashtag', schema);
+export default mongoose?.models?.Hashtag || mongoose.model('Hashtag', schema);

@@ -1,4 +1,5 @@
 import Search, { SearchProps } from 'components/Search';
+import { useRouter } from 'next/router';
 
 import { GetHashtagsResponse } from '../interfaces';
 import LastHashtags from '../data-components/LastHashtags';
@@ -8,6 +9,7 @@ import { mutate } from 'swr';
 import styles from 'modules/DesignSystem/pages/index.module.scss';
 
 const HomePage = () => {
+  const router = useRouter();
   const onSubmit: SearchProps['onSubmit'] = async (hashtag) => {
     mutate(
       '/api/hashtags',
@@ -19,6 +21,7 @@ const HomePage = () => {
     );
     try {
       await axios.post('/api/hashtags', { name: hashtag });
+      router.push(`/hashtags/${hashtag}`);
       mutate('/api/hashtags');
     } catch (e) {
       console.log(''); // eslint-disable-line
@@ -30,7 +33,7 @@ const HomePage = () => {
 
   return (
     <Layout title="Information Manipulation Analyzer">
-      <h1 className={styles.title}>Information Manipulation Analyzer</h1>
+      <h1 className={styles['text-center']}>Information Manipulation Analyzer</h1>
       <Search
         label="Recherche"
         buttonLabel="Rechercher"

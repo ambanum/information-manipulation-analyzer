@@ -1,5 +1,6 @@
 import { GetHashtagsResponse } from '../interfaces';
 import React from 'react';
+import Link from 'next/link';
 import useSWR from 'swr';
 
 interface LastHashtagsProps {
@@ -18,7 +19,9 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
   return (
     <div {...props}>
       {hashtags.map((hashtag) => (
-        <span className="rf-tag">{hashtag.name}</span>
+        <Link href={`/hashtags/${hashtag.name}`}>
+          <a className="rf-tag">{hashtag.name}</a>
+        </Link>
       ))}
     </div>
   );

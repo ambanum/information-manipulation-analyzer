@@ -4,7 +4,7 @@ export interface SearchProps {
   label?: React.ReactNode;
   placeholder?: string;
   buttonLabel: string;
-  onSubmit: (searchString: string) => void;
+  onSubmit: (searchString: string) => any;
 }
 
 // https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar

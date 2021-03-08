@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { CreateHashtagInput } from '../interfaces';
 import Hashtag from '../models/Hashtag';
+import * as HashtagManager from '../managers/HashtagManager';
 import HttpStatusCode from 'http-status-codes';
 import { withDb } from 'utils/db';
 
@@ -35,11 +36,16 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 const list = async (req: NextApiRequest, res: NextApiResponse) => {
-  const hashtags = await Hashtag.find().lean();
+  try {
+    const hashtags = await HashtagManager.list();
 
-  res.statusCode = HttpStatusCode.OK;
-  res.json({ status: 'ok', message: 'List of hashtags', hashtags });
-  return res;
+    res.statusCode = HttpStatusCode.OK;
+    res.json({ status: 'ok', message: 'List of hashtags', hashtags });
+    return res;
+  } catch (e) {
+    res.statusCode = HttpStatusCode.METHOD_FAILURE;
+    res.json({ status: 'ko', message: e.toString() });
+  }
 };
 
 const site = async (req: NextApiRequest, res: NextApiResponse) => {
