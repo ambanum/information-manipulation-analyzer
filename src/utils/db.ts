@@ -12,7 +12,7 @@ const dbConnect = async () => {
   }
 
   if (!process.env.MONGODB_URI) {
-    throw new Error('MONGODB_URI is not set')
+    throw new Error('MONGODB_URI is not set');
   }
 
   if (cachedDb) {
