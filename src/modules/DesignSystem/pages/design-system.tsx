@@ -1,4 +1,4 @@
-import Layout from 'components/Layout';
+import Layout from 'modules/Common/components/Layout';
 
 const DesignSystem = () => {
   return (

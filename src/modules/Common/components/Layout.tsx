@@ -118,6 +118,11 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
                   data.gouv.fr
                 </a>
               </li>
+              <li>
+                <Link href="/design-system">
+                  <a className="rf-footer__content-link">See design system in action</a>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
