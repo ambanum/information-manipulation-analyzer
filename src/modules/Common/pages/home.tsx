@@ -1,22 +1,24 @@
+import Search, { SearchProps } from 'components/Search';
+
 import Layout from 'modules/Common/components/Layout';
-import Link from 'next/link';
 import styles from 'modules/DesignSystem/pages/index.module.scss';
 
-const IndexPage = () => (
-  <Layout title="Information Manipulation Analyzer">
-    <h1 className={styles.title}>Information Manipulation Analyzer</h1>
+const HomePage = () => {
+  const onSubmit: SearchProps['onSubmit'] = (hashtag) => {
+    alert(`You've entered ${hashtag}`);
+  };
 
-    <p>
-      Here is the homepage
-      <Link href="/design-system">
-        <a>See design system in action</a>
-      </Link>
-      <br />
-      <Link href="/users">
-        <a>Users</a>
-      </Link>
-    </p>
-  </Layout>
-);
+  return (
+    <Layout title="Information Manipulation Analyzer">
+      <h1 className={styles.title}>Information Manipulation Analyzer</h1>
+      <Search
+        label="Recherche"
+        buttonLabel="Rechercher"
+        placeholder="Entrez un hashtag"
+        onSubmit={onSubmit}
+      />
+    </Layout>
+  );
+};
 
-export default IndexPage;
+export default HomePage;
