@@ -13,7 +13,8 @@
     "deploy:production": "ansible-playbook ops/site.yml -i ops/inventories/production.yml -e \"ENV=production\"",
     "docker:build": "docker build -t $npm_package_name .",
     "docker:run": "(docker rm $npm_package_name || true) && docker run --rm -p 3000:3000 --name $npm_package_name -it $npm_package_name",
-    "docker:ssh": "docker exec -it $npm_package_name /bin/bash"
+    "docker:ssh": "docker exec -it $npm_package_name /bin/bash",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@gouvfr/all": "^0.5.3",
@@ -28,6 +29,7 @@
     "@types/node": "14.14.31",
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.1",
+    "prettier": "^2.2.1",
     "prettier-config-ambanum": "^1.0.1",
     "typescript": "4.2.2"
   },
