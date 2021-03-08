@@ -15,7 +15,7 @@ const Search = ({
   buttonLabel,
   onSubmit,
   ...props
-}: IProps & React.HTMLAttributes<HTMLDivElement>) => {
+}: SearchProps & React.HTMLAttributes<HTMLDivElement>) => {
   const [search, setSearch] = React.useState('');
 
   const handleChange = (event: any) => {
