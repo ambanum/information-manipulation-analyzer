@@ -1,13 +1,13 @@
 import QueueItemModel from '../models/QueueItem';
 import { QueueItemActionTypes, QueueItemStatuses } from '../interfaces';
 
-export const createFirstFetch = async (hashtagId: string) => {
+export const createFirstFetch = async (hashtag: string) => {
   try {
     const queueItem = new QueueItemModel({
       priority: 2,
-      action: QueueItemActionTypes.FIRST_FETCH,
+      action: QueueItemActionTypes.HASHTAG,
       status: QueueItemStatuses.PENDING,
-      hashtagId,
+      hashtag,
     });
     await queueItem.save();
 

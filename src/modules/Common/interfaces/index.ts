@@ -29,7 +29,7 @@ export interface CreateHashtagInput extends CommonResponse {
  */
 
 export enum QueueItemActionTypes {
-  FIRST_FETCH = 'FIRST_FETCH',
+  HASHTAG = 'HASHTAG',
 }
 
 export enum QueueItemStatuses {
