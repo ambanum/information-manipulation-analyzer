@@ -2,7 +2,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { CreateHashtagInput } from '../interfaces';
-import Hashtag from '../models/Hashtag';
 import * as HashtagManager from '../managers/HashtagManager';
 import HttpStatusCode from 'http-status-codes';
 import { withDb } from 'utils/db';
@@ -19,11 +18,10 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
     return res;
   }
 
-  let existingHashtag = await Hashtag.findOne({ name });
+  let existingHashtag: any = await HashtagManager.get({ name });
 
   if (!existingHashtag) {
-    existingHashtag = new Hashtag({ name, status: 'PENDING' });
-    await existingHashtag.save();
+    existingHashtag = await HashtagManager.create({ name });
   }
 
   res.statusCode = HttpStatusCode.OK;

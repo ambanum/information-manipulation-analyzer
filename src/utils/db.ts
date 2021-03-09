@@ -5,14 +5,14 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 let cachedDb: typeof mongoose;
 
 const dbConnect = async () => {
+  if (!process.env.MONGODB_URI) {
+    throw new Error('MONGODB_URI is not set');
+  }
+
   // check if we have a connection to the database or if it's currently
   // connecting or disconnecting (readyState 1, 2 and 3)
   if (mongoose.connection.readyState >= 1) {
     return;
-  }
-
-  if (!process.env.MONGODB_URI) {
-    throw new Error('MONGODB_URI is not set');
   }
 
   if (cachedDb) {
