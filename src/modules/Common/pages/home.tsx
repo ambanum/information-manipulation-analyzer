@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import LastHashtags from '../data-components/LastHashtags';
 import Layout from 'modules/Embassy/components/Layout';
 import axios from 'axios';
-import styles from 'modules/DesignSystem/pages/index.module.scss';
 
 const HomePage = () => {
   const router = useRouter();
@@ -22,17 +21,18 @@ const HomePage = () => {
 
   return (
     <Layout title="Information Manipulation Analyzer">
-      <div className="rf-container">
+      <div className="rf-container rf-mb-12w">
         <div className="rf-grid-row">
           <div className="rf-col">
-            <h1 className={styles['text-center']}>Information Manipulation Analyzer</h1>
+            <h1 className="text-center rf-mb-5w">Information Manipulation Analyzer</h1>
             <Search
+              className="rf-mx-md-12w"
               label="Recherche"
               buttonLabel="Rechercher"
               placeholder="Entrez un hashtag"
               onSubmit={onSubmit}
             />
-            <h2>Check previous hashtags</h2>
+            <h2 className="rf-my-5w">Check previous hashtags</h2>
             <LastHashtags />
           </div>
         </div>

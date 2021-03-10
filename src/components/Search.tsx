@@ -2,6 +2,7 @@ import React from 'react';
 
 export interface SearchProps {
   label?: React.ReactNode;
+  className?: string;
   placeholder?: string;
   buttonLabel: string;
   onSubmit: (searchString: string) => any;
@@ -11,6 +12,7 @@ export interface SearchProps {
 
 const Search = ({
   label,
+  className,
   placeholder,
   buttonLabel,
   onSubmit,
@@ -28,7 +30,7 @@ const Search = ({
   };
 
   return (
-    <div className="rf-search-bar" {...props}>
+    <div className={`rf-search-bar ${className || ''}`} {...props}>
       {label && <label className="rf-label">{label}</label>}
       <input
         className="rf-input"

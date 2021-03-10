@@ -4,7 +4,6 @@ import Link from 'next/link';
 import dbConnect from 'utils/db';
 import { Hashtag } from '../../interfaces';
 import * as HashtagManager from '../../managers/HashtagManager';
-import styles from 'modules/DesignSystem/pages/index.module.scss';
 import VolumetryGraph, { VolumetryGraphProps } from '../../components/VolumetryGraph';
 
 export default function HashtagPage({
@@ -16,14 +15,14 @@ export default function HashtagPage({
 }) {
   return (
     <Layout title={`#${hashtag.name} | Information Manipulation Analyzer`}>
-      <div className="rf-container">
+      <div className="rf-container rf-mb-12w">
         <div className="rf-grid-row">
           <div className="rf-col">
             <Link href="/">
               <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">Back</a>
             </Link>
-            <h1 className={styles['text-center']}>#{hashtag.name}</h1>
-            <h6 className={styles['text-center']}>Information Manipulation Analyzer</h6>
+            <h1 className="text-center">#{hashtag.name}</h1>
+            <h6 className="text-center">Information Manipulation Analyzer</h6>
 
             {hashtag.status === 'PENDING' && volumetry[0]?.data?.length === 0 && (
               <span className="rf-tag">{hashtag.status}</span>
