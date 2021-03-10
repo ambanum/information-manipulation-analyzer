@@ -67,7 +67,7 @@
 }
 
 .footer_nav_link {
-  font-size: 1.4rem;
+  font-size: calc(1.4rem * 0.625);
 
   @include responsiveMaxWidth($bpMobile) {
     display: block;

@@ -147,7 +147,7 @@
 .header_langnav_link {
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: calc(1.4rem * 0.625);
 
   & > span {
     @include responsiveMaxWidth($bpTablet) {
