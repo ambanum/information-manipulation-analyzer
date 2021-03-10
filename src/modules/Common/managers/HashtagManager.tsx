@@ -17,10 +17,12 @@ export const create = async ({ name }: { name: string }) => {
 
 export const get = async (filter: { name: string }) => {
   try {
-    const hashtag: Hashtag = await HashtagModel.findOne(filter);
-
+    const hashtag: Hashtag = await HashtagModel.findOne(filter)
+      .populate('volumetry')
+      .lean({ virtuals: true });
     return hashtag;
   } catch (e) {
+    console.error(e);
     throw new Error('Could not find hashtag');
   }
 };
@@ -31,6 +33,7 @@ export const list = async () => {
 
     return hashtags;
   } catch (e) {
+    console.error(e);
     throw new Error('Could not find hashtags');
   }
 };

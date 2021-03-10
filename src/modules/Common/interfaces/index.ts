@@ -14,6 +14,7 @@ export interface CommonResponse {
 export interface Hashtag {
   name: string;
   status: 'PENDING' | 'DONE';
+  volumetry: HashtagVolumetry[];
 }
 
 export interface GetHashtagsResponse extends CommonResponse {
@@ -43,4 +44,15 @@ export interface QueueItem {
   name: string;
   action: QueueItemActionTypes;
   status: QueueItemStatuses;
+}
+
+/**
+ * HashtagVolumetry
+ */
+
+export interface HashtagVolumetry {
+  date: string;
+  nbTweets: number;
+  nbRetweets: number;
+  platformId: 'twitter';
 }

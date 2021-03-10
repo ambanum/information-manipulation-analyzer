@@ -18,9 +18,13 @@
   },
   "dependencies": {
     "@gouvfr/all": "^0.5.3",
+    "@nivo/core": "^0.67.0",
+    "@nivo/line": "^0.67.0",
     "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
     "http-status-codes": "^2.1.4",
     "mongoose": "^5.11.19",
+    "mongoose-lean-virtuals": "^0.7.6",
     "next": "latest",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -30,6 +34,7 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/mongoose": "^5.10.3",
+    "@types/mongoose-lean-virtuals": "^0.5.1",
     "@types/node": "14.14.31",
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.1",

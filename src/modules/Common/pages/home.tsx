@@ -2,7 +2,7 @@ import Search, { SearchProps } from 'components/Search';
 import { useRouter } from 'next/router';
 
 import LastHashtags from '../data-components/LastHashtags';
-import Layout from 'modules/Common/components/Layout';
+import Layout from 'modules/Embassy/components/Layout';
 import axios from 'axios';
 import styles from 'modules/DesignSystem/pages/index.module.scss';
 
@@ -22,15 +22,21 @@ const HomePage = () => {
 
   return (
     <Layout title="Information Manipulation Analyzer">
-      <h1 className={styles['text-center']}>Information Manipulation Analyzer</h1>
-      <Search
-        label="Recherche"
-        buttonLabel="Rechercher"
-        placeholder="Entrez un hashtag"
-        onSubmit={onSubmit}
-      />
-      <h2>Check previous hashtags</h2>
-      <LastHashtags />
+      <div className="rf-container">
+        <div className="rf-grid-row">
+          <div className="rf-col">
+            <h1 className={styles['text-center']}>Information Manipulation Analyzer</h1>
+            <Search
+              label="Recherche"
+              buttonLabel="Rechercher"
+              placeholder="Entrez un hashtag"
+              onSubmit={onSubmit}
+            />
+            <h2>Check previous hashtags</h2>
+            <LastHashtags />
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 };

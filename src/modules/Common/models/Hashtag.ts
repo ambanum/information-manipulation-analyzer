@@ -1,4 +1,7 @@
 import * as mongoose from 'mongoose';
+import mongooseLeanVirtuals from 'mongoose-lean-virtuals';
+
+import './HashtagVolumetry';
 
 const { Schema } = mongoose;
 
@@ -26,5 +29,13 @@ const schema = new Schema(
     timestamps: true,
   }
 );
+
+schema.plugin(mongooseLeanVirtuals);
+
+schema.virtual('volumetry', {
+  ref: 'HashtagVolumetry',
+  localField: '_id',
+  foreignField: 'hashtag',
+});
 
 export default mongoose?.models?.Hashtag || mongoose.model('Hashtag', schema);
