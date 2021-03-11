@@ -19,7 +19,7 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
   return (
     <div {...props}>
       {hashtags.map((hashtag, i) => (
-        <Link href={`/hashtags/${hashtag.name}`}>
+        <Link key={hashtag._id} href={`/hashtags/${hashtag.name}`}>
           <a className={`rf-tag ${i > 0 ? 'rf-ml-1w' : ''}`}>{hashtag.name}</a>
         </Link>
       ))}

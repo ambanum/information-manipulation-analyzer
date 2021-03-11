@@ -54,7 +54,7 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
   return (
     <ResponsiveLine
       data={formattedData}
-      curve="catmullRom"
+      curve="linear"
       colors={paletteColors}
       margin={{ top: 50, right: 60, bottom: 220, left: 100 }}
       xScale={{ type: `time`, format: `%Y-%m-%dT%H:%M:%S.%L%Z`, precision: `hour` }}
@@ -117,4 +117,4 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
   );
 };
 
-export default VolumetryGraph;
+export default React.memo(VolumetryGraph);

@@ -1,14 +1,18 @@
+import React from 'react';
 import dayjs from 'dayjs';
 import Layout from 'modules/Embassy/components/Layout';
 import { GetStaticPaths } from 'next';
 import Link from 'next/link';
+import useSWR from 'swr';
 import dbConnect from 'utils/db';
 import VolumetryGraph, {
   VolumetryGraphOptions,
   VolumetryGraphProps,
 } from '../../components/VolumetryGraph';
-import { Hashtag } from '../../interfaces';
+import { GetHashtagResponse, Hashtag } from '../../interfaces';
 import * as HashtagManager from '../../managers/HashtagManager';
+
+const shouldPoll = (status: string) => ['DONE', 'DONE_ERROR', 'DONE_FIRST_FETCH'].includes(status);
 
 export default function HashtagPage({
   hashtag,
@@ -17,6 +21,15 @@ export default function HashtagPage({
   hashtag: Hashtag;
   volumetry: VolumetryGraphProps['data'];
 }) {
+  const [skip, setSkip] = React.useState(shouldPoll(hashtag?.status));
+  const { data } = useSWR<GetHashtagResponse>(`/api/hashtags/${hashtag.name}`, {
+    initialData: { status: 'ok', message: '', hashtag },
+    refreshInterval: 3000,
+    isPaused: () => skip,
+  });
+
+  const { status = '' } = data?.hashtag || {};
+
   const onClick: VolumetryGraphOptions['onClick'] = (point) => {
     const startDate = dayjs(point.data.x).startOf('day').format('YYYY-MM-DD');
     const endDate = dayjs(point.data.x).add(1, 'day').startOf('day').format('YYYY-MM-DD');
@@ -24,6 +37,10 @@ export default function HashtagPage({
       `https://twitter.com/search?q=${hashtag.name}%20until%3A${endDate}%20%20since%3A${startDate}&src=typed_query`
     );
   };
+
+  React.useEffect(() => {
+    setSkip(shouldPoll(status));
+  }, [status]);
 
   return (
     <Layout title={`#${hashtag.name} | Information Manipulation Analyzer`}>
@@ -37,16 +54,22 @@ export default function HashtagPage({
             </div>
             <h1 className="text-center">#{hashtag.name}</h1>
             <h6 className="text-center">Information Manipulation Analyzer</h6>
-
-            {hashtag.status === 'PENDING' && volumetry[0]?.data?.length === 0 && (
+            {status === 'PENDING' && (
               <div className="text-center rf-my-12w">
-                <span className="rf-tag">{hashtag.status}</span>
+                <span className="rf-tag">Your request is in the queue and will begin shortly</span>
+              </div>
+            )}
+            {status === 'PROCESSING' && (
+              <div className="text-center rf-my-12w">
+                <span className="rf-tag">
+                  Data is being extracted from twitter, please be patient
+                </span>
               </div>
             )}
           </div>
         </div>
       </div>
-      {hashtag.status === 'PENDING' && volumetry[0]?.data?.length > 0 && (
+      {volumetry[0]?.data?.length > 0 && (
         <div style={{ height: '600px', width: '100%' }}>
           <VolumetryGraph data={volumetry} options={{ onClick }} />
         </div>

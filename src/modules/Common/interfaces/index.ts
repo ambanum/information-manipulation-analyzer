@@ -12,13 +12,24 @@ export interface CommonResponse {
  */
 
 export interface Hashtag {
+  _id: string;
   name: string;
-  status: 'PENDING' | 'DONE';
+  status:
+    | 'PENDING'
+    | 'PROCESSING'
+    | 'DONE_FIRST_FETCH'
+    | 'PROCESSING_PREVIOUS'
+    | 'DONE'
+    | 'DONE_ERROR';
   volumetry: HashtagVolumetry[];
 }
 
 export interface GetHashtagsResponse extends CommonResponse {
   hashtags: Hashtag[];
+}
+
+export interface GetHashtagResponse extends CommonResponse {
+  hashtag: Hashtag;
 }
 
 export interface CreateHashtagInput extends CommonResponse {
