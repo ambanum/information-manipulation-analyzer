@@ -4,6 +4,7 @@ import { LegendMouseHandler } from '@nivo/legends';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 dayjs.extend(localizedFormat);
+import { paletteColors } from './config';
 
 export interface VolumetryGraphOptions {
   onClick?: PointMouseHandler;
@@ -13,27 +14,6 @@ export interface VolumetryGraphProps {
   data: Serie[];
   options: VolumetryGraphOptions;
 }
-
-const palette = {
-  'blue-dark': '#484D7A',
-  'orange-soft': '#FF6F4C',
-  'yellow-dark': '#FDCF41',
-  'green-dark': '#466964',
-  'orange-dark': '#E18863',
-  'pink-dark': '#D08A77',
-  'blue-soft': '#5770BE',
-  'green-soft': '#00AC8C',
-  'pink-soft': '#FF8D7E',
-  'green-light': '#91AE4F',
-  'pink-light': '#FFC29E',
-  'green-medium': '#169B62',
-  'orange-medium': '#FF9940',
-  'yellow-medium': '#FFE800',
-  'green-warm': '#958B62',
-  brown: '#A26859',
-  purple: '#7D4E5B',
-};
-const paletteColors = Object.values(palette);
 
 const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
   const [formattedData, setFormattedData] = React.useState(data);
@@ -54,11 +34,14 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
   return (
     <ResponsiveLine
       data={formattedData}
-      curve="linear"
       colors={paletteColors}
+      curve="monotoneX"
       margin={{ top: 50, right: 60, bottom: 220, left: 100 }}
-      xScale={{ type: `time`, format: `%Y-%m-%dT%H:%M:%S.%L%Z`, precision: `hour` }}
       xFormat={(value: any) => dayjs(value).format('llll')}
+      xScale={{ type: `time`, format: `%Y-%m-%dT%H:%M:%S.%L%Z`, precision: `hour` }}
+      yScale={{ type: 'linear', min: 'auto', max: 'auto' }}
+      axisTop={null}
+      axisRight={null}
       axisBottom={{
         format: (value: any) => dayjs(value).format('llll'),
         tickValues: 25,
@@ -67,9 +50,6 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
         legendPosition: 'middle',
         tickRotation: -45,
       }}
-      yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
-      axisTop={null}
-      axisRight={null}
       axisLeft={{
         orient: 'left',
         tickSize: 5,
@@ -79,6 +59,7 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
         legendOffset: -40,
         legendPosition: 'middle',
       }}
+      lineWidth={1}
       pointSize={8}
       pointColor={{ theme: 'background' }}
       pointBorderWidth={2}

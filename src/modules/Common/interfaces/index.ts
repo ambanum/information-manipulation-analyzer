@@ -67,5 +67,14 @@ export interface HashtagVolumetry {
   nbRetweets: number;
   nbLikes: number;
   nbQuotes: number;
+  usernames: {
+    [key: string]: number;
+  };
+  languages: {
+    [key: string]: number;
+  };
+  associatedHashtags: {
+    [key: string]: number;
+  };
   platformId: 'twitter';
 }
