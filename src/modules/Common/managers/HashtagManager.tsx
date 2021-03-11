@@ -18,7 +18,7 @@ export const create = async ({ name }: { name: string }) => {
 export const get = async (filter: { name: string }) => {
   try {
     const hashtag: Hashtag = await HashtagModel.findOne(filter)
-      .populate('volumetry')
+      .populate({ path: 'volumetry', options: { sort: { date: 1 } } })
       .lean({ virtuals: true });
     return hashtag;
   } catch (e) {

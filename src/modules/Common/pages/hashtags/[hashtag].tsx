@@ -1,10 +1,14 @@
+import dayjs from 'dayjs';
 import Layout from 'modules/Embassy/components/Layout';
 import { GetStaticPaths } from 'next';
 import Link from 'next/link';
 import dbConnect from 'utils/db';
+import VolumetryGraph, {
+  VolumetryGraphOptions,
+  VolumetryGraphProps,
+} from '../../components/VolumetryGraph';
 import { Hashtag } from '../../interfaces';
 import * as HashtagManager from '../../managers/HashtagManager';
-import VolumetryGraph, { VolumetryGraphProps } from '../../components/VolumetryGraph';
 
 export default function HashtagPage({
   hashtag,
@@ -13,26 +17,38 @@ export default function HashtagPage({
   hashtag: Hashtag;
   volumetry: VolumetryGraphProps['data'];
 }) {
+  const onClick: VolumetryGraphOptions['onClick'] = (point) => {
+    const startDate = dayjs(point.data.x).startOf('day').format('YYYY-MM-DD');
+    const endDate = dayjs(point.data.x).add(1, 'day').startOf('day').format('YYYY-MM-DD');
+    window.open(
+      `https://twitter.com/search?q=${hashtag.name}%20until%3A${endDate}%20%20since%3A${startDate}&src=typed_query`
+    );
+  };
+
   return (
     <Layout title={`#${hashtag.name} | Information Manipulation Analyzer`}>
       <div className="rf-container rf-mb-12w">
         <div className="rf-grid-row">
           <div className="rf-col">
-            <Link href="/">
-              <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">Back</a>
-            </Link>
+            <div className="text-center rf-my-3w">
+              <Link href="/">
+                <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">Back</a>
+              </Link>
+            </div>
             <h1 className="text-center">#{hashtag.name}</h1>
             <h6 className="text-center">Information Manipulation Analyzer</h6>
 
             {hashtag.status === 'PENDING' && volumetry[0]?.data?.length === 0 && (
-              <span className="rf-tag">{hashtag.status}</span>
+              <div className="text-center rf-my-12w">
+                <span className="rf-tag">{hashtag.status}</span>
+              </div>
             )}
           </div>
         </div>
       </div>
       {hashtag.status === 'PENDING' && volumetry[0]?.data?.length > 0 && (
         <div style={{ height: '600px', width: '100%' }}>
-          <VolumetryGraph data={volumetry} />
+          <VolumetryGraph data={volumetry} options={{ onClick }} />
         </div>
       )}
     </Layout>
@@ -58,7 +74,6 @@ export async function getStaticProps({ params }: { params: { hashtag: string } }
   const volumetry = hashtag.volumetry.reduce(
     (acc: VolumetryGraphProps['data'], volumetry) => {
       const newAcc = [...acc];
-      console.log(volumetry);
       newAcc[0].data.push({ x: volumetry.date, y: volumetry.nbTweets });
       newAcc[1].data.push({ x: volumetry.date, y: volumetry.nbRetweets });
       return acc;
