@@ -54,5 +54,7 @@ export interface HashtagVolumetry {
   date: string;
   nbTweets: number;
   nbRetweets: number;
+  nbLikes: number;
+  nbQuotes: number;
   platformId: 'twitter';
 }

@@ -74,13 +74,17 @@ export async function getStaticProps({ params }: { params: { hashtag: string } }
   const volumetry = hashtag.volumetry.reduce(
     (acc: VolumetryGraphProps['data'], volumetry) => {
       const newAcc = [...acc];
-      newAcc[0].data.push({ x: volumetry.date, y: volumetry.nbTweets });
-      newAcc[1].data.push({ x: volumetry.date, y: volumetry.nbRetweets });
+      newAcc[0].data.push({ x: volumetry.date, y: volumetry.nbTweets || 0 });
+      newAcc[1].data.push({ x: volumetry.date, y: volumetry.nbRetweets || 0 });
+      newAcc[2].data.push({ x: volumetry.date, y: volumetry.nbLikes || 0 });
+      newAcc[3].data.push({ x: volumetry.date, y: volumetry.nbQuotes || 0 });
       return acc;
     },
     [
       { id: 'nbTweets', data: [] },
       { id: 'nbRetweets', data: [] },
+      { id: 'nbLikes', data: [] },
+      { id: 'nbQuotes', data: [] },
     ]
   );
 

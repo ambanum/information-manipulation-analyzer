@@ -63,7 +63,7 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
         format: (value: any) => dayjs(value).format('llll'),
         tickValues: 25,
         legend: '',
-        legendOffset: 120 + 20,
+        legendOffset: 160 + 20,
         legendPosition: 'middle',
         tickRotation: -45,
       }}
@@ -88,12 +88,12 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
       legends={[
         {
           anchor: 'bottom',
-          direction: 'column',
+          direction: 'row',
           justify: false,
           translateX: 0,
           onClick: onLegendClick,
           translateY: 150,
-          itemsSpacing: 0,
+          itemsSpacing: 10,
           itemDirection: 'left-to-right',
           itemWidth: 80,
           itemHeight: 20,
