@@ -33,7 +33,21 @@ const UsernameTable = ({ data, options = {} }: UsernameTableProps) => {
     },
   ];
 
-  return <Table title="Active users" columns={columns} data={data} layoutFixed noScroll />;
+  return (
+    <Table
+      title={`Active users (${data.length})`}
+      columns={columns}
+      data={data}
+      sortBy={[
+        {
+          id: 'value',
+          desc: true,
+        },
+      ]}
+      layoutFixed
+      noScroll
+    />
+  );
 };
 
 export default React.memo(UsernameTable);
