@@ -11,6 +11,7 @@ import LanguageGraph, {
   LanguageGraphProps,
   LanguageGraphOptions,
 } from '../../components/Charts/LanguageGraph';
+import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
 import { GetHashtagResponse, Hashtag } from '../../interfaces';
 export { default as getStaticProps } from './[hashtag].staticProps';
 export { default as getStaticPaths } from './[hashtag].staticPaths';
@@ -20,10 +21,12 @@ export default function HashtagPage({
   hashtag,
   volumetry,
   languages,
+  usernames,
 }: {
   hashtag: Hashtag;
   volumetry: VolumetryGraphProps['data'];
   languages: LanguageGraphProps['data'];
+  usernames: UsernameTableProps['data'];
 }) {
   const [skip, setSkip] = React.useState(shouldPoll(hashtag?.status));
   const { data } = useSWR<GetHashtagResponse>(`/api/hashtags/${hashtag.name}`, {
@@ -85,6 +88,16 @@ export default function HashtagPage({
       {languages?.length > 0 && (
         <div style={{ height: '400px', width: '100%' }}>
           <LanguageGraph data={languages} options={{ onClick: onPieClick }} />
+        </div>
+      )}
+      {usernames?.length > 0 && (
+        <div className="rf-container">
+          <div className="rf-grid-row">
+            <div className="rf-col-6">
+              <UsernameTable data={usernames} />
+            </div>
+            <div className="rf-col-6"></div>
+          </div>
         </div>
       )}
     </Layout>
