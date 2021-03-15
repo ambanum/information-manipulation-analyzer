@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import Layout from 'modules/Common/components/Layout';
+import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import List from 'modules/Common/components/List';
 import { User } from 'modules/User/interfaces';

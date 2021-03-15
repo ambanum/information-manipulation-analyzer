@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import Layout from 'modules/Common/components/Layout';
+import Layout from 'modules/Embassy/components/Layout';
 import ListDetail from 'modules/Common/components/ListDetail';
 import { User } from 'modules/User/interfaces';
 import { sampleUserData } from 'modules/User/utils/sample-data';

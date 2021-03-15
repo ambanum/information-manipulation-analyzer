@@ -1,4 +1,4 @@
-import Layout from 'modules/Common/components/Layout';
+import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 
 const AboutPage = () => (
