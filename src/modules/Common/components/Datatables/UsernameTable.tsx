@@ -1,14 +1,12 @@
 import React from 'react';
-// import { ResponsiveLine, Serie, PointMouseHandler } from '@nivo/line';
-// import { LegendMouseHandler } from '@nivo/legends';
 import Table from 'components/Table';
 export interface UsernameTableOptions {
-  // onClick?: PointMouseHandler;
+  onUsernameClick: (username: string) => any;
 }
 
 export interface UsernameTableProps {
   data: Username[];
-  options?: UsernameTableOptions;
+  options: UsernameTableOptions;
 }
 
 export interface Username {
@@ -17,11 +15,18 @@ export interface Username {
   value: string;
 }
 
-const UsernameTable = ({ data, options = {} }: UsernameTableProps) => {
+const UsernameTable = ({ data, options }: UsernameTableProps) => {
   const columns = [
     {
       Header: 'Username',
       accessor: 'label',
+      Cell: ({ row, value }: any) => {
+        return (
+          <a href=" " rel="noreferrer noopener" onClick={() => options.onUsernameClick(value)}>
+            {value}
+          </a>
+        );
+      },
     },
     {
       Header: 'Nb of use',

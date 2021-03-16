@@ -1,21 +1,23 @@
-import dayjs from 'dayjs';
-import localizedFormat from 'dayjs/plugin/localizedFormat';
-import Layout from 'modules/Embassy/components/Layout';
-import Link from 'next/link';
-import React from 'react';
-import Card from 'components/Card';
-import useSWR from 'swr';
+import { GetHashtagResponse, Hashtag } from '../../interfaces';
+import HashtagTable, { HashtagTableProps } from '../../components/Datatables/HashtagTable';
 import LanguageGraph, {
   LanguageGraphOptions,
   LanguageGraphProps,
 } from '../../components/Charts/LanguageGraph';
+import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
 import VolumetryGraph, {
   VolumetryGraphOptions,
   VolumetryGraphProps,
 } from '../../components/Charts/VolumetryGraph';
-import HashtagTable, { HashtagTableProps } from '../../components/Datatables/HashtagTable';
-import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
-import { GetHashtagResponse, Hashtag } from '../../interfaces';
+
+import Card from 'components/Card';
+import Layout from 'modules/Embassy/components/Layout';
+import Link from 'next/link';
+import React from 'react';
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+import useSWR from 'swr';
+
 export { default as getStaticPaths } from './[hashtag].staticPaths';
 export { default as getStaticProps } from './[hashtag].staticProps';
 const shouldPoll = (status: string) => ['DONE', 'DONE_ERROR', 'DONE_FIRST_FETCH'].includes(status);
@@ -54,6 +56,10 @@ export default function HashtagPage({
 
   const onPieClick: LanguageGraphOptions['onClick'] = ({ id: lang }) => {
     window.open(`https://twitter.com/search?q=${hashtag.name}%20lang%3A${lang}`);
+  };
+
+  const onUsernameClick: UsernameTableProps['options']['onUsernameClick'] = (username: string) => {
+    window.open(`https://twitter.com/search?q=${hashtag.name}%20(from:${username})`);
   };
 
   React.useEffect(() => {
@@ -127,7 +133,7 @@ export default function HashtagPage({
         <div className="rf-container rf-container-fluid">
           <div className="rf-grid-row rf-grid-row--gutters">
             <div className="rf-col-6">
-              <UsernameTable data={usernames} />
+              <UsernameTable data={usernames} options={{ onUsernameClick }} />
             </div>
             <div className="rf-col-6">
               <HashtagTable data={associatedHashtags} />
