@@ -13,6 +13,7 @@ import VolumetryGraph, {
 import Card from 'components/Card';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
+import Loading from 'components/Loading';
 import React from 'react';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
@@ -90,6 +91,7 @@ export default function HashtagPage({
                 </span>
               </div>
             )}
+            {['PROCESSING', 'PENDING'].includes(status) && <Loading />}
           </div>
         </div>
       </div>
