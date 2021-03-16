@@ -7,8 +7,8 @@ export interface UsernameTableOptions {
 }
 
 export interface UsernameTableProps {
-  data: any[];
-  options: UsernameTableOptions;
+  data: Username[];
+  options?: UsernameTableOptions;
 }
 
 export interface Username {

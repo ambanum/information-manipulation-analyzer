@@ -7,8 +7,8 @@ export interface HashtagTableOptions {
 }
 
 export interface HashtagTableProps {
-  data: any[];
-  options: HashtagTableOptions;
+  data: Hashtag[];
+  options?: HashtagTableOptions;
 }
 
 export interface Hashtag {

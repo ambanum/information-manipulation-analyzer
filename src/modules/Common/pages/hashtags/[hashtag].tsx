@@ -1,22 +1,26 @@
-import React from 'react';
 import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
+import React from 'react';
+import Card from 'components/Card';
 import useSWR from 'swr';
+import LanguageGraph, {
+  LanguageGraphOptions,
+  LanguageGraphProps,
+} from '../../components/Charts/LanguageGraph';
 import VolumetryGraph, {
   VolumetryGraphOptions,
   VolumetryGraphProps,
 } from '../../components/Charts/VolumetryGraph';
-import LanguageGraph, {
-  LanguageGraphProps,
-  LanguageGraphOptions,
-} from '../../components/Charts/LanguageGraph';
-import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
 import HashtagTable, { HashtagTableProps } from '../../components/Datatables/HashtagTable';
+import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
 import { GetHashtagResponse, Hashtag } from '../../interfaces';
-export { default as getStaticProps } from './[hashtag].staticProps';
 export { default as getStaticPaths } from './[hashtag].staticPaths';
+export { default as getStaticProps } from './[hashtag].staticProps';
 const shouldPoll = (status: string) => ['DONE', 'DONE_ERROR', 'DONE_FIRST_FETCH'].includes(status);
+
+dayjs.extend(localizedFormat);
 
 export default function HashtagPage({
   hashtag,
@@ -80,6 +84,32 @@ export default function HashtagPage({
                 </span>
               </div>
             )}
+          </div>
+        </div>
+      </div>
+      <div className="rf-container rf-container-fluid">
+        <div className="rf-grid-row rf-grid-row--gutters">
+          <div className="rf-col-3">
+            <Card horizontal title={'TODO'} href={'#'} description={'Date of first appearance'} />
+          </div>
+          <div className="rf-col-3">
+            <Card horizontal title={usernames.length} description={'Nb Active users'} noArrow />
+          </div>
+          <div className="rf-col-3">
+            <Card
+              horizontal
+              title={associatedHashtags.length}
+              description={'Nb Associated hashtags'}
+              noArrow
+            />
+          </div>
+          <div className="rf-col-3">
+            <Card
+              horizontal
+              title={'TODO %'}
+              description={'Bot Probability'}
+              href={'#calculation-algorythm'}
+            />
           </div>
         </div>
       </div>
