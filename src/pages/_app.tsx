@@ -1,6 +1,7 @@
 // import 'modules/Common/styles/reset.css';
 import '@gouvfr/all/dist/css/all.css';
 import 'modules/Embassy/styles/embassy.scss';
+import 'components/Loading/Loading.scss';
 
 import useSWR, { SWRConfig } from 'swr';
 
