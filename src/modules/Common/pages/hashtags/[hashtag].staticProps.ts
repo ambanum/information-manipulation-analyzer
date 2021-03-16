@@ -9,6 +9,7 @@ export default async function getStaticProps({ params }: { params: { hashtag: st
 
   const usernames: { [key: string]: number } = {};
   const languages: { [key: string]: number } = {};
+  const associatedHashtags: { [key: string]: number } = {};
 
   const volumetry = hashtag.volumetry.reduce(
     (acc: VolumetryGraphProps['data'], volumetry) => {
@@ -23,6 +24,11 @@ export default async function getStaticProps({ params }: { params: { hashtag: st
       Object.keys(volumetry.usernames).forEach((username) => {
         usernames[username] = (usernames[username] || 0) + volumetry.usernames[username];
       });
+      Object.keys(volumetry.associatedHashtags).forEach((associatedHashtag) => {
+        associatedHashtags[associatedHashtag] =
+          (associatedHashtags[associatedHashtag] || 0) +
+          volumetry.associatedHashtags[associatedHashtag];
+      });
       return acc;
     },
     [
@@ -34,44 +40,45 @@ export default async function getStaticProps({ params }: { params: { hashtag: st
   );
 
   return {
-    props: {
-      hashtag: hashtag ? JSON.parse(JSON.stringify(hashtag, null, 2)) : null,
-      volumetry: JSON.parse(JSON.stringify(volumetry, null, 2)),
-      usernames: JSON.parse(
-        JSON.stringify(
-          Object.keys(usernames).reduce(
-            (acc: any[], username: string) => [
-              ...acc,
-              {
-                id: username,
-                label: username,
-                value: usernames[username],
-              },
-            ],
-            []
-          ),
-          null,
-          2
-        )
-      ),
-      languages: JSON.parse(
-        JSON.stringify(
-          Object.keys(languages).reduce(
-            (acc: any[], language: string) => [
-              ...acc,
-              {
-                id: language,
-                label: LanguageManager.getName(language),
-                value: languages[language],
-              },
-            ],
-            []
-          ),
-          null,
-          2
-        )
-      ),
-    },
+    props: JSON.parse(
+      JSON.stringify({
+        hashtag: hashtag ? hashtag : null,
+        volumetry: volumetry,
+        usernames: Object.keys(usernames).reduce(
+          (acc: any[], username: string) => [
+            ...acc,
+            {
+              id: username,
+              label: username,
+              value: usernames[username],
+            },
+          ],
+          []
+        ),
+        languages: Object.keys(languages).reduce(
+          (acc: any[], language: string) => [
+            ...acc,
+            {
+              id: language,
+              label: LanguageManager.getName(language),
+              value: languages[language],
+            },
+          ],
+          []
+        ),
+        associatedHashtags: Object.keys(associatedHashtags).reduce(
+          (acc: any[], associatedHashtag: string) => [
+            ...acc,
+            {
+              id: associatedHashtag,
+              label: associatedHashtag,
+              value: associatedHashtags[associatedHashtag],
+            },
+          ],
+          []
+        ),
+      })
+    ),
     revalidate: 300,
     notFound: !hashtag,
   };

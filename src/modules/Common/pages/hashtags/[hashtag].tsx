@@ -12,6 +12,7 @@ import LanguageGraph, {
   LanguageGraphOptions,
 } from '../../components/Charts/LanguageGraph';
 import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
+import HashtagTable, { HashtagTableProps } from '../../components/Datatables/HashtagTable';
 import { GetHashtagResponse, Hashtag } from '../../interfaces';
 export { default as getStaticProps } from './[hashtag].staticProps';
 export { default as getStaticPaths } from './[hashtag].staticPaths';
@@ -22,11 +23,13 @@ export default function HashtagPage({
   volumetry,
   languages,
   usernames,
+  associatedHashtags,
 }: {
   hashtag: Hashtag;
   volumetry: VolumetryGraphProps['data'];
   languages: LanguageGraphProps['data'];
   usernames: UsernameTableProps['data'];
+  associatedHashtags: HashtagTableProps['data'];
 }) {
   const [skip, setSkip] = React.useState(shouldPoll(hashtag?.status));
   const { data } = useSWR<GetHashtagResponse>(`/api/hashtags/${hashtag.name}`, {
@@ -91,12 +94,14 @@ export default function HashtagPage({
         </div>
       )}
       {usernames?.length > 0 && (
-        <div className="rf-container">
-          <div className="rf-grid-row">
+        <div className="rf-container rf-container-fluid">
+          <div className="rf-grid-row rf-grid-row--gutters">
             <div className="rf-col-6">
               <UsernameTable data={usernames} />
             </div>
-            <div className="rf-col-6"></div>
+            <div className="rf-col-6">
+              <HashtagTable data={associatedHashtags} />
+            </div>
           </div>
         </div>
       )}
