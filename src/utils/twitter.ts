@@ -25,7 +25,11 @@ export const getTwitterLink = (
     queryString += ` since:${sinceDate}`;
   }
   if (endDate) {
-    const untilDate = dayjs(endDate).startOf('day').format('YYYY-MM-DD');
+    const untilDate = dayjs(endDate)
+      .startOf('day')
+      .add(1, 'day')
+      .startOf('day')
+      .format('YYYY-MM-DD');
     queryString += ` until:${untilDate}`;
   }
   if (date) {
