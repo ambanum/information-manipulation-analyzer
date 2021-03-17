@@ -1,14 +1,48 @@
+import { Column, Row, TableOptions, UseSortByState, useSortBy, useTable } from 'react-table';
 import React, { PropsWithChildren, ReactElement } from 'react';
-import {
-  useTable,
-  TableOptions,
-  useSortBy,
-  UseSortByState,
-  UseSortByColumnProps,
-} from 'react-table';
+
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { FixedSizeList } from 'react-window';
 import styles from './Table.module.scss';
 
 // https://codesandbox.io/s/github/ggascoigne/react-table-example?file=/src/Table/Table.tsx
+
+const getAlignClass = (alignment: string) => {
+  if (!alignment) {
+    return '';
+  }
+  if (alignment === 'left') return `justify-start text-left`;
+  if (alignment === 'right') return `justify-end text-right`;
+  return `justify-${alignment} text-${alignment}`;
+};
+
+const getSizeClass = (size: number) => {
+  if (!size) {
+    return '';
+  }
+  return `flex-${size}`;
+};
+
+const scrollbarWidth = () => {
+  if (typeof document === 'undefined') {
+    return 0;
+  }
+  // thanks too https://davidwalsh.name/detect-scrollbar-width
+  const scrollDiv = document.createElement('div');
+  scrollDiv.setAttribute(
+    'style',
+    'width: 100px; height: 100px; overflow: scroll; position:absolute; top:-9999px;'
+  );
+  document.body.appendChild(scrollDiv);
+  const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+  document.body.removeChild(scrollDiv);
+  return scrollbarWidth;
+};
+
+export interface VirtualizeProps {
+  height: number;
+  itemSize: number;
+}
 
 export interface TableProps<T extends Record<string, unknown>> extends TableOptions<T> {
   title: string;
@@ -17,11 +51,39 @@ export interface TableProps<T extends Record<string, unknown>> extends TableOpti
   layoutFixed?: boolean;
   hideTitle?: boolean; // only use title for accessibility
   sortBy?: UseSortByState<T>['sortBy'];
+  virtualize?: VirtualizeProps;
 }
 
 const hooks = [useSortBy];
-export interface ColumnInstance<D extends Record<string, unknown> = Record<string, unknown>>
-  extends UseSortByColumnProps<D> {}
+
+export type TableColumn<T extends {}> = Column<T>;
+
+const InsideRow = ({ row, style = {} }: { row: Row<T>; style?: React.CSSProperties }) => {
+  return (
+    <div
+      {...row.getRowProps({
+        style,
+      })}
+      className="tr"
+    >
+      {row.cells.map((cell) => {
+        let { className = '', ...cellProps } = cell.getCellProps();
+        className = `${className} ${
+          //@ts-ignore
+          getAlignClass(cell.column.align)
+        } ${
+          //@ts-ignore
+          getSizeClass(cell.column.size)
+        }`;
+        return (
+          <div className={`td ${className}`} {...cellProps}>
+            {cell.render('Cell')}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 export default function Table<T extends Record<string, unknown>>({
   columns,
@@ -32,10 +94,12 @@ export default function Table<T extends Record<string, unknown>>({
   noScroll = false,
   layoutFixed = false,
   hideTitle = false,
+  virtualize,
 }: PropsWithChildren<TableProps<T>>): ReactElement {
   const initialState: any = React.useMemo(() => (initialSortBy ? { sortBy: initialSortBy } : {}), [
     initialSortBy,
   ]);
+  const scrollBarSize = React.useMemo(() => scrollbarWidth(), []);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
     {
@@ -46,8 +110,28 @@ export default function Table<T extends Record<string, unknown>>({
     ...hooks
   );
 
+  const RenderVirtualizedRow = React.useCallback(
+    ({ index, style }) => {
+      const row = rows[index];
+      prepareRow(row);
+      return <InsideRow row={row} style={style} />;
+    },
+    [prepareRow, rows]
+  );
+
+  const RenderNormalRow = React.useCallback(
+    ({ row }) => {
+      prepareRow(row);
+      return <InsideRow row={row} style={{}} />;
+    },
+    [prepareRow, rows]
+  );
+
+  const shouldVirtualize = !!virtualize && rows.length > 100;
+
+  //
   return (
-    <table
+    <div
       className={`rf-table
         ${styles.table}
         ${hideTitle ? 'rf-table--no-caption' : ''}
@@ -56,47 +140,65 @@ export default function Table<T extends Record<string, unknown>>({
         ${noScroll ? 'rf-table--no-scroll' : ''}`}
       {...getTableProps()}
     >
-      <caption>{title}</caption>
-      <thead>
-        {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => {
-              // @ts-ignore
-              const sortByProps = column.getSortByToggleProps();
-              // @ts-ignore
-              const { isSorted, isSortedDesc, headerClassName } = column;
-              const headerProps = column.getHeaderProps(sortByProps);
+      <div className="table">
+        <div className="caption" role="caption">
+          {title}
+        </div>
+        <div className="thead">
+          {headerGroups.map((headerGroup) => (
+            <div className="tr" {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => {
+                // @ts-ignore
+                const sortByProps = column.getSortByToggleProps();
+                // @ts-ignore
+                const { isSorted, isSortedDesc, headerClassName } = column;
+                const headerProps = column.getHeaderProps(sortByProps);
 
-              return (
-                <th
-                  {...headerProps}
-                  className={`${
-                    isSorted
-                      ? isSortedDesc
-                        ? 'react-table--sorted-down'
-                        : 'react-table--sorted-up'
-                      : ''
-                  } ${headerClassName || ''}`}
-                >
-                  {column.render('Header')}
-                </th>
-              );
-            })}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                return (
+                  <div
+                    {...headerProps}
+                    className={`th ${
+                      isSorted
+                        ? isSortedDesc
+                          ? 'react-table--sorted-down'
+                          : 'react-table--sorted-up'
+                        : ''
+                    } ${headerClassName || ''} ${
+                      //@ts-ignore
+                      getAlignClass(column.align)
+                    } ${
+                      //@ts-ignore
+                      getSizeClass(column.size)
+                    }`}
+                  >
+                    {column.render('Header')}
+                  </div>
+                );
               })}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+            </div>
+          ))}
+        </div>
+
+        <div className="tbody" {...getTableBodyProps()}>
+          {!shouldVirtualize && rows.map((row) => <RenderNormalRow row={row} />)}
+          {shouldVirtualize && (
+            <div style={{ height: virtualize?.height || 500 }}>
+              <AutoSizer>
+                {({ width }) => (
+                  <FixedSizeList
+                    height={virtualize?.height || 500}
+                    itemCount={rows.length}
+                    itemSize={virtualize?.itemSize || 56}
+                    width={width - scrollBarSize}
+                  >
+                    {RenderVirtualizedRow}
+                  </FixedSizeList>
+                )}
+              </AutoSizer>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Table from 'components/Table';
+
 export interface UsernameTableOptions {
   onUsernameClick: (username: string) => any;
 }
@@ -20,21 +21,26 @@ const UsernameTable = ({ data, options }: UsernameTableProps) => {
     {
       Header: 'Username',
       accessor: 'label',
-      Cell: ({ row, value }: any) => {
+      Cell: ({ value }: any) => {
         return (
           <a href=" " rel="noreferrer noopener" onClick={() => options.onUsernameClick(value)}>
             {value}
           </a>
         );
       },
-    },
-    {
-      Header: 'Nb of use',
-      accessor: 'value',
+      size: 2,
     },
     {
       Header: 'Bot Probability',
       Cell: () => 'TODO',
+      align: 'center',
+      size: 1,
+    },
+    {
+      Header: 'Nb of use',
+      accessor: 'value',
+      align: 'right',
+      size: 1,
     },
   ];
 
@@ -51,6 +57,7 @@ const UsernameTable = ({ data, options }: UsernameTableProps) => {
       ]}
       layoutFixed
       noScroll
+      virtualize={{ height: 1000, itemSize: 56 }}
     />
   );
 };

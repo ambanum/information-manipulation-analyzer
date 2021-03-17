@@ -22,10 +22,12 @@ const HashtagTable = ({ data, options = {} }: HashtagTableProps) => {
     {
       Header: 'Hashtag',
       accessor: 'label',
+      size: 2,
     },
     {
       Header: 'Nb of use',
       accessor: 'value',
+      align: 'right',
     },
   ];
 
@@ -42,6 +44,7 @@ const HashtagTable = ({ data, options = {} }: HashtagTableProps) => {
       ]}
       layoutFixed
       noScroll
+      virtualize={{ height: 1000, itemSize: 56 }}
     />
   );
 };
