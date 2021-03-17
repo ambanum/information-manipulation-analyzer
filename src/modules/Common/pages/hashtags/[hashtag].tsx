@@ -107,12 +107,17 @@ export default function HashtagPage({
             />
           </div>
           <div className="rf-col-3">
-            <Card horizontal title={usernames.length} description={'Nb Active users'} noArrow />
+            <Card
+              horizontal
+              title={usernames.length.toLocaleString('en')}
+              description={'Nb Active users de'}
+              noArrow
+            />
           </div>
           <div className="rf-col-3">
             <Card
               horizontal
-              title={associatedHashtags.length}
+              title={associatedHashtags.length.toLocaleString('en')}
               description={'Nb Associated hashtags'}
               noArrow
             />

@@ -28,19 +28,20 @@ const UsernameTable = ({ data, options }: UsernameTableProps) => {
           </a>
         );
       },
-      size: 2,
+      size: 3,
     },
     {
       Header: 'Bot Probability',
-      Cell: () => 'TODO',
+      Cell: () => <small className="rf-tag rf-tag--sm">TODO</small>,
       align: 'center',
-      size: 1,
+      size: 2,
     },
     {
       Header: 'Nb of use',
       accessor: 'value',
       align: 'right',
       size: 1,
+      Cell: ({ value }: any) => value.toLocaleString('en'),
     },
   ];
 

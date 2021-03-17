@@ -22,12 +22,20 @@ const HashtagTable = ({ data, options = {} }: HashtagTableProps) => {
     {
       Header: 'Hashtag',
       accessor: 'label',
+      size: 3,
+    },
+    {
+      Header: 'Bot Probability',
+      Cell: () => <small className="rf-tag rf-tag--sm">TODO</small>,
+      align: 'center',
       size: 2,
     },
     {
       Header: 'Nb of use',
       accessor: 'value',
       align: 'right',
+      Cell: ({ value }: any) => value.toLocaleString('en'),
+      size: 1,
     },
   ];
 
