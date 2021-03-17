@@ -1,13 +1,17 @@
-// import 'modules/Common/styles/reset.css';
+// FIXME All global css must be loaded from _app
+// This means that all scss files using animations must be loaded here
+// This is bad as it breaks the modularity of components
+// Go Fix it
 import '@gouvfr/all/dist/css/all.css';
 import 'modules/Embassy/styles/embassy.scss';
 import 'components/Loading/Loading.scss';
+// NProgress
+import 'nprogress/nprogress.css'; //styles of nprogress//Binding events.
+import 'modules/NProgress/nprogress.theme.scss';
+import 'modules/NProgress'; //nprogress module
 
-import useSWR, { SWRConfig } from 'swr';
-
+import { SWRConfig } from 'swr';
 import dynamic from 'next/dynamic';
-
-const fetcher = (arg0: any, ...args: any[]) => fetch(arg0, ...args).then((res) => res.json());
 
 dynamic(() => import('@gouvfr/all/dist/js/all.js'), { ssr: false });
 
