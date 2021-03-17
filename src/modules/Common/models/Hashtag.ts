@@ -1,7 +1,8 @@
-import * as mongoose from 'mongoose';
-import mongooseLeanVirtuals from 'mongoose-lean-virtuals';
-
 import './HashtagVolumetry';
+
+import * as mongoose from 'mongoose';
+
+import mongooseLeanVirtuals from 'mongoose-lean-virtuals';
 
 const { Schema } = mongoose;
 
@@ -22,6 +23,10 @@ const schema = new Schema(
       required: true,
       index: true,
       enum: Object.values(hashtagStatuses),
+    },
+    firstOccurenceDate: {
+      type: Date,
+      index: true,
     },
   },
   {

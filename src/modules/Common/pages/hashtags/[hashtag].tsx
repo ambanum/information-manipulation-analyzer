@@ -16,6 +16,7 @@ import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
 import dayjs from 'dayjs';
+import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import useSWR from 'swr';
 
@@ -48,19 +49,15 @@ export default function HashtagPage({
   const { status = '' } = data?.hashtag || {};
 
   const onLineClick: VolumetryGraphOptions['onClick'] = (point) => {
-    const startDate = dayjs(point.data.x).startOf('day').format('YYYY-MM-DD');
-    const endDate = dayjs(point.data.x).add(1, 'day').startOf('day').format('YYYY-MM-DD');
-    window.open(
-      `https://twitter.com/search?q=${hashtag.name}%20until%3A${endDate}%20%20since%3A${startDate}&src=typed_query`
-    );
+    window.open(getTwitterLink(hashtag.name, { date: point.data.x as any }));
   };
 
   const onPieClick: LanguageGraphOptions['onClick'] = ({ id: lang }) => {
-    window.open(`https://twitter.com/search?q=${hashtag.name}%20lang%3A${lang}`);
+    window.open(getTwitterLink(hashtag.name, { lang: lang as string }));
   };
 
   const onUsernameClick: UsernameTableProps['options']['onUsernameClick'] = (username: string) => {
-    window.open(`https://twitter.com/search?q=${hashtag.name}%20(from:${username})`);
+    window.open(getTwitterLink(hashtag.name, { username }));
   };
 
   React.useEffect(() => {
@@ -98,7 +95,16 @@ export default function HashtagPage({
       <div className="rf-container rf-container-fluid">
         <div className="rf-grid-row rf-grid-row--gutters">
           <div className="rf-col-3">
-            <Card horizontal title={'TODO'} href={'#'} description={'Date of first appearance'} />
+            <Card
+              horizontal
+              title={
+                hashtag.firstOccurenceDate
+                  ? dayjs(hashtag.firstOccurenceDate).format('lll')
+                  : 'Searching...'
+              }
+              href={getTwitterLink(hashtag.name, { endDate: hashtag.firstOccurenceDate })}
+              description={'Date of first appearance'}
+            />
           </div>
           <div className="rf-col-3">
             <Card horizontal title={usernames.length} description={'Nb Active users'} noArrow />
