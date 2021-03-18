@@ -108,6 +108,7 @@ export default function HashtagPage({
             {loading && <Loading />}
           </div>
         </div>
+        {status === 'PROCESSING_PREVIOUS' && <Loading size="sm" className="text-center rf-mt-2w" />}
       </div>
       <div className="rf-container rf-container-fluid">
         <div className="rf-grid-row rf-grid-row--gutters">
