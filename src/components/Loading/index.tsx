@@ -10,7 +10,7 @@ const Loading = ({ size, className }: { size?: 'sm'; className?: string }) => {
   }
 
   return (
-    <section className={`loading--sm ${className}`}>
+    <section className={`loading ${className}`}>
       <div>
         <div>
           <span className="one h6"></span>
