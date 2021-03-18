@@ -1,10 +1,11 @@
-import QueueItemModel from '../models/QueueItem';
 import { QueueItemActionTypes, QueueItemStatuses } from '../interfaces';
+
+import QueueItemModel from '../models/QueueItem';
 
 export const createFirstFetch = async (hashtag: string) => {
   try {
     const queueItem = new QueueItemModel({
-      priority: 2,
+      priority: 1,
       action: QueueItemActionTypes.HASHTAG,
       status: QueueItemStatuses.PENDING,
       hashtag,
