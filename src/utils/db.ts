@@ -7,6 +7,11 @@ let cachedDb: typeof mongoose;
 // mongoose.set('debug', true);
 
 const dbConnect = async () => {
+  if (cachedDb) {
+    console.log('=> using cached database instance');
+    return Promise.resolve(cachedDb);
+  }
+
   if (!process.env.MONGODB_URI) {
     throw new Error('MONGODB_URI is not set');
   }
@@ -15,11 +20,6 @@ const dbConnect = async () => {
   // connecting or disconnecting (readyState 1, 2 and 3)
   if (mongoose.connection.readyState >= 1) {
     return;
-  }
-
-  if (cachedDb) {
-    console.log('=> using cached database instance');
-    return Promise.resolve(cachedDb);
   }
 
   const connection = await mongoose.connect(process.env.MONGODB_URI, {
