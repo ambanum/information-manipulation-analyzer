@@ -14,10 +14,11 @@ export interface VolumetryGraphOptions {
 
 export interface VolumetryGraphProps {
   data: Serie[];
+  type: 'hour' | 'day';
   options: VolumetryGraphOptions;
 }
 
-const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
+const VolumetryGraph = ({ data, options = {}, type = 'hour' }: VolumetryGraphProps) => {
   const [formattedData, setFormattedData] = React.useState(data);
 
   const onLegendClick: LegendMouseHandler = ({ id: legendId }) => {
@@ -33,20 +34,23 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
     setFormattedData(newFormattedData);
   };
 
+  const dateFormat = type === 'day' ? 'ddd ll' : 'llll';
+  const dateInputFormat = type === 'day' ? `%Y-%m-%d` : `%Y-%m-%dT%H:%M:%S.%L%Z`;
+
   return (
     <ResponsiveLine
       data={formattedData}
       colors={paletteColors}
       curve="monotoneX"
       margin={{ top: 50, right: 60, bottom: 220, left: 100 }}
-      xFormat={(value: any) => dayjs(value).format('llll')}
+      xFormat={(value: any) => dayjs(value).format(dateFormat)}
       yFormat={(value: any) => value.toLocaleString('en')}
-      xScale={{ type: `time`, format: `%Y-%m-%dT%H:%M:%S.%L%Z`, precision: `hour` }}
+      xScale={{ type: `time`, format: dateInputFormat, precision: type }}
       yScale={{ type: 'linear', min: 'auto', max: 'auto' }}
       axisTop={null}
       axisRight={null}
       axisBottom={{
-        format: (value: any) => dayjs(value).format('llll'),
+        format: (value: any) => dayjs(value).format(dateFormat),
         tickValues: 25,
         legend: '',
         legendOffset: 160 + 20,
