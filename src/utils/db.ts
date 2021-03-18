@@ -4,6 +4,8 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 let cachedDb: typeof mongoose;
 
+// mongoose.set('debug', true);
+
 const dbConnect = async () => {
   if (!process.env.MONGODB_URI) {
     throw new Error('MONGODB_URI is not set');

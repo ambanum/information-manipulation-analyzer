@@ -1,10 +1,12 @@
-import React from 'react';
-import { ResponsiveLine, Serie, PointMouseHandler } from '@nivo/line';
+import { PointMouseHandler, ResponsiveLine, Serie } from '@nivo/line';
+
 import { LegendMouseHandler } from '@nivo/legends';
+import React from 'react';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
-dayjs.extend(localizedFormat);
 import { paletteColors } from './config';
+
+dayjs.extend(localizedFormat);
 
 export interface VolumetryGraphOptions {
   onClick?: PointMouseHandler;
@@ -38,6 +40,7 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
       curve="monotoneX"
       margin={{ top: 50, right: 60, bottom: 220, left: 100 }}
       xFormat={(value: any) => dayjs(value).format('llll')}
+      yFormat={(value: any) => value.toLocaleString('en')}
       xScale={{ type: `time`, format: `%Y-%m-%dT%H:%M:%S.%L%Z`, precision: `hour` }}
       yScale={{ type: 'linear', min: 'auto', max: 'auto' }}
       axisTop={null}
@@ -51,6 +54,7 @@ const VolumetryGraph = ({ data, options = {} }: VolumetryGraphProps) => {
         tickRotation: -45,
       }}
       axisLeft={{
+        format: (value: any) => value.toLocaleString('en'),
         orient: 'left',
         tickSize: 5,
         tickPadding: 5,

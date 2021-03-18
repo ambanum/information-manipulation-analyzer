@@ -1,6 +1,7 @@
 import * as QueueItemManager from './QueueItemManager';
-import HashtagModel from '../models/Hashtag';
+
 import { Hashtag } from '../interfaces';
+import HashtagModel from '../models/Hashtag';
 
 export const create = async ({ name }: { name: string }) => {
   try {
@@ -20,6 +21,7 @@ export const get = async (filter: { name: string }) => {
     const hashtag: Hashtag = await HashtagModel.findOne(filter)
       .populate({ path: 'volumetry', options: { sort: { date: 1 } } })
       .lean({ virtuals: true });
+
     return hashtag;
   } catch (e) {
     console.error(e);

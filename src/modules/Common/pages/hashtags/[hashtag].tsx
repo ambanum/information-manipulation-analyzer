@@ -31,9 +31,11 @@ export default function HashtagPage({
   volumetry,
   languages,
   usernames,
+  totalNbTweets,
   associatedHashtags,
 }: {
   hashtag: Hashtag;
+  totalNbTweets: number;
   volumetry: VolumetryGraphProps['data'];
   languages: LanguageGraphProps['data'];
   usernames: UsernameTableProps['data'];
@@ -69,7 +71,7 @@ export default function HashtagPage({
       <div className="rf-container rf-mb-12w">
         <div className="rf-grid-row">
           <div className="rf-col">
-            <div className="text-center rf-my-3w">
+            <div className="text-center rf-myw">
               <Link href="/">
                 <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">Back</a>
               </Link>
@@ -94,7 +96,7 @@ export default function HashtagPage({
       </div>
       <div className="rf-container rf-container-fluid">
         <div className="rf-grid-row rf-grid-row--gutters">
-          <div className="rf-col-3">
+          <div className="rf-col">
             <Card
               horizontal
               title={
@@ -106,7 +108,7 @@ export default function HashtagPage({
               description={'Date of first appearance'}
             />
           </div>
-          <div className="rf-col-3">
+          <div className="rf-col">
             <Card
               horizontal
               title={usernames.length.toLocaleString('en')}
@@ -114,7 +116,7 @@ export default function HashtagPage({
               noArrow
             />
           </div>
-          <div className="rf-col-3">
+          <div className="rf-col">
             <Card
               horizontal
               title={associatedHashtags.length.toLocaleString('en')}
@@ -122,7 +124,15 @@ export default function HashtagPage({
               noArrow
             />
           </div>
-          <div className="rf-col-3">
+          <div className="rf-col">
+            <Card
+              horizontal
+              title={totalNbTweets.toLocaleString('en')}
+              description={'Total Tweets'}
+              noArrow
+            />
+          </div>
+          <div className="rf-col">
             <Card
               horizontal
               title={'TODO %'}

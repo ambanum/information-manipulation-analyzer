@@ -1,5 +1,6 @@
+import { MouseEventHandler, ResponsivePieCanvas } from '@nivo/pie';
+
 import React from 'react';
-import { ResponsivePieCanvas, MouseEventHandler } from '@nivo/pie';
 import { paletteColors } from './config';
 
 export interface LanguageGraphOptions {
@@ -31,7 +32,7 @@ const LanguageGraph = ({ data, options = {} }: LanguageGraphProps) => (
         style={{
           backgroundColor: datum?.color,
           border: '2px solid white',
-          boxShadow: '0 0px 13px 8px #e1e1e1;',
+          boxShadow: '0 0px 13px 8px #e1e1e1',
           padding: '10px 20px',
           minWidth: '160px',
         }}

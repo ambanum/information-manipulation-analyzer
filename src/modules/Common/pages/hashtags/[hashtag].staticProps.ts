@@ -1,7 +1,8 @@
-import dbConnect from 'utils/db';
-import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph';
 import * as HashtagManager from '../../managers/HashtagManager';
 import * as LanguageManager from 'modules/Countries/managers/LanguageManager';
+
+import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph';
+import dbConnect from 'utils/db';
 
 export default async function getStaticProps({ params }: { params: { hashtag: string } }) {
   await dbConnect();
@@ -10,6 +11,7 @@ export default async function getStaticProps({ params }: { params: { hashtag: st
   const usernames: { [key: string]: number } = {};
   const languages: { [key: string]: number } = {};
   const associatedHashtags: { [key: string]: number } = {};
+  let totalNbTweets: number = 0;
 
   const volumetry = hashtag.volumetry.reduce(
     (acc: VolumetryGraphProps['data'], volumetry) => {
@@ -29,6 +31,7 @@ export default async function getStaticProps({ params }: { params: { hashtag: st
           (associatedHashtags[associatedHashtag] || 0) +
           volumetry.associatedHashtags[associatedHashtag];
       });
+      totalNbTweets += volumetry.nbTweets;
       return acc;
     },
     [
@@ -39,46 +42,29 @@ export default async function getStaticProps({ params }: { params: { hashtag: st
     ]
   );
 
+  const result = {
+    hashtag: hashtag ? hashtag : null,
+    volumetry,
+    totalNbTweets,
+    usernames: Object.keys(usernames).map((username) => ({
+      id: username,
+      label: username,
+      value: usernames[username],
+    })),
+    languages: Object.keys(languages).map((language) => ({
+      id: language,
+      label: LanguageManager.getName(language),
+      value: languages[language],
+    })),
+    associatedHashtags: Object.keys(associatedHashtags).map((associatedHashtag) => ({
+      id: associatedHashtag,
+      label: associatedHashtag,
+      value: associatedHashtags[associatedHashtag],
+    })),
+  };
+
   return {
-    props: JSON.parse(
-      JSON.stringify({
-        hashtag: hashtag ? hashtag : null,
-        volumetry: volumetry,
-        usernames: Object.keys(usernames).reduce(
-          (acc: any[], username: string) => [
-            ...acc,
-            {
-              id: username,
-              label: username,
-              value: usernames[username],
-            },
-          ],
-          []
-        ),
-        languages: Object.keys(languages).reduce(
-          (acc: any[], language: string) => [
-            ...acc,
-            {
-              id: language,
-              label: LanguageManager.getName(language),
-              value: languages[language],
-            },
-          ],
-          []
-        ),
-        associatedHashtags: Object.keys(associatedHashtags).reduce(
-          (acc: any[], associatedHashtag: string) => [
-            ...acc,
-            {
-              id: associatedHashtag,
-              label: associatedHashtag,
-              value: associatedHashtags[associatedHashtag],
-            },
-          ],
-          []
-        ),
-      })
-    ),
+    props: JSON.parse(JSON.stringify(result)),
     revalidate: 300,
     notFound: !hashtag,
   };
