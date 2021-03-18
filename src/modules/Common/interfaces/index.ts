@@ -2,6 +2,11 @@
  * Common
  */
 
+import { HashtagTableProps } from '../components/Datatables/HashtagTable';
+import { LanguageGraphProps } from '../components/Charts/LanguageGraph';
+import { UsernameTableProps } from '../components/Datatables/UsernameTable';
+import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph';
+
 export interface CommonResponse {
   status: 'ok' | 'ko';
   message?: string;
@@ -31,6 +36,11 @@ export interface GetHashtagsResponse extends CommonResponse {
 
 export interface GetHashtagResponse extends CommonResponse {
   hashtag: Hashtag;
+  totalNbTweets: number;
+  volumetry: VolumetryGraphProps['data'];
+  languages: LanguageGraphProps['data'];
+  usernames: UsernameTableProps['data'];
+  associatedHashtags: HashtagTableProps['data'];
 }
 
 export interface CreateHashtagInput extends CommonResponse {

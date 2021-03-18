@@ -48,7 +48,7 @@ const UsernameTable = ({ data, options }: UsernameTableProps) => {
 
   return (
     <Table<Username>
-      title={`Active users (${data.length})`}
+      title={`Active users (${data.length.toLocaleString('en')})`}
       columns={columns}
       data={data}
       sortBy={[

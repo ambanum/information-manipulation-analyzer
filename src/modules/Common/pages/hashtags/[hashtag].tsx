@@ -1,16 +1,10 @@
-import { GetHashtagResponse, Hashtag } from '../../interfaces';
-import HashtagTable, { HashtagTableProps } from '../../components/Datatables/HashtagTable';
-import LanguageGraph, {
-  LanguageGraphOptions,
-  LanguageGraphProps,
-} from '../../components/Charts/LanguageGraph';
+import LanguageGraph, { LanguageGraphOptions } from '../../components/Charts/LanguageGraph';
 import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
-import VolumetryGraph, {
-  VolumetryGraphOptions,
-  VolumetryGraphProps,
-} from '../../components/Charts/VolumetryGraph';
+import VolumetryGraph, { VolumetryGraphOptions } from '../../components/Charts/VolumetryGraph';
 
 import Card from 'components/Card';
+import { GetHashtagResponse } from '../../interfaces';
+import HashtagTable from '../../components/Datatables/HashtagTable';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import Loading from 'components/Loading';
@@ -22,52 +16,73 @@ import useSWR from 'swr';
 
 export { default as getStaticPaths } from './[hashtag].staticPaths';
 export { default as getStaticProps } from './[hashtag].staticProps';
-const shouldPoll = (status: string) => ['DONE', 'DONE_ERROR', 'DONE_FIRST_FETCH'].includes(status);
+const shouldNotPoll = (status: string) =>
+  ['DONE', 'DONE_ERROR', 'DONE_FIRST_FETCH'].includes(status);
 
 dayjs.extend(localizedFormat);
 
 export default function HashtagPage({
-  hashtag,
-  volumetry,
-  languages,
-  usernames,
-  totalNbTweets,
-  associatedHashtags,
+  hashtag: defaultHashtag,
+  volumetry: defaultVolumetry,
+  languages: defaultLanguages,
+  usernames: defaultUsernames,
+  totalNbTweets: defaultTotalNbTweets,
+  associatedHashtags: defaultAssociatedHashtags,
 }: {
-  hashtag: Hashtag;
-  totalNbTweets: number;
-  volumetry: VolumetryGraphProps['data'];
-  languages: LanguageGraphProps['data'];
-  usernames: UsernameTableProps['data'];
-  associatedHashtags: HashtagTableProps['data'];
+  hashtag: GetHashtagResponse['hashtag'];
+  totalNbTweets: GetHashtagResponse['totalNbTweets'];
+  volumetry: GetHashtagResponse['volumetry'];
+  languages: GetHashtagResponse['languages'];
+  usernames: GetHashtagResponse['usernames'];
+  associatedHashtags: GetHashtagResponse['associatedHashtags'];
 }) {
-  const [skip, setSkip] = React.useState(shouldPoll(hashtag?.status));
-  const { data } = useSWR<GetHashtagResponse>(`/api/hashtags/${hashtag.name}`, {
-    initialData: { status: 'ok', message: '', hashtag },
-    refreshInterval: 3000,
+  const [skip, setSkip] = React.useState(shouldNotPoll(defaultHashtag?.status));
+  const { data } = useSWR<GetHashtagResponse>(`/api/hashtags/${defaultHashtag.name}`, {
+    initialData: {
+      status: 'ok',
+      message: '',
+      hashtag: defaultHashtag,
+      totalNbTweets: defaultTotalNbTweets,
+      volumetry: defaultVolumetry,
+      languages: defaultLanguages,
+      usernames: defaultUsernames,
+      associatedHashtags: defaultAssociatedHashtags,
+    },
+    refreshInterval: 5000,
     isPaused: () => skip,
   });
 
+  const {
+    hashtag,
+    totalNbTweets = 0,
+    volumetry = [],
+    languages = [],
+    usernames = [],
+    associatedHashtags = [],
+  } = data || {};
   const { status = '' } = data?.hashtag || {};
 
   const onLineClick: VolumetryGraphOptions['onClick'] = (point) => {
-    window.open(getTwitterLink(hashtag.name, { date: point.data.x as any }));
+    window.open(getTwitterLink(hashtag?.name, { date: point.data.x as any }));
   };
 
   const onPieClick: LanguageGraphOptions['onClick'] = ({ id: lang }) => {
-    window.open(getTwitterLink(hashtag.name, { lang: lang as string }));
+    window.open(getTwitterLink(hashtag?.name, { lang: lang as string }));
   };
 
   const onUsernameClick: UsernameTableProps['options']['onUsernameClick'] = (username: string) => {
-    window.open(getTwitterLink(hashtag.name, { username }));
+    window.open(getTwitterLink(hashtag?.name, { username }));
   };
 
   React.useEffect(() => {
-    setSkip(shouldPoll(status));
+    const newSkip = shouldNotPoll(status);
+    setSkip(newSkip);
   }, [status]);
 
+  const loading = ['PROCESSING', 'PENDING'].includes(status);
+
   return (
-    <Layout title={`#${hashtag.name} | Information Manipulation Analyzer`}>
+    <Layout title={`#${hashtag?.name} | Information Manipulation Analyzer`}>
       <div className="rf-container rf-mb-12w">
         <div className="rf-grid-row">
           <div className="rf-col">
@@ -76,7 +91,7 @@ export default function HashtagPage({
                 <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">Back</a>
               </Link>
             </div>
-            <h1 className="text-center">#{hashtag.name}</h1>
+            <h1 className="text-center">#{hashtag?.name}</h1>
             <h6 className="text-center">Information Manipulation Analyzer</h6>
             {status === 'PENDING' && (
               <div className="text-center rf-my-12w">
@@ -90,7 +105,7 @@ export default function HashtagPage({
                 </span>
               </div>
             )}
-            {['PROCESSING', 'PENDING'].includes(status) && <Loading />}
+            {loading && <Loading />}
           </div>
         </div>
       </div>
@@ -100,26 +115,26 @@ export default function HashtagPage({
             <Card
               horizontal
               title={
-                hashtag.firstOccurenceDate
-                  ? dayjs(hashtag.firstOccurenceDate).format('lll')
+                hashtag?.firstOccurenceDate
+                  ? dayjs(hashtag?.firstOccurenceDate).format('lll')
                   : 'Searching...'
               }
-              href={getTwitterLink(hashtag.name, { endDate: hashtag.firstOccurenceDate })}
+              href={getTwitterLink(hashtag?.name, { endDate: hashtag?.firstOccurenceDate })}
               description={'Date of first appearance'}
             />
           </div>
           <div className="rf-col">
             <Card
               horizontal
-              title={usernames.length.toLocaleString('en')}
-              description={'Nb Active users de'}
+              title={!loading ? usernames.length.toLocaleString('en') : '-'}
+              description={'Nb Active users'}
               noArrow
             />
           </div>
           <div className="rf-col">
             <Card
               horizontal
-              title={associatedHashtags.length.toLocaleString('en')}
+              title={!loading ? associatedHashtags.length.toLocaleString('en') : '-'}
               description={'Nb Associated hashtags'}
               noArrow
             />
@@ -127,7 +142,7 @@ export default function HashtagPage({
           <div className="rf-col">
             <Card
               horizontal
-              title={totalNbTweets.toLocaleString('en')}
+              title={!loading ? totalNbTweets.toLocaleString('en') : '-'}
               description={'Total Tweets'}
               noArrow
             />

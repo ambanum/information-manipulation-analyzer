@@ -9,7 +9,7 @@ interface ITwitterLinkOptions {
 }
 
 export const getTwitterLink = (
-  searchName: string,
+  searchName: string = '',
   { date, startDate, endDate, lang, username }: ITwitterLinkOptions
 ) => {
   let queryString = searchName;

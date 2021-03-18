@@ -14,7 +14,7 @@ export interface VolumetryGraphOptions {
 
 export interface VolumetryGraphProps {
   data: Serie[];
-  type: 'hour' | 'day';
+  type?: 'hour' | 'day';
   options: VolumetryGraphOptions;
 }
 

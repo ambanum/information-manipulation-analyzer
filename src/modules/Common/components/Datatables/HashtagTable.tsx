@@ -42,7 +42,7 @@ const HashtagTable = ({ data }: HashtagTableProps) => {
 
   return (
     <Table<Hashtag>
-      title={`Associated Hashtags (${data.length})`}
+      title={`Associated Hashtags (${data.length.toLocaleString('en')})`}
       columns={columns}
       data={data}
       sortBy={[

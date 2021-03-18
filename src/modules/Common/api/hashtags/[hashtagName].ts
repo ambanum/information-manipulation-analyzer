@@ -1,16 +1,17 @@
+import * as HashtagManager from '../../managers/HashtagManager';
+
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import * as HashtagManager from '../../managers/HashtagManager';
 import HttpStatusCode from 'http-status-codes';
 import { withDb } from 'utils/db';
 
 const get = (name: string) => async (res: NextApiResponse) => {
   try {
-    const hashtag = await HashtagManager.get({ name });
+    const hashtag = await HashtagManager.getWithData({ name });
 
     res.statusCode = HttpStatusCode.OK;
-    res.json({ status: 'ok', message: 'Hashtag detail', hashtag });
+    res.json({ status: 'ok', message: 'Hashtag detail', ...hashtag });
     return res;
   } catch (e) {
     res.statusCode = HttpStatusCode.METHOD_FAILURE;
