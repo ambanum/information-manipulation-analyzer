@@ -1,6 +1,7 @@
 FROM node:alpine
 
 RUN mkdir -p /usr/src/app
+
 ENV PORT 3000
 
 WORKDIR /usr/src/app
@@ -11,10 +12,15 @@ COPY yarn.lock /usr/src/app
 # Production use node instead of root
 # USER node
 
-RUN apt-get clean
+# Run install before setting NODE_ENV to install all development modules
 RUN yarn install
 
 COPY . /usr/src/app
+
+ENV NODE_ENV=production
+ENV NODE_OPTIONS='--max_old_space_size=8192'
+
+RUN file="$(ls -lah /usr/src/app)" && echo $file
 
 RUN yarn build
 
