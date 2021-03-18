@@ -247,7 +247,7 @@ const DesignSystem = () => {
         </a>
       </h2>
       <div className="rf-search-bar" id="search-input">
-        <label className="rf-label" for="search-input-input">
+        <label className="rf-label" htmlFor="search-input">
           Label de la barre de recherche
         </label>
         <input

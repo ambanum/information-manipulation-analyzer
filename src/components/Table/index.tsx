@@ -1,5 +1,5 @@
-import { Column, Row, TableOptions, UseSortByState, useSortBy, useTable } from 'react-table';
 import React, { PropsWithChildren, ReactElement } from 'react';
+import { Row, TableOptions, UseSortByState, useSortBy, useTable } from 'react-table';
 
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
@@ -56,35 +56,6 @@ export interface TableProps<T extends Record<string, unknown>> extends TableOpti
 
 const hooks = [useSortBy];
 
-export type TableColumn<T extends {}> = Column<T>;
-
-const InsideRow = ({ row, style = {} }: { row: Row<T>; style?: React.CSSProperties }) => {
-  return (
-    <div
-      {...row.getRowProps({
-        style,
-      })}
-      className="tr"
-    >
-      {row.cells.map((cell) => {
-        let { className = '', ...cellProps } = cell.getCellProps();
-        className = `${className} ${
-          //@ts-ignore
-          getAlignClass(cell.column.align)
-        } ${
-          //@ts-ignore
-          getSizeClass(cell.column.size)
-        }`;
-        return (
-          <div className={`td ${className}`} {...cellProps}>
-            {cell.render('Cell')}
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
 export default function Table<T extends Record<string, unknown>>({
   columns,
   data,
@@ -109,6 +80,33 @@ export default function Table<T extends Record<string, unknown>>({
     },
     ...hooks
   );
+
+  const InsideRow = ({ row, style = {} }: { row: Row<T>; style?: React.CSSProperties }) => {
+    return (
+      <div
+        {...row.getRowProps({
+          style,
+        })}
+        className="tr"
+      >
+        {row.cells.map((cell) => {
+          let { className = '', ...cellProps } = cell.getCellProps();
+          className = `${className} ${
+            //@ts-ignore
+            getAlignClass(cell.column.align)
+          } ${
+            //@ts-ignore
+            getSizeClass(cell.column.size)
+          }`;
+          return (
+            <div className={`td ${className}`} {...cellProps}>
+              {cell.render('Cell')}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
 
   const RenderVirtualizedRow = React.useCallback(
     ({ index, style }) => {

@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 const HomePage = () => {
   const router = useRouter();
-  const onSubmit: SearchProps['onSubmit'] = async (hashtag) => {
+  const onSubmit: SearchProps['onSearchSubmit'] = async (hashtag) => {
     try {
       await axios.post('/api/hashtags', { name: hashtag });
       router.push(`/hashtags/${hashtag}`);
@@ -36,7 +36,7 @@ const HomePage = () => {
               label="Recherche"
               buttonLabel="Rechercher"
               placeholder="Enter a hashtag"
-              onSubmit={onSubmit}
+              onSearchSubmit={onSubmit}
             />
             <p className="rf-text--sm text-center rf-mb-7w">
               <em>Finally get a real idea on wheter a #hashtag is worth the hype</em>

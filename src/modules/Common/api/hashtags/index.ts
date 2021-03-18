@@ -1,8 +1,9 @@
+import * as HashtagManager from '../../managers/HashtagManager';
+
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { CreateHashtagInput } from '../../interfaces';
-import * as HashtagManager from '../../managers/HashtagManager';
 import HttpStatusCode from 'http-status-codes';
 import { withDb } from 'utils/db';
 
@@ -33,7 +34,8 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
   return res;
 };
 
-const list = async (req: NextApiRequest, res: NextApiResponse) => {
+const list = async (_: any, res:NextApiResponse) =>
+{
   try {
     const hashtags = await HashtagManager.list();
 
@@ -44,7 +46,8 @@ const list = async (req: NextApiRequest, res: NextApiResponse) => {
     res.statusCode = HttpStatusCode.METHOD_FAILURE;
     res.json({ status: 'ko', message: e.toString() });
   }
-};
+}
+;
 
 const hashtags = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {

@@ -12,12 +12,13 @@ export interface HashtagTableProps {
 }
 
 export interface Hashtag {
+  [key: string]: any; // FIXME this is because typescript yells when it's not there
   id: string;
   label: string;
   value: string;
 }
 
-const HashtagTable = ({ data, options = {} }: HashtagTableProps) => {
+const HashtagTable = ({ data }: HashtagTableProps) => {
   const columns = [
     {
       Header: 'Hashtag',
@@ -25,7 +26,7 @@ const HashtagTable = ({ data, options = {} }: HashtagTableProps) => {
       size: 3,
     },
     {
-      Header: 'Bot Probability',
+      Header: 'Inauthenticity Probability',
       Cell: () => <small className="rf-tag rf-tag--sm">TODO</small>,
       align: 'center',
       size: 2,
@@ -40,7 +41,7 @@ const HashtagTable = ({ data, options = {} }: HashtagTableProps) => {
   ];
 
   return (
-    <Table
+    <Table<Hashtag>
       title={`Associated Hashtags (${data.length})`}
       columns={columns}
       data={data}

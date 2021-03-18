@@ -5,7 +5,7 @@ export interface SearchProps {
   className?: string;
   placeholder?: string;
   buttonLabel: string;
-  onSubmit: (searchString: string) => any;
+  onSearchSubmit: (searchString: string) => any;
 }
 
 // https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar
@@ -15,7 +15,7 @@ const Search = ({
   className,
   placeholder,
   buttonLabel,
-  onSubmit,
+  onSearchSubmit,
   ...props
 }: SearchProps & React.HTMLAttributes<HTMLDivElement>) => {
   const [search, setSearch] = React.useState('');
@@ -26,7 +26,7 @@ const Search = ({
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    onSubmit(search);
+    onSearchSubmit(search);
   };
 
   return (

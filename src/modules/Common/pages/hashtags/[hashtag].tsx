@@ -126,7 +126,7 @@ export default function HashtagPage({
             <Card
               horizontal
               title={'TODO %'}
-              description={'Bot Probability'}
+              description={'Inauthenticity Probability'}
               href={'#calculation-algorythm'}
             />
           </div>
