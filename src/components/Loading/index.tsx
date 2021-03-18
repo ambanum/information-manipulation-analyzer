@@ -1,8 +1,16 @@
 import React from 'react';
 
-const Loading = () => {
+const Loading = ({ size, className }: { size?: 'sm'; className?: string }) => {
+  if (size === 'sm') {
+    return (
+      <div className={`loading--sm ${className || ''}`}>
+        <div className="spinner-icon"></div>
+      </div>
+    );
+  }
+
   return (
-    <section className="loading">
+    <section className={`loading--sm ${className}`}>
       <div>
         <div>
           <span className="one h6"></span>

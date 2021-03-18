@@ -90,6 +90,27 @@
   }
 }
 
+.loading--sm {
+  display: block;
+  z-index: 1031;
+
+  .spinner-icon {
+    margin: 0 auto;
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+
+    border-radius: 50%;
+
+    border-color: transparent;
+    border-top-color: var(--bf500);
+    border-bottom-color: var(--rm500);
+    animation: nprogress-spinner 800ms linear infinite;
+  }
+}
+
 @keyframes blink {
   0% {
     opacity: 1;
