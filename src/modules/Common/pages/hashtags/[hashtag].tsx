@@ -19,6 +19,16 @@ export { default as getStaticProps } from './[hashtag].staticProps';
 const shouldNotPoll = (status: string) =>
   ['DONE', 'DONE_ERROR', 'DONE_FIRST_FETCH'].includes(status);
 
+const REFRESH_INTERVALS = {
+  PROCESSING_PREVIOUS: 60 * 1 * 1000,
+  DONE: 0,
+  DONE_ERROR: 0,
+  DONE_FIRST_FETCH: 0,
+  PENDING: 5 * 1000,
+  PROCESSING: 3 * 1000,
+  '': 5 * 1000,
+};
+
 dayjs.extend(localizedFormat);
 
 export default function HashtagPage({
@@ -37,6 +47,9 @@ export default function HashtagPage({
   associatedHashtags: GetHashtagResponse['associatedHashtags'];
 }) {
   const [skip, setSkip] = React.useState(shouldNotPoll(defaultHashtag?.status));
+  const [refreshInterval, setRefreshInterval] = React.useState(
+    REFRESH_INTERVALS[defaultHashtag?.status]
+  );
   const { data } = useSWR<GetHashtagResponse>(`/api/hashtags/${defaultHashtag.name}`, {
     initialData: {
       status: 'ok',
@@ -48,7 +61,7 @@ export default function HashtagPage({
       usernames: defaultUsernames,
       associatedHashtags: defaultAssociatedHashtags,
     },
-    refreshInterval: 5000,
+    refreshInterval: refreshInterval,
     isPaused: () => skip,
   });
 
@@ -77,6 +90,7 @@ export default function HashtagPage({
   React.useEffect(() => {
     const newSkip = shouldNotPoll(status);
     setSkip(newSkip);
+    setRefreshInterval(REFRESH_INTERVALS[status]);
   }, [status]);
 
   const loading = ['PROCESSING', 'PENDING'].includes(status);
