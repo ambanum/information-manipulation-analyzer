@@ -33,7 +33,7 @@ export const get = async (filter: { name: string }) => {
 
 export const list = async () => {
   try {
-    const hashtags: Hashtag[] = await HashtagModel.find();
+    const hashtags: Hashtag[] = await HashtagModel.find().sort({ name: 1 });
 
     return hashtags;
   } catch (e) {
