@@ -12,7 +12,7 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
   const { data } = useSWR<GetHashtagsResponse>('/api/hashtags', { refreshInterval: 1000 * 1 * 60 });
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   const hashtags = data?.hashtags || [];
