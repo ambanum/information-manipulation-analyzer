@@ -2,6 +2,7 @@ import { MouseEventHandler, ResponsivePieCanvas } from '@nivo/pie';
 
 import React from 'react';
 import { paletteColors } from './config';
+import styles from './Graph.module.scss';
 
 export interface LanguageGraphOptions {
   onClick?: MouseEventHandler<any>;
@@ -27,21 +28,18 @@ const LanguageGraph = ({ data, options = {} }: LanguageGraphProps) => (
     radialLabelsLinkColor={{ from: 'color' }}
     sliceLabelsSkipAngle={10}
     sliceLabelsTextColor="#333333"
+    sliceLabel={(datum) => (datum.data.value || 0).toLocaleString('en')}
     tooltip={({ datum }) => (
       <div
-        style={{
-          backgroundColor: datum?.color,
-          border: '2px solid white',
-          boxShadow: '0 0px 13px 8px #e1e1e1',
-          padding: '10px 20px',
-          minWidth: '160px',
-        }}
+        className={styles.tooltip}
+        data-color={datum?.color}
+        style={{ backgroundColor: datum?.color }}
       >
         <div>
           <strong>{datum.data.label}</strong>
         </div>
         <div>
-          <em>{datum.data.value}</em>
+          <em>{(datum.data.value || 0).toLocaleString('en')}</em>
         </div>
         <div>
           <small>{datum.data.id}</small>
