@@ -1,13 +1,9 @@
 import React from 'react';
 import Table from 'components/Table';
 
-export interface UsernameTableOptions {
-  onUsernameClick: (username: string) => any;
-}
-
 export interface UsernameTableProps {
   data: Username[];
-  options: UsernameTableOptions;
+  onUsernameClick: (username: string) => any;
 }
 
 export interface Username {
@@ -17,14 +13,15 @@ export interface Username {
   value: string;
 }
 
-const UsernameTable = ({ data, options }: UsernameTableProps) => {
+const UsernameTable = ({ data, onUsernameClick }: UsernameTableProps) => {
+  // console.log('re-render UsernameTable');
   const columns = [
     {
       Header: 'Username',
       accessor: 'label',
       Cell: ({ value }: any) => {
         return (
-          <a href=" " rel="noreferrer noopener" onClick={() => options.onUsernameClick(value)}>
+          <a href=" " rel="noreferrer noopener" onClick={() => onUsernameClick(value)}>
             {value}
           </a>
         );

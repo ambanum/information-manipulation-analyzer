@@ -8,17 +8,14 @@ import { paletteColors } from './config';
 
 dayjs.extend(localizedFormat);
 
-export interface VolumetryGraphOptions {
-  onClick?: PointMouseHandler;
-}
-
 export interface VolumetryGraphProps {
   data: Serie[];
   type?: 'hour' | 'day';
-  options: VolumetryGraphOptions;
+  onClick?: PointMouseHandler;
 }
 
-const VolumetryGraph = ({ data, options = {}, type = 'hour' }: VolumetryGraphProps) => {
+const VolumetryGraph = ({ data, onClick, type = 'hour' }: VolumetryGraphProps) => {
+  // console.log('re-render VolumetryGraph');
   const [formattedData, setFormattedData] = React.useState(data);
 
   const onLegendClick: LegendMouseHandler = ({ id: legendId }) => {
@@ -101,7 +98,7 @@ const VolumetryGraph = ({ data, options = {}, type = 'hour' }: VolumetryGraphPro
           ],
         },
       ]}
-      {...options}
+      onClick={onClick}
     />
   );
 };

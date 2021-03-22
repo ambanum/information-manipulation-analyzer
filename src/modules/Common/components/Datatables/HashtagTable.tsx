@@ -2,13 +2,9 @@ import React from 'react';
 // import { ResponsiveLine, Serie, PointMouseHandler } from '@nivo/line';
 // import { LegendMouseHandler } from '@nivo/legends';
 import Table from 'components/Table';
-export interface HashtagTableOptions {
-  // onClick?: PointMouseHandler;
-}
 
 export interface HashtagTableProps {
   data: Hashtag[];
-  options?: HashtagTableOptions;
 }
 
 export interface Hashtag {
@@ -19,6 +15,7 @@ export interface Hashtag {
 }
 
 const HashtagTable = ({ data }: HashtagTableProps) => {
+  // console.log('re-render HashtagTable');
   const columns = [
     {
       Header: 'Hashtag',

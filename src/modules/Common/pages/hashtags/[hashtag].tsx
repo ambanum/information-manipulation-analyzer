@@ -1,6 +1,6 @@
-import LanguageGraph, { LanguageGraphOptions } from '../../components/Charts/LanguageGraph';
+import LanguageGraph, { LanguageGraphProps } from '../../components/Charts/LanguageGraph';
 import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
-import VolumetryGraph, { VolumetryGraphOptions } from '../../components/Charts/VolumetryGraph';
+import VolumetryGraph, { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph';
 
 import Card from 'components/Card';
 import { GetHashtagResponse } from '../../interfaces';
@@ -73,27 +73,36 @@ export default function HashtagPage({
     usernames = [],
     associatedHashtags = [],
   } = data || {};
-  const { status = '' } = data?.hashtag || {};
+  const { status = '', firstOccurenceDate, oldestProcessedDate, newestProcessedDate } =
+    data?.hashtag || {};
+  const loading = ['PROCESSING', 'PENDING'].includes(status);
 
-  const onLineClick: VolumetryGraphOptions['onClick'] = (point) => {
-    window.open(getTwitterLink(hashtag?.name, { date: point.data.x as any }));
-  };
+  const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
+    (point) => {
+      window.open(getTwitterLink(hashtag?.name, { date: point.data.x as any }));
+    },
+    [hashtag?.name]
+  );
 
-  const onPieClick: LanguageGraphOptions['onClick'] = ({ id: lang }) => {
-    window.open(getTwitterLink(hashtag?.name, { lang: lang as string }));
-  };
+  const onPieClick: LanguageGraphProps['onClick'] = React.useCallback(
+    ({ id: lang }) => {
+      window.open(getTwitterLink(hashtag?.name, { lang: lang as string }));
+    },
+    [hashtag?.name]
+  );
 
-  const onUsernameClick: UsernameTableProps['options']['onUsernameClick'] = (username: string) => {
-    window.open(getTwitterLink(hashtag?.name, { username }));
-  };
+  const onUsernameClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
+    (username: string) => {
+      window.open(getTwitterLink(hashtag?.name, { username }));
+    },
+    [hashtag?.name]
+  );
 
   React.useEffect(() => {
     const newSkip = shouldNotPoll(status);
     setSkip(newSkip);
     setRefreshInterval(REFRESH_INTERVALS[status]);
   }, [status]);
-
-  const loading = ['PROCESSING', 'PENDING'].includes(status);
 
   return (
     <Layout title={`#${hashtag?.name} | Information Manipulation Analyzer`}>
@@ -129,12 +138,8 @@ export default function HashtagPage({
           <div className="rf-col">
             <Card
               horizontal
-              title={
-                hashtag?.firstOccurenceDate
-                  ? dayjs(hashtag?.firstOccurenceDate).format('lll')
-                  : 'Searching...'
-              }
-              href={getTwitterLink(hashtag?.name, { endDate: hashtag?.firstOccurenceDate })}
+              title={firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'}
+              href={getTwitterLink(hashtag?.name, { endDate: firstOccurenceDate })}
               description={'Date of first appearance'}
             />
           </div>
@@ -173,20 +178,20 @@ export default function HashtagPage({
         </div>
       </div>
       {volumetry[0]?.data?.length > 0 && (
-        <div style={{ height: '600px', width: '100%' }}>
-          <VolumetryGraph data={volumetry} options={{ onClick: onLineClick }} />
+        <div style={{ height: '600px', width: '100%', margin: '0 auto' }}>
+          <VolumetryGraph data={volumetry} onClick={onLineClick} />
         </div>
       )}
       {languages?.length > 0 && (
-        <div style={{ height: '400px', width: '100%' }}>
-          <LanguageGraph data={languages} options={{ onClick: onPieClick }} />
+        <div style={{ height: '400px', width: '100%', margin: '0 auto' }}>
+          <LanguageGraph data={languages} onClick={onPieClick} />
         </div>
       )}
       {usernames?.length > 0 && (
         <div className="rf-container rf-container-fluid">
           <div className="rf-grid-row rf-grid-row--gutters">
             <div className="rf-col-6">
-              <UsernameTable data={usernames} options={{ onUsernameClick }} />
+              <UsernameTable data={usernames} onUsernameClick={onUsernameClick} />
             </div>
             <div className="rf-col-6">
               <HashtagTable data={associatedHashtags} />
