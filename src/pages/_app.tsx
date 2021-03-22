@@ -1,3 +1,4 @@
+import 'modules/Wdyr';
 // FIXME All global css must be loaded from _app
 // This means that all scss files using animations must be loaded here
 // This is bad as it breaks the modularity of components
