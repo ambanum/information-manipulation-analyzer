@@ -27,7 +27,7 @@ export const get = async (filter: { name: string }) => {
     return hashtag;
   } catch (e) {
     console.error(e);
-    throw new Error('Could not find hashtag');
+    throw new Error(`Could not find hashtag ${filter.name}`);
   }
 };
 
@@ -58,6 +58,7 @@ export const getWithData = async (filter: { name: string }) => {
         newAcc[1].data.push({ x: volumetry.date, y: volumetry.nbRetweets || 0 });
         newAcc[2].data.push({ x: volumetry.date, y: volumetry.nbLikes || 0 });
         newAcc[3].data.push({ x: volumetry.date, y: volumetry.nbQuotes || 0 });
+
         Object.keys(volumetry.languages).forEach((language) => {
           languages[language] = (languages[language] || 0) + volumetry.languages[language];
         });

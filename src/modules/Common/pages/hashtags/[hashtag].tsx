@@ -1,17 +1,19 @@
+import HashtagTable, { HashtagTableProps } from '../../components/Datatables/HashtagTable';
 import LanguageGraph, { LanguageGraphProps } from '../../components/Charts/LanguageGraph';
 import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
 import VolumetryGraph, { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph';
 
 import Card from 'components/Card';
 import { GetHashtagResponse } from '../../interfaces';
-import HashtagTable from '../../components/Datatables/HashtagTable';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
+import axios from 'axios';
 import dayjs from 'dayjs';
 import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import { useRouter } from 'next/router';
 import useSWR from 'swr';
 
 export { default as getStaticPaths } from './[hashtag].staticPaths';
@@ -46,6 +48,7 @@ const HashtagPage = ({
   usernames: GetHashtagResponse['usernames'];
   associatedHashtags: GetHashtagResponse['associatedHashtags'];
 }) => {
+  const router = useRouter();
   const [skip, setSkip] = React.useState(shouldNotPoll(defaultHashtag?.status));
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultHashtag?.status]
@@ -96,6 +99,14 @@ const HashtagPage = ({
       window.open(getTwitterLink(hashtag?.name, { username }));
     },
     [hashtag?.name]
+  );
+
+  const onHashtagClick: HashtagTableProps['onHashtagClick'] = React.useCallback(
+    async (newHashtagName: string) => {
+      await axios.post('/api/hashtags', { name: newHashtagName });
+      router.push(`/hashtags/${newHashtagName}`);
+    },
+    []
   );
 
   React.useEffect(() => {
@@ -218,7 +229,7 @@ const HashtagPage = ({
               <UsernameTable data={usernames} onUsernameClick={onUsernameClick} />
             </div>
             <div className="rf-col-6">
-              <HashtagTable data={associatedHashtags} />
+              <HashtagTable data={associatedHashtags} onHashtagClick={onHashtagClick} />
             </div>
           </div>
         </div>

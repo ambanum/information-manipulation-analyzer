@@ -5,6 +5,7 @@ import Table from 'components/Table';
 
 export interface HashtagTableProps {
   data: Hashtag[];
+  onHashtagClick: (username: string) => any;
 }
 
 export interface Hashtag {
@@ -14,13 +15,27 @@ export interface Hashtag {
   value: string;
 }
 
-const HashtagTable = ({ data }: HashtagTableProps) => {
+const HashtagTable = ({ data, onHashtagClick }: HashtagTableProps) => {
   // console.log('re-render HashtagTable');
   const columns = [
     {
       Header: 'Hashtag',
       accessor: 'label',
       size: 3,
+      Cell: ({ value }: any) => {
+        return (
+          <a
+            href=" "
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onHashtagClick(value);
+            }}
+          >
+            {value}
+          </a>
+        );
+      },
     },
     {
       Header: 'Inauthenticity Probability',
