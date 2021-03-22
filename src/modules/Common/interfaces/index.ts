@@ -28,6 +28,8 @@ export interface Hashtag {
     | 'DONE_ERROR';
   volumetry: HashtagVolumetry[];
   firstOccurenceDate: string;
+  oldestProcessedDate?: string;
+  newestProcessedDate?: string;
 }
 
 export interface GetHashtagsResponse extends CommonResponse {

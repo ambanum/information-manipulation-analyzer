@@ -31,7 +31,7 @@ const REFRESH_INTERVALS = {
 
 dayjs.extend(localizedFormat);
 
-export default function HashtagPage({
+const HashtagPage = ({
   hashtag: defaultHashtag,
   volumetry: defaultVolumetry,
   languages: defaultLanguages,
@@ -45,7 +45,7 @@ export default function HashtagPage({
   languages: GetHashtagResponse['languages'];
   usernames: GetHashtagResponse['usernames'];
   associatedHashtags: GetHashtagResponse['associatedHashtags'];
-}) {
+}) => {
   const [skip, setSkip] = React.useState(shouldNotPoll(defaultHashtag?.status));
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultHashtag?.status]
@@ -131,7 +131,23 @@ export default function HashtagPage({
             {loading && <Loading />}
           </div>
         </div>
-        {status === 'PROCESSING_PREVIOUS' && <Loading size="sm" className="text-center rf-mt-2w" />}
+        {status === 'PROCESSING_PREVIOUS' && (
+          <>
+            <Loading size="sm" className="text-center rf-mt-2w" />
+
+            <div className="text-center rf-text--xs rf-text-color--g500">
+              <em>
+                Last crawled date:{' '}
+                {oldestProcessedDate ? dayjs(oldestProcessedDate).format('lll') : 'Searching...'}
+              </em>
+            </div>
+          </>
+        )}
+        {newestProcessedDate && (
+          <div className="text-center rf-text--xs rf-text-color--g500">
+            <em>Most recent crawled date: {dayjs(newestProcessedDate).format('lll')}</em>
+          </div>
+        )}
       </div>
       <div className="rf-container rf-container-fluid">
         <div className="rf-grid-row rf-grid-row--gutters">
@@ -201,4 +217,6 @@ export default function HashtagPage({
       )}
     </Layout>
   );
-}
+};
+
+export default HashtagPage;
