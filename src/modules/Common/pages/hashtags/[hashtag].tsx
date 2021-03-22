@@ -128,6 +128,14 @@ const HashtagPage = ({
                 </span>
               </div>
             )}
+            {status === 'DONE_ERROR' && (
+              <div className="text-center rf-my-12w">
+                <span className="rf-text-color--error">
+                  An error occured and processing stopped, please contact the administrator if you
+                  need more data on this hashtag
+                </span>
+              </div>
+            )}
             {loading && <Loading />}
           </div>
         </div>

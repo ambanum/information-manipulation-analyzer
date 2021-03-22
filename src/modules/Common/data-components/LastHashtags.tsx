@@ -23,7 +23,9 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
         <Link key={hashtag._id} href={`/hashtags/${hashtag.name}`}>
           <a className={`rf-tag rf-m-1v`}>
             {hashtag.name}
-            {hashtag.status !== 'DONE' ? <Loading size="sm" className="rf-ml-2v" /> : null}
+            {!['DONE', 'DONE_ERROR'].includes(hashtag.status) ? (
+              <Loading size="sm" className="rf-ml-2v" />
+            ) : null}
           </a>
         </Link>
       ))}
