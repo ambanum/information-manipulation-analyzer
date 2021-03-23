@@ -59,13 +59,13 @@ export const getWithData = async (filter: { name: string }) => {
         newAcc[2].data.push({ x: volumetry.date, y: volumetry.nbLikes || 0 });
         newAcc[3].data.push({ x: volumetry.date, y: volumetry.nbQuotes || 0 });
 
-        Object.keys(volumetry.languages).forEach((language) => {
+        Object.keys(volumetry.languages || {}).forEach((language) => {
           languages[language] = (languages[language] || 0) + volumetry.languages[language];
         });
-        Object.keys(volumetry.usernames).forEach((username) => {
+        Object.keys(volumetry.usernames || {}).forEach((username) => {
           usernames[username] = (usernames[username] || 0) + volumetry.usernames[username];
         });
-        Object.keys(volumetry.associatedHashtags).forEach((associatedHashtag) => {
+        Object.keys(volumetry.associatedHashtags || {}).forEach((associatedHashtag) => {
           associatedHashtags[associatedHashtag] =
             (associatedHashtags[associatedHashtag] || 0) +
             volumetry.associatedHashtags[associatedHashtag];
