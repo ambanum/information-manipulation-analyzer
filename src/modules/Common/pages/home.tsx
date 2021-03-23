@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 const HomePage = () => {
   const router = useRouter();
+
   const onSubmit: SearchProps['onSearchSubmit'] = async (hashtag) => {
     try {
       await api.post('/api/hashtags', { name: hashtag });

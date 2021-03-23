@@ -4,6 +4,8 @@ RUN mkdir -p /usr/src/app
 
 ENV PORT 3000
 
+ARG ENV_FILE=".env.production"
+
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app
@@ -16,11 +18,11 @@ COPY yarn.lock /usr/src/app
 RUN yarn install
 
 COPY . /usr/src/app
+RUN rm .env.*
+COPY ./$ENV_FILE /usr/src/app/.env.production
 
 ENV NODE_ENV=production
 ENV NODE_OPTIONS='--max_old_space_size=8192'
-
-RUN file="$(ls -lah /usr/src/app)" && echo $file
 
 RUN yarn build
 
