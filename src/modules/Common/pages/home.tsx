@@ -2,14 +2,14 @@ import Search, { SearchProps } from 'components/Search';
 
 import LastHashtags from '../data-components/LastHashtags';
 import Layout from 'modules/Embassy/components/Layout';
-import axios from 'axios';
+import api from 'utils/api';
 import { useRouter } from 'next/router';
 
 const HomePage = () => {
   const router = useRouter();
   const onSubmit: SearchProps['onSearchSubmit'] = async (hashtag) => {
     try {
-      await axios.post('/api/hashtags', { name: hashtag });
+      await api.post('/api/hashtags', { name: hashtag });
       router.push(`/hashtags/${hashtag}`);
     } catch (e) {
       console.log(''); // eslint-disable-line

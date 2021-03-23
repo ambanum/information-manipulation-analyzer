@@ -2,14 +2,14 @@ import { GetHashtagsResponse } from '../interfaces';
 import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
-import useSWR from 'swr';
+import useSwr from 'swr';
 
 interface LastHashtagsProps {
   // TODO
 }
 
 const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTMLDivElement>) => {
-  const { data } = useSWR<GetHashtagsResponse>('/api/hashtags', { refreshInterval: 1000 * 1 * 60 });
+  const { data } = useSwr<GetHashtagsResponse>('/api/hashtags', { refreshInterval: 1000 * 1 * 60 });
 
   if (!data) {
     return <Loading />;

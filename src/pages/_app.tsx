@@ -13,6 +13,7 @@ import 'modules/NProgress'; //nprogress module
 
 import { SWRConfig } from 'swr';
 import dynamic from 'next/dynamic';
+import { fetcher } from 'utils/api';
 
 dynamic(() => import('@gouvfr/all/dist/js/all.js'), { ssr: false });
 
@@ -20,7 +21,7 @@ function MyApp({ Component, pageProps }: any) {
   return (
     <SWRConfig
       value={{
-        fetcher: (resource, init) => fetch(resource, init).then((res) => res.json()),
+        fetcher,
       }}
     >
       <Component {...pageProps} />

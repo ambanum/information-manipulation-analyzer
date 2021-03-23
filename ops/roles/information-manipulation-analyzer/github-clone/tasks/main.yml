@@ -31,5 +31,6 @@
     env:
       NODE_ENV: 'production'
       BASE_PATH: '{{ base_path }}'
+      NEXT_PUBLIC_BASE_PATH: '{{ base_path }}'
     ports:
       - '{{ app_port }}:3000'

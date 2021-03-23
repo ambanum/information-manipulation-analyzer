@@ -9,7 +9,7 @@ import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
-import axios from 'axios';
+import api from 'utils/api';
 import dayjs from 'dayjs';
 import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
@@ -103,7 +103,7 @@ const HashtagPage = ({
 
   const onHashtagClick: HashtagTableProps['onHashtagClick'] = React.useCallback(
     async (newHashtagName: string) => {
-      await axios.post('/api/hashtags', { name: newHashtagName });
+      await api.post('/api/hashtags', { name: newHashtagName });
       router.push(`/hashtags/${newHashtagName}`);
     },
     []
