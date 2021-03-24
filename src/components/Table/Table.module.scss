@@ -1,0 +1,15 @@
+.table {
+  width: 100%;
+  th {
+    &.react-table--sorted-down {
+      &:after {
+        content: '👇';
+      }
+    }
+    &.react-table--sorted-up {
+      &:after {
+        content: '👆';
+      }
+    }
+  }
+}

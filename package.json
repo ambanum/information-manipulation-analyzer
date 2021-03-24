@@ -1,25 +1,57 @@
 {
   "name": "information-manipulation-analyzer",
   "version": "0.0.0",
+  "prettier": "prettier-config-ambanum",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "docker:build": "docker build -t $npm_package_name .",
+    "deploy:vagrant:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/dev.yml -e \"ENV=preproduction\" -e \"ENV_FILE=.env.vagrant.preproduction\" -e \"BRANCH=develop\"",
+    "deploy:vagrant:production": "ansible-playbook ops/site.yml -v -i ops/inventories/dev.yml -e \"ENV=production\" -e \"ENV_FILE=.env.vagrant.production\" -e \"BRANCH=develop\"",
+    "deploy:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=preproduction\"",
+    "deploy:production": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=production\"",
+    "docker:build:preproduction": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.preproduction",
+    "docker:build:production": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.production",
     "docker:run": "(docker rm $npm_package_name || true) && docker run --rm -p 3000:3000 --name $npm_package_name -it $npm_package_name",
-    "docker:ssh": "docker exec -it $npm_package_name /bin/bash"
+    "docker:ssh": "docker exec -it $npm_package_name /bin/bash",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@gouvfr/all": "^0.5.3",
+    "@nivo/core": "^0.67.0",
+    "@nivo/line": "^0.67.0",
+    "@nivo/pie": "^0.67.0",
+    "@welldone-software/why-did-you-render": "^6.1.1",
+    "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
+    "http-status-codes": "^2.1.4",
+    "mongoose": "^5.11.19",
+    "mongoose-lean-virtuals": "^0.7.6",
     "next": "latest",
+    "nprogress": "^0.2.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-table": "^7.6.3",
+    "react-virtualized-auto-sizer": "^1.0.5",
+    "react-window": "^1.8.6",
+    "sass": "^1.32.8",
+    "swr": "0.5.2"
   },
   "devDependencies": {
-    "@types/node": "14.14.31",
-    "@types/react": "17.0.2",
-    "@types/react-dom": "17.0.1",
-    "typescript": "4.2.2"
+    "@types/axios": "^0.14.0",
+    "@types/mongoose": "^5.10.3",
+    "@types/mongoose-lean-virtuals": "^0.5.1",
+    "@types/node": "14.14.33",
+    "@types/nprogress": "^0.2.0",
+    "@types/react": "17.0.3",
+    "@types/react-dom": "17.0.2",
+    "@types/react-table": "^7.0.29",
+    "@types/react-virtualized-auto-sizer": "^1.0.0",
+    "@types/react-window": "^1.8.2",
+    "prettier": "^2.2.1",
+    "prettier-config-ambanum": "^1.0.1",
+    "typescript": "4.2.3"
   },
   "license": "MIT"
 }

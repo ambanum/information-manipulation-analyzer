@@ -1,0 +1,65 @@
+[
+  {
+    "_id": "EU",
+    "name": "Europa",
+    "_i18n": {
+      "fr": { "name": "Europe" },
+      "en": { "name": "Europa" },
+      "es": { "name": "Europa" }
+    }
+  },
+  {
+    "_id": "AS",
+    "name": "Asia",
+    "_i18n": {
+      "fr": { "name": "Asie" },
+      "en": { "name": "Asia" },
+      "es": { "name": "Asia" }
+    }
+  },
+  {
+    "_id": "NA",
+    "name": "North America",
+    "_i18n": {
+      "fr": { "name": "Amérique du Nord" },
+      "en": { "name": "North America" },
+      "es": { "name": "Norteamérica" }
+    }
+  },
+  {
+    "_id": "SA",
+    "name": "South America",
+    "_i18n": {
+      "fr": { "name": "Amérique du Sud" },
+      "en": { "name": "South America" },
+      "es": { "name": "Sudamérica" }
+    }
+  },
+  {
+    "_id": "AF",
+    "name": "Africa",
+    "_i18n": {
+      "fr": { "name": "Afrique" },
+      "en": { "name": "Africa" },
+      "es": { "name": "África" }
+    }
+  },
+  {
+    "_id": "AN",
+    "name": "Antarctica",
+    "_i18n": {
+      "fr": { "name": "Antarctique" },
+      "en": { "name": "Antarctica" },
+      "es": { "name": "Antártida" }
+    }
+  },
+  {
+    "_id": "OC",
+    "name": "Oceania",
+    "_i18n": {
+      "fr": { "name": "Océanie" },
+      "en": { "name": "Oceania" },
+      "es": { "name": "Oceanía" }
+    }
+  }
+]
