@@ -229,9 +229,10 @@ const HashtagPage = ({
           </div>
         </div>
       </div>
+
       {volumetry[0]?.data?.length > 0 && (
         <div style={{ height: '600px', width: '100%', margin: '0 auto' }}>
-          <VolumetryGraph data={volumetry} onClick={onLineClick} />
+          <VolumetryGraph data={volumetry} onPointClick={onLineClick} />
         </div>
       )}
       {languages?.length > 0 && (
