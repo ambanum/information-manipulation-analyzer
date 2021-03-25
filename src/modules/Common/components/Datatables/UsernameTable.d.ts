@@ -1,4 +1,5 @@
 export interface UsernameTableProps {
+  exportName: string;
   data: Username[];
   onUsernameClick: (username: string) => any;
 }

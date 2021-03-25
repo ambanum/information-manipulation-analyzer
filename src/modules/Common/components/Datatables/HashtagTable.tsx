@@ -3,7 +3,7 @@ import { Hashtag, HashtagTableProps } from './HashtagTable.d';
 import React from 'react';
 import Table from 'components/Table';
 
-const HashtagTable = ({ data, onHashtagClick }: HashtagTableProps) => {
+const HashtagTable = ({ exportName, data, onHashtagClick }: HashtagTableProps) => {
   // console.log('re-render HashtagTable');
   const columns = [
     {
@@ -54,6 +54,9 @@ const HashtagTable = ({ data, onHashtagClick }: HashtagTableProps) => {
       layoutFixed
       noScroll
       virtualize={{ height: 1000, itemSize: 56 }}
+      exportable={{
+        name: exportName,
+      }}
     />
   );
 };

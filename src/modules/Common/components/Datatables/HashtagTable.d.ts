@@ -1,4 +1,5 @@
 export interface HashtagTableProps {
+  exportName: string;
   data: Hashtag[];
   onHashtagClick: (username: string) => any;
 }

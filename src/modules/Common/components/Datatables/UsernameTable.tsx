@@ -3,7 +3,7 @@ import { Username, UsernameTableProps } from './UsernameTable.d';
 import React from 'react';
 import Table from 'components/Table';
 
-const UsernameTable = ({ data, onUsernameClick }: UsernameTableProps) => {
+const UsernameTable = ({ exportName, data, onUsernameClick }: UsernameTableProps) => {
   // console.log('re-render UsernameTable');
   const columns = [
     {
@@ -47,6 +47,7 @@ const UsernameTable = ({ data, onUsernameClick }: UsernameTableProps) => {
       layoutFixed
       noScroll
       virtualize={{ height: 1000, itemSize: 56 }}
+      exportable={{ name: exportName }}
     />
   );
 };

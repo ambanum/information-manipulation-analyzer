@@ -75,7 +75,7 @@ const downloadCSVData = <T extends object>({
 
   const csvContent = rows.map((row) => row.join(';')).join('\n');
   const link = document.createElement('a');
-  link.href = `data:text/csv;charset=utf-8,${csvContent}`;
+  link.href = `data:text/csv;charset=utf-8,${encodeURI(csvContent)}`;
   link.download = `${name.toLowerCase()}.csv`;
   link.click();
 };

@@ -243,10 +243,22 @@ const HashtagPage = ({
         <div className="rf-container rf-container-fluid">
           <div className="rf-grid-row rf-grid-row--gutters">
             <div className="rf-col-6">
-              <UsernameTable data={usernames} onUsernameClick={onUsernameClick} />
+              <UsernameTable
+                data={usernames}
+                onUsernameClick={onUsernameClick}
+                exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
+                  hashtag?.name
+                }__usernames`}
+              />
             </div>
             <div className="rf-col-6">
-              <HashtagTable data={associatedHashtags} onHashtagClick={onHashtagClick} />
+              <HashtagTable
+                data={associatedHashtags}
+                onHashtagClick={onHashtagClick}
+                exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
+                  hashtag?.name
+                }__associated-hashtags`}
+              />
             </div>
           </div>
         </div>
