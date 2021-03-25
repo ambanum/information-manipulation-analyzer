@@ -15,7 +15,7 @@ import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-// @refresh reset
+
 const HashtagTable = dynamic(() => import('../../components/Datatables/HashtagTable'), {
   loading: () => <Loading />,
   ssr: false,
@@ -231,19 +231,19 @@ const HashtagPage = ({
       </div>
 
       {volumetry[0]?.data?.length > 0 && (
-        <div style={{ height: '600px', width: '100%', margin: '0 auto' }}>
+        <div style={{ margin: '20px auto' }}>
           <VolumetryGraph data={volumetry} onPointClick={onLineClick} />
         </div>
       )}
       {languages?.length > 0 && (
-        <div style={{ height: '400px', width: '100%', margin: '0 auto' }}>
+        <div style={{ height: '400px', margin: '20px auto' }}>
           <LanguageGraph data={languages} onClick={onPieClick} />
         </div>
       )}
       {usernames?.length > 0 && (
         <div className="rf-container rf-container-fluid">
           <div className="rf-grid-row rf-grid-row--gutters">
-            <div className="rf-col-6">
+            <div className="rf-col-md-6">
               <UsernameTable
                 data={usernames}
                 onUsernameClick={onUsernameClick}
@@ -252,7 +252,7 @@ const HashtagPage = ({
                 }__usernames`}
               />
             </div>
-            <div className="rf-col-6">
+            <div className="rf-col-md-6">
               <HashtagTable
                 data={associatedHashtags}
                 onHashtagClick={onHashtagClick}
