@@ -1,13 +1,8 @@
-import { MouseEventHandler, ResponsivePieCanvas } from '@nivo/pie';
-
+import { LanguageGraphProps } from './LanguageGraph.d';
 import React from 'react';
+import { ResponsivePieCanvas } from '@nivo/pie';
 import { paletteColors } from './config';
 import styles from './Graph.module.scss';
-
-export interface LanguageGraphProps {
-  data: { label: string; value: number; id: string }[];
-  onClick?: MouseEventHandler<any>;
-}
 
 const LanguageGraph = ({ data, onClick }: LanguageGraphProps) => {
   // console.log('re-render LanguageGraph');

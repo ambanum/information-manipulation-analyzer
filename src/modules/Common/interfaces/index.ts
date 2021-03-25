@@ -2,10 +2,10 @@
  * Common
  */
 
-import { HashtagTableProps } from '../components/Datatables/HashtagTable';
-import { LanguageGraphProps } from '../components/Charts/LanguageGraph';
-import { UsernameTableProps } from '../components/Datatables/UsernameTable';
-import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph';
+import { HashtagTableProps } from '../components/Datatables/HashtagTable.d';
+import { LanguageGraphProps } from '../components/Charts/LanguageGraph.d';
+import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
+import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 
 export interface CommonResponse {
   status: 'ok' | 'ko';

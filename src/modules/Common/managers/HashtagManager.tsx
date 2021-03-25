@@ -3,7 +3,7 @@ import * as QueueItemManager from './QueueItemManager';
 
 import { Hashtag } from '../interfaces';
 import HashtagModel from '../models/Hashtag';
-import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph';
+import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 
 export const create = async ({ name }: { name: string }) => {
   try {
@@ -50,7 +50,6 @@ export const getWithData = async (filter: { name: string }) => {
     const languages: { [key: string]: number } = {};
     const associatedHashtags: { [key: string]: number } = {};
     let totalNbTweets: number = 0;
-
     const volumetry = hashtag.volumetry.reduce(
       (acc: VolumetryGraphProps['data'], volumetry) => {
         const newAcc = [...acc];
@@ -81,7 +80,7 @@ export const getWithData = async (filter: { name: string }) => {
       ]
     );
 
-    return {
+    const result = {
       hashtag: hashtag ? hashtag : null,
       volumetry,
       totalNbTweets,
@@ -101,8 +100,10 @@ export const getWithData = async (filter: { name: string }) => {
         value: associatedHashtags[associatedHashtag],
       })),
     };
+
+    return result;
   } catch (e) {
     console.error(e);
-    throw new Error('Could not find hashtag');
+    throw new Error('Could not find hashtag in getWithData');
   }
 };

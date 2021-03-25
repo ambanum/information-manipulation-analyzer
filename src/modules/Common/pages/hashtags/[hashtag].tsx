@@ -1,20 +1,37 @@
-import HashtagTable, { HashtagTableProps } from '../../components/Datatables/HashtagTable';
-import LanguageGraph, { LanguageGraphProps } from '../../components/Charts/LanguageGraph';
-import UsernameTable, { UsernameTableProps } from '../../components/Datatables/UsernameTable';
-import VolumetryGraph, { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph';
-
 import Card from 'components/Card';
 import { GetHashtagResponse } from '../../interfaces';
+import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
+import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
+import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
+import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
 import api from 'utils/api';
 import dayjs from 'dayjs';
+import dynamic from 'next/dynamic';
 import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
+// @refresh reset
+const HashtagTable = dynamic(() => import('../../components/Datatables/HashtagTable'), {
+  loading: () => <Loading />,
+  ssr: false,
+});
+const LanguageGraph = dynamic(() => import('../../components/Charts/LanguageGraph'), {
+  loading: () => <Loading />,
+  ssr: false,
+});
+const UsernameTable = dynamic(() => import('../../components/Datatables/UsernameTable'), {
+  loading: () => <Loading />,
+  ssr: false,
+});
+const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), {
+  loading: () => <Loading />,
+  ssr: false,
+});
 
 export { default as getStaticPaths } from './[hashtag].staticPaths';
 export { default as getStaticProps } from './[hashtag].staticProps';
