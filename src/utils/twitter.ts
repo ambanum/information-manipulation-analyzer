@@ -38,5 +38,6 @@ export const getTwitterLink = (
     queryString += ` since:${sinceDate} until:${untilDate}`;
   }
 
+  queryString = encodeURI(queryString).replace('#', '%23');
   return `https://twitter.com/search?q=${queryString}&src=typed_query`;
 };

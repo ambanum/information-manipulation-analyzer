@@ -99,21 +99,21 @@ const HashtagPage = ({
 
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (point) => {
-      window.open(getTwitterLink(hashtag?.name, { date: point.data.x as any }));
+      window.open(getTwitterLink(`#${hashtag?.name}`, { date: point.data.x as any }));
     },
     [hashtag?.name]
   );
 
   const onPieClick: LanguageGraphProps['onClick'] = React.useCallback(
     ({ id: lang }) => {
-      window.open(getTwitterLink(hashtag?.name, { lang: lang as string }));
+      window.open(getTwitterLink(`#${hashtag?.name}`, { lang: lang as string }));
     },
     [hashtag?.name]
   );
 
   const onUsernameClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
     (username: string) => {
-      window.open(getTwitterLink(hashtag?.name, { username }));
+      window.open(getTwitterLink(`#${hashtag?.name}`, { username }));
     },
     [hashtag?.name]
   );
@@ -191,7 +191,7 @@ const HashtagPage = ({
             <Card
               horizontal
               title={firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'}
-              href={getTwitterLink(hashtag?.name, { endDate: firstOccurenceDate })}
+              href={getTwitterLink(`#${hashtag?.name}`, { endDate: firstOccurenceDate })}
               description={'Date of first appearance'}
             />
           </div>
