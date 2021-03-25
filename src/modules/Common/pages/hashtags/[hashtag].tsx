@@ -15,7 +15,7 @@ import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-// @refresh reset
+
 const HashtagTable = dynamic(() => import('../../components/Datatables/HashtagTable'), {
   loading: () => <Loading />,
   ssr: false,
@@ -132,6 +132,13 @@ const HashtagPage = ({
     setRefreshInterval(REFRESH_INTERVALS[status]);
   }, [status]);
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.target.reset();
+    alert('Sorry, this feature is not ready yet');
+  };
+
   return (
     <Layout title={`#${hashtag?.name} | Information Manipulation Analyzer`}>
       <div className="rf-container rf-mb-12w">
@@ -184,6 +191,26 @@ const HashtagPage = ({
             <em>Most recent crawled date: {dayjs(newestProcessedDate).format('lll')}</em>
           </div>
         )}
+        <div className="rf-highlight rf-highlight--sm">
+          <form onSubmit={handleSubmit}>
+            <div className="rf-input-group">
+              <label className="rf-label" htmlFor="text-input-hint">
+                Be alerted by email
+                <span className="rf-hint-text">
+                  Whenever <strong>#{hashtag?.name}</strong> has an abnormal rise in number of
+                  tweets
+                </span>
+              </label>
+              <input
+                className="rf-input"
+                type="email"
+                id="text-input-hint"
+                name="text-input-hint"
+                placeholder="Enter your email here"
+              />
+            </div>
+          </form>
+        </div>
       </div>
       <div className="rf-container rf-container-fluid">
         <div className="rf-grid-row rf-grid-row--gutters">
@@ -231,19 +258,19 @@ const HashtagPage = ({
       </div>
 
       {volumetry[0]?.data?.length > 0 && (
-        <div style={{ height: '600px', width: '100%', margin: '0 auto' }}>
+        <div style={{ margin: '20px auto' }}>
           <VolumetryGraph data={volumetry} onPointClick={onLineClick} />
         </div>
       )}
       {languages?.length > 0 && (
-        <div style={{ height: '400px', width: '100%', margin: '0 auto' }}>
+        <div style={{ height: '400px', margin: '20px auto' }}>
           <LanguageGraph data={languages} onClick={onPieClick} />
         </div>
       )}
       {usernames?.length > 0 && (
         <div className="rf-container rf-container-fluid">
           <div className="rf-grid-row rf-grid-row--gutters">
-            <div className="rf-col-6">
+            <div className="rf-col-md-6">
               <UsernameTable
                 data={usernames}
                 onUsernameClick={onUsernameClick}
@@ -252,7 +279,7 @@ const HashtagPage = ({
                 }__usernames`}
               />
             </div>
-            <div className="rf-col-6">
+            <div className="rf-col-md-6">
               <HashtagTable
                 data={associatedHashtags}
                 onHashtagClick={onHashtagClick}
