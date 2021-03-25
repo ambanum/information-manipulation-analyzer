@@ -1,18 +1,12 @@
-import { PointMouseHandler, ResponsiveLine, Serie } from '@nivo/line';
-
 import { LegendMouseHandler } from '@nivo/legends';
 import React from 'react';
+import { ResponsiveLine } from '@nivo/line';
+import { VolumetryGraphProps } from './VolumetryGraph.d';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { paletteColors } from './config';
 
 dayjs.extend(localizedFormat);
-
-export interface VolumetryGraphProps {
-  data: Serie[];
-  type?: 'hour' | 'day';
-  onClick?: PointMouseHandler;
-}
 
 const VolumetryGraph = ({ data, onClick, type = 'hour' }: VolumetryGraphProps) => {
   // console.log('re-render VolumetryGraph');

@@ -1,19 +1,9 @@
+import { Username, UsernameTableProps } from './UsernameTable.d';
+
 import React from 'react';
 import Table from 'components/Table';
 
-export interface UsernameTableProps {
-  data: Username[];
-  onUsernameClick: (username: string) => any;
-}
-
-export interface Username {
-  [key: string]: any; // FIXME this is because typescript yells when it's not there
-  id: string;
-  label: string;
-  value: string;
-}
-
-const UsernameTable = ({ data, onUsernameClick }: UsernameTableProps) => {
+const UsernameTable = ({ exportName, data, onUsernameClick }: UsernameTableProps) => {
   // console.log('re-render UsernameTable');
   const columns = [
     {
@@ -57,6 +47,7 @@ const UsernameTable = ({ data, onUsernameClick }: UsernameTableProps) => {
       layoutFixed
       noScroll
       virtualize={{ height: 1000, itemSize: 56 }}
+      exportable={{ name: exportName }}
     />
   );
 };

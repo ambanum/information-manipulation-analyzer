@@ -1,5 +1,5 @@
+import { Column, Row, TableOptions, UseSortByState, useSortBy, useTable } from 'react-table';
 import React, { PropsWithChildren, ReactElement } from 'react';
-import { Row, TableOptions, UseSortByState, useSortBy, useTable } from 'react-table';
 
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
@@ -49,12 +49,36 @@ export interface TableProps<T extends Record<string, unknown>> extends TableOpti
   bordered?: boolean;
   noScroll?: boolean;
   layoutFixed?: boolean;
+  exportable?: false | { name: string };
   hideTitle?: boolean; // only use title for accessibility
   sortBy?: UseSortByState<T>['sortBy'];
   virtualize?: VirtualizeProps;
 }
 
 const hooks = [useSortBy];
+
+const downloadCSVData = <T extends object>({
+  name,
+  columns,
+  data,
+}: {
+  name: string;
+  columns: Column<T>[];
+  data: T[];
+}): any => () => {
+  const headerNames = [columns.map((c) => c.Header)];
+  const accessors = columns.map((c) => c.accessor);
+  const tableRows = data.map((dataRow) => accessors.map((accessor) => (dataRow as any)[accessor]));
+  const footerColumns = [columns.map((c) => (c as any).footerValue)];
+
+  const rows = headerNames.concat(tableRows).concat(footerColumns);
+
+  const csvContent = rows.map((row) => row.join(';')).join('\n');
+  const link = document.createElement('a');
+  link.href = `data:text/csv;charset=utf-8,${encodeURI(csvContent)}`;
+  link.download = `${name.toLowerCase()}.csv`;
+  link.click();
+};
 
 export default function Table<T extends Record<string, unknown>>({
   columns,
@@ -65,6 +89,7 @@ export default function Table<T extends Record<string, unknown>>({
   noScroll = false,
   layoutFixed = false,
   hideTitle = false,
+  exportable = false,
   virtualize,
 }: PropsWithChildren<TableProps<T>>): ReactElement {
   const initialState: any = React.useMemo(() => (initialSortBy ? { sortBy: initialSortBy } : {}), [
@@ -80,7 +105,6 @@ export default function Table<T extends Record<string, unknown>>({
     },
     ...hooks
   );
-
   const InsideRow = ({ row, style = {} }: { row: Row<T>; style?: React.CSSProperties }) => {
     return (
       <div
@@ -127,7 +151,6 @@ export default function Table<T extends Record<string, unknown>>({
 
   const shouldVirtualize = !!virtualize && rows.length > 100;
 
-  //
   return (
     <div
       className={`rf-table
@@ -139,8 +162,17 @@ export default function Table<T extends Record<string, unknown>>({
       {...getTableProps()}
     >
       <div className="table">
-        <div className="caption" role="caption">
-          {title}
+        <div className={`caption ${styles.caption}`} role="caption">
+          <span>{title}</span>
+          {!!exportable && (
+            <button
+              className="rf-btn rf-btn--sm rf-fi-download-line rf-btn--icon-left rf-btn--secondary"
+              title="Download data as CSV"
+              onClick={downloadCSVData<T>({ columns, data, name: exportable.name })}
+            >
+              CSV
+            </button>
+          )}
         </div>
         <div className="thead">
           {headerGroups.map((headerGroup) => (

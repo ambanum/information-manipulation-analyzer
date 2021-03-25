@@ -22,7 +22,7 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
       {hashtags.map((hashtag) => (
         <Link key={hashtag._id} href={`/hashtags/${hashtag.name}`}>
           <a className={`rf-tag rf-m-1v`}>
-            {hashtag.name}
+            #{hashtag.name}
             {!['DONE', 'DONE_ERROR'].includes(hashtag.status) ? (
               <Loading size="sm" className="rf-ml-2v" />
             ) : null}

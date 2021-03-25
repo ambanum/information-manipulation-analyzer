@@ -1,21 +1,9 @@
+import { Hashtag, HashtagTableProps } from './HashtagTable.d';
+
 import React from 'react';
-// import { ResponsiveLine, Serie, PointMouseHandler } from '@nivo/line';
-// import { LegendMouseHandler } from '@nivo/legends';
 import Table from 'components/Table';
 
-export interface HashtagTableProps {
-  data: Hashtag[];
-  onHashtagClick: (username: string) => any;
-}
-
-export interface Hashtag {
-  [key: string]: any; // FIXME this is because typescript yells when it's not there
-  id: string;
-  label: string;
-  value: string;
-}
-
-const HashtagTable = ({ data, onHashtagClick }: HashtagTableProps) => {
+const HashtagTable = ({ exportName, data, onHashtagClick }: HashtagTableProps) => {
   // console.log('re-render HashtagTable');
   const columns = [
     {
@@ -66,6 +54,9 @@ const HashtagTable = ({ data, onHashtagClick }: HashtagTableProps) => {
       layoutFixed
       noScroll
       virtualize={{ height: 1000, itemSize: 56 }}
+      exportable={{
+        name: exportName,
+      }}
     />
   );
 };
