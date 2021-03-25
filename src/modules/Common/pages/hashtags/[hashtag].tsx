@@ -132,6 +132,13 @@ const HashtagPage = ({
     setRefreshInterval(REFRESH_INTERVALS[status]);
   }, [status]);
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.target.reset();
+    alert('Sorry, this feature is not ready yet');
+  };
+
   return (
     <Layout title={`#${hashtag?.name} | Information Manipulation Analyzer`}>
       <div className="rf-container rf-mb-12w">
@@ -184,6 +191,26 @@ const HashtagPage = ({
             <em>Most recent crawled date: {dayjs(newestProcessedDate).format('lll')}</em>
           </div>
         )}
+        <div className="rf-highlight rf-highlight--sm">
+          <form onSubmit={handleSubmit}>
+            <div className="rf-input-group">
+              <label className="rf-label" htmlFor="text-input-hint">
+                Be alerted by email
+                <span className="rf-hint-text">
+                  Whenever <strong>#{hashtag?.name}</strong> has an abnormal rise in number of
+                  tweets
+                </span>
+              </label>
+              <input
+                className="rf-input"
+                type="email"
+                id="text-input-hint"
+                name="text-input-hint"
+                placeholder="Enter your email here"
+              />
+            </div>
+          </form>
+        </div>
       </div>
       <div className="rf-container rf-container-fluid">
         <div className="rf-grid-row rf-grid-row--gutters">
