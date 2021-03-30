@@ -7,9 +7,9 @@
     "npm": "6"
   },
   "scripts": {
-    "dev": "next --hostname 0.0.0.0",
+    "dev": "next",
     "build": "next build",
-    "start": "next start --hostname 0.0.0.0",
+    "start": "next start -p $PORT",
     "type-check": "tsc",
     "deploy:vagrant:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/dev.yml -e \"ENV=preproduction\" -e \"ENV_FILE=.env.vagrant.preproduction\" -e \"BRANCH=develop\"",
     "deploy:vagrant:production": "ansible-playbook ops/site.yml -v -i ops/inventories/dev.yml -e \"ENV=production\" -e \"ENV_FILE=.env.vagrant.production\" -e \"BRANCH=develop\"",
