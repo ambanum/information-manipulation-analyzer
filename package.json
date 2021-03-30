@@ -1,7 +1,11 @@
 {
   "name": "information-manipulation-analyzer",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "prettier": "prettier-config-ambanum",
+  "engines": {
+    "node": "14",
+    "npm": "6"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
