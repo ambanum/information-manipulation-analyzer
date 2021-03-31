@@ -93,20 +93,26 @@ const VolumetryGraph = ({
   return (
     <div>
       <div
-        className="rf-btns-group rf-btns-group--sm  rf-btns-group--inline rf-btns-group--right"
-        style={{ paddingRight: '60px' }}
+        className="rf-btns-group rf-btns-group--sm rf-btns-group--inline rf-btns-group--right"
+        style={{ paddingRight: '20px' }}
       >
         <button
-          className="rf-btn rf-btn--sm"
+          className={`rf-btn rf-btn--sm ${
+            chartXTypeDisplay === 'hour' ? 'rf-fi-eye-line rf-btn--icon-left' : ''
+          }`}
           onClick={() => setChartXTypeDisplay('hour')}
           disabled={chartXTypeDisplay === 'hour'}
+          style={{ maxWidth: 'none' /* else text does not show in button */ }}
         >
           hour
         </button>
         <button
-          className="rf-btn rf-btn--sm"
+          className={`rf-btn rf-btn--sm ${
+            chartXTypeDisplay === 'day' ? 'rf-fi-eye-line rf-btn--icon-left' : ''
+          }`}
           onClick={() => setChartXTypeDisplay('day')}
           disabled={chartXTypeDisplay === 'day'}
+          style={{ maxWidth: 'none' /* else text does not show in button */ }}
         >
           day
         </button>
