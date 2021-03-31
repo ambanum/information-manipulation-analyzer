@@ -104,7 +104,7 @@ const HashtagPage = ({
     [hashtag?.name]
   );
 
-  const onPieClick: LanguageGraphProps['onClick'] = React.useCallback(
+  const onPieClick: LanguageGraphProps['onSliceClick'] = React.useCallback(
     ({ id: lang }) => {
       window.open(getTwitterLink(`#${hashtag?.name}`, { lang: lang as string }));
     },
@@ -264,7 +264,7 @@ const HashtagPage = ({
       )}
       {languages?.length > 0 && (
         <div style={{ height: '400px', margin: '20px auto' }}>
-          <LanguageGraph data={languages} onClick={onPieClick} />
+          <LanguageGraph data={languages} onSliceClick={onPieClick} />
         </div>
       )}
       {usernames?.length > 0 && (

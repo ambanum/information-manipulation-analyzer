@@ -5,5 +5,5 @@ export const get = (code: string) => {
 };
 
 export const getName = (code: string) => {
-  return get(code)?.name;
+  return get(code)?.name || code;
 };

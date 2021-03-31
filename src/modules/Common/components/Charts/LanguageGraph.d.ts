@@ -1,6 +1,12 @@
-import { MouseEventHandler } from '@nivo/pie';
+import * as Highcharts from 'highcharts';
+
+export interface Point {
+  id: string;
+  label: string;
+  value: nuber;
+}
 
 export interface LanguageGraphProps {
-  data: { label: string; value: number; id: string }[];
-  onClick?: MouseEventHandler<any>;
+  data: Point[];
+  onSliceClick: (point: Highcharts.PointOptionsObject) => unknown;
 }

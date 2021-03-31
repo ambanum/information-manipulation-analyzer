@@ -14,15 +14,17 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
     res.statusCode = HttpStatusCode.BAD_REQUEST;
     res.json({
       status: 'ko',
-      message: 'Hashtag added',
+      message: 'Hashtag not provided',
     });
     return res;
   }
 
-  let existingHashtag: any = await HashtagManager.get({ name });
+  const sanitizedName = name.replace(/[^a-zA-Z\d_]/gim, '');
+
+  let existingHashtag: any = await HashtagManager.get({ name: sanitizedName });
 
   if (!existingHashtag) {
-    existingHashtag = await HashtagManager.create({ name });
+    existingHashtag = await HashtagManager.create({ name: sanitizedName });
   }
 
   res.statusCode = HttpStatusCode.OK;
@@ -34,8 +36,7 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
   return res;
 };
 
-const list = async (_: any, res:NextApiResponse) =>
-{
+const list = async (_: any, res: NextApiResponse) => {
   try {
     const hashtags = await HashtagManager.list();
 
@@ -46,9 +47,7 @@ const list = async (_: any, res:NextApiResponse) =>
     res.statusCode = HttpStatusCode.METHOD_FAILURE;
     res.json({ status: 'ko', message: e.toString() });
   }
-}
-;
-
+};
 const hashtags = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     return create(req, res);
