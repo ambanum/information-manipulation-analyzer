@@ -28,7 +28,7 @@ const VolumetryGraph = (props: VolumetryGraphProps & HighchartsReact.Props) => {
         point: {
           events: {
             click: function () {
-              props.onPointClick({ data: props.data[this.series.index].data[this.index] }); // eslint-disable-line
+              props.onPointClick({ data: props.data[this.series.index].data[this.index] });
             },
           },
         },

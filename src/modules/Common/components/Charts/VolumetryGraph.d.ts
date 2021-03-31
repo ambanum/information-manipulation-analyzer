@@ -1,7 +1,17 @@
-import { PointMouseHandler, Serie } from '@nivo/line';
+export interface Datum {
+  x?: string | number | Date | null;
+  y?: string | number | Date | null;
+  [key: string]: any;
+}
+
+export interface Serie {
+  id: string | number;
+  data: Datum[];
+  [key: string]: any;
+}
 
 export interface VolumetryGraphProps {
   data: Serie[];
   type?: 'hour' | 'day';
-  onClick?: PointMouseHandler;
+  onClick?: (datum: Datum) => unknown;
 }
