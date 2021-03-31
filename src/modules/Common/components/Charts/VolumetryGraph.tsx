@@ -1,18 +1,19 @@
 import * as Highcharts from 'highcharts';
 import * as React from 'react';
 
-import { useLocalStorage, usePrevious } from 'react-use';
+import { useLocalStorage, usePrevious, useToggle } from 'react-use';
 
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
 import { VolumetryGraphProps } from './VolumetryGraph.d';
 import dayjs from 'dayjs';
 import { paletteColors } from './config';
+import styles from './Graph.module.scss';
 
 if (typeof Highcharts === 'object') {
   HighchartsExporting(Highcharts);
 }
-export type GraphType = 'day' | 'hour';
+export type GraphXScale = 'day' | 'hour';
 
 export interface InitialSerie {
   id: string;
@@ -24,12 +25,13 @@ export interface InitialSerie {
 const VolumetryGraph = ({
   onPointClick,
   data,
-  type = 'hour',
+  xScale = 'hour',
   ...props
 }: VolumetryGraphProps & HighchartsReact.Props) => {
-  const [chartXTypeDisplay, setChartXTypeDisplay] = useLocalStorage<GraphType>(
-    'ima-volumetry-graph-type',
-    type
+  const [recalculating, toggleRecalculating] = useToggle(false);
+  const [chartXscaleDisplay, setChartXscaleDisplay] = useLocalStorage<GraphXScale>(
+    'ima-volumetry-graph-x-scale',
+    xScale
   );
   const initialSeries: InitialSerie[] = data.map((d) => ({
     id: d.id as string,
@@ -37,7 +39,7 @@ const VolumetryGraph = ({
     type: 'line',
     data: d.data.map(({ x, y }: any) => [new Date(x).getTime(), y]),
   }));
-  const previousXType = usePrevious(chartXTypeDisplay);
+  const previousXscale = usePrevious(chartXscaleDisplay);
   const [options, setOptions] = React.useState<Highcharts.Options>({
     title: {
       text: '',
@@ -64,15 +66,25 @@ const VolumetryGraph = ({
     series: initialSeries,
   });
 
+  const changeXScale = React.useCallback(
+    (newXScale: GraphXScale) => () => {
+      toggleRecalculating(true);
+      setChartXscaleDisplay(newXScale);
+    },
+    [setChartXscaleDisplay, toggleRecalculating]
+  );
+
   React.useEffect(() => {
-    if (previousXType === chartXTypeDisplay || (!previousXType && chartXTypeDisplay === 'hour')) {
+    if (
+      previousXscale === chartXscaleDisplay ||
+      (!previousXscale && chartXscaleDisplay === 'hour')
+    ) {
       return;
     }
-
     const newFormattedSeries: InitialSerie[] = [...initialSeries];
 
     newFormattedSeries.map((serie) => {
-      if (chartXTypeDisplay === 'day') {
+      if (chartXscaleDisplay === 'day') {
         const dayData: any = {};
 
         serie.data.forEach(([x, y]) => {
@@ -88,31 +100,29 @@ const VolumetryGraph = ({
       ...options,
       series: newFormattedSeries,
     });
-  }, [chartXTypeDisplay, previousXType, setOptions, initialSeries]);
+    toggleRecalculating(false);
+  }, [chartXscaleDisplay, previousXscale, setOptions, initialSeries, toggleRecalculating]);
 
   return (
-    <div>
+    <div className={styles.wrapper} style={{ opacity: recalculating ? 0.3 : 1 }}>
       <div
-        className="rf-btns-group rf-btns-group--sm rf-btns-group--inline rf-btns-group--right"
-        style={{ paddingRight: '20px' }}
+        className={`rf-btns-group rf-btns-group--sm rf-btns-group--inline rf-btns-group--right ${styles.buttonBar}`}
       >
         <button
           className={`rf-btn rf-btn--sm ${
-            chartXTypeDisplay === 'hour' ? 'rf-fi-eye-line rf-btn--icon-left' : ''
+            chartXscaleDisplay === 'hour' ? 'rf-fi-eye-line rf-btn--icon-left' : ''
           }`}
-          onClick={() => setChartXTypeDisplay('hour')}
-          disabled={chartXTypeDisplay === 'hour'}
-          style={{ maxWidth: 'none' /* else text does not show in button */ }}
+          onClick={changeXScale('hour')}
+          disabled={chartXscaleDisplay === 'hour'}
         >
           hour
         </button>
         <button
           className={`rf-btn rf-btn--sm ${
-            chartXTypeDisplay === 'day' ? 'rf-fi-eye-line rf-btn--icon-left' : ''
+            chartXscaleDisplay === 'day' ? 'rf-fi-eye-line rf-btn--icon-left' : ''
           }`}
-          onClick={() => setChartXTypeDisplay('day')}
-          disabled={chartXTypeDisplay === 'day'}
-          style={{ maxWidth: 'none' /* else text does not show in button */ }}
+          onClick={changeXScale('day')}
+          disabled={chartXscaleDisplay === 'day'}
         >
           day
         </button>

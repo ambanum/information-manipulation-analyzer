@@ -12,6 +12,6 @@ export interface Serie {
 
 export interface VolumetryGraphProps {
   data: Serie[];
-  type?: 'hour' | 'day';
+  xScale?: 'hour' | 'day';
   onClick?: (datum: Datum) => unknown;
 }

@@ -4,3 +4,14 @@
   padding: 10px 20px;
   min-width: 160px;
 }
+
+.wrapper {
+  transition: all 300ms;
+}
+
+.buttonBar {
+  padding-right: 20px !important;
+  button {
+    max-width: none !important;
+  }
+}
