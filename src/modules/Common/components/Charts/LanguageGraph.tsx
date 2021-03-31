@@ -1,63 +1,69 @@
-import { LanguageGraphProps } from './LanguageGraph.d';
-import React from 'react';
-import { ResponsivePieCanvas } from '@nivo/pie';
-import { paletteColors } from './config';
-import styles from './Graph.module.scss';
+import * as Highcharts from 'highcharts';
+import * as React from 'react';
 
-const LanguageGraph = ({ data, onClick }: LanguageGraphProps) => {
-  // console.log('re-render LanguageGraph');
-  return (
-    <ResponsivePieCanvas
-      data={data}
-      colors={paletteColors}
-      margin={{ top: 40, right: 200, bottom: 40, left: 80 }}
-      innerRadius={0.5}
-      padAngle={0.7}
-      cornerRadius={3}
-      borderColor={{ from: 'color', modifiers: [['darker', 0.6]] }}
-      radialLabelsSkipAngle={10}
-      radialLabel={(d) => `${d.label} (${d.value})`}
-      radialLabelsTextColor="#333333"
-      radialLabelsLinkColor={{ from: 'color' }}
-      sliceLabelsSkipAngle={10}
-      sliceLabelsTextColor="#333333"
-      sliceLabel={(datum) => (datum.data.value || 0).toLocaleString('en')}
-      tooltip={({ datum }) => (
-        <div
-          className={styles.tooltip}
-          data-color={datum?.color}
-          style={{ backgroundColor: datum?.color }}
-        >
-          <div>
-            <strong>{datum.data.label}</strong>
-          </div>
-          <div>
-            <em>{(datum.data.value || 0).toLocaleString('en')}</em>
-          </div>
-          <div>
-            <small>{datum.data.id}</small>
-          </div>
-        </div>
-      )}
-      legends={[
-        {
-          anchor: 'right',
-          direction: 'column',
-          justify: false,
-          translateX: 140,
-          translateY: 0,
-          itemsSpacing: 2,
-          itemWidth: 60,
-          itemHeight: 14,
-          itemTextColor: '#999',
-          itemDirection: 'left-to-right',
-          itemOpacity: 1,
-          symbolSize: 14,
-          symbolShape: 'circle',
+import HighchartsExporting from 'highcharts/modules/exporting';
+import HighchartsReact from 'highcharts-react-official';
+import { LanguageGraphProps } from './LanguageGraph.d';
+import { paletteColors } from './config';
+
+if (typeof Highcharts === 'object') {
+  HighchartsExporting(Highcharts);
+}
+
+const LanguageGraph = (props: LanguageGraphProps & HighchartsReact.Props) => {
+  // more performant with arrays of number
+  // and sort to prevent colors to be the same for big values
+  const seriesData = props.data
+    .map((d: any) => [d.id, d.label, d.value])
+    .sort((a, b) => b[2] - a[2]);
+
+  const data: Highcharts.Options = {
+    title: {
+      text: '',
+    },
+    chart: {
+      plotShadow: false,
+      type: 'pie',
+    },
+    tooltip: {
+      pointFormat: '{point.id}: <b>{point.y}</b>',
+    },
+    accessibility: {
+      point: {
+        valueSuffix: '%',
+      },
+    },
+    colors: paletteColors,
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.percentage:.1f} %',
         },
-      ]}
-      onClick={onClick}
-    />
+        point: {
+          events: {
+            click: function () {
+              props.onSliceClick(this.options);
+            },
+          },
+        },
+      },
+    },
+    series: [
+      {
+        type: 'pie',
+        colorByPoint: true,
+        data: seriesData,
+        keys: ['id', 'name', 'y'],
+      },
+    ],
+  };
+  return (
+    <div>
+      <HighchartsReact highcharts={Highcharts} options={data} {...props} />
+    </div>
   );
 };
 
