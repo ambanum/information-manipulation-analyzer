@@ -1269,6 +1269,22 @@
     "codes": ["ms", "ms_MY", "ms_BN"]
   },
   {
+    "_id": "in",
+    "name": "Malay",
+    "_i18n": {
+      "fr": {
+        "name": "Malais"
+      },
+      "en": {
+        "name": "Malay"
+      },
+      "es": {
+        "name": "Malayo"
+      }
+    },
+    "codes": ["in"]
+  },
+  {
     "_id": "ml",
     "name": "Malayalam",
     "_i18n": {
@@ -1427,6 +1443,22 @@
       }
     },
     "codes": ["nn", "nn_NO"]
+  },
+  {
+    "_id": "no",
+    "name": "Norwegian",
+    "_i18n": {
+      "fr": {
+        "name": "Norvégien"
+      },
+      "en": {
+        "name": "Norwegian"
+      },
+      "es": {
+        "name": "Noruego"
+      }
+    },
+    "codes": ["no"]
   },
   {
     "_id": "oc",
