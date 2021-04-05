@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose';
+
 import { QueueItemActionTypes, QueueItemStatuses } from '../interfaces';
 
 const { Schema } = mongoose;
@@ -27,6 +28,12 @@ const schema = new Schema(
       index: true,
       description:
         'The name of the processor it has been processed by initially. This is useful if the procesor fails and needs to start again',
+    },
+    processingDate: {
+      type: Date,
+      required: true,
+      index: true,
+      default: new Date(),
     },
     metadata: {
       type: Schema.Types.Mixed,
