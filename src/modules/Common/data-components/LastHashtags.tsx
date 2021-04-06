@@ -17,18 +17,32 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
 
   const hashtags = data?.hashtags || [];
 
+  let firstLetter: string;
+
   return (
     <div {...props}>
-      {hashtags.map((hashtag) => (
-        <Link key={hashtag._id} href={`/hashtags/${hashtag.name}`}>
-          <a className={`rf-tag rf-m-1v`}>
-            #{hashtag.name}
-            {!['DONE', 'DONE_ERROR'].includes(hashtag.status) ? (
-              <Loading size="sm" className="rf-ml-2v" />
-            ) : null}
-          </a>
-        </Link>
-      ))}
+      {hashtags.map((hashtag) => {
+        const newFirstLetter = hashtag.name[0];
+        let title = null;
+        if (newFirstLetter !== firstLetter) {
+          title = <h3 className="rf-m-1v rf-mt-3v">{newFirstLetter.toUpperCase()}</h3>;
+          firstLetter = newFirstLetter;
+        }
+
+        return (
+          <>
+            {title}
+            <Link key={hashtag._id} href={`/hashtags/${hashtag.name}`}>
+              <a className={`rf-tag rf-m-1v`}>
+                #{hashtag.name}
+                {!['DONE', 'DONE_ERROR'].includes(hashtag.status) ? (
+                  <Loading size="sm" className="rf-ml-2v" />
+                ) : null}
+              </a>
+            </Link>
+          </>
+        );
+      })}
     </div>
   );
 };
