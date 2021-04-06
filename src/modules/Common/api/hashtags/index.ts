@@ -1,13 +1,13 @@
 import * as HashtagManager from '../../managers/HashtagManager';
 
+import { CreateHashtagInput, CreateHashtagResponse } from '../../interfaces';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { CreateHashtagInput } from '../../interfaces';
 import HttpStatusCode from 'http-status-codes';
 import { withDb } from 'utils/db';
 
-const create = async (req: NextApiRequest, res: NextApiResponse) => {
+const create = async (req: NextApiRequest, res: NextApiResponse<CreateHashtagResponse>) => {
   const { name } = req.body as CreateHashtagInput;
 
   if (!name) {

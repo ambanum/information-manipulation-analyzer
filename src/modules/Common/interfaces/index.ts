@@ -49,6 +49,10 @@ export interface CreateHashtagInput extends CommonResponse {
   name: string;
 }
 
+export interface CreateHashtagResponse extends CommonResponse {
+  hashtag?: Hashtag;
+}
+
 /**
  * QueueItem
  */

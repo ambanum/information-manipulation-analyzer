@@ -26,6 +26,7 @@ const Search = ({
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    event.stopPropagation();
     onSearchSubmit(search);
   };
 
