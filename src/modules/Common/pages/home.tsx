@@ -1,5 +1,6 @@
 import Search, { SearchProps } from 'components/Search';
 
+import { CreateHashtagResponse } from 'modules/Common/interfaces';
 import LastHashtags from '../data-components/LastHashtags';
 import Layout from 'modules/Embassy/components/Layout';
 import api from 'utils/api';
@@ -10,8 +11,8 @@ const HomePage = () => {
 
   const onSubmit: SearchProps['onSearchSubmit'] = async (hashtag) => {
     try {
-      await api.post('/api/hashtags', { name: hashtag });
-      router.push(`/hashtags/${hashtag}`);
+      const { data } = await api.post<CreateHashtagResponse>('/api/hashtags', { name: hashtag });
+      router.push(`/hashtags/${data?.hashtag?.name}`);
     } catch (e) {
       console.log(''); // eslint-disable-line
       console.log('╔════START══e══════════════════════════════════════════════════'); // eslint-disable-line
