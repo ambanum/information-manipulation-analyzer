@@ -5,6 +5,7 @@ import { CreateHashtagInput, CreateHashtagResponse } from '../../interfaces';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import HttpStatusCode from 'http-status-codes';
+import { sanitizeHashtag } from 'utils/sanitizer';
 import { withDb } from 'utils/db';
 
 const create = async (req: NextApiRequest, res: NextApiResponse<CreateHashtagResponse>) => {
@@ -19,13 +20,7 @@ const create = async (req: NextApiRequest, res: NextApiResponse<CreateHashtagRes
     return res;
   }
 
-  const sanitizedName = name
-    // replace all accents with plain
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    // kepp only allowed characters in hashtag
-    .replace(/[^a-zA-Z\d_]/gim, '')
-    .toLowerCase();
+  const sanitizedName = sanitizeHashtag(name);
 
   let existingHashtag: any = await HashtagManager.get({ name: sanitizedName });
 
