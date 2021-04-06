@@ -40,7 +40,7 @@ const shouldNotPoll = (status: string) =>
 
 const REFRESH_INTERVALS = {
   PROCESSING_PREVIOUS: 60 * 1 * 1000,
-  DONE: 0,
+  DONE: 60 * 60 * 1 * 1000,
   DONE_ERROR: 0,
   DONE_FIRST_FETCH: 0,
   PENDING: 5 * 1000,
@@ -212,50 +212,59 @@ const HashtagPage = ({
           </form>
         </div>
       </div>
-      <div className="rf-container rf-container-fluid">
-        <div className="rf-grid-row rf-grid-row--gutters">
-          <div className="rf-col">
-            <Card
-              horizontal
-              title={firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'}
-              href={getTwitterLink(`#${hashtag?.name}`, { endDate: firstOccurenceDate })}
-              description={'Date of first appearance'}
-            />
-          </div>
-          <div className="rf-col">
-            <Card
-              horizontal
-              title={!loading ? usernames.length.toLocaleString('en') : '-'}
-              description={'Nb Active users'}
-              noArrow
-            />
-          </div>
-          <div className="rf-col">
-            <Card
-              horizontal
-              title={!loading ? associatedHashtags.length.toLocaleString('en') : '-'}
-              description={'Nb Associated hashtags'}
-              noArrow
-            />
-          </div>
-          <div className="rf-col">
-            <Card
-              horizontal
-              title={!loading ? totalNbTweets.toLocaleString('en') : '-'}
-              description={'Total Tweets'}
-              noArrow
-            />
-          </div>
-          <div className="rf-col">
-            <Card
-              horizontal
-              title={'TODO %'}
-              description={'Inauthenticity Probability'}
-              href={'#calculation-algorythm'}
-            />
+      {totalNbTweets > 0 && (
+        <div className="rf-container rf-container-fluid">
+          <div className="rf-grid-row rf-grid-row--gutters">
+            <div className="rf-col">
+              <Card
+                horizontal
+                title={
+                  firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'
+                }
+                href={getTwitterLink(`#${hashtag?.name}`, { endDate: firstOccurenceDate })}
+                description={'Date of first appearance'}
+              />
+            </div>
+            <div className="rf-col">
+              <Card
+                horizontal
+                title={!loading ? usernames.length.toLocaleString('en') : '-'}
+                description={'Nb Active users'}
+                noArrow
+              />
+            </div>
+            <div className="rf-col">
+              <Card
+                horizontal
+                title={!loading ? associatedHashtags.length.toLocaleString('en') : '-'}
+                description={'Nb Associated hashtags'}
+                noArrow
+              />
+            </div>
+            <div className="rf-col">
+              <Card
+                horizontal
+                title={!loading ? totalNbTweets.toLocaleString('en') : '-'}
+                description={'Total Tweets'}
+                noArrow
+              />
+            </div>
+            <div className="rf-col">
+              <Card
+                horizontal
+                title={'TODO %'}
+                description={'Inauthenticity Probability'}
+                href={'#calculation-algorythm'}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
+      {totalNbTweets === 0 && status === 'DONE' && (
+        <h4 className="text-center rf-mb-12w rf-text-color--os500">
+          Sorry, we did not found any data for this
+        </h4>
+      )}
 
       {volumetry[0]?.data?.length > 0 && (
         <div style={{ margin: '20px auto' }}>

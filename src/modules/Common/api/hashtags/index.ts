@@ -19,7 +19,13 @@ const create = async (req: NextApiRequest, res: NextApiResponse) => {
     return res;
   }
 
-  const sanitizedName = name.replace(/[^a-zA-Z\d_]/gim, '');
+  const sanitizedName = name
+    // replace all accents with plain
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    // kepp only allowed characters in hashtag
+    .replace(/[^a-zA-Z\d_]/gim, '')
+    .toLowerCase();
 
   let existingHashtag: any = await HashtagManager.get({ name: sanitizedName });
 
