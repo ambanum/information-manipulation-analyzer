@@ -150,7 +150,21 @@ const HashtagPage = ({
               </Link>
             </div>
             <h1 className="text-center">#{hashtag?.name}</h1>
-            <h6 className="text-center">Information Manipulation Analyzer</h6>
+            <h6 className="text-center">
+              Information Manipulation Analyzer
+              <sup>
+                <span
+                  style={{
+                    background: 'var(--rm500)',
+                    color: 'white',
+                    fontWeight: 'bold',
+                  }}
+                  className="rf-tag rf-tag--sm"
+                >
+                  BETA
+                </span>
+              </sup>
+            </h6>
             {status === 'PENDING' && (
               <div className="text-center rf-my-12w">
                 <span className="rf-tag">Your request is in the queue and will begin shortly</span>

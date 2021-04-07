@@ -26,7 +26,21 @@ const HomePage = () => {
       <div className="rf-container rf-mb-12w">
         <div className="rf-grid-row">
           <div className="rf-col">
-            <h1 className="text-center rf-mb-1w">Information Manipulation Analyzer</h1>
+            <h1 className="text-center rf-mb-1w">
+              Information Manipulation Analyzer
+              <sup>
+                <span
+                  style={{
+                    background: 'var(--rm500)',
+                    color: 'white',
+                    fontWeight: 'bold',
+                  }}
+                  className="rf-tag rf-tag--sm"
+                >
+                  BETA
+                </span>
+              </sup>
+            </h1>
             <p
               className="rf-text--lg text-center rf-mb-7w"
               style={{ maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}
