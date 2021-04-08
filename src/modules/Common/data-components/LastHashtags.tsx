@@ -37,6 +37,8 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
                 #{hashtag.name}
                 {!['DONE', 'DONE_ERROR'].includes(hashtag.status) ? (
                   <Loading size="sm" className="rf-ml-2v" />
+                ) : hashtag.status === 'DONE_ERROR' ? (
+                  <span className="rf-fi-alert-fill rf-text-color--error" aria-hidden="true"></span>
                 ) : null}
               </a>
             </Link>
