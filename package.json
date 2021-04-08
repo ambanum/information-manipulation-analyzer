@@ -11,6 +11,8 @@
     "deploy:vagrant:production": "ansible-playbook ops/site.yml -v -i ops/inventories/dev.yml -e \"ENV=production\" -e \"ENV_FILE=.env.vagrant.production\" -e \"BRANCH=develop\"",
     "deploy:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=preproduction\"",
     "deploy:production": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=production\"",
+    "deploy:tflmi:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=preproduction\" -e \"PORT=7024\" -e \"BRANCH=develop\" -e \"ENV_FILE=.env.tflmi.production\" -e \"NAME=tflmi\"",
+    "deploy:tflmi:production": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=production\" -e \"PORT=7023\" -e \"ENV_FILE=.env.tflmi.production\" -e \"NAME=tflmi\"",
     "docker:build:preproduction": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.preproduction",
     "docker:build:production": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.production",
     "docker:run": "(docker rm $npm_package_name || true) && docker run --rm -p 3000:3000 --name $npm_package_name -it $npm_package_name",
