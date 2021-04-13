@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "type-check": "tsc",
+    "encrypt": "ansible-vault encrypt docker/.env.tflmi.*",
+    "decrypt": "ansible-vault decrypt docker/.env.tflmi.*",
     "deploy:vagrant:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/dev.yml -e \"ENV=preproduction\" -e \"ENV_FILE=.env.vagrant.preproduction\" -e \"BRANCH=develop\"",
     "deploy:vagrant:production": "ansible-playbook ops/site.yml -v -i ops/inventories/dev.yml -e \"ENV=production\" -e \"ENV_FILE=.env.vagrant.production\" -e \"BRANCH=develop\"",
     "deploy:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=preproduction\"",
@@ -15,11 +17,16 @@
     "deploy:tflmi:production": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=production\" -e \"PORT=7023\" -e \"ENV_FILE=.env.tflmi.production\" -e \"NAME=tflmi\"",
     "docker:build:preproduction": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.preproduction",
     "docker:build:production": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.production",
+    "docker:build:tflmi:preproduction": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.tflmi.preproduction",
+    "docker:build:tflmi:production": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.tflmi.production",
     "docker:run": "(docker rm $npm_package_name || true) && docker run --rm -p 3000:3000 --name $npm_package_name -it $npm_package_name",
     "docker:ssh": "docker exec -it $npm_package_name /bin/sh",
     "test": "jest",
     "prettier": "prettier --write ."
   },
+  "pre-commit": [
+    "encrypt"
+  ],
   "dependencies": {
     "@gouvfr/all": "^0.5.3",
     "@welldone-software/why-did-you-render": "^6.1.1",

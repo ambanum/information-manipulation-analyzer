@@ -19,7 +19,7 @@ RUN yarn install
 
 COPY . /usr/src/app
 RUN rm .env.*
-COPY ./$ENV_FILE /usr/src/app/.env.production
+COPY ./docker/$ENV_FILE /usr/src/app/.env.production
 
 ENV NODE_ENV=production
 ENV NODE_OPTIONS='--max_old_space_size=8192'
