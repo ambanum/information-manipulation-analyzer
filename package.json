@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "type-check": "tsc",
-    "encrypt": "ansible-vault encrypt docker/.env.tflmi.*",
-    "decrypt": "ansible-vault decrypt docker/.env.tflmi.*",
+    "precommit": "(git diff --name-only --staged | grep docker/.env.tflmi | xargs grep -rL \"ANSIBLE\") && echo \"some vault files are not encrypted\" && exit",
+    "encrypt": "grep -rL \"ANSIBLE\" ./docker/.env.tflmi.* | xargs ansible-vault encrypt",
+    "decrypt": "grep -rl \"ANSIBLE\" ./docker/.env.tflmi.* | xargs ansible-vault decrypt",
     "deploy:vagrant:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/dev.yml -e \"ENV=preproduction\" -e \"ENV_FILE=.env.vagrant.preproduction\" -e \"BRANCH=develop\"",
     "deploy:vagrant:production": "ansible-playbook ops/site.yml -v -i ops/inventories/dev.yml -e \"ENV=production\" -e \"ENV_FILE=.env.vagrant.production\" -e \"BRANCH=develop\"",
     "deploy:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=preproduction\"",
@@ -22,11 +23,9 @@
     "docker:run": "(docker rm $npm_package_name || true) && docker run --rm -p 3000:3000 --name $npm_package_name -it $npm_package_name",
     "docker:ssh": "docker exec -it $npm_package_name /bin/sh",
     "test": "jest",
+    "prepare": "husky install",
     "prettier": "prettier --write ."
   },
-  "pre-commit": [
-    "encrypt"
-  ],
   "dependencies": {
     "@gouvfr/all": "^0.5.3",
     "@welldone-software/why-did-you-render": "^6.1.1",
@@ -62,8 +61,8 @@
     "@types/react-table": "^7.0.29",
     "@types/react-virtualized-auto-sizer": "^1.0.0",
     "@types/react-window": "^1.8.2",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
-    "pre-commit": "^1.2.2",
     "prettier": "^2.2.1",
     "prettier-config-ambanum": "^1.0.1",
     "ts-jest": "^26.5.4",
