@@ -16,7 +16,7 @@
     "docker:build:preproduction": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.preproduction",
     "docker:build:production": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.production",
     "docker:run": "(docker rm $npm_package_name || true) && docker run --rm -p 3000:3000 --name $npm_package_name -it $npm_package_name",
-    "docker:ssh": "docker exec -it $npm_package_name /bin/bash",
+    "docker:ssh": "docker exec -it $npm_package_name /bin/sh",
     "test": "jest",
     "prettier": "prettier --write ."
   },
