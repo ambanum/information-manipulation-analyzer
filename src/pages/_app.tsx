@@ -21,7 +21,7 @@ dynamic(() => import('@gouvfr/all/dist/js/all.js'), { ssr: false });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AuthProvider>
+    <AuthProvider pageProps={pageProps}>
       <SWRConfig
         value={{
           fetcher,

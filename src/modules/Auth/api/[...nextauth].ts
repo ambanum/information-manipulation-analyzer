@@ -16,10 +16,10 @@ export default NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        if (!process.env.BASIC_AUTH_CREDENTIALS) {
-          throw new Error('No BASIC_AUTH_CREDENTIALS passed');
+        if (!process.env.AUTH_CREDENTIALS) {
+          throw new Error('No AUTH_CREDENTIALS passed');
         }
-        const [user, pass] = process.env.BASIC_AUTH_CREDENTIALS.split(':');
+        const [user, pass] = process.env.AUTH_CREDENTIALS.split(':');
 
         if (credentials.username === user && credentials.password === pass) {
           return { name: user } as User;
@@ -29,4 +29,10 @@ export default NextAuth({
       },
     }),
   ],
+  jwt: {
+    encryption: true,
+    secret: process.env.AUTH_JWT_SECRET,
+  },
+  debug: true,
+  theme: 'auto',
 });
