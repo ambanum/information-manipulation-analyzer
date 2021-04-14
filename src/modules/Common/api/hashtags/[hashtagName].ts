@@ -4,6 +4,7 @@ import * as HashtagManager from '../../managers/HashtagManager';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import HttpStatusCode from 'http-status-codes';
+import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const get = (name: string) => async (res: NextApiResponse) => {
@@ -28,4 +29,4 @@ const hashtag = async (req: NextApiRequest, res: NextApiResponse) => {
   res.json({ status: 'ko', message: 'Nothing there' });
 };
 
-export default withDb(hashtag);
+export default withAuth(withDb(hashtag));

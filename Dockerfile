@@ -15,16 +15,21 @@ COPY yarn.lock /usr/src/app
 # USER node
 
 # Run install before setting NODE_ENV to install all development modules
-RUN yarn install
+RUN yarn
 
 COPY . /usr/src/app
 RUN rm .env.*
-COPY ./$ENV_FILE /usr/src/app/.env.production
+COPY ./docker/$ENV_FILE /usr/src/app/.env.production
 
 ENV NODE_ENV=production
 ENV NODE_OPTIONS='--max_old_space_size=8192'
 
 RUN yarn build
+
+RUN rm -Rf node_modules
+RUN yarn --production
+
+RUN yarn cache clean
 
 EXPOSE 3000
 CMD [ "yarn", "start" ]

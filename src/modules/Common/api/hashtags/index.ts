@@ -6,6 +6,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import HttpStatusCode from 'http-status-codes';
 import { sanitizeHashtag } from 'utils/sanitizer';
+import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const create = async (req: NextApiRequest, res: NextApiResponse<CreateHashtagResponse>) => {
@@ -49,6 +50,7 @@ const list = async (_: any, res: NextApiResponse) => {
     res.json({ status: 'ko', message: e.toString() });
   }
 };
+
 const hashtags = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     return create(req, res);
@@ -61,4 +63,4 @@ const hashtags = async (req: NextApiRequest, res: NextApiResponse) => {
   res.json({ status: 'ko', message: 'Nothing there' });
 };
 
-export default withDb(hashtags);
+export default withAuth(withDb(hashtags));

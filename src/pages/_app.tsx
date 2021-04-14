@@ -11,21 +11,25 @@ import 'nprogress/nprogress.css'; //styles of nprogress//Binding events.
 import 'modules/NProgress/nprogress.theme.scss';
 import 'modules/NProgress'; //nprogress module
 
+import { AppProps } from 'next/app';
+import { AuthProvider } from 'modules/Auth';
 import { SWRConfig } from 'swr';
 import dynamic from 'next/dynamic';
 import { fetcher } from 'utils/api';
 
 dynamic(() => import('@gouvfr/all/dist/js/all.js'), { ssr: false });
 
-function MyApp({ Component, pageProps }: any) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <SWRConfig
-      value={{
-        fetcher,
-      }}
-    >
-      <Component {...pageProps} />
-    </SWRConfig>
+    <AuthProvider pageProps={pageProps}>
+      <SWRConfig
+        value={{
+          fetcher,
+        }}
+      >
+        <Component {...pageProps} />
+      </SWRConfig>
+    </AuthProvider>
   );
 }
 
