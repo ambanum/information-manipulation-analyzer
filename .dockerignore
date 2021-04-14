@@ -1,11 +1,17 @@
 # Common
-README.md
+.docker
+.dockerignore
+.env.local
+.git
+.husky
+.idea
+.next
+ansible.cfg
 CHANGELOG.md
+decision-records
 docker-compose.yml
 Dockerfile
-
 node_modules
-.env.local
-.next
-.idea
-decision-records
+ops
+README.md
+vault.key
