@@ -1,17 +1,17 @@
+- name: Include vars
+  include_vars: '{{ENV}}.yml'
+
 - name: Clone Repo
   git:
     repo: '{{ repository }}'
     dest: '/home/{{ ansible_user }}/{{ app }}'
-    version: '{{branch}}'
+    version: '{{ branch }}'
     force: yes
     accept_hostkey: yes
     key_file: '/home/{{ ansible_user }}/.ssh/cgus-bot-key'
   tags:
     - setup
     - update
-
-- debug:
-    msg: 'Env file - {{ env_file }} - branch - {{ branch }} timeout: 600'
 
 - name: Build the image
   become: yes
@@ -27,17 +27,24 @@
     name: '{{ app }}'
     force_source: yes
 
-- debug:
-    msg: 'This is the env -{{ENV}}- and the base path --{{ base_path }}-- the app {{ app }} and the user {{ ansible_user }}'
-
 - name: Start the container
   become: yes
   community.general.docker_container:
     name: '{{ app }}'
     image: '{{ app }}'
     restart: yes
+    state: started
+    restart_policy: unless-stopped
     env:
-      NODE_ENV: 'production'
-      NEXT_PUBLIC_BASE_PATH: '{{ base_path }}'
+      BASIC_AUTH_CREDENTIALS: "{{ basic_auth if basic_auth is defined else '' }}"
     ports:
       - '{{ app_port }}:3000'
+
+- name: Prune containers and images
+  become: yes
+  community.docker.docker_prune:
+    containers: yes
+    images: yes
+    networks: false
+    volumes: false
+    builder_cache: false

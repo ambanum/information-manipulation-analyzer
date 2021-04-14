@@ -3,4 +3,4 @@
   hosts: all
 
   roles:
-    - information-manipulation-analyzer/github-clone
+    - ima/github-clone
