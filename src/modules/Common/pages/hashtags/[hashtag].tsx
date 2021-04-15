@@ -35,8 +35,8 @@ const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGr
 
 export { default as getStaticPaths } from './[hashtag].staticPaths';
 export { default as getStaticProps } from './[hashtag].staticProps';
-const shouldNotPoll = (status: string) =>
-  ['DONE', 'DONE_ERROR', 'DONE_FIRST_FETCH'].includes(status);
+const shouldNotPoll = (status?: string) =>
+  ['DONE', 'DONE_ERROR', 'DONE_FIRST_FETCH'].includes(status || '');
 
 const REFRESH_INTERVALS = {
   PROCESSING_PREVIOUS: 60 * 1 * 1000,
@@ -55,15 +55,19 @@ const HashtagPage = ({
   volumetry: defaultVolumetry,
   languages: defaultLanguages,
   usernames: defaultUsernames,
+  nbUsernames: defaultNbUsernames,
   totalNbTweets: defaultTotalNbTweets,
   associatedHashtags: defaultAssociatedHashtags,
+  nbAssociatedHashtags: defaultNbAssociatedHashtags,
 }: {
   hashtag: GetHashtagResponse['hashtag'];
   totalNbTweets: GetHashtagResponse['totalNbTweets'];
   volumetry: GetHashtagResponse['volumetry'];
   languages: GetHashtagResponse['languages'];
   usernames: GetHashtagResponse['usernames'];
+  nbUsernames: GetHashtagResponse['nbUsernames'];
   associatedHashtags: GetHashtagResponse['associatedHashtags'];
+  nbAssociatedHashtags: GetHashtagResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
   const [skip, setSkip] = React.useState(shouldNotPoll(defaultHashtag?.status));
@@ -79,7 +83,9 @@ const HashtagPage = ({
       volumetry: defaultVolumetry,
       languages: defaultLanguages,
       usernames: defaultUsernames,
+      nbUsernames: defaultNbUsernames,
       associatedHashtags: defaultAssociatedHashtags,
+      nbAssociatedHashtags: defaultNbAssociatedHashtags,
     },
     refreshInterval: refreshInterval,
     isPaused: () => skip,
@@ -91,7 +97,9 @@ const HashtagPage = ({
     volumetry = [],
     languages = [],
     usernames = [],
+    nbUsernames = 0,
     associatedHashtags = [],
+    nbAssociatedHashtags = 0,
   } = data || {};
   const { status = '', firstOccurenceDate, oldestProcessedDate, newestProcessedDate } =
     data?.hashtag || {};
@@ -259,7 +267,7 @@ const HashtagPage = ({
             <div className="rf-col">
               <Card
                 horizontal
-                title={!loading ? usernames.length.toLocaleString('en') : '-'}
+                title={!loading ? nbUsernames.toLocaleString('en') : '-'}
                 description={'Nb Active users'}
                 noArrow
               />
@@ -267,7 +275,7 @@ const HashtagPage = ({
             <div className="rf-col">
               <Card
                 horizontal
-                title={!loading ? associatedHashtags.length.toLocaleString('en') : '-'}
+                title={!loading ? nbAssociatedHashtags.toLocaleString('en') : '-'}
                 description={'Nb Associated hashtags'}
                 noArrow
               />
@@ -312,6 +320,7 @@ const HashtagPage = ({
           <div className="rf-grid-row rf-grid-row--gutters">
             <div className="rf-col-md-6">
               <UsernameTable
+                nbData={nbUsernames}
                 data={usernames}
                 onUsernameClick={onUsernameClick}
                 exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
@@ -321,6 +330,7 @@ const HashtagPage = ({
             </div>
             <div className="rf-col-md-6">
               <HashtagTable
+                nbData={nbAssociatedHashtags}
                 data={associatedHashtags}
                 onHashtagClick={onHashtagClick}
                 exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${

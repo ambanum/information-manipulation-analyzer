@@ -37,11 +37,13 @@ export interface GetHashtagsResponse extends CommonResponse {
 }
 
 export interface GetHashtagResponse extends CommonResponse {
-  hashtag: Hashtag;
+  hashtag: Omit<Hashtag, 'volumetry'>;
   totalNbTweets: number;
   volumetry: VolumetryGraphProps['data'];
   languages: LanguageGraphProps['data'];
+  nbUsernames: number;
   usernames: UsernameTableProps['data'];
+  nbAssociatedHashtags: number;
   associatedHashtags: HashtagTableProps['data'];
 }
 

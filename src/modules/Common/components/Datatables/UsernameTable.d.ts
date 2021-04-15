@@ -1,6 +1,7 @@
 export interface UsernameTableProps {
   exportName: string;
   data: Username[];
+  nbData?: number;
   onUsernameClick: (username: string) => any;
 }
 

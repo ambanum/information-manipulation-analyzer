@@ -3,7 +3,7 @@ import { Hashtag, HashtagTableProps } from './HashtagTable.d';
 import React from 'react';
 import Table from 'components/Table';
 
-const HashtagTable = ({ exportName, data, onHashtagClick }: HashtagTableProps) => {
+const HashtagTable = ({ exportName, data, onHashtagClick, nbData }: HashtagTableProps) => {
   // console.log('re-render HashtagTable');
   const columns = [
     {
@@ -42,7 +42,7 @@ const HashtagTable = ({ exportName, data, onHashtagClick }: HashtagTableProps) =
 
   return (
     <Table<Hashtag>
-      title={`Associated Hashtags (${data.length.toLocaleString('en')})`}
+      title={`Associated Hashtags (${(nbData || data.length).toLocaleString('en')})`}
       columns={columns}
       data={data}
       sortBy={[
