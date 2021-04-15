@@ -30,7 +30,7 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
         }
 
         return (
-          <>
+          <React.Fragment key={`last_hashtag_${title}`}>
             {title}
             <Link key={hashtag._id} href={`/hashtags/${hashtag.name}`}>
               <a className={`rf-tag rf-m-1v`}>
@@ -42,7 +42,7 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
                 ) : null}
               </a>
             </Link>
-          </>
+          </React.Fragment>
         );
       })}
     </div>
