@@ -50,6 +50,7 @@ export const getWithData = async (filter: { name: string }) => {
     const languages: { [key: string]: number } = {};
     const associatedHashtags: { [key: string]: number } = {};
     let totalNbTweets: number = 0;
+
     const volumetry = hashtag.volumetry.reduce(
       (acc: VolumetryGraphProps['data'], volumetry) => {
         const newAcc = [...acc];
@@ -79,6 +80,9 @@ export const getWithData = async (filter: { name: string }) => {
         { id: 'nbQuotes', data: [] },
       ]
     );
+
+    // @ts-ignore We do not use it anymore as it has been reprocessed already
+    delete hashtag.volumetry;
 
     const result = {
       hashtag: hashtag ? hashtag : null,
