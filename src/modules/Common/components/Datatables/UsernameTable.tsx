@@ -3,7 +3,7 @@ import { Username, UsernameTableProps } from './UsernameTable.d';
 import React from 'react';
 import Table from 'components/Table';
 
-const UsernameTable = ({ exportName, data, onUsernameClick }: UsernameTableProps) => {
+const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTableProps) => {
   // console.log('re-render UsernameTable');
   const columns = [
     {
@@ -35,7 +35,7 @@ const UsernameTable = ({ exportName, data, onUsernameClick }: UsernameTableProps
 
   return (
     <Table<Username>
-      title={`Active users (${data.length.toLocaleString('en')})`}
+      title={`Active users (${(nbData || data.length).toLocaleString('en')})`}
       columns={columns}
       data={data}
       sortBy={[

@@ -5,6 +5,9 @@ import { Hashtag } from '../interfaces';
 import HashtagModel from '../models/Hashtag';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 
+const MIN_NB_OCCURENCES = 1;
+const MIN_NB_RECORDS = 1000;
+
 export const create = async ({ name }: { name: string }) => {
   try {
     const hashtag = new HashtagModel({ name, status: 'PENDING' });
@@ -84,25 +87,43 @@ export const getWithData = async (filter: { name: string }) => {
     // @ts-ignore We do not use it anymore as it has been reprocessed already
     delete hashtag.volumetry;
 
+    const usernameKeys = Object.keys(usernames);
+    const nbUsernames = usernameKeys.length;
+    const filteredUsernames = usernameKeys
+      .filter((username) => nbUsernames < MIN_NB_RECORDS || usernames[username] > MIN_NB_OCCURENCES)
+      .map((username) => ({
+        id: username,
+        label: username,
+        value: usernames[username],
+      }));
+
+    const associatedHashtagsKeys = Object.keys(associatedHashtags);
+    const nbAssociatedHashtags = associatedHashtagsKeys.length;
+    const filteredAssociatedHashtags = associatedHashtagsKeys
+      .filter(
+        (associatedHashtag) =>
+          nbAssociatedHashtags < MIN_NB_RECORDS ||
+          associatedHashtags[associatedHashtag] > MIN_NB_OCCURENCES
+      )
+      .map((associatedHashtag) => ({
+        id: associatedHashtag,
+        label: associatedHashtag,
+        value: associatedHashtags[associatedHashtag],
+      }));
+
     const result = {
       hashtag: hashtag ? hashtag : null,
       volumetry,
       totalNbTweets,
-      usernames: Object.keys(usernames).map((username) => ({
-        id: username,
-        label: username,
-        value: usernames[username],
-      })),
       languages: Object.keys(languages).map((language) => ({
         id: language,
         label: LanguageManager.getName(language),
         value: languages[language],
       })),
-      associatedHashtags: Object.keys(associatedHashtags).map((associatedHashtag) => ({
-        id: associatedHashtag,
-        label: associatedHashtag,
-        value: associatedHashtags[associatedHashtag],
-      })),
+      nbUsernames,
+      usernames: filteredUsernames,
+      nbAssociatedHashtags,
+      associatedHashtags: filteredAssociatedHashtags,
     };
 
     return result;

@@ -1,6 +1,7 @@
 export interface HashtagTableProps {
   exportName: string;
   data: Hashtag[];
+  nbData?: number;
   onHashtagClick: (username: string) => any;
 }
 

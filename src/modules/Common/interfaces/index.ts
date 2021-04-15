@@ -41,7 +41,9 @@ export interface GetHashtagResponse extends CommonResponse {
   totalNbTweets: number;
   volumetry: VolumetryGraphProps['data'];
   languages: LanguageGraphProps['data'];
+  nbUsernames: number;
   usernames: UsernameTableProps['data'];
+  nbAssociatedHashtags: number;
   associatedHashtags: HashtagTableProps['data'];
 }
 
