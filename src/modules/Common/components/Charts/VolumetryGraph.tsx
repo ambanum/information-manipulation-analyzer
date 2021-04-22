@@ -1,14 +1,17 @@
-import * as Highcharts from 'highcharts';
+import * as Highcharts from 'highcharts/highstock';
 import * as React from 'react';
 
 import { useLocalStorage, usePrevious, useToggle } from 'react-use';
 
+import Boost from 'highcharts/modules/boost';
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
 import { VolumetryGraphProps } from './VolumetryGraph.d';
 import dayjs from 'dayjs';
 import { paletteColors } from './config';
 import styles from './Graph.module.scss';
+
+Boost(Highcharts);
 
 if (typeof Highcharts === 'object') {
   HighchartsExporting(Highcharts);
@@ -18,9 +21,11 @@ export type GraphXScale = 'day' | 'hour';
 export interface InitialSerie {
   id: string;
   name: any;
-  type: 'line';
+  showInLegend: boolean;
+  type: 'line' | 'spline';
   data: [number, number][];
 }
+const timezoneDelayInMinutes: number = new Date().getTimezoneOffset();
 
 const VolumetryGraph = ({
   onPointClick,
@@ -36,23 +41,28 @@ const VolumetryGraph = ({
   const initialSeries: InitialSerie[] = data.map((d) => ({
     id: d.id as string,
     name: d.id,
-    type: 'line',
+    showInLegend: true,
+    type: 'spline',
     data: d.data.map(({ x, y }: any) => [new Date(x).getTime(), y]),
   }));
+
   const previousXscale = usePrevious(chartXscaleDisplay);
   const [options, setOptions] = React.useState<Highcharts.Options>({
     title: {
       text: '',
     },
     colors: paletteColors,
-    xAxis: {
-      type: 'datetime',
-    },
     chart: {
       zoomType: 'x',
     },
+    legend: {
+      enabled: true,
+    },
+    time: {
+      getTimezoneOffset: () => timezoneDelayInMinutes,
+    },
     plotOptions: {
-      series: {
+      spline: {
         cursor: 'pointer',
         point: {
           events: {
@@ -127,7 +137,12 @@ const VolumetryGraph = ({
           day
         </button>
       </div>
-      <HighchartsReact highcharts={Highcharts} options={options} {...props} />
+      <HighchartsReact
+        highcharts={Highcharts}
+        constructorType={'stockChart'}
+        options={options}
+        {...props}
+      />
     </div>
   );
 };

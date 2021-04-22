@@ -210,7 +210,7 @@ export default function Table<T extends Record<string, unknown>>({
         </div>
 
         <div className="tbody" {...getTableBodyProps()}>
-          {!shouldVirtualize && rows.map((row) => <RenderNormalRow row={row} />)}
+          {!shouldVirtualize && rows.map((row) => <RenderNormalRow key={row.id} row={row} />)}
           {shouldVirtualize && (
             <div style={{ height: virtualize?.height || 500 }}>
               <AutoSizer>

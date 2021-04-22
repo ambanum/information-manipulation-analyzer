@@ -81,7 +81,7 @@ export interface QueueItem {
  */
 
 export interface HashtagVolumetry {
-  date: string;
+  date: Date;
   nbTweets: number;
   nbRetweets: number;
   nbLikes: number;
