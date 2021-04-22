@@ -3,12 +3,15 @@ import * as React from 'react';
 
 import { useLocalStorage, usePrevious, useToggle } from 'react-use';
 
+import Boost from 'highcharts/modules/boost';
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
 import { VolumetryGraphProps } from './VolumetryGraph.d';
 import dayjs from 'dayjs';
 import { paletteColors } from './config';
 import styles from './Graph.module.scss';
+
+Boost(Highcharts);
 
 if (typeof Highcharts === 'object') {
   HighchartsExporting(Highcharts);
