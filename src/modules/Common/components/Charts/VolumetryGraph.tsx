@@ -21,6 +21,7 @@ export interface InitialSerie {
   type: 'line';
   data: [number, number][];
 }
+const timezoneDelayInMinutes: number = new Date().getTimezoneOffset();
 
 const VolumetryGraph = ({
   onPointClick,
@@ -50,6 +51,9 @@ const VolumetryGraph = ({
     },
     chart: {
       zoomType: 'x',
+    },
+    time: {
+      getTimezoneOffset: () => timezoneDelayInMinutes,
     },
     plotOptions: {
       series: {
