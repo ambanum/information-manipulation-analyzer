@@ -4,6 +4,7 @@ import * as QueueItemManager from './QueueItemManager';
 import { Hashtag } from '../interfaces';
 import HashtagModel from '../models/Hashtag';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
+import dayjs from 'dayjs';
 
 const MIN_NB_OCCURENCES = 1;
 const MIN_NB_RECORDS = 1000;
@@ -53,14 +54,46 @@ export const getWithData = async (filter: { name: string }) => {
     const languages: { [key: string]: number } = {};
     const associatedHashtags: { [key: string]: number } = {};
     let totalNbTweets: number = 0;
+    let i = 0;
+    const volumetryLength = hashtag.volumetry.length;
 
     const volumetry = hashtag.volumetry.reduce(
       (acc: VolumetryGraphProps['data'], volumetry) => {
         const newAcc = [...acc];
-        newAcc[0].data.push({ x: volumetry.date, y: volumetry.nbTweets || 0 });
-        newAcc[1].data.push({ x: volumetry.date, y: volumetry.nbRetweets || 0 });
-        newAcc[2].data.push({ x: volumetry.date, y: volumetry.nbLikes || 0 });
-        newAcc[3].data.push({ x: volumetry.date, y: volumetry.nbQuotes || 0 });
+
+        const volumetryDate = volumetry.date;
+
+        if (i > 0) {
+          const volumetryDatePrevHour = dayjs(volumetry.date).add(-1, 'hour').toDate();
+
+          if (
+            volumetryDatePrevHour.toISOString() !== hashtag.volumetry[i - 1]?.date.toISOString()
+          ) {
+            newAcc[0].data.push({ x: volumetryDatePrevHour, y: 0 });
+            newAcc[1].data.push({ x: volumetryDatePrevHour, y: 0 });
+            newAcc[2].data.push({ x: volumetryDatePrevHour, y: 0 });
+            newAcc[3].data.push({ x: volumetryDatePrevHour, y: 0 });
+          }
+        }
+
+        newAcc[0].data.push({ x: volumetryDate, y: volumetry.nbTweets || 0 });
+        newAcc[1].data.push({ x: volumetryDate, y: volumetry.nbRetweets || 0 });
+        newAcc[2].data.push({ x: volumetryDate, y: volumetry.nbLikes || 0 });
+        newAcc[3].data.push({ x: volumetryDate, y: volumetry.nbQuotes || 0 });
+
+        if (i < volumetryLength - 1) {
+          const volumetryDateNextHour = dayjs(volumetry.date).add(1, 'hour').toDate();
+          if (
+            volumetryDateNextHour.toISOString() !== hashtag.volumetry[i + 1]?.date.toISOString()
+          ) {
+            newAcc[0].data.push({ x: volumetryDateNextHour, y: 0 });
+            newAcc[1].data.push({ x: volumetryDateNextHour, y: 0 });
+            newAcc[2].data.push({ x: volumetryDateNextHour, y: 0 });
+            newAcc[3].data.push({ x: volumetryDateNextHour, y: 0 });
+          }
+        }
+
+        i++;
 
         Object.keys(volumetry.languages || {}).forEach((language) => {
           languages[language] = (languages[language] || 0) + volumetry.languages[language];
