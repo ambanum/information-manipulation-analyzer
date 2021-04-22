@@ -1,4 +1,4 @@
-import * as Highcharts from 'highcharts';
+import * as Highcharts from 'highcharts/highstock';
 import * as React from 'react';
 
 import { useLocalStorage, usePrevious, useToggle } from 'react-use';
@@ -21,6 +21,7 @@ export type GraphXScale = 'day' | 'hour';
 export interface InitialSerie {
   id: string;
   name: any;
+  showInLegend: boolean;
   type: 'line' | 'spline';
   data: [number, number][];
 }
@@ -40,20 +41,22 @@ const VolumetryGraph = ({
   const initialSeries: InitialSerie[] = data.map((d) => ({
     id: d.id as string,
     name: d.id,
+    showInLegend: true,
     type: 'spline',
     data: d.data.map(({ x, y }: any) => [new Date(x).getTime(), y]),
   }));
+
   const previousXscale = usePrevious(chartXscaleDisplay);
   const [options, setOptions] = React.useState<Highcharts.Options>({
     title: {
       text: '',
     },
     colors: paletteColors,
-    xAxis: {
-      type: 'datetime',
-    },
     chart: {
       zoomType: 'x',
+    },
+    legend: {
+      enabled: true,
     },
     time: {
       getTimezoneOffset: () => timezoneDelayInMinutes,
@@ -134,7 +137,12 @@ const VolumetryGraph = ({
           day
         </button>
       </div>
-      <HighchartsReact highcharts={Highcharts} options={options} {...props} />
+      <HighchartsReact
+        highcharts={Highcharts}
+        constructorType={'stockChart'}
+        options={options}
+        {...props}
+      />
     </div>
   );
 };
