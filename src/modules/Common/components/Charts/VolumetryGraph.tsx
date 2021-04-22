@@ -21,7 +21,7 @@ export type GraphXScale = 'day' | 'hour';
 export interface InitialSerie {
   id: string;
   name: any;
-  type: 'line';
+  type: 'line' | 'spline';
   data: [number, number][];
 }
 const timezoneDelayInMinutes: number = new Date().getTimezoneOffset();
@@ -40,7 +40,7 @@ const VolumetryGraph = ({
   const initialSeries: InitialSerie[] = data.map((d) => ({
     id: d.id as string,
     name: d.id,
-    type: 'line',
+    type: 'spline',
     data: d.data.map(({ x, y }: any) => [new Date(x).getTime(), y]),
   }));
   const previousXscale = usePrevious(chartXscaleDisplay);
@@ -59,7 +59,7 @@ const VolumetryGraph = ({
       getTimezoneOffset: () => timezoneDelayInMinutes,
     },
     plotOptions: {
-      series: {
+      spline: {
         cursor: 'pointer',
         point: {
           events: {
