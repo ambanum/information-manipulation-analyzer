@@ -35,8 +35,6 @@ const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGr
 
 export { default as getStaticPaths } from './[hashtag].staticPaths';
 export { default as getStaticProps } from './[hashtag].staticProps';
-const shouldNotPoll = (status?: string) =>
-  ['DONE', 'DONE_ERROR', 'DONE_FIRST_FETCH'].includes(status || '');
 
 const REFRESH_INTERVALS = {
   PROCESSING_PREVIOUS: 60 * 1 * 1000,
@@ -70,7 +68,6 @@ const HashtagPage = ({
   nbAssociatedHashtags: GetHashtagResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
-  const [skip, setSkip] = React.useState(shouldNotPoll(defaultHashtag?.status));
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultHashtag?.status]
   );
@@ -88,7 +85,6 @@ const HashtagPage = ({
       nbAssociatedHashtags: defaultNbAssociatedHashtags,
     },
     refreshInterval: refreshInterval,
-    isPaused: () => skip,
   });
 
   const {
@@ -135,8 +131,6 @@ const HashtagPage = ({
   );
 
   React.useEffect(() => {
-    const newSkip = shouldNotPoll(status);
-    setSkip(newSkip);
     setRefreshInterval(REFRESH_INTERVALS[status]);
   }, [status]);
 
@@ -204,7 +198,7 @@ const HashtagPage = ({
 
           <div className="text-center rf-text--xs rf-text-color--g500">
             <em>
-              Crawled
+              {status !== 'PENDING' ? 'Crawled' : ''}
               {status === 'PROCESSING_PREVIOUS' && (
                 <>
                   {' '}
