@@ -1,6 +1,6 @@
 {
   "name": "information-manipulation-analyzer",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "prettier": "prettier-config-ambanum",
   "scripts": {
     "dev": "next",
