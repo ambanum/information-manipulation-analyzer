@@ -11,6 +11,7 @@ import 'nprogress/nprogress.css'; //styles of nprogress//Binding events.
 import 'modules/NProgress/nprogress.theme.scss';
 import 'modules/NProgress'; //nprogress module
 
+import { Analytics } from 'modules/Analytics';
 import { AppProps } from 'next/app';
 import { AuthProvider } from 'modules/Auth';
 import { SWRConfig } from 'swr';
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           fetcher,
         }}
       >
+        <Analytics />
         <Component {...pageProps} />
       </SWRConfig>
     </AuthProvider>
