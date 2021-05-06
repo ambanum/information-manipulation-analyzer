@@ -85,6 +85,7 @@ const HashtagPage = ({
       nbAssociatedHashtags: defaultNbAssociatedHashtags,
     },
     refreshInterval: refreshInterval,
+    revalidateOnMount: true,
   });
 
   const {
