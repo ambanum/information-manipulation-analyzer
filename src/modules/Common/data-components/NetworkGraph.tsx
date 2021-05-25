@@ -432,7 +432,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ children, className, name, 
           animationsTime: 200,
         }}
       >
-        <LoadJSON path={`${process.env.NEXT_PUBLIC_BASE_PATH}/geolocalized.json`}>
+        <LoadJSON path={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/geolocalized.json`}>
           <RelativeSize initialSize={15} />
           <RandomizeNodePositions />
         </LoadJSON>
