@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3" version="1.3" xmlns:viz="http://www.gexf.net/1.3/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.3 http://www.gexf.net/1.3/gexf.xsd">
+  <meta lastmodifieddate="2021-05-18">
+    <creator>Gephi 0.9</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="0" title="Followers" type="long"></attribute>
+      <attribute id="1" title="Influence" type="long"></attribute>
+      <attribute id="modularity_class" title="Modularity Class" type="integer">
+        <default>0</default>
+      </attribute>
+    </attributes>
+    <nodes>
+      <node id="alaqasem1980" label="alaqasem1980">
+        <attvalues>
+          <attvalue for="0" value="590"></attvalue>
+          <attvalue for="1" value="29"></attvalue>
+          <attvalue for="modularity_class" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="22.94561"></viz:size>
+        <viz:position x="479.6073" y="166.09518"></viz:position>
+        <viz:color r="223" g="137" b="255"></viz:color>
+      </node>
+      <node id="Hatem_Hassan_" label="Hatem_Hassan_">
+        <attvalues>
+          <attvalue for="0" value="403"></attvalue>
+          <attvalue for="1" value="14"></attvalue>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="21.93861"></viz:size>
+        <viz:position x="418.76813" y="70.10819"></viz:position>
+        <viz:color r="115" g="192" b="0"></viz:color>
+      </node>
+      <node id="mosquiti6" label="mosquiti6">
+        <attvalues>
+          <attvalue for="0" value="5614"></attvalue>
+          <attvalue for="1" value="13"></attvalue>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="50.0"></viz:size>
+        <viz:position x="44.31993" y="486.405"></viz:position>
+        <viz:color r="0" g="196" b="255"></viz:color>
+      </node>
+      <node id="majhol_majholzx" label="majhol_majholzx">
+        <attvalues>
+          <attvalue for="0" value="46"></attvalue>
+          <attvalue for="1" value="15"></attvalue>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="20.016155"></viz:size>
+        <viz:position x="-466.21436" y="-377.55472"></viz:position>
+        <viz:color r="255" g="85" b="132"></viz:color>
+      </node>
+      <node id="MohamedAyaou7" label="MohamedAyaou7">
+        <attvalues>
+          <attvalue for="0" value="194"></attvalue>
+          <attvalue for="1" value="10"></attvalue>
+          <attvalue for="modularity_class" value="4"></attvalue>
+        </attvalues>
+        <viz:size value="20.813139"></viz:size>
+        <viz:position x="-338.18448" y="396.0173"></viz:position>
+        <viz:color r="76" g="70" b="62"></viz:color>
+      </node>
+      <node id="IndiaMyPride17" label="IndiaMyPride17">
+        <attvalues>
+          <attvalue for="0" value="668"></attvalue>
+          <attvalue for="1" value="11"></attvalue>
+          <attvalue for="modularity_class" value="5"></attvalue>
+        </attvalues>
+        <viz:size value="23.365643"></viz:size>
+        <viz:position x="-445.5332" y="-153.96848"></viz:position>
+        <viz:color r="0" g="189" b="148"></viz:color>
+      </node>
+      <node id="fallofthefranks" label="fallofthefranks">
+        <attvalues>
+          <attvalue for="0" value="43"></attvalue>
+          <attvalue for="1" value="10"></attvalue>
+          <attvalue for="modularity_class" value="6"></attvalue>
+        </attvalues>
+        <viz:size value="20.0"></viz:size>
+        <viz:position x="319.25226" y="61.22214"></viz:position>
+        <viz:color r="211" g="179" b="176"></viz:color>
+      </node>
+      <node id="EmanEmandentist" label="EmanEmandentist">
+        <attvalues>
+          <attvalue for="0" value="98"></attvalue>
+          <attvalue for="1" value="42"></attvalue>
+          <attvalue for="modularity_class" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="20.296177"></viz:size>
+        <viz:position x="243.73729" y="384.86887"></viz:position>
+        <viz:color r="255" g="136" b="5"></viz:color>
+      </node>
+      <node id="CAT&#x1f1fa;&#x1f1f8;&#x1f1f9;&#x1f1f7;&#x1f1e9;&#x1f1ea;PIRIMIN YOLU!ALEVITE KITTY!" label="CAT&#x1f1fa;&#x1f1f8;&#x1f1f9;&#x1f1f7;&#x1f1e9;&#x1f1ea;PIRIMIN YOLU!ALEVITE KITTY!">
+        <attvalues>
+          <attvalue for="modularity_class" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="431.67755" y="259.4592"></viz:position>
+        <viz:color r="223" g="137" b="255"></viz:color>
+      </node>
+      <node id="Elinor&#x1f339;Life is sacred.&#x1f414;&#x1f42e;&#x1f437;&#x1f476;&#x1f9d2;&#x1f3fe; &#x1f436;&#x1f431;&#x1f42d;&#x1f430;&#x1f412;&#x1f434;&#x1f41f;" label="Elinor&#x1f339;Life is sacred.&#x1f414;&#x1f42e;&#x1f437;&#x1f476;&#x1f9d2;&#x1f3fe; &#x1f436;&#x1f431;&#x1f42d;&#x1f430;&#x1f412;&#x1f434;&#x1f41f;">
+        <attvalues>
+          <attvalue for="modularity_class" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="224.69798" y="-369.2117"></viz:position>
+        <viz:color r="223" g="137" b="255"></viz:color>
+      </node>
+      <node id="zaina" label="zaina">
+        <attvalues>
+          <attvalue for="modularity_class" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="368.41602" y="-107.99868"></viz:position>
+        <viz:color r="223" g="137" b="255"></viz:color>
+      </node>
+      <node id="Nourhan Samir" label="Nourhan Samir">
+        <attvalues>
+          <attvalue for="modularity_class" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="469.44318" y="110.81321"></viz:position>
+        <viz:color r="223" g="137" b="255"></viz:color>
+      </node>
+      <node id="#FreePalestine" label="#FreePalestine">
+        <attvalues>
+          <attvalue for="modularity_class" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-35.799698" y="-165.49377"></viz:position>
+        <viz:color r="223" g="137" b="255"></viz:color>
+      </node>
+      <node id="BDS, BLM, LGBTQ, Free Palestine&#x1f3f3;️‍&#x1f308;&#x1f1f5;&#x1f1f8;&#x1f1ee;&#x1f1ea;&#x1f1fa;&#x1f1f8;" label="BDS, BLM, LGBTQ, Free Palestine&#x1f3f3;️‍&#x1f308;&#x1f1f5;&#x1f1f8;&#x1f1ee;&#x1f1ea;&#x1f1fa;&#x1f1f8;">
+        <attvalues>
+          <attvalue for="modularity_class" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="207.9381" y="334.84317"></viz:position>
+        <viz:color r="223" g="137" b="255"></viz:color>
+      </node>
+      <node id="Just another guy" label="Just another guy">
+        <attvalues>
+          <attvalue for="modularity_class" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-215.63863" y="356.91367"></viz:position>
+        <viz:color r="223" g="137" b="255"></viz:color>
+      </node>
+      <node id="abdalla safi" label="abdalla safi">
+        <attvalues>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="140.04509" y="-469.06488"></viz:position>
+        <viz:color r="115" g="192" b="0"></viz:color>
+      </node>
+      <node id="Evacookie_e" label="Evacookie_e">
+        <attvalues>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-163.75194" y="-256.42398"></viz:position>
+        <viz:color r="115" g="192" b="0"></viz:color>
+      </node>
+      <node id="أبو ترف" label="أبو ترف">
+        <attvalues>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="272.25934" y="235.49722"></viz:position>
+        <viz:color r="115" g="192" b="0"></viz:color>
+      </node>
+      <node id="سارّه &#x1f1f5;&#x1f1f8;" label="سارّه &#x1f1f5;&#x1f1f8;">
+        <attvalues>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-376.854" y="-324.822"></viz:position>
+        <viz:color r="115" g="192" b="0"></viz:color>
+      </node>
+      <node id="Hussien" label="Hussien">
+        <attvalues>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-79.55266" y="276.99985"></viz:position>
+        <viz:color r="115" g="192" b="0"></viz:color>
+      </node>
+      <node id="سيدفخرى محمد" label="سيدفخرى محمد">
+        <attvalues>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-77.68129" y="395.91232"></viz:position>
+        <viz:color r="115" g="192" b="0"></viz:color>
+      </node>
+      <node id="masd jsm" label="masd jsm">
+        <attvalues>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="420.85236" y="294.34842"></viz:position>
+        <viz:color r="0" g="196" b="255"></viz:color>
+      </node>
+      <node id="Saba Khzaleh ♥️" label="Saba Khzaleh ♥️">
+        <attvalues>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="435.39502" y="-317.45602"></viz:position>
+        <viz:color r="0" g="196" b="255"></viz:color>
+      </node>
+      <node id="bashar idrees" label="bashar idrees">
+        <attvalues>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-126.13777" y="-435.15"></viz:position>
+        <viz:color r="0" g="196" b="255"></viz:color>
+      </node>
+      <node id="aml" label="aml">
+        <attvalues>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-492.8228" y="156.40909"></viz:position>
+        <viz:color r="0" g="196" b="255"></viz:color>
+      </node>
+      <node id="ayman k" label="ayman k">
+        <attvalues>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-191.49178" y="-418.25385"></viz:position>
+        <viz:color r="0" g="196" b="255"></viz:color>
+      </node>
+      <node id="ابوحافظ" label="ابوحافظ">
+        <attvalues>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="438.04773" y="-464.94125"></viz:position>
+        <viz:color r="0" g="196" b="255"></viz:color>
+      </node>
+      <node id="Tsd" label="Tsd">
+        <attvalues>
+          <attvalue for="modularity_class" value="4"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="0.39244118" y="-482.42728"></viz:position>
+        <viz:color r="76" g="70" b="62"></viz:color>
+      </node>
+      <node id="Abul Hassna" label="Abul Hassna">
+        <attvalues>
+          <attvalue for="modularity_class" value="4"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-474.4966" y="7.171544"></viz:position>
+        <viz:color r="76" g="70" b="62"></viz:color>
+      </node>
+      <node id="حسن محمد عبدالقادر" label="حسن محمد عبدالقادر">
+        <attvalues>
+          <attvalue for="modularity_class" value="4"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-198.28398" y="437.14682"></viz:position>
+        <viz:color r="76" g="70" b="62"></viz:color>
+      </node>
+      <node id="حلموش بن البدرة" label="حلموش بن البدرة">
+        <attvalues>
+          <attvalue for="modularity_class" value="4"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-138.05434" y="32.5239"></viz:position>
+        <viz:color r="76" g="70" b="62"></viz:color>
+      </node>
+      <node id="عبد الحميد كشك" label="عبد الحميد كشك">
+        <attvalues>
+          <attvalue for="modularity_class" value="4"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="249.30815" y="-117.22979"></viz:position>
+        <viz:color r="76" g="70" b="62"></viz:color>
+      </node>
+      <node id="Salah Eddin" label="Salah Eddin">
+        <attvalues>
+          <attvalue for="modularity_class" value="4"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="88.710556" y="-481.77988"></viz:position>
+        <viz:color r="76" g="70" b="62"></viz:color>
+      </node>
+      <node id="R" label="R">
+        <attvalues>
+          <attvalue for="modularity_class" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-94.96742" y="244.27652"></viz:position>
+        <viz:color r="255" g="136" b="5"></viz:color>
+      </node>
+      <node id="Ibrahim Khan ابراہیم خان" label="Ibrahim Khan ابراہیم خان">
+        <attvalues>
+          <attvalue for="modularity_class" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-239.58006" y="-496.95157"></viz:position>
+        <viz:color r="255" g="136" b="5"></viz:color>
+      </node>
+      <node id="Taufik توفیق" label="Taufik توفیق">
+        <attvalues>
+          <attvalue for="modularity_class" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-147.32664" y="147.84097"></viz:position>
+        <viz:color r="255" g="136" b="5"></viz:color>
+      </node>
+      <node id="June&#x1f1f5;&#x1f1f8;&#x1f1f2;&#x1f1fe;" label="June&#x1f1f5;&#x1f1f8;&#x1f1f2;&#x1f1fe;">
+        <attvalues>
+          <attvalue for="modularity_class" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-290.90988" y="193.74411"></viz:position>
+        <viz:color r="255" g="136" b="5"></viz:color>
+      </node>
+      <node id="maryj59" label="maryj59">
+        <attvalues>
+          <attvalue for="modularity_class" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-473.61966" y="-49.992916"></viz:position>
+        <viz:color r="255" g="136" b="5"></viz:color>
+      </node>
+      <node id="Seylan Muslims" label="Seylan Muslims">
+        <attvalues>
+          <attvalue for="modularity_class" value="7"></attvalue>
+        </attvalues>
+        <viz:size value="19.768444"></viz:size>
+        <viz:position x="-185.96693" y="440.1039"></viz:position>
+        <viz:color r="255" g="136" b="5"></viz:color>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="alaqasem1980" target="CAT&#x1f1fa;&#x1f1f8;&#x1f1f9;&#x1f1f7;&#x1f1e9;&#x1f1ea;PIRIMIN YOLU!ALEVITE KITTY!"></edge>
+      <edge id="1" source="alaqasem1980" target="Elinor&#x1f339;Life is sacred.&#x1f414;&#x1f42e;&#x1f437;&#x1f476;&#x1f9d2;&#x1f3fe; &#x1f436;&#x1f431;&#x1f42d;&#x1f430;&#x1f412;&#x1f434;&#x1f41f;"></edge>
+      <edge id="2" source="alaqasem1980" target="zaina"></edge>
+      <edge id="3" source="alaqasem1980" target="Nourhan Samir"></edge>
+      <edge id="4" source="alaqasem1980" target="#FreePalestine"></edge>
+      <edge id="5" source="alaqasem1980" target="BDS, BLM, LGBTQ, Free Palestine&#x1f3f3;️‍&#x1f308;&#x1f1f5;&#x1f1f8;&#x1f1ee;&#x1f1ea;&#x1f1fa;&#x1f1f8;"></edge>
+      <edge id="6" source="alaqasem1980" target="Just another guy"></edge>
+      <edge id="7" source="Hatem_Hassan_" target="abdalla safi"></edge>
+      <edge id="8" source="Hatem_Hassan_" target="Evacookie_e"></edge>
+      <edge id="9" source="Hatem_Hassan_" target="أبو ترف"></edge>
+      <edge id="10" source="Hatem_Hassan_" target="سارّه &#x1f1f5;&#x1f1f8;"></edge>
+      <edge id="11" source="Hatem_Hassan_" target="Hussien"></edge>
+      <edge id="12" source="Hatem_Hassan_" target="سيدفخرى محمد"></edge>
+      <edge id="13" source="mosquiti6" target="masd jsm"></edge>
+      <edge id="14" source="mosquiti6" target="Saba Khzaleh ♥️"></edge>
+      <edge id="15" source="mosquiti6" target="bashar idrees"></edge>
+      <edge id="16" source="mosquiti6" target="aml"></edge>
+      <edge id="17" source="mosquiti6" target="ayman k"></edge>
+      <edge id="18" source="mosquiti6" target="ابوحافظ"></edge>
+      <edge id="19" source="MohamedAyaou7" target="Tsd"></edge>
+      <edge id="20" source="MohamedAyaou7" target="Abul Hassna"></edge>
+      <edge id="21" source="MohamedAyaou7" target="حسن محمد عبدالقادر"></edge>
+      <edge id="22" source="MohamedAyaou7" target="حلموش بن البدرة"></edge>
+      <edge id="23" source="MohamedAyaou7" target="عبد الحميد كشك"></edge>
+      <edge id="24" source="MohamedAyaou7" target="Salah Eddin"></edge>
+      <edge id="25" source="EmanEmandentist" target="R"></edge>
+      <edge id="26" source="EmanEmandentist" target="Ibrahim Khan ابراہیم خان"></edge>
+      <edge id="27" source="EmanEmandentist" target="Taufik توفیق"></edge>
+      <edge id="28" source="EmanEmandentist" target="June&#x1f1f5;&#x1f1f8;&#x1f1f2;&#x1f1fe;"></edge>
+      <edge id="29" source="EmanEmandentist" target="maryj59"></edge>
+      <edge id="30" source="EmanEmandentist" target="Seylan Muslims"></edge>
+    </edges>
+  </graph>
+</gexf>

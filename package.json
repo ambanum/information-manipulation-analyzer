@@ -42,6 +42,7 @@
     "nprogress": "^0.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-sigma": "^1.2.35",
     "react-table": "^7.6.3",
     "react-use": "^17.2.1",
     "react-virtualized-auto-sizer": "^1.0.5",
@@ -51,6 +52,7 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
+    "@types/classnames": "^2.3.1",
     "@types/jest": "^26.0.22",
     "@types/mongoose": "5.10.4",
     "@types/mongoose-lean-virtuals": "^0.5.1",
@@ -62,6 +64,7 @@
     "@types/react-table": "^7.0.29",
     "@types/react-virtualized-auto-sizer": "^1.0.0",
     "@types/react-window": "^1.8.2",
+    "classnames": "^2.3.1",
     "husky": "^6.0.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",

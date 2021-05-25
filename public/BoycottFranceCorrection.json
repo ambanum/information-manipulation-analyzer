@@ -1,0 +1,1579 @@
+{
+  "nodes": [
+    {
+      "label": "former_foreign",
+      "x": -119.8512191772461,
+      "y": 357.8421325683594,
+      "id": "former_foreign",
+      "attributes": { "Followers": "183" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "البحّار",
+      "x": -423.0115661621094,
+      "y": 123.33584594726562,
+      "id": "البحّار",
+      "attributes": { "Followers": "72" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "ياسر",
+      "x": -184.19248962402344,
+      "y": -291.3576354980469,
+      "id": "ياسر",
+      "attributes": { "Followers": "13" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "hema",
+      "x": 366.0271911621094,
+      "y": -465.38079833984375,
+      "id": "hema",
+      "attributes": { "Followers": "21" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "abdan mam",
+      "x": 270.1433410644531,
+      "y": 478.7859191894531,
+      "id": "abdan mam",
+      "attributes": { "Followers": "35" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "fares alfares",
+      "x": 359.7078552246094,
+      "y": -436.520263671875,
+      "id": "fares alfares",
+      "attributes": { "Followers": "442" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "adham mahmoud",
+      "x": 394.2849426269531,
+      "y": -67.55056762695312,
+      "id": "adham mahmoud",
+      "attributes": { "Followers": "118" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Moussa1133",
+      "x": 271.2184753417969,
+      "y": -161.39483642578125,
+      "id": "Moussa1133",
+      "attributes": { "Followers": "9" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "محمد بن الشيخ",
+      "x": -420.7908630371094,
+      "y": 186.49166870117188,
+      "id": "محمد بن الشيخ",
+      "attributes": { "Followers": "193" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Momo",
+      "x": 76.41617584228516,
+      "y": -35.669498443603516,
+      "id": "Momo",
+      "attributes": { "Followers": "4" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "نور الدين",
+      "x": 316.8069763183594,
+      "y": -392.7398986816406,
+      "id": "نور الدين",
+      "attributes": { "Followers": "980" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Ali Alrafii",
+      "x": 140.99656677246094,
+      "y": -217.91806030273438,
+      "id": "Ali Alrafii",
+      "attributes": { "Followers": "2" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "AbuOmar",
+      "x": 2.71940016746521,
+      "y": -194.25833129882812,
+      "id": "AbuOmar",
+      "attributes": { "Followers": "734" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Nanine Nanine",
+      "x": 169.1925506591797,
+      "y": -121.50936889648438,
+      "id": "Nanine Nanine",
+      "attributes": { "Followers": "302" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Soheir elbayoumi",
+      "x": 171.48350524902344,
+      "y": 161.91275024414062,
+      "id": "Soheir elbayoumi",
+      "attributes": { "Followers": "72" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "osama adel",
+      "x": 310.8416442871094,
+      "y": 237.77944946289062,
+      "id": "osama adel",
+      "attributes": { "Followers": "2" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "🇵🇸🦅〽OSTAFA 〽AHMOUD⁦🇪🇬⁩⚽",
+      "x": -331.7098693847656,
+      "y": -38.683353424072266,
+      "id": "🇵🇸🦅〽OSTAFA 〽AHMOUD⁦🇪🇬⁩⚽",
+      "attributes": { "Followers": "1705" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "M.Elhity",
+      "x": -367.5682373046875,
+      "y": -441.34429931640625,
+      "id": "M.Elhity",
+      "attributes": { "Followers": "11" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Hythm Yhia",
+      "x": 201.16868591308594,
+      "y": 178.88027954101562,
+      "id": "Hythm Yhia",
+      "attributes": { "Followers": "84" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "أمة الرحمان",
+      "x": 136.59812927246094,
+      "y": -142.72381591796875,
+      "id": "أمة الرحمان",
+      "attributes": { "Followers": "104" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "مرحبا",
+      "x": -57.124778747558594,
+      "y": -307.20361328125,
+      "id": "مرحبا",
+      "attributes": { "Followers": "5" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Abu Ali",
+      "x": -218.81800842285156,
+      "y": -369.4263916015625,
+      "id": "Abu Ali",
+      "attributes": { "Followers": "75" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "mahah",
+      "x": -300.81610107421875,
+      "y": -236.46963500976562,
+      "id": "mahah",
+      "attributes": { "Followers": "7" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "مجرد إنسان",
+      "x": 507.4803161621094,
+      "y": 101.04531860351562,
+      "id": "مجرد إنسان",
+      "attributes": { "Followers": "76" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "SHOUKRY SAKR",
+      "x": -16.242544174194336,
+      "y": 359.7979431152344,
+      "id": "SHOUKRY SAKR",
+      "attributes": { "Followers": "72" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "ابرش حمص",
+      "x": 419.7135314941406,
+      "y": 115.39077758789062,
+      "id": "ابرش حمص",
+      "attributes": { "Followers": "35" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "TRTArabi",
+      "x": 389.3080139160156,
+      "y": 186.32974243164062,
+      "id": "TRTArabi",
+      "attributes": {},
+      "color": "rgb(125,125,68)",
+      "size": 10.0
+    },
+    {
+      "label": "Taqwa",
+      "x": 252.6355438232422,
+      "y": 130.75314331054688,
+      "id": "Taqwa",
+      "attributes": { "Followers": "463" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "shaheen shaheen",
+      "x": 500.5630187988281,
+      "y": 185.31283569335938,
+      "id": "shaheen shaheen",
+      "attributes": { "Followers": "79" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "عبدالملك",
+      "x": -444.8667907714844,
+      "y": -331.8151550292969,
+      "id": "عبدالملك",
+      "attributes": { "Followers": "41" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Halima Assadia",
+      "x": 180.54087829589844,
+      "y": 372.4395446777344,
+      "id": "Halima Assadia",
+      "attributes": { "Followers": "244" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Mohamed Elkefi Belha",
+      "x": -344.7580871582031,
+      "y": -185.62823486328125,
+      "id": "Mohamed Elkefi Belha",
+      "attributes": { "Followers": "167" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Sk20..^",
+      "x": -80.76457977294922,
+      "y": -248.55825805664062,
+      "id": "Sk20..^",
+      "attributes": { "Followers": "58" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Emhemmed Al-dardar",
+      "x": -472.2724304199219,
+      "y": -146.71817016601562,
+      "id": "Emhemmed Al-dardar",
+      "attributes": { "Followers": "18" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Mohannad Bakri",
+      "x": -473.2291259765625,
+      "y": -58.39450454711914,
+      "id": "Mohannad Bakri",
+      "attributes": { "Followers": "146" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Amar Ait Gacem",
+      "x": 453.1041564941406,
+      "y": 492.5575256347656,
+      "id": "Amar Ait Gacem",
+      "attributes": { "Followers": "1" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Ben Ali Abderazak",
+      "x": -458.3457336425781,
+      "y": -99.12115478515625,
+      "id": "Ben Ali Abderazak",
+      "attributes": { "Followers": "24" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "محمد العموش ابو انس",
+      "x": -109.2065658569336,
+      "y": 258.7161560058594,
+      "id": "محمد العموش ابو انس",
+      "attributes": { "Followers": "383" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "مريم احمد مصطفى",
+      "x": 443.7777404785156,
+      "y": -111.21826171875,
+      "id": "مريم احمد مصطفى",
+      "attributes": { "Followers": "4" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Reda Mahgo",
+      "x": -376.10980224609375,
+      "y": -263.3880615234375,
+      "id": "Reda Mahgo",
+      "attributes": { "Followers": "5" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "ابويوسف",
+      "x": -443.5600891113281,
+      "y": -184.7032470703125,
+      "id": "ابويوسف",
+      "attributes": { "Followers": "97" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Sherif Ibrahim",
+      "x": 345.8741149902344,
+      "y": -63.70285415649414,
+      "id": "Sherif Ibrahim",
+      "attributes": { "Followers": "47" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Étudie et tu diras",
+      "x": -238.6600799560547,
+      "y": -425.0764465332031,
+      "id": "Étudie et tu diras",
+      "attributes": { "Followers": "127" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "asheqat alshehada",
+      "x": -110.4590072631836,
+      "y": -225.58187866210938,
+      "id": "asheqat alshehada",
+      "attributes": { "Followers": "25" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "فصبرا جميلا",
+      "x": -402.2137145996094,
+      "y": -51.924869537353516,
+      "id": "فصبرا جميلا",
+      "attributes": { "Followers": "38" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "sinan junaidy",
+      "x": -315.3375549316406,
+      "y": 466.0673522949219,
+      "id": "sinan junaidy",
+      "attributes": { "Followers": "3" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "منتصر",
+      "x": -172.78147888183594,
+      "y": -32.87961196899414,
+      "id": "منتصر",
+      "attributes": { "Followers": "38" },
+      "color": "rgb(255,125,0)",
+      "size": 10.0
+    },
+    {
+      "label": "سلام أمان",
+      "x": 356.0992126464844,
+      "y": -260.41107177734375,
+      "id": "سلام أمان",
+      "attributes": { "Followers": "3" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "@",
+      "x": 158.21983337402344,
+      "y": 69.91268920898438,
+      "id": "@",
+      "attributes": { "Followers": "13" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "rimo3taz",
+      "x": 321.2957458496094,
+      "y": -249.5243377685547,
+      "id": "rimo3taz",
+      "attributes": { "Followers": "11" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "نسيبه",
+      "x": 321.6551208496094,
+      "y": 64.54336547851562,
+      "id": "نسيبه",
+      "attributes": { "Followers": "49" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "عبد حر",
+      "x": -176.9639434814453,
+      "y": 234.05752563476562,
+      "id": "عبد حر",
+      "attributes": { "Followers": "125" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "ابوملك الروح",
+      "x": -348.4088134765625,
+      "y": -95.65826416015625,
+      "id": "ابوملك الروح",
+      "attributes": { "Followers": "141" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Jihad",
+      "x": 251.73155212402344,
+      "y": 265.5929870605469,
+      "id": "Jihad",
+      "attributes": { "Followers": "3" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "sameh almaqashi",
+      "x": -285.2940673828125,
+      "y": 455.8697204589844,
+      "id": "sameh almaqashi",
+      "attributes": { "Followers": "82" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "lost_pharaoh",
+      "x": -482.2290954589844,
+      "y": -278.32086181640625,
+      "id": "lost_pharaoh",
+      "attributes": { "Followers": "13" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Sabah Anwar",
+      "x": 25.43088722229004,
+      "y": -160.0322265625,
+      "id": "Sabah Anwar",
+      "attributes": { "Followers": "151" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Abdel rahman",
+      "x": 225.3490447998047,
+      "y": 57.52688217163086,
+      "id": "Abdel rahman",
+      "attributes": { "Followers": "1" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Ebrhaim ALansi",
+      "x": -372.6744689941406,
+      "y": -206.30474853515625,
+      "id": "Ebrhaim ALansi",
+      "attributes": { "Followers": "299" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "محمد فوزي",
+      "x": -441.3623352050781,
+      "y": 50.08474349975586,
+      "id": "محمد فوزي",
+      "attributes": { "Followers": "54" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "اللهم إنك عفو كريم تحب العفو فاعف عنا",
+      "x": -352.11083984375,
+      "y": 326.1241760253906,
+      "id": "اللهم إنك عفو كريم تحب العفو فاعف عنا",
+      "attributes": { "Followers": "23" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "sofi",
+      "x": 52.540931701660156,
+      "y": 114.79562377929688,
+      "id": "sofi",
+      "attributes": { "Followers": "24" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "muayad arjelawi",
+      "x": 168.82041931152344,
+      "y": -114.56515502929688,
+      "id": "muayad arjelawi",
+      "attributes": { "Followers": "11" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "الحمد لله",
+      "x": 193.2900848388672,
+      "y": -476.466064453125,
+      "id": "الحمد لله",
+      "attributes": { "Followers": "5" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "hamzahamada40@yahoo.com",
+      "x": -412.0054931640625,
+      "y": -463.724365234375,
+      "id": "hamzahamada40@yahoo.com",
+      "attributes": { "Followers": "9" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "خالد البلوشي",
+      "x": 289.7403869628906,
+      "y": 133.83444213867188,
+      "id": "خالد البلوشي",
+      "attributes": { "Followers": "458" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "سيد سليمان عبدالله",
+      "x": -45.018699645996094,
+      "y": -18.70303726196289,
+      "id": "سيد سليمان عبدالله",
+      "attributes": { "Followers": "0" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Bechir EL-HAMIDI",
+      "x": -306.1792297363281,
+      "y": 189.55087280273438,
+      "id": "Bechir EL-HAMIDI",
+      "attributes": { "Followers": "63" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "هادي",
+      "x": 366.2977600097656,
+      "y": 346.8722839355469,
+      "id": "هادي",
+      "attributes": { "Followers": "128" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "AZIZ JOHUR",
+      "x": -205.8170623779297,
+      "y": -326.5134582519531,
+      "id": "AZIZ JOHUR",
+      "attributes": { "Followers": "98" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "يونس السيابي",
+      "x": 408.1972351074219,
+      "y": -64.42791748046875,
+      "id": "يونس السيابي",
+      "attributes": { "Followers": "469" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "جمعة جمعة",
+      "x": -414.0431823730469,
+      "y": 314.6461486816406,
+      "id": "جمعة جمعة",
+      "attributes": { "Followers": "1" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "أسامة الناظر",
+      "x": 12.847513198852539,
+      "y": -202.22604370117188,
+      "id": "أسامة الناظر",
+      "attributes": { "Followers": "60" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "سُـــلـطـان",
+      "x": -55.10979461669922,
+      "y": 1.3682522773742676,
+      "id": "سُـــلـطـان",
+      "attributes": { "Followers": "39" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "محمد شراقي",
+      "x": 421.7314758300781,
+      "y": -56.59726333618164,
+      "id": "محمد شراقي",
+      "attributes": { "Followers": "24" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "وكالة الخبر",
+      "x": 149.56163024902344,
+      "y": -207.046630859375,
+      "id": "وكالة الخبر",
+      "attributes": { "Followers": "35" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "فهد الباروت",
+      "x": -332.2093811035156,
+      "y": -32.089847564697266,
+      "id": "فهد الباروت",
+      "attributes": { "Followers": "233" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "الغريب",
+      "x": 348.7557678222656,
+      "y": 503.1923522949219,
+      "id": "الغريب",
+      "attributes": { "Followers": "138" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "The Rock",
+      "x": 231.9773406982422,
+      "y": 229.54794311523438,
+      "id": "The Rock",
+      "attributes": { "Followers": "18" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "el hathot",
+      "x": -282.45538330078125,
+      "y": 41.04806137084961,
+      "id": "el hathot",
+      "attributes": { "Followers": "2" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Madanisiali",
+      "x": 289.4314880371094,
+      "y": 357.3636779785156,
+      "id": "Madanisiali",
+      "attributes": { "Followers": "19" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Abdullah Al-Bayiad",
+      "x": 266.6809387207031,
+      "y": 105.47439575195312,
+      "id": "Abdullah Al-Bayiad",
+      "attributes": { "Followers": "380" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "❤️Sulaimi❤️",
+      "x": -5.258383274078369,
+      "y": 380.0628356933594,
+      "id": "❤️Sulaimi❤️",
+      "attributes": { "Followers": "81" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Ahmed Yousef",
+      "x": -280.6922912597656,
+      "y": -328.1412353515625,
+      "id": "Ahmed Yousef",
+      "attributes": { "Followers": "480" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "live.liver",
+      "x": -398.10882568359375,
+      "y": -211.02127075195312,
+      "id": "live.liver",
+      "attributes": { "Followers": "10" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Dr Wael",
+      "x": -78.5981674194336,
+      "y": 256.8909606933594,
+      "id": "Dr Wael",
+      "attributes": { "Followers": "22" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Ahmed Ahmed",
+      "x": 499.1472473144531,
+      "y": 432.4331970214844,
+      "id": "Ahmed Ahmed",
+      "attributes": { "Followers": "3" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Ahmed Aljazrawi",
+      "x": 53.391395568847656,
+      "y": -202.67684936523438,
+      "id": "Ahmed Aljazrawi",
+      "attributes": { "Followers": "3013" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "Saad Alameddin",
+      "x": -398.3102111816406,
+      "y": 104.34927368164062,
+      "id": "Saad Alameddin",
+      "attributes": { "Followers": "197" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "ibnmasouda",
+      "x": 136.0958709716797,
+      "y": -203.60809326171875,
+      "id": "ibnmasouda",
+      "attributes": { "Followers": "579" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "عبد أسعد   abd esaat",
+      "x": -388.8514709472656,
+      "y": 462.3329162597656,
+      "id": "عبد أسعد   abd esaat",
+      "attributes": { "Followers": "430" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "جمال الشيذاني 🇵🇸🇴🇲",
+      "x": 336.7122497558594,
+      "y": 196.36575317382812,
+      "id": "جمال الشيذاني 🇵🇸🇴🇲",
+      "attributes": { "Followers": "641" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    },
+    {
+      "label": "أمير الزغل",
+      "x": 378.7875671386719,
+      "y": 419.6405944824219,
+      "id": "أمير الزغل",
+      "attributes": { "Followers": "34" },
+      "color": "rgb(0,0,0)",
+      "size": 10.0
+    }
+  ],
+  "edges": [
+    {
+      "source": "SHOUKRY SAKR",
+      "target": "TRTArabi",
+      "id": "72",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "Mohamed Elkefi Belha",
+      "target": "TRTArabi",
+      "id": "85",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "AZIZ JOHUR",
+      "target": "TRTArabi",
+      "id": "48",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "🇵🇸🦅〽OSTAFA 〽AHMOUD⁦🇪🇬⁩⚽",
+      "target": "TRTArabi",
+      "id": "49",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "فصبرا جميلا",
+      "target": "TRTArabi",
+      "id": "58",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "منتصر",
+      "target": "TRTArabi",
+      "id": "5",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "هادي",
+      "target": "TRTArabi",
+      "id": "25",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "Ahmed Yousef",
+      "target": "TRTArabi",
+      "id": "46",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "mahah",
+      "target": "TRTArabi",
+      "id": "33",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "rimo3taz",
+      "target": "TRTArabi",
+      "id": "66",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "Taqwa",
+      "target": "TRTArabi",
+      "id": "76",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "محمد العموش ابو انس",
+      "target": "TRTArabi",
+      "id": "27",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "عبد حر",
+      "target": "TRTArabi",
+      "id": "86",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "live.liver",
+      "target": "TRTArabi",
+      "id": "37",
+      "attributes": {},
+      "color": "rgb(0,0,255)",
+      "size": 1.0
+    },
+    {
+      "source": "الحمد لله",
+      "target": "TRTArabi",
+      "id": "69",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "el hathot",
+      "target": "TRTArabi",
+      "id": "13",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "shaheen shaheen",
+      "target": "TRTArabi",
+      "id": "36",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Halima Assadia",
+      "target": "TRTArabi",
+      "id": "63",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "sofi",
+      "target": "TRTArabi",
+      "id": "90",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "muayad arjelawi",
+      "target": "TRTArabi",
+      "id": "40",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "AbuOmar",
+      "target": "TRTArabi",
+      "id": "57",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "مرحبا",
+      "target": "TRTArabi",
+      "id": "45",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "lost_pharaoh",
+      "target": "TRTArabi",
+      "id": "35",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "سلام أمان",
+      "target": "TRTArabi",
+      "id": "39",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Jihad",
+      "target": "TRTArabi",
+      "id": "23",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "M.Elhity",
+      "target": "TRTArabi",
+      "id": "32",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "ابوملك الروح",
+      "target": "TRTArabi",
+      "id": "88",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "ibnmasouda",
+      "target": "TRTArabi",
+      "id": "77",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Soheir elbayoumi",
+      "target": "TRTArabi",
+      "id": "2",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "fares alfares",
+      "target": "TRTArabi",
+      "id": "12",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "سُـــلـطـان",
+      "target": "TRTArabi",
+      "id": "51",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Sabah Anwar",
+      "target": "TRTArabi",
+      "id": "71",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "أمير الزغل",
+      "target": "TRTArabi",
+      "id": "75",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Saad Alameddin",
+      "target": "TRTArabi",
+      "id": "74",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Momo",
+      "target": "TRTArabi",
+      "id": "60",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Abu Ali",
+      "target": "TRTArabi",
+      "id": "1",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Abdel rahman",
+      "target": "TRTArabi",
+      "id": "9",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Étudie et tu diras",
+      "target": "TRTArabi",
+      "id": "15",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "اللهم إنك عفو كريم تحب العفو فاعف عنا",
+      "target": "TRTArabi",
+      "id": "28",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Nanine Nanine",
+      "target": "TRTArabi",
+      "id": "73",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "مجرد إنسان",
+      "target": "TRTArabi",
+      "id": "6",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "محمد بن الشيخ",
+      "target": "TRTArabi",
+      "id": "21",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Ben Ali Abderazak",
+      "target": "TRTArabi",
+      "id": "24",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "وكالة الخبر",
+      "target": "TRTArabi",
+      "id": "44",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Madanisiali",
+      "target": "TRTArabi",
+      "id": "38",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "نور الدين",
+      "target": "TRTArabi",
+      "id": "3",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Moussa1133",
+      "target": "TRTArabi",
+      "id": "16",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Hythm Yhia",
+      "target": "TRTArabi",
+      "id": "11",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "مريم احمد مصطفى",
+      "target": "TRTArabi",
+      "id": "18",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "hamzahamada40@yahoo.com",
+      "target": "TRTArabi",
+      "id": "80",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "hema",
+      "target": "TRTArabi",
+      "id": "0",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Mohannad Bakri",
+      "target": "TRTArabi",
+      "id": "31",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "نسيبه",
+      "target": "TRTArabi",
+      "id": "68",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "ابويوسف",
+      "target": "TRTArabi",
+      "id": "14",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "يونس السيابي",
+      "target": "TRTArabi",
+      "id": "65",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Abdullah Al-Bayiad",
+      "target": "TRTArabi",
+      "id": "41",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Ahmed Aljazrawi",
+      "target": "TRTArabi",
+      "id": "55",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "❤️Sulaimi❤️",
+      "target": "TRTArabi",
+      "id": "59",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "sinan junaidy",
+      "target": "TRTArabi",
+      "id": "61",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "الغريب",
+      "target": "TRTArabi",
+      "id": "83",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Ebrhaim ALansi",
+      "target": "TRTArabi",
+      "id": "91",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Dr Wael",
+      "target": "TRTArabi",
+      "id": "22",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "ياسر",
+      "target": "TRTArabi",
+      "id": "10",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "former_foreign",
+      "target": "TRTArabi",
+      "id": "52",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Amar Ait Gacem",
+      "target": "TRTArabi",
+      "id": "62",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "خالد البلوشي",
+      "target": "TRTArabi",
+      "id": "30",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "سيد سليمان عبدالله",
+      "target": "TRTArabi",
+      "id": "43",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "abdan mam",
+      "target": "TRTArabi",
+      "id": "50",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "@",
+      "target": "TRTArabi",
+      "id": "54",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "جمعة جمعة",
+      "target": "TRTArabi",
+      "id": "70",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "The Rock",
+      "target": "TRTArabi",
+      "id": "89",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Sherif Ibrahim",
+      "target": "TRTArabi",
+      "id": "26",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "أمة الرحمان",
+      "target": "TRTArabi",
+      "id": "67",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Ali Alrafii",
+      "target": "TRTArabi",
+      "id": "29",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "عبد أسعد   abd esaat",
+      "target": "TRTArabi",
+      "id": "87",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "asheqat alshehada",
+      "target": "TRTArabi",
+      "id": "81",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "sameh almaqashi",
+      "target": "TRTArabi",
+      "id": "82",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "ابرش حمص",
+      "target": "TRTArabi",
+      "id": "78",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "adham mahmoud",
+      "target": "TRTArabi",
+      "id": "7",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Ahmed Ahmed",
+      "target": "TRTArabi",
+      "id": "4",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "عبدالملك",
+      "target": "TRTArabi",
+      "id": "53",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "البحّار",
+      "target": "TRTArabi",
+      "id": "56",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Sk20..^",
+      "target": "TRTArabi",
+      "id": "42",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "osama adel",
+      "target": "TRTArabi",
+      "id": "8",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Reda Mahgo",
+      "target": "TRTArabi",
+      "id": "34",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "جمال الشيذاني 🇵🇸🇴🇲",
+      "target": "TRTArabi",
+      "id": "47",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "محمد شراقي",
+      "target": "TRTArabi",
+      "id": "64",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Bechir EL-HAMIDI",
+      "target": "TRTArabi",
+      "id": "17",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "محمد فوزي",
+      "target": "TRTArabi",
+      "id": "20",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "أسامة الناظر",
+      "target": "TRTArabi",
+      "id": "79",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "فهد الباروت",
+      "target": "TRTArabi",
+      "id": "84",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    },
+    {
+      "source": "Emhemmed Al-dardar",
+      "target": "TRTArabi",
+      "id": "19",
+      "attributes": {},
+      "color": "rgb(0,0,0)",
+      "size": 1.0
+    }
+  ]
+}

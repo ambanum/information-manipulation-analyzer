@@ -32,6 +32,9 @@ const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGr
   loading: () => <Loading />,
   ssr: false,
 });
+const NetworkGraph = dynamic(() => import('modules/Common/data-components/NetworkGraph'), {
+  ssr: false,
+});
 
 export { default as getStaticPaths } from './[hashtag].staticPaths';
 export { default as getStaticProps } from './[hashtag].staticProps';
@@ -299,6 +302,7 @@ const HashtagPage = ({
           Sorry, we did not found any data for this
         </h4>
       )}
+      <NetworkGraph name={hashtag?.name} />
 
       {volumetry[0]?.data?.length > 0 && (
         <div style={{ margin: '20px auto' }}>
