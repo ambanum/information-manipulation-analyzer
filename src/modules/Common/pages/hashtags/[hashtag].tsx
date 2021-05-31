@@ -16,6 +16,7 @@ import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
+import { useToggle } from 'react-use';
 import useUrl from 'hooks/useUrl';
 
 const HashtagTable = dynamic(() => import('../../components/Datatables/HashtagTable'), {
@@ -70,12 +71,14 @@ const HashtagPage = ({
   nbAssociatedHashtags: GetHashtagResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
+  const [loadingData, toggleLoadingData] = useToggle(true);
   const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
 
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultHashtag?.status]
   );
-  const { data, ...rest } = useSWR<GetHashtagResponse>(
+
+  const { data, isValidating } = useSWR<GetHashtagResponse>(
     `/api/hashtags/${defaultHashtag.name}${queryParamsStringified}`,
     {
       initialData: {
@@ -95,6 +98,10 @@ const HashtagPage = ({
     }
   );
 
+  React.useEffect(() => {
+    toggleLoadingData(isValidating);
+  }, [isValidating]);
+
   const {
     hashtag,
     totalNbTweets = 0,
@@ -107,7 +114,8 @@ const HashtagPage = ({
   } = data || {};
   const { status = '', firstOccurenceDate, oldestProcessedDate, newestProcessedDate } =
     data?.hashtag || {};
-  const loading = ['PROCESSING', 'PENDING'].includes(status);
+
+  const gatheringData = ['PROCESSING', 'PENDING'].includes(status);
 
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (point) => {
@@ -140,6 +148,7 @@ const HashtagPage = ({
 
   const onFilterDateChange: any = React.useCallback(
     debounce(async (data: any) => {
+      toggleLoadingData(true);
       pushQueryParams({ ...router.query, ...data }, undefined, { scroll: false });
     }, 500),
     []
@@ -202,7 +211,7 @@ const HashtagPage = ({
                 </span>
               </div>
             )}
-            {loading && <Loading />}
+            {gatheringData && <Loading />}
           </div>
         </div>
 
@@ -255,7 +264,7 @@ const HashtagPage = ({
               <div className="rf-col">
                 <Card
                   horizontal
-                  title={!loading ? nbUsernames.toLocaleString('en') : '-'}
+                  title={!gatheringData && !loadingData ? nbUsernames.toLocaleString('en') : '-'}
                   description={'Nb Active users'}
                   noArrow
                 />
@@ -263,7 +272,9 @@ const HashtagPage = ({
               <div className="rf-col">
                 <Card
                   horizontal
-                  title={!loading ? nbAssociatedHashtags.toLocaleString('en') : '-'}
+                  title={
+                    !gatheringData && !loadingData ? nbAssociatedHashtags.toLocaleString('en') : '-'
+                  }
                   description={'Nb Associated hashtags'}
                   noArrow
                 />
@@ -271,7 +282,7 @@ const HashtagPage = ({
               <div className="rf-col">
                 <Card
                   horizontal
-                  title={!loading ? totalNbTweets.toLocaleString('en') : '-'}
+                  title={!gatheringData && !loadingData ? totalNbTweets.toLocaleString('en') : '-'}
                   description={'Total Tweets'}
                   noArrow
                 />
@@ -304,12 +315,15 @@ const HashtagPage = ({
           </div>
         )}
         {languages?.length > 0 && (
-          <div style={{ height: '400px', margin: '20px auto' }}>
+          <div style={{ height: '400px', margin: '20px auto', opacity: loadingData ? 0.3 : 1 }}>
             <LanguageGraph data={languages} onSliceClick={onPieClick} />
           </div>
         )}
         {usernames?.length > 0 && (
-          <div className="rf-container rf-container-fluid">
+          <div
+            className="rf-container rf-container-fluid"
+            style={{ opacity: loadingData ? 0.3 : 1 }}
+          >
             <div className="rf-grid-row rf-grid-row--gutters">
               <div className="rf-col-md-6">
                 <UsernameTable
