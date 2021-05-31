@@ -15,6 +15,7 @@ import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
+import useUrl from 'hooks/useUrl';
 
 const HashtagTable = dynamic(() => import('../../components/Datatables/HashtagTable'), {
   loading: () => <Loading />,
@@ -68,25 +69,30 @@ const HashtagPage = ({
   nbAssociatedHashtags: GetHashtagResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
+  const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
+
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultHashtag?.status]
   );
-  const { data } = useSWR<GetHashtagResponse>(`/api/hashtags/${defaultHashtag.name}`, {
-    initialData: {
-      status: 'ok',
-      message: '',
-      hashtag: defaultHashtag,
-      totalNbTweets: defaultTotalNbTweets,
-      volumetry: defaultVolumetry,
-      languages: defaultLanguages,
-      usernames: defaultUsernames,
-      nbUsernames: defaultNbUsernames,
-      associatedHashtags: defaultAssociatedHashtags,
-      nbAssociatedHashtags: defaultNbAssociatedHashtags,
-    },
-    refreshInterval: refreshInterval,
-    revalidateOnMount: true,
-  });
+  const { data } = useSWR<GetHashtagResponse>(
+    `/api/hashtags/${defaultHashtag.name}${queryParamsStringified}`,
+    {
+      initialData: {
+        status: 'ok',
+        message: '',
+        hashtag: defaultHashtag,
+        totalNbTweets: defaultTotalNbTweets,
+        volumetry: defaultVolumetry,
+        languages: defaultLanguages,
+        usernames: defaultUsernames,
+        nbUsernames: defaultNbUsernames,
+        associatedHashtags: defaultAssociatedHashtags,
+        nbAssociatedHashtags: defaultNbAssociatedHashtags,
+      },
+      refreshInterval: refreshInterval,
+      revalidateOnMount: true,
+    }
+  );
 
   const {
     hashtag,
@@ -130,6 +136,10 @@ const HashtagPage = ({
     },
     []
   );
+
+  const onFilterDateChange: any = React.useCallback(async (data: any) => {
+    pushQueryParams({ ...router.query, ...data });
+  }, []);
 
   React.useEffect(() => {
     setRefreshInterval(REFRESH_INTERVALS[status]);
@@ -302,7 +312,12 @@ const HashtagPage = ({
 
       {volumetry[0]?.data?.length > 0 && (
         <div style={{ margin: '20px auto' }}>
-          <VolumetryGraph data={volumetry} onPointClick={onLineClick} />
+          <VolumetryGraph
+            data={volumetry}
+            defaultValues={queryParams}
+            onPointClick={onLineClick}
+            onFilterDateChange={onFilterDateChange}
+          />
         </div>
       )}
       {languages?.length > 0 && (
