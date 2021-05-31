@@ -239,6 +239,101 @@ const HashtagPage = ({
             </em>
           </div>
         </>
+        {totalNbTweets > 0 && (
+          <div className="rf-container rf-container-fluid">
+            <div className="rf-grid-row rf-grid-row--gutters">
+              <div className="rf-col">
+                <Card
+                  horizontal
+                  title={
+                    firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'
+                  }
+                  href={getTwitterLink(`#${hashtag?.name}`, { endDate: firstOccurenceDate })}
+                  description={'Date of first appearance'}
+                />
+              </div>
+              <div className="rf-col">
+                <Card
+                  horizontal
+                  title={!loading ? nbUsernames.toLocaleString('en') : '-'}
+                  description={'Nb Active users'}
+                  noArrow
+                />
+              </div>
+              <div className="rf-col">
+                <Card
+                  horizontal
+                  title={!loading ? nbAssociatedHashtags.toLocaleString('en') : '-'}
+                  description={'Nb Associated hashtags'}
+                  noArrow
+                />
+              </div>
+              <div className="rf-col">
+                <Card
+                  horizontal
+                  title={!loading ? totalNbTweets.toLocaleString('en') : '-'}
+                  description={'Total Tweets'}
+                  noArrow
+                />
+              </div>
+              <div className="rf-col">
+                <Card
+                  horizontal
+                  title={'TODO %'}
+                  description={'Inauthenticity Probability'}
+                  href={'#calculation-algorythm'}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+        {totalNbTweets === 0 && status === 'DONE' && (
+          <h4 className="text-center rf-mb-12w rf-text-color--os500">
+            Sorry, we did not found any data for this
+          </h4>
+        )}
+
+        {volumetry[0]?.data?.length > 0 && (
+          <div style={{ margin: '20px auto' }}>
+            <VolumetryGraph
+              data={volumetry}
+              defaultValues={queryParams}
+              onPointClick={onLineClick}
+              onFilterDateChange={onFilterDateChange}
+            />
+          </div>
+        )}
+        {languages?.length > 0 && (
+          <div style={{ height: '400px', margin: '20px auto' }}>
+            <LanguageGraph data={languages} onSliceClick={onPieClick} />
+          </div>
+        )}
+        {usernames?.length > 0 && (
+          <div className="rf-container rf-container-fluid">
+            <div className="rf-grid-row rf-grid-row--gutters">
+              <div className="rf-col-md-6">
+                <UsernameTable
+                  nbData={nbUsernames}
+                  data={usernames}
+                  onUsernameClick={onUsernameClick}
+                  exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
+                    hashtag?.name
+                  }__usernames`}
+                />
+              </div>
+              <div className="rf-col-md-6">
+                <HashtagTable
+                  nbData={nbAssociatedHashtags}
+                  data={associatedHashtags}
+                  onHashtagClick={onHashtagClick}
+                  exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
+                    hashtag?.name
+                  }__associated-hashtags`}
+                />
+              </div>
+            </div>
+          </div>
+        )}
         <div className="rf-highlight rf-highlight--sm">
           <form onSubmit={handleSubmit}>
             <div className="rf-input-group">
@@ -260,101 +355,6 @@ const HashtagPage = ({
           </form>
         </div>
       </div>
-      {totalNbTweets > 0 && (
-        <div className="rf-container rf-container-fluid">
-          <div className="rf-grid-row rf-grid-row--gutters">
-            <div className="rf-col">
-              <Card
-                horizontal
-                title={
-                  firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'
-                }
-                href={getTwitterLink(`#${hashtag?.name}`, { endDate: firstOccurenceDate })}
-                description={'Date of first appearance'}
-              />
-            </div>
-            <div className="rf-col">
-              <Card
-                horizontal
-                title={!loading ? nbUsernames.toLocaleString('en') : '-'}
-                description={'Nb Active users'}
-                noArrow
-              />
-            </div>
-            <div className="rf-col">
-              <Card
-                horizontal
-                title={!loading ? nbAssociatedHashtags.toLocaleString('en') : '-'}
-                description={'Nb Associated hashtags'}
-                noArrow
-              />
-            </div>
-            <div className="rf-col">
-              <Card
-                horizontal
-                title={!loading ? totalNbTweets.toLocaleString('en') : '-'}
-                description={'Total Tweets'}
-                noArrow
-              />
-            </div>
-            <div className="rf-col">
-              <Card
-                horizontal
-                title={'TODO %'}
-                description={'Inauthenticity Probability'}
-                href={'#calculation-algorythm'}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-      {totalNbTweets === 0 && status === 'DONE' && (
-        <h4 className="text-center rf-mb-12w rf-text-color--os500">
-          Sorry, we did not found any data for this
-        </h4>
-      )}
-
-      {volumetry[0]?.data?.length > 0 && (
-        <div style={{ margin: '20px auto' }}>
-          <VolumetryGraph
-            data={volumetry}
-            defaultValues={queryParams}
-            onPointClick={onLineClick}
-            onFilterDateChange={onFilterDateChange}
-          />
-        </div>
-      )}
-      {languages?.length > 0 && (
-        <div style={{ height: '400px', margin: '20px auto' }}>
-          <LanguageGraph data={languages} onSliceClick={onPieClick} />
-        </div>
-      )}
-      {usernames?.length > 0 && (
-        <div className="rf-container rf-container-fluid">
-          <div className="rf-grid-row rf-grid-row--gutters">
-            <div className="rf-col-md-6">
-              <UsernameTable
-                nbData={nbUsernames}
-                data={usernames}
-                onUsernameClick={onUsernameClick}
-                exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
-                  hashtag?.name
-                }__usernames`}
-              />
-            </div>
-            <div className="rf-col-md-6">
-              <HashtagTable
-                nbData={nbAssociatedHashtags}
-                data={associatedHashtags}
-                onHashtagClick={onHashtagClick}
-                exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
-                  hashtag?.name
-                }__associated-hashtags`}
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </Layout>
   );
 };
