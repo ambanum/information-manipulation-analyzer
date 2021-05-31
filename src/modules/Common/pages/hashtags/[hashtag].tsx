@@ -10,6 +10,7 @@ import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d'
 import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
 import api from 'utils/api';
 import dayjs from 'dayjs';
+import debounce from 'lodash/debounce';
 import dynamic from 'next/dynamic';
 import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
@@ -74,7 +75,7 @@ const HashtagPage = ({
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultHashtag?.status]
   );
-  const { data } = useSWR<GetHashtagResponse>(
+  const { data, ...rest } = useSWR<GetHashtagResponse>(
     `/api/hashtags/${defaultHashtag.name}${queryParamsStringified}`,
     {
       initialData: {
@@ -137,9 +138,12 @@ const HashtagPage = ({
     []
   );
 
-  const onFilterDateChange: any = React.useCallback(async (data: any) => {
-    pushQueryParams({ ...router.query, ...data });
-  }, []);
+  const onFilterDateChange: any = React.useCallback(
+    debounce(async (data: any) => {
+      pushQueryParams({ ...router.query, ...data }, undefined, { scroll: false });
+    }, 500),
+    []
+  );
 
   React.useEffect(() => {
     setRefreshInterval(REFRESH_INTERVALS[status]);
