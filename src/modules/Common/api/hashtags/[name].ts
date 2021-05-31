@@ -7,9 +7,11 @@ import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
-const get = (name: string) => async (res: NextApiResponse) => {
+const get = (filter: { name: string; min?: string; max?: string }) => async (
+  res: NextApiResponse
+) => {
   try {
-    const hashtag = await HashtagManager.getWithData({ name });
+    const hashtag = await HashtagManager.getWithData(filter);
 
     res.statusCode = HttpStatusCode.OK;
     res.json({ status: 'ok', message: 'Hashtag detail', ...hashtag });
@@ -21,8 +23,8 @@ const get = (name: string) => async (res: NextApiResponse) => {
 };
 
 const hashtag = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'GET' && req.query.hashtagName) {
-    return get(req.query.hashtagName as string)(res);
+  if (req.method === 'GET' && req.query.name) {
+    return get(req.query as any)(res);
   }
 
   res.statusCode = HttpStatusCode.FORBIDDEN;
