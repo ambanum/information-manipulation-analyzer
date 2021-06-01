@@ -141,9 +141,9 @@ const HashtagPage = ({
   const onHashtagClick: HashtagTableProps['onHashtagClick'] = React.useCallback(
     async (newHashtagName: string) => {
       await api.post('/api/hashtags', { name: newHashtagName });
-      router.push(`/hashtags/${newHashtagName}`);
+      router.push(`/hashtags/${newHashtagName}?fromhashtag=${hashtag?.name}`);
     },
-    []
+    [hashtag?.name]
   );
 
   const onFilterDateChange: any = React.useCallback(
@@ -176,9 +176,13 @@ const HashtagPage = ({
               <Link href="/">
                 <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">All hashtags</a>
               </Link>
-              <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left" onClick={router.back}>
-                Back
-              </a>
+              {queryParams.fromhashtag && (
+                <Link href={`/hashtags/${queryParams.fromhashtag}`}>
+                  <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">
+                    #{queryParams.fromhashtag}
+                  </a>
+                </Link>
+              )}
             </div>
             <h1 className="text-center">#{hashtag?.name}</h1>
             <h6 className="text-center">
