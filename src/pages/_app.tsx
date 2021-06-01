@@ -18,7 +18,7 @@ import { SWRConfig } from 'swr';
 import dynamic from 'next/dynamic';
 import { fetcher } from 'utils/api';
 
-dynamic(() => import('@gouvfr/all/dist/js/all.js'), { ssr: false });
+dynamic(() => import('@gouvfr/dsfr/dist/js/dsfr.module.min.js'), { ssr: false });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

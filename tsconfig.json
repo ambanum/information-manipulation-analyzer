@@ -17,7 +17,10 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+
+    //ttps://stackoverflow.com/questions/50555859/typescript-could-not-find-a-declaration-file-for-module-react-cards
+    "noImplicitAny": false
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"]
