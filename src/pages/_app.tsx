@@ -4,8 +4,6 @@ import 'modules/Wdyr';
 // This is bad as it breaks the modularity of components
 // Go Fix it
 import '@gouvfr/dsfr/dist/css/dsfr.min.css';
-import '@gouvfr/dsfr/dist/js/dsfr.module.min.js';
-import '@gouvfr/dsfr/dist/js/dsfr.nomodule.min.js';
 import 'modules/Embassy/styles/embassy.scss';
 import 'components/Loading/Loading.scss';
 // NProgress
