@@ -267,6 +267,7 @@ const HashtagPage = ({
                   title={!gatheringData && !loadingData ? nbUsernames.toLocaleString('en') : '-'}
                   description={'Nb Active users'}
                   noArrow
+                  loading={loadingData}
                 />
               </div>
               <div className="rf-col">
@@ -277,6 +278,7 @@ const HashtagPage = ({
                   }
                   description={'Nb Associated hashtags'}
                   noArrow
+                  loading={loadingData}
                 />
               </div>
               <div className="rf-col">
@@ -285,6 +287,7 @@ const HashtagPage = ({
                   title={!gatheringData && !loadingData ? totalNbTweets.toLocaleString('en') : '-'}
                   description={'Total Tweets'}
                   noArrow
+                  loading={loadingData}
                 />
               </div>
               <div className="rf-col">
