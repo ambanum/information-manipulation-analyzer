@@ -19,7 +19,9 @@
     "strict": true,
     "target": "esnext",
 
-    //ttps://stackoverflow.com/questions/50555859/typescript-could-not-find-a-declaration-file-for-module-react-cards
+    // Because importing npm modules dsfr trow an error "Typescript: Could not find a declaration file for module"
+    // -> We have to disable warning
+    // Read  ttps://stackoverflow.com/questions/50555859/typescript-could-not-find-a-declaration-file-for-module-react-cards
     "noImplicitAny": false
   },
   "exclude": ["node_modules"],
