@@ -93,7 +93,7 @@ const HashtagPage = ({
         associatedHashtags: defaultAssociatedHashtags,
         nbAssociatedHashtags: defaultNbAssociatedHashtags,
       },
-      refreshInterval: refreshInterval,
+      refreshInterval,
       revalidateOnMount: true,
     }
   );
@@ -141,17 +141,19 @@ const HashtagPage = ({
   const onHashtagClick: HashtagTableProps['onHashtagClick'] = React.useCallback(
     async (newHashtagName: string) => {
       await api.post('/api/hashtags', { name: newHashtagName });
-      router.push(`/hashtags/${newHashtagName}`);
+      router.push(`/hashtags/${newHashtagName}?fromhashtag=${hashtag?.name}`);
     },
-    []
+    [hashtag?.name]
   );
 
   const onFilterDateChange: any = React.useCallback(
     debounce(async (data: any) => {
-      toggleLoadingData(true);
-      pushQueryParams({ ...router.query, ...data }, undefined, { scroll: false });
+      if (queryParams.min !== `${data.min}` && queryParams.max !== `${data.max}`) {
+        toggleLoadingData(true);
+        pushQueryParams({ ...router.query, ...data }, undefined, { scroll: false });
+      }
     }, 500),
-    []
+    [queryParams.min, queryParams.max]
   );
 
   React.useEffect(() => {
@@ -171,9 +173,16 @@ const HashtagPage = ({
         <div className="rf-grid-row">
           <div className="rf-col">
             <div className="text-center rf-myw">
-              <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left" onClick={router.back}>
-                Back
-              </a>
+              <Link href="/">
+                <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">All hashtags</a>
+              </Link>
+              {queryParams.fromhashtag && (
+                <Link href={`/hashtags/${queryParams.fromhashtag}`}>
+                  <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">
+                    #{queryParams.fromhashtag}
+                  </a>
+                </Link>
+              )}
             </div>
             <h1 className="text-center">#{hashtag?.name}</h1>
             <h6 className="text-center">
