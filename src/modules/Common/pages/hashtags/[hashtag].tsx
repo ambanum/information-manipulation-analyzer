@@ -93,7 +93,7 @@ const HashtagPage = ({
         associatedHashtags: defaultAssociatedHashtags,
         nbAssociatedHashtags: defaultNbAssociatedHashtags,
       },
-      refreshInterval: refreshInterval,
+      refreshInterval,
       revalidateOnMount: true,
     }
   );
@@ -148,10 +148,12 @@ const HashtagPage = ({
 
   const onFilterDateChange: any = React.useCallback(
     debounce(async (data: any) => {
-      toggleLoadingData(true);
-      pushQueryParams({ ...router.query, ...data }, undefined, { scroll: false });
+      if (queryParams.min !== `${data.min}` && queryParams.max !== `${data.max}`) {
+        toggleLoadingData(true);
+        pushQueryParams({ ...router.query, ...data }, undefined, { scroll: false });
+      }
     }, 500),
-    []
+    [queryParams.min, queryParams.max]
   );
 
   React.useEffect(() => {
