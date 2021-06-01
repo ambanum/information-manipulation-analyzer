@@ -30,6 +30,7 @@ export interface Hashtag {
   firstOccurenceDate: string;
   oldestProcessedDate?: string;
   newestProcessedDate?: string;
+  error?: string;
 }
 
 export interface GetHashtagsResponse extends CommonResponse {
