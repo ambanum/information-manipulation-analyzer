@@ -139,9 +139,9 @@ const HashtagPage = ({
   );
 
   const onHashtagClick: HashtagTableProps['onHashtagClick'] = React.useCallback(
-    async (newHashtagName: string) => {
-      await api.post('/api/hashtags', { name: newHashtagName });
-      router.push(`/hashtags/${newHashtagName}?fromhashtag=${hashtag?.name}`);
+    (newHashtagName: string) => {
+      console.log('YOYOYO');
+      window.open(getTwitterLink(`#${newHashtagName}`, {}));
     },
     [hashtag?.name]
   );
