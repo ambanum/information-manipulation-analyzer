@@ -23,22 +23,6 @@ const getSizeClass = (size: number) => {
   return `flex-${size}`;
 };
 
-const scrollbarWidth = () => {
-  if (typeof document === 'undefined') {
-    return 0;
-  }
-  // thanks too https://davidwalsh.name/detect-scrollbar-width
-  const scrollDiv = document.createElement('div');
-  scrollDiv.setAttribute(
-    'style',
-    'width: 100px; height: 100px; overflow: scroll; position:absolute; top:-9999px;'
-  );
-  document.body.appendChild(scrollDiv);
-  const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-  document.body.removeChild(scrollDiv);
-  return scrollbarWidth;
-};
-
 export interface VirtualizeProps {
   height: number;
   itemSize: number;
@@ -95,7 +79,6 @@ export default function Table<T extends Record<string, unknown>>({
   const initialState: any = React.useMemo(() => (initialSortBy ? { sortBy: initialSortBy } : {}), [
     initialSortBy,
   ]);
-  const scrollBarSize = React.useMemo(() => scrollbarWidth(), []);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
     {
@@ -219,7 +202,7 @@ export default function Table<T extends Record<string, unknown>>({
                     height={virtualize?.height || 500}
                     itemCount={rows.length}
                     itemSize={virtualize?.itemSize || 56}
-                    width={width - scrollBarSize}
+                    width={width}
                   >
                     {RenderVirtualizedRow}
                   </FixedSizeList>
