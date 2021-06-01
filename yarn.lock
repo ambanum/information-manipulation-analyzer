@@ -433,6 +433,11 @@
   dependencies:
     "@gouvfr/schemes" "^0.5.3"
 
+"@gouvfr/dsfr@^1.0.0-rc1.0":
+  version "1.0.0-rc1.0"
+  resolved "https://registry.yarnpkg.com/@gouvfr/dsfr/-/dsfr-1.0.0-rc1.0.tgz#a7d0f8e047322f0b63371d9e35ffcfc29c6bb85d"
+  integrity sha512-mXfun0FzqeSgfyti6SsdPQHSpNsQBOJNkzZtvoN8KfaUGP3asupaMXe2CbRgrkV3ogqM0n/vToWjYjLzBwPxuQ==
+
 "@gouvfr/footer@^0.5.3":
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/@gouvfr/footer/-/footer-0.5.3.tgz#29b37d2fa5c2a5d199a65315da4d3739df50324c"

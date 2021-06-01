@@ -169,16 +169,16 @@ const HashtagPage = ({
 
   return (
     <Layout title={`#${hashtag?.name} | Information Manipulation Analyzer`}>
-      <div className="rf-container rf-mb-12w">
-        <div className="rf-grid-row">
-          <div className="rf-col">
-            <div className="text-center rf-myw">
+      <div className="fr-container fr-mb-12w">
+        <div className="fr-grid-row">
+          <div className="fr-col">
+            <div className="text-center fr-myw">
               <Link href="/">
-                <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">All hashtags</a>
+                <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">All hashtags</a>
               </Link>
               {queryParams.fromhashtag && (
                 <Link href={`/hashtags/${queryParams.fromhashtag}`}>
-                  <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">
+                  <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">
                     #{queryParams.fromhashtag}
                   </a>
                 </Link>
@@ -194,27 +194,27 @@ const HashtagPage = ({
                     color: 'white',
                     fontWeight: 'bold',
                   }}
-                  className="rf-tag rf-tag--sm"
+                  className="fr-tag fr-tag--sm"
                 >
                   BETA
                 </span>
               </sup>
             </h6>
             {status === 'PENDING' && (
-              <div className="text-center rf-my-12w">
-                <span className="rf-tag">Your request is in the queue and will begin shortly</span>
+              <div className="text-center fr-my-12w">
+                <span className="fr-tag">Your request is in the queue and will begin shortly</span>
               </div>
             )}
             {status === 'PROCESSING' && (
-              <div className="text-center rf-my-12w">
-                <span className="rf-tag">
+              <div className="text-center fr-my-12w">
+                <span className="fr-tag">
                   Data is being extracted from twitter, please be patient
                 </span>
               </div>
             )}
             {status === 'DONE_ERROR' && (
-              <div className="text-center rf-my-12w">
-                <span className="rf-text-color--error">
+              <div className="text-center fr-my-12w">
+                <span className="fr-text-color--error">
                   An error occured and processing stopped, please contact the administrator if you
                   need more data on this hashtag
                 </span>
@@ -226,10 +226,10 @@ const HashtagPage = ({
 
         <>
           {status === 'PROCESSING_PREVIOUS' && (
-            <Loading size="sm" className="text-center rf-my-2w" />
+            <Loading size="sm" className="text-center fr-my-2w" />
           )}
 
-          <div className="text-center rf-text--xs rf-text-color--g500">
+          <div className="text-center fr-text--xs fr-text-color--g500">
             <em>
               {status !== 'PENDING' ? 'Crawled' : ''}
               {status === 'PROCESSING_PREVIOUS' && (
@@ -258,9 +258,9 @@ const HashtagPage = ({
           </div>
         </>
         {totalNbTweets > 0 && (
-          <div className="rf-container rf-container-fluid">
-            <div className="rf-grid-row rf-grid-row--gutters">
-              <div className="rf-col">
+          <div className="fr-container fr-container-fluid">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
                 <Card
                   horizontal
                   title={
@@ -270,7 +270,7 @@ const HashtagPage = ({
                   description={'Date of first appearance'}
                 />
               </div>
-              <div className="rf-col">
+              <div className="fr-col">
                 <Card
                   horizontal
                   title={!gatheringData && !loadingData ? nbUsernames.toLocaleString('en') : '-'}
@@ -279,7 +279,7 @@ const HashtagPage = ({
                   loading={loadingData}
                 />
               </div>
-              <div className="rf-col">
+              <div className="fr-col">
                 <Card
                   horizontal
                   title={
@@ -290,7 +290,7 @@ const HashtagPage = ({
                   loading={loadingData}
                 />
               </div>
-              <div className="rf-col">
+              <div className="fr-col">
                 <Card
                   horizontal
                   title={!gatheringData && !loadingData ? totalNbTweets.toLocaleString('en') : '-'}
@@ -299,7 +299,7 @@ const HashtagPage = ({
                   loading={loadingData}
                 />
               </div>
-              <div className="rf-col">
+              <div className="fr-col">
                 <Card
                   horizontal
                   title={'TODO %'}
@@ -311,7 +311,7 @@ const HashtagPage = ({
           </div>
         )}
         {totalNbTweets === 0 && status === 'DONE' && (
-          <h4 className="text-center rf-mb-12w rf-text-color--os500">
+          <h4 className="text-center fr-mb-12w fr-text-color--os500">
             Sorry, we did not found any data for this
           </h4>
         )}
@@ -333,11 +333,11 @@ const HashtagPage = ({
         )}
         {usernames?.length > 0 && (
           <div
-            className="rf-container rf-container-fluid"
+            className="fr-container fr-container-fluid"
             style={{ opacity: loadingData ? 0.3 : 1 }}
           >
-            <div className="rf-grid-row rf-grid-row--gutters">
-              <div className="rf-col-md-6">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col-md-6">
                 <UsernameTable
                   nbData={nbUsernames}
                   data={usernames}
@@ -347,7 +347,7 @@ const HashtagPage = ({
                   }__usernames`}
                 />
               </div>
-              <div className="rf-col-md-6">
+              <div className="fr-col-md-6">
                 <HashtagTable
                   nbData={nbAssociatedHashtags}
                   data={associatedHashtags}
@@ -360,18 +360,18 @@ const HashtagPage = ({
             </div>
           </div>
         )}
-        <div className="rf-highlight rf-highlight--sm">
+        <div className="fr-highlight fr-highlight--sm">
           <form onSubmit={handleSubmit}>
-            <div className="rf-input-group">
-              <label className="rf-label" htmlFor="text-input-hint">
+            <div className="fr-input-group">
+              <label className="fr-label" htmlFor="text-input-hint">
                 Be alerted by email
-                <span className="rf-hint-text">
+                <span className="fr-hint-text">
                   Whenever <strong>#{hashtag?.name}</strong> has an abnormal rise in number of
                   tweets
                 </span>
               </label>
               <input
-                className="rf-input"
+                className="fr-input"
                 type="email"
                 id="text-input-hint"
                 name="text-input-hint"

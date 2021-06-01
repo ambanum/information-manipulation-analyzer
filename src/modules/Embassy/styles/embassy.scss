@@ -18,7 +18,7 @@
 /* ------------------------------------ *\
   TABLE
 \* ------------------------------------ */
-.rf-table {
+.fr-table {
   position: relative;
   overflow: hidden;
   max-width: 100%;
@@ -41,23 +41,23 @@
 */
 }
 
-.rf-table .caption {
+.fr-table .caption {
   display: block;
 }
-.rf-table .tr {
+.fr-table .tr {
   display: flex;
   > * {
     flex: 1;
   }
 }
 
-.rf-table:not(.rf-table--no-scroll) .table {
+.fr-table:not(.fr-table--no-scroll) .table {
   width: 100%;
 }
-.rf-table .table {
+.fr-table .table {
   border-spacing: 0;
 }
-.rf-table .caption {
+.fr-table .caption {
   font-size: 1.375rem;
   line-height: 1.75rem;
   margin: 0 0 1rem;
@@ -66,13 +66,13 @@
   text-align: left;
 }
 @media (min-width: 48em) {
-  .rf-table .caption {
+  .fr-table .caption {
     font-size: 1.5rem;
     line-height: 2rem;
   }
 }
-.rf-table .td,
-.rf-table .th {
+.fr-table .td,
+.fr-table .th {
   // text-align: left;
   vertical-align: middle;
   display: table-cell;
@@ -82,37 +82,37 @@
   line-height: 1.5rem;
 }
 @media (min-width: 48em) {
-  .rf-table .td,
-  .rf-table .th {
+  .fr-table .td,
+  .fr-table .th {
     padding: 1rem;
   }
 }
-.rf-table .th {
+.fr-table .th {
   font-weight: 700;
 }
-.rf-table .thead .td,
-.rf-table .thead .th {
+.fr-table .thead .td,
+.fr-table .thead .th {
   font-weight: 700;
   border-bottom: 0.125rem solid var(--g600);
   background-color: var(--beige);
   color: var(--g700);
 }
-.rf-table .tbody .tr:nth-child(even) {
+.fr-table .tbody .tr:nth-child(even) {
   background-color: var(--beige);
 }
-.rf-table .tbody .tr:nth-child(odd) {
+.fr-table .tbody .tr:nth-child(odd) {
   background-color: var(--white);
 }
-.rf-table--bordered .tbody .td,
-.rf-table--bordered .tbody .th {
+.fr-table--bordered .tbody .td,
+.fr-table--bordered .tbody .th {
   border: 0;
   border-bottom: 1px solid var(--g400);
 }
-.rf-table--bordered .tbody .tr:nth-child(odd),
-.rf-table--bordered .tbody .tr:nth-child(even) {
+.fr-table--bordered .tbody .tr:nth-child(odd),
+.fr-table--bordered .tbody .tr:nth-child(even) {
   background-color: var(--t-plain);
 }
-.rf-table--no-caption .caption {
+.fr-table--no-caption .caption {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -124,21 +124,21 @@
   /* added line */
   border: 0;
 }
-.rf-table--caption-bottom .caption {
+.fr-table--caption-bottom .caption {
   margin-bottom: 0;
   margin-top: 1rem;
   caption-side: bottom;
 }
-.rf-table--no-scroll {
+.fr-table--no-scroll {
   min-width: auto;
 }
-.rf-table--no-scroll .caption {
+.fr-table--no-scroll .caption {
   max-width: calc(100vw - 2rem);
 }
-.rf-table--layout-fixed .table {
+.fr-table--layout-fixed .table {
   table-layout: fixed;
 }
-.rf-table--shadow {
+.fr-table--shadow {
   /**
    * Modifier ombre à gauche
    **/
@@ -149,14 +149,14 @@
    * Modifier combinaison ombre à gauche et ombre à droite
    **/
 }
-.rf-table--shadow .caption {
+.fr-table--shadow .caption {
   position: absolute;
 }
-.rf-table--shadow .rf-table__wrapper {
+.fr-table--shadow .fr-table__wrapper {
   overflow: visible;
   position: relative;
 }
-.rf-table--shadow .rf-table__wrapper .table::before {
+.fr-table--shadow .fr-table__wrapper .table::before {
   display: block;
   content: '';
   position: absolute;
@@ -170,23 +170,23 @@
   box-shadow: inset 0 0 0 transparent, inset 0 0 0 transparent;
   transition: box-shadow ease-out 0.2s;
 }
-.rf-table--shadow-left .rf-table__wrapper .table::before {
+.fr-table--shadow-left .fr-table__wrapper .table::before {
   display: block;
   content: '';
   box-shadow: inset 2rem 0 1rem -1.5rem var(--scroll-shadow), inset 0 0 0 transparent;
 }
-.rf-table--shadow-right .rf-table__wrapper .table::before {
+.fr-table--shadow-right .fr-table__wrapper .table::before {
   display: block;
   content: '';
   box-shadow: inset 0 0 0 transparent, inset -2rem 0 1rem -1.5rem var(--scroll-shadow);
 }
-.rf-table--shadow-left.rf-table--shadow-right .rf-table__wrapper .table::before {
+.fr-table--shadow-left.fr-table--shadow-right .fr-table__wrapper .table::before {
   display: block;
   content: '';
   box-shadow: inset 2rem 0 1rem -1.5rem var(--scroll-shadow),
     inset -2rem 0 1rem -1.5rem var(--scroll-shadow);
 }
-.rf-table--shadow .table {
+.fr-table--shadow .table {
   width: 100%;
   display: block;
   overflow-y: hidden;

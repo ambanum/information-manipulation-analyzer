@@ -153,12 +153,12 @@ export default function Table<T extends Record<string, unknown>>({
 
   return (
     <div
-      className={`rf-table
+      className={`fr-table
         ${styles.table}
-        ${hideTitle ? 'rf-table--no-caption' : ''}
-        ${bordered ? 'rf-table--bordered' : ''}
-        ${layoutFixed ? 'rf-table--layout-fixed' : ''}
-        ${noScroll ? 'rf-table--no-scroll' : ''}`}
+        ${hideTitle ? 'fr-table--no-caption' : ''}
+        ${bordered ? 'fr-table--bordered' : ''}
+        ${layoutFixed ? 'fr-table--layout-fixed' : ''}
+        ${noScroll ? 'fr-table--no-scroll' : ''}`}
       {...getTableProps()}
     >
       <div className="table">
@@ -166,7 +166,7 @@ export default function Table<T extends Record<string, unknown>>({
           <span>{title}</span>
           {!!exportable && (
             <button
-              className="rf-btn rf-btn--sm rf-fi-download-line rf-btn--icon-left rf-btn--secondary"
+              className="fr-btn fr-btn--sm fr-fi-download-line fr-btn--icon-left fr-btn--secondary"
               title="Download data as CSV"
               onClick={downloadCSVData<T>({ columns, data, name: exportable.name })}
             >

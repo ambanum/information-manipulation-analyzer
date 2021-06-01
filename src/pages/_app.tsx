@@ -3,7 +3,9 @@ import 'modules/Wdyr';
 // This means that all scss files using animations must be loaded here
 // This is bad as it breaks the modularity of components
 // Go Fix it
-import '@gouvfr/all/dist/css/all.css';
+import '@gouvfr/dsfr/dist/css/dsfr.min.css';
+import '@gouvfr/dsfr/dist/js/dsfr.module.min.js';
+import '@gouvfr/dsfr/dist/js/dsfr.nomodule.min.js';
 import 'modules/Embassy/styles/embassy.scss';
 import 'components/Loading/Loading.scss';
 // NProgress
