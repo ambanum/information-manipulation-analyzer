@@ -3,6 +3,7 @@ import { GetHashtagResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
+import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
@@ -170,6 +171,9 @@ const HashtagPage = ({
         <div className="rf-grid-row">
           <div className="rf-col">
             <div className="text-center rf-myw">
+              <Link href="/">
+                <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">All hashtags</a>
+              </Link>
               <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left" onClick={router.back}>
                 Back
               </a>
