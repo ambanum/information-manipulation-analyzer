@@ -140,8 +140,15 @@ const HashtagPage = ({
 
   const onHashtagClick: HashtagTableProps['onHashtagClick'] = React.useCallback(
     (newHashtagName: string) => {
-      console.log('YOYOYO');
       window.open(getTwitterLink(`#${newHashtagName}`, {}));
+    },
+    [hashtag?.name]
+  );
+
+  const onHashtagSearchClick: HashtagTableProps['onHashtagSearchClick'] = React.useCallback(
+    async (newHashtagName: string) => {
+      await api.post('/api/hashtags', { name: newHashtagName });
+      router.push(`/hashtags/${newHashtagName}?fromhashtag=${hashtag?.name}`);
     },
     [hashtag?.name]
   );
@@ -352,6 +359,7 @@ const HashtagPage = ({
                   nbData={nbAssociatedHashtags}
                   data={associatedHashtags}
                   onHashtagClick={onHashtagClick}
+                  onHashtagSearchClick={onHashtagSearchClick}
                   exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
                     hashtag?.name
                   }__associated-hashtags`}
