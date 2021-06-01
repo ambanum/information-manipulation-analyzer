@@ -25,28 +25,12 @@ const Card = ({
   horizontal,
   noArrow,
 }: WithClassname<CardProps>) => {
-  if (loading) {
-    return (
-      <div
-        className={`rf-card ${className || ''} ${
-          horizontal ? 'rf-card--horizontal' : ''
-        } rf-card--no-arrow`}
-      >
-        <div className="rf-card__body">
-          <p className="rf-card__detail"> </p>
-
-          <h4 className="rf-card__title"> </h4>
-          <p className="rf-card__desc"> </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div
       className={`rf-card ${className || ''} ${horizontal ? 'rf-card--horizontal' : ''} ${
         noArrow ? 'rf-card--no-arrow' : ''
       }`}
+      style={{ opacity: loading ? 0.3 : 1 }}
     >
       {image && (
         <div className="rf-card__img">
