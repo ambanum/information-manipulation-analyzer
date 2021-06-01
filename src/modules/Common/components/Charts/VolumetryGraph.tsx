@@ -31,8 +31,11 @@ const VolumetryGraph = ({
   onPointClick,
   data,
   xScale = 'hour',
+  onFilterDateChange,
+  defaultValues,
   ...props
 }: VolumetryGraphProps & HighchartsReact.Props) => {
+  const chartRef = React.useRef(null);
   const [recalculating, toggleRecalculating] = useToggle(false);
   const [chartXscaleDisplay, setChartXscaleDisplay] = useLocalStorage<GraphXScale>(
     'ima-volumetry-graph-x-scale',
@@ -54,12 +57,32 @@ const VolumetryGraph = ({
     colors: paletteColors,
     chart: {
       zoomType: 'x',
+      events: {
+        load: function () {
+          const chart = this;
+          const xAxis = chart.xAxis[0];
+
+          if (defaultValues.min && defaultValues.max) {
+            const newStart = +defaultValues.min;
+            const newEnd = +defaultValues.max;
+
+            xAxis.setExtremes(newStart, newEnd);
+          }
+        },
+      },
     },
     legend: {
       enabled: true,
     },
     time: {
       getTimezoneOffset: () => timezoneDelayInMinutes,
+    },
+    xAxis: {
+      events: {
+        afterSetExtremes: ({ min, max }: any) => {
+          onFilterDateChange({ min, max });
+        },
+      },
     },
     plotOptions: {
       spline: {
@@ -113,6 +136,15 @@ const VolumetryGraph = ({
     toggleRecalculating(false);
   }, [chartXscaleDisplay, previousXscale, setOptions, initialSeries, toggleRecalculating]);
 
+  // React.useEffect(() => {
+  //   const { chart } = chartRef?.current || {};
+  //   console.log(''); //eslint-disable-line
+  //   console.log('╔════START══chartRef══════════════════════════════════════════════════'); //eslint-disable-line
+  //   console.log(chart); //eslint-disable-line
+  //   console.log(chart.xAxis[0]); //eslint-disable-line
+  //   console.log('╚════END════chartRef══════════════════════════════════════════════════'); //eslint-disable-line
+  // }, [chartRef]);
+
   return (
     <div className={styles.wrapper} style={{ opacity: recalculating ? 0.3 : 1 }}>
       <div
@@ -141,6 +173,7 @@ const VolumetryGraph = ({
         highcharts={Highcharts}
         constructorType={'stockChart'}
         options={options}
+        ref={chartRef}
         {...props}
       />
     </div>

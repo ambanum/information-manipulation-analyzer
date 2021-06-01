@@ -13,5 +13,10 @@ export interface Serie {
 export interface VolumetryGraphProps {
   data: Serie[];
   xScale?: 'hour' | 'day';
+  onFilterDateChange: (data: { min: Number; max: Number }) => unknown;
+  defaultValues: {
+    min: number;
+    max: number;
+  };
   onClick?: (datum: Datum) => unknown;
 }

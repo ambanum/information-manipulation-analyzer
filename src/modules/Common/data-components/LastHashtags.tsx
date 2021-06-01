@@ -30,15 +30,19 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
         }
 
         return (
-          <React.Fragment key={`last_hashtag_${firstLetter}`}>
+          <React.Fragment key={`last_hashtag_${hashtag.name}`}>
             {title}
-            <Link key={hashtag._id} href={`/hashtags/${hashtag.name}`}>
+            <Link key={hashtag._id} href={`/hashtags/${hashtag.name}`} prefetch={false}>
               <a className={`rf-tag rf-m-1v`}>
                 #{hashtag.name}
                 {!['DONE', 'DONE_ERROR'].includes(hashtag.status) ? (
                   <Loading size="sm" className="rf-ml-2v" />
                 ) : hashtag.status === 'DONE_ERROR' ? (
-                  <span className="rf-fi-alert-fill rf-text-color--error" aria-hidden="true"></span>
+                  <span
+                    className="rf-fi-alert-fill rf-text-color--error"
+                    aria-hidden="true"
+                    title={hashtag.error}
+                  ></span>
                 ) : null}
               </a>
             </Link>

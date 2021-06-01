@@ -46,9 +46,17 @@ export const list = async () => {
   }
 };
 
-export const getWithData = async (filter: { name: string }) => {
+export const getWithData = async ({
+  name,
+  min,
+  max,
+}: {
+  name: string;
+  min?: string;
+  max?: string;
+}) => {
   try {
-    const hashtag = await get(filter);
+    const hashtag = await get({ name });
 
     const usernames: { [key: string]: number } = {};
     const languages: { [key: string]: number } = {};
@@ -62,9 +70,10 @@ export const getWithData = async (filter: { name: string }) => {
         const newAcc = [...acc];
 
         const volumetryDate = volumetry.date;
+        const volumetryDayJs = dayjs(volumetry.date);
 
         if (i > 0) {
-          const volumetryDatePrevHour = dayjs(volumetry.date).add(-1, 'hour').toDate();
+          const volumetryDatePrevHour = volumetryDayJs.add(-1, 'hour').toDate();
 
           if (
             volumetryDatePrevHour.toISOString() !== hashtag.volumetry[i - 1]?.date.toISOString()
@@ -92,21 +101,28 @@ export const getWithData = async (filter: { name: string }) => {
             newAcc[3].data.push({ x: volumetryDateNextHour, y: 0 });
           }
         }
-
         i++;
 
-        Object.keys(volumetry.languages || {}).forEach((language) => {
-          languages[language] = (languages[language] || 0) + volumetry.languages[language];
-        });
-        Object.keys(volumetry.usernames || {}).forEach((username) => {
-          usernames[username] = (usernames[username] || 0) + volumetry.usernames[username];
-        });
-        Object.keys(volumetry.associatedHashtags || {}).forEach((associatedHashtag) => {
-          associatedHashtags[associatedHashtag] =
-            (associatedHashtags[associatedHashtag] || 0) +
-            volumetry.associatedHashtags[associatedHashtag];
-        });
-        totalNbTweets += volumetry.nbTweets;
+        if (
+          (!min && !max) ||
+          (min &&
+            max &&
+            volumetryDayJs.isAfter(dayjs(+min)) &&
+            volumetryDayJs.isBefore(dayjs(+max)))
+        ) {
+          Object.keys(volumetry.languages || {}).forEach((language) => {
+            languages[language] = (languages[language] || 0) + volumetry.languages[language];
+          });
+          Object.keys(volumetry.usernames || {}).forEach((username) => {
+            usernames[username] = (usernames[username] || 0) + volumetry.usernames[username];
+          });
+          Object.keys(volumetry.associatedHashtags || {}).forEach((associatedHashtag) => {
+            associatedHashtags[associatedHashtag] =
+              (associatedHashtags[associatedHashtag] || 0) +
+              volumetry.associatedHashtags[associatedHashtag];
+          });
+          totalNbTweets += volumetry.nbTweets;
+        }
         return acc;
       },
       [
