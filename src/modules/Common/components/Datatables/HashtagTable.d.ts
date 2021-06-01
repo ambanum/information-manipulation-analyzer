@@ -3,6 +3,7 @@ export interface HashtagTableProps {
   data: Hashtag[];
   nbData?: number;
   onHashtagClick: (username: string) => any;
+  onHashtagSearchClick: (hashtag: string) => any;
 }
 
 export interface Hashtag {

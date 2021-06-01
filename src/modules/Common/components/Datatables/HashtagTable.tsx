@@ -3,8 +3,13 @@ import { Hashtag, HashtagTableProps } from './HashtagTable.d';
 import React from 'react';
 import Table from 'components/Table';
 
-const HashtagTable = ({ exportName, data, onHashtagClick, nbData }: HashtagTableProps) => {
-  // console.log('re-render HashtagTable');
+const HashtagTable = ({
+  exportName,
+  data,
+  onHashtagClick,
+  onHashtagSearchClick,
+  nbData,
+}: HashtagTableProps) => {
   const columns = [
     {
       Header: 'Hashtag',
@@ -36,6 +41,24 @@ const HashtagTable = ({ exportName, data, onHashtagClick, nbData }: HashtagTable
       accessor: 'value',
       align: 'right',
       Cell: ({ value }: any) => value.toLocaleString('en'),
+      size: 1,
+    },
+    {
+      Header: 'Action',
+      align: 'right',
+      Cell: ({ ...rest }: any) => {
+        return (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onHashtagSearchClick(rest.row?.original?.label);
+            }}
+            className="rf-btn rf-btn rf-btn--sm rf-btn--secondary rf-fi-search-line"
+            title={`Search ${rest.row?.original?.label}`}
+          ></button>
+        );
+      },
       size: 1,
     },
   ];
