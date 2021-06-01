@@ -171,9 +171,9 @@ const HashtagPage = ({
         <div className="rf-grid-row">
           <div className="rf-col">
             <div className="text-center rf-myw">
-              <Link href="/">
-                <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left">Back</a>
-              </Link>
+              <a className="rf-link rf-fi-arrow-left-line rf-link--icon-left" onClick={router.back}>
+                Back
+              </a>
             </div>
             <h1 className="text-center">#{hashtag?.name}</h1>
             <h6 className="text-center">
