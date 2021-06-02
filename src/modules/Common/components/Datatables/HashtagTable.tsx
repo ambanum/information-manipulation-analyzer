@@ -27,7 +27,7 @@ const HashtagTable = ({ exportName, data, onHashtagClick, nbData }: HashtagTable
     },
     {
       Header: 'Inauthenticity Probability',
-      Cell: () => <small className="rf-tag rf-tag--sm">TODO</small>,
+      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
       align: 'center',
       size: 2,
     },

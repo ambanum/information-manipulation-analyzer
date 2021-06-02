@@ -3,7 +3,7 @@ import 'modules/Wdyr';
 // This means that all scss files using animations must be loaded here
 // This is bad as it breaks the modularity of components
 // Go Fix it
-import '@gouvfr/all/dist/css/all.css';
+import '@gouvfr/dsfr/dist/css/dsfr.min.css';
 import 'modules/Embassy/styles/embassy.scss';
 import 'components/Loading/Loading.scss';
 // NProgress
@@ -18,7 +18,7 @@ import { SWRConfig } from 'swr';
 import dynamic from 'next/dynamic';
 import { fetcher } from 'utils/api';
 
-dynamic(() => import('@gouvfr/all/dist/js/all.js'), { ssr: false });
+dynamic(() => import('@gouvfr/dsfr/dist/js/dsfr.module.min.js'), { ssr: false });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
