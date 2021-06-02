@@ -54,7 +54,7 @@ const HashtagTable = ({
               e.stopPropagation();
               onHashtagSearchClick(rest.row?.original?.label);
             }}
-            className="rf-btn rf-btn rf-btn--sm rf-btn--secondary rf-fi-search-line"
+            className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line"
             title={`Search ${rest.row?.original?.label}`}
           ></button>
         );
