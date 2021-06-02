@@ -22,10 +22,10 @@ const HomePage = () => {
 
   return (
     <Layout title="Information Manipulation Analyzer">
-      <div className="fr-container fr-mb-12w">
-        <div className="fr-grid-row">
-          <div className="fr-col">
-            <h1 className="text-center fr-mb-1w">
+      <div className="rf-container rf-mb-12w">
+        <div className="rf-grid-row">
+          <div className="rf-col">
+            <h1 className="text-center rf-mb-1w">
               Information Manipulation Analyzer
               <sup>
                 <span
@@ -34,30 +34,30 @@ const HomePage = () => {
                     color: 'white',
                     fontWeight: 'bold',
                   }}
-                  className="fr-tag fr-tag--sm"
+                  className="rf-tag rf-tag--sm"
                 >
                   BETA
                 </span>
               </sup>
             </h1>
             <p
-              className="fr-text--lg text-center fr-mb-7w"
+              className="rf-text--lg text-center rf-mb-7w"
               style={{ maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}
             >
               Volumetry. Artificial boost probability. Most active users. Related hashtags.
             </p>
             <Search
-              className="fr-mx-md-12w"
+              className="rf-mx-md-12w"
               label="Recherche"
               buttonLabel="Rechercher"
               placeholder="Enter a hashtag"
               onSearchSubmit={onSubmit}
             />
-            <p className="fr-text--sm text-center fr-mb-7w">
+            <p className="rf-text--sm text-center rf-mb-7w">
               <em>Finally get a real idea on wheter a #hashtag is worth the hype</em>
             </p>
 
-            <h2 className="fr-mt-12w fr-mb-2w fr-ml-1v">Check previous hashtags</h2>
+            <h2 className="rf-mt-12w rf-mb-2w rf-ml-1v">Check previous hashtags</h2>
             <LastHashtags />
           </div>
         </div>

@@ -25,7 +25,7 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
         const newFirstLetter = hashtag.name[0];
         let title = null;
         if (newFirstLetter !== firstLetter) {
-          title = <h3 className="fr-m-1v fr-mt-3v">{newFirstLetter.toUpperCase()}</h3>;
+          title = <h3 className="rf-m-1v rf-mt-3v">{newFirstLetter.toUpperCase()}</h3>;
           firstLetter = newFirstLetter;
         }
 
@@ -33,13 +33,13 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
           <React.Fragment key={`last_hashtag_${hashtag.name}`}>
             {title}
             <Link key={hashtag._id} href={`/hashtags/${hashtag.name}`} prefetch={false}>
-              <a className={`fr-tag fr-m-1v`}>
+              <a className={`rf-tag rf-m-1v`}>
                 #{hashtag.name}
                 {!['DONE', 'DONE_ERROR'].includes(hashtag.status) ? (
-                  <Loading size="sm" className="fr-ml-2v" />
+                  <Loading size="sm" className="rf-ml-2v" />
                 ) : hashtag.status === 'DONE_ERROR' ? (
                   <span
-                    className="fr-fi-alert-fill fr-text-color--error"
+                    className="rf-fi-alert-fill rf-text-color--error"
                     aria-hidden="true"
                     title={hashtag.error}
                   ></span>

@@ -31,16 +31,16 @@ const Search = ({
   };
 
   return (
-    <div className={`fr-search-bar ${className || ''}`} {...props}>
-      {label && <label className="fr-label">{label}</label>}
+    <div className={`rf-search-bar ${className || ''}`} {...props}>
+      {label && <label className="rf-label">{label}</label>}
       <input
-        className="fr-input"
+        className="rf-input"
         placeholder={placeholder}
         type="search"
         name="search-input-input"
         onChange={handleChange}
       />
-      <button className="fr-btn" title={buttonLabel} onClick={handleSubmit}>
+      <button className="rf-btn" title={buttonLabel} onClick={handleSubmit}>
         {buttonLabel}
       </button>
     </div>

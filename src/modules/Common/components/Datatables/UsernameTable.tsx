@@ -20,7 +20,7 @@ const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTa
     },
     {
       Header: 'Inauthenticity Probability',
-      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
+      Cell: () => <small className="rf-tag rf-tag--sm">TODO</small>,
       align: 'center',
       size: 2,
     },

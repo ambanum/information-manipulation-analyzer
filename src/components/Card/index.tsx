@@ -27,33 +27,33 @@ const Card = ({
 }: WithClassname<CardProps>) => {
   return (
     <div
-      className={`fr-card ${className || ''} ${horizontal ? 'fr-card--horizontal' : ''} ${
-        noArrow ? 'fr-card--no-arrow' : ''
+      className={`rf-card ${className || ''} ${horizontal ? 'rf-card--horizontal' : ''} ${
+        noArrow ? 'rf-card--no-arrow' : ''
       }`}
       style={{ opacity: loading ? 0.3 : 1 }}
     >
       {image && (
-        <div className="fr-card__img">
+        <div className="rf-card__img">
           <img src={image} alt={imageAlt} />
         </div>
       )}
-      <div className="fr-card__body">
-        {detail && <p className="fr-card__detail">{detail}</p>}
+      <div className="rf-card__body">
+        {detail && <p className="rf-card__detail">{detail}</p>}
 
-        <h4 className="fr-card__title">
+        <h4 className="rf-card__title">
           {href && !href.startsWith('http') && (
             <Link href={href}>
-              <a className="fr-card__link">{title}</a>
+              <a className="rf-card__link">{title}</a>
             </Link>
           )}
           {href && href.startsWith('http') && (
-            <a href={href} target="_blank" rel="noreferrer noopener" className="fr-card__link">
+            <a href={href} target="_blank" rel="noreferrer noopener" className="rf-card__link">
               {title}
             </a>
           )}
           {!href && title}
         </h4>
-        {description && <p className="fr-card__desc">{description}</p>}
+        {description && <p className="rf-card__desc">{description}</p>}
       </div>
     </div>
   );

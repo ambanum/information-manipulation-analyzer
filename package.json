@@ -27,7 +27,7 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
-    "@gouvfr/dsfr": "^1.0.0-rc1.0",
+    "@gouvfr/all": "^0.5.3",
     "@socialgouv/matomo-next": "^1.2.1",
     "@welldone-software/why-did-you-render": "^6.1.1",
     "axios": "^0.21.1",
