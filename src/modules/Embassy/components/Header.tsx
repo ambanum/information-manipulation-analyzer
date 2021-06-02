@@ -268,19 +268,20 @@ const Header = () => (
           </ul>
         </nav>
         <nav className={styles.header_langnav}>
-          {/*<ul className={styles.header_langnav_items}>
-            <li className={styles.header_langnav_item}>
-              <a href="/fr/open-terms-archive" className={styles.header_langnav_link}>
-                <span>Français</span>
-              </a>
-            </li>
-            <li className={styles.header_langnav_item}>
-              <a href="/en/open-terms-archive" className={styles.header_langnav_link}>
-                <span>English</span>
-              </a>
-            </li>
-          </ul>
-          */}
+          {
+            <ul className={styles.header_langnav_items}>
+              <li className={styles.header_langnav_item}>
+                <a href="/fr/" className={styles.header_langnav_link}>
+                  <span>Français</span>
+                </a>
+              </li>
+              <li className={styles.header_langnav_item}>
+                <a href="/en/" className={styles.header_langnav_link}>
+                  <span>English</span>
+                </a>
+              </li>
+            </ul>
+          }
         </nav>
       </div>
     </div>
