@@ -271,13 +271,21 @@ const Header = () => (
           {
             <ul className={styles.header_langnav_items}>
               <li className={styles.header_langnav_item}>
-                <a href="/fr/" className={styles.header_langnav_link}>
+                <a href="https://disinfo.quaidorsay.fr/fr" className={styles.header_langnav_link}>
                   <span>Français</span>
                 </a>
               </li>
               <li className={styles.header_langnav_item}>
-                <a href="/en/" className={styles.header_langnav_link}>
+                <a href="https://disinfo.quaidorsay.fr/en" className={styles.header_langnav_link}>
                   <span>English</span>
+                </a>
+              </li>
+              <li className={styles.header_langnav_item}>
+                <a
+                  href="https://disinfo.quaidorsay.fr/zh-Hant"
+                  className={styles.header_langnav_link}
+                >
+                  <span>正體中文</span>
                 </a>
               </li>
             </ul>
