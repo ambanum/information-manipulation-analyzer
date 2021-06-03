@@ -12,6 +12,11 @@
 .footer_content {
   @extend .sectioncontent;
   text-align: center;
+  
+  //Overload DSFR
+  ul > li::before{
+    display:none;
+  }
 }
 
 .footer_logo {
@@ -32,6 +37,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  
 }
 
 .footer_nav_item {

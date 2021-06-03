@@ -139,6 +139,13 @@ const HashtagPage = ({
   );
 
   const onHashtagClick: HashtagTableProps['onHashtagClick'] = React.useCallback(
+    (newHashtagName: string) => {
+      window.open(getTwitterLink(`#${newHashtagName}`, {}));
+    },
+    [hashtag?.name]
+  );
+
+  const onHashtagSearchClick: HashtagTableProps['onHashtagSearchClick'] = React.useCallback(
     async (newHashtagName: string) => {
       await api.post('/api/hashtags', { name: newHashtagName });
       router.push(`/hashtags/${newHashtagName}?fromhashtag=${hashtag?.name}`);
@@ -258,7 +265,7 @@ const HashtagPage = ({
           </div>
         </>
         {totalNbTweets > 0 && (
-          <div className="fr-container fr-container-fluid">
+          <div className="fr-container fr-container-fluid fr-my-6w">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
                 <Card
@@ -317,7 +324,7 @@ const HashtagPage = ({
         )}
 
         {volumetry[0]?.data?.length > 0 && (
-          <div style={{ margin: '20px auto' }}>
+          <div className="fr-my-6w">
             <VolumetryGraph
               data={volumetry}
               defaultValues={queryParams}
@@ -327,13 +334,16 @@ const HashtagPage = ({
           </div>
         )}
         {languages?.length > 0 && (
-          <div style={{ height: '400px', margin: '20px auto', opacity: loadingData ? 0.3 : 1 }}>
+          <div
+            className="fr-my-6w"
+            style={{ height: '400px', margin: '0 auto', opacity: loadingData ? 0.3 : 1 }}
+          >
             <LanguageGraph data={languages} onSliceClick={onPieClick} />
           </div>
         )}
         {usernames?.length > 0 && (
           <div
-            className="fr-container fr-container-fluid"
+            className="fr-container fr-container-fluid fr-my-6w"
             style={{ opacity: loadingData ? 0.3 : 1 }}
           >
             <div className="fr-grid-row fr-grid-row--gutters">
@@ -352,6 +362,7 @@ const HashtagPage = ({
                   nbData={nbAssociatedHashtags}
                   data={associatedHashtags}
                   onHashtagClick={onHashtagClick}
+                  onHashtagSearchClick={onHashtagSearchClick}
                   exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
                     hashtag?.name
                   }__associated-hashtags`}
