@@ -1,5 +1,8 @@
 import React from 'react';
+import getConfig from 'next/config';
 import styles from './Footer.module.scss';
+
+const { publicRuntimeConfig } = getConfig();
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -21,7 +24,6 @@ const Footer = () => (
             fill="#000091"
           ></path>
         </svg>
-
         <svg
           className="logo_txt"
           fill="none"
@@ -276,6 +278,7 @@ const Footer = () => (
           </li>
         </ul>
       </nav>
+      <small className="fr-text-color--g400">{publicRuntimeConfig?.version}</small>
     </div>
   </footer>
 );
