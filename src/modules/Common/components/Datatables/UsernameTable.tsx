@@ -2,6 +2,7 @@ import { Username, UsernameTableProps } from './UsernameTable.d';
 
 import React from 'react';
 import Table from 'components/Table';
+import UserData from 'modules/Common/data-components/UserData';
 
 const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTableProps) => {
   // console.log('re-render UsernameTable');
@@ -10,19 +11,15 @@ const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTa
       Header: 'Username',
       accessor: 'label',
       Cell: ({ value }: any) => {
-        return (
-          <a href=" " rel="noreferrer noopener" onClick={() => onUsernameClick(value)}>
-            {value}
-          </a>
-        );
+        return <UserData username={value} onUsernameClick={() => onUsernameClick(value)} />;
       },
-      size: 3,
+      size: 6,
     },
     {
-      Header: 'Inauthenticity Probability',
+      Header: 'Bot Prob.',
       Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
       align: 'center',
-      size: 2,
+      size: 1,
     },
     {
       Header: 'Nb of use',
@@ -46,7 +43,7 @@ const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTa
       ]}
       layoutFixed
       noScroll
-      virtualize={{ height: 1000, itemSize: 56 }}
+      virtualize={{ height: 1000, itemSize: 80 }}
       exportable={{ name: exportName }}
     />
   );

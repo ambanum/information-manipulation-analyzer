@@ -1,0 +1,60 @@
+.card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  a {
+    color: black;
+    box-shadow: none;
+  }
+  img {
+    margin: 0 5px;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  h5 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-left: 5px;
+    }
+  }
+  h6 {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    line-height: 1rem;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    font-size: 12px;
+    line-height: 1rem;
+  }
+  li {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    svg {
+      margin-right: 5px;
+      width: 15px;
+      height: 15px;
+    }
+    &:before {
+      display: none;
+    }
+  }
+}
