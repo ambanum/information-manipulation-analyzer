@@ -31,6 +31,7 @@
     "@socialgouv/matomo-next": "^1.2.1",
     "@welldone-software/why-did-you-render": "^6.1.1",
     "axios": "^0.21.1",
+    "axios-cache-adapter": "^2.7.3",
     "dayjs": "^1.10.4",
     "highcharts": "^9.0.1",
     "highcharts-react-official": "^3.0.0",
