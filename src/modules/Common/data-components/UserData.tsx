@@ -2,7 +2,6 @@ import { GetUserResponse } from '../interfaces';
 import React from 'react';
 import TwitterDataCard from '../components/TwitterDataCard';
 import useSwr from 'swr';
-import { useToggle } from 'react-use';
 
 type UserDataProps = {
   username: string;
@@ -10,22 +9,16 @@ type UserDataProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const UserData: React.FC<UserDataProps> = React.memo(({ username, onUsernameClick, ...props }) => {
-  const [shouldFetch, toggleShouldFetch] = useToggle(true);
+  const { data, isValidating } = useSwr<GetUserResponse>(`/api/users/${username}`);
 
-  const url = shouldFetch ? `/api/users/${username}` : null;
-
-  const { data, isValidating } = useSwr<GetUserResponse>(url);
   if (isValidating) {
-    return <TwitterDataCard username={`@${username}`} onUsernameClick={onUsernameClick} />;
+    return <TwitterDataCard loading username={`@${username}`} onUsernameClick={onUsernameClick} />;
   }
 
   if (!data) {
     return (
       <div>
         <TwitterDataCard username={`@${username}`} onUsernameClick={onUsernameClick} />
-        <button className="fr-btn fr-btn--sm fr-btn--secondary" onClick={toggleShouldFetch}>
-          Find twitter data
-        </button>
       </div>
     );
   }

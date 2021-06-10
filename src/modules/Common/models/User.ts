@@ -5,18 +5,20 @@ export interface User extends Document {
   platformId: 'twitter';
   username: string;
   displayname: string;
-  description: string;
-  verified: boolean;
-  created: string;
-  followersCount: number;
-  friendsCount: number;
-  statusesCount: number;
-  favouritesCount: number;
-  listedCount: number;
-  mediaCount: number;
-  location: string;
-  linkUrl: string;
-  profileImageUrl: string;
+  description?: string;
+  verified?: boolean;
+  created?: string;
+  followersCount?: number;
+  friendsCount?: number;
+  statusesCount?: number;
+  favouritesCount?: number;
+  listedCount?: number;
+  mediaCount?: number;
+  location?: string;
+  linkUrl?: string;
+  profileImageUrl?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 const UserSchema = new Schema(
