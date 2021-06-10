@@ -1,3 +1,6 @@
+.loading {
+}
+
 .card {
   display: flex;
   align-items: center;
@@ -6,9 +9,16 @@
     color: black;
     box-shadow: none;
   }
-  img {
+  .imageWrapper {
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
     margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
   svg {
     width: 20px;
     height: 20px;

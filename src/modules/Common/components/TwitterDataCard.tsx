@@ -1,4 +1,5 @@
 import { RiUserFollowFill as IconFollower } from 'react-icons/ri';
+import Loading from 'components/Loading';
 import React from 'react';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -13,6 +14,7 @@ type TwitterDataCardProps = {
   nbFollowers?: number;
   verified?: boolean;
   created?: string;
+  loading?: boolean;
   onUsernameClick: (value: string) => any;
 } & React.HTMLAttributes<HTMLDivElement>;
 
@@ -29,12 +31,16 @@ const TwitterDataCard: React.FC<TwitterDataCardProps> = React.memo(
     created,
     onUsernameClick,
     verified,
+    loading,
     ...props
   }) => {
     return (
-      <div className={`${className || ''} ${s.card}`} {...props}>
-        {image && <img src={image} width="40" height="40" />}
+      <div className={`${className || ''} ${s.card} ${loading ? s.loading : ''}`} {...props}>
+        <div className={s.imageWrapper}>
+          {image && <img src={image} width="40" height="40" />}
 
+          {loading && <Loading size="sm" />}
+        </div>
         <div>
           {displayname && (
             <h5>
