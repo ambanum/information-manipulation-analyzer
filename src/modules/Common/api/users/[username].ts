@@ -13,6 +13,7 @@ const get = ({ username }: { username: string }) => async (res: NextApiResponse)
     const user = await UserManager.get({ username });
 
     res.statusCode = HttpStatusCode.OK;
+    res.setHeader('Cache-Control', `max-age=${60 * 60 * 1000}`);
     res.json({ status: 'ok', message: 'User detail', user });
     return res;
   } catch (e) {
