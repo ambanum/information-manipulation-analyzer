@@ -50,6 +50,7 @@
     env:
       AUTH_CREDENTIALS: "{{ nextauth_basic_auth if nextauth_basic_auth is defined else '' }}"
       AUTH_JWT_SECRET: "{{ nextauth_secret if nextauth_secret is defined else '' }}"
+      PROCESSOR_API_URL: "{{ api_url if api_url is defined else '' }}"
     ports:
       - '{{ app_port }}:3000'
 
