@@ -22,6 +22,7 @@
   svg {
     width: 20px;
     height: 20px;
+    flex-shrink: 0;
   }
   h5 {
     font-size: 14px;
@@ -29,8 +30,10 @@
     margin: 0;
     line-height: 1rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+
     svg {
+      fill:rgb(29, 161, 242);
       margin-left: 5px;
     }
   }
