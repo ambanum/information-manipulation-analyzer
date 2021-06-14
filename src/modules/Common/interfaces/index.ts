@@ -4,9 +4,9 @@
 
 import { HashtagTableProps } from '../components/Datatables/HashtagTable.d';
 import { LanguageGraphProps } from '../components/Charts/LanguageGraph.d';
+import { User as ModelUser } from '../models/User';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
-
 export interface CommonResponse {
   status: 'ok' | 'ko';
   message?: string;
@@ -97,4 +97,11 @@ export interface HashtagVolumetry {
     [key: string]: number;
   };
   platformId: 'twitter';
+}
+
+/**
+ * User
+ */
+export interface GetUserResponse extends CommonResponse {
+  user: ModelUser;
 }
