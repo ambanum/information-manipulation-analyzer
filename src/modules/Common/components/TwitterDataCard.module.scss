@@ -3,20 +3,48 @@
 
 .card {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
-  a {
-    color: black;
-    box-shadow: none;
-  }
+  
   .imageWrapper {
     min-width: 40px;
     width: 40px;
     height: 40px;
-    margin: 0 5px;
+    margin: 0 4px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+  }
+
+  .imageWrapper_default{
+    background-color:#E7E7E7;
+    width:40px;
+    height:40px;
+    position:relative;
+
+    >svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .imageWrapper_img{
+    position:absolute;
+    left:0;top:0;
+    right:0;bottom:0;
+  }
+  .imageWrapper_loading{
+    position:absolute;
+    left:12px;top:12px;
+    right:0;bottom:0;
+  }
+
+  .infosWrapper{
+
+    margin-left:4px;
   }
 
   svg {
@@ -24,24 +52,17 @@
     height: 20px;
     flex-shrink: 0;
   }
-  h5 {
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0;
-    line-height: 1rem;
-    display: flex;
-    align-items: flex-start;
 
-    svg {
-      fill:rgb(29, 161, 242);
-      margin-left: 5px;
-    }
+  .infosWrapper_name {
+   
   }
+
   h6 {
     font-size: 12px;
     font-weight: normal;
     margin: 0;
     line-height: 1rem;
+    margin-top: 0px;
   }
 
   ul {
@@ -51,21 +72,25 @@
     align-items: center;
     font-size: 12px;
     line-height: 1rem;
+    margin-top: 4px;
   }
+
   li {
     padding: 0;
     display: flex;
     align-items: center;
     margin-right: 5px;
+
     &:last-child {
       margin-right: 0;
     }
 
     svg {
-      margin-right: 5px;
+      margin-right: 4px;
       width: 15px;
       height: 15px;
     }
+
     &:before {
       display: none;
     }
