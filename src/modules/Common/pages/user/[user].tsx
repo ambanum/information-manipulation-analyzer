@@ -4,7 +4,6 @@ import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import React from 'react';
 import dayjs from 'dayjs';
-import { getTwitterLink } from 'utils/twitter';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import useSwr from 'swr';
 import useUrl from 'hooks/useUrl';
@@ -29,7 +28,7 @@ const UserPage = ({ user }: { user: String }) => {
           <div className="fr-col fr-col-12 ">
             <div className="text-center fr-myw fr-mb-2w">
               <Link href="/">
-                <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">Back home</a>
+                <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">All hashtags</a>
               </Link>
               {queryParams.fromhashtag && (
                 <Link href={`/hashtags/${queryParams.fromhashtag}`}>
@@ -109,8 +108,10 @@ const UserPage = ({ user }: { user: String }) => {
                 <Card
                   horizontal
                   title={data?.user?.favouritesCount}
-                  description={'Favorites count'}
+                  detail={'Favorites count'}
                   noArrow
+                  iconName="RiHeartFill"
+                  iconColor="#6A6A6A"
                 />
               </div>
             </div>
@@ -121,8 +122,10 @@ const UserPage = ({ user }: { user: String }) => {
                 <Card
                   horizontal
                   title={data?.user?.followersCount}
-                  description={'Followers count'}
+                  detail={'Followers count'}
                   noArrow
+                  iconName="RiUserFollowFill"
+                  iconColor="#6A6A6A"
                 />
               </div>
             </div>
@@ -133,8 +136,10 @@ const UserPage = ({ user }: { user: String }) => {
                 <Card
                   horizontal
                   title={data?.user?.friendsCount}
-                  description={'Friends count'}
+                  detail={'Friends count'}
                   noArrow
+                  iconName="RiUserHeartLine"
+                  iconColor="#6A6A6A"
                 />
               </div>
             </div>
@@ -145,8 +150,10 @@ const UserPage = ({ user }: { user: String }) => {
                 <Card
                   horizontal
                   title={data?.user?.statusesCount}
-                  description={'Statuses count'}
+                  detail={'Statuses count'}
                   noArrow
+                  iconName="RiChat4Fill"
+                  iconColor="#6A6A6A"
                 />
               </div>
             </div>
@@ -157,8 +164,10 @@ const UserPage = ({ user }: { user: String }) => {
                 <Card
                   horizontal
                   title={data?.user?.mediaCount}
-                  description={'Media count'}
+                  detail={'Media count'}
                   noArrow
+                  iconName="RiImage2Fill"
+                  iconColor="#6A6A6A"
                 />
               </div>
             </div>
@@ -169,8 +178,10 @@ const UserPage = ({ user }: { user: String }) => {
                 <Card
                   horizontal
                   title={dayjs(data?.user?.created).fromNow(true)}
-                  description={'Account age'}
+                  detail={'Account age'}
                   noArrow
+                  iconName="RiCake2Fill"
+                  iconColor="#6A6A6A"
                 />
               </div>
             </div>
