@@ -8,7 +8,6 @@ import { withDb } from 'utils/db';
 
 const get = ({ username }: { username: string }) => async (res: NextApiResponse) => {
   // const botDetectionData = await BotDetectorManager.getData({username})
-
   try {
     const user = await UserManager.get({ username });
 

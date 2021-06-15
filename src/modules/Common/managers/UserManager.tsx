@@ -80,6 +80,7 @@ export const get = async (filter: { username: string }): Promise<Partial<User>> 
 
     return user;
   } catch (e) {
+    console.error(e);
     throw new Error('Could not find user');
   }
 };
