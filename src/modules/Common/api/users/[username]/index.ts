@@ -1,4 +1,4 @@
-import * as UserManager from '../../managers/UserManager';
+import * as UserManager from '../../../managers/UserManager';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 
