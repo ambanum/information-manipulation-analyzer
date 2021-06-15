@@ -2,16 +2,19 @@ import { GetUserResponse } from '../interfaces';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import React from 'react';
-import { useRouter } from 'next/router';
 import useSwr from 'swr';
 
-const UserPage = () => {
-  const router = useRouter();
+export { default as getStaticPaths } from './[user].staticPaths';
+export { default as getStaticProps } from './[user].staticProps';
 
-  const username = router.query.user.replace('@', '');
+const UserPage = ({ user }: { user: String }) => {
+  const username = user.replace('@', '');
   const { data, isValidating } = useSwr<GetUserResponse>(`/api/users/${username}`);
-  console.log(('data', data));
+
+  /*   console.log(('data', data));
   console.log(('isValidating', isValidating));
+ */
+  const image = data?.user?.profileImageUrl;
 
   return (
     <Layout title={`@${username} | Information Manipulation Analyzer`}>
@@ -56,6 +59,7 @@ const UserPage = () => {
             <li>Image url : {data?.user?.profileImageUrl}</li>
             <li>Verified : {data?.user?.verified ? 'true' : 'false'}</li>
           </ul>
+          {/* {image && <img src={image} width="40" height="40" className={s.imageWrapper_img} />} */}
         </div>
       </div>
     </Layout>

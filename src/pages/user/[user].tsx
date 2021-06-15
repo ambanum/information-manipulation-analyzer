@@ -1,1 +1,1 @@
-export { default } from 'modules/Common/pages/user/[user]';
+export { default, getStaticPaths, getStaticProps } from 'modules/Common/pages/user/[user]';
