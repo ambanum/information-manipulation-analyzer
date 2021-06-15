@@ -105,3 +105,8 @@ export interface HashtagVolumetry {
 export interface GetUserResponse extends CommonResponse {
   user: ModelUser;
 }
+
+export interface GetUserBotScoreResponse extends CommonResponse {
+  score?: number;
+  username?: string;
+}
