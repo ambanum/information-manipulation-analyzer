@@ -1,3 +1,5 @@
+import * as UserManager from '../../../managers/UserManager';
+
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import { GetUserBotScoreResponse } from 'modules/Common/interfaces';
@@ -8,16 +10,15 @@ import { withDb } from 'utils/db';
 const get = ({ username }: { username: string }) => async (
   res: NextApiResponse<GetUserBotScoreResponse>
 ) => {
-  // const botDetectionData = await BotDetectorManager.getData({username})
   try {
-    // const user = await UserManager.get({ username });
+    const { botScore } = await UserManager.getBotScore({ username });
 
     res.statusCode = HttpStatusCode.OK;
-    // res.setHeader('Cache-Control', `max-age=${60 * 60 * 1000}`);
+    res.setHeader('Cache-Control', `max-age=${60 * 60 * 1000}`);
     res.json({
       status: 'ok',
       message: 'User score',
-      score: parseFloat(Math.random().toFixed(2)),
+      score: botScore,
       username,
     });
     return res;

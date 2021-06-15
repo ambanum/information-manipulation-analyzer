@@ -1,6 +1,12 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-export interface User extends Document {
+export interface UserBotScore {
+  botScore?: number;
+  botScoreProvider?: string;
+  botScoreUpdatedAt?: string | Date;
+  botScoreMetadata?: any;
+}
+export interface BasicUser extends Document {
   id: string;
   platformId: 'twitter';
   username: string;
@@ -19,7 +25,15 @@ export interface User extends Document {
   profileImageUrl?: string;
   createdAt?: string;
   updatedAt?: string;
+
+  // bot score
+  botScore?: number;
+  botScoreProvider?: string;
+  botScoreUpdatedAt?: string;
+  botScoreMetadata?: any;
 }
+
+export type User = BasicUser & UserBotScore;
 
 const UserSchema = new Schema(
   {
@@ -39,6 +53,11 @@ const UserSchema = new Schema(
     location: { type: String, required: true, index: true },
     linkUrl: { type: String, required: true, index: true },
     profileImageUrl: { type: String, required: true, index: true },
+    // bot score
+    botScore: { type: Number, required: true, index: true },
+    botScoreProvider: { type: String, required: true, index: true },
+    botScoreUpdatedAt: { type: Date, required: true, index: true },
+    botScoreMetadata: { type: Schema.Types.Mixed },
   },
   {
     strict: 'throw',
