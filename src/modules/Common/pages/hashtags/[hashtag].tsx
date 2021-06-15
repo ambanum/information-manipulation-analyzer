@@ -153,6 +153,13 @@ const HashtagPage = ({
     [hashtag?.name]
   );
 
+  const onUsernameSearchClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
+    (username: string) => {
+      router.push(`/user/@${username}?fromhashtag=${hashtag?.name}`);
+    },
+    [hashtag?.name]
+  );
+
   const onFilterDateChange: any = React.useCallback(
     debounce(async (data: any) => {
       if (queryParams.min !== `${data.min}` && queryParams.max !== `${data.max}`) {
@@ -352,6 +359,7 @@ const HashtagPage = ({
                   nbData={nbUsernames}
                   data={usernames}
                   onUsernameClick={onUsernameClick}
+                  onUsernameSearchClick={onUsernameSearchClick}
                   exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
                     hashtag?.name
                   }__usernames`}

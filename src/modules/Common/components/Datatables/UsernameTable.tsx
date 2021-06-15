@@ -5,10 +5,14 @@ import React from 'react';
 import Table from 'components/Table';
 import UserBotScore from 'modules/Common/data-components/UserBotScore';
 import UserData from 'modules/Common/data-components/UserData';
-import { useRouter } from 'next/router';
 
-const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTableProps) => {
-  const router = useRouter();
+const UsernameTable = ({
+  exportName,
+  data,
+  onUsernameClick,
+  onUsernameSearchClick,
+  nbData,
+}: UsernameTableProps) => {
   const columns = [
     {
       Header: 'Username',
@@ -40,11 +44,11 @@ const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTa
         return (
           <Link href={`/user/@${rest.row?.original?.label}`}>
             <button
-              onClick={() => {
-                router.push(`/user/@${rest.row?.original?.label}`);
-              }}
               className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line"
               title={`View details of @${rest.row?.original?.label}`}
+              onClick={() => {
+                onUsernameSearchClick(rest.row?.original?.label);
+              }}
             ></button>
           </Link>
         );

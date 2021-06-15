@@ -1,8 +1,15 @@
+import Card from 'components/Card';
 import { GetUserResponse } from '../interfaces';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import React from 'react';
+import dayjs from 'dayjs';
+import { getTwitterLink } from 'utils/twitter';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import useSwr from 'swr';
+import useUrl from 'hooks/useUrl';
+
+dayjs.extend(relativeTime);
 
 export { default as getStaticPaths } from './[user].staticPaths';
 export { default as getStaticProps } from './[user].staticProps';
@@ -10,56 +17,164 @@ export { default as getStaticProps } from './[user].staticProps';
 const UserPage = ({ user }: { user: String }) => {
   const username = user.replace('@', '');
   const { data, isValidating } = useSwr<GetUserResponse>(`/api/users/${username}`);
-
-  /*   console.log(('data', data));
-  console.log(('isValidating', isValidating));
- */
+  if (!username) return null;
+  const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
   const image = data?.user?.profileImageUrl;
+  console.log(data?.user);
 
   return (
     <Layout title={`@${username} | Information Manipulation Analyzer`}>
       <div className="fr-container fr-mb-12w">
         <div className="fr-grid-row">
-          <div className="fr-col">
-            <div className="text-center fr-myw">
+          <div className="fr-col fr-col-12 ">
+            <div className="text-center fr-myw fr-mb-2w">
               <Link href="/">
-                <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">Back</a>
+                <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">Back home</a>
               </Link>
+              {queryParams.fromhashtag && (
+                <Link href={`/hashtags/${queryParams.fromhashtag}`}>
+                  <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">
+                    #{queryParams.fromhashtag}
+                  </a>
+                </Link>
+              )}
             </div>
-            <h1 className="text-center">{`@${username}`}</h1>
-            <h6 className="text-center">
-              Information Manipulation Analyzer
-              <sup>
-                <span
-                  style={{
-                    background: 'var(--rm500)',
-                    color: 'white',
-                    fontWeight: 'bold',
-                  }}
-                  className="fr-tag fr-tag--sm"
+          </div>
+          <div className="fr-col fr-col-12 ">
+            {image && (
+              <div className="text-center">
+                <img src={image} width="64" height="64" />
+              </div>
+            )}
+            <h1 className="text-center">
+              {`${data?.user?.displayname}`}
+              {data?.user?.verified && (
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  aria-label="Verified account"
+                  fill="rgb(29, 161, 242)"
                 >
-                  BETA
-                </span>
-              </sup>
-            </h6>
+                  <g>
+                    <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path>
+                  </g>
+                </svg>
+              )}
+            </h1>
           </div>
         </div>
       </div>
-      <div className="fr-container">
+      <div className="fr-container fr-container-fluid fr-my-6w">
+        <h3 className="fr-mb-2aw">Infos</h3>
         <div className="fr-grid-row fr-grid-row--gutters">
-          <ul>
-            <li>Name : {data?.user?.displayname}</li>
-            <li>Description : {data?.user?.description}</li>
-            <li>Favorites count : {data?.user?.favouritesCount}</li>
-            <li>Followers count : {data?.user?.followersCount}</li>
-            <li>Friends count : {data?.user?.followersCount}</li>
-            <li>Link Url : {data?.user?.linkUrl}</li>
-            <li>Location : {data?.user?.location}</li>
-            <li>Location : {data?.user?.location}</li>
-            <li>Image url : {data?.user?.profileImageUrl}</li>
-            <li>Verified : {data?.user?.verified ? 'true' : 'false'}</li>
+          <ul className="fr-col">
+            {username && (
+              <li>
+                <strong>User : </strong>
+                <Link href={`https://twitter.com/${username}`}>
+                  <a target="_blank">{`@${username}`}</a>
+                </Link>
+              </li>
+            )}
+            {data?.user?.description && (
+              <li>
+                <strong>Description : </strong>
+                {data?.user?.description}
+              </li>
+            )}
+            {data?.user?.linkUrl && (
+              <li>
+                <strong>Link URL : </strong>
+                <Link href={data?.user?.linkUrl}>
+                  <a target="_blank">{data?.user?.linkUrl}</a>
+                </Link>
+              </li>
+            )}
+            {data?.user?.location && (
+              <li>
+                <strong>Location : </strong>
+                {data?.user?.location}
+              </li>
+            )}
           </ul>
-          {/* {image && <img src={image} width="40" height="40" className={s.imageWrapper_img} />} */}
+        </div>
+      </div>
+      <div className="fr-container fr-container-fluid fr-my-6w">
+        <h3 className="fr-mb-2w">Details</h3>
+        <div className="fr-grid-row fr-grid-row--gutters">
+          {data?.user?.favouritesCount && (
+            <div className="fr-col">
+              <div className="fr-col">
+                <Card
+                  horizontal
+                  title={data?.user?.favouritesCount}
+                  description={'Favorites count'}
+                  noArrow
+                />
+              </div>
+            </div>
+          )}
+          {data?.user?.followersCount && (
+            <div className="fr-col">
+              <div className="fr-col">
+                <Card
+                  horizontal
+                  title={data?.user?.followersCount}
+                  description={'Followers count'}
+                  noArrow
+                />
+              </div>
+            </div>
+          )}
+          {data?.user?.followersCount && (
+            <div className="fr-col">
+              <div className="fr-col">
+                <Card
+                  horizontal
+                  title={data?.user?.friendsCount}
+                  description={'Friends count'}
+                  noArrow
+                />
+              </div>
+            </div>
+          )}
+          {data?.user?.statusesCount && (
+            <div className="fr-col">
+              <div className="fr-col">
+                <Card
+                  horizontal
+                  title={data?.user?.statusesCount}
+                  description={'Statuses count'}
+                  noArrow
+                />
+              </div>
+            </div>
+          )}
+          {data?.user?.mediaCount && (
+            <div className="fr-col">
+              <div className="fr-col">
+                <Card
+                  horizontal
+                  title={data?.user?.mediaCount}
+                  description={'Media count'}
+                  noArrow
+                />
+              </div>
+            </div>
+          )}
+          {data?.user?.created && (
+            <div className="fr-col">
+              <div className="fr-col">
+                <Card
+                  horizontal
+                  title={dayjs(data?.user?.created).fromNow(true)}
+                  description={'Account age'}
+                  noArrow
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
