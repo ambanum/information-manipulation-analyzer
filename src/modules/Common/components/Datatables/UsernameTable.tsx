@@ -1,12 +1,14 @@
 import { Username, UsernameTableProps } from './UsernameTable.d';
 
+import Link from 'next/link';
 import React from 'react';
 import Table from 'components/Table';
 import UserBotScore from 'modules/Common/data-components/UserBotScore';
 import UserData from 'modules/Common/data-components/UserData';
+import { useRouter } from 'next/router';
 
 const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTableProps) => {
-  // console.log('re-render UsernameTable');
+  const router = useRouter();
   const columns = [
     {
       Header: 'Username',
@@ -30,6 +32,24 @@ const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTa
       align: 'right',
       size: 1,
       Cell: ({ value }: any) => value.toLocaleString('en'),
+    },
+    {
+      Header: 'Action',
+      align: 'right',
+      Cell: ({ ...rest }: any) => {
+        return (
+          <Link href={`/user/@${rest.row?.original?.label}`}>
+            <button
+              onClick={() => {
+                router.push(`/user/@${rest.row?.original?.label}`);
+              }}
+              className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line"
+              title={`View details of @${rest.row?.original?.label}`}
+            ></button>
+          </Link>
+        );
+      },
+      size: 1,
     },
   ];
 
