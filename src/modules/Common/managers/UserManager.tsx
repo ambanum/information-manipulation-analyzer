@@ -165,3 +165,13 @@ export const getBotScore = async (filter: { username: string }): Promise<UserBot
     throw new Error('Could not find user');
   }
 };
+
+export const list = async () => {
+  try {
+    const users: User[] = await UserModel.find().sort({ username: 1 }).limit(10000);
+    return users;
+  } catch (e) {
+    console.error(e);
+    throw new Error('Could not find users');
+  }
+};

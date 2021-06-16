@@ -1,14 +1,16 @@
-/* import dbConnect from 'utils/db';
-import * as HashtagManager from '../../managers/HashtagManager'; */
+import * as UserManager from '../../managers/UserManager';
+
 import { GetStaticPaths } from 'next';
+import dbConnect from 'utils/db';
 
 export const getStaticPaths: GetStaticPaths<{
-  hashtag: string;
+  user: string;
 }> = async () => {
-  /* await dbConnect();
-  const hashtags = await HashtagManager.list(); */
+  await dbConnect();
+  const users = await UserManager.list();
+  console.log(users);
   return {
-    paths: [], //indicates that no page needs be created at build time
+    paths: users.map(({ username }) => ({ params: { user: username } })), //indicates that no page needs be created at build time
     fallback: 'blocking', //indicates the type of fallback
   };
 };

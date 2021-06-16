@@ -1,5 +1,5 @@
 import Card from 'components/Card';
-import { GetUserResponse } from '../interfaces';
+import { GetUserResponse } from '../../interfaces';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import React from 'react';
@@ -15,11 +15,10 @@ export { default as getStaticProps } from './[user].staticProps';
 
 const UserPage = ({ user }: { user: String }) => {
   const username = user.replace('@', '');
-  const { data, isValidating } = useSwr<GetUserResponse>(`/api/users/${username}`);
+  const { data } = useSwr<GetUserResponse>(`/api/users/${username}`);
   if (!username) return null;
-  const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
+  const { queryParams } = useUrl();
   const image = data?.user?.profileImageUrl;
-  console.log(data?.user);
 
   return (
     <Layout title={`@${username} | Information Manipulation Analyzer`}>
