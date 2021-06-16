@@ -71,7 +71,7 @@ const UsernameTable = ({
       ]}
       layoutFixed
       noScroll
-      virtualize={{ height: 1000, itemSize: 80 }}
+      virtualize={{ height: 1000, itemSize: 100 }}
       exportable={{ name: exportName }}
     />
   );
