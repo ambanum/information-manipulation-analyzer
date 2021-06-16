@@ -40,14 +40,14 @@ const UsernameTable = ({
     {
       Header: 'Action',
       align: 'right',
-      Cell: ({ ...rest }: any) => {
+      Cell: ({ row }: any) => {
         return (
-          <Link href={`/user/@${rest.row?.original?.label}`}>
+          <Link href={`/user/@${row?.original?.label}`}>
             <button
               className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line"
-              title={`View details of @${rest.row?.original?.label}`}
+              title={`View details of @${row?.original?.label}`}
               onClick={() => {
-                onUsernameSearchClick(rest.row?.original?.label);
+                onUsernameSearchClick(row?.original?.label);
               }}
             ></button>
           </Link>
