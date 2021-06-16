@@ -1,3 +1,5 @@
+import * as RemixIcons from 'react-icons/ri';
+
 import Link from 'next/link';
 import React from 'react';
 
@@ -11,6 +13,8 @@ interface CardProps {
   horizontal?: boolean;
   noArrow?: boolean;
   loading?: boolean;
+  iconName?: keyof typeof RemixIcons;
+  iconColor?: string;
 }
 
 const Card = ({
@@ -24,6 +28,8 @@ const Card = ({
   className,
   horizontal,
   noArrow,
+  iconName,
+  iconColor = '#0496FF',
 }: WithClassname<CardProps>) => {
   return (
     <div
@@ -38,8 +44,16 @@ const Card = ({
         </div>
       )}
       <div className="fr-card__body">
-        {detail && <p className="fr-card__detail">{detail}</p>}
-
+        {(detail || iconName) && (
+          <p className="fr-card__detail">
+            {iconName &&
+              React.createElement(RemixIcons[iconName], {
+                color: iconColor,
+                style: { marginRight: '4px' },
+              })}
+            {detail && detail}
+          </p>
+        )}
         <h4 className="fr-card__title">
           {href && !href.startsWith('http') && (
             <Link href={href}>
@@ -53,6 +67,7 @@ const Card = ({
           )}
           {!href && title}
         </h4>
+
         {description && <p className="fr-card__desc">{description}</p>}
       </div>
     </div>
