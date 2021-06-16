@@ -8,7 +8,6 @@ export const getStaticPaths: GetStaticPaths<{
 }> = async () => {
   await dbConnect();
   const users = await UserManager.list();
-  console.log(users);
   return {
     paths: users.map(({ username }) => ({ params: { user: username } })), //indicates that no page needs be created at build time
     fallback: 'blocking', //indicates the type of fallback
