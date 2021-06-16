@@ -1,4 +1,5 @@
 import { GetUserBotScoreResponse } from '../interfaces';
+import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
 import useSwr from 'swr';
@@ -24,15 +25,18 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(({ username, ...pro
   const { score } = data;
 
   return (
-    <div
-      {...props}
-      style={
-        {
-          /* color: score && score > 0.75 ? '#E10600' : score && score > 0.5 ? '#FF9940' : '#9C9C9C', */
-        }
-      }
-    >
-      {typeof score !== 'undefined' ? score.toLocaleString('en', { style: 'percent' }) : 'N/A'}
+    <div {...props}>
+      <Link href="/bot-probability">
+        <a
+          style={
+            {
+              /* color: score && score > 0.75 ? '#E10600' : score && score > 0.5 ? '#FF9940' : '#9C9C9C', */
+            }
+          }
+        >
+          {typeof score !== 'undefined' ? score.toLocaleString('en', { style: 'percent' }) : 'N/A'}
+        </a>
+      </Link>
     </div>
   );
 });

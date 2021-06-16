@@ -23,7 +23,7 @@ const UsernameTable = ({
       size: 6,
     },
     {
-      Header: 'Bot Prob.',
+      Header: 'Bot prob.',
       Cell: ({ row }: any) => {
         return <UserBotScore username={row?.original?.label} />;
       },
