@@ -26,7 +26,9 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(({ username, ...pro
   return (
     <div
       {...props}
-      style={{ color: score && score > 0.75 ? 'red' : score && score > 0.5 ? 'orange' : 'gray' }}
+      style={{
+        color: score && score > 0.75 ? '#E10600' : score && score > 0.5 ? '#FF9940' : '#9C9C9C',
+      }}
     >
       {typeof score !== 'undefined' ? score.toLocaleString('en', { style: 'percent' }) : 'N/A'}
     </div>
