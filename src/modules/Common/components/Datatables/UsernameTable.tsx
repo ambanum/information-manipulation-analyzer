@@ -2,6 +2,7 @@ import { Username, UsernameTableProps } from './UsernameTable.d';
 
 import React from 'react';
 import Table from 'components/Table';
+import UserBotScore from 'modules/Common/data-components/UserBotScore';
 import UserData from 'modules/Common/data-components/UserData';
 
 const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTableProps) => {
@@ -17,7 +18,9 @@ const UsernameTable = ({ exportName, data, onUsernameClick, nbData }: UsernameTa
     },
     {
       Header: 'Bot Prob.',
-      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
+      Cell: ({ row }: any) => {
+        return <UserBotScore username={row?.original?.label} />;
+      },
       align: 'center',
       size: 1,
     },
