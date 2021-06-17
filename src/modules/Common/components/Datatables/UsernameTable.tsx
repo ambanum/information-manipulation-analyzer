@@ -1,6 +1,5 @@
 import { Username, UsernameTableProps } from './UsernameTable.d';
 
-import Link from 'next/link';
 import React from 'react';
 import Table from 'components/Table';
 import UserBotScore from 'modules/Common/data-components/UserBotScore';
@@ -42,16 +41,14 @@ const UsernameTable = ({
       align: 'right',
       Cell: ({ row }: any) => {
         return (
-          <Link href={`/user/@${row?.original?.label}`}>
-            <button
-              type="button"
-              className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line"
-              title={`View details of @${row?.original?.label}`}
-              onClick={() => {
-                onUsernameSearchClick(row?.original?.label);
-              }}
-            ></button>
-          </Link>
+          <button
+            type="button"
+            className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line"
+            title={`View details of @${row?.original?.label}`}
+            onClick={() => {
+              onUsernameSearchClick(row?.original?.label);
+            }}
+          ></button>
         );
       },
       size: 1,
