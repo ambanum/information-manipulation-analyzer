@@ -4,15 +4,31 @@ import classNames from 'classnames';
 import s from './BreadcrumbItem.module.css';
 
 type BreadcrumbItemProps = {
-  href: string;
+  href?: string;
+  isCurrent?: boolean;
 } & React.LiHTMLAttributes<HTMLLIElement>;
 
-const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({ children, className, href, ...props }) => {
+const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
+  children,
+  className,
+  href,
+  isCurrent,
+  ...props
+}) => {
   return (
     <li className={classNames(s.breadcrumbItem, className)} {...props}>
-      <Link href={href}>
-        <a className="fr-breadcrumb__link">{children}</a>
-      </Link>
+      {href && (
+        <Link href={href}>
+          <a className="fr-breadcrumb__link" aria-current={isCurrent && 'page'}>
+            {children}
+          </a>
+        </Link>
+      )}
+      {isCurrent && (
+        <a className="fr-breadcrumb__link" aria-current="page">
+          {children}
+        </a>
+      )}
     </li>
   );
 };

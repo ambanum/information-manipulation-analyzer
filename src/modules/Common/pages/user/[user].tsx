@@ -1,3 +1,5 @@
+import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
+import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import Card from 'components/Card';
 import { GetUserResponse } from '../../interfaces';
 import Layout from 'modules/Embassy/components/Layout';
@@ -22,22 +24,8 @@ const UserPage = ({ user }: { user: String }) => {
 
   return (
     <Layout title={`@${username} | Information Manipulation Analyzer`}>
-      <div className="fr-container fr-mb-12w">
+      <div className="fr-container fr-mb-8w">
         <div className="fr-grid-row">
-          <div className="fr-col fr-col-12 ">
-            <div className="text-center fr-myw fr-mb-2w">
-              <Link href="/">
-                <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">All hashtags</a>
-              </Link>
-              {queryParams.fromhashtag && (
-                <Link href={`/hashtags/${queryParams.fromhashtag}`}>
-                  <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">
-                    #{queryParams.fromhashtag}
-                  </a>
-                </Link>
-              )}
-            </div>
-          </div>
           <div className="fr-col fr-col-12 ">
             {image && (
               <div className="text-center">
@@ -45,7 +33,7 @@ const UserPage = ({ user }: { user: String }) => {
               </div>
             )}
             <h1 className="text-center">
-              {`${data?.user?.displayname}`}
+              {data?.user?.displayname ? `${data?.user?.displayname}` : username}
               {data?.user?.verified && (
                 <svg
                   viewBox="0 0 24 24"
@@ -62,6 +50,15 @@ const UserPage = ({ user }: { user: String }) => {
             </h1>
           </div>
         </div>
+        <Breadcrumb>
+          <BreadcrumbItem href="/">All hashtags</BreadcrumbItem>
+          {queryParams.fromhashtag && (
+            <BreadcrumbItem href={`/hashtags/${queryParams.fromhashtag}`}>
+              #{queryParams.fromhashtag}
+            </BreadcrumbItem>
+          )}
+          {username && <BreadcrumbItem isCurrent={true}>@{username}</BreadcrumbItem>}
+        </Breadcrumb>
       </div>
       <div className="fr-container fr-container-fluid fr-my-6w">
         <h3 className="fr-mb-2aw">Infos</h3>
