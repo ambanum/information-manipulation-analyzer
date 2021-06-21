@@ -1,7 +1,10 @@
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
+import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
+import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import Layout from 'modules/Embassy/components/Layout';
 import { NextPage } from 'next';
+import React from 'react';
 import axios from 'axios';
 import { serialize } from 'next-mdx-remote/serialize';
 import { useRouter } from 'next/router';
@@ -15,22 +18,19 @@ const BotProbability: NextPage<Props> = ({ mdxContent }) => {
 
   return (
     <Layout title="Bot Probability - Information Manipulation Analyzer">
-      <div className="fr-container fr-mb-12w">
+      <div className="fr-container fr-container-fluid">
         <div className="fr-grid-row">
           <div className="fr-col fr-col-12 ">
-            <div className="text-center fr-myw fr-mb-2w">
-              <a
-                href=" "
-                onClick={() => router.back()}
-                className="fr-link fr-fi-arrow-left-line fr-link--icon-left"
-              >
+            <Breadcrumb>
+              <BreadcrumbItem href=" " onClick={() => router.back()}>
                 Back
-              </a>
-            </div>
+              </BreadcrumbItem>
+            </Breadcrumb>
           </div>
         </div>
       </div>
-      <div className="fr-container fr-container-fluid fr-my-6w">
+
+      <div className="fr-container fr-container-fluid fr-my-2w">
         <div className="fr-grid-row fr-grid-row--gutters">
           <div className="fr-col fr-col-12 fr-col-sm-12 fr-col-md-12 fr-col-lg-10 fr-col-xl-10">
             <MDXRemote {...(mdxContent as any)} components={{}} />
