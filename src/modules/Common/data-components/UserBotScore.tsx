@@ -2,6 +2,7 @@ import { GetUserBotScoreResponse } from '../interfaces';
 import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
+import dayjs from 'dayjs';
 import useSwr from 'swr';
 
 type UserBotScoreProps = {
@@ -57,7 +58,10 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
               <strong>Provider:</strong> {typeof provider !== 'undefined' ? provider : 'N/A'}
             </li>
             <li>
-              <strong>Updated at:</strong> {typeof updatedAt !== 'undefined' ? updatedAt : 'N/A'}
+              <strong>Updated at:</strong>{' '}
+              {typeof updatedAt !== 'undefined'
+                ? dayjs(updatedAt).format('MMMM D, YYYY h:mm A')
+                : 'N/A'}
             </li>
             <li>
               <strong>Metadata:</strong>
