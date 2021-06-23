@@ -27,9 +27,6 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
     }
 
     const { score, metadata, updatedAt, provider } = data;
-    console.log(metadata);
-    console.log(updatedAt);
-    console.log(provider);
 
     if (type === 'raw') {
       return (
