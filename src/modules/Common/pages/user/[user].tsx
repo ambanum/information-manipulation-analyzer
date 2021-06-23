@@ -5,6 +5,7 @@ import { GetUserResponse } from '../../interfaces';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import React from 'react';
+import UserBotScore from 'modules/Common/data-components/UserBotScore';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import useSwr from 'swr';
@@ -95,93 +96,91 @@ const UserPage = ({ user }: { user: String }) => {
           </ul>
         </div>
       </div>
+
       <div className="fr-container fr-container-fluid fr-my-6w">
         <h3 className="fr-mb-2w">Details</h3>
         <div className="fr-grid-row fr-grid-row--gutters">
           {data?.user?.favouritesCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.favouritesCount}
-                  detail={'Favorites count'}
-                  noArrow
-                  iconName="RiHeartFill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.favouritesCount}
+                detail={'Favorites count'}
+                noArrow
+                iconName="RiHeartFill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.followersCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.followersCount}
-                  detail={'Followers count'}
-                  noArrow
-                  iconName="RiUserFollowFill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.followersCount}
+                detail={'Followers count'}
+                noArrow
+                iconName="RiUserFollowFill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.followersCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.friendsCount}
-                  detail={'Friends count'}
-                  noArrow
-                  iconName="RiUserHeartLine"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.friendsCount}
+                detail={'Friends count'}
+                noArrow
+                iconName="RiUserHeartLine"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.statusesCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.statusesCount}
-                  detail={'Statuses count'}
-                  noArrow
-                  iconName="RiChat4Fill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.statusesCount}
+                detail={'Statuses count'}
+                noArrow
+                iconName="RiChat4Fill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.mediaCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.mediaCount}
-                  detail={'Media count'}
-                  noArrow
-                  iconName="RiImage2Fill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.mediaCount}
+                detail={'Media count'}
+                noArrow
+                iconName="RiImage2Fill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.created && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={dayjs(data?.user?.created).fromNow(true)}
-                  detail={'Account age'}
-                  noArrow
-                  iconName="RiCake2Fill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={dayjs(data?.user?.created).fromNow(true)}
+                detail={'Account age'}
+                noArrow
+                iconName="RiCake2Fill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
+        </div>
+      </div>
+
+      <div className="fr-container fr-container-fluid fr-my-6w">
+        <h3 className="fr-mb-2w">
+          Bot Score : <UserBotScore type="raw" username={username}></UserBotScore>
+        </h3>
+        <div className="fr-grid-row fr-grid-row--gutters">
+          <UserBotScore type="full" username={username}></UserBotScore>
         </div>
       </div>
     </Layout>

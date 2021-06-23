@@ -11,7 +11,7 @@ const get = ({ username }: { username: string }) => async (
   res: NextApiResponse<GetUserBotScoreResponse>
 ) => {
   try {
-    const { botScore } = await UserManager.getBotScore({ username });
+    const { botScore, botScoreMetadata, botScoreUpdatedAt, botScoreProvider } = await UserManager.getBotScore({ username });
 
     res.statusCode = HttpStatusCode.OK;
     res.setHeader('Cache-Control', `max-age=${60 * 60 * 1000}`);
@@ -19,6 +19,9 @@ const get = ({ username }: { username: string }) => async (
       status: 'ok',
       message: 'User score',
       score: botScore,
+      metadata: botScoreMetadata,
+      updatedAt: botScoreUpdatedAt,
+      provider: botScoreProvider,
       username,
     });
     return res;
