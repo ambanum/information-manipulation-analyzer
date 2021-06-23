@@ -37,19 +37,6 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
       );
     }
 
-    if (type === 'small') {
-      return (
-        <div {...props}>
-          <Link href="/bot-probability">
-            <a>
-              {typeof score !== 'undefined'
-                ? score.toLocaleString('en', { style: 'percent' })
-                : 'N/A'}
-            </a>
-          </Link>
-        </div>
-      );
-    }
     if (type === 'full') {
       return (
         <div className="fr-col" {...props}>
@@ -194,6 +181,18 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
         </div>
       );
     }
+
+    return (
+      <div {...props}>
+        <Link href="/bot-probability">
+          <a>
+            {typeof score !== 'undefined'
+              ? score.toLocaleString('en', { style: 'percent' })
+              : 'N/A'}
+          </a>
+        </Link>
+      </div>
+    );
   }
 );
 
