@@ -177,7 +177,14 @@ const UserPage = ({ user }: { user: String }) => {
 
       <div className="fr-container fr-container-fluid fr-my-6w">
         <h3 className="fr-mb-2w">
-          Bot Score : <UserBotScore type="raw" username={username}></UserBotScore>
+          Bot Score : <UserBotScore type="raw" username={username}></UserBotScore>{' '}
+          <span className="fr-text--sm">
+            (
+            <Link href="/bot-probability">
+              <a>What is it ?</a>
+            </Link>
+            )
+          </span>
         </h3>
         <div className="fr-grid-row fr-grid-row--gutters">
           <UserBotScore type="full" username={username}></UserBotScore>
