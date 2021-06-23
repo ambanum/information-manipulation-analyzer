@@ -54,7 +54,7 @@ const HomePage = () => {
               onSearchSubmit={onSubmit}
             />
             <p className="fr-text--sm text-center fr-mb-7w">
-              <em>Finally get a real idea on wheter a #hashtag is worth the hype</em>
+              <em>Finally get a real idea on whether a #hashtag is worth the hype</em>
             </p>
 
             <h2 className="fr-mt-12w fr-mb-2w fr-ml-1v">Check previous hashtags</h2>
