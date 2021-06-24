@@ -55,9 +55,11 @@ const HashtagTable = ({
               e.stopPropagation();
               onHashtagSearchClick(rest.row?.original?.label);
             }}
-            className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line"
+            className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line fr-btn--icon-left"
             title={`Search ${rest.row?.original?.label}`}
-          ></button>
+          >
+            Search
+          </button>
         );
       },
       size: 1,

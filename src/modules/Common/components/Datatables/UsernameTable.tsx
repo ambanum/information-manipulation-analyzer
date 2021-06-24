@@ -43,12 +43,14 @@ const UsernameTable = ({
         return (
           <button
             type="button"
-            className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line"
+            className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-account-line fr-btn--icon-left"
             title={`View details of @${row?.original?.label}`}
             onClick={() => {
               onUsernameSearchClick(row?.original?.label);
             }}
-          ></button>
+          >
+            View
+          </button>
         );
       },
       size: 1,
