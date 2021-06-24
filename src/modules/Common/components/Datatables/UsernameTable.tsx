@@ -14,7 +14,7 @@ const UsernameTable = ({
 }: UsernameTableProps) => {
   const columns = [
     {
-      Header: 'Username',
+      Header: 'User info',
       accessor: 'label',
       Cell: ({ value }: any) => {
         return <UserData username={value} onUsernameClick={() => onUsernameClick(value)} />;
@@ -22,7 +22,7 @@ const UsernameTable = ({
       size: 6,
     },
     {
-      Header: 'Bot prob.',
+      Header: 'Bot probability',
       Cell: ({ row }: any) => {
         return <UserBotScore username={row?.original?.label} />;
       },
@@ -37,7 +37,7 @@ const UsernameTable = ({
       Cell: ({ value }: any) => value.toLocaleString('en'),
     },
     {
-      Header: 'Action',
+      Header: ' ',
       align: 'right',
       Cell: ({ row }: any) => {
         return (
