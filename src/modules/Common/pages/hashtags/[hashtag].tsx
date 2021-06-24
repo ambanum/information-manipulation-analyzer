@@ -354,7 +354,7 @@ const HashtagPage = ({
             style={{ opacity: loadingData ? 0.3 : 1 }}
           >
             <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col-md-6">
+              <div className="fr-col">
                 <UsernameTable
                   nbData={nbUsernames}
                   data={usernames}
@@ -364,8 +364,6 @@ const HashtagPage = ({
                     hashtag?.name
                   }__usernames`}
                 />
-              </div>
-              <div className="fr-col-md-6">
                 <HashtagTable
                   nbData={nbAssociatedHashtags}
                   data={associatedHashtags}
