@@ -52,129 +52,73 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
             </li>
             <li>
               <strong>Metadata:</strong>
-              {typeof metadata !== 'undefined' ? (
-                <ul>
-                  <li>
-                    Base value:{' '}
-                    {typeof metadata.base_value !== 'undefined' ? metadata.base_value : 'N/A'}
-                  </li>
-                  <li>
-                    Default profile:{' '}
-                    {typeof metadata.shap_values.default_profile !== 'undefined'
-                      ? metadata.shap_values.default_profile
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Description length:{' '}
-                    {typeof metadata.shap_values.description_length !== 'undefined'
-                      ? metadata.shap_values.description_length
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Favorite count:{' '}
-                    {typeof metadata.shap_values.favourites_count !== 'undefined'
-                      ? metadata.shap_values.favourites_count
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Favorite growth rate:{' '}
-                    {typeof metadata.shap_values.favourites_growth_rate !== 'undefined'
-                      ? metadata.shap_values.favourites_growth_rate
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Followers count:{' '}
-                    {typeof metadata.shap_values.followers_count !== 'undefined'
-                      ? metadata.shap_values.followers_count
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Followers growth rate:{' '}
-                    {typeof metadata.shap_values.followers_growth_rate !== 'undefined'
-                      ? metadata.shap_values.followers_growth_rate
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Friends count:{' '}
-                    {typeof metadata.shap_values.friends_count !== 'undefined'
-                      ? metadata.shap_values.friends_count
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Friends growth rate:{' '}
-                    {typeof metadata.shap_values.friends_growth_rate !== 'undefined'
-                      ? metadata.shap_values.friends_growth_rate
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Label:{' '}
-                    {typeof metadata.shap_values.label !== 'undefined'
-                      ? metadata.shap_values.label
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Listed count:{' '}
-                    {typeof metadata.shap_values.listed_count !== 'undefined'
-                      ? metadata.shap_values.listed_count
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Listed growth rate:{' '}
-                    {typeof metadata.shap_values.listed_growth_rate !== 'undefined'
-                      ? metadata.shap_values.listed_growth_rate
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Name length:{' '}
-                    {typeof metadata.shap_values.name_length !== 'undefined'
-                      ? metadata.shap_values.name_length
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Num digits in name:{' '}
-                    {typeof metadata.shap_values.num_digits_in_name !== 'undefined'
-                      ? metadata.shap_values.num_digits_in_name
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Num digits in screen name:{' '}
-                    {typeof metadata.shap_values.num_digits_in_screen_name !== 'undefined'
-                      ? metadata.shap_values.num_digits_in_screen_name
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Profile use background image:{' '}
-                    {typeof metadata.shap_values.profile_use_background_image !== 'undefined'
-                      ? metadata.shap_values.profile_use_background_image
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Screen name length:{' '}
-                    {typeof metadata.shap_values.screen_name_length !== 'undefined'
-                      ? metadata.shap_values.screen_name_length
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Statuses count:{' '}
-                    {typeof metadata.shap_values.statuses_count !== 'undefined'
-                      ? metadata.shap_values.statuses_count
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Tweet frequence:{' '}
-                    {typeof metadata.shap_values.tweet_frequence !== 'undefined'
-                      ? metadata.shap_values.tweet_frequence
-                      : 'N/A'}
-                  </li>
-                  <li>
-                    Verified:{' '}
-                    {typeof metadata.shap_values.verified !== 'undefined'
-                      ? metadata.shap_values.verified
-                      : 'N/A'}
-                  </li>
-                </ul>
-              ) : (
-                'N/A'
+              {provider === 'peren' && (
+                <>
+                  {!!metadata ? (
+                    <ul>
+                      <li>Base value: {metadata?.base_value}</li>
+                      <li>Default profile: {metadata?.shap_values?.default_profile}</li>
+                      <li>Description length: {metadata?.shap_values?.description_length}</li>
+                      <li>Favorite count: {metadata?.shap_values?.favourites_count}</li>
+                      <li>Favorite growth rate: {metadata?.shap_values?.favourites_growth_rate}</li>
+                      <li>Followers count: {metadata?.shap_values?.followers_count}</li>
+                      <li>Followers growth rate: {metadata?.shap_values?.followers_growth_rate}</li>
+                      <li>Friends count: {metadata?.shap_values?.friends_count}</li>
+                      <li>Friends growth rate: {metadata?.shap_values?.friends_growth_rate}</li>
+                      <li>Label: {metadata?.shap_values?.label}</li>
+                      <li>Listed count: {metadata?.shap_values?.listed_count}</li>
+                      <li>Listed growth rate: {metadata?.shap_values?.listed_growth_rate}</li>
+                      <li>Name length: {metadata?.shap_values?.name_length}</li>
+                      <li>Num digits in name: {metadata?.shap_values?.num_digits_in_name}</li>
+                      <li>
+                        Num digits in screen name:{' '}
+                        {metadata?.shap_values?.num_digits_in_screen_name}
+                      </li>
+                      <li>
+                        Profile use background image:{' '}
+                        {metadata?.shap_values?.profile_use_background_image}
+                      </li>
+                      <li>Screen name length: {metadata?.shap_values?.screen_name_length}</li>
+                      <li>Statuses count: {metadata?.shap_values?.statuses_count}</li>
+                      <li>Tweet frequence: {metadata?.shap_values?.tweet_frequence}</li>
+                      <li>Verified: {metadata?.shap_values?.verified}</li>
+                    </ul>
+                  ) : (
+                    'N/A'
+                  )}
+                </>
+              )}
+              {provider === 'social-networks-bot-finder' && (
+                <>
+                  {!!metadata ? (
+                    <ul>
+                      <li>Base value: {metadata?.base_value || 0.75}</li>
+                      <li>Age: {metadata?.age}</li>
+                      <li>Default profile: {metadata?.default_profile}</li>
+                      <li>Description length: {metadata?.description_length}</li>
+                      <li>Followers count: {metadata?.followers_count}</li>
+                      <li>Followers growth rate: {metadata?.followers_growth_rate}</li>
+                      <li>Followers friend ratio: {metadata?.followers_friend_ratio}</li>
+                      <li>Friends count: {metadata?.friends_count}</li>
+                      <li>Friends growth rate: {metadata?.friends_growth_rate}</li>
+                      <li>Friends followers ratio: {metadata?.friends_followers_ratio}</li>
+                      <li>Listed count: {metadata?.listed_count}</li>
+                      <li>Listed growth rate: {metadata?.listed_growth_rate}</li>
+                      <li>Name length: {metadata?.name_length}</li>
+                      <li>Num digits in name: {metadata?.name_digits}</li>
+                      <li>Screen name length: {metadata?.screenname_length}</li>
+                      <li>Num digits in screen name: {metadata?.screen_name_digits}</li>
+                      <li>
+                        Profile use background image: {metadata?.profile_use_background_image}
+                      </li>
+                      <li>Statuses count: {metadata?.statuses_count}</li>
+                      <li>Tweet frequence: {metadata?.tweet_frequence}</li>
+                      <li>Verified: {metadata?.verified}</li>
+                    </ul>
+                  ) : (
+                    'N/A'
+                  )}
+                </>
               )}
             </li>
           </ul>
