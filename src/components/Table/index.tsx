@@ -132,7 +132,7 @@ export default function Table<T extends Record<string, unknown>>({
     [prepareRow, rows]
   );
 
-  const shouldVirtualize = !!virtualize && rows.length > 100;
+  const shouldVirtualize = !!virtualize && rows.length > 10;
 
   return (
     <div
