@@ -1,8 +1,11 @@
+import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
+import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import Card from 'components/Card';
 import { GetUserResponse } from '../../interfaces';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
 import React from 'react';
+import UserBotScore from 'modules/Common/data-components/UserBotScore';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import useSwr from 'swr';
@@ -22,22 +25,8 @@ const UserPage = ({ user }: { user: String }) => {
 
   return (
     <Layout title={`@${username} | Information Manipulation Analyzer`}>
-      <div className="fr-container fr-mb-12w">
+      <div className="fr-container fr-mb-8w">
         <div className="fr-grid-row">
-          <div className="fr-col fr-col-12 ">
-            <div className="text-center fr-myw fr-mb-2w">
-              <Link href="/">
-                <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">All hashtags</a>
-              </Link>
-              {queryParams.fromhashtag && (
-                <Link href={`/hashtags/${queryParams.fromhashtag}`}>
-                  <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">
-                    #{queryParams.fromhashtag}
-                  </a>
-                </Link>
-              )}
-            </div>
-          </div>
           <div className="fr-col fr-col-12 ">
             {image && (
               <div className="text-center">
@@ -45,7 +34,7 @@ const UserPage = ({ user }: { user: String }) => {
               </div>
             )}
             <h1 className="text-center">
-              {`${data?.user?.displayname}`}
+              {data?.user?.displayname ? `${data?.user?.displayname}` : username}
               {data?.user?.verified && (
                 <svg
                   viewBox="0 0 24 24"
@@ -62,6 +51,15 @@ const UserPage = ({ user }: { user: String }) => {
             </h1>
           </div>
         </div>
+        <Breadcrumb>
+          <BreadcrumbItem href="/">All hashtags</BreadcrumbItem>
+          {queryParams.fromhashtag && (
+            <BreadcrumbItem href={`/hashtags/${queryParams.fromhashtag}`}>
+              #{queryParams.fromhashtag}
+            </BreadcrumbItem>
+          )}
+          {username && <BreadcrumbItem isCurrent={true}>@{username}</BreadcrumbItem>}
+        </Breadcrumb>
       </div>
       <div className="fr-container fr-container-fluid fr-my-6w">
         <h3 className="fr-mb-2aw">Infos</h3>
@@ -98,93 +96,98 @@ const UserPage = ({ user }: { user: String }) => {
           </ul>
         </div>
       </div>
+
       <div className="fr-container fr-container-fluid fr-my-6w">
         <h3 className="fr-mb-2w">Details</h3>
         <div className="fr-grid-row fr-grid-row--gutters">
           {data?.user?.favouritesCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.favouritesCount}
-                  detail={'Favorites count'}
-                  noArrow
-                  iconName="RiHeartFill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.favouritesCount}
+                detail={'Favorites count'}
+                noArrow
+                iconName="RiHeartFill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.followersCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.followersCount}
-                  detail={'Followers count'}
-                  noArrow
-                  iconName="RiUserFollowFill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.followersCount}
+                detail={'Followers count'}
+                noArrow
+                iconName="RiUserFollowFill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.followersCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.friendsCount}
-                  detail={'Friends count'}
-                  noArrow
-                  iconName="RiUserHeartLine"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.friendsCount}
+                detail={'Friends count'}
+                noArrow
+                iconName="RiUserHeartLine"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.statusesCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.statusesCount}
-                  detail={'Statuses count'}
-                  noArrow
-                  iconName="RiChat4Fill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.statusesCount}
+                detail={'Statuses count'}
+                noArrow
+                iconName="RiChat4Fill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.mediaCount && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={data?.user?.mediaCount}
-                  detail={'Media count'}
-                  noArrow
-                  iconName="RiImage2Fill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={data?.user?.mediaCount}
+                detail={'Media count'}
+                noArrow
+                iconName="RiImage2Fill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
           {data?.user?.created && (
             <div className="fr-col">
-              <div className="fr-col">
-                <Card
-                  horizontal
-                  title={dayjs(data?.user?.created).fromNow(true)}
-                  detail={'Account age'}
-                  noArrow
-                  iconName="RiCake2Fill"
-                  iconColor="#6A6A6A"
-                />
-              </div>
+              <Card
+                horizontal
+                title={dayjs(data?.user?.created).fromNow(true)}
+                detail={'Account age'}
+                noArrow
+                iconName="RiCake2Fill"
+                iconColor="#6A6A6A"
+              />
             </div>
           )}
+        </div>
+      </div>
+
+      <div className="fr-container fr-container-fluid fr-my-6w">
+        <h3 className="fr-mb-2w">
+          Bot Score: <UserBotScore type="raw" username={username}></UserBotScore>{' '}
+          <span className="fr-text--sm">
+            (
+            <Link href="/bot-probability">
+              <a>What is it ?</a>
+            </Link>
+            )
+          </span>
+        </h3>
+        <div className="fr-grid-row fr-grid-row--gutters">
+          <UserBotScore type="full" username={username}></UserBotScore>
         </div>
       </div>
     </Layout>

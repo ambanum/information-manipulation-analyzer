@@ -1,9 +1,10 @@
+import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
+import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import Card from 'components/Card';
 import { GetHashtagResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
-import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
@@ -186,18 +187,6 @@ const HashtagPage = ({
       <div className="fr-container fr-mb-12w">
         <div className="fr-grid-row">
           <div className="fr-col">
-            <div className="text-center fr-myw">
-              <Link href="/">
-                <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">All hashtags</a>
-              </Link>
-              {queryParams.fromhashtag && (
-                <Link href={`/hashtags/${queryParams.fromhashtag}`}>
-                  <a className="fr-link fr-fi-arrow-left-line fr-link--icon-left">
-                    #{queryParams.fromhashtag}
-                  </a>
-                </Link>
-              )}
-            </div>
             <h1 className="text-center">#{hashtag?.name}</h1>
             <h6 className="text-center">
               Information Manipulation Analyzer
@@ -271,6 +260,17 @@ const HashtagPage = ({
             </em>
           </div>
         </>
+
+        <Breadcrumb>
+          <BreadcrumbItem href="/">All hashtags</BreadcrumbItem>
+          {queryParams.fromhashtag && (
+            <BreadcrumbItem href={`/hashtags/${queryParams.fromhashtag}`}>
+              #{queryParams.fromhashtag}
+            </BreadcrumbItem>
+          )}
+          <BreadcrumbItem isCurrent={true}>#{hashtag?.name}</BreadcrumbItem>
+        </Breadcrumb>
+
         {totalNbTweets > 0 && (
           <div className="fr-container fr-container-fluid fr-my-6w">
             <div className="fr-grid-row fr-grid-row--gutters">
@@ -354,7 +354,7 @@ const HashtagPage = ({
             style={{ opacity: loadingData ? 0.3 : 1 }}
           >
             <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col-md-6">
+              <div className="fr-col">
                 <UsernameTable
                   nbData={nbUsernames}
                   data={usernames}
@@ -364,8 +364,6 @@ const HashtagPage = ({
                     hashtag?.name
                   }__usernames`}
                 />
-              </div>
-              <div className="fr-col-md-6">
                 <HashtagTable
                   nbData={nbAssociatedHashtags}
                   data={associatedHashtags}

@@ -1,6 +1,6 @@
 {
   "name": "information-manipulation-analyzer",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "prettier": "prettier-config-ambanum",
   "scripts": {
     "dev": "next",
@@ -28,6 +28,7 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@dataesr/react-dsfr": "^0.4.3",
     "@gouvfr/dsfr": "^1.0.0-rc1.0",
     "@socialgouv/matomo-next": "^1.2.1",
     "@welldone-software/why-did-you-render": "^6.1.1",
@@ -42,6 +43,7 @@
     "mongoose-lean-virtuals": "^0.7.6",
     "next": "^10.0.7",
     "next-auth": "^3.14.6",
+    "next-mdx-remote": "^3.0.2",
     "nprogress": "^0.2.0",
     "query-string": "^7.0.0",
     "react": "17.0.2",
