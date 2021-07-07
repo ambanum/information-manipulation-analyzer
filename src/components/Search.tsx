@@ -31,7 +31,7 @@ const Search = ({
   };
 
   return (
-    <div className={`fr-search-bar ${className || ''}`} {...props}>
+    <div className={`fr-search-bar fr-search-bar--lg ${className || ''}`} {...props} role="search">
       {label && <label className="fr-label">{label}</label>}
       <input
         className="fr-input"

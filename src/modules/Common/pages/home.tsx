@@ -49,8 +49,8 @@ const HomePage = () => {
             </p>
             <Search
               className="fr-mx-md-12w"
-              label="Recherche"
-              buttonLabel="Rechercher"
+              label="Search"
+              buttonLabel="Search"
               placeholder="Enter a hashtag"
               onSearchSubmit={onSubmit}
             />
