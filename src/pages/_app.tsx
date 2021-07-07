@@ -4,7 +4,7 @@ import 'modules/Wdyr';
 // This is bad as it breaks the modularity of components
 // Go Fix it
 import 'modules/Embassy/styles/embassy.scss';
-import '@gouvfr/dsfr/dist/css/dsfr.min.css';
+import '@gouvfr/dsfr/dist/css/dsfr.css';
 import 'components/Loading/Loading.scss';
 // NProgress
 import 'nprogress/nprogress.css'; //styles of nprogress//Binding events.
