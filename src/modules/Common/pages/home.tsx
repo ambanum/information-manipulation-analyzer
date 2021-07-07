@@ -54,18 +54,16 @@ const HomePage = () => {
               placeholder="Enter a hashtag"
               onSearchSubmit={onSubmit}
             />
-            <p className="fr-text--sm text-center">
+            <p className="fr-text--sm text-center fr-mb-10w">
               <em>Finally get a real idea on whether a #hashtag is worth the hype</em>
             </p>
-            <div className="fr-mb-7w">
-              <Alert
-                size="small"
-                desc="Information Manipulation Analyzer (Beta) is a free and open resource.
-For transparency purposes, the search history is displayed below.
-Start exploring IMA by searching your own hashtag."
-              ></Alert>
-            </div>
-            <h2 className="fr-mt-12w fr-mb-2w fr-ml-1v">Check previous hashtags</h2>
+            <Alert
+              size="small"
+              title="Start exploring IMA by searching your own hashtag."
+              desc="For transparency purposes, the search history is displayed below."
+            ></Alert>
+
+            <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">Check previous hashtags</h2>
             <LastHashtags />
           </div>
         </div>
