@@ -201,19 +201,8 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
                         </span>
                       </li>
                       <li>
-                        <strong>Listed count grow rate: </strong>
-                        {metadata?.listed_count_growth_rate || 'not provided'}
-                        <br />
-                        <span className="fr-text--sm">
-                          (The growth rate of the number of lists to which the account belongs -
-                          i.e. the ratio of the number of lists to the age of the account. Bots
-                          often acquire their followers very quickly in the first moments of account
-                          use.)
-                        </span>
-                      </li>
-                      <li>
                         <strong>Favorite count: </strong>
-                        {metadata?.favorite_count || 'not provided'}
+                        {metadata?.favourites_count || 'not provided'}
                         <br />
                         <span className="fr-text--sm">
                           (The number of tweets bookmarked by the account. This feature gives an
