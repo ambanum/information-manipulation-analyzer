@@ -1,3 +1,4 @@
+import Alert from '../components/Alert/Alert';
 import { GetHashtagsResponse } from '../interfaces';
 import Link from 'next/link';
 import Loading from 'components/Loading';
@@ -5,10 +6,13 @@ import React from 'react';
 import useSwr from 'swr';
 
 interface LastHashtagsProps {
-  // TODO
+  filter?: string;
 }
 
-const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTMLDivElement>) => {
+const LastHashtags = ({
+  filter,
+  ...props
+}: LastHashtagsProps & React.HTMLAttributes<HTMLDivElement>) => {
   const { data } = useSwr<GetHashtagsResponse>('/api/hashtags', { refreshInterval: 1000 * 1 * 60 });
 
   if (!data) {
@@ -19,9 +23,18 @@ const LastHashtags = ({ ...props }: LastHashtagsProps & React.HTMLAttributes<HTM
 
   let firstLetter: string;
 
+  let filteredHashtags = filter
+    ? hashtags.filter((hashtag) => new RegExp(filter, 'i').test(hashtag.name))
+    : hashtags;
+
   return (
     <div {...props}>
-      {hashtags.map((hashtag) => {
+      {filter && (
+        <Alert size="small">
+          All hashtags containing <strong>{filter}</strong>
+        </Alert>
+      )}
+      {filteredHashtags.map((hashtag) => {
         const newFirstLetter = hashtag.name[0];
         let title = null;
         if (newFirstLetter !== firstLetter) {
