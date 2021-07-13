@@ -6,7 +6,6 @@ type AlertProps = {
   title?: string;
   type?: 'info' | 'success' | 'error';
   size?: 'medium' | 'small';
-  desc: string;
   close?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
@@ -16,7 +15,6 @@ const Alert: React.FC<AlertProps> = ({
   title,
   type = 'info',
   size = 'medium',
-  desc,
   close = false,
   ...props
 }) => {
@@ -34,7 +32,7 @@ const Alert: React.FC<AlertProps> = ({
       {...props}
     >
       {title && <p className="fr-alert__title">{title}</p>}
-      <p>{desc}</p>
+      <p>{children}</p>
     </div>
   );
 };

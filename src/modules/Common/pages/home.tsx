@@ -4,11 +4,13 @@ import Alert from '../components/Alert/Alert';
 import { CreateHashtagResponse } from 'modules/Common/interfaces';
 import LastHashtags from '../data-components/LastHashtags';
 import Layout from 'modules/Embassy/components/Layout';
+import React from 'react';
 import api from 'utils/api';
 import { useRouter } from 'next/router';
 
 const HomePage = () => {
   const router = useRouter();
+  const [filter, setFilter] = React.useState('');
   const onSubmit: SearchProps['onSearchSubmit'] = async (hashtag) => {
     try {
       const { data } = await api.post<CreateHashtagResponse>('/api/hashtags', { name: hashtag });
@@ -19,6 +21,10 @@ const HomePage = () => {
       console.log(e); // eslint-disable-line
       console.log('╚════END════e══════════════════════════════════════════════════'); // eslint-disable-line
     }
+  };
+
+  const onSearchChange = (searchValue: string) => {
+    setFilter(searchValue);
   };
 
   return (
@@ -53,18 +59,17 @@ const HomePage = () => {
               buttonLabel="Search"
               placeholder="Enter a hashtag"
               onSearchSubmit={onSubmit}
+              onSearchChange={onSearchChange}
             />
             <p className="fr-text--sm text-center fr-mb-10w">
               <em>Finally get a real idea on whether a #hashtag is worth the hype</em>
             </p>
-            <Alert
-              size="small"
-              title="Start exploring IMA by searching your own hashtag."
-              desc="For transparency purposes, the search history is displayed below."
-            ></Alert>
+            <Alert size="small" title="Start exploring IMA by searching your own hashtag.">
+              For transparency purposes, the search history is displayed below.
+            </Alert>
 
             <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">Check previous hashtags</h2>
-            <LastHashtags />
+            <LastHashtags filter={filter} />
           </div>
         </div>
       </div>
