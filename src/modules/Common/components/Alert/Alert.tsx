@@ -19,16 +19,11 @@ const Alert: React.FC<AlertProps> = ({
   ...props
 }) => {
   let sizeClass: string = size === 'small' ? 'fr-alert--sm' : '';
-  let typeClass: string = 'fr-alert--info';
-  if (type === 'success') {
-    typeClass = 'fr-alert--success';
-  } else if (type === 'error') {
-    typeClass = 'fr-alert--error';
-  }
+
   return (
     <div
       role="alert"
-      className={classNames('fr-alert ', typeClass, sizeClass, s.alert, className)}
+      className={classNames('fr-alert ', `fr-alert--${type}`, sizeClass, s.alert, className)}
       {...props}
     >
       {title && <p className="fr-alert__title">{title}</p>}
