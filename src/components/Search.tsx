@@ -6,6 +6,7 @@ export interface SearchProps {
   placeholder?: string;
   buttonLabel: string;
   onSearchSubmit: (searchString: string) => any;
+  onSearchChange: (searchString: string) => any;
 }
 
 // https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar
@@ -16,12 +17,14 @@ const Search = ({
   placeholder,
   buttonLabel,
   onSearchSubmit,
+  onSearchChange,
   ...props
 }: SearchProps & React.HTMLAttributes<HTMLDivElement>) => {
   const [search, setSearch] = React.useState('');
 
   const handleChange = (event: any) => {
     setSearch(event.target.value);
+    onSearchChange(event.target.value);
   };
 
   const handleSubmit = (event: any) => {
