@@ -59,6 +59,7 @@
     "react-twitter-embed": "^3.0.3",
     "react-use": "17.3.1",
     "react-virtualized-auto-sizer": "1.0.6",
+    "react-sigma": "^1.2.35",
     "react-window": "^1.8.6",
     "sass": "1.43.4",
     "swr": "^1.0.1"
@@ -80,6 +81,7 @@
     "@types/react-tabs": "^2.3.3",
     "@types/react-virtualized-auto-sizer": "1.0.1",
     "@types/react-window": "1.8.5",
+    "@types/sigmajs": "^1.0.28",
     "husky": "7.0.4",
     "jest": "27.3.1",
     "prettier": "2.4.1",
