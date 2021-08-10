@@ -120,7 +120,7 @@ const HashtagPage = ({
 
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (point) => {
-      window.open(getTwitterLink(`#${hashtag?.name}`, { date: point.data.x as any }));
+      window.open(getTwitterLink(`#${hashtag?.name}`, { date: point.data.x as any, asTime: true }));
     },
     [hashtag?.name]
   );
