@@ -1,0 +1,11 @@
+.wrapper {
+  border: 1px solid #eee;
+}
+
+.noData {
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}

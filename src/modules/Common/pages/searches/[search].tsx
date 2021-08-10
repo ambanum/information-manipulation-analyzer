@@ -4,6 +4,7 @@ import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import Card from 'components/Card';
 import { GetSearchResponse } from '../../interfaces';
+import Graph from '../../data-components/Graph';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
@@ -377,7 +378,6 @@ const SearchPage = ({
             Sorry, we did not found any data for this
           </h4>
         )}
-
         {volumetry[0]?.data?.length > 0 && (
           <div className="fr-my-6w">
             <VolumetryGraph
@@ -388,6 +388,7 @@ const SearchPage = ({
             />
           </div>
         )}
+        <Graph hashtag={hashtag?.name} />
         {languages?.length > 0 && (
           <div
             className="fr-my-6w"
