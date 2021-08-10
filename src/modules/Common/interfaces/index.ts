@@ -81,3 +81,21 @@ export interface CreateSearchResponse extends CommonResponse {
  * SearchVolumetry
  */
 export type SearchVolumetry = ModelSearchVolumetry;
+export interface GetUserResponse extends CommonResponse {
+  user: ModelUser;
+}
+
+export interface GetUserBotScoreResponse extends CommonResponse {
+  score?: number;
+  username?: string;
+  metadata?: any;
+  updatedAt?: string | Date;
+  provider?: string;
+}
+
+export interface GetSearchGraphResponse extends CommonResponse {
+  url?: string;
+  metadata?: any;
+  updatedAt?: string | Date;
+  provider?: string;
+}

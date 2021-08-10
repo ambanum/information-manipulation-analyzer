@@ -1,5 +1,6 @@
 import * as LanguageManager from 'modules/Countries/managers/LanguageManager';
 import * as QueueItemManager from './QueueItemManager';
+import * as scrapeApi from '../services/scrape-api';
 
 import SearchModel, { SearchTypes } from '../models/Search';
 
@@ -7,10 +8,12 @@ import { Search } from '../interfaces';
 import SearchVolumetryModel from '../models/SearchVolumetry';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 import dayjs from 'dayjs';
+import pick from 'lodash/fp/pick';
 
 const MIN_NB_OCCURENCES = 1;
 const MIN_NB_RECORDS = 1000;
 
+const graphPickFields = ['graphUrl', 'graphProvider', 'graphUpdatedAt', 'graphMetadata'];
 export const create = async ({ name, type }: { name: string; type: keyof typeof SearchTypes }) => {
   try {
     const search = new SearchModel({ name, status: 'PENDING', type });
@@ -216,5 +219,30 @@ export const getWithData = async ({
   } catch (e) {
     console.error(e);
     throw new Error(`Could not find search in getWithData for ${name}`);
+  }
+};
+
+export const retrieveAndUpdateGraph = async (
+  name: string
+): Promise<Partial<Search> | undefined> => {
+  const { data: hashtagGraphData } = await scrapeApi.getGraph(name);
+
+  return hashtagGraphData;
+};
+
+export const getGraph = async (filter: { name: string }): Promise<Partial<Search>> => {
+  try {
+    const { name } = filter;
+    let search: Partial<Search> = await SearchModel.findOne(filter);
+
+    if (!search.graphUrl) {
+      // scrape it
+      search = (await retrieveAndUpdateGraph(name)) || search;
+    }
+
+    return pick(graphPickFields)(search);
+  } catch (e) {
+    console.error(e);
+    throw new Error('Could not find hashtag');
   }
 };
