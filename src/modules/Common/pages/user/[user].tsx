@@ -16,11 +16,11 @@ dayjs.extend(relativeTime);
 export { default as getStaticPaths } from './[user].staticPaths';
 export { default as getStaticProps } from './[user].staticProps';
 
-const UserPage = ({ user }: { user: String }) => {
-  const username = user.replace('@', '');
+const UserPage = ({ user }: { user: string }) => {
+  const username = (user || '').replace('@', '');
   const { data } = useSwr<GetUserResponse>(`/api/users/${username}`);
-  if (!username) return null;
   const { queryParams } = useUrl();
+  if (!username) return null;
   const image = data?.user?.profileImageUrl;
 
   return (

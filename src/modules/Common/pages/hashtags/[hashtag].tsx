@@ -72,6 +72,8 @@ const HashtagPage = ({
   nbAssociatedHashtags: GetHashtagResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
+  const hashtagName = defaultHashtag?.name || router.query.hashtag;
+
   const [loadingData, toggleLoadingData] = useToggle(true);
   const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
 
@@ -80,7 +82,7 @@ const HashtagPage = ({
   );
 
   const { data, isValidating } = useSWR<GetHashtagResponse>(
-    `/api/hashtags/${defaultHashtag.name}${queryParamsStringified}`,
+    `/api/hashtags/${hashtagName}${queryParamsStringified}`,
     {
       initialData: {
         status: 'ok',
@@ -183,11 +185,11 @@ const HashtagPage = ({
   };
 
   return (
-    <Layout title={`#${hashtag?.name} | Information Manipulation Analyzer`}>
+    <Layout title={`#${hashtagName} | Information Manipulation Analyzer`}>
       <div className="fr-container fr-mb-12w">
         <div className="fr-grid-row">
           <div className="fr-col">
-            <h1 className="text-center">#{hashtag?.name}</h1>
+            <h1 className="text-center">#{hashtagName}</h1>
             <h6 className="text-center">
               Information Manipulation Analyzer
               <sup>
@@ -223,7 +225,7 @@ const HashtagPage = ({
                 </span>
               </div>
             )}
-            {gatheringData && <Loading />}
+            {(gatheringData || router.isFallback) && <Loading />}
           </div>
         </div>
 
