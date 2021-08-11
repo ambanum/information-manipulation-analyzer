@@ -166,9 +166,9 @@ export const getBotScore = async (filter: { username: string }): Promise<UserBot
   }
 };
 
-export const list = async () => {
+export const list = async ({ limit }: { limit: number } = { limit: 10000 }) => {
   try {
-    const users: User[] = await UserModel.find().sort({ username: 1 }).limit(10000);
+    const users: User[] = await UserModel.find().sort({ username: 1 }).limit(limit);
     return users;
   } catch (e) {
     console.error(e);

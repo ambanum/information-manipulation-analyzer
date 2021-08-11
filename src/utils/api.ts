@@ -14,6 +14,12 @@ const axiosInstance = axios.create({
 });
 
 export const fetcher = async (resource: any, init: any) =>
-  axiosInstance.get(resource, init).then((res) => res.data);
+  axiosInstance
+    .get(resource, init)
+    .then((res) => res.data)
+    .catch((error) => {
+      console.error(error); //eslint-disable-line
+      throw error;
+    });
 
 export default axiosInstance;

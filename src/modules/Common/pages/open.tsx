@@ -1,6 +1,6 @@
 import Layout from 'modules/Embassy/components/Layout';
 
-const HomePage = () => {
+const OpenPage = () => {
   return (
     <Layout title="Open - Information Manipulation Analyzer">
       <div className="fr-container fr-mb-12w">
@@ -36,4 +36,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default OpenPage;

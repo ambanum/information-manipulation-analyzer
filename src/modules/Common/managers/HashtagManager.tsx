@@ -3,6 +3,7 @@ import * as QueueItemManager from './QueueItemManager';
 
 import { Hashtag } from '../interfaces';
 import HashtagModel from '../models/Hashtag';
+import HashtagVolumetryModel from '../models/HashtagVolumetry';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 import dayjs from 'dayjs';
 
@@ -35,10 +36,45 @@ export const get = async (filter: { name: string }) => {
   }
 };
 
-export const list = async () => {
+export const list = async ({ limit }: { limit: number } = { limit: 100 }) => {
   try {
-    const hashtags: Hashtag[] = await HashtagModel.find().sort({ name: 1 });
+    const hashtags: Hashtag[] = await HashtagModel.find().sort({ name: 1 }).limit(limit);
 
+    return hashtags;
+  } catch (e) {
+    console.error(e);
+    throw new Error('Could not find hashtags');
+  }
+};
+
+export const listForPrerendering = async (
+  { limit, maxVolumetry }: { limit: number; maxVolumetry: number } = {
+    limit: 100,
+    maxVolumetry: 10000,
+  }
+) => {
+  try {
+    const hashtags: Hashtag[] = await HashtagVolumetryModel.aggregate([
+      {
+        $group: {
+          _id: '$hashtag',
+          count: { $sum: 1 },
+        },
+      },
+      { $match: { count: { $lte: maxVolumetry } } },
+      {
+        $lookup: {
+          from: 'hashtags',
+          localField: '_id',
+          foreignField: '_id',
+          as: 'hashtag',
+        },
+      },
+      { $unwind: '$hashtag' },
+      { $project: { count: 1, name: '$hashtag.name' } },
+      { $sort: { count: -1 } },
+      { $limit: limit },
+    ]).exec();
     return hashtags;
   } catch (e) {
     console.error(e);

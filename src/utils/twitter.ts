@@ -1,18 +1,23 @@
+import advancedFormat from 'dayjs/plugin/advancedFormat';
 import dayjs from 'dayjs';
-
+dayjs.extend(advancedFormat);
 interface ITwitterLinkOptions {
   date?: string;
   startDate?: string;
   endDate?: string;
+  asTime?: boolean;
   lang?: string;
   username?: string;
 }
 
 export const getTwitterLink = (
   searchName: string = '',
-  { date, startDate, endDate, lang, username }: ITwitterLinkOptions
+  { date, startDate, endDate, lang, username, asTime }: ITwitterLinkOptions
 ) => {
   let queryString = searchName;
+  const format = asTime ? 'X' : 'YYYY-MM-DD';
+  const since = asTime ? 'since_time' : 'since';
+  const until = asTime ? 'until_time' : 'until';
 
   if (lang) {
     queryString += ` lang:${lang}`;
@@ -21,21 +26,17 @@ export const getTwitterLink = (
     queryString += ` (from:${username})`;
   }
   if (startDate) {
-    const sinceDate = dayjs(startDate).startOf('day').format('YYYY-MM-DD');
-    queryString += ` since:${sinceDate}`;
+    const sinceDate = dayjs(startDate).startOf('day').format(format);
+    queryString += ` ${since}:${sinceDate}`;
   }
   if (endDate) {
-    const untilDate = dayjs(endDate)
-      .startOf('day')
-      .add(1, 'day')
-      .startOf('day')
-      .format('YYYY-MM-DD');
-    queryString += ` until:${untilDate}`;
+    const untilDate = dayjs(endDate).startOf('day').add(1, 'day').startOf('day').format(format);
+    queryString += ` ${until}:${untilDate}`;
   }
   if (date) {
-    const sinceDate = dayjs(date).startOf('day').format('YYYY-MM-DD');
-    const untilDate = dayjs(date).add(1, 'day').startOf('day').format('YYYY-MM-DD');
-    queryString += ` since:${sinceDate} until:${untilDate}`;
+    const sinceDate = dayjs(date).startOf('day').format(format);
+    const untilDate = dayjs(date).add(1, 'day').startOf('day').format(format);
+    queryString += ` ${since}:${sinceDate} ${until}:${untilDate}`;
   }
 
   queryString = encodeURI(queryString).replace('#', '%23');
