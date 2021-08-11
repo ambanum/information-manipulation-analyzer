@@ -6,6 +6,7 @@ const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/Netwo
 const hashtag = 'ok';
 const url = 'https://raw.githubusercontent.com/dunnock/react-sigma/master/public/upwork.json';
 const path = String(process.env.NEXT_PUBLIC_BASE_PATH) + '/EcritureInclusiveFinal.json';
+const gexf = String(process.env.NEXT_PUBLIC_BASE_PATH) + '/test_gexf_removed.gexf';
 
 const NetworkGraphDebugPage = () => {
   const onClickNode = (event) => {
@@ -18,6 +19,8 @@ const NetworkGraphDebugPage = () => {
 
   return (
     <>
+      <h1>From GEXF Path {gexf}</h1>
+      <NetworkGraph gexf={gexf} onClickNode={onClickNode} />
       <h1>From Path {path}</h1>
       <NetworkGraph path={path} onClickNode={onClickNode} />
       <h1>From url {url}</h1>
