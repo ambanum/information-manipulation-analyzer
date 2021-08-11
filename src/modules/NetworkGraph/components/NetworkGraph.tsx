@@ -1,6 +1,7 @@
 import {
   EdgeShapes,
   ForceAtlas2,
+  LoadGEXF,
   LoadJSON,
   NodeShapes,
   RandomizeNodePositions,
@@ -26,6 +27,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
   children,
   className,
   path,
+  gexf,
   url,
   width = '100%',
   height = '600px',
@@ -54,10 +56,14 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
 
   const position = graph ? (
     <Position />
-  ) : (
+  ) : path ? (
     <LoadJSON path={path}>
       <Position />
     </LoadJSON>
+  ) : (
+    <LoadGEXF path={gexf}>
+      <Position />
+    </LoadGEXF>
   );
 
   return (

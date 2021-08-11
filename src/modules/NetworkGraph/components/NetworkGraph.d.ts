@@ -32,6 +32,7 @@ export type OnClickEvent = {
 
 export type NetworkGraphProps = {
   path?: string;
+  gexf?: string;
   url?: string;
   width?: string;
   height?: string;
