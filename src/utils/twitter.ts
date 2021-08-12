@@ -18,6 +18,7 @@ export const getTwitterLink = (
   const format = asTime ? 'X' : 'YYYY-MM-DD';
   const since = asTime ? 'since_time' : 'since';
   const until = asTime ? 'until_time' : 'until';
+  const timeframe = asTime ? 'hour' : 'day';
 
   if (lang) {
     queryString += ` lang:${lang}`;
@@ -26,16 +27,20 @@ export const getTwitterLink = (
     queryString += ` (from:${username})`;
   }
   if (startDate) {
-    const sinceDate = dayjs(startDate).startOf('day').format(format);
+    const sinceDate = dayjs(startDate).startOf(timeframe).format(format);
     queryString += ` ${since}:${sinceDate}`;
   }
   if (endDate) {
-    const untilDate = dayjs(endDate).startOf('day').add(1, 'day').startOf('day').format(format);
+    const untilDate = dayjs(endDate)
+      .startOf(timeframe)
+      .add(1, timeframe)
+      .startOf(timeframe)
+      .format(format);
     queryString += ` ${until}:${untilDate}`;
   }
   if (date) {
-    const sinceDate = dayjs(date).startOf('day').format(format);
-    const untilDate = dayjs(date).add(1, 'day').startOf('day').format(format);
+    const sinceDate = dayjs(date).startOf(timeframe).format(format);
+    const untilDate = dayjs(date).add(1, timeframe).startOf(timeframe).format(format);
     queryString += ` ${since}:${sinceDate} ${until}:${untilDate}`;
   }
 
