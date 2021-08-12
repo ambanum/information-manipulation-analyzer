@@ -121,8 +121,10 @@ const HashtagPage = ({
   const gatheringData = ['PROCESSING', 'PENDING'].includes(status);
 
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
-    (point) => {
-      window.open(getTwitterLink(`#${hashtag?.name}`, { date: point.data.x as any, asTime: true }));
+    (scale, point) => {
+      window.open(
+        getTwitterLink(`#${hashtag?.name}`, { date: point.data.x as any, asTime: scale === 'hour' })
+      );
     },
     [hashtag?.name]
   );
