@@ -115,8 +115,12 @@ const HashtagPage = ({
     associatedHashtags = [],
     nbAssociatedHashtags = 0,
   } = data || {};
-  const { status = '', firstOccurenceDate, oldestProcessedDate, newestProcessedDate } =
-    data?.hashtag || {};
+  const {
+    status = '',
+    firstOccurenceDate,
+    oldestProcessedDate,
+    newestProcessedDate,
+  } = data?.hashtag || {};
 
   const gatheringData = ['PROCESSING', 'PENDING'].includes(status);
 
@@ -152,8 +156,17 @@ const HashtagPage = ({
 
   const onHashtagSearchClick: HashtagTableProps['onHashtagSearchClick'] = React.useCallback(
     async (newHashtagName: string) => {
-      await api.post('/api/hashtags', { name: newHashtagName });
-      router.push(`/hashtags/${newHashtagName}?fromhashtag=${hashtag?.name}`);
+      const lowerCasedHashtagName = newHashtagName.toLowerCase();
+      if (hashtag?.name === lowerCasedHashtagName) {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+        return;
+      }
+      await api.post('/api/hashtags', { name: lowerCasedHashtagName });
+      router.push(`/hashtags/${lowerCasedHashtagName}?fromhashtag=${hashtag?.name}`);
     },
     [hashtag?.name]
   );
