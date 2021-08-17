@@ -47,3 +47,7 @@ export const getTwitterLink = (
   queryString = encodeURI(queryString).replace('#', '%23');
   return `https://twitter.com/search?q=${queryString}&src=typed_query`;
 };
+
+export const getTweetIntentLink = (text: string) => {
+  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+};
