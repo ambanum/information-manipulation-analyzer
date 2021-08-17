@@ -1,4 +1,4 @@
-import { sanitizeHashtag } from './sanitizer';
+import { sanitizeText, sanitizeUrl } from './sanitizer';
 
 const hashtagTests = [
   ['<SCRIPT SRC=http://xss.rocks/xss.js></SCRIPT>', 'scriptsrchttpxssrocksxssjsscript'],
@@ -16,8 +16,20 @@ const hashtagTests = [
   ['Xoроший', 'xoроший'],
 ];
 
-test('deep', () => {
-  hashtagTests.forEach(([name, sanitizedName]) =>
-    expect(sanitizeHashtag(name)).toBe(sanitizedName)
-  );
+const urls = [
+  [
+    'http://servername/index.php?search="><script>alert(0)</script>',
+    'http://servername/index.php?search=scriptalert(0)/script',
+  ],
+  [
+    'https://www.lemonde.fr/international/article/2021/08/17/apres-la-chute-de-kaboul-aux-mains-des-talibans-la-crainte-d-une-onde-de-choc-regionale_6091619_3210.html',
+    'https://www.lemonde.fr/international/article/2021/08/17/apres-la-chute-de-kaboul-aux-mains-des-talibans-la-crainte-d-une-onde-de-choc-regionale_6091619_3210.html',
+  ],
+];
+
+test('any text', () => {
+  hashtagTests.forEach(([name, sanitizedName]) => expect(sanitizeText(name)).toBe(sanitizedName));
+});
+test('urls', () => {
+  urls.forEach(([name, sanitizedName]) => expect(sanitizeUrl(name)).toBe(sanitizedName));
 });
