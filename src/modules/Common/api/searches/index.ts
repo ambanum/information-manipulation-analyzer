@@ -3,10 +3,10 @@ import * as SearchManager from '../../managers/SearchManager';
 import { CreateSearchInput, CreateSearchResponse } from '../../interfaces';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { sanitizeText, sanitizeUrl } from 'utils/sanitizer';
 
 import HttpStatusCode from 'http-status-codes';
 import { SearchTypes } from 'modules/Common/models/Search';
-import { sanitizeText } from 'utils/sanitizer';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
@@ -29,7 +29,7 @@ const create = async (req: NextApiRequest, res: NextApiResponse<CreateSearchResp
     type = 'URL';
     // TODO sanitize url
     // TODO retrieve image and title of page
-    sanitizedName = `@${sanitizeText(name)}`;
+    sanitizedName = `${sanitizeUrl(name)}`;
   } else if (name.startsWith('@')) {
     type = 'MENTION';
     sanitizedName = `@${sanitizeText(name)}`;
