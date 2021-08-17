@@ -1,8 +1,31 @@
-import * as mongoose from 'mongoose';
+import { Document, Model, Schema, model, models } from 'mongoose';
 
-import { QueueItemActionTypes, QueueItemStatuses } from '../interfaces';
+import { Search } from './Search';
 
-const { Schema } = mongoose;
+export enum QueueItemStatuses {
+  PENDING = 'PENDING',
+  PROCESSING = 'PROCESSING',
+  DONE = 'DONE',
+  DONE_ERROR = 'DONE_ERROR',
+}
+
+export enum QueueItemActionTypes {
+  SEARCH = 'SEARCH',
+}
+export interface QueueItem extends Document {
+  name: string;
+  priority: number;
+  action: QueueItemActionTypes;
+  status: QueueItemStatuses;
+  search: Search;
+  processorId?: string;
+  processingDate?: Date;
+  metadata?: {
+    lastEvaluatedUntilTweetId?: string;
+    lastEvaluatedSinceTweetId?: string;
+    numberTimesCrawled?: number;
+  };
+}
 
 const schema = new Schema(
   {
@@ -40,12 +63,13 @@ const schema = new Schema(
       description:
         'field used to pass some filters or additional data to process data more finely (startDate, endDate, etc...)',
     },
-    hashtag: { type: Schema.Types.ObjectId, ref: 'Hashtag' },
+    search: { type: Schema.Types.ObjectId, ref: 'Search' },
   },
   {
     strict: 'throw',
     timestamps: true,
   }
 );
+const QueueItemModel: Model<QueueItem> = models?.QueueItem || model('QueueItem', schema);
 
-export default mongoose?.models?.QueueItem || mongoose.model('QueueItem', schema);
+export default QueueItemModel;

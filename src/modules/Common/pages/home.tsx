@@ -1,8 +1,8 @@
 import Search, { SearchProps } from 'components/Search';
 
 import Alert from '../components/Alert/Alert';
-import { CreateHashtagResponse } from 'modules/Common/interfaces';
-import LastHashtags from '../data-components/LastHashtags';
+import { CreateSearchResponse } from 'modules/Common/interfaces';
+import LastSearches from '../data-components/LastSearches';
 import Layout from 'modules/Embassy/components/Layout';
 import React from 'react';
 import api from 'utils/api';
@@ -11,10 +11,10 @@ import { useRouter } from 'next/router';
 const HomePage = () => {
   const router = useRouter();
   const [filter, setFilter] = React.useState('');
-  const onSubmit: SearchProps['onSearchSubmit'] = async (hashtag) => {
+  const onSubmit: SearchProps['onSearchSubmit'] = async (search) => {
     try {
-      const { data } = await api.post<CreateHashtagResponse>('/api/hashtags', { name: hashtag });
-      router.push(`/hashtags/${data?.hashtag?.name}`);
+      const { data } = await api.post<CreateSearchResponse>('/api/searches', { name: search });
+      router.push(`/searches/${encodeURIComponent(data?.search?.name as string)}`);
     } catch (e) {
       console.log(''); // eslint-disable-line
       console.log('╔════START══e══════════════════════════════════════════════════'); // eslint-disable-line
@@ -57,19 +57,18 @@ const HomePage = () => {
               className="fr-mx-md-12w"
               label="Search"
               buttonLabel="Search"
-              placeholder="Enter a hashtag"
+              placeholder="Enter a #hashtag, a keyword, a @mention, a $cashtag or a https://url"
               onSearchSubmit={onSubmit}
               onSearchChange={onSearchChange}
             />
             <p className="fr-text--sm text-center fr-mb-10w">
-              <em>Finally get a real idea on whether a #hashtag is worth the hype</em>
+              <em>Finally get a real idea on whether a trend is worth the hype</em>
             </p>
-            <Alert size="small" title="Start exploring IMA by searching your own hashtag.">
+            <Alert size="small" title="Start exploring IMA by searching your own data.">
               For transparency purposes, the search history is displayed below.
             </Alert>
 
-            <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">Check previous hashtags</h2>
-            <LastHashtags filter={filter} />
+            <LastSearches filter={filter} />
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@ const UserData: React.FC<UserDataProps> = React.memo(({ username, onUsernameClic
   return (
     <div {...props}>
       <TwitterDataCard
-        displayname={user?.displayname || ' '}
+        displayname={user?.displayname}
         onUsernameClick={onUsernameClick}
         username={`@${username}`}
         image={user?.profileImageUrl || 'https://via.placeholder.com/30/DDDDDD/FFFFFF/?text=%20'}

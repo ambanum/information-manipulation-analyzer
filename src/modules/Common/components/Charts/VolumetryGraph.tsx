@@ -84,6 +84,9 @@ const VolumetryGraph = ({
         },
       },
     },
+    tooltip: {
+      valueDecimals: 0,
+    },
     plotOptions: {
       spline: {
         cursor: 'pointer',

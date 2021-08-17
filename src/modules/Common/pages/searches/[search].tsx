@@ -1,7 +1,9 @@
+import { getTweetIntentLink, getTwitterLink } from 'utils/twitter';
+
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import Card from 'components/Card';
-import { GetHashtagResponse } from '../../interfaces';
+import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
@@ -13,7 +15,6 @@ import api from 'utils/api';
 import dayjs from 'dayjs';
 import debounce from 'lodash/debounce';
 import dynamic from 'next/dynamic';
-import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
@@ -37,8 +38,8 @@ const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGr
   ssr: false,
 });
 
-export { default as getStaticPaths } from './[hashtag].staticPaths';
-export { default as getStaticProps } from './[hashtag].staticProps';
+export { default as getStaticPaths } from './[search].staticPaths';
+export { default as getStaticProps } from './[search].staticProps';
 
 const REFRESH_INTERVALS = {
   PROCESSING_PREVIOUS: 60 * 1 * 1000,
@@ -52,8 +53,8 @@ const REFRESH_INTERVALS = {
 
 dayjs.extend(localizedFormat);
 
-const HashtagPage = ({
-  hashtag: defaultHashtag,
+const SearchPage = ({
+  search: defaultSearch,
   volumetry: defaultVolumetry,
   languages: defaultLanguages,
   usernames: defaultUsernames,
@@ -62,32 +63,32 @@ const HashtagPage = ({
   associatedHashtags: defaultAssociatedHashtags,
   nbAssociatedHashtags: defaultNbAssociatedHashtags,
 }: {
-  hashtag: GetHashtagResponse['hashtag'];
-  totalNbTweets: GetHashtagResponse['totalNbTweets'];
-  volumetry: GetHashtagResponse['volumetry'];
-  languages: GetHashtagResponse['languages'];
-  usernames: GetHashtagResponse['usernames'];
-  nbUsernames: GetHashtagResponse['nbUsernames'];
-  associatedHashtags: GetHashtagResponse['associatedHashtags'];
-  nbAssociatedHashtags: GetHashtagResponse['nbAssociatedHashtags'];
+  search: GetSearchResponse['search'];
+  totalNbTweets: GetSearchResponse['totalNbTweets'];
+  volumetry: GetSearchResponse['volumetry'];
+  languages: GetSearchResponse['languages'];
+  usernames: GetSearchResponse['usernames'];
+  nbUsernames: GetSearchResponse['nbUsernames'];
+  associatedHashtags: GetSearchResponse['associatedHashtags'];
+  nbAssociatedHashtags: GetSearchResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
-  const hashtagName = defaultHashtag?.name || router.query.hashtag;
+  const searchName = defaultSearch?.name || router.query.search;
 
   const [loadingData, toggleLoadingData] = useToggle(true);
   const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
 
   const [refreshInterval, setRefreshInterval] = React.useState(
-    REFRESH_INTERVALS[defaultHashtag?.status]
+    REFRESH_INTERVALS[defaultSearch?.status]
   );
 
-  const { data, isValidating } = useSWR<GetHashtagResponse>(
-    `/api/hashtags/${hashtagName}${queryParamsStringified}`,
+  const { data, isValidating } = useSWR<GetSearchResponse>(
+    `/api/searches/${encodeURIComponent(searchName as string)}${queryParamsStringified}`,
     {
       initialData: {
         status: 'ok',
         message: '',
-        hashtag: defaultHashtag,
+        search: defaultSearch,
         totalNbTweets: defaultTotalNbTweets,
         volumetry: defaultVolumetry,
         languages: defaultLanguages,
@@ -106,7 +107,7 @@ const HashtagPage = ({
   }, [isValidating]);
 
   const {
-    hashtag,
+    search,
     totalNbTweets = 0,
     volumetry = [],
     languages = [],
@@ -115,54 +116,69 @@ const HashtagPage = ({
     associatedHashtags = [],
     nbAssociatedHashtags = 0,
   } = data || {};
-  const { status = '', firstOccurenceDate, oldestProcessedDate, newestProcessedDate } =
-    data?.hashtag || {};
+  const {
+    status = '',
+    firstOccurenceDate,
+    oldestProcessedDate,
+    newestProcessedDate,
+  } = data?.search || {};
 
   const gatheringData = ['PROCESSING', 'PENDING'].includes(status);
 
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (scale, point) => {
       window.open(
-        getTwitterLink(`#${hashtag?.name}`, { date: point.data.x as any, asTime: scale === 'hour' })
+        getTwitterLink(`${searchName}`, { date: point.data.x as any, asTime: scale === 'hour' })
       );
     },
-    [hashtag?.name]
+    [searchName]
   );
 
   const onPieClick: LanguageGraphProps['onSliceClick'] = React.useCallback(
     ({ id: lang }) => {
-      window.open(getTwitterLink(`#${hashtag?.name}`, { lang: lang as string }));
+      window.open(getTwitterLink(`${searchName}`, { lang: lang as string }));
     },
-    [hashtag?.name]
+    [searchName]
   );
 
   const onUsernameClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
     (username: string) => {
-      window.open(getTwitterLink(`#${hashtag?.name}`, { username }));
+      window.open(getTwitterLink(`${searchName}`, { username }));
     },
-    [hashtag?.name]
+    [searchName]
   );
 
   const onHashtagClick: HashtagTableProps['onHashtagClick'] = React.useCallback(
     (newHashtagName: string) => {
-      window.open(getTwitterLink(`#${newHashtagName}`, {}));
+      window.open(getTwitterLink(`${newHashtagName}`, {}));
     },
-    [hashtag?.name]
+    [searchName]
   );
 
   const onHashtagSearchClick: HashtagTableProps['onHashtagSearchClick'] = React.useCallback(
-    async (newHashtagName: string) => {
-      await api.post('/api/hashtags', { name: newHashtagName });
-      router.push(`/hashtags/${newHashtagName}?fromhashtag=${hashtag?.name}`);
+    async (hashtagWithoutHash: string) => {
+      const lowerCasedSearchName = `#${hashtagWithoutHash.toLowerCase()}`;
+      if (searchName === lowerCasedSearchName) {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+        return;
+      }
+      await api.post('/api/searches', { name: lowerCasedSearchName });
+      router.push(
+        `/searches/${encodeURIComponent(lowerCasedSearchName)}?fromhashtag=${searchName}`
+      );
     },
-    [hashtag?.name]
+    [searchName]
   );
 
   const onUsernameSearchClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
     (username: string) => {
-      router.push(`/user/@${username}?fromhashtag=${hashtag?.name}`);
+      router.push(`/user/@${username}?fromhashtag=${searchName}`);
     },
-    [hashtag?.name]
+    [searchName]
   );
 
   const onFilterDateChange: any = React.useCallback(
@@ -187,11 +203,11 @@ const HashtagPage = ({
   };
 
   return (
-    <Layout title={`#${hashtagName} | Information Manipulation Analyzer`}>
+    <Layout title={`${searchName} | Information Manipulation Analyzer`}>
       <div className="fr-container fr-mb-12w">
         <div className="fr-grid-row">
           <div className="fr-col">
-            <h1 className="text-center">#{hashtagName}</h1>
+            <h1 className="text-center">{searchName}</h1>
             <h6 className="text-center">
               Information Manipulation Analyzer
               <sup>
@@ -266,13 +282,13 @@ const HashtagPage = ({
         </>
 
         <Breadcrumb>
-          <BreadcrumbItem href="/">All hashtags</BreadcrumbItem>
-          {queryParams.fromhashtag && (
-            <BreadcrumbItem href={`/hashtags/${queryParams.fromhashtag}`}>
-              #{queryParams.fromhashtag}
+          <BreadcrumbItem href="/">All searches</BreadcrumbItem>
+          {queryParams.fromsearch && (
+            <BreadcrumbItem href={`/searches/${encodeURIComponent(queryParams.fromsearch)}`}>
+              {queryParams.fromsearch}
             </BreadcrumbItem>
           )}
-          <BreadcrumbItem isCurrent={true}>#{hashtag?.name}</BreadcrumbItem>
+          <BreadcrumbItem isCurrent={true}>{searchName}</BreadcrumbItem>
         </Breadcrumb>
 
         {totalNbTweets > 0 && (
@@ -284,7 +300,7 @@ const HashtagPage = ({
                   title={
                     firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'
                   }
-                  href={getTwitterLink(`#${hashtag?.name}`, { endDate: firstOccurenceDate })}
+                  href={getTwitterLink(`${searchName}`, { endDate: firstOccurenceDate })}
                   description={'Date of first appearance'}
                 />
               </div>
@@ -320,9 +336,11 @@ const HashtagPage = ({
               <div className="fr-col">
                 <Card
                   horizontal
-                  title={'TODO %'}
+                  title={'I want this!'}
                   description={'Inauthenticity Probability'}
-                  href={'#calculation-algorythm'}
+                  href={getTweetIntentLink(
+                    `Hey @AmbNum, I absolutely need to retrieve the inauthenticity probability on a search on IMA. Thanks`
+                  )}
                 />
               </div>
             </div>
@@ -364,18 +382,18 @@ const HashtagPage = ({
                   data={usernames}
                   onUsernameClick={onUsernameClick}
                   onUsernameSearchClick={onUsernameSearchClick}
-                  exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
-                    hashtag?.name
-                  }__usernames`}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__usernames`}
                 />
                 <HashtagTable
                   nbData={nbAssociatedHashtags}
                   data={associatedHashtags}
                   onHashtagClick={onHashtagClick}
                   onHashtagSearchClick={onHashtagSearchClick}
-                  exportName={`${dayjs(newestProcessedDate).format('YYYYMMDDHH')}__${
-                    hashtag?.name
-                  }__associated-hashtags`}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__associated-hashtags`}
                 />
               </div>
             </div>
@@ -387,8 +405,7 @@ const HashtagPage = ({
               <label className="fr-label" htmlFor="text-input-hint">
                 Be alerted by email
                 <span className="fr-hint-text">
-                  Whenever <strong>#{hashtag?.name}</strong> has an abnormal rise in number of
-                  tweets
+                  Whenever <strong>{searchName}</strong> has an abnormal rise in number of tweets
                 </span>
               </label>
               <input
@@ -406,4 +423,4 @@ const HashtagPage = ({
   );
 };
 
-export default HashtagPage;
+export default SearchPage;
