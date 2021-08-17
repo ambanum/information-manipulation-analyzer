@@ -107,7 +107,6 @@ const SearchPage = ({
   }, [isValidating]);
 
   const {
-    search,
     totalNbTweets = 0,
     volumetry = [],
     languages = [],

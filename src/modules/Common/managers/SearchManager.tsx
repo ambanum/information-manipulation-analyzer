@@ -11,7 +11,7 @@ import dayjs from 'dayjs';
 const MIN_NB_OCCURENCES = 1;
 const MIN_NB_RECORDS = 1000;
 
-export const create = async ({ name, type }: { name: string; type: SearchTypes }) => {
+export const create = async ({ name, type }: { name: string; type: keyof typeof SearchTypes }) => {
   try {
     const search = new SearchModel({ name, status: 'PENDING', type });
     await search.save();
