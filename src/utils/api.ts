@@ -22,4 +22,7 @@ export const fetcher = async (resource: any, init: any) =>
       throw error;
     });
 
+export const getUrlType = async (url: string) =>
+  ((await axiosInstance.head(url))?.headers || {})['content-type'];
+
 export default axiosInstance;
