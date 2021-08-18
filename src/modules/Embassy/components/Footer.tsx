@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import getConfig from 'next/config';
 import styles from './Footer.module.scss';
@@ -243,37 +244,28 @@ const Footer = () => (
         </svg>
       </div>
       <div className={styles.footer_desc}>
-        Réalisé dans une optique de <strong>transparence</strong>, d’
-        <strong>intérêt général</strong>, de <strong>collaboration</strong>, d’
-        <strong>agilité</strong> et de <strong>bienveillance</strong> par l’équipe de l’Ambassadeur
-        français pour le numérique.
+        Made with <strong>transparency, general interest, collaboration, agility</strong> and{' '}
+        <strong>care</strong> in mind by the team of the French Ambassador for Digital Affairs
       </div>
       <nav className={styles.footer_nav}>
         <ul className={styles.footer_nav_items}>
           <li className={styles.footer_nav_item}>
-            <a
-              className={styles.footer_nav_link}
-              href="mailto:bureau.ambnum@diplomatie.gouv.fr?subject=disinfo"
-            >
-              Contactez-nous
+            <a className={styles.footer_nav_link} href="mailto:ima@disinfo.beta.gouv.fr">
+              Contact us
             </a>
           </li>
           <li className={styles.footer_nav_item}>
-            <a className={styles.footer_nav_link} href="/suivi-d-audience-et-vie-privee">
-              Suivi d’audience et vie privée
-            </a>
+            <Link href="/privacy-policy">Privacy policy</Link>
           </li>
           <li className={styles.footer_nav_item}>
-            <a className={styles.footer_nav_link} href="/mentions-legales.html">
-              Mentions légales
-            </a>
+            <Link href="/legal-notice">Legal notice</Link>
           </li>
           <li className={styles.footer_nav_item}>
             <a
               className={styles.footer_nav_link}
-              href="https://github.com/ambanum/disinfo.quaidorsay.fr"
+              href="https://github.com/ambanum/information-manipulation-analyzer"
             >
-              Code source
+              Source code
             </a>
           </li>
         </ul>
