@@ -4,7 +4,13 @@ import Alert from '../components/Alert/Alert';
 import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import useSwr from 'swr';
+
+dayjs.extend(relativeTime);
+dayjs.extend(localizedFormat);
 
 interface LastSearchesProps {
   filter?: string;
@@ -26,6 +32,11 @@ const TagsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: numbe
           }
         }
 
+        const loading = !['DONE', 'DONE_ERROR'].includes(search.status);
+        const timeInfo = loading
+          ? dayjs(search.createdAt).fromNow()
+          : dayjs(search.createdAt).format('llll');
+
         return (
           <React.Fragment key={`last_search_${search.name}`}>
             {title}
@@ -34,9 +45,9 @@ const TagsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: numbe
               href={`/searches/${encodeURIComponent(search.name)}`}
               prefetch={false}
             >
-              <a className={`fr-tag fr-m-1v`}>
+              <a className={`fr-tag fr-m-1v`} title={`Created ${timeInfo}`}>
                 {search.name}
-                {!['DONE', 'DONE_ERROR'].includes(search.status) ? (
+                {loading ? (
                   <Loading size="sm" className="fr-ml-2v" />
                 ) : search.status === 'DONE_ERROR' ? (
                   <span

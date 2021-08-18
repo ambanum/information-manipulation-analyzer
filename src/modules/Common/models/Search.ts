@@ -38,6 +38,8 @@ export interface Search extends Document {
   oldestProcessedDate?: string;
   newestProcessedDate?: string;
   error?: string;
+  createdAt?: string | Date;
+  updatedAt?: string | Date;
 }
 
 const schema = new Schema(
