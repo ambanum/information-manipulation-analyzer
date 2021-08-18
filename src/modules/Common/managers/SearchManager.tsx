@@ -95,6 +95,10 @@ export const getWithData = async ({
   try {
     const search = await get({ name });
 
+    if (!search) {
+      return null;
+    }
+
     const usernames: { [key: string]: number } = {};
     const languages: { [key: string]: number } = {};
     const associatedHashtags: { [key: string]: number } = {};
@@ -211,6 +215,6 @@ export const getWithData = async ({
     return result;
   } catch (e) {
     console.error(e);
-    throw new Error('Could not find search in getWithData');
+    throw new Error(`Could not find search in getWithData for ${name}`);
   }
 };

@@ -10,6 +10,6 @@ export default async function getStaticProps({ params }: { params: { search: str
   return {
     props: JSON.parse(JSON.stringify(result)),
     revalidate: 300,
-    notFound: !result.search,
+    notFound: !result?.search,
   };
 }
