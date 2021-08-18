@@ -7,8 +7,11 @@ import { sanitizeText, sanitizeUrl } from 'utils/sanitizer';
 
 import HttpStatusCode from 'http-status-codes';
 import { SearchTypes } from 'modules/Common/models/Search';
+import { getUrlType } from 'utils/api';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
+
+const invalidMimes = ['image', 'video', 'application'];
 
 const create = async (req: NextApiRequest, res: NextApiResponse<CreateSearchResponse>) => {
   const { name } = req.body as CreateSearchInput;
@@ -26,10 +29,18 @@ const create = async (req: NextApiRequest, res: NextApiResponse<CreateSearchResp
 
   // check if name is URL
   if (name.match(/^https?:\/\//)) {
+    const urlType = await getUrlType(name);
+
+    if (invalidMimes.some((invalidMime) => urlType.startsWith(invalidMime))) {
+      res.statusCode = HttpStatusCode.OK;
+      res.json({
+        status: 'ko',
+        message: "We're sorry but we do not yet support images, videos and files",
+      });
+      return res;
+    }
     type = 'URL';
-    // TODO sanitize url
-    // TODO retrieve image and title of page
-    sanitizedName = `${sanitizeUrl(name)}`;
+    sanitizedName = sanitizeUrl(name);
   } else if (name.startsWith('@')) {
     type = 'MENTION';
     sanitizedName = `@${sanitizeText(name)}`;

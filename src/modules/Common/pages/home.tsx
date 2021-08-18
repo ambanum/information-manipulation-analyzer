@@ -6,20 +6,23 @@ import LastSearches from '../data-components/LastSearches';
 import Layout from 'modules/Embassy/components/Layout';
 import React from 'react';
 import api from 'utils/api';
+import useNotifier from 'hooks/useNotifier';
 import { useRouter } from 'next/router';
 
 const HomePage = () => {
   const router = useRouter();
+  const { notify } = useNotifier();
   const [filter, setFilter] = React.useState('');
   const onSubmit: SearchProps['onSearchSubmit'] = async (search) => {
     try {
       const { data } = await api.post<CreateSearchResponse>('/api/searches', { name: search });
-      router.push(`/searches/${encodeURIComponent(data?.search?.name as string)}`);
+      if (data.status === 'ok') {
+        router.push(`/searches/${encodeURIComponent(data?.search?.name as string)}`);
+      } else {
+        notify('warning', data.message || '');
+      }
     } catch (e) {
-      console.log(''); // eslint-disable-line
-      console.log('╔════START══e══════════════════════════════════════════════════'); // eslint-disable-line
-      console.log(e); // eslint-disable-line
-      console.log('╚════END════e══════════════════════════════════════════════════'); // eslint-disable-line
+      notify('error', e.toString());
     }
   };
 
