@@ -29,15 +29,19 @@ const create = async (req: NextApiRequest, res: NextApiResponse<CreateSearchResp
 
   // check if name is URL
   if (name.match(/^https?:\/\//)) {
-    const urlType = await getUrlType(name);
+    try {
+      const urlType = await getUrlType(name);
 
-    if (invalidMimes.some((invalidMime) => urlType.startsWith(invalidMime))) {
-      res.statusCode = HttpStatusCode.OK;
-      res.json({
-        status: 'ko',
-        message: "We're sorry but we do not yet support images, videos and files",
-      });
-      return res;
+      if (invalidMimes.some((invalidMime) => urlType.startsWith(invalidMime))) {
+        res.statusCode = HttpStatusCode.OK;
+        res.json({
+          status: 'ko',
+          message: "We're sorry but we do not yet support images, videos and files",
+        });
+        return res;
+      }
+    } catch (e) {
+      console.warn('we could not detect the type of url this is', name);
     }
     type = 'URL';
     sanitizedName = sanitizeUrl(name);

@@ -1,6 +1,7 @@
 import { GetSearchesResponse, Search } from '../interfaces';
 
 import Alert from '../components/Alert/Alert';
+import Card from 'components/Card';
 import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
@@ -121,7 +122,26 @@ const LastSearches = ({
       {urls.length > 0 && (
         <>
           <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">Urls</h2>
-          <TagsList searches={urls} />
+          <div className="fr-container fr-container--fluid">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              {urls.map(({ metadata, name }) => (
+                <div className="fr-col fr-col-md-4" key={name}>
+                  <Card
+                    enlargeLink
+                    direction="right"
+                    href={`/searches/${encodeURIComponent(name)}`}
+                    title={metadata?.url?.title}
+                    description={metadata?.url?.description}
+                    image={
+                      metadata?.url?.image?.url ||
+                      'https://via.placeholder.com/150/333333/333333/?text='
+                    }
+                    imageAlt={metadata?.url?.title}
+                  />
+                </div>
+              ))}
+            </div>{' '}
+          </div>
         </>
       )}
     </div>

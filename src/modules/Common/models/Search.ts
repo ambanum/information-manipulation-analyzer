@@ -32,6 +32,10 @@ export type SearchStatus =
 export interface Search extends Document {
   name: string;
   status: SearchStatus;
+  metadata?: {
+    lastEvaluatedUntilTweetId?: string;
+    url?: any;
+  };
   type: SearchTypes;
   volumetry: SearchVolumetry[];
   firstOccurenceDate: string;
@@ -44,35 +48,16 @@ export interface Search extends Document {
 
 const schema = new Schema(
   {
-    name: {
-      type: String,
-      required: true,
-      index: true,
+    name: { type: String, required: true, index: true },
+    status: { type: String, required: true, index: true, enum: Object.values(SearchStatuses) },
+    metadata: {
+      lastEvaluatedUntilTweetId: { type: String, index: true },
+      url: { type: Schema.Types.Mixed },
     },
-    status: {
-      type: String,
-      required: true,
-      index: true,
-      enum: Object.values(SearchStatuses),
-    },
-    type: {
-      type: String,
-      required: true,
-      index: true,
-      enum: Object.values(SearchTypes),
-    },
-    firstOccurenceDate: {
-      type: Date,
-      index: true,
-    },
-    oldestProcessedDate: {
-      type: Date,
-      index: true,
-    },
-    newestProcessedDate: {
-      type: Date,
-      index: true,
-    },
+    type: { type: String, required: true, index: true, enum: Object.values(SearchTypes) },
+    firstOccurenceDate: { type: Date, index: true },
+    oldestProcessedDate: { type: Date, index: true },
+    newestProcessedDate: { type: Date, index: true },
   },
   {
     strict: 'throw',

@@ -117,6 +117,8 @@ const SearchPage = ({
   } = data || {};
   const {
     status = '',
+    metadata,
+    type,
     firstOccurenceDate,
     oldestProcessedDate,
     newestProcessedDate,
@@ -201,12 +203,23 @@ const SearchPage = ({
     alert('Sorry, this feature is not ready yet');
   };
 
+  const isUrl = type === 'URL';
+  const title = isUrl ? (
+    <a href={searchName as string} target="_blank">
+      Article
+    </a>
+  ) : (
+    searchName
+  );
+
   return (
-    <Layout title={`${searchName} | Information Manipulation Analyzer`}>
+    <Layout
+      title={`${isUrl ? metadata?.url?.title : searchName} | Information Manipulation Analyzer`}
+    >
       <div className="fr-container fr-mb-12w">
         <div className="fr-grid-row">
           <div className="fr-col">
-            <h1 className="text-center">{searchName}</h1>
+            <h1 className="text-center">{title}</h1>
             <h6 className="text-center">
               Information Manipulation Analyzer
               <sup>
@@ -241,6 +254,20 @@ const SearchPage = ({
                   need more data on this hashtag
                 </span>
               </div>
+            )}
+            {type === 'URL' && (
+              <Card
+                horizontal
+                enlargeLink
+                direction="right"
+                style={{ maxHeight: '260px', marginBottom: '20px' }}
+                href={searchName as string}
+                title={metadata?.url?.title}
+                detail={metadata?.url?.site}
+                description={metadata?.url?.description}
+                image={metadata?.url?.image?.url}
+                imageAlt={metadata?.url?.title}
+              />
             )}
             {(gatheringData || router.isFallback) && <Loading />}
           </div>
