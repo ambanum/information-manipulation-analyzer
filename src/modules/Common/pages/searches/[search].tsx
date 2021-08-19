@@ -388,7 +388,7 @@ const SearchPage = ({
             />
           </div>
         )}
-        <Graph hashtag={hashtag?.name} />
+        <Graph search={searchName} />
         {languages?.length > 0 && (
           <div
             className="fr-my-6w"

@@ -8,7 +8,7 @@ export interface UserBotScoreResponse {
   botScoreMetadata?: any;
 }
 
-export interface HashtagGraphResponse {
+export interface SearchGraphResponse {
   graphUrl?: string;
   graphProvider?: string;
   graphUpdatedAt?: string;
@@ -30,5 +30,5 @@ export const getUserBotScore = async (username: string) => {
 export const getGraph = async (hashtag: string) => {
   console.log(`${PROCESSOR_API_URL}/graph/twitter/hashtag/${hashtag}`);
 
-  return axios.get<HashtagGraphResponse>(`${PROCESSOR_API_URL}/graph/twitter/hashtag/${hashtag}`);
+  return axios.get<SearchGraphResponse>(`${PROCESSOR_API_URL}/graph/twitter/hashtag/${hashtag}`);
 };

@@ -225,9 +225,9 @@ export const getWithData = async ({
 export const retrieveAndUpdateGraph = async (
   name: string
 ): Promise<Partial<Search> | undefined> => {
-  const { data: hashtagGraphData } = await scrapeApi.getGraph(name);
+  const { data: searchGraphData } = await scrapeApi.getGraph(name);
 
-  return hashtagGraphData;
+  return searchGraphData;
 };
 
 export const getGraph = async (filter: { name: string }): Promise<Partial<Search>> => {
@@ -243,6 +243,6 @@ export const getGraph = async (filter: { name: string }): Promise<Partial<Search
     return pick(graphPickFields)(search);
   } catch (e) {
     console.error(e);
-    throw new Error('Could not find hashtag');
+    throw new Error('Could not find search');
   }
 };

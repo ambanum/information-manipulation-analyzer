@@ -1,4 +1,4 @@
-import { GetHashtagGraphResponse } from '../interfaces';
+import { GetSearchGraphResponse } from '../interfaces';
 import { NetworkGraphProps } from 'modules/NetworkGraph/components/NetworkGraph.d';
 import React from 'react';
 import classNames from 'classnames';
@@ -10,7 +10,7 @@ const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/Netwo
 });
 
 export type GraphProps = {
-  hashtag?: string;
+  search?: string;
   width?: NetworkGraphProps['width'];
   height?: NetworkGraphProps['height'];
   onClickNode?: NetworkGraphProps['onClickNode'];
@@ -19,13 +19,13 @@ export type GraphProps = {
 const Graph: React.FC<GraphProps> = ({
   children,
   className,
-  hashtag,
+  search,
   width = '100%',
   height = '600px',
   onClickNode,
   ...props
 }) => {
-  const { data, isValidating } = useSwr<GetHashtagGraphResponse>(`/api/graph/${hashtag}`);
+  const { data, isValidating } = useSwr<GetSearchGraphResponse>(`/api/graph/${search}`);
 
   if (isValidating) {
     return (

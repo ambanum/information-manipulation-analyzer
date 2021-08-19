@@ -1,4 +1,4 @@
-import * as HashtagManager from '../../managers/HashtagManager';
+import * as SearchManager from '../../managers/SearchManager';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -8,17 +8,17 @@ import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const get =
-  ({ hashtag }: { hashtag: string }) =>
+  ({ search }: { search: string }) =>
   async (res: NextApiResponse<GetSearchGraphResponse>) => {
     try {
       const { graphUrl, graphMetadata, graphUpdatedAt, graphProvider } =
-        await HashtagManager.getGraph({ name: hashtag });
+        await SearchManager.getGraph({ name: search });
 
       res.statusCode = HttpStatusCode.OK;
       // res.setHeader('Cache-Control', `max-age=${60 * 60 * 1000}`);
       res.json({
         status: 'ok',
-        message: 'Hashtag graph',
+        message: 'Search graph',
         url: graphUrl,
         metadata: graphMetadata,
         updatedAt: graphUpdatedAt,
@@ -32,7 +32,7 @@ const get =
   };
 
 const graph = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'GET' && req.query.hashtag) {
+  if (req.method === 'GET' && req.query.search) {
     return get(req.query as any)(res);
   }
 
