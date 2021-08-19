@@ -1,0 +1,3230 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2021-08-12">
+    <creator>NetworkX 2.5.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="14" title="date" type="string" />
+      <attribute id="15" title="category" type="string" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="date" type="string" />
+      <attribute id="1" title="username" type="string" />
+      <attribute id="2" title="displayname" type="string" />
+      <attribute id="3" title="verified" type="boolean" />
+      <attribute id="4" title="followersCount" type="long" />
+      <attribute id="5" title="friendsCount" type="long" />
+      <attribute id="6" title="statusesCount" type="long" />
+      <attribute id="7" title="favouritesCount" type="long" />
+      <attribute id="8" title="profileImageUrl" type="string" />
+      <attribute id="9" title="replyCount" type="long" />
+      <attribute id="10" title="retweetCount" type="long" />
+      <attribute id="11" title="likeCount" type="long" />
+      <attribute id="12" title="quoteCount" type="long" />
+      <attribute id="13" title="community" type="long" />
+    </attributes>
+    <nodes>
+      <node id="AniceLajnef" label="AniceLajnef">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="AniceLajnef" />
+          <attvalue for="2" value="Anice Lajnef" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="57358" />
+          <attvalue for="5" value="270" />
+          <attvalue for="6" value="35519" />
+          <attvalue for="7" value="121926" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/976136041995423744/OhQ4mCun_normal.jpg" />
+          <attvalue for="9" value="79" />
+          <attvalue for="10" value="891" />
+          <attvalue for="11" value="2345" />
+          <attvalue for="12" value="36" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="Thom_astro" label="Thom_astro">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="Thom_astro" />
+          <attvalue for="2" value="Thomas Pesquet" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="1254486" />
+          <attvalue for="5" value="291" />
+          <attvalue for="6" value="6758" />
+          <attvalue for="7" value="5510" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1408858294731542534/SL0gvB4i_normal.jpg" />
+          <attvalue for="9" value="98" />
+          <attvalue for="10" value="1439" />
+          <attvalue for="11" value="6978" />
+          <attvalue for="12" value="49" />
+          <attvalue for="13" value="5" />
+        </attvalues>
+      </node>
+      <node id="greenpeacefr" label="greenpeacefr">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="greenpeacefr" />
+          <attvalue for="2" value="Greenpeace France" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="437993" />
+          <attvalue for="5" value="741" />
+          <attvalue for="6" value="29347" />
+          <attvalue for="7" value="10547" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/514786708559122432/wFynDQ2x_normal.jpeg" />
+          <attvalue for="9" value="113" />
+          <attvalue for="10" value="1540" />
+          <attvalue for="11" value="2904" />
+          <attvalue for="12" value="85" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="lapin47" label="lapin47">
+        <attvalues>
+          <attvalue for="0" value="2021-08-11-23" />
+          <attvalue for="1" value="lapin47" />
+          <attvalue for="2" value="Angry_Bisounours" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="11802" />
+          <attvalue for="5" value="9784" />
+          <attvalue for="6" value="431626" />
+          <attvalue for="7" value="306545" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/514433928560525315/RI7__ZdA_normal.png" />
+          <attvalue for="9" value="2" />
+          <attvalue for="10" value="45" />
+          <attvalue for="11" value="50" />
+          <attvalue for="12" value="2" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="MaximCombes" label="MaximCombes">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="MaximCombes" />
+          <attvalue for="2" value="Maxime Combes" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="41501" />
+          <attvalue for="5" value="199" />
+          <attvalue for="6" value="36993" />
+          <attvalue for="7" value="42442" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/731050591372357632/E_IiyLhf_normal.jpg" />
+          <attvalue for="9" value="97" />
+          <attvalue for="10" value="1380" />
+          <attvalue for="11" value="2618" />
+          <attvalue for="12" value="79" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="JeanHugon3" label="JeanHugon3">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-00" />
+          <attvalue for="1" value="JeanHugon3" />
+          <attvalue for="2" value="Jean Hugon 🇵🇸" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="34441" />
+          <attvalue for="5" value="453" />
+          <attvalue for="6" value="15882" />
+          <attvalue for="7" value="89036" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1348703452512342017/T4AM04mr_normal.jpg" />
+          <attvalue for="9" value="43" />
+          <attvalue for="10" value="442" />
+          <attvalue for="11" value="1585" />
+          <attvalue for="12" value="6" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="ClemSenechal" label="ClemSenechal">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="ClemSenechal" />
+          <attvalue for="2" value="Clément Sénéchal" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="14994" />
+          <attvalue for="5" value="1989" />
+          <attvalue for="6" value="15513" />
+          <attvalue for="7" value="24721" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1337417053834260482/Nz2QqvoC_normal.jpg" />
+          <attvalue for="9" value="390" />
+          <attvalue for="10" value="2589" />
+          <attvalue for="11" value="9447" />
+          <attvalue for="12" value="91" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="Le_Trema" label="Le_Trema">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="Le_Trema" />
+          <attvalue for="2" value="Le Tréma" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="19784" />
+          <attvalue for="5" value="742" />
+          <attvalue for="6" value="14950" />
+          <attvalue for="7" value="111317" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1381147365290221570/_bid1zY__normal.jpg" />
+          <attvalue for="9" value="220" />
+          <attvalue for="10" value="1028" />
+          <attvalue for="11" value="4671" />
+          <attvalue for="12" value="232" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="arretsurimages" label="arretsurimages">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="arretsurimages" />
+          <attvalue for="2" value="Arrêt sur Images" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="515100" />
+          <attvalue for="5" value="1047" />
+          <attvalue for="6" value="29056" />
+          <attvalue for="7" value="1006" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/948512437841661953/Gb5IdWXt_normal.jpg" />
+          <attvalue for="9" value="200" />
+          <attvalue for="10" value="3665" />
+          <attvalue for="11" value="7357" />
+          <attvalue for="12" value="263" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="Inafr_officiel" label="Inafr_officiel">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="Inafr_officiel" />
+          <attvalue for="2" value="Ina.fr" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="233703" />
+          <attvalue for="5" value="1012" />
+          <attvalue for="6" value="23391" />
+          <attvalue for="7" value="1534" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/756029835345092608/DOev2I7O_normal.jpg" />
+          <attvalue for="9" value="262" />
+          <attvalue for="10" value="4790" />
+          <attvalue for="11" value="6340" />
+          <attvalue for="12" value="588" />
+          <attvalue for="13" value="4" />
+        </attvalues>
+      </node>
+      <node id="bernathoustra" label="bernathoustra">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="bernathoustra" />
+          <attvalue for="2" value="Harold Bernat" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="7769" />
+          <attvalue for="5" value="996" />
+          <attvalue for="6" value="29559" />
+          <attvalue for="7" value="18792" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1326278586081423360/d0oP-jz6_normal.jpg" />
+          <attvalue for="9" value="187" />
+          <attvalue for="10" value="1321" />
+          <attvalue for="11" value="5493" />
+          <attvalue for="12" value="44" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="lorisguemart" label="lorisguemart">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="lorisguemart" />
+          <attvalue for="2" value="Loris Guémart" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="5927" />
+          <attvalue for="5" value="3756" />
+          <attvalue for="6" value="28865" />
+          <attvalue for="7" value="3650" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/710931599957889028/JjVBDEV3_normal.jpg" />
+          <attvalue for="9" value="11" />
+          <attvalue for="10" value="490" />
+          <attvalue for="11" value="1089" />
+          <attvalue for="12" value="10" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="fmomboisse" label="fmomboisse">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="fmomboisse" />
+          <attvalue for="2" value="François Momboisse" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="19241" />
+          <attvalue for="5" value="998" />
+          <attvalue for="6" value="53417" />
+          <attvalue for="7" value="8387" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1423659823539834881/8opAp4p0_normal.jpg" />
+          <attvalue for="9" value="95" />
+          <attvalue for="10" value="490" />
+          <attvalue for="11" value="1465" />
+          <attvalue for="12" value="40" />
+          <attvalue for="13" value="5" />
+        </attvalues>
+      </node>
+      <node id="ReveilEcolo" label="ReveilEcolo">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="ReveilEcolo" />
+          <attvalue for="2" value="Pour un réveil écologique" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="6353" />
+          <attvalue for="5" value="301" />
+          <attvalue for="6" value="2440" />
+          <attvalue for="7" value="3454" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1308313049162448903/qu0Yafuk_normal.jpg" />
+          <attvalue for="9" value="24" />
+          <attvalue for="10" value="316" />
+          <attvalue for="11" value="989" />
+          <attvalue for="12" value="29" />
+          <attvalue for="13" value="6" />
+        </attvalues>
+      </node>
+      <node id="SoO_OnTheMoon" label="SoO_OnTheMoon">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="SoO_OnTheMoon" />
+          <attvalue for="2" value="SoO_OnTheMoon 🔻" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="859" />
+          <attvalue for="5" value="2461" />
+          <attvalue for="6" value="56882" />
+          <attvalue for="7" value="141384" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1337863747084423174/s4CuU1Mj_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="voixdunucleaire" label="voixdunucleaire">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="voixdunucleaire" />
+          <attvalue for="2" value="Voix du Nucléaire" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="7027" />
+          <attvalue for="5" value="780" />
+          <attvalue for="6" value="3918" />
+          <attvalue for="7" value="2979" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1339493276563480577/UJA0JEku_normal.jpg" />
+          <attvalue for="9" value="4" />
+          <attvalue for="10" value="28" />
+          <attvalue for="11" value="50" />
+          <attvalue for="12" value="4" />
+          <attvalue for="13" value="9" />
+        </attvalues>
+      </node>
+      <node id="GaetanEscorbiac" label="GaetanEscorbiac">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="GaetanEscorbiac" />
+          <attvalue for="2" value="Gaëtan Escorbiac" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="14120" />
+          <attvalue for="5" value="5289" />
+          <attvalue for="6" value="68665" />
+          <attvalue for="7" value="48488" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1375891198733352961/MLRZKef0_normal.jpg" />
+          <attvalue for="9" value="14" />
+          <attvalue for="10" value="40" />
+          <attvalue for="11" value="96" />
+          <attvalue for="12" value="2" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="EricLagadec" label="EricLagadec">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="EricLagadec" />
+          <attvalue for="2" value="Eric Lagadec 🌍✨" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="2012" />
+          <attvalue for="5" value="663" />
+          <attvalue for="6" value="4025" />
+          <attvalue for="7" value="9247" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1004788209/8521_170856397587_691162587_3599370_1815323_n_normal.jpg" />
+          <attvalue for="9" value="7" />
+          <attvalue for="10" value="12" />
+          <attvalue for="11" value="20" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="10" />
+        </attvalues>
+      </node>
+      <node id="MFrippon" label="MFrippon">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="MFrippon" />
+          <attvalue for="2" value="Duc de Saint-Frippon" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="23081" />
+          <attvalue for="5" value="112" />
+          <attvalue for="6" value="26790" />
+          <attvalue for="7" value="392" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/986280613312368640/MABdhGVY_normal.jpg" />
+          <attvalue for="9" value="17" />
+          <attvalue for="10" value="124" />
+          <attvalue for="11" value="500" />
+          <attvalue for="12" value="1" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="LeLynxfr" label="LeLynxfr">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="LeLynxfr" />
+          <attvalue for="2" value="LeLynx.fr" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="1842" />
+          <attvalue for="5" value="829" />
+          <attvalue for="6" value="5945" />
+          <attvalue for="7" value="2092" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1349652815661182976/S3kYCGHK_normal.png" />
+          <attvalue for="9" value="13" />
+          <attvalue for="10" value="22" />
+          <attvalue for="11" value="28" />
+          <attvalue for="12" value="5" />
+          <attvalue for="13" value="11" />
+        </attvalues>
+      </node>
+      <node id="juliehenches" label="juliehenches">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="juliehenches" />
+          <attvalue for="2" value="la vraie julie" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="6226" />
+          <attvalue for="5" value="5424" />
+          <attvalue for="6" value="4725" />
+          <attvalue for="7" value="33201" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1425582484725579787/EwQszncK_normal.jpg" />
+          <attvalue for="9" value="42" />
+          <attvalue for="10" value="504" />
+          <attvalue for="11" value="2568" />
+          <attvalue for="12" value="21" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="EricPiolle" label="EricPiolle">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="EricPiolle" />
+          <attvalue for="2" value="Éric Piolle" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="55138" />
+          <attvalue for="5" value="3993" />
+          <attvalue for="6" value="3509" />
+          <attvalue for="7" value="199" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1410120187802750976/adynrW-9_normal.jpg" />
+          <attvalue for="9" value="136" />
+          <attvalue for="10" value="70" />
+          <attvalue for="11" value="517" />
+          <attvalue for="12" value="76" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="PhilippeCAVAT" label="PhilippeCAVAT">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="PhilippeCAVAT" />
+          <attvalue for="2" value="Philippe CAVAT" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="534" />
+          <attvalue for="5" value="498" />
+          <attvalue for="6" value="11928" />
+          <attvalue for="7" value="3400" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1216649004970381312/JBymweW0_normal.jpg" />
+          <attvalue for="9" value="32" />
+          <attvalue for="10" value="235" />
+          <attvalue for="11" value="462" />
+          <attvalue for="12" value="15" />
+          <attvalue for="13" value="8" />
+        </attvalues>
+      </node>
+      <node id="yvesbourdillon" label="yvesbourdillon">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="yvesbourdillon" />
+          <attvalue for="2" value="Bourdillon Yves" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="9419" />
+          <attvalue for="5" value="1344" />
+          <attvalue for="6" value="50352" />
+          <attvalue for="7" value="49" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1121328851680944129/6QictFwk_normal.png" />
+          <attvalue for="9" value="38" />
+          <attvalue for="10" value="54" />
+          <attvalue for="11" value="176" />
+          <attvalue for="12" value="4" />
+          <attvalue for="13" value="5" />
+        </attvalues>
+      </node>
+      <node id="tolubls" label="tolubls">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="tolubls" />
+          <attvalue for="2" value="Tolu" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="3593" />
+          <attvalue for="5" value="834" />
+          <attvalue for="6" value="13368" />
+          <attvalue for="7" value="24084" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1322106474957557760/57BOgOuM_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="64" />
+          <attvalue for="11" value="297" />
+          <attvalue for="12" value="2" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="BZH_UnionPop" label="BZH_UnionPop">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="BZH_UnionPop" />
+          <attvalue for="2" value="L'Union Populaire en Bretagne" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="220" />
+          <attvalue for="5" value="294" />
+          <attvalue for="6" value="232" />
+          <attvalue for="7" value="380" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1410586579383590916/J15xECb__normal.jpg" />
+          <attvalue for="9" value="4" />
+          <attvalue for="10" value="84" />
+          <attvalue for="11" value="114" />
+          <attvalue for="12" value="1" />
+          <attvalue for="13" value="4" />
+        </attvalues>
+      </node>
+      <node id="MorganJasiens" label="MorganJasiens">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="MorganJasiens" />
+          <attvalue for="2" value="Morgan Jasienski 🌻🤝🌍⚖️🛡️🌈🇪🇺" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="1948" />
+          <attvalue for="5" value="2190" />
+          <attvalue for="6" value="16844" />
+          <attvalue for="7" value="31253" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1423427344782462983/quWzyhI0_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="6" />
+          <attvalue for="11" value="10" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="5" />
+        </attvalues>
+      </node>
+      <node id="imarclement" label="imarclement">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-05" />
+          <attvalue for="1" value="imarclement" />
+          <attvalue for="2" value="Marcel clément" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="954" />
+          <attvalue for="5" value="1548" />
+          <attvalue for="6" value="1170" />
+          <attvalue for="7" value="8402" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1407563104297291780/t9OjptnB_normal.jpg" />
+          <attvalue for="9" value="3" />
+          <attvalue for="10" value="45" />
+          <attvalue for="11" value="56" />
+          <attvalue for="12" value="3" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="RenaudMuselier" label="RenaudMuselier">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="RenaudMuselier" />
+          <attvalue for="2" value="Renaud Muselier" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="38972" />
+          <attvalue for="5" value="1425" />
+          <attvalue for="6" value="10208" />
+          <attvalue for="7" value="6821" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1387658516593315840/Pn6xjSuq_normal.jpg" />
+          <attvalue for="9" value="116" />
+          <attvalue for="10" value="272" />
+          <attvalue for="11" value="876" />
+          <attvalue for="12" value="34" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="PortalezRegis" label="PortalezRegis">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="PortalezRegis" />
+          <attvalue for="2" value="Regis Portalez #Pelleteuse2022" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="6369" />
+          <attvalue for="5" value="801" />
+          <attvalue for="6" value="16648" />
+          <attvalue for="7" value="22285" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1392384553113763853/9o7y2yG9_normal.jpg" />
+          <attvalue for="9" value="37" />
+          <attvalue for="10" value="286" />
+          <attvalue for="11" value="823" />
+          <attvalue for="12" value="15" />
+          <attvalue for="13" value="12" />
+        </attvalues>
+      </node>
+      <node id="AvecJLM" label="AvecJLM">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="AvecJLM" />
+          <attvalue for="2" value="JLM 2022 🇫🇷" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="8717" />
+          <attvalue for="5" value="276" />
+          <attvalue for="6" value="1777" />
+          <attvalue for="7" value="15246" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1369708080196431873/4ROS5O8F_normal.jpg" />
+          <attvalue for="9" value="59" />
+          <attvalue for="10" value="448" />
+          <attvalue for="11" value="858" />
+          <attvalue for="12" value="26" />
+          <attvalue for="13" value="7" />
+        </attvalues>
+      </node>
+      <node id="SabineRubinFI93" label="SabineRubinFI93">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="SabineRubinFI93" />
+          <attvalue for="2" value="Sabine Rubin FI 93.9" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="14509" />
+          <attvalue for="5" value="344" />
+          <attvalue for="6" value="2325" />
+          <attvalue for="7" value="664" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/878298031422091264/8mliLEjX_normal.jpg" />
+          <attvalue for="9" value="6" />
+          <attvalue for="10" value="56" />
+          <attvalue for="11" value="140" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="YannWeb" label="YannWeb">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-02" />
+          <attvalue for="1" value="YannWeb" />
+          <attvalue for="2" value="Yann-EcoFarm💉💉" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="1677" />
+          <attvalue for="5" value="1770" />
+          <attvalue for="6" value="17456" />
+          <attvalue for="7" value="27169" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1163783267322982400/9VNzlP_p_normal.jpg" />
+          <attvalue for="9" value="14" />
+          <attvalue for="10" value="26" />
+          <attvalue for="11" value="67" />
+          <attvalue for="12" value="2" />
+          <attvalue for="13" value="13" />
+        </attvalues>
+      </node>
+      <node id="mileZola11" label="mileZola11">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="mileZola11" />
+          <attvalue for="2" value="Émile Zola" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="299" />
+          <attvalue for="5" value="1046" />
+          <attvalue for="6" value="34089" />
+          <attvalue for="7" value="14049" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1074957565006618624/EWYsqYYN_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="xymediafr" label="xymediafr">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="xymediafr" />
+          <attvalue for="2" value="XY Media" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="9813" />
+          <attvalue for="5" value="305" />
+          <attvalue for="6" value="777" />
+          <attvalue for="7" value="289" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1364358121045434370/PmbtiHrK_normal.jpg" />
+          <attvalue for="9" value="1" />
+          <attvalue for="10" value="55" />
+          <attvalue for="11" value="83" />
+          <attvalue for="12" value="2" />
+          <attvalue for="13" value="14" />
+        </attvalues>
+      </node>
+      <node id="olivierdavid_ec" label="olivierdavid_ec">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="olivierdavid_ec" />
+          <attvalue for="2" value="Olivier DAVID" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="7144" />
+          <attvalue for="5" value="1732" />
+          <attvalue for="6" value="1783" />
+          <attvalue for="7" value="24192" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1383481984240869385/gJ05Uled_normal.jpg" />
+          <attvalue for="9" value="1" />
+          <attvalue for="10" value="43" />
+          <attvalue for="11" value="113" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="15" />
+        </attvalues>
+      </node>
+      <node id="GeoffreyDorne" label="GeoffreyDorne">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="GeoffreyDorne" />
+          <attvalue for="2" value="Geoffrey Dorne" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="27208" />
+          <attvalue for="5" value="215" />
+          <attvalue for="6" value="108055" />
+          <attvalue for="7" value="9822" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1362428256125861888/8keuR38C_normal.jpg" />
+          <attvalue for="9" value="4" />
+          <attvalue for="10" value="81" />
+          <attvalue for="11" value="220" />
+          <attvalue for="12" value="1" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="BonPote" label="BonPote">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-00" />
+          <attvalue for="1" value="BonPote" />
+          <attvalue for="2" value="Bon Pote" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="16990" />
+          <attvalue for="5" value="292" />
+          <attvalue for="6" value="3093" />
+          <attvalue for="7" value="19796" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1324093807844012032/huQIaGTy_normal.jpg" />
+          <attvalue for="9" value="322" />
+          <attvalue for="10" value="2166" />
+          <attvalue for="11" value="9172" />
+          <attvalue for="12" value="181" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="jacquesbaudrier" label="jacquesbaudrier">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="jacquesbaudrier" />
+          <attvalue for="2" value="Jacques Baudrier" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="11525" />
+          <attvalue for="5" value="9689" />
+          <attvalue for="6" value="8580" />
+          <attvalue for="7" value="11349" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/618033467490717696/ORNMiO61_normal.jpg" />
+          <attvalue for="9" value="108" />
+          <attvalue for="10" value="211" />
+          <attvalue for="11" value="798" />
+          <attvalue for="12" value="23" />
+          <attvalue for="13" value="16" />
+        </attvalues>
+      </node>
+      <node id="n_arthaud" label="n_arthaud">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="n_arthaud" />
+          <attvalue for="2" value="Nathalie Arthaud" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="18817" />
+          <attvalue for="5" value="1336" />
+          <attvalue for="6" value="3336" />
+          <attvalue for="7" value="149" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1110536707504517121/TN_L-17x_normal.png" />
+          <attvalue for="9" value="12" />
+          <attvalue for="10" value="83" />
+          <attvalue for="11" value="182" />
+          <attvalue for="12" value="3" />
+          <attvalue for="13" value="4" />
+        </attvalues>
+      </node>
+      <node id="ledocteur36" label="ledocteur36">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="ledocteur36" />
+          <attvalue for="2" value="Le Docteur" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="255" />
+          <attvalue for="5" value="422" />
+          <attvalue for="6" value="111157" />
+          <attvalue for="7" value="117007" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1277004048500248577/ITJvz13X_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="ParisJeanPhili1" label="ParisJeanPhili1">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="ParisJeanPhili1" />
+          <attvalue for="2" value="Paris Jean-Philippe" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="79" />
+          <attvalue for="5" value="187" />
+          <attvalue for="6" value="10509" />
+          <attvalue for="7" value="2030" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1241377942376255491/y1QdDJor_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="6" />
+        </attvalues>
+      </node>
+      <node id="EykimD" label="EykimD">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="EykimD" />
+          <attvalue for="2" value="Eykim dash" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="37" />
+          <attvalue for="5" value="242" />
+          <attvalue for="6" value="12361" />
+          <attvalue for="7" value="38807" />
+          <attvalue for="8" value="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="pierr_joigneaux" label="pierr_joigneaux">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="pierr_joigneaux" />
+          <attvalue for="2" value="Pierre Joigneaux" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="3781" />
+          <attvalue for="5" value="552" />
+          <attvalue for="6" value="3076" />
+          <attvalue for="7" value="2566" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1230434201368920064/G_0N-TWe_normal.jpg" />
+          <attvalue for="9" value="3" />
+          <attvalue for="10" value="42" />
+          <attvalue for="11" value="74" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="17" />
+        </attvalues>
+      </node>
+      <node id="cassouman40" label="cassouman40">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="cassouman40" />
+          <attvalue for="2" value="Christophe Cassou" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="16002" />
+          <attvalue for="5" value="825" />
+          <attvalue for="6" value="3780" />
+          <attvalue for="7" value="13523" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1397572408673017859/SXy79W-s_normal.jpg" />
+          <attvalue for="9" value="42" />
+          <attvalue for="10" value="790" />
+          <attvalue for="11" value="1362" />
+          <attvalue for="12" value="42" />
+          <attvalue for="13" value="18" />
+        </attvalues>
+      </node>
+      <node id="Grignon2000" label="Grignon2000">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="Grignon2000" />
+          <attvalue for="2" value="🏰 Opération Grignon 2026 | On achète le Domaine ?" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="446" />
+          <attvalue for="5" value="1037" />
+          <attvalue for="6" value="287" />
+          <attvalue for="7" value="221" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1385540247799410688/EMAtKsX2_normal.jpg" />
+          <attvalue for="9" value="17" />
+          <attvalue for="10" value="205" />
+          <attvalue for="11" value="183" />
+          <attvalue for="12" value="37" />
+          <attvalue for="13" value="5" />
+        </attvalues>
+      </node>
+      <node id="cdion" label="cdion">
+        <attvalues>
+          <attvalue for="0" value="2021-08-11-23" />
+          <attvalue for="1" value="cdion" />
+          <attvalue for="2" value="Cyril Dion" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="52001" />
+          <attvalue for="5" value="1530" />
+          <attvalue for="6" value="9739" />
+          <attvalue for="7" value="11414" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1026787147930656768/0ph7oBwy_normal.jpg" />
+          <attvalue for="9" value="22" />
+          <attvalue for="10" value="189" />
+          <attvalue for="11" value="646" />
+          <attvalue for="12" value="4" />
+          <attvalue for="13" value="6" />
+        </attvalues>
+      </node>
+      <node id="Europe1" label="Europe1">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="Europe1" />
+          <attvalue for="2" value="Europe 1 🎧🌍📻" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="1544977" />
+          <attvalue for="5" value="3615" />
+          <attvalue for="6" value="393095" />
+          <attvalue for="7" value="10141" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1402173464891604993/58LeQK57_normal.jpg" />
+          <attvalue for="9" value="18" />
+          <attvalue for="10" value="19" />
+          <attvalue for="11" value="38" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="19" />
+        </attvalues>
+      </node>
+      <node id="gl0wbi" label="gl0wbi">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="gl0wbi" />
+          <attvalue for="2" value="Gl0wbi" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="8" />
+          <attvalue for="5" value="76" />
+          <attvalue for="6" value="157" />
+          <attvalue for="7" value="340" />
+          <attvalue for="8" value="https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="MOInsoumus" label="MOInsoumus">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="MOInsoumus" />
+          <attvalue for="2" value="🌺💦MOI💦🐝" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="4458" />
+          <attvalue for="5" value="4996" />
+          <attvalue for="6" value="348892" />
+          <attvalue for="7" value="309115" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/860991415089852416/53gpU5eQ_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="RafikSmati" label="RafikSmati">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="RafikSmati" />
+          <attvalue for="2" value="Rafik Smati" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="37780" />
+          <attvalue for="5" value="731" />
+          <attvalue for="6" value="12884" />
+          <attvalue for="7" value="31107" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1316132250052972552/YWyfK0q0_normal.jpg" />
+          <attvalue for="9" value="82" />
+          <attvalue for="10" value="368" />
+          <attvalue for="11" value="1153" />
+          <attvalue for="12" value="18" />
+          <attvalue for="13" value="20" />
+        </attvalues>
+      </node>
+      <node id="EmmanuelMacron" label="EmmanuelMacron">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="EmmanuelMacron" />
+          <attvalue for="2" value="Emmanuel Macron" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="7191106" />
+          <attvalue for="5" value="724" />
+          <attvalue for="6" value="10462" />
+          <attvalue for="7" value="165" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1308812357502668812/jSVlszOa_normal.jpg" />
+          <attvalue for="9" value="2954" />
+          <attvalue for="10" value="1154" />
+          <attvalue for="11" value="7453" />
+          <attvalue for="12" value="1308" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="AgagBoudjahlat" label="AgagBoudjahlat">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="AgagBoudjahlat" />
+          <attvalue for="2" value="Fatiha Agag-Boudjahlat" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="28355" />
+          <attvalue for="5" value="1657" />
+          <attvalue for="6" value="24074" />
+          <attvalue for="7" value="40380" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1319515452608040960/BWIngC1V_normal.jpg" />
+          <attvalue for="9" value="116" />
+          <attvalue for="10" value="368" />
+          <attvalue for="11" value="1469" />
+          <attvalue for="12" value="20" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="MickaCorreia" label="MickaCorreia">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="MickaCorreia" />
+          <attvalue for="2" value="Mickaël Correia" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="14367" />
+          <attvalue for="5" value="1822" />
+          <attvalue for="6" value="9198" />
+          <attvalue for="7" value="19733" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/981110991244152838/3SEcl7VM_normal.jpg" />
+          <attvalue for="9" value="23" />
+          <attvalue for="10" value="600" />
+          <attvalue for="11" value="1527" />
+          <attvalue for="12" value="16" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="louisderrac" label="louisderrac">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="louisderrac" />
+          <attvalue for="2" value="Louis Derrac" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="1788" />
+          <attvalue for="5" value="1436" />
+          <attvalue for="6" value="4478" />
+          <attvalue for="7" value="4334" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1264995534433144834/_6xFJTUc_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="24" />
+          <attvalue for="11" value="43" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="6" />
+        </attvalues>
+      </node>
+      <node id="Jackydorje" label="Jackydorje">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="Jackydorje" />
+          <attvalue for="2" value="SERVEL Jacky" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="5432" />
+          <attvalue for="5" value="5000" />
+          <attvalue for="6" value="25848" />
+          <attvalue for="7" value="30384" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1069334352537010177/hXLu3oKB_normal.jpg" />
+          <attvalue for="9" value="1" />
+          <attvalue for="10" value="26" />
+          <attvalue for="11" value="24" />
+          <attvalue for="12" value="1" />
+          <attvalue for="13" value="8" />
+        </attvalues>
+      </node>
+      <node id="Mediavenir" label="Mediavenir">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="Mediavenir" />
+          <attvalue for="2" value="Mediavenir" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="1281668" />
+          <attvalue for="5" value="4" />
+          <attvalue for="6" value="28573" />
+          <attvalue for="7" value="4876" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1325598861566627840/1QIke3Vx_normal.jpg" />
+          <attvalue for="9" value="731" />
+          <attvalue for="10" value="2599" />
+          <attvalue for="11" value="15110" />
+          <attvalue for="12" value="790" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="bluebeesfr" label="bluebeesfr">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="bluebeesfr" />
+          <attvalue for="2" value="BlueBees" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="2483" />
+          <attvalue for="5" value="194" />
+          <attvalue for="6" value="546" />
+          <attvalue for="7" value="132" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1168492979054678016/OQwxP_ro_normal.jpg" />
+          <attvalue for="9" value="2" />
+          <attvalue for="10" value="14" />
+          <attvalue for="11" value="13" />
+          <attvalue for="12" value="3" />
+          <attvalue for="13" value="21" />
+        </attvalues>
+      </node>
+      <node id="lemondefr" label="lemondefr">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="lemondefr" />
+          <attvalue for="2" value="Le Monde" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="9322506" />
+          <attvalue for="5" value="632" />
+          <attvalue for="6" value="374404" />
+          <attvalue for="7" value="1695" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/817042499134980096/LTpqSDMM_normal.jpg" />
+          <attvalue for="9" value="211" />
+          <attvalue for="10" value="1292" />
+          <attvalue for="11" value="1946" />
+          <attvalue for="12" value="202" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="Portes_Thomas" label="Portes_Thomas">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="Portes_Thomas" />
+          <attvalue for="2" value="Thomas Portes" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="39984" />
+          <attvalue for="5" value="6853" />
+          <attvalue for="6" value="30587" />
+          <attvalue for="7" value="6247" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1371777098050891776/pEMLnUmV_normal.jpg" />
+          <attvalue for="9" value="38" />
+          <attvalue for="10" value="634" />
+          <attvalue for="11" value="1564" />
+          <attvalue for="12" value="16" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="Loopsidernews" label="Loopsidernews">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="Loopsidernews" />
+          <attvalue for="2" value="Loopsider" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="89701" />
+          <attvalue for="5" value="259" />
+          <attvalue for="6" value="6524" />
+          <attvalue for="7" value="893" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1146037065508933633/3lnCbYYb_normal.png" />
+          <attvalue for="9" value="11" />
+          <attvalue for="10" value="497" />
+          <attvalue for="11" value="544" />
+          <attvalue for="12" value="41" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="LoanPrivet" label="LoanPrivet">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="LoanPrivet" />
+          <attvalue for="2" value="Le Jaurésiste❗" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="30" />
+          <attvalue for="5" value="2" />
+          <attvalue for="6" value="3754" />
+          <attvalue for="7" value="4161" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1414957379687522311/X18Gkj8v_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="vaneay" label="vaneay">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="vaneay" />
+          <attvalue for="2" value="vaneay" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="1070" />
+          <attvalue for="5" value="1580" />
+          <attvalue for="6" value="214016" />
+          <attvalue for="7" value="136391" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1098484534922956801/X18v3HEP_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="4" />
+        </attvalues>
+      </node>
+      <node id="CgtTuifrance" label="CgtTuifrance">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-05" />
+          <attvalue for="1" value="CgtTuifrance" />
+          <attvalue for="2" value="CGT TUIFRANCE" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="15963" />
+          <attvalue for="5" value="4968" />
+          <attvalue for="6" value="163966" />
+          <attvalue for="7" value="93246" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1416712625652699138/BswlgInc_normal.jpg" />
+          <attvalue for="9" value="11" />
+          <attvalue for="10" value="189" />
+          <attvalue for="11" value="444" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="libe" label="libe">
+        <attvalues>
+          <attvalue for="0" value="2021-08-11-23" />
+          <attvalue for="1" value="libe" />
+          <attvalue for="2" value="Libération" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="3239119" />
+          <attvalue for="5" value="247" />
+          <attvalue for="6" value="241070" />
+          <attvalue for="7" value="1500" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/854315131395878912/jZceoVi9_normal.jpg" />
+          <attvalue for="9" value="21" />
+          <attvalue for="10" value="172" />
+          <attvalue for="11" value="261" />
+          <attvalue for="12" value="19" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="MorisMyriam" label="MorisMyriam">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="MorisMyriam" />
+          <attvalue for="2" value="Myriam MORIS 🔻" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="993" />
+          <attvalue for="5" value="442" />
+          <attvalue for="6" value="302136" />
+          <attvalue for="7" value="216987" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1251248459623137280/8FTnLv1K_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="4" />
+        </attvalues>
+      </node>
+      <node id="YLeBolloch" label="YLeBolloch">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="YLeBolloch" />
+          <attvalue for="2" value="Yvan Le Bolloc'h" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="90644" />
+          <attvalue for="5" value="5238" />
+          <attvalue for="6" value="41809" />
+          <attvalue for="7" value="5895" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/688312727195009024/KM51oT6N_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="aymbld" label="aymbld">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="aymbld" />
+          <attvalue for="2" value="Aymeric Belaud" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="841" />
+          <attvalue for="5" value="993" />
+          <attvalue for="6" value="10089" />
+          <attvalue for="7" value="18728" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1385247787894312961/1XE76S27_normal.jpg" />
+          <attvalue for="9" value="10" />
+          <attvalue for="10" value="72" />
+          <attvalue for="11" value="138" />
+          <attvalue for="12" value="4" />
+          <attvalue for="13" value="22" />
+        </attvalues>
+      </node>
+      <node id="radiolondres6" label="radiolondres6">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-07" />
+          <attvalue for="1" value="radiolondres6" />
+          <attvalue for="2" value="Radio Londres 2.0 - Web Radio" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="1794" />
+          <attvalue for="5" value="0" />
+          <attvalue for="6" value="532497" />
+          <attvalue for="7" value="54" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1191637351711334401/jYIfsemX_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="meteofrance" label="meteofrance">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="meteofrance" />
+          <attvalue for="2" value="Météo-France" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="134112" />
+          <attvalue for="5" value="907" />
+          <attvalue for="6" value="25037" />
+          <attvalue for="7" value="16822" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1370090525148205062/glaw-5sY_normal.jpg" />
+          <attvalue for="9" value="17" />
+          <attvalue for="10" value="180" />
+          <attvalue for="11" value="265" />
+          <attvalue for="12" value="12" />
+          <attvalue for="13" value="23" />
+        </attvalues>
+      </node>
+      <node id="olisab1949115" label="olisab1949115">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="olisab1949115" />
+          <attvalue for="2" value="Iris #MajoritéSilencieuseVaccinée #Macron2022" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="5141" />
+          <attvalue for="5" value="751" />
+          <attvalue for="6" value="149433" />
+          <attvalue for="7" value="156329" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1407599388940177410/pkylbuIM_normal.jpg" />
+          <attvalue for="9" value="3" />
+          <attvalue for="10" value="15" />
+          <attvalue for="11" value="22" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="24" />
+        </attvalues>
+      </node>
+      <node id="CZacharopoulou" label="CZacharopoulou">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="CZacharopoulou" />
+          <attvalue for="2" value="Chrysoula Zacharopoulou 🇪🇺🇫🇷" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="7975" />
+          <attvalue for="5" value="2650" />
+          <attvalue for="6" value="5084" />
+          <attvalue for="7" value="36802" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1273405450445369345/yAvBdJ0-_normal.jpg" />
+          <attvalue for="9" value="6" />
+          <attvalue for="10" value="16" />
+          <attvalue for="11" value="30" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="T_Fiolet" label="T_Fiolet">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="T_Fiolet" />
+          <attvalue for="2" value="Thibault Fiolet 🇪🇺" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="12989" />
+          <attvalue for="5" value="423" />
+          <attvalue for="6" value="8386" />
+          <attvalue for="7" value="6298" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1319053743967580160/FFVOLzSa_normal.jpg" />
+          <attvalue for="9" value="5" />
+          <attvalue for="10" value="103" />
+          <attvalue for="11" value="218" />
+          <attvalue for="12" value="5" />
+          <attvalue for="13" value="25" />
+        </attvalues>
+      </node>
+      <node id="PierreDzrd" label="PierreDzrd">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="PierreDzrd" />
+          <attvalue for="2" value="Pierre Dezeraud" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="8180" />
+          <attvalue for="5" value="4145" />
+          <attvalue for="6" value="18934" />
+          <attvalue for="7" value="12566" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1308447839048138754/2kyhgcSX_normal.jpg" />
+          <attvalue for="9" value="59" />
+          <attvalue for="10" value="843" />
+          <attvalue for="11" value="3559" />
+          <attvalue for="12" value="46" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="pub03428355" label="pub03428355">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="pub03428355" />
+          <attvalue for="2" value="RerBcassine 5g 2doses !" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="109" />
+          <attvalue for="5" value="227" />
+          <attvalue for="6" value="3326" />
+          <attvalue for="7" value="12937" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1147775627925348352/Hy_idga9_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="5" />
+        </attvalues>
+      </node>
+      <node id="CamilleLaroch19" label="CamilleLaroch19">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="CamilleLaroch19" />
+          <attvalue for="2" value="Camille Laroche" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="158" />
+          <attvalue for="5" value="2910" />
+          <attvalue for="6" value="15630" />
+          <attvalue for="7" value="4776" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1389714819507539973/5gw6Z92C_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="5" />
+        </attvalues>
+      </node>
+      <node id="CerveauxNon" label="CerveauxNon">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="CerveauxNon" />
+          <attvalue for="2" value="Cerveaux non disponibles" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="60879" />
+          <attvalue for="5" value="1341" />
+          <attvalue for="6" value="33002" />
+          <attvalue for="7" value="31771" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1086940165992603649/MW47JrX-_normal.jpg" />
+          <attvalue for="9" value="6" />
+          <attvalue for="10" value="36" />
+          <attvalue for="11" value="82" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="26" />
+        </attvalues>
+      </node>
+      <node id="audreygarric" label="audreygarric">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="audreygarric" />
+          <attvalue for="2" value="Audrey Garric" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="50760" />
+          <attvalue for="5" value="739" />
+          <attvalue for="6" value="17508" />
+          <attvalue for="7" value="2005" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/412202385633579008/-7wOANlR_normal.jpeg" />
+          <attvalue for="9" value="47" />
+          <attvalue for="10" value="200" />
+          <attvalue for="11" value="741" />
+          <attvalue for="12" value="10" />
+          <attvalue for="13" value="27" />
+        </attvalues>
+      </node>
+      <node id="anthonystitch" label="anthonystitch">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="anthonystitch" />
+          <attvalue for="2" value="Anthony" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="179" />
+          <attvalue for="5" value="2652" />
+          <attvalue for="6" value="11827" />
+          <attvalue for="7" value="3869" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1377586189209862149/NYYVUhR6_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="fort_a_propos" label="fort_a_propos">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="fort_a_propos" />
+          <attvalue for="2" value="𝑴𝒊𝒄𝒉𝒆𝒍 𝑷𝒓𝒐𝒑𝒐𝒔 #VRAIsoignantDONCvacciné" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="4245" />
+          <attvalue for="5" value="901" />
+          <attvalue for="6" value="42911" />
+          <attvalue for="7" value="42238" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1344239893787136001/Mwm8rCd__normal.jpg" />
+          <attvalue for="9" value="14" />
+          <attvalue for="10" value="43" />
+          <attvalue for="11" value="127" />
+          <attvalue for="12" value="8" />
+          <attvalue for="13" value="28" />
+        </attvalues>
+      </node>
+      <node id="CommuneCulture" label="CommuneCulture">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="CommuneCulture" />
+          <attvalue for="2" value="Culture_Commune *🌄🔻🏴*📢🍒✊🏽*" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="622" />
+          <attvalue for="5" value="711" />
+          <attvalue for="6" value="29126" />
+          <attvalue for="7" value="65380" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1336931279200260097/gIPKnHc3_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="michg11111" label="michg11111">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="michg11111" />
+          <attvalue for="2" value="." />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="16" />
+          <attvalue for="5" value="172" />
+          <attvalue for="6" value="1629" />
+          <attvalue for="7" value="12258" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1364970881131425792/kK_G3P2M_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="BreakingInfosTV" label="BreakingInfosTV">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="BreakingInfosTV" />
+          <attvalue for="2" value="BreakingInfosTV" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="2322" />
+          <attvalue for="5" value="694" />
+          <attvalue for="6" value="4410" />
+          <attvalue for="7" value="1416" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1391278766668800000/KumuEbtY_normal.jpg" />
+          <attvalue for="9" value="3" />
+          <attvalue for="10" value="68" />
+          <attvalue for="11" value="104" />
+          <attvalue for="12" value="4" />
+          <attvalue for="13" value="7" />
+        </attvalues>
+      </node>
+      <node id="LaPatriotique" label="LaPatriotique">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="LaPatriotique" />
+          <attvalue for="2" value="La Résistance" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="294" />
+          <attvalue for="5" value="603" />
+          <attvalue for="6" value="7157" />
+          <attvalue for="7" value="3207" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1419664708332888064/Dm7WDH2y_normal.jpg" />
+          <attvalue for="9" value="1" />
+          <attvalue for="10" value="1" />
+          <attvalue for="11" value="1" />
+          <attvalue for="12" value="2" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="AldoSobrino" label="AldoSobrino">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="AldoSobrino" />
+          <attvalue for="2" value="Aldo ☭" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="507" />
+          <attvalue for="5" value="1722" />
+          <attvalue for="6" value="15622" />
+          <attvalue for="7" value="17797" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1391354598871478274/S9o91nqo_normal.jpg" />
+          <attvalue for="9" value="23" />
+          <attvalue for="10" value="2145" />
+          <attvalue for="11" value="9692" />
+          <attvalue for="12" value="23" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="CGTPONTIVY" label="CGTPONTIVY">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-05" />
+          <attvalue for="1" value="CGTPONTIVY" />
+          <attvalue for="2" value="CGT PONTIVY" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="1982" />
+          <attvalue for="5" value="3460" />
+          <attvalue for="6" value="15292" />
+          <attvalue for="7" value="22982" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/532635946345181184/hML1EyI4_normal.jpeg" />
+          <attvalue for="9" value="3" />
+          <attvalue for="10" value="115" />
+          <attvalue for="11" value="211" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="4" />
+        </attvalues>
+      </node>
+      <node id="REGNIERFabrice3" label="REGNIERFabrice3">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="REGNIERFabrice3" />
+          <attvalue for="2" value="REGNIER Fabrice" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="405" />
+          <attvalue for="5" value="667" />
+          <attvalue for="6" value="47906" />
+          <attvalue for="7" value="42802" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/768524908984954880/00Lkn1Nt_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="4" />
+        </attvalues>
+      </node>
+      <node id="ManonCantin49" label="ManonCantin49">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="ManonCantin49" />
+          <attvalue for="2" value="Manon Cantin" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="5052" />
+          <attvalue for="5" value="897" />
+          <attvalue for="6" value="3569" />
+          <attvalue for="7" value="7999" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1270629882628919302/WkYUzHpT_normal.jpg" />
+          <attvalue for="9" value="20" />
+          <attvalue for="10" value="80" />
+          <attvalue for="11" value="172" />
+          <attvalue for="12" value="3" />
+          <attvalue for="13" value="4" />
+        </attvalues>
+      </node>
+      <node id="laydgeur" label="laydgeur">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="laydgeur" />
+          <attvalue for="2" value="laydgeur" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="20091" />
+          <attvalue for="5" value="1431" />
+          <attvalue for="6" value="43665" />
+          <attvalue for="7" value="38721" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/613449259766149120/ayYusf5b_normal.jpg" />
+          <attvalue for="9" value="48" />
+          <attvalue for="10" value="1502" />
+          <attvalue for="11" value="2290" />
+          <attvalue for="12" value="131" />
+          <attvalue for="13" value="7" />
+        </attvalues>
+      </node>
+      <node id="CVassiviere" label="CVassiviere">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="CVassiviere" />
+          <attvalue for="2" value="Vassiviere 💧#NousSommesPour #LFI" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="4388" />
+          <attvalue for="5" value="3637" />
+          <attvalue for="6" value="387786" />
+          <attvalue for="7" value="107303" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/933695894968512514/QYGiOwfi_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="7" />
+        </attvalues>
+      </node>
+      <node id="bastien_ade" label="bastien_ade">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-06" />
+          <attvalue for="1" value="bastien_ade" />
+          <attvalue for="2" value="Bastrayy" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="491" />
+          <attvalue for="5" value="167" />
+          <attvalue for="6" value="34464" />
+          <attvalue for="7" value="5" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1290279676951363584/GT29N-1l_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="JLMelenchon" label="JLMelenchon">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-05" />
+          <attvalue for="1" value="JLMelenchon" />
+          <attvalue for="2" value="Jean-Luc Mélenchon" />
+          <attvalue for="3" value="true" />
+          <attvalue for="4" value="2286722" />
+          <attvalue for="5" value="4838" />
+          <attvalue for="6" value="38399" />
+          <attvalue for="7" value="2654" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1410524303226028036/2xeMlqqy_normal.jpg" />
+          <attvalue for="9" value="489" />
+          <attvalue for="10" value="1130" />
+          <attvalue for="11" value="3013" />
+          <attvalue for="12" value="87" />
+          <attvalue for="13" value="7" />
+        </attvalues>
+      </node>
+      <node id="dorm79" label="dorm79">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-05" />
+          <attvalue for="1" value="dorm79" />
+          <attvalue for="2" value="Lisandora" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="94" />
+          <attvalue for="5" value="543" />
+          <attvalue for="6" value="4065" />
+          <attvalue for="7" value="15354" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1160877975044317185/7eCy2J_K_normal.png" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="6" />
+        </attvalues>
+      </node>
+      <node id="MounMir" label="MounMir">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-03" />
+          <attvalue for="1" value="MounMir" />
+          <attvalue for="2" value="Mir #JeSoutiensLaPolice 💙#ReferendumImmigration" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="2972" />
+          <attvalue for="5" value="1156" />
+          <attvalue for="6" value="699776" />
+          <attvalue for="7" value="582760" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1020561808384569345/KIKEpG4__normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="8" />
+        </attvalues>
+      </node>
+      <node id="jb_sallee" label="jb_sallee">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-03" />
+          <attvalue for="1" value="jb_sallee" />
+          <attvalue for="2" value="JB Sallée" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="1804" />
+          <attvalue for="5" value="843" />
+          <attvalue for="6" value="583" />
+          <attvalue for="7" value="1659" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1146096998694760448/G1yInE2I_normal.jpg" />
+          <attvalue for="9" value="70" />
+          <attvalue for="10" value="1860" />
+          <attvalue for="11" value="2759" />
+          <attvalue for="12" value="174" />
+          <attvalue for="13" value="29" />
+        </attvalues>
+      </node>
+      <node id="magnac3" label="magnac3">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-03" />
+          <attvalue for="1" value="magnac3" />
+          <attvalue for="2" value="magnac" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="12306" />
+          <attvalue for="5" value="29594" />
+          <attvalue for="6" value="221325" />
+          <attvalue for="7" value="18544" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/2725979426/c902208ace5553ab00121b4b7caae909_normal.png" />
+          <attvalue for="9" value="1" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </node>
+      <node id="LestatNik" label="LestatNik">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-03" />
+          <attvalue for="1" value="LestatNik" />
+          <attvalue for="2" value="Dark Lestat 🖕🌈🍺🏴‍☠️tatoué et vacciné" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="66" />
+          <attvalue for="5" value="678" />
+          <attvalue for="6" value="2422" />
+          <attvalue for="7" value="6598" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1414895338884898816/Pkhw5JzV_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="6" />
+        </attvalues>
+      </node>
+      <node id="CramGavardin" label="CramGavardin">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-02" />
+          <attvalue for="1" value="CramGavardin" />
+          <attvalue for="2" value="Gavardin" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="160" />
+          <attvalue for="5" value="385" />
+          <attvalue for="6" value="25173" />
+          <attvalue for="7" value="8504" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1311797480179236864/DJCZhQVJ_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </node>
+      <node id="ThouySiv" label="ThouySiv">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-01" />
+          <attvalue for="1" value="ThouySiv" />
+          <attvalue for="2" value="Inkarnate" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="0" />
+          <attvalue for="5" value="14" />
+          <attvalue for="6" value="14" />
+          <attvalue for="7" value="23" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1424857476306980866/KmzAwKfn_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="5" />
+        </attvalues>
+      </node>
+      <node id="Solemn62" label="Solemn62">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-01" />
+          <attvalue for="1" value="Solemn62" />
+          <attvalue for="2" value="Autumn" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="236" />
+          <attvalue for="5" value="396" />
+          <attvalue for="6" value="17206" />
+          <attvalue for="7" value="36859" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1371131966142173185/LXqxWfVU_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="4" />
+        </attvalues>
+      </node>
+      <node id="magavras" label="magavras">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-01" />
+          <attvalue for="1" value="magavras" />
+          <attvalue for="2" value="m a r i n a" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="18" />
+          <attvalue for="5" value="49" />
+          <attvalue for="6" value="634" />
+          <attvalue for="7" value="840" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1418891398384861187/4zy0d4Kk_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="0Drass7" label="0Drass7">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-01" />
+          <attvalue for="1" value="0Drass7" />
+          <attvalue for="2" value="Citizen of the World 🏴‍☠️🌍🤲🏽🔥🤍😻" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="191" />
+          <attvalue for="5" value="865" />
+          <attvalue for="6" value="13152" />
+          <attvalue for="7" value="36506" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1408432502268641281/Ry9kySKq_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="3" />
+        </attvalues>
+      </node>
+      <node id="camille_lfd" label="camille_lfd">
+        <attvalues>
+          <attvalue for="0" value="2021-08-12-00" />
+          <attvalue for="1" value="camille_lfd" />
+          <attvalue for="2" value="camille_lfd" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="187" />
+          <attvalue for="5" value="52" />
+          <attvalue for="6" value="1604" />
+          <attvalue for="7" value="1545" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1175730361323724800/TvDSXG8E_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+      <node id="benoit_gregory" label="benoit_gregory">
+        <attvalues>
+          <attvalue for="0" value="2021-08-11-23" />
+          <attvalue for="1" value="benoit_gregory" />
+          <attvalue for="2" value="Gregory BENOIT" />
+          <attvalue for="3" value="false" />
+          <attvalue for="4" value="2350" />
+          <attvalue for="5" value="5001" />
+          <attvalue for="6" value="293136" />
+          <attvalue for="7" value="344996" />
+          <attvalue for="8" value="https://pbs.twimg.com/profile_images/1271800214417018881/FKRD0aGG_normal.jpg" />
+          <attvalue for="9" value="0" />
+          <attvalue for="10" value="0" />
+          <attvalue for="11" value="0" />
+          <attvalue for="12" value="0" />
+          <attvalue for="13" value="2" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="AniceLajnef" target="EykimD" id="0">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AniceLajnef" target="ParisJeanPhili1" id="1">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AniceLajnef" target="YLeBolloch" id="2">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AniceLajnef" target="vaneay" id="3">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AniceLajnef" target="MorisMyriam" id="4">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AniceLajnef" target="CamilleLaroch19" id="5">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AniceLajnef" target="anthonystitch" id="6">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AniceLajnef" target="radiolondres6" id="7">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AniceLajnef" target="0Drass7" id="8">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AniceLajnef" target="camille_lfd" id="9">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Thom_astro" target="LoanPrivet" id="10">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Thom_astro" target="ThouySiv" id="11">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="ParisJeanPhili1" id="12">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="EykimD" id="13">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="gl0wbi" id="14">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="SoO_OnTheMoon" id="15">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="LoanPrivet" id="16">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="radiolondres6" id="17">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="YLeBolloch" id="18">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="CamilleLaroch19" id="19">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="anthonystitch" id="20">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="ledocteur36" id="21">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="bastien_ade" id="22">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="CommuneCulture" id="23">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="REGNIERFabrice3" id="24">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="CgtTuifrance" id="25">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="dorm79" id="26">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="MOInsoumus" id="27">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="LestatNik" id="28">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="magnac3" id="29">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="CramGavardin" id="30">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-02" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="Solemn62" id="31">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="greenpeacefr" target="MorganJasiens" id="32">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="quote" />
+        </attvalues>
+      </edge>
+      <edge source="lapin47" target="CommuneCulture" id="33">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="lapin47" target="MOInsoumus" id="34">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="lapin47" target="radiolondres6" id="35">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-23" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="lapin47" target="YLeBolloch" id="36">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-23" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="lapin47" target="lapin47" id="37">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-23" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MaximCombes" target="CVassiviere" id="38">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MaximCombes" target="SoO_OnTheMoon" id="39">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MaximCombes" target="CgtTuifrance" id="40">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-04" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MaximCombes" target="camille_lfd" id="41">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="LoanPrivet" id="42">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="ParisJeanPhili1" id="43">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="YLeBolloch" id="44">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="CamilleLaroch19" id="45">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="MorisMyriam" id="46">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="CommuneCulture" id="47">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="bastien_ade" id="48">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="dorm79" id="49">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="MOInsoumus" id="50">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="LestatNik" id="51">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="magnac3" id="52">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="ledocteur36" id="53">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="0Drass7" id="54">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JeanHugon3" target="gl0wbi" id="55">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="LoanPrivet" id="56">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="radiolondres6" id="57">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="YLeBolloch" id="58">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="CamilleLaroch19" id="59">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="anthonystitch" id="60">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="bastien_ade" id="61">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="REGNIERFabrice3" id="62">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="dorm79" id="63">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="LaPatriotique" id="64">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="MOInsoumus" id="65">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="LestatNik" id="66">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="magnac3" id="67">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="ThouySiv" id="68">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="ledocteur36" id="69">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="magavras" id="70">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="camille_lfd" id="71">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ClemSenechal" target="EykimD" id="72">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-22" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Le_Trema" target="MOInsoumus" id="73">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Le_Trema" target="LoanPrivet" id="74">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Le_Trema" target="anthonystitch" id="75">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Le_Trema" target="CgtTuifrance" id="76">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-04" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Le_Trema" target="ledocteur36" id="77">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="SoO_OnTheMoon" id="78">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="EykimD" id="79">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="YLeBolloch" id="80">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="arretsurimages" id="81">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="REGNIERFabrice3" id="82">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="CommuneCulture" id="83">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="dorm79" id="84">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="LaPatriotique" id="85">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="LestatNik" id="86">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="magnac3" id="87">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-02" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="CramGavardin" id="88">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="ledocteur36" id="89">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="michg11111" id="90">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="camille_lfd" id="91">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="arretsurimages" target="benoit_gregory" id="92">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-23" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Inafr_officiel" target="LoanPrivet" id="93">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Inafr_officiel" target="anthonystitch" id="94">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Inafr_officiel" target="CommuneCulture" id="95">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Inafr_officiel" target="REGNIERFabrice3" id="96">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Inafr_officiel" target="camille_lfd" id="97">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="MorisMyriam" id="98">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="CommuneCulture" id="99">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="SoO_OnTheMoon" id="100">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="magnac3" id="101">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="ThouySiv" id="102">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="ledocteur36" id="103">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="magavras" id="104">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="gl0wbi" id="105">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="michg11111" id="106">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="camille_lfd" id="107">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="bernathoustra" target="Solemn62" id="108">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="lorisguemart" target="anthonystitch" id="109">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="fmomboisse" target="CamilleLaroch19" id="110">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="fmomboisse" target="magnac3" id="111">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="fmomboisse" target="ThouySiv" id="112">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ReveilEcolo" target="LoanPrivet" id="113">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ReveilEcolo" target="ParisJeanPhili1" id="114">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ReveilEcolo" target="dorm79" id="115">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ReveilEcolo" target="magnac3" id="116">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ReveilEcolo" target="ledocteur36" id="117">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="SoO_OnTheMoon" target="MFrippon" id="118">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="SoO_OnTheMoon" target="juliehenches" id="119">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="SoO_OnTheMoon" target="CgtTuifrance" id="120">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="GaetanEscorbiac" target="mileZola11" id="121">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MFrippon" target="michg11111" id="122">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MFrippon" target="MOInsoumus" id="123">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MFrippon" target="magnac3" id="124">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MFrippon" target="CramGavardin" id="125">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MFrippon" target="ledocteur36" id="126">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MFrippon" target="magavras" id="127">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="juliehenches" target="anthonystitch" id="128">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="juliehenches" target="magnac3" id="129">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="juliehenches" target="ledocteur36" id="130">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="juliehenches" target="camille_lfd" id="131">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="EricPiolle" target="mileZola11" id="132">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="EricPiolle" target="radiolondres6" id="133">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="EricPiolle" target="YLeBolloch" id="134">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="EricPiolle" target="MOInsoumus" id="135">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="PhilippeCAVAT" target="MounMir" id="136">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="PhilippeCAVAT" target="camille_lfd" id="137">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="yvesbourdillon" target="CamilleLaroch19" id="138">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="yvesbourdillon" target="0Drass7" id="139">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="tolubls" target="michg11111" id="140">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="tolubls" target="bastien_ade" id="141">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="tolubls" target="MOInsoumus" id="142">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="tolubls" target="ledocteur36" id="143">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="tolubls" target="magavras" id="144">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="tolubls" target="0Drass7" id="145">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="tolubls" target="gl0wbi" id="146">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="BZH_UnionPop" target="CramGavardin" id="147">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-02" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="BZH_UnionPop" target="vaneay" id="148">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-23" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MorganJasiens" target="CamilleLaroch19" id="149">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MorganJasiens" target="pub03428355" id="150">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MorganJasiens" target="Grignon2000" id="151">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="quote" />
+        </attvalues>
+      </edge>
+      <edge source="imarclement" target="imarclement" id="152">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="imarclement" target="MOInsoumus" id="153">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="RenaudMuselier" target="LoanPrivet" id="154">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="RenaudMuselier" target="bastien_ade" id="155">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="RenaudMuselier" target="magnac3" id="156">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AvecJLM" target="CVassiviere" id="157">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="SabineRubinFI93" target="LoanPrivet" id="158">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="SabineRubinFI93" target="MOInsoumus" id="159">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="SabineRubinFI93" target="CramGavardin" id="160">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="mileZola11" target="libe" id="161">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-23" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="GeoffreyDorne" target="CommuneCulture" id="162">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="GeoffreyDorne" target="0Drass7" id="163">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="BonPote" target="0Drass7" id="164">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="BonPote" target="camille_lfd" id="165">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="BonPote" target="EykimD" id="166">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-23" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="BonPote" target="benoit_gregory" id="167">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-22" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="n_arthaud" target="MorisMyriam" id="168">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="n_arthaud" target="vaneay" id="169">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="n_arthaud" target="CramGavardin" id="170">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="n_arthaud" target="michg11111" id="171">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="n_arthaud" target="Solemn62" id="172">
+        <attvalues>
+          <attvalue for="14" value="2021-08-11-23" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ledocteur36" target="CGTPONTIVY" id="173">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ledocteur36" target="AldoSobrino" id="174">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ledocteur36" target="CgtTuifrance" id="175">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ParisJeanPhili1" target="cdion" id="176">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ParisJeanPhili1" target="louisderrac" id="177">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="cdion" target="LoanPrivet" id="178">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="cdion" target="dorm79" id="179">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="cdion" target="LestatNik" id="180">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="cdion" target="magnac3" id="181">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="gl0wbi" target="AldoSobrino" id="182">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MOInsoumus" target="CgtTuifrance" id="183">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="EmmanuelMacron" target="magnac3" id="184">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AgagBoudjahlat" target="anthonystitch" id="185">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AgagBoudjahlat" target="magnac3" id="186">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AgagBoudjahlat" target="camille_lfd" id="187">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="MickaCorreia" target="magnac3" id="188">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Jackydorje" target="MounMir" id="189">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Jackydorje" target="0Drass7" id="190">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Mediavenir" target="magnac3" id="191">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Mediavenir" target="camille_lfd" id="192">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="lemondefr" target="LoanPrivet" id="193">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="lemondefr" target="CgtTuifrance" id="194">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-04" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="lemondefr" target="magnac3" id="195">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="lemondefr" target="camille_lfd" id="196">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Portes_Thomas" target="magnac3" id="197">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Portes_Thomas" target="camille_lfd" id="198">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Loopsidernews" target="CgtTuifrance" id="199">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-04" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="Loopsidernews" target="magnac3" id="200">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="LoanPrivet" target="libe" id="201">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="vaneay" target="CgtTuifrance" id="202">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-07" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="CgtTuifrance" target="CramGavardin" id="203">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="libe" target="magnac3" id="204">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="CZacharopoulou" target="CZacharopoulou" id="205">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="CZacharopoulou" target="magnac3" id="206">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="PierreDzrd" target="camille_lfd" id="207">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="BreakingInfosTV" target="CVassiviere" id="208">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="LaPatriotique" target="LaPatriotique" id="209">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="quote" />
+        </attvalues>
+      </edge>
+      <edge source="AldoSobrino" target="magnac3" id="210">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AldoSobrino" target="magavras" id="211">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AldoSobrino" target="0Drass7" id="212">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-01" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="AldoSobrino" target="camille_lfd" id="213">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="CGTPONTIVY" target="magnac3" id="214">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-03" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="CGTPONTIVY" target="Solemn62" id="215">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="REGNIERFabrice3" target="ManonCantin49" id="216">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-06" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="ManonCantin49" target="Solemn62" id="217">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="laydgeur" target="CVassiviere" id="218">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="CVassiviere" target="JLMelenchon" id="219">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-05" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+      <edge source="JLMelenchon" target="camille_lfd" id="220">
+        <attvalues>
+          <attvalue for="14" value="2021-08-12-00" />
+          <attvalue for="15" value="retweet" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
