@@ -104,7 +104,7 @@ const UserPage = ({ user }: { user: string }) => {
             <div className="fr-col">
               <Card
                 horizontal
-                title={data?.user?.favouritesCount}
+                title={`${data?.user?.favouritesCount}`}
                 detail={'Favorites count'}
                 noArrow
                 iconName="RiHeartFill"
@@ -116,7 +116,7 @@ const UserPage = ({ user }: { user: string }) => {
             <div className="fr-col">
               <Card
                 horizontal
-                title={data?.user?.followersCount}
+                title={`${data?.user?.followersCount}`}
                 detail={'Followers count'}
                 noArrow
                 iconName="RiUserFollowFill"
@@ -128,7 +128,7 @@ const UserPage = ({ user }: { user: string }) => {
             <div className="fr-col">
               <Card
                 horizontal
-                title={data?.user?.friendsCount}
+                title={`${data?.user?.friendsCount}`}
                 detail={'Friends count'}
                 noArrow
                 iconName="RiUserHeartLine"
@@ -140,7 +140,7 @@ const UserPage = ({ user }: { user: string }) => {
             <div className="fr-col">
               <Card
                 horizontal
-                title={data?.user?.statusesCount}
+                title={`${data?.user?.statusesCount}`}
                 detail={'Statuses count'}
                 noArrow
                 iconName="RiChat4Fill"
@@ -152,7 +152,7 @@ const UserPage = ({ user }: { user: string }) => {
             <div className="fr-col">
               <Card
                 horizontal
-                title={data?.user?.mediaCount}
+                title={`${data?.user?.mediaCount}`}
                 detail={'Media count'}
                 noArrow
                 iconName="RiImage2Fill"
