@@ -1,49 +1,50 @@
 import * as LanguageManager from 'modules/Countries/managers/LanguageManager';
 import * as QueueItemManager from './QueueItemManager';
 
-import { Hashtag } from '../interfaces';
-import HashtagModel from '../models/Hashtag';
-import HashtagVolumetryModel from '../models/HashtagVolumetry';
+import SearchModel, { SearchTypes } from '../models/Search';
+
+import { Search } from '../interfaces';
+import SearchVolumetryModel from '../models/SearchVolumetry';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 import dayjs from 'dayjs';
 
 const MIN_NB_OCCURENCES = 1;
 const MIN_NB_RECORDS = 1000;
 
-export const create = async ({ name }: { name: string }) => {
+export const create = async ({ name, type }: { name: string; type: keyof typeof SearchTypes }) => {
   try {
-    const hashtag = new HashtagModel({ name, status: 'PENDING' });
-    await hashtag.save();
+    const search = new SearchModel({ name, status: 'PENDING', type });
+    await search.save();
 
-    await QueueItemManager.createFirstFetch(hashtag._id);
-    return hashtag;
+    await QueueItemManager.createFirstFetch(search._id);
+    return search;
   } catch (e) {
     console.error(e);
-    throw new Error('Could not create hashtag');
+    throw new Error('Could not create search');
   }
 };
 
 export const get = async (filter: { name: string }) => {
   try {
-    const hashtag: Hashtag = await HashtagModel.findOne(filter)
+    const search: Search = await SearchModel.findOne(filter)
       .populate({ path: 'volumetry', options: { sort: { date: 1 } } })
       .lean({ virtuals: true });
 
-    return hashtag;
+    return search;
   } catch (e) {
     console.error(e);
-    throw new Error(`Could not find hashtag ${filter.name}`);
+    throw new Error(`Could not find search ${filter.name}`);
   }
 };
 
 export const list = async ({ limit }: { limit: number } = { limit: 100 }) => {
   try {
-    const hashtags: Hashtag[] = await HashtagModel.find().sort({ name: 1 }).limit(limit);
+    const searches: Search[] = await SearchModel.find().sort({ name: 1 }).limit(limit);
 
-    return hashtags;
+    return searches;
   } catch (e) {
     console.error(e);
-    throw new Error('Could not find hashtags');
+    throw new Error('Could not find searches');
   }
 };
 
@@ -54,31 +55,31 @@ export const listForPrerendering = async (
   }
 ) => {
   try {
-    const hashtags: Hashtag[] = await HashtagVolumetryModel.aggregate([
+    const searches: Search[] = await SearchVolumetryModel.aggregate([
       {
         $group: {
-          _id: '$hashtag',
+          _id: '$search',
           count: { $sum: 1 },
         },
       },
       { $match: { count: { $lte: maxVolumetry } } },
       {
         $lookup: {
-          from: 'hashtags',
+          from: 'searches',
           localField: '_id',
           foreignField: '_id',
-          as: 'hashtag',
+          as: 'search',
         },
       },
-      { $unwind: '$hashtag' },
-      { $project: { count: 1, name: '$hashtag.name' } },
+      { $unwind: '$search' },
+      { $project: { count: 1, name: '$search.name' } },
       { $sort: { count: -1 } },
       { $limit: limit },
     ]).exec();
-    return hashtags;
+    return searches;
   } catch (e) {
     console.error(e);
-    throw new Error('Could not find hashtags');
+    throw new Error('Could not find searches');
   }
 };
 
@@ -92,16 +93,20 @@ export const getWithData = async ({
   max?: string;
 }) => {
   try {
-    const hashtag = await get({ name });
+    const search = await get({ name });
+
+    if (!search) {
+      return null;
+    }
 
     const usernames: { [key: string]: number } = {};
     const languages: { [key: string]: number } = {};
     const associatedHashtags: { [key: string]: number } = {};
     let totalNbTweets: number = 0;
     let i = 0;
-    const volumetryLength = hashtag.volumetry.length;
+    const volumetryLength = search.volumetry.length;
 
-    const volumetry = hashtag.volumetry.reduce(
+    const volumetry = search.volumetry.reduce(
       (acc: VolumetryGraphProps['data'], volumetry) => {
         const newAcc = [...acc];
 
@@ -111,9 +116,7 @@ export const getWithData = async ({
         if (i > 0) {
           const volumetryDatePrevHour = volumetryDayJs.add(-1, 'hour').toDate();
 
-          if (
-            volumetryDatePrevHour.toISOString() !== hashtag.volumetry[i - 1]?.date.toISOString()
-          ) {
+          if (volumetryDatePrevHour.toISOString() !== search.volumetry[i - 1]?.date.toISOString()) {
             newAcc[0].data.push({ x: volumetryDatePrevHour, y: 0 });
             newAcc[1].data.push({ x: volumetryDatePrevHour, y: 0 });
             newAcc[2].data.push({ x: volumetryDatePrevHour, y: 0 });
@@ -128,9 +131,7 @@ export const getWithData = async ({
 
         if (i < volumetryLength - 1) {
           const volumetryDateNextHour = dayjs(volumetry.date).add(1, 'hour').toDate();
-          if (
-            volumetryDateNextHour.toISOString() !== hashtag.volumetry[i + 1]?.date.toISOString()
-          ) {
+          if (volumetryDateNextHour.toISOString() !== search.volumetry[i + 1]?.date.toISOString()) {
             newAcc[0].data.push({ x: volumetryDateNextHour, y: 0 });
             newAcc[1].data.push({ x: volumetryDateNextHour, y: 0 });
             newAcc[2].data.push({ x: volumetryDateNextHour, y: 0 });
@@ -152,10 +153,10 @@ export const getWithData = async ({
           Object.keys(volumetry.usernames || {}).forEach((username) => {
             usernames[username] = (usernames[username] || 0) + volumetry.usernames[username];
           });
-          Object.keys(volumetry.associatedHashtags || {}).forEach((associatedHashtag) => {
-            associatedHashtags[associatedHashtag] =
-              (associatedHashtags[associatedHashtag] || 0) +
-              volumetry.associatedHashtags[associatedHashtag];
+          Object.keys(volumetry.associatedHashtags || {}).forEach((associatedSearch) => {
+            associatedHashtags[associatedSearch] =
+              (associatedHashtags[associatedSearch] || 0) +
+              volumetry.associatedHashtags[associatedSearch];
           });
           totalNbTweets += volumetry.nbTweets;
         }
@@ -170,7 +171,7 @@ export const getWithData = async ({
     );
 
     // @ts-ignore We do not use it anymore as it has been reprocessed already
-    delete hashtag.volumetry;
+    delete search.volumetry;
 
     const usernameKeys = Object.keys(usernames);
     const nbUsernames = usernameKeys.length;
@@ -184,20 +185,20 @@ export const getWithData = async ({
 
     const associatedHashtagsKeys = Object.keys(associatedHashtags);
     const nbAssociatedHashtags = associatedHashtagsKeys.length;
-    const filteredAssociatedHashtags = associatedHashtagsKeys
+    const filteredAssociatedSearchs = associatedHashtagsKeys
       .filter(
-        (associatedHashtag) =>
+        (associatedSearch) =>
           nbAssociatedHashtags < MIN_NB_RECORDS ||
-          associatedHashtags[associatedHashtag] > MIN_NB_OCCURENCES
+          associatedHashtags[associatedSearch] > MIN_NB_OCCURENCES
       )
-      .map((associatedHashtag) => ({
-        id: associatedHashtag,
-        label: associatedHashtag,
-        value: associatedHashtags[associatedHashtag],
+      .map((associatedSearch) => ({
+        id: associatedSearch,
+        label: associatedSearch,
+        value: associatedHashtags[associatedSearch],
       }));
 
     const result = {
-      hashtag: hashtag ? hashtag : null,
+      search: search ? search : null,
       volumetry,
       totalNbTweets,
       languages: Object.keys(languages).map((language) => ({
@@ -208,12 +209,12 @@ export const getWithData = async ({
       nbUsernames,
       usernames: filteredUsernames,
       nbAssociatedHashtags,
-      associatedHashtags: filteredAssociatedHashtags,
+      associatedHashtags: filteredAssociatedSearchs,
     };
 
     return result;
   } catch (e) {
     console.error(e);
-    throw new Error('Could not find hashtag in getWithData');
+    throw new Error(`Could not find search in getWithData for ${name}`);
   }
 };

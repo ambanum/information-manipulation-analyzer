@@ -14,6 +14,7 @@ import 'modules/NProgress'; //nprogress module
 import { Analytics } from 'modules/Analytics';
 import { AppProps } from 'next/app';
 import { AuthProvider } from 'modules/Auth';
+import { NotifierContainer } from 'hooks/useNotifier';
 import { SWRConfig } from 'swr';
 import dynamic from 'next/dynamic';
 import { fetcher } from 'utils/api';
@@ -28,6 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           fetcher,
         }}
       >
+        <NotifierContainer />
         <Analytics />
         <Component {...pageProps} />
       </SWRConfig>
