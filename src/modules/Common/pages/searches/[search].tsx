@@ -196,13 +196,6 @@ const SearchPage = ({
     setRefreshInterval(REFRESH_INTERVALS[status]);
   }, [status]);
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    e.stopPropagation();
-    e.target.reset();
-    alert('Sorry, this feature is not ready yet');
-  };
-
   const isUrl = type === 'URL';
   const title = isUrl ? (
     <a href={searchName as string} target="_blank">
