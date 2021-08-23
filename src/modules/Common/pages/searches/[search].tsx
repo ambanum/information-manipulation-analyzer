@@ -425,25 +425,6 @@ const SearchPage = ({
             </div>
           </div>
         )}
-        <div className="fr-highlight fr-highlight--sm">
-          <form onSubmit={handleSubmit}>
-            <div className="fr-input-group">
-              <label className="fr-label" htmlFor="text-input-hint">
-                Be alerted by email
-                <span className="fr-hint-text">
-                  Whenever <strong>{searchName}</strong> has an abnormal rise in number of tweets
-                </span>
-              </label>
-              <input
-                className="fr-input"
-                type="email"
-                id="text-input-hint"
-                name="text-input-hint"
-                placeholder="Enter your email here"
-              />
-            </div>
-          </form>
-        </div>
       </div>
     </Layout>
   );
