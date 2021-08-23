@@ -215,7 +215,7 @@ const SearchPage = ({
                 <sup>
                   <span
                     style={{
-                      background: 'var(--rm500)',
+                      background: '#0762C8',
                       color: 'white',
                       fontWeight: 'bold',
                     }}
