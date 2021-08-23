@@ -67,7 +67,11 @@ const HomePage = () => {
             <p className="fr-text--sm text-center fr-mb-10w">
               <em>Finally get a real idea on whether a trend is worth the hype</em>
             </p>
-            <Alert size="small" title="Start exploring IMA by searching your own data.">
+            <Alert
+              size="small"
+              title="Start exploring IMA by searching your own data."
+              close={true}
+            >
               For transparency purposes, the search history is displayed below.
             </Alert>
 
