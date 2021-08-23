@@ -91,7 +91,7 @@ const LastSearches = ({
   return (
     <div {...props}>
       {filter && (
-        <Alert size="small">
+        <Alert size="small" className="fr-mt-2w">
           All searches containing <strong>{filter}</strong>
         </Alert>
       )}
