@@ -248,57 +248,43 @@ const SearchPage = ({
                 </span>
               </div>
             )}
-            {type === 'URL' && (
-              <Card
-                horizontal
-                enlargeLink
-                direction="right"
-                style={{ maxHeight: '260px', marginBottom: '20px' }}
-                href={searchName as string}
-                title={metadata?.url?.title}
-                detail={metadata?.url?.site}
-                description={metadata?.url?.description}
-                image={metadata?.url?.image?.url}
-                imageAlt={metadata?.url?.title}
-              />
-            )}
+            <>
+              {status === 'PROCESSING_PREVIOUS' && (
+                <Loading size="sm" className="text-center fr-my-2w" />
+              )}
+
+              <div className="text-center fr-text--xs fr-text-color--g500">
+                <em>
+                  {status !== 'PENDING' ? 'Crawled' : ''}
+                  {status === 'PROCESSING_PREVIOUS' && (
+                    <>
+                      {' '}
+                      from{' '}
+                      <strong>
+                        {oldestProcessedDate
+                          ? dayjs(oldestProcessedDate).format('llll')
+                          : 'Searching...'}
+                      </strong>
+                    </>
+                  )}
+                  {newestProcessedDate && (
+                    <>
+                      {' '}
+                      until{' '}
+                      <strong>
+                        {newestProcessedDate
+                          ? dayjs(newestProcessedDate).format('llll')
+                          : 'Searching...'}
+                      </strong>
+                    </>
+                  )}
+                </em>
+              </div>
+            </>
+
             {(gatheringData || router.isFallback) && <Loading />}
           </div>
         </div>
-
-        <>
-          {status === 'PROCESSING_PREVIOUS' && (
-            <Loading size="sm" className="text-center fr-my-2w" />
-          )}
-
-          <div className="text-center fr-text--xs fr-text-color--g500">
-            <em>
-              {status !== 'PENDING' ? 'Crawled' : ''}
-              {status === 'PROCESSING_PREVIOUS' && (
-                <>
-                  {' '}
-                  from{' '}
-                  <strong>
-                    {oldestProcessedDate
-                      ? dayjs(oldestProcessedDate).format('llll')
-                      : 'Searching...'}
-                  </strong>
-                </>
-              )}
-              {newestProcessedDate && (
-                <>
-                  {' '}
-                  until{' '}
-                  <strong>
-                    {newestProcessedDate
-                      ? dayjs(newestProcessedDate).format('llll')
-                      : 'Searching...'}
-                  </strong>
-                </>
-              )}
-            </em>
-          </div>
-        </>
 
         <Breadcrumb>
           <BreadcrumbItem href="/">All searches</BreadcrumbItem>
@@ -310,8 +296,29 @@ const SearchPage = ({
           <BreadcrumbItem isCurrent={true}>{searchName}</BreadcrumbItem>
         </Breadcrumb>
 
+        {type === 'URL' && (
+          <div className="fr-container fr-container-fluid fr-mt-6w">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
+                <Card
+                  horizontal
+                  enlargeLink
+                  direction="right"
+                  style={{ maxHeight: '260px' }}
+                  href={searchName as string}
+                  title={metadata?.url?.title}
+                  detail={metadata?.url?.site}
+                  description={metadata?.url?.description}
+                  image={metadata?.url?.image?.url}
+                  imageAlt={metadata?.url?.title}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
         {totalNbTweets > 0 && (
-          <div className="fr-container fr-container-fluid fr-my-6w">
+          <div className="fr-container fr-container-fluid fr-my-2w">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
                 <Card
