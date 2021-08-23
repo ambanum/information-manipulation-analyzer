@@ -219,7 +219,6 @@ const SearchPage = ({
       <div className="fr-container fr-mb-12w">
         <div className="fr-grid-row">
           <div className="fr-col">
-            <h1 className="text-center">{title}</h1>
             <h6 className="text-center">
               Information Manipulation Analyzer
               <sup>
@@ -229,12 +228,13 @@ const SearchPage = ({
                     color: 'white',
                     fontWeight: 'bold',
                   }}
-                  className="fr-tag fr-tag--sm"
+                  className="fr-tag fr-tag--sm fr-ml-1w"
                 >
                   BETA
                 </span>
               </sup>
             </h6>
+            <h1 className="text-center">{title}</h1>
             {status === 'PENDING' && (
               <div className="text-center fr-my-12w">
                 <span className="fr-tag">Your request is in the queue and will begin shortly</span>

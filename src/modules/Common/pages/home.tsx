@@ -44,7 +44,7 @@ const HomePage = () => {
                     color: 'white',
                     fontWeight: 'bold',
                   }}
-                  className="fr-tag fr-tag--sm"
+                  className="fr-tag fr-tag--sm fr-ml-1w"
                 >
                   BETA
                 </span>
