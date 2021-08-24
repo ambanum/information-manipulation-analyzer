@@ -260,27 +260,35 @@ const SearchPage = ({
                   </em>
                 </div>
               </>
-
-              {status === 'PENDING' && (
-                <div className="text-center fr-my-12w">
-                  <span className="fr-tag">
-                    Your request is in the queue and will begin shortly
-                  </span>
-                </div>
-              )}
-              {status === 'PROCESSING' && (
-                <div className="text-center fr-my-12w">
-                  <span className="fr-tag">
-                    Data is being extracted from twitter, please be patient
-                  </span>
-                </div>
-              )}
-
-              {(gatheringData || router.isFallback) && <Loading />}
             </div>
           </div>
         </div>
       </Header>
+      {(gatheringData || router.isFallback) && <Loading />}
+
+      {status === 'PENDING' && (
+        <div className="fr-container fr-container-fluid fr-mt-4w">
+          <div className="fr-grid-row fr-grid-row--gutters">
+            <div className="fr-col">
+              <Alert size="small" type="info" className="fr-mb-2w">
+                Your request is in the queue and will begin shortly.
+              </Alert>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {status === 'PROCESSING' && (
+        <div className="fr-container fr-container-fluid fr-mt-4w">
+          <div className="fr-grid-row fr-grid-row--gutters">
+            <div className="fr-col">
+              <Alert size="small" type="info" className="fr-mb-2w">
+                Data is being extracted from twitter, please be patient.
+              </Alert>
+            </div>
+          </div>
+        </div>
+      )}
 
       {status === 'DONE_ERROR' && (
         <div className="fr-container fr-container-fluid fr-mt-4w">
