@@ -102,7 +102,7 @@ const LastSearches = ({
       )}
       {hashtags.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">#Hashtags</h2>
+          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">#hashtags</h2>
           <TagsList searches={hashtags} keyIndex={1} />
         </>
       )}
@@ -114,19 +114,19 @@ const LastSearches = ({
       )}
       {mentions.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">@Mentions</h2>
+          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">@mentions</h2>
           <TagsList searches={mentions} keyIndex={1} />
         </>
       )}
       {cashtags.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">$Cashtags</h2>
+          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">$cashtags</h2>
           <TagsList searches={cashtags} keyIndex={1} />
         </>
       )}
       {urls.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">Urls</h2>
+          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">URLs</h2>
           <div className="fr-container fr-container--fluid">
             <div className="fr-grid-row fr-grid-row--gutters">
               {urls.map(({ metadata, name }) => (
