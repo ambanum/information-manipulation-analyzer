@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 140px;
+  position:relative;
+  height: 160px;
 
   .h1 {
     left: 0;
@@ -56,6 +56,14 @@
     z-index: 999999;
   }
 
+  .msg{
+    position: absolute;
+    width:auto;
+    bottom:4px;
+    margin-bottom: 0;
+    height:auto;
+  }
+
   .hex {
     width: 26px;
     height: 15px;
@@ -88,7 +96,11 @@
       border-right: 13px solid transparent;
     }
   }
+
+  
+  
 }
+
 
 .loading--sm {
   display: block;

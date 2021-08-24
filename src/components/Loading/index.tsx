@@ -17,14 +17,12 @@ const Loading = ({ size, className }: { size?: 'sm'; className?: string }) => {
           <span className="two h3"></span>
         </div>
       </div>
-
       <div>
         <div>
           <span className="one h1"></span>
           <span className="two h4"></span>
         </div>
       </div>
-
       <div>
         <div>
           <span className="one h5"></span>
@@ -32,6 +30,7 @@ const Loading = ({ size, className }: { size?: 'sm'; className?: string }) => {
         </div>
       </div>
       <div className="hex"></div>
+      <div className="fr-text--sm text-center msg">Loading...</div>
     </section>
   );
 };
