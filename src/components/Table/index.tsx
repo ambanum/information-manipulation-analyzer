@@ -4,6 +4,7 @@ import React, { PropsWithChildren, ReactElement } from 'react';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
 import styles from './Table.module.scss';
+import { useRouter } from 'next/router';
 
 // https://codesandbox.io/s/github/ggascoigne/react-table-example?file=/src/Table/Table.tsx
 
@@ -41,28 +42,32 @@ export interface TableProps<T extends Record<string, unknown>> extends TableOpti
 
 const hooks = [useSortBy];
 
-const downloadCSVData = <T extends object>({
-  name,
-  columns,
-  data,
-}: {
-  name: string;
-  columns: Column<T>[];
-  data: T[];
-}): any => () => {
-  const headerNames = [columns.map((c) => c.Header)];
-  const accessors = columns.map((c) => c.accessor);
-  const tableRows = data.map((dataRow) => accessors.map((accessor) => (dataRow as any)[accessor]));
-  const footerColumns = [columns.map((c) => (c as any).footerValue)];
+const downloadCSVData =
+  <T extends object>({
+    name,
+    columns,
+    data,
+  }: {
+    name: string;
+    columns: Column<T>[];
+    data: T[];
+  }): any =>
+  () => {
+    const headerNames = [columns.map((c) => c.Header)];
+    const accessors = columns.map((c) => c.accessor);
+    const tableRows = data.map((dataRow) =>
+      accessors.map((accessor) => (dataRow as any)[accessor])
+    );
+    const footerColumns = [columns.map((c) => (c as any).footerValue)];
 
-  const rows = headerNames.concat(tableRows).concat(footerColumns);
+    const rows = headerNames.concat(tableRows).concat(footerColumns);
 
-  const csvContent = rows.map((row) => row.join(';')).join('\n');
-  const link = document.createElement('a');
-  link.href = `data:text/csv;charset=utf-8,${encodeURI(csvContent)}`;
-  link.download = `${name.toLowerCase()}.csv`;
-  link.click();
-};
+    const csvContent = rows.map((row) => row.join(';')).join('\n');
+    const link = document.createElement('a');
+    link.href = `data:text/csv;charset=utf-8,${encodeURI(csvContent)}`;
+    link.download = `${name.toLowerCase()}.csv`;
+    link.click();
+  };
 
 export default function Table<T extends Record<string, unknown>>({
   columns,
@@ -76,9 +81,10 @@ export default function Table<T extends Record<string, unknown>>({
   exportable = false,
   virtualize,
 }: PropsWithChildren<TableProps<T>>): ReactElement {
-  const initialState: any = React.useMemo(() => (initialSortBy ? { sortBy: initialSortBy } : {}), [
-    initialSortBy,
-  ]);
+  const initialState: any = React.useMemo(
+    () => (initialSortBy ? { sortBy: initialSortBy } : {}),
+    [initialSortBy]
+  );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
     {
@@ -134,6 +140,8 @@ export default function Table<T extends Record<string, unknown>>({
 
   const shouldVirtualize = !!virtualize && rows.length > 10;
 
+  const router = useRouter();
+
   return (
     <div
       className={`fr-table
@@ -148,13 +156,14 @@ export default function Table<T extends Record<string, unknown>>({
         <div className={`caption ${styles.caption}`} role="caption">
           <span>{title}</span>
           {!!exportable && (
-            <button
-              className="fr-btn fr-btn--sm fr-fi-download-line fr-btn--icon-left fr-btn--secondary"
+            <a
+              className="fr-link fr-link--sm fr-fi-download-line fr-link--icon-left"
               title="Download data as CSV"
               onClick={downloadCSVData<T>({ columns, data, name: exportable.name })}
+              href={router.asPath}
             >
               CSV
-            </button>
+            </a>
           )}
         </div>
         <div className="thead">
