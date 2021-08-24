@@ -67,6 +67,7 @@ const TagsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: numbe
           </React.Fragment>
         );
       })}
+      <hr className="fr-mt-6w" />
     </>
   );
 };
@@ -102,7 +103,7 @@ const LastSearches = ({
       )}
       {hashtags.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">#hashtags</h2>
+          <h2 className="fr-mt-4w fr-mb-2w fr-ml-1v">#hashtags</h2>
           <TagsList searches={hashtags} keyIndex={1} />
         </>
       )}
