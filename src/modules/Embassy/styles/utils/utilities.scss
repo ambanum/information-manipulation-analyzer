@@ -116,6 +116,11 @@
 .fr-text-color--error {
   color: var(--error);
 }
+.fr-tag-icon-color--error {
+  &:before{
+    color: var(--error);
+  }
+}
 .fr-text-color--rm300 {
   color: var(--rm300);
 }

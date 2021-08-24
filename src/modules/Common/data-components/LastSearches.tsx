@@ -46,18 +46,23 @@ const TagsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: numbe
               href={`/searches/${encodeURIComponent(search.name)}`}
               prefetch={false}
             >
-              <a className={`fr-tag fr-m-1v`} title={`Created ${timeInfo}`}>
-                {search.name}
-                {loading ? (
+              {loading ? (
+                <a className="fr-tag fr-m-1v">
+                  {search.name}
                   <Loading size="sm" className="fr-ml-2v" />
-                ) : search.status === 'DONE_ERROR' ? (
-                  <span
-                    className="fr-fi-alert-fill fr-text-color--error"
-                    aria-hidden="true"
-                    title={search.error}
-                  ></span>
-                ) : null}
-              </a>
+                </a>
+              ) : search.status === 'DONE_ERROR' ? (
+                <a
+                  title={search.error}
+                  className="fr-tag fr-fi-alert-line fr-tag--icon-right fr-m-1v fr-tag-icon-color--error"
+                >
+                  {search.name}
+                </a>
+              ) : (
+                <a className="fr-tag fr-m-1v" title={`Created ${timeInfo}`}>
+                  {search.name}
+                </a>
+              )}
             </Link>
           </React.Fragment>
         );
