@@ -19,7 +19,7 @@ const Alert: React.FC<AlertProps> = ({
   type = 'info',
   size = 'medium',
   close = false,
-  autoCloseDelay,
+  autoCloseDelay = 0,
   ...props
 }) => {
   let sizeClass: string = size === 'small' ? 'fr-alert--sm' : '';
