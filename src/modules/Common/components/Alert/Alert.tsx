@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import s from './Alert.module.css';
+import { useEffect } from 'react';
 import { useToggle } from 'react-use';
 
 type AlertProps = {
@@ -8,6 +9,7 @@ type AlertProps = {
   type?: 'info' | 'success' | 'error';
   size?: 'medium' | 'small';
   close?: boolean;
+  autoCloseDelay?: number;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const Alert: React.FC<AlertProps> = ({
@@ -17,10 +19,19 @@ const Alert: React.FC<AlertProps> = ({
   type = 'info',
   size = 'medium',
   close = false,
+  autoCloseDelay,
   ...props
 }) => {
   let sizeClass: string = size === 'small' ? 'fr-alert--sm' : '';
   const [on, toggle] = useToggle(true);
+
+  if (autoCloseDelay != 0) {
+    useEffect(() => {
+      setTimeout(() => {
+        toggle(false);
+      }, autoCloseDelay);
+    });
+  }
 
   if (on) {
     return (

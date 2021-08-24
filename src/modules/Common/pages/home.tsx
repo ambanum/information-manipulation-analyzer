@@ -73,7 +73,7 @@ const HomePage = () => {
               onSearchChange={onSearchChange}
             />
             <p className="fr-text--sm text-center fr-mt-1w">
-              <em>Finally get a real idea on whether a trend is worth the hype</em>
+              <em>Finally get a real idea on whetherñ a trend is worth the hype</em>
             </p>
           </div>
         </div>
@@ -82,7 +82,7 @@ const HomePage = () => {
       <div className="fr-container fr-mt-2w">
         <div className="fr-grid-row">
           <div className="fr-col">
-            <Alert size="small" close={true}>
+            <Alert size="small" close={true} autoCloseDelay={7000}>
               For transparency purposes, the search history is displayed below.
             </Alert>
             <LastSearches filter={filter} />
