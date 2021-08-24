@@ -137,6 +137,7 @@ const LastSearches = ({
                     direction="right"
                     href={`/searches/${encodeURIComponent(name)}`}
                     title={metadata?.url?.title}
+                    detail={metadata?.url?.site}
                     description={metadata?.url?.description}
                     image={
                       metadata?.url?.image?.url ||
