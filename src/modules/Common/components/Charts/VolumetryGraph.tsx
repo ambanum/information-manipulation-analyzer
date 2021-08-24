@@ -171,7 +171,7 @@ const VolumetryGraph = ({
         className={`fr-btns-group fr-btns-group--sm fr-btns-group--inline fr-btns-group--right ${styles.buttonBar}`}
       >
         <button
-          className={`fr-btn fr-btn--sm ${
+          className={`fr-btn fr-btn--sm fr-btn--secondary ${
             chartXscaleDisplay === 'hour' ? 'fr-fi-eye-line fr-btn--icon-left' : ''
           }`}
           onClick={changeXScale('hour')}
@@ -180,7 +180,7 @@ const VolumetryGraph = ({
           hour
         </button>
         <button
-          className={`fr-btn fr-btn--sm ${
+          className={`fr-btn fr-btn--sm fr-btn--secondary ${
             chartXscaleDisplay === 'day' ? 'fr-fi-eye-line fr-btn--icon-left' : ''
           }`}
           onClick={changeXScale('day')}
