@@ -1,9 +1,10 @@
 name: Deploy
 on:
   push:
-    branches: [develop]
+    tags:
 jobs:
   deploy:
+    if: github.event.base_ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
