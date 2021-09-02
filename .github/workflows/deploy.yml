@@ -2,13 +2,10 @@ name: Deploy
 on:
   push:
     tags:
-
+      - '*'
 jobs:
   deploy:
-    if: github.event.base_ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    env:
-      ENV: production
     steps:
       - uses: actions/checkout@v2
         with:
@@ -26,6 +23,17 @@ jobs:
       - run: pip install ansible==2.9.11
       - run: ansible-galaxy collection install community.general:==1.3.5
       - run: ansible-galaxy collection install community.docker:=1.6.1
-      - run: npm run deploy:production
-      - run: npm run deploy:tflmi:production
-      - run: npm run deploy:ambnum:production
+      # Preproduction
+      - name: Deploy on preproduction
+        if: github.event.base_ref == 'refs/heads/develop'
+        run: npm run deploy:preproduction
+      # Production
+      - name: Deploy on production
+        if: github.event.base_ref == 'refs/heads/main'
+        run: npm run deploy:production
+      - name: Deploy on TFLMI production
+        if: github.event.base_ref == 'refs/heads/main'
+        run: npm run deploy:tflmi:production
+      - name: Deploy on AMBNUM production
+        if: github.event.base_ref == 'refs/heads/main'
+        run: npm run deploy:ambnum:production
