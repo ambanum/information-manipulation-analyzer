@@ -205,7 +205,7 @@ export const getVolumetry = async ({
         '_id.hour': 1,
       },
     },
-  ]).exec();
+  ]).allowDiskUse(true);
 
   return rawResults.map((rawResult: any) => ({
     date: rawResult._id.hour,
@@ -273,7 +273,7 @@ export const listForPrerendering = async (
       { $project: { count: 1, name: '$search.name' } },
       { $sort: { count: -1 } },
       { $limit: limit },
-    ]).exec();
+    ]).allowDiskUse(true);
 
     return searches;
   } catch (e) {
