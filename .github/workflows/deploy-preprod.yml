@@ -2,10 +2,15 @@ name: Deploy
 on:
   push:
     branches: [develop]
+    tags:
+      - '*'
 jobs:
   deploy:
+    if: github.event.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
     steps:
+      - run: echo 'ref is ${{ github.event.ref }}'
+      - run: echo 'base_ref is ${{ github.event.base_ref }}'
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -22,4 +27,6 @@ jobs:
       - run: pip install ansible==2.9.11
       - run: ansible-galaxy collection install community.general:==1.3.5
       - run: ansible-galaxy collection install community.docker:=1.6.1
-      - run: npm run deploy:preproduction
+      # Preproduction
+      - name: Deploy on preproduction
+        run: npm run deploy:preproduction
