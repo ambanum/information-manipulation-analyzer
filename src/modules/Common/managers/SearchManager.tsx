@@ -37,14 +37,6 @@ export const get = async (filter: { name: string }) => {
   }
 };
 
-const countDuplicates = (array: string[]) => {
-  const counts: { [key: string]: number } = {};
-  array.forEach((x) => {
-    counts[x] = (counts[x] || 0) + 1;
-  });
-  return counts;
-};
-
 export const getVolumetry = async ({
   searchIds,
   startDate,

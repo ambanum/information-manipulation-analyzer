@@ -59,14 +59,14 @@ export interface GetSearchesResponse extends CommonResponse {
 }
 
 export interface GetSearchResponse extends CommonResponse {
-  search: Omit<Search, 'volumetry'>;
-  totalNbTweets: number;
-  volumetry: VolumetryGraphProps['data'];
-  languages: LanguageGraphProps['data'];
-  nbUsernames: number;
-  usernames: UsernameTableProps['data'];
-  nbAssociatedHashtags: number;
-  associatedHashtags: HashtagTableProps['data'];
+  search?: Search | null;
+  totalNbTweets?: number;
+  volumetry?: VolumetryGraphProps['data'];
+  languages?: LanguageGraphProps['data'];
+  nbUsernames?: number;
+  usernames?: UsernameTableProps['data'];
+  nbAssociatedHashtags?: number;
+  associatedHashtags?: HashtagTableProps['data'];
 }
 
 export interface CreateSearchInput extends CommonResponse {
