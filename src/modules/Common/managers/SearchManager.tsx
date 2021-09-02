@@ -273,7 +273,9 @@ export const listForPrerendering = async (
       { $project: { count: 1, name: '$search.name' } },
       { $sort: { count: -1 } },
       { $limit: limit },
-    ]).exec({ allowDiskUse: true });
+    ])
+      .allowDiskUse(true)
+      .exec();
 
     return searches;
   } catch (e) {
