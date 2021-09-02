@@ -10,14 +10,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ children, className, ...props }
   return (
     <nav
       role="navigation"
-      aria-label="vous êtes ici :"
+      aria-label="You are here:"
       className={classNames('fr-breadcrumb', s.breadcrumb, className)}
       {...props}
     >
       <button className="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">
         See the breadcrumb
       </button>
-      <div className="fr-collapse">
+      <div className="fr-collapse" id="breadcrumb-1">
         <ol className="fr-breadcrumb__list">{children}</ol>
       </div>
     </nav>

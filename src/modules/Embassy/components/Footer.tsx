@@ -250,23 +250,24 @@ const Footer = () => (
       <nav className={styles.footer_nav}>
         <ul className={styles.footer_nav_items}>
           <li className={styles.footer_nav_item}>
-            <a className={styles.footer_nav_link} href="mailto:ima@disinfo.beta.gouv.fr">
-              Contact us
-            </a>
+            <Link href="mailto:ima@disinfo.beta.gouv.fr">
+              <a className={styles.footer_nav_link}>Contact us</a>
+            </Link>
           </li>
           <li className={styles.footer_nav_item}>
-            <Link href="/privacy-policy">Privacy policy</Link>
+            <Link href="/privacy-policy">
+              <a className={styles.footer_nav_link}>Privacy policy</a>
+            </Link>
           </li>
           <li className={styles.footer_nav_item}>
-            <Link href="/legal-notice">Legal notice</Link>
+            <Link href="/legal-notice">
+              <a className={styles.footer_nav_link}>Legal notice</a>
+            </Link>
           </li>
           <li className={styles.footer_nav_item}>
-            <a
-              className={styles.footer_nav_link}
-              href="https://github.com/ambanum/information-manipulation-analyzer"
-            >
-              Source code
-            </a>
+            <Link href="https://github.com/ambanum/information-manipulation-analyzer">
+              <a className={styles.footer_nav_link}>Source code</a>
+            </Link>
           </li>
         </ul>
       </nav>

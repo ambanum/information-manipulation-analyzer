@@ -2,6 +2,7 @@ import Search, { SearchProps } from 'components/Search';
 
 import Alert from '../components/Alert/Alert';
 import { CreateSearchResponse } from 'modules/Common/interfaces';
+import Header from 'modules/Common/components/Header/Header';
 import LastSearches from '../data-components/LastSearches';
 import Layout from 'modules/Embassy/components/Layout';
 import React from 'react';
@@ -32,30 +33,37 @@ const HomePage = () => {
 
   return (
     <Layout title="Information Manipulation Analyzer">
-      <div className="fr-container fr-mb-12w">
+      <Header>
+        <div className="fr-container fr-py-4w">
+          <div className="fr-grid-row fr-grid-row--gutters">
+            <div className="fr-col">
+              <h1 className="text-center">
+                Information Manipulation Analyzer
+                <sup>
+                  <span
+                    style={{
+                      background: '#0762C8',
+                      color: 'white',
+                      fontWeight: 'bold',
+                    }}
+                    className="fr-tag fr-tag--sm fr-ml-1w"
+                  >
+                    BETA
+                  </span>
+                </sup>
+              </h1>
+              <h6 className="text-center">
+                Volumetry. Artificial boost probability. <br />
+                Most active users. Related hashtags.
+              </h6>
+            </div>
+          </div>
+        </div>
+      </Header>
+
+      <div className="fr-container fr-mt-8w">
         <div className="fr-grid-row">
           <div className="fr-col">
-            <h1 className="text-center fr-mb-1w">
-              Information Manipulation Analyzer
-              <sup>
-                <span
-                  style={{
-                    background: 'var(--rm500)',
-                    color: 'white',
-                    fontWeight: 'bold',
-                  }}
-                  className="fr-tag fr-tag--sm"
-                >
-                  BETA
-                </span>
-              </sup>
-            </h1>
-            <p
-              className="fr-text--lg text-center fr-mb-7w"
-              style={{ maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}
-            >
-              Volumetry. Artificial boost probability. Most active users. Related hashtags.
-            </p>
             <Search
               className="fr-mx-md-12w"
               label="Search"
@@ -64,13 +72,19 @@ const HomePage = () => {
               onSearchSubmit={onSubmit}
               onSearchChange={onSearchChange}
             />
-            <p className="fr-text--sm text-center fr-mb-10w">
-              <em>Finally get a real idea on whether a trend is worth the hype</em>
+            <p className="fr-text--sm text-center fr-mt-1w">
+              <em>Finally get a real idea on whetherñ a trend is worth the hype</em>
             </p>
-            <Alert size="small" title="Start exploring IMA by searching your own data.">
+          </div>
+        </div>
+      </div>
+
+      <div className="fr-container fr-mt-2w">
+        <div className="fr-grid-row">
+          <div className="fr-col">
+            <Alert size="small" close={true} autoCloseDelay={7000}>
               For transparency purposes, the search history is displayed below.
             </Alert>
-
             <LastSearches filter={filter} />
           </div>
         </div>

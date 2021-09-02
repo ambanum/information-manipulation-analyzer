@@ -120,6 +120,8 @@
 }
 
 .header_mainnav_link {
+  color:$color-blue; 
+
   @include responsiveMaxWidth($bpMobile) {
     display: block;
     width: 100%;
@@ -152,6 +154,7 @@
 }
 
 .header_langnav_link {
+  color:$color-blue; 
   display: flex;
   align-items: center;
   font-size: calc(1.4rem * 0.625);

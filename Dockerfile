@@ -11,12 +11,13 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app
 COPY yarn.lock /usr/src/app
 
-# Run install before setting NODE_ENV to install all development modules
-RUN yarn
-
 COPY . /usr/src/app
 RUN rm .env.*
 COPY ./docker/$ENV_FILE /usr/src/app/.env.production
+
+# Run install before setting NODE_ENV to install all development modules
+RUN yarn
+
 
 ENV NODE_ENV=production
 ENV NODE_OPTIONS='--max_old_space_size=8192'

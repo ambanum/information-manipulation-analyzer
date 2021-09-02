@@ -44,6 +44,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  color:$color-blue; 
 
   &:not(:last-child) {
     &:after {
@@ -74,6 +75,7 @@
 
 .footer_nav_link {
   font-size: calc(1.4rem * 0.625);
+  color:$color-blue; 
 
   @include responsiveMaxWidth($bpMobile) {
     display: block;

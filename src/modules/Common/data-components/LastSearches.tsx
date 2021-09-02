@@ -46,22 +46,28 @@ const TagsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: numbe
               href={`/searches/${encodeURIComponent(search.name)}`}
               prefetch={false}
             >
-              <a className={`fr-tag fr-m-1v`} title={`Created ${timeInfo}`}>
-                {search.name}
-                {loading ? (
+              {loading ? (
+                <a className="fr-tag fr-m-1v">
+                  {search.name}
                   <Loading size="sm" className="fr-ml-2v" />
-                ) : search.status === 'DONE_ERROR' ? (
-                  <span
-                    className="fr-fi-alert-fill fr-text-color--error"
-                    aria-hidden="true"
-                    title={search.error}
-                  ></span>
-                ) : null}
-              </a>
+                </a>
+              ) : search.status === 'DONE_ERROR' ? (
+                <a
+                  title={search.error}
+                  className="fr-tag fr-fi-alert-line fr-tag--icon-right fr-m-1v fr-tag-icon-color--error"
+                >
+                  {search.name}
+                </a>
+              ) : (
+                <a className="fr-tag fr-m-1v" title={`Created ${timeInfo}`}>
+                  {search.name}
+                </a>
+              )}
             </Link>
           </React.Fragment>
         );
       })}
+      <hr className="fr-mt-6w" />
     </>
   );
 };
@@ -91,13 +97,13 @@ const LastSearches = ({
   return (
     <div {...props}>
       {filter && (
-        <Alert size="small">
+        <Alert size="small" className="fr-mt-2w">
           All searches containing <strong>{filter}</strong>
         </Alert>
       )}
       {hashtags.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">#Hashtags</h2>
+          <h2 className="fr-mt-4w fr-mb-2w fr-ml-1v">#hashtags</h2>
           <TagsList searches={hashtags} keyIndex={1} />
         </>
       )}
@@ -109,19 +115,19 @@ const LastSearches = ({
       )}
       {mentions.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">@Mentions</h2>
+          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">@mentions</h2>
           <TagsList searches={mentions} keyIndex={1} />
         </>
       )}
       {cashtags.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">$Cashtags</h2>
+          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">$cashtags</h2>
           <TagsList searches={cashtags} keyIndex={1} />
         </>
       )}
       {urls.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">Urls</h2>
+          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">URLs</h2>
           <div className="fr-container fr-container--fluid">
             <div className="fr-grid-row fr-grid-row--gutters">
               {urls.map(({ metadata, name }) => (
@@ -131,6 +137,7 @@ const LastSearches = ({
                     direction="right"
                     href={`/searches/${encodeURIComponent(name)}`}
                     title={metadata?.url?.title}
+                    detail={metadata?.url?.site}
                     description={metadata?.url?.description}
                     image={
                       metadata?.url?.image?.url ||
