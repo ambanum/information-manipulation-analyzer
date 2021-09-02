@@ -81,7 +81,7 @@ const SearchPage = ({
   const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
 
   const [refreshInterval, setRefreshInterval] = React.useState(
-    REFRESH_INTERVALS[defaultSearch?.status]
+    REFRESH_INTERVALS[defaultSearch?.status || '']
   );
 
   const { data, isValidating } = useSWR<GetSearchResponse>(
