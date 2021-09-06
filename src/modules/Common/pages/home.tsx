@@ -73,7 +73,7 @@ const HomePage = () => {
               onSearchChange={onSearchChange}
             />
             <p className="fr-text--sm text-center fr-mt-1w">
-              <em>Finally get a real idea on whetherñ a trend is worth the hype</em>
+              <em>Finally get a real idea on whether a trend is worth the hype</em>
             </p>
           </div>
         </div>
