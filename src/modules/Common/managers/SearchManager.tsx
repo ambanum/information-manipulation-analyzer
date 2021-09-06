@@ -7,6 +7,7 @@ import { Search } from '../interfaces';
 import TweetModel from '../models/Tweet';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 import dayjs from 'dayjs';
+import sumBy from 'lodash/fp/sumBy';
 
 const MIN_NB_OCCURENCES = 1;
 const MIN_NB_RECORDS = 1000;
@@ -56,7 +57,7 @@ export const getVolumetry = async ({
       match.date.$lte = dayjs(endDate);
     }
   }
-  const rawResults: any[] = await TweetModel.aggregate([
+  const aggregation = [
     {
       $match: match,
     },
@@ -90,9 +91,11 @@ export const getVolumetry = async ({
         hashtags: {
           $push: '$hashtags',
         },
-        languages: {
-          $push: '$lang',
-        },
+      },
+    },
+    {
+      $sort: {
+        '_id.hour': 1,
       },
     },
     {
@@ -108,36 +111,6 @@ export const getVolumetry = async ({
     },
     {
       $addFields: {
-        languages: {
-          $arrayToObject: [
-            {
-              $map: {
-                input: '$languages',
-                as: 'lang',
-                in: {
-                  k: '$$lang',
-                  v: {
-                    $reduce: {
-                      input: '$languages',
-                      initialValue: 0,
-                      in: {
-                        $cond: [
-                          {
-                            $eq: ['$$lang', '$$this'],
-                          },
-                          {
-                            $add: ['$$value', 1],
-                          },
-                          '$$value',
-                        ],
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          ],
-        },
         hashtags: {
           $arrayToObject: [
             {
@@ -200,12 +173,8 @@ export const getVolumetry = async ({
         },
       },
     },
-    {
-      $sort: {
-        '_id.hour': 1,
-      },
-    },
-  ]).allowDiskUse(true);
+  ];
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   return rawResults.map((rawResult: any) => ({
     date: rawResult._id.hour,
@@ -305,7 +274,6 @@ export const getWithData = async ({
     });
 
     const usernames: { [key: string]: number } = {};
-    const languages: { [key: string]: number } = {};
     const associatedHashtags: { [key: string]: number } = {};
     let totalNbTweets: number = 0;
     let i = 0;
@@ -352,9 +320,6 @@ export const getWithData = async ({
             volumetryDayJs.isAfter(dayjs(+min)) &&
             volumetryDayJs.isBefore(dayjs(+max)))
         ) {
-          Object.keys(volumetry.languages || {}).forEach((language) => {
-            languages[language] = (languages[language] || 0) + volumetry.languages[language];
-          });
           Object.keys(volumetry.usernames || {}).forEach((username) => {
             usernames[username] = (usernames[username] || 0) + volumetry.usernames[username];
           });
@@ -403,11 +368,6 @@ export const getWithData = async ({
       search: search ? search : null,
       volumetry,
       totalNbTweets,
-      languages: Object.keys(languages).map((language) => ({
-        id: language,
-        label: LanguageManager.getName(language),
-        value: languages[language],
-      })),
       nbUsernames,
       usernames: filteredUsernames,
       nbAssociatedHashtags,
@@ -419,4 +379,52 @@ export const getWithData = async ({
     console.error(e);
     throw new Error(`Could not find search in getWithData for ${name}`);
   }
+};
+
+export const getLanguages = async ({
+  searchIds,
+  startDate,
+  endDate,
+}: {
+  searchIds: string[];
+  startDate?: string;
+  endDate?: string;
+}) => {
+  const match: any = { searches: { $in: searchIds } };
+  if (startDate || endDate) {
+    match.date = {};
+    if (startDate) {
+      match.date.$gte = dayjs(startDate);
+    }
+    if (endDate) {
+      match.date.$lte = dayjs(endDate);
+    }
+  }
+  const aggregation = [
+    {
+      $match: match,
+    },
+    {
+      $group: {
+        _id: {
+          lang: '$lang',
+        },
+        count: { $sum: 1 },
+      },
+    },
+    {
+      $sort: {
+        count: -1,
+      },
+    },
+  ];
+  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const nbLanguages = sumBy('count')(rawResults);
+
+  return rawResults.map((rawResult: any) => ({
+    id: rawResult._id.lang,
+    label: LanguageManager.getName(rawResult._id.lang),
+    value: rawResult.count,
+    percentage: rawResult.count / nbLanguages,
+  }));
 };

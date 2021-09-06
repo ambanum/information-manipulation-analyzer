@@ -1,6 +1,6 @@
-/**
+/******************************************
  * Common
- */
+ ******************************************/
 
 import {
   QueueItem as ModelQueueItem,
@@ -25,17 +25,17 @@ export interface CommonResponse {
   message?: string;
 }
 
-/**
+/******************************************
  * QueueItem
- */
+ ******************************************/
 
 export type QueueItem = ModelQueueItem;
 export type QueueItemStatuses = ModelQueueItemStatuses;
 export type QueueItemActionTypes = ModelQueueItemActionTypes;
 
-/**
+/******************************************
  * User
- */
+ ******************************************/
 export interface GetUserResponse extends CommonResponse {
   user: ModelUser;
 }
@@ -48,9 +48,9 @@ export interface GetUserBotScoreResponse extends CommonResponse {
   provider?: string;
 }
 
-/**
+/******************************************
  * Search
- */
+ ******************************************/
 export type Search = ModelSearch;
 export type SearchTypes = ModelSearchTypes;
 export type SearchStatus = ModelSearchStatus;
@@ -62,7 +62,6 @@ export interface GetSearchResponse extends CommonResponse {
   search?: Search | null;
   totalNbTweets?: number;
   volumetry?: VolumetryGraphProps['data'];
-  languages?: LanguageGraphProps['data'];
   nbUsernames?: number;
   usernames?: UsernameTableProps['data'];
   nbAssociatedHashtags?: number;
@@ -77,7 +76,14 @@ export interface CreateSearchResponse extends CommonResponse {
   search?: Search;
 }
 
-/**
+/******************************************
+ * Languages
+ ******************************************/
+export interface GetSearchLanguagesResponse extends CommonResponse {
+  languages: LanguageGraphProps['data'];
+}
+
+/******************************************
  * SearchVolumetry
- */
+ ******************************************/
 export type SearchVolumetry = ModelSearchVolumetry;

@@ -27,7 +27,7 @@ const HashtagTable = dynamic(() => import('../../components/Datatables/HashtagTa
   loading: () => <Loading />,
   ssr: false,
 });
-const LanguageGraph = dynamic(() => import('../../components/Charts/LanguageGraph'), {
+const LanguageData = dynamic(() => import('../../data-components/Language'), {
   loading: () => <Loading />,
   ssr: false,
 });
@@ -58,7 +58,6 @@ dayjs.extend(localizedFormat);
 const SearchPage = ({
   search: defaultSearch,
   volumetry: defaultVolumetry,
-  languages: defaultLanguages,
   usernames: defaultUsernames,
   nbUsernames: defaultNbUsernames,
   totalNbTweets: defaultTotalNbTweets,
@@ -68,14 +67,13 @@ const SearchPage = ({
   search: GetSearchResponse['search'];
   totalNbTweets: GetSearchResponse['totalNbTweets'];
   volumetry: GetSearchResponse['volumetry'];
-  languages: GetSearchResponse['languages'];
   usernames: GetSearchResponse['usernames'];
   nbUsernames: GetSearchResponse['nbUsernames'];
   associatedHashtags: GetSearchResponse['associatedHashtags'];
   nbAssociatedHashtags: GetSearchResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
-  const searchName = defaultSearch?.name || router.query.search;
+  const searchName = defaultSearch?.name || (router.query.search as string);
 
   const [loadingData, toggleLoadingData] = useToggle(true);
   const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
@@ -93,7 +91,6 @@ const SearchPage = ({
         search: defaultSearch,
         totalNbTweets: defaultTotalNbTweets,
         volumetry: defaultVolumetry,
-        languages: defaultLanguages,
         usernames: defaultUsernames,
         nbUsernames: defaultNbUsernames,
         associatedHashtags: defaultAssociatedHashtags,
@@ -111,7 +108,6 @@ const SearchPage = ({
   const {
     totalNbTweets = 0,
     volumetry = [],
-    languages = [],
     usernames = [],
     nbUsernames = 0,
     associatedHashtags = [],
@@ -415,20 +411,41 @@ const SearchPage = ({
           </div>
         </div>
       )}
-
-      {languages?.length > 0 && (
-        <div className="fr-container fr-container--fluid fr-my-6w">
-          <div className="fr-grid-row r-grid-row--gutters">
-            <div
-              className="fr-col"
-              style={{ height: '400px', margin: '0 auto', opacity: loadingData ? 0.3 : 1 }}
-            >
-              <LanguageGraph data={languages} onSliceClick={onPieClick} />
+      {searchName && (
+        <>
+          <div className="fr-container fr-container--fluid fr-my-6w">
+            <div className="fr-grid-row r-grid-row--gutters">
+              <div
+                className="fr-col"
+                style={{ height: '400px', margin: '0 auto', opacity: loadingData ? 0.3 : 1 }}
+              >
+                <LanguageData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  onSliceClick={onPieClick}
+                  queryParamsStringified={queryParamsStringified}
+                />
+              </div>
             </div>
           </div>
-        </div>
+          <div
+            className="fr-container fr-container-fluid fr-my-6w"
+            style={{ opacity: loadingData ? 0.3 : 1 }}
+          >
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
+                <HashtagData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  onHashtagClick={onHashtagClick}
+                  onHashtagSearchClick={onHashtagSearchClick}
+                  queryParamsStringified={queryParamsStringified}
+                />
+              </div>
+            </div>
+          </div>
+        </>
       )}
-
       {usernames?.length > 0 && (
         <div
           className="fr-container fr-container-fluid fr-my-6w"
