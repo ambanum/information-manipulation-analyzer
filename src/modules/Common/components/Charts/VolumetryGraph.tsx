@@ -79,8 +79,14 @@ const VolumetryGraph = ({
     },
     xAxis: {
       events: {
-        afterSetExtremes: ({ min, max }: any) => {
-          onFilterDateChange({ min, max });
+        afterSetExtremes: ({ min, max, dataMin, dataMax, type }) => {
+          onFilterDateChange({
+            min,
+            max,
+            dataMin,
+            dataMax,
+            type,
+          });
         },
       },
     },

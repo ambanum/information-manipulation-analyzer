@@ -168,10 +168,21 @@ const SearchPage = ({
   );
 
   const onFilterDateChange: any = React.useCallback(
-    debounce(async (data: any) => {
-      if (queryParams.min !== `${data.min}` && queryParams.max !== `${data.max}`) {
+    debounce(async ({ type, dataMin, /*dataMax,*/ min, max }: any) => {
+      if (
+        type !== 'afterSetExtremes' && // we filter this type of event as it is thrown on load and we only want to refilter when there is a zoom action
+        queryParams.min !== `${min}` &&
+        queryParams.max !== `${max}`
+      ) {
+        // We do not need to filter by min and max when we want the whole data to be displayed
+        const newMin = dataMin === min ? undefined : `${Math.round(min)}`;
+        // For an unknown reason dataMax is always different than max, so dataMin === min is on purpose
+        const newMax = dataMin === min ? undefined : `${Math.round(max)}`;
         toggleLoadingData(true);
-        pushQueryParams({ ...router.query, ...data }, undefined, { scroll: false });
+
+        pushQueryParams({ ...router.query, min: newMin, max: newMax }, undefined, {
+          scroll: false,
+        });
       }
     }, 500),
     [queryParams.min, queryParams.max]
@@ -310,7 +321,7 @@ const SearchPage = ({
                 horizontal
                 enlargeLink
                 direction="right"
-                href={searchName as string}
+                href={(searchName as string) || ''}
                 title={metadata?.url?.title}
                 detail={metadata?.url?.site}
                 description={metadata?.url?.description}
