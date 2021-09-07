@@ -63,7 +63,6 @@ export interface GetSearchResponse extends CommonResponse {
   totalNbTweets?: number;
   volumetry?: VolumetryGraphProps['data'];
   nbUsernames?: number;
-  usernames?: UsernameTableProps['data'];
   nbAssociatedHashtags?: number;
 }
 
@@ -86,6 +85,12 @@ export interface GetSearchLanguagesResponse extends CommonResponse {
  ******************************************/
 export interface GetSearchHashtagsResponse extends CommonResponse {
   hashtags?: HashtagTableProps['data'];
+}
+/******************************************
+ * Usernames
+ ******************************************/
+export interface GetSearchUsernamesResponse extends CommonResponse {
+  usernames?: UsernameTableProps['data'];
 }
 
 /******************************************

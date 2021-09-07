@@ -30,7 +30,7 @@ const ssrConfig = {
 
 const LanguageData = dynamic(() => import('../../data-components/Language'), ssrConfig);
 const HashtagData = dynamic(() => import('../../data-components/Hashtag'), ssrConfig);
-const UsernameTable = dynamic(() => import('../../components/Datatables/UsernameTable'), ssrConfig);
+const UsernameData = dynamic(() => import('../../data-components/Username'), ssrConfig);
 const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), ssrConfig);
 
 export { default as getStaticPaths } from './[search].staticPaths';
@@ -51,7 +51,6 @@ dayjs.extend(localizedFormat);
 const SearchPage = ({
   search: defaultSearch,
   volumetry: defaultVolumetry,
-  usernames: defaultUsernames,
   nbUsernames: defaultNbUsernames,
   totalNbTweets: defaultTotalNbTweets,
   nbAssociatedHashtags: defaultNbAssociatedHashtags,
@@ -59,11 +58,11 @@ const SearchPage = ({
   search: GetSearchResponse['search'];
   totalNbTweets: GetSearchResponse['totalNbTweets'];
   volumetry: GetSearchResponse['volumetry'];
-  usernames: GetSearchResponse['usernames'];
   nbUsernames: GetSearchResponse['nbUsernames'];
   nbAssociatedHashtags: GetSearchResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
+
   const searchName = defaultSearch?.name || (router.query.search as string);
 
   const [loadingData, toggleLoadingData] = useToggle(true);
@@ -82,12 +81,12 @@ const SearchPage = ({
         search: defaultSearch,
         totalNbTweets: defaultTotalNbTweets,
         volumetry: defaultVolumetry,
-        usernames: defaultUsernames,
         nbUsernames: defaultNbUsernames,
         nbAssociatedHashtags: defaultNbAssociatedHashtags,
       },
       refreshInterval,
       revalidateOnMount: true,
+      revalidateOnFocus: false,
     }
   );
 
@@ -98,7 +97,6 @@ const SearchPage = ({
   const {
     totalNbTweets = 0,
     volumetry = [],
-    usernames = [],
     nbUsernames = 0,
     nbAssociatedHashtags = 0,
   } = data || {};
@@ -423,37 +421,34 @@ const SearchPage = ({
           >
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
+                <UsernameData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  onUsernameClick={onUsernameClick}
+                  onUsernameSearchClick={onUsernameSearchClick}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__associated-usernames`}
+                />
+              </div>
+            </div>
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
                 <HashtagData
                   search={searchName}
                   refreshInterval={refreshInterval}
                   onHashtagClick={onHashtagClick}
                   onHashtagSearchClick={onHashtagSearchClick}
                   queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__associated-hashtags`}
                 />
               </div>
             </div>
           </div>
         </>
-      )}
-      {usernames?.length > 0 && (
-        <div
-          className="fr-container fr-container-fluid fr-my-6w"
-          style={{ opacity: loadingData ? 0.3 : 1 }}
-        >
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <UsernameTable
-                nbData={nbUsernames}
-                data={usernames}
-                onUsernameClick={onUsernameClick}
-                onUsernameSearchClick={onUsernameSearchClick}
-                exportName={`${dayjs(newestProcessedDate).format(
-                  'YYYYMMDDHH'
-                )}__${searchName}__usernames`}
-              />
-            </div>
-          </div>
-        </div>
       )}
     </Layout>
   );

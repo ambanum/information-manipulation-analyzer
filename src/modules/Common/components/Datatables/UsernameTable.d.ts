@@ -11,4 +11,5 @@ export interface Username {
   id: string;
   label: string;
   value: number;
+  percentage?: number;
 }

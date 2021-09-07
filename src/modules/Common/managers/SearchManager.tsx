@@ -9,8 +9,25 @@ import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 import dayjs from 'dayjs';
 import sumBy from 'lodash/fp/sumBy';
 
-const MIN_NB_OCCURENCES = 1;
-const MIN_NB_RECORDS = 1000;
+interface SearchFilter {
+  searchIds: string[];
+  startDate?: string;
+  endDate?: string;
+}
+
+const getMatch = ({ searchIds, startDate, endDate }: SearchFilter) => {
+  const match: any = { searches: { $in: searchIds } };
+  if (startDate || endDate) {
+    match.date = {};
+    if (startDate) {
+      match.date.$gte = new Date(dayjs(startDate).toISOString());
+    }
+    if (endDate) {
+      match.date.$lte = new Date(dayjs(+endDate).toISOString());
+    }
+  }
+  return match;
+};
 
 export const create = async ({ name, type }: { name: string; type: keyof typeof SearchTypes }) => {
   try {
@@ -38,35 +55,12 @@ export const get = async (filter: { name: string }) => {
   }
 };
 
-export const getVolumetry = async ({
-  searchIds,
-  startDate,
-  endDate,
-}: {
-  searchIds: string[];
-  startDate?: string;
-  endDate?: string;
-}) => {
-  const match: any = { searches: { $in: searchIds } };
-  if (startDate || endDate) {
-    match.date = {};
-    if (startDate) {
-      match.date.$gte = dayjs(startDate);
-    }
-    if (endDate) {
-      match.date.$lte = dayjs(endDate);
-    }
-  }
+export const getVolumetry = async (filter: SearchFilter) => {
+  const match: any = getMatch(filter);
+
   const aggregation = [
     {
       $match: match,
-    },
-    {
-      $addFields: {
-        hashtags: {
-          $ifNull: ['$hashtags', []],
-        },
-      },
     },
     {
       $group: {
@@ -85,48 +79,11 @@ export const getVolumetry = async ({
         nbLikes: {
           $sum: '$likeCount',
         },
-        usernames: {
-          $push: '$username',
-        },
       },
     },
     {
       $sort: {
         '_id.hour': 1,
-      },
-    },
-    {
-      $addFields: {
-        usernames: {
-          $arrayToObject: [
-            {
-              $map: {
-                input: '$usernames',
-                as: 'user',
-                in: {
-                  k: '$$user',
-                  v: {
-                    $reduce: {
-                      input: '$usernames',
-                      initialValue: 0,
-                      in: {
-                        $cond: [
-                          {
-                            $eq: ['$$user', '$$this'],
-                          },
-                          {
-                            $add: ['$$value', 1],
-                          },
-                          '$$value',
-                        ],
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          ],
-        },
       },
     },
   ];
@@ -138,9 +95,6 @@ export const getVolumetry = async ({
     nbRetweets: rawResult.nbRetweets,
     nbQuotes: rawResult.nbQuotes,
     nbLikes: rawResult.nbLikes,
-    usernames: rawResult.usernames,
-    associatedHashtags: rawResult.hashtags,
-    languages: rawResult.languages,
   }));
 };
 
@@ -222,14 +176,14 @@ export const getWithData = async ({
     if (!search) {
       return null;
     }
-
+    console.time('get searchVolumetry');
     const searchVolumetry = await getVolumetry({
       searchIds: [search._id],
       startDate: min,
       endDate: max,
     });
+    console.timeEnd('get searchVolumetry');
 
-    const usernames: { [key: string]: number } = {};
     let totalNbTweets: number = 0;
     let i = 0;
     const volumetryLength = searchVolumetry.length;
@@ -275,9 +229,6 @@ export const getWithData = async ({
             volumetryDayJs.isAfter(dayjs(+min)) &&
             volumetryDayJs.isBefore(dayjs(+max)))
         ) {
-          Object.keys(volumetry.usernames || {}).forEach((username) => {
-            usernames[username] = (usernames[username] || 0) + volumetry.usernames[username];
-          });
           totalNbTweets += volumetry.nbTweets;
         }
         return acc;
@@ -290,28 +241,27 @@ export const getWithData = async ({
       ]
     );
 
-    const usernameKeys = Object.keys(usernames);
-    const nbUsernames = usernameKeys.length;
-    const filteredUsernames = usernameKeys
-      .filter((username) => nbUsernames < MIN_NB_RECORDS || usernames[username] > MIN_NB_OCCURENCES)
-      .map((username) => ({
-        id: username,
-        label: username,
-        value: usernames[username],
-      }));
-
+    console.time('get nbAssociatedHashtags');
     const nbAssociatedHashtags = await countHashtags({
       searchIds: [search._id],
       startDate: min,
       endDate: max,
     });
+    console.timeEnd('get nbAssociatedHashtags');
+
+    console.time('get nbAssociatedUsernames');
+    const nbUsernames = await countUsernames({
+      searchIds: [search._id],
+      startDate: min,
+      endDate: max,
+    });
+    console.timeEnd('get nbAssociatedUsernames');
 
     const result = {
       search: search ? search : null,
       volumetry,
       totalNbTweets,
       nbUsernames,
-      usernames: filteredUsernames,
       nbAssociatedHashtags,
     };
 
@@ -322,25 +272,8 @@ export const getWithData = async ({
   }
 };
 
-export const getLanguages = async ({
-  searchIds,
-  startDate,
-  endDate,
-}: {
-  searchIds: string[];
-  startDate?: string;
-  endDate?: string;
-}) => {
-  const match: any = { searches: { $in: searchIds } };
-  if (startDate || endDate) {
-    match.date = {};
-    if (startDate) {
-      match.date.$gte = dayjs(startDate);
-    }
-    if (endDate) {
-      match.date.$lte = dayjs(endDate);
-    }
-  }
+export const getLanguages = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
   const aggregation = [
     {
       $match: match,
@@ -370,25 +303,8 @@ export const getLanguages = async ({
   }));
 };
 
-export const getHashtags = async ({
-  searchIds,
-  startDate,
-  endDate,
-}: {
-  searchIds: string[];
-  startDate?: string;
-  endDate?: string;
-}) => {
-  const match: any = { searches: { $in: searchIds } };
-  if (startDate || endDate) {
-    match.date = {};
-    if (startDate) {
-      match.date.$gte = dayjs(startDate);
-    }
-    if (endDate) {
-      match.date.$lte = dayjs(endDate);
-    }
-  }
+export const getHashtags = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
   const aggregation = [
     {
       $match: match,
@@ -416,25 +332,8 @@ export const getHashtags = async ({
   }));
 };
 
-export const countHashtags = async ({
-  searchIds,
-  startDate,
-  endDate,
-}: {
-  searchIds: string[];
-  startDate?: string;
-  endDate?: string;
-}) => {
-  const match: any = { searches: { $in: searchIds } };
-  if (startDate || endDate) {
-    match.date = {};
-    if (startDate) {
-      match.date.$gte = dayjs(startDate);
-    }
-    if (endDate) {
-      match.date.$lte = dayjs(endDate);
-    }
-  }
+export const countHashtags = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
   const aggregation = [
     {
       $match: match,
@@ -443,6 +342,56 @@ export const countHashtags = async ({
     {
       $group: {
         _id: '$hashtags',
+        count: { $sum: 1 },
+      },
+    },
+    {
+      $group: {
+        _id: null,
+        count: { $sum: 1 },
+      },
+    },
+  ];
+  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+
+  return rawResults[0]?.count;
+};
+
+export const getUsernames = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: match,
+    },
+    {
+      $group: {
+        _id: '$username',
+        count: { $sum: 1 },
+      },
+    },
+    { $sort: { count: -1 } },
+  ];
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+
+  const nbUsernames = sumBy('count')(rawResults);
+  return rawResults.map((rawResult: any) => ({
+    id: rawResult._id,
+    label: rawResult._id,
+    value: rawResult.count,
+    percentage: rawResult.count / nbUsernames,
+  }));
+};
+
+export const countUsernames = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: match,
+    },
+    {
+      $group: {
+        _id: '$username',
         count: { $sum: 1 },
       },
     },
