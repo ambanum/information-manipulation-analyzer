@@ -65,7 +65,6 @@ export interface GetSearchResponse extends CommonResponse {
   nbUsernames?: number;
   usernames?: UsernameTableProps['data'];
   nbAssociatedHashtags?: number;
-  associatedHashtags?: HashtagTableProps['data'];
 }
 
 export interface CreateSearchInput extends CommonResponse {
@@ -80,7 +79,13 @@ export interface CreateSearchResponse extends CommonResponse {
  * Languages
  ******************************************/
 export interface GetSearchLanguagesResponse extends CommonResponse {
-  languages: LanguageGraphProps['data'];
+  languages?: LanguageGraphProps['data'];
+}
+/******************************************
+ * Hashtags
+ ******************************************/
+export interface GetSearchHashtagsResponse extends CommonResponse {
+  hashtags?: HashtagTableProps['data'];
 }
 
 /******************************************

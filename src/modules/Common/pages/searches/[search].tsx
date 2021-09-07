@@ -23,22 +23,15 @@ import useSWR from 'swr';
 import { useToggle } from 'react-use';
 import useUrl from 'hooks/useUrl';
 
-const HashtagTable = dynamic(() => import('../../components/Datatables/HashtagTable'), {
+const ssrConfig = {
   loading: () => <Loading />,
   ssr: false,
-});
-const LanguageData = dynamic(() => import('../../data-components/Language'), {
-  loading: () => <Loading />,
-  ssr: false,
-});
-const UsernameTable = dynamic(() => import('../../components/Datatables/UsernameTable'), {
-  loading: () => <Loading />,
-  ssr: false,
-});
-const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), {
-  loading: () => <Loading />,
-  ssr: false,
-});
+};
+
+const LanguageData = dynamic(() => import('../../data-components/Language'), ssrConfig);
+const HashtagData = dynamic(() => import('../../data-components/Hashtag'), ssrConfig);
+const UsernameTable = dynamic(() => import('../../components/Datatables/UsernameTable'), ssrConfig);
+const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), ssrConfig);
 
 export { default as getStaticPaths } from './[search].staticPaths';
 export { default as getStaticProps } from './[search].staticProps';
@@ -61,7 +54,6 @@ const SearchPage = ({
   usernames: defaultUsernames,
   nbUsernames: defaultNbUsernames,
   totalNbTweets: defaultTotalNbTweets,
-  associatedHashtags: defaultAssociatedHashtags,
   nbAssociatedHashtags: defaultNbAssociatedHashtags,
 }: {
   search: GetSearchResponse['search'];
@@ -69,7 +61,6 @@ const SearchPage = ({
   volumetry: GetSearchResponse['volumetry'];
   usernames: GetSearchResponse['usernames'];
   nbUsernames: GetSearchResponse['nbUsernames'];
-  associatedHashtags: GetSearchResponse['associatedHashtags'];
   nbAssociatedHashtags: GetSearchResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
@@ -93,7 +84,6 @@ const SearchPage = ({
         volumetry: defaultVolumetry,
         usernames: defaultUsernames,
         nbUsernames: defaultNbUsernames,
-        associatedHashtags: defaultAssociatedHashtags,
         nbAssociatedHashtags: defaultNbAssociatedHashtags,
       },
       refreshInterval,
@@ -110,7 +100,6 @@ const SearchPage = ({
     volumetry = [],
     usernames = [],
     nbUsernames = 0,
-    associatedHashtags = [],
     nbAssociatedHashtags = 0,
   } = data || {};
   const {
@@ -461,15 +450,6 @@ const SearchPage = ({
                 exportName={`${dayjs(newestProcessedDate).format(
                   'YYYYMMDDHH'
                 )}__${searchName}__usernames`}
-              />
-              <HashtagTable
-                nbData={nbAssociatedHashtags}
-                data={associatedHashtags}
-                onHashtagClick={onHashtagClick}
-                onHashtagSearchClick={onHashtagSearchClick}
-                exportName={`${dayjs(newestProcessedDate).format(
-                  'YYYYMMDDHH'
-                )}__${searchName}__associated-hashtags`}
               />
             </div>
           </div>
