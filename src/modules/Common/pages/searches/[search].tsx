@@ -10,6 +10,7 @@ import Header from 'modules/Common/components/Header/Header';
 import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
 import Loading from 'components/Loading';
+import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
@@ -293,6 +294,7 @@ const SearchPage = ({
         </div>
       )}
 
+      {/* Breadcrumb */}
       <div className="fr-container fr-container-fluid fr-mt-0">
         <div className="fr-grid-row fr-grid-row--gutters">
           <div className="fr-col">
@@ -329,58 +331,17 @@ const SearchPage = ({
         </div>
       )}
 
+      {/* Overview */}
       {nbTweets > 0 && (
-        <div className="fr-container fr-container-fluid">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={
-                  firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'
-                }
-                href={getTwitterLink(`${searchName}`, { endDate: firstOccurenceDate })}
-                description={'Date of first appearance'}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={!gatheringData ? nbUsernames.toLocaleString('en') : '-'}
-                description={'Nb Active users'}
-                noArrow
-                loading={loadingData}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={!gatheringData ? nbAssociatedHashtags.toLocaleString('en') : '-'}
-                description={'Nb Associated hashtags'}
-                noArrow
-                loading={loadingData}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={!gatheringData ? nbTweets.toLocaleString('en') : '-'}
-                description={'Total Tweets'}
-                noArrow
-                loading={loadingData}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={'I want this!'}
-                description={'Inauthenticity Probability'}
-                href={getTweetIntentLink(
-                  `Hey @AmbNum, I absolutely need to retrieve the inauthenticity probability on a search on IMA. Thanks`
-                )}
-              />
-            </div>
-          </div>
-        </div>
+        <Overview
+          firstOccurenceDate={firstOccurenceDate}
+          searchName={searchName}
+          gatheringData={gatheringData}
+          loadingData={loadingData}
+          nbUsernames={nbUsernames}
+          totalNbTweets={nbTweets}
+          nbAssociatedHashtags={nbAssociatedHashtags}
+        ></Overview>
       )}
 
       {nbTweets === 0 && status === 'DONE' && (
