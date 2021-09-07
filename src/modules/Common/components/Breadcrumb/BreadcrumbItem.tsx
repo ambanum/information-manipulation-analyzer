@@ -1,10 +1,11 @@
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
+
 import React from 'react';
 import classNames from 'classnames';
 import s from './BreadcrumbItem.module.css';
 
 type BreadcrumbItemProps = {
-  href?: string;
+  href?: LinkProps['href'];
   isCurrent?: boolean;
 } & React.LiHTMLAttributes<HTMLLIElement>;
 

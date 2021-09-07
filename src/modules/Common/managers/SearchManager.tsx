@@ -20,7 +20,7 @@ const getMatch = ({ searchIds, startDate, endDate }: SearchFilter) => {
   if (startDate || endDate) {
     match.date = {};
     if (startDate) {
-      match.date.$gte = new Date(dayjs(startDate).toISOString());
+      match.date.$gte = new Date(dayjs(+startDate).toISOString());
     }
     if (endDate) {
       match.date.$lte = new Date(dayjs(+endDate).toISOString());
@@ -176,12 +176,14 @@ export const getWithData = async ({
     if (!search) {
       return null;
     }
-    console.time('get searchVolumetry');
-    const searchVolumetry = await getVolumetry({
+    const filters = {
       searchIds: [search._id],
       startDate: min,
       endDate: max,
-    });
+    };
+    console.time('get searchVolumetry');
+
+    const searchVolumetry = await getVolumetry(filters);
     console.timeEnd('get searchVolumetry');
 
     let totalNbTweets: number = 0;
@@ -242,19 +244,11 @@ export const getWithData = async ({
     );
 
     console.time('get nbAssociatedHashtags');
-    const nbAssociatedHashtags = await countHashtags({
-      searchIds: [search._id],
-      startDate: min,
-      endDate: max,
-    });
+    const nbAssociatedHashtags = await countHashtags(filters);
     console.timeEnd('get nbAssociatedHashtags');
 
     console.time('get nbAssociatedUsernames');
-    const nbUsernames = await countUsernames({
-      searchIds: [search._id],
-      startDate: min,
-      endDate: max,
-    });
+    const nbUsernames = await countUsernames(filters);
     console.timeEnd('get nbAssociatedUsernames');
 
     const result = {

@@ -162,15 +162,6 @@ const VolumetryGraph = ({
     toggleRecalculating(false);
   }, [chartXscaleDisplay, previousXscale, setOptions, initialSeries, toggleRecalculating]);
 
-  // React.useEffect(() => {
-  //   const { chart } = chartRef?.current || {};
-  //   console.log(''); //eslint-disable-line
-  //   console.log('╔════START══chartRef══════════════════════════════════════════════════'); //eslint-disable-line
-  //   console.log(chart); //eslint-disable-line
-  //   console.log(chart.xAxis[0]); //eslint-disable-line
-  //   console.log('╚════END════chartRef══════════════════════════════════════════════════'); //eslint-disable-line
-  // }, [chartRef]);
-
   return (
     <div className={styles.wrapper} style={{ opacity: recalculating ? 0.3 : 1 }}>
       <div
