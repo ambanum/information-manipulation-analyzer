@@ -16,6 +16,7 @@ export default function PrivacyPolicy() {
               <BreadcrumbItem href=" " onClick={() => router.back()}>
                 Back
               </BreadcrumbItem>
+              <BreadcrumbItem isCurrent={true}>Privacy Policy</BreadcrumbItem>
             </Breadcrumb>
           </div>
         </div>

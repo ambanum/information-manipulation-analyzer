@@ -25,6 +25,7 @@ const BotProbability: NextPage<Props> = ({ mdxContent }) => {
               <BreadcrumbItem href=" " onClick={() => router.back()}>
                 Back
               </BreadcrumbItem>
+              <BreadcrumbItem isCurrent={true}>What is a bot ?</BreadcrumbItem>
             </Breadcrumb>
           </div>
         </div>

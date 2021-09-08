@@ -16,6 +16,7 @@ export default function LegalNotice() {
               <BreadcrumbItem href=" " onClick={() => router.back()}>
                 Back
               </BreadcrumbItem>
+              <BreadcrumbItem isCurrent={true}>Legal Notice</BreadcrumbItem>
             </Breadcrumb>
           </div>
         </div>
