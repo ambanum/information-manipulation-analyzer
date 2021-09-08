@@ -70,7 +70,7 @@ const SearchPage = ({
     REFRESH_INTERVALS[defaultSearch?.status || '']
   );
 
-  const { data } = useSWR<GetSearchResponse>(
+  const { data, isValidating } = useSWR<GetSearchResponse>(
     `/api/searches/${encodeURIComponent(searchName as string)}${queryParamsStringified}`,
     {
       initialData: {
@@ -87,7 +87,8 @@ const SearchPage = ({
       revalidateOnFocus: false,
     }
   );
-  const loadingData = !data;
+
+  const loadingData = !data || isValidating;
 
   const { nbTweets = 0, volumetry = [], nbUsernames = 0, nbAssociatedHashtags = 0 } = data || {};
   const {
