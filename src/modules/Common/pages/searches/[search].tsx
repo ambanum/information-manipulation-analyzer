@@ -64,7 +64,9 @@ const SearchPage = ({
 
   // For an unknown reason, router.query.search is empty on first call
   // surely due to getStaticProps but could not figure the exact why
-  const searchNameFromUrl = router.asPath.replace('/searches/', '').replace(/\?.*/gim, '');
+  const searchNameFromUrl = decodeURIComponent(
+    router.asPath.replace('/searches/', '').replace(/\?.*/gim, '')
+  );
 
   const searchName = defaultSearch?.name || (router.query.search as string);
 
@@ -190,12 +192,10 @@ const SearchPage = ({
 
   const isUrl = type === 'URL';
 
-  const title = searchNameFromUrl;
+  const title = searchName || searchNameFromUrl;
 
   return (
-    <Layout
-      title={`${isUrl ? metadata?.url?.title : searchName} | Information Manipulation Analyzer`}
-    >
+    <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
       <Header>
         <div className="fr-container fr-py-4w">
           <div className="fr-grid-row fr-grid-row--gutters">
@@ -303,7 +303,7 @@ const SearchPage = ({
                   {queryParams.fromsearch}
                 </BreadcrumbItem>
               )}
-              <BreadcrumbItem isCurrent={true}>{searchNameFromUrl}</BreadcrumbItem>
+              <BreadcrumbItem isCurrent={true}>{title}</BreadcrumbItem>
             </Breadcrumb>
           </div>
         </div>
