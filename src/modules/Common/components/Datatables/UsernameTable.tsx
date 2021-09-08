@@ -59,7 +59,8 @@ const UsernameTable = ({
 
   return (
     <Table<Username>
-      title={`Active users (${(nbData || data.length).toLocaleString('en')})`}
+      title={`${(nbData || data.length).toLocaleString('en')} active users`}
+      subtitle="Active user are user who tweeted this term"
       columns={columns}
       data={data}
       sortBy={[

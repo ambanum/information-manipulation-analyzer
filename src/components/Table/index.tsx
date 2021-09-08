@@ -31,6 +31,7 @@ export interface VirtualizeProps {
 
 export interface TableProps<T extends Record<string, unknown>> extends TableOptions<T> {
   title: string;
+  subtitle?: string;
   bordered?: boolean;
   noScroll?: boolean;
   layoutFixed?: boolean;
@@ -73,6 +74,7 @@ export default function Table<T extends Record<string, unknown>>({
   columns,
   data,
   title,
+  subtitle,
   sortBy: initialSortBy,
   bordered = false,
   noScroll = false,
@@ -154,7 +156,14 @@ export default function Table<T extends Record<string, unknown>>({
     >
       <div className="table">
         <div className={`caption ${styles.caption}`} role="caption">
-          <span>{title}</span>
+          <div>
+            <h4 className="fr-mb-1v">{title}</h4>
+            {subtitle && (
+              <p className="fr-mb-0" style={{ fontWeight: 'normal' }}>
+                {subtitle}
+              </p>
+            )}
+          </div>
           {!!exportable && (
             <a
               className="fr-link fr-link--sm fr-fi-download-line fr-link--icon-left"

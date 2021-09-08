@@ -29,7 +29,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         {/* See https://github.com/GouvernementFR/dsfr/issues/39 */}
         <Script
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/@gouvfr/dsfr/dist/js/dsfr.module.min.js`}
+          type="module"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/@gouvfr/dsfr/dist/js/dsfr.module.js`}
+        />
+        <Script
+          type="text/javascript"
+          noModule={true}
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/@gouvfr/dsfr/dist/js/dsfr.nomodule.js`}
         />
         <NotifierContainer />
         <Analytics />
