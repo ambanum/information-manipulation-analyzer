@@ -197,64 +197,52 @@ const SearchPage = ({
 
   return (
     <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
-      <Header>
-        <div className="fr-container fr-py-4w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <h6 className="text-center">
-                Information Manipulation Analyzer
-                <sup>
-                  <span
-                    style={{
-                      background: '#0762C8',
-                      color: 'white',
-                      fontWeight: 'bold',
-                    }}
-                    className="fr-tag fr-tag--sm fr-ml-1w"
-                  >
-                    BETA
-                  </span>
-                </sup>
-              </h6>
-              <h1 className="text-center ">{title}</h1>
+      {searchName && (
+        <Header>
+          <div className="fr-container fr-py-4w">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
+                <h1 className="text-center ">{title}</h1>
 
-              <>
-                {status === 'PROCESSING_PREVIOUS' && (
-                  <Loading size="sm" className="text-center fr-my-2w" />
-                )}
+                <>
+                  {status === 'PROCESSING_PREVIOUS' && (
+                    <Loading size="sm" className="text-center fr-my-2w" />
+                  )}
 
-                <div className="text-center fr-text--xs fr-mb-0 fr-text-color--g500">
-                  <em>
-                    {status !== 'PENDING' ? 'Crawled' : ''}
-                    {status === 'PROCESSING_PREVIOUS' && (
-                      <>
-                        {' '}
-                        from{' '}
-                        <strong>
-                          {oldestProcessedDate
-                            ? dayjs(oldestProcessedDate).format('llll')
-                            : 'Searching...'}
-                        </strong>
-                      </>
-                    )}
-                    {newestProcessedDate && (
-                      <>
-                        {' '}
-                        until{' '}
-                        <strong>
-                          {newestProcessedDate
-                            ? dayjs(newestProcessedDate).format('llll')
-                            : 'Searching...'}
-                        </strong>
-                      </>
-                    )}
-                  </em>
-                </div>
-              </>
+                  <div className="text-center fr-text--xs fr-mb-0 fr-text-color--g500">
+                    <em>
+                      {status !== 'PENDING' ? 'Crawled' : ''}
+                      {status === 'PROCESSING_PREVIOUS' && (
+                        <>
+                          {' '}
+                          from{' '}
+                          <strong>
+                            {oldestProcessedDate
+                              ? dayjs(oldestProcessedDate).format('llll')
+                              : 'Searching...'}
+                          </strong>
+                        </>
+                      )}
+                      {newestProcessedDate && (
+                        <>
+                          {' '}
+                          until{' '}
+                          <strong>
+                            {newestProcessedDate
+                              ? dayjs(newestProcessedDate).format('llll')
+                              : 'Searching...'}
+                          </strong>
+                        </>
+                      )}
+                    </em>
+                  </div>
+                </>
+              </div>
             </div>
           </div>
-        </div>
-      </Header>
+        </Header>
+      )}
+
       {(gatheringData || router.isFallback) && <Loading />}
 
       {status === 'PENDING' && (

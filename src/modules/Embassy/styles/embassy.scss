@@ -1,19 +1,41 @@
-//@import './vendor/minireset.sass';
-@import './config.scss';
-@import './base.scss';
-
-@import './utils/mixins.scss';
 @import './utils/utilities.scss';
 
-//Elements
-@import './elements/fonts.scss';
-@import './elements/inline.scss';
-@import './elements/links.scss';
-@import './elements/icons.scss';
-@import './elements/buttons.scss';
-@import './elements/title.scss';
-@import './elements/form.scss';
-@import './elements/sections.scss';
+/**
+ * While waiting for the official styles of the dsfr we use this one
+ **/
+hr{
+	display: block; 
+	height: 1px;
+  border: 0; 
+	border-top: 1px solid var(--g200);
+}
+
+/**
+ * SVG Embassgy Logo
+ **/
+.logo_drawings--header {
+	width: 45px;
+	height: 78px;
+}
+
+.logo_txt--header {
+	width: 99px;
+	height: 50px;
+	margin-left: 11px;
+}
+
+.logo_drawings--footer {
+	width: 54px;
+	height: 93px;
+}
+
+.logo_txt--footer {
+	width: 119px;
+	height: 60px;
+	margin-left: 13px;
+}
+
+
 
 /* ------------------------------------ *\
   TABLE

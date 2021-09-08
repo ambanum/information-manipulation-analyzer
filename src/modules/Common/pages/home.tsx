@@ -33,34 +33,6 @@ const HomePage = () => {
 
   return (
     <Layout title="Information Manipulation Analyzer">
-      <Header>
-        <div className="fr-container fr-py-4w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <h1 className="text-center">
-                Information Manipulation Analyzer
-                <sup>
-                  <span
-                    style={{
-                      background: '#0762C8',
-                      color: 'white',
-                      fontWeight: 'bold',
-                    }}
-                    className="fr-tag fr-tag--sm fr-ml-1w"
-                  >
-                    BETA
-                  </span>
-                </sup>
-              </h1>
-              <h6 className="text-center">
-                Volumetry. Artificial boost probability. <br />
-                Most active users. Related hashtags.
-              </h6>
-            </div>
-          </div>
-        </div>
-      </Header>
-
       <div className="fr-container fr-mt-8w">
         <div className="fr-grid-row">
           <div className="fr-col">
