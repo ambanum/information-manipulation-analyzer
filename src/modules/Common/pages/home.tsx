@@ -1,8 +1,7 @@
-import Search, { SearchProps } from 'components/Search';
+import Search, { SearchProps } from 'components/Search/Search';
 
 import Alert from '../components/Alert/Alert';
 import { CreateSearchResponse } from 'modules/Common/interfaces';
-import Header from 'modules/Common/components/Header/Header';
 import LastSearches from '../data-components/LastSearches';
 import Layout from 'modules/Embassy/components/Layout';
 import React from 'react';
@@ -33,23 +32,13 @@ const HomePage = () => {
 
   return (
     <Layout title="Information Manipulation Analyzer">
-      <div className="fr-container fr-mt-8w">
-        <div className="fr-grid-row">
-          <div className="fr-col">
-            <Search
-              className="fr-mx-md-12w"
-              label="Search"
-              buttonLabel="Search"
-              placeholder="Enter a #hashtag, a keyword, a @mention, a $cashtag or a https://url"
-              onSearchSubmit={onSubmit}
-              onSearchChange={onSearchChange}
-            />
-            <p className="fr-text--sm text-center fr-mt-1w">
-              <em>Finally get a real idea on whether a trend is worth the hype</em>
-            </p>
-          </div>
-        </div>
-      </div>
+      <Search
+        label="Search"
+        buttonLabel="Search"
+        placeholder="Enter a #hashtag, a keyword, a @mention, a $cashtag or a https://url"
+        onSearchSubmit={onSubmit}
+        onSearchChange={onSearchChange}
+      />
 
       <div className="fr-container fr-mt-2w">
         <div className="fr-grid-row">

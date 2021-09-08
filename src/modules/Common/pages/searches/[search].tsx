@@ -6,7 +6,7 @@ import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem'
 import Card from 'components/Card';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
-import Header from 'modules/Common/components/Header/Header';
+import Hero from 'modules/Common/components/Hero/Hero';
 import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
 import Loading from 'components/Loading';
@@ -198,10 +198,10 @@ const SearchPage = ({
   return (
     <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
       {searchName && (
-        <Header>
-          <div className="fr-container fr-py-4w">
+        <Hero>
+          <div className="fr-container fr-container--fluid fr-py-12w">
             <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col">
+              <div className="fr-col fr-p-0">
                 <h1 className="text-center ">{title}</h1>
 
                 <>
@@ -240,7 +240,7 @@ const SearchPage = ({
               </div>
             </div>
           </div>
-        </Header>
+        </Hero>
       )}
 
       {(gatheringData || router.isFallback) && <Loading />}
