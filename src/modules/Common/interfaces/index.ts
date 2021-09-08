@@ -60,7 +60,7 @@ export interface GetSearchesResponse extends CommonResponse {
 
 export interface GetSearchResponse extends CommonResponse {
   search?: Search | null;
-  totalNbTweets?: number;
+  nbTweets?: number;
   volumetry?: VolumetryGraphProps['data'];
   nbUsernames?: number;
   nbAssociatedHashtags?: number;

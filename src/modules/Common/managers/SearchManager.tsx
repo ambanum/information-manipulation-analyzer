@@ -277,7 +277,7 @@ export const getWithData = async ({
     const searchVolumetry = await getVolumetry(filters);
     console.timeEnd('get searchVolumetry');
 
-    let totalNbTweets: number = 0;
+    let nbTweets: number = 0;
     const usernames: { [key: string]: number } = {};
     const associatedHashtags: { [key: string]: number } = {};
     let i = 0;
@@ -330,7 +330,7 @@ export const getWithData = async ({
         });
 
         // Calculate number of tweets
-        totalNbTweets += volumetry.nbTweets;
+        nbTweets += volumetry.nbTweets;
 
         return acc;
       },
@@ -349,7 +349,7 @@ export const getWithData = async ({
     const result = {
       search: search ? search : null,
       volumetry,
-      totalNbTweets,
+      nbTweets,
       nbUsernames,
       nbAssociatedHashtags,
     };
