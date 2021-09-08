@@ -63,6 +63,13 @@ export const getVolumetry = async (filter: SearchFilter) => {
       $match: match,
     },
     {
+      $addFields: {
+        hashtags: {
+          $ifNull: ['$hashtags', []],
+        },
+      },
+    },
+    {
       $group: {
         _id: {
           hour: '$hour',
@@ -79,6 +86,12 @@ export const getVolumetry = async (filter: SearchFilter) => {
         nbLikes: {
           $sum: '$likeCount',
         },
+        usernames: {
+          $push: '$username',
+        },
+        hashtags: {
+          $push: '$hashtags',
+        },
       },
     },
     {
@@ -86,7 +99,83 @@ export const getVolumetry = async (filter: SearchFilter) => {
         '_id.hour': 1,
       },
     },
+    {
+      $addFields: {
+        hashtags: {
+          $reduce: {
+            input: '$hashtags',
+            initialValue: [],
+            in: { $concatArrays: ['$$value', '$$this'] },
+          },
+        },
+      },
+    },
+    {
+      $addFields: {
+        hashtags: {
+          $arrayToObject: [
+            {
+              $map: {
+                input: '$hashtags',
+                as: 'hash',
+                in: {
+                  k: '$$hash',
+                  v: {
+                    $reduce: {
+                      input: '$hashtags',
+                      initialValue: 0,
+                      in: {
+                        $cond: [
+                          {
+                            $eq: ['$$hash', '$$this'],
+                          },
+                          {
+                            $add: ['$$value', 1],
+                          },
+                          '$$value',
+                        ],
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          ],
+        },
+        usernames: {
+          $arrayToObject: [
+            {
+              $map: {
+                input: '$usernames',
+                as: 'user',
+                in: {
+                  k: '$$user',
+                  v: {
+                    $reduce: {
+                      input: '$usernames',
+                      initialValue: 0,
+                      in: {
+                        $cond: [
+                          {
+                            $eq: ['$$user', '$$this'],
+                          },
+                          {
+                            $add: ['$$value', 1],
+                          },
+                          '$$value',
+                        ],
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
   ];
+
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   return rawResults.map((rawResult: any) => ({
@@ -95,6 +184,8 @@ export const getVolumetry = async (filter: SearchFilter) => {
     nbRetweets: rawResult.nbRetweets,
     nbQuotes: rawResult.nbQuotes,
     nbLikes: rawResult.nbLikes,
+    usernames: rawResult.usernames,
+    associatedHashtags: rawResult.hashtags,
   }));
 };
 
@@ -187,6 +278,8 @@ export const getWithData = async ({
     console.timeEnd('get searchVolumetry');
 
     let totalNbTweets: number = 0;
+    const usernames: { [key: string]: number } = {};
+    const associatedHashtags: { [key: string]: number } = {};
     let i = 0;
     const volumetryLength = searchVolumetry.length;
 
@@ -224,15 +317,21 @@ export const getWithData = async ({
         }
         i++;
 
-        if (
-          (!min && !max) ||
-          (min &&
-            max &&
-            volumetryDayJs.isAfter(dayjs(+min)) &&
-            volumetryDayJs.isBefore(dayjs(+max)))
-        ) {
-          totalNbTweets += volumetry.nbTweets;
-        }
+        // Calculate number of users
+        Object.keys(volumetry.usernames || {}).forEach((username) => {
+          usernames[username] = (usernames[username] || 0) + volumetry.usernames[username];
+        });
+
+        // Calculate number of users
+        Object.keys(volumetry.associatedHashtags || {}).forEach((associatedSearch) => {
+          associatedHashtags[associatedSearch] =
+            (associatedHashtags[associatedSearch] || 0) +
+            volumetry.associatedHashtags[associatedSearch];
+        });
+
+        // Calculate number of tweets
+        totalNbTweets += volumetry.nbTweets;
+
         return acc;
       },
       [
@@ -243,13 +342,9 @@ export const getWithData = async ({
       ]
     );
 
-    console.time('get nbAssociatedHashtags');
-    const nbAssociatedHashtags = await countHashtags(filters);
-    console.timeEnd('get nbAssociatedHashtags');
+    const nbAssociatedHashtags = Object.keys(associatedHashtags).length;
 
-    console.time('get nbAssociatedUsernames');
-    const nbUsernames = await countUsernames(filters);
-    console.timeEnd('get nbAssociatedUsernames');
+    const nbUsernames = Object.keys(usernames).length;
 
     const result = {
       search: search ? search : null,
@@ -396,6 +491,7 @@ export const countUsernames = async (filters: SearchFilter) => {
       },
     },
   ];
+
   const rawResults: any[] = await TweetModel.aggregate(aggregation);
 
   return rawResults[0]?.count;
