@@ -51,11 +51,11 @@ const SearchPage = ({
   search: defaultSearch,
   volumetry: defaultVolumetry,
   nbUsernames: defaultNbUsernames,
-  totalNbTweets: defaultTotalNbTweets,
+  nbTweets: defaultNbTweets,
   nbAssociatedHashtags: defaultNbAssociatedHashtags,
 }: {
   search: GetSearchResponse['search'];
-  totalNbTweets: GetSearchResponse['totalNbTweets'];
+  nbTweets: GetSearchResponse['nbTweets'];
   volumetry: GetSearchResponse['volumetry'];
   nbUsernames: GetSearchResponse['nbUsernames'];
   nbAssociatedHashtags: GetSearchResponse['nbAssociatedHashtags'];
@@ -77,7 +77,7 @@ const SearchPage = ({
         status: 'ok',
         message: '',
         search: defaultSearch,
-        totalNbTweets: defaultTotalNbTweets,
+        nbTweets: defaultNbTweets,
         volumetry: defaultVolumetry,
         nbUsernames: defaultNbUsernames,
         nbAssociatedHashtags: defaultNbAssociatedHashtags,
@@ -88,12 +88,8 @@ const SearchPage = ({
     }
   );
   const loadingData = !data;
-  const {
-    totalNbTweets = 0,
-    volumetry = [],
-    nbUsernames = 0,
-    nbAssociatedHashtags = 0,
-  } = data || {};
+
+  const { nbTweets = 0, volumetry = [], nbUsernames = 0, nbAssociatedHashtags = 0 } = data || {};
   const {
     status = '',
     metadata,
@@ -326,7 +322,7 @@ const SearchPage = ({
         </div>
       )}
 
-      {totalNbTweets > 0 && (
+      {nbTweets > 0 && (
         <div className="fr-container fr-container-fluid">
           <div className="fr-grid-row fr-grid-row--gutters">
             <div className="fr-col">
@@ -362,7 +358,7 @@ const SearchPage = ({
             <div className="fr-col">
               <Card
                 horizontal
-                title={!gatheringData && !loadingData ? totalNbTweets.toLocaleString('en') : '-'}
+                title={!gatheringData && !loadingData ? nbTweets.toLocaleString('en') : '-'}
                 description={'Total Tweets'}
                 noArrow
                 loading={loadingData}
@@ -382,7 +378,7 @@ const SearchPage = ({
         </div>
       )}
 
-      {totalNbTweets === 0 && status === 'DONE' && (
+      {nbTweets === 0 && status === 'DONE' && (
         <h4 className="text-center fr-mb-12w fr-text-color--os500">
           Sorry, we did not found any data for this
         </h4>

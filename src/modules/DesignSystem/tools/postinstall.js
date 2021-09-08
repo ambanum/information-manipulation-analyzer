@@ -10,7 +10,7 @@ const path = require('path');
     'dsfr',
     'dist',
     'js',
-    'dsfr.module.min.js'
+    'dsfr.module.js'
   );
   const dsfrFileDest = path.join(folder, 'dsfr.module.min.js');
   await fs.mkdir(folder, { recursive: true });
