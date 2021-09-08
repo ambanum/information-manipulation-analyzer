@@ -35,7 +35,9 @@ const DataUsername = ({
     return <Loading />;
   }
   const usernames = data?.usernames || [];
-
+  if (usernames.length === 0) {
+    return null;
+  }
   return (
     <div>
       <UsernameTable

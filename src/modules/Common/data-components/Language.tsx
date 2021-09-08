@@ -32,9 +32,14 @@ const DataLanguage = ({
     return <Loading />;
   }
 
+  const languages = data?.languages || [];
+  if (languages.length === 0) {
+    return null;
+  }
+
   return (
     <div>
-      <LanguageGraph data={data?.languages || []} onSliceClick={onSliceClick} />
+      <LanguageGraph data={languages} onSliceClick={onSliceClick} />
       {/* Add TABLE LanguageTable */}
     </div>
   );

@@ -36,6 +36,10 @@ const DataHashtag = ({
   }
   const hashtags = data?.hashtags || [];
 
+  if (hashtags.length === 0) {
+    return null;
+  }
+
   return (
     <div>
       <HashtagTable
