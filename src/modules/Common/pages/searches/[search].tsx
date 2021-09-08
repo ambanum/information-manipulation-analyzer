@@ -20,7 +20,6 @@ import dynamic from 'next/dynamic';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import { useToggle } from 'react-use';
 import useUrl from 'hooks/useUrl';
 
 const ssrConfig = {
@@ -65,14 +64,13 @@ const SearchPage = ({
 
   const searchName = defaultSearch?.name || (router.query.search as string);
 
-  const [loadingData, toggleLoadingData] = useToggle(true);
   const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
 
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultSearch?.status || '']
   );
 
-  const { data, isValidating } = useSWR<GetSearchResponse>(
+  const { data } = useSWR<GetSearchResponse>(
     `/api/searches/${encodeURIComponent(searchName as string)}${queryParamsStringified}`,
     {
       initialData: {
@@ -89,11 +87,7 @@ const SearchPage = ({
       revalidateOnFocus: false,
     }
   );
-
-  React.useEffect(() => {
-    toggleLoadingData(isValidating);
-  }, [isValidating]);
-
+  const loadingData = !data;
   const {
     totalNbTweets = 0,
     volumetry = [],
@@ -178,7 +172,6 @@ const SearchPage = ({
         const newMin = dataMin === min ? undefined : `${Math.round(min)}`;
         // For an unknown reason dataMax is always different than max, so dataMin === min is on purpose
         const newMax = dataMin === min ? undefined : `${Math.round(max)}`;
-        toggleLoadingData(true);
 
         pushQueryParams({ ...router.query, min: newMin, max: newMax }, undefined, {
           scroll: false,
@@ -413,10 +406,7 @@ const SearchPage = ({
         <>
           <div className="fr-container fr-container--fluid fr-my-6w">
             <div className="fr-grid-row r-grid-row--gutters">
-              <div
-                className="fr-col"
-                style={{ height: '400px', margin: '0 auto', opacity: loadingData ? 0.3 : 1 }}
-              >
+              <div className="fr-col" style={{ height: '400px', margin: '0 auto' }}>
                 <LanguageData
                   search={searchName}
                   refreshInterval={refreshInterval}
@@ -426,10 +416,7 @@ const SearchPage = ({
               </div>
             </div>
           </div>
-          <div
-            className="fr-container fr-container-fluid fr-my-6w"
-            style={{ opacity: loadingData ? 0.3 : 1 }}
-          >
+          <div className="fr-container fr-container-fluid fr-my-6w">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
                 <UsernameData

@@ -19,7 +19,7 @@ const DataLanguage = ({
   onSliceClick,
   queryParamsStringified,
 }: DataLanguageProps) => {
-  const { data, isValidating } = useSWR<GetSearchLanguagesResponse>(
+  const { data } = useSWR<GetSearchLanguagesResponse>(
     `/api/searches/${encodeURIComponent(search)}/languages${queryParamsStringified}`,
     {
       refreshInterval,
@@ -27,7 +27,8 @@ const DataLanguage = ({
       revalidateOnFocus: false,
     }
   );
-  if (isValidating || !data) {
+
+  if (!data) {
     return <Loading />;
   }
 
