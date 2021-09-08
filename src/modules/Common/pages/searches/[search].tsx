@@ -62,6 +62,10 @@ const SearchPage = ({
 }) => {
   const router = useRouter();
 
+  // For an unknown reason, router.query.search is empty on first call
+  // surely due to getStaticProps but could not figure the exact why
+  const searchNameFromUrl = router.asPath.replace('/searches/', '').replace(/\?.*/gim, '');
+
   const searchName = defaultSearch?.name || (router.query.search as string);
 
   const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
@@ -71,7 +75,9 @@ const SearchPage = ({
   );
 
   const { data, isValidating } = useSWR<GetSearchResponse>(
-    `/api/searches/${encodeURIComponent(searchName as string)}${queryParamsStringified}`,
+    searchName
+      ? `/api/searches/${encodeURIComponent(searchName as string)}${queryParamsStringified}`
+      : null,
     {
       initialData: {
         status: 'ok',
@@ -184,7 +190,7 @@ const SearchPage = ({
 
   const isUrl = type === 'URL';
 
-  const title = searchName;
+  const title = searchNameFromUrl;
 
   return (
     <Layout
@@ -297,7 +303,7 @@ const SearchPage = ({
                   {queryParams.fromsearch}
                 </BreadcrumbItem>
               )}
-              <BreadcrumbItem isCurrent={true}>{searchName}</BreadcrumbItem>
+              <BreadcrumbItem isCurrent={true}>{searchNameFromUrl}</BreadcrumbItem>
             </Breadcrumb>
           </div>
         </div>
@@ -339,7 +345,7 @@ const SearchPage = ({
             <div className="fr-col">
               <Card
                 horizontal
-                title={!gatheringData && !loadingData ? nbUsernames.toLocaleString('en') : '-'}
+                title={!gatheringData ? nbUsernames.toLocaleString('en') : '-'}
                 description={'Nb Active users'}
                 noArrow
                 loading={loadingData}
@@ -348,9 +354,7 @@ const SearchPage = ({
             <div className="fr-col">
               <Card
                 horizontal
-                title={
-                  !gatheringData && !loadingData ? nbAssociatedHashtags.toLocaleString('en') : '-'
-                }
+                title={!gatheringData ? nbAssociatedHashtags.toLocaleString('en') : '-'}
                 description={'Nb Associated hashtags'}
                 noArrow
                 loading={loadingData}
@@ -359,7 +363,7 @@ const SearchPage = ({
             <div className="fr-col">
               <Card
                 horizontal
-                title={!gatheringData && !loadingData ? nbTweets.toLocaleString('en') : '-'}
+                title={!gatheringData ? nbTweets.toLocaleString('en') : '-'}
                 description={'Total Tweets'}
                 noArrow
                 loading={loadingData}
