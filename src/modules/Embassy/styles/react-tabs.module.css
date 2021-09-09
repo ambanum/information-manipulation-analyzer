@@ -26,6 +26,9 @@
   background-color: var(--bf100-g750);
   font-weight: bold;
 }
+.tab:hover {
+  background-color: var(--bf200-bf300);
+}
 
 .selectedTab {
   background-color: var(--w);
@@ -33,9 +36,13 @@
   /* border-top: 2px solid var(--bf500); */
   /* border-left: 1px solid var(--g300);
   border-right: 1px solid var(--g300); */
-  /* Top, Left, Right */
+  /* Top, Left, Right, Bottom */
   box-shadow: inset 0 2px 0 0 var(--bf500), inset -1px 0 0 0 var(--g300),
-    inset 1px 0 0 0 var(--g300);
+    inset 1px 0 0 0 var(--g300), 0 0 0 1px var(--w);
+}
+
+.selectedTab:hover {
+  background-color: var(--w);
 }
 
 .selectedTabPanel {
