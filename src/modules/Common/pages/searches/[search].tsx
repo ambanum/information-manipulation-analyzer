@@ -1,5 +1,3 @@
-import { getTweetIntentLink, getTwitterLink } from 'utils/twitter';
-
 import Alert from 'modules/Common/components/Alert/Alert';
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
@@ -18,6 +16,7 @@ import api from 'utils/api';
 import dayjs from 'dayjs';
 import debounce from 'lodash/debounce';
 import dynamic from 'next/dynamic';
+import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
@@ -198,7 +197,7 @@ const SearchPage = ({
 
   return (
     <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
-      {searchName && (
+      {title && (
         <Hero>
           <div className="fr-container fr-container--fluid fr-py-12w">
             <div className="fr-grid-row fr-grid-row--gutters">
@@ -212,7 +211,7 @@ const SearchPage = ({
 
                   <div className="text-center fr-text--xs fr-mb-0 fr-text-color--g500">
                     <em>
-                      {status !== 'PENDING' ? 'Crawled' : ''}
+                      {status !== 'PENDING' && status !== 'PROCESSING' ? 'Crawled' : ''}
                       {status === 'PROCESSING_PREVIOUS' && (
                         <>
                           {' '}
