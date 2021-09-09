@@ -3,39 +3,37 @@
 /**
  * While waiting for the official styles of the dsfr we use this one
  **/
-hr{
-	display: block; 
-	height: 1px;
-  border: 0; 
-	border-top: 1px solid var(--g200);
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--g200);
 }
 
 /**
  * SVG Embassgy Logo
  **/
 .logo_drawings--header {
-	width: 45px;
-	height: 78px;
+  width: 45px;
+  height: 78px;
 }
 
 .logo_txt--header {
-	width: 99px;
-	height: 50px;
-	margin-left: 11px;
+  width: 99px;
+  height: 50px;
+  margin-left: 11px;
 }
 
 .logo_drawings--footer {
-	width: 54px;
-	height: 93px;
+  width: 54px;
+  height: 93px;
 }
 
 .logo_txt--footer {
-	width: 119px;
-	height: 60px;
-	margin-left: 13px;
+  width: 119px;
+  height: 60px;
+  margin-left: 13px;
 }
-
-
 
 /* ------------------------------------ *\
   TABLE
