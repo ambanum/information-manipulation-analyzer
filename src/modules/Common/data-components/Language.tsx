@@ -39,6 +39,7 @@ const DataLanguage = ({
 
   return (
     <div>
+      <h2>Languages</h2>
       <div>
         <h4 className="fr-mb-1v">{languages.length} languages used</h4>
         <p className="fr-mb-0">Click on a language to filter by.</p>

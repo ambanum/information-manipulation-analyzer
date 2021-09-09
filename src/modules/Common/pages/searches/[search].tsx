@@ -371,119 +371,32 @@ const SearchPage = ({
 
       {/* Tabs */}
       <div className="fr-container fr-container-fluid fr-mt-12w">
-        <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-tabs" style={{ display: !searchName ? 'none' : 'flex' }}>
-            <ul className="fr-tabs__list" role="tablist" aria-label="Explore data">
-              <li role="presentation">
-                <button
-                  id="tabpanel-languages"
-                  className="fr-tabs__tab"
-                  tabIndex={0}
-                  role="tab"
-                  aria-selected="true"
-                  aria-controls="tabpanel-languages-panel"
-                >
-                  Languages
-                </button>
-              </li>
-              <li role="presentation">
-                <button
-                  id="tabpanel-uses"
-                  className="fr-tabs__tab"
-                  tabIndex={1}
-                  role="tab"
-                  aria-selected="false"
-                  aria-controls="tabpanel-users-panel"
-                >
-                  Users
-                </button>
-              </li>
-              <li role="presentation">
-                <button
-                  id="tabpanel-associatedhashtags"
-                  className="fr-tabs__tab"
-                  tabIndex={2}
-                  role="tab"
-                  aria-selected="false"
-                  aria-controls="tabpanel-associatedhashtags-panel"
-                >
-                  Associated hashtags
-                </button>
-              </li>
-              {/* <li role="presentation">
-                <button
-                  id="tabpanel-407"
-                  className="fr-tabs__tab"
-                  tabIndex={3}
-                  role="tab"
-                  aria-selected="false"
-                  aria-controls="tabpanel-407-panel"
-                >
-                  Tweets
-                </button>
-              </li> */}
-            </ul>
-            <div
-              id="tabpanel-languages-panel"
-              className="fr-tabs__panel fr-tabs__panel--selected"
-              role="tabpanel"
-              aria-labelledby="tabpanel-languages"
-              tabIndex={0}
-            >
-              <LanguageData
-                search={searchName}
-                refreshInterval={refreshInterval}
-                onSliceClick={onPieClick}
-                queryParamsStringified={queryParamsStringified}
-              />
-            </div>
-            <div
-              id="tabpanel-users-panel"
-              className="fr-tabs__panel"
-              role="tabpanel"
-              aria-labelledby="tabpanel-uses"
-              tabIndex={0}
-            >
-              <UsernameData
-                search={searchName}
-                refreshInterval={refreshInterval}
-                onUsernameClick={onUsernameClick}
-                onUsernameSearchClick={onUsernameSearchClick}
-                queryParamsStringified={queryParamsStringified}
-                exportName={`${dayjs(newestProcessedDate).format(
-                  'YYYYMMDDHH'
-                )}__${searchName}__associated-usernames`}
-              />
-            </div>
-            <div
-              id="tabpanel-associatedhashtags-panel"
-              className="fr-tabs__panel"
-              role="tabpanel"
-              aria-labelledby="tabpanel-associatedhashtags"
-              tabIndex={0}
-            >
-              <HashtagData
-                search={searchName}
-                refreshInterval={refreshInterval}
-                onHashtagClick={onHashtagClick}
-                onHashtagSearchClick={onHashtagSearchClick}
-                queryParamsStringified={queryParamsStringified}
-                exportName={`${dayjs(newestProcessedDate).format(
-                  'YYYYMMDDHH'
-                )}__${searchName}__associated-hashtags`}
-              />
-            </div>
-            {/* <div
-              id="tabpanel-407-panel"
-              className="fr-tabs__panel"
-              role="tabpanel"
-              aria-labelledby="tabpanel-407"
-              tabIndex={0}
-            >
-              <p>Soon available : first 3 tweets & most influential tweets </p>
-            </div> */}
-          </div>
-        </div>
+        <LanguageData
+          search={searchName}
+          refreshInterval={refreshInterval}
+          onSliceClick={onPieClick}
+          queryParamsStringified={queryParamsStringified}
+        />
+        <UsernameData
+          search={searchName}
+          refreshInterval={refreshInterval}
+          onUsernameClick={onUsernameClick}
+          onUsernameSearchClick={onUsernameSearchClick}
+          queryParamsStringified={queryParamsStringified}
+          exportName={`${dayjs(newestProcessedDate).format(
+            'YYYYMMDDHH'
+          )}__${searchName}__associated-usernames`}
+        />
+        <HashtagData
+          search={searchName}
+          refreshInterval={refreshInterval}
+          onHashtagClick={onHashtagClick}
+          onHashtagSearchClick={onHashtagSearchClick}
+          queryParamsStringified={queryParamsStringified}
+          exportName={`${dayjs(newestProcessedDate).format(
+            'YYYYMMDDHH'
+          )}__${searchName}__associated-hashtags`}
+        />
       </div>
     </Layout>
   );
