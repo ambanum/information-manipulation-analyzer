@@ -1,0 +1,6 @@
+.breadcrumbItem {
+  a:not([href]) {
+    box-shadow: var(--link-underline);
+    cursor: pointer;
+  }
+}

@@ -13,9 +13,7 @@ export default function LegalNotice() {
         <div className="fr-grid-row">
           <div className="fr-col fr-col-12 ">
             <Breadcrumb>
-              <BreadcrumbItem href=" " onClick={() => router.back()}>
-                Back
-              </BreadcrumbItem>
+              <BreadcrumbItem onClick={() => router.back()}>Back</BreadcrumbItem>
               <BreadcrumbItem isCurrent={true}>Legal Notice</BreadcrumbItem>
             </Breadcrumb>
           </div>
