@@ -39,8 +39,7 @@ const DataUsername = ({
     return null;
   }
   return (
-    <div>
-      <h2>Users</h2>
+    <div className="fr-col">
       <UsernameTable
         nbData={usernames.length}
         data={usernames}

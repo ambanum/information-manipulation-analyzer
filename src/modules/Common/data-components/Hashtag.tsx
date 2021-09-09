@@ -41,8 +41,7 @@ const DataHashtag = ({
   }
 
   return (
-    <div>
-      <h2>Associated hashtags</h2>
+    <div className="fr-col">
       <HashtagTable
         nbData={hashtags.length}
         data={hashtags}

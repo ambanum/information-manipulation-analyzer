@@ -1,3 +1,7 @@
+import 'react-tabs/style/react-tabs.css';
+
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+
 import Alert from 'modules/Common/components/Alert/Alert';
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
@@ -13,11 +17,13 @@ import React from 'react';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
 import api from 'utils/api';
+import classNames from 'classnames';
 import dayjs from 'dayjs';
 import debounce from 'lodash/debounce';
 import dynamic from 'next/dynamic';
 import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import useUrl from 'hooks/useUrl';
@@ -366,35 +372,65 @@ const SearchPage = ({
               </div>
             </div>
           </div>
+
           {/* Tabs */}
-          <div className="fr-container fr-container-fluid fr-mt-12w">
-            <LanguageData
-              search={searchName}
-              refreshInterval={refreshInterval}
-              onSliceClick={onPieClick}
-              queryParamsStringified={queryParamsStringified}
-            />
-            <UsernameData
-              search={searchName}
-              refreshInterval={refreshInterval}
-              onUsernameClick={onUsernameClick}
-              onUsernameSearchClick={onUsernameSearchClick}
-              queryParamsStringified={queryParamsStringified}
-              exportName={`${dayjs(newestProcessedDate).format(
-                'YYYYMMDDHH'
-              )}__${searchName}__associated-usernames`}
-            />
-            <HashtagData
-              search={searchName}
-              refreshInterval={refreshInterval}
-              onHashtagClick={onHashtagClick}
-              onHashtagSearchClick={onHashtagSearchClick}
-              queryParamsStringified={queryParamsStringified}
-              exportName={`${dayjs(newestProcessedDate).format(
-                'YYYYMMDDHH'
-              )}__${searchName}__associated-hashtags`}
-            />
-          </div>
+
+          <Tabs
+            selectedTabClassName={classNames(sReactTabs.selectedTab, 'react-tabs__tab--selected"')}
+            selectedTabPanelClassName={classNames(
+              sReactTabs.selectedTabPanel,
+              'react-tabs__tab-panel--selected'
+            )}
+          >
+            <div className="fr-container fr-container-fluid fr-mt-12w">
+              <TabList
+                className={classNames(
+                  'fr-grid-row fr-grid-row--gutters react-tabs__tab-list',
+                  sReactTabs.tabList
+                )}
+              >
+                <Tab className={sReactTabs.tab}>Languages</Tab>
+                <Tab className={sReactTabs.tab}>Users</Tab>
+                <Tab className={sReactTabs.tab}>Associated hashtags</Tab>
+              </TabList>
+            </div>
+            <div className="fr-container fr-container-fluid ">
+              <TabPanel>
+                <LanguageData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  onSliceClick={onPieClick}
+                  queryParamsStringified={queryParamsStringified}
+                />
+              </TabPanel>
+
+              <TabPanel>
+                <UsernameData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  onUsernameClick={onUsernameClick}
+                  onUsernameSearchClick={onUsernameSearchClick}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__associated-usernames`}
+                />
+              </TabPanel>
+
+              <TabPanel>
+                <HashtagData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  onHashtagClick={onHashtagClick}
+                  onHashtagSearchClick={onHashtagSearchClick}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__associated-hashtags`}
+                />
+              </TabPanel>
+            </div>
+          </Tabs>
         </>
       )}
     </Layout>
