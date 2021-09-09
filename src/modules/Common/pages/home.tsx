@@ -40,7 +40,7 @@ const HomePage = () => {
         onSearchChange={onSearchChange}
       />
 
-      <div className="fr-container fr-mt-2w">
+      <div className="fr-container fr-mt-4w">
         <div className="fr-grid-row">
           <div className="fr-col">
             <Alert size="small" close={true} autoCloseDelay={7000}>
