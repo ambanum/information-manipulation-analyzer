@@ -10,10 +10,22 @@ const path = require('path');
     'dsfr',
     'dist',
     'js',
-    'dsfr.module.min.js'
+    'dsfr.module.js'
   );
-  const dsfrFileDest = path.join(folder, 'dsfr.module.min.js');
+  const dsfrNoModuleFileSource = path.join(
+    process.cwd(),
+    'node_modules',
+    '@gouvfr',
+    'dsfr',
+    'dist',
+    'js',
+    'dsfr.nomodule.js'
+  );
+  const dsfrFileDest = path.join(folder, 'dsfr.module.js');
+  const dsfrNoModuleFileDest = path.join(folder, 'dsfr.nomodule.js');
   await fs.mkdir(folder, { recursive: true });
   await fs.copyFile(dsfrFileSource, dsfrFileDest);
+  await fs.copyFile(dsfrNoModuleFileSource, dsfrNoModuleFileDest);
   console.info(`Copied ${dsfrFileSource} to ${dsfrFileDest}`);
+  console.info(`Copied ${dsfrNoModuleFileSource} to ${dsfrNoModuleFileDest}`);
 })();

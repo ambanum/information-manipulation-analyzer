@@ -58,6 +58,7 @@ const schema = new Schema(
     firstOccurenceDate: { type: Date, index: true },
     oldestProcessedDate: { type: Date, index: true },
     newestProcessedDate: { type: Date, index: true },
+    error: { type: String, index: true },
   },
   {
     strict: 'throw',

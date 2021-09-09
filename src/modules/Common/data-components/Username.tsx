@@ -40,6 +40,7 @@ const DataUsername = ({
   }
   return (
     <div>
+      <h2>Users</h2>
       <UsernameTable
         nbData={usernames.length}
         data={usernames}

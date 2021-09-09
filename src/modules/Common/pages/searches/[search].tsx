@@ -6,10 +6,11 @@ import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem'
 import Card from 'components/Card';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
-import Header from 'modules/Common/components/Header/Header';
+import Hero from 'modules/Common/components/Hero/Hero';
 import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
 import Loading from 'components/Loading';
+import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
@@ -193,67 +194,56 @@ const SearchPage = ({
   const isUrl = type === 'URL';
 
   const title = searchName || searchNameFromUrl;
+  const hasVolumetry = volumetry[0]?.data?.length > 0;
 
   return (
     <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
-      <Header>
-        <div className="fr-container fr-py-4w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <h6 className="text-center">
-                Information Manipulation Analyzer
-                <sup>
-                  <span
-                    style={{
-                      background: '#0762C8',
-                      color: 'white',
-                      fontWeight: 'bold',
-                    }}
-                    className="fr-tag fr-tag--sm fr-ml-1w"
-                  >
-                    BETA
-                  </span>
-                </sup>
-              </h6>
-              <h1 className="text-center ">{title}</h1>
+      {searchName && (
+        <Hero>
+          <div className="fr-container fr-container--fluid fr-py-12w">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col fr-p-0">
+                <h1 className="text-center ">{title}</h1>
 
-              <>
-                {status === 'PROCESSING_PREVIOUS' && (
-                  <Loading size="sm" className="text-center fr-my-2w" />
-                )}
+                <>
+                  {status === 'PROCESSING_PREVIOUS' && (
+                    <Loading size="sm" className="text-center fr-my-2w" />
+                  )}
 
-                <div className="text-center fr-text--xs fr-mb-0 fr-text-color--g500">
-                  <em>
-                    {status !== 'PENDING' ? 'Crawled' : ''}
-                    {status === 'PROCESSING_PREVIOUS' && (
-                      <>
-                        {' '}
-                        from{' '}
-                        <strong>
-                          {oldestProcessedDate
-                            ? dayjs(oldestProcessedDate).format('llll')
-                            : 'Searching...'}
-                        </strong>
-                      </>
-                    )}
-                    {newestProcessedDate && (
-                      <>
-                        {' '}
-                        until{' '}
-                        <strong>
-                          {newestProcessedDate
-                            ? dayjs(newestProcessedDate).format('llll')
-                            : 'Searching...'}
-                        </strong>
-                      </>
-                    )}
-                  </em>
-                </div>
-              </>
+                  <div className="text-center fr-text--xs fr-mb-0 fr-text-color--g500">
+                    <em>
+                      {status !== 'PENDING' ? 'Crawled' : ''}
+                      {status === 'PROCESSING_PREVIOUS' && (
+                        <>
+                          {' '}
+                          from{' '}
+                          <strong>
+                            {oldestProcessedDate
+                              ? dayjs(oldestProcessedDate).format('llll')
+                              : 'Searching...'}
+                          </strong>
+                        </>
+                      )}
+                      {newestProcessedDate && (
+                        <>
+                          {' '}
+                          until{' '}
+                          <strong>
+                            {newestProcessedDate
+                              ? dayjs(newestProcessedDate).format('llll')
+                              : 'Searching...'}
+                          </strong>
+                        </>
+                      )}
+                    </em>
+                  </div>
+                </>
+              </div>
             </div>
           </div>
-        </div>
-      </Header>
+        </Hero>
+      )}
+
       {(gatheringData || router.isFallback) && <Loading />}
 
       {status === 'PENDING' && (
@@ -293,6 +283,7 @@ const SearchPage = ({
         </div>
       )}
 
+      {/* Breadcrumb */}
       <div className="fr-container fr-container-fluid fr-mt-0">
         <div className="fr-grid-row fr-grid-row--gutters">
           <div className="fr-col">
@@ -329,58 +320,17 @@ const SearchPage = ({
         </div>
       )}
 
+      {/* Overview */}
       {nbTweets > 0 && (
-        <div className="fr-container fr-container-fluid">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={
-                  firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'
-                }
-                href={getTwitterLink(`${searchName}`, { endDate: firstOccurenceDate })}
-                description={'Date of first appearance'}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={!gatheringData ? nbUsernames.toLocaleString('en') : '-'}
-                description={'Nb Active users'}
-                noArrow
-                loading={loadingData}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={!gatheringData ? nbAssociatedHashtags.toLocaleString('en') : '-'}
-                description={'Nb Associated hashtags'}
-                noArrow
-                loading={loadingData}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={!gatheringData ? nbTweets.toLocaleString('en') : '-'}
-                description={'Total Tweets'}
-                noArrow
-                loading={loadingData}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={'I want this!'}
-                description={'Inauthenticity Probability'}
-                href={getTweetIntentLink(
-                  `Hey @AmbNum, I absolutely need to retrieve the inauthenticity probability on a search on IMA. Thanks`
-                )}
-              />
-            </div>
-          </div>
-        </div>
+        <Overview
+          firstOccurenceDate={firstOccurenceDate}
+          searchName={searchName}
+          gatheringData={gatheringData}
+          loadingData={loadingData}
+          nbUsernames={nbUsernames}
+          totalNbTweets={nbTweets}
+          nbAssociatedHashtags={nbAssociatedHashtags}
+        ></Overview>
       )}
 
       {nbTweets === 0 && status === 'DONE' && (
@@ -389,63 +339,62 @@ const SearchPage = ({
         </h4>
       )}
 
-      {volumetry[0]?.data?.length > 0 && (
-        <div className="fr-container fr-my-6w">
-          <div className="fr-grid-row">
-            <div className="fr-col">
-              <VolumetryGraph
-                data={volumetry}
-                defaultValues={queryParams}
-                onPointClick={onLineClick}
-                onFilterDateChange={onFilterDateChange}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-      {searchName && (
+      {/* Volumetry */}
+      {hasVolumetry && (
         <>
-          <div className="fr-container fr-container--fluid fr-my-6w">
-            <div className="fr-grid-row r-grid-row--gutters">
-              <div className="fr-col" style={{ height: '400px', margin: '0 auto' }}>
-                <LanguageData
-                  search={searchName}
-                  refreshInterval={refreshInterval}
-                  onSliceClick={onPieClick}
-                  queryParamsStringified={queryParamsStringified}
+          <div className="fr-container fr-container-fluid fr-mt-12w">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
+                <h3>Explore</h3>
+              </div>
+            </div>
+          </div>
+          <div className="fr-container fr-container-fluid">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
+                <h4 className="fr-mb-1v">{nbTweets} tweets</h4>
+                <p className="fr-mb-0">Some words about volumetry.</p>
+              </div>
+            </div>
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
+                <VolumetryGraph
+                  data={volumetry}
+                  defaultValues={queryParams}
+                  onPointClick={onLineClick}
+                  onFilterDateChange={onFilterDateChange}
                 />
               </div>
             </div>
           </div>
-          <div className="fr-container fr-container-fluid fr-my-6w">
-            <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col">
-                <UsernameData
-                  search={searchName}
-                  refreshInterval={refreshInterval}
-                  onUsernameClick={onUsernameClick}
-                  onUsernameSearchClick={onUsernameSearchClick}
-                  queryParamsStringified={queryParamsStringified}
-                  exportName={`${dayjs(newestProcessedDate).format(
-                    'YYYYMMDDHH'
-                  )}__${searchName}__associated-usernames`}
-                />
-              </div>
-            </div>
-            <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col">
-                <HashtagData
-                  search={searchName}
-                  refreshInterval={refreshInterval}
-                  onHashtagClick={onHashtagClick}
-                  onHashtagSearchClick={onHashtagSearchClick}
-                  queryParamsStringified={queryParamsStringified}
-                  exportName={`${dayjs(newestProcessedDate).format(
-                    'YYYYMMDDHH'
-                  )}__${searchName}__associated-hashtags`}
-                />
-              </div>
-            </div>
+          {/* Tabs */}
+          <div className="fr-container fr-container-fluid fr-mt-12w">
+            <LanguageData
+              search={searchName}
+              refreshInterval={refreshInterval}
+              onSliceClick={onPieClick}
+              queryParamsStringified={queryParamsStringified}
+            />
+            <UsernameData
+              search={searchName}
+              refreshInterval={refreshInterval}
+              onUsernameClick={onUsernameClick}
+              onUsernameSearchClick={onUsernameSearchClick}
+              queryParamsStringified={queryParamsStringified}
+              exportName={`${dayjs(newestProcessedDate).format(
+                'YYYYMMDDHH'
+              )}__${searchName}__associated-usernames`}
+            />
+            <HashtagData
+              search={searchName}
+              refreshInterval={refreshInterval}
+              onHashtagClick={onHashtagClick}
+              onHashtagSearchClick={onHashtagSearchClick}
+              queryParamsStringified={queryParamsStringified}
+              exportName={`${dayjs(newestProcessedDate).format(
+                'YYYYMMDDHH'
+              )}__${searchName}__associated-hashtags`}
+            />
           </div>
         </>
       )}

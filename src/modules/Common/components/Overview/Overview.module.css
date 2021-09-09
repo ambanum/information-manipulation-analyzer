@@ -1,0 +1,14 @@
+.overview {
+}
+
+.overviewHeader {
+}
+
+.overviewHeader_externalLink {
+}
+
+@media (min-width: 36em) {
+  .overviewHeader_externalLink {
+    text-align: right;
+  }
+}
