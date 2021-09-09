@@ -61,7 +61,7 @@ const LanguageGraph = (props: LanguageGraphProps & HighchartsReact.Props) => {
     ],
   };
   return (
-    <div>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <HighchartsReact highcharts={Highcharts} options={data} {...props} />
     </div>
   );

@@ -1,15 +1,14 @@
-import { getTweetIntentLink, getTwitterLink } from 'utils/twitter';
-
 import Alert from 'modules/Common/components/Alert/Alert';
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import Card from 'components/Card';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
-import Header from 'modules/Common/components/Header/Header';
+import Hero from 'modules/Common/components/Hero/Hero';
 import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
 import Loading from 'components/Loading';
+import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
@@ -17,28 +16,21 @@ import api from 'utils/api';
 import dayjs from 'dayjs';
 import debounce from 'lodash/debounce';
 import dynamic from 'next/dynamic';
+import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import { useToggle } from 'react-use';
 import useUrl from 'hooks/useUrl';
 
-const HashtagTable = dynamic(() => import('../../components/Datatables/HashtagTable'), {
+const ssrConfig = {
   loading: () => <Loading />,
   ssr: false,
-});
-const LanguageGraph = dynamic(() => import('../../components/Charts/LanguageGraph'), {
-  loading: () => <Loading />,
-  ssr: false,
-});
-const UsernameTable = dynamic(() => import('../../components/Datatables/UsernameTable'), {
-  loading: () => <Loading />,
-  ssr: false,
-});
-const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), {
-  loading: () => <Loading />,
-  ssr: false,
-});
+};
+
+const LanguageData = dynamic(() => import('../../data-components/Language'), ssrConfig);
+const HashtagData = dynamic(() => import('../../data-components/Hashtag'), ssrConfig);
+const UsernameData = dynamic(() => import('../../data-components/Username'), ssrConfig);
+const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), ssrConfig);
 
 export { default as getStaticPaths } from './[search].staticPaths';
 export { default as getStaticProps } from './[search].staticProps';
@@ -58,65 +50,55 @@ dayjs.extend(localizedFormat);
 const SearchPage = ({
   search: defaultSearch,
   volumetry: defaultVolumetry,
-  languages: defaultLanguages,
-  usernames: defaultUsernames,
   nbUsernames: defaultNbUsernames,
-  totalNbTweets: defaultTotalNbTweets,
-  associatedHashtags: defaultAssociatedHashtags,
+  nbTweets: defaultNbTweets,
   nbAssociatedHashtags: defaultNbAssociatedHashtags,
 }: {
   search: GetSearchResponse['search'];
-  totalNbTweets: GetSearchResponse['totalNbTweets'];
+  nbTweets: GetSearchResponse['nbTweets'];
   volumetry: GetSearchResponse['volumetry'];
-  languages: GetSearchResponse['languages'];
-  usernames: GetSearchResponse['usernames'];
   nbUsernames: GetSearchResponse['nbUsernames'];
-  associatedHashtags: GetSearchResponse['associatedHashtags'];
   nbAssociatedHashtags: GetSearchResponse['nbAssociatedHashtags'];
 }) => {
   const router = useRouter();
-  const searchName = defaultSearch?.name || router.query.search;
 
-  const [loadingData, toggleLoadingData] = useToggle(true);
+  // For an unknown reason, router.query.search is empty on first call
+  // surely due to getStaticProps but could not figure the exact why
+  const searchNameFromUrl = decodeURIComponent(
+    router.asPath.replace('/searches/', '').replace(/\?.*/gim, '')
+  );
+
+  const searchName = defaultSearch?.name || (router.query.search as string);
+
   const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
 
   const [refreshInterval, setRefreshInterval] = React.useState(
-    REFRESH_INTERVALS[defaultSearch?.status]
+    REFRESH_INTERVALS[defaultSearch?.status || '']
   );
 
   const { data, isValidating } = useSWR<GetSearchResponse>(
-    `/api/searches/${encodeURIComponent(searchName as string)}${queryParamsStringified}`,
+    searchName
+      ? `/api/searches/${encodeURIComponent(searchName as string)}${queryParamsStringified}`
+      : null,
     {
       initialData: {
         status: 'ok',
         message: '',
         search: defaultSearch,
-        totalNbTweets: defaultTotalNbTweets,
+        nbTweets: defaultNbTweets,
         volumetry: defaultVolumetry,
-        languages: defaultLanguages,
-        usernames: defaultUsernames,
         nbUsernames: defaultNbUsernames,
-        associatedHashtags: defaultAssociatedHashtags,
         nbAssociatedHashtags: defaultNbAssociatedHashtags,
       },
       refreshInterval,
       revalidateOnMount: true,
+      revalidateOnFocus: false,
     }
   );
 
-  React.useEffect(() => {
-    toggleLoadingData(isValidating);
-  }, [isValidating]);
+  const loadingData = !data || isValidating;
 
-  const {
-    totalNbTweets = 0,
-    volumetry = [],
-    languages = [],
-    usernames = [],
-    nbUsernames = 0,
-    associatedHashtags = [],
-    nbAssociatedHashtags = 0,
-  } = data || {};
+  const { nbTweets = 0, volumetry = [], nbUsernames = 0, nbAssociatedHashtags = 0 } = data || {};
   const {
     status = '',
     metadata,
@@ -185,10 +167,20 @@ const SearchPage = ({
   );
 
   const onFilterDateChange: any = React.useCallback(
-    debounce(async (data: any) => {
-      if (queryParams.min !== `${data.min}` && queryParams.max !== `${data.max}`) {
-        toggleLoadingData(true);
-        pushQueryParams({ ...router.query, ...data }, undefined, { scroll: false });
+    debounce(async ({ type, dataMin, /*dataMax,*/ min, max }: any) => {
+      if (
+        type !== 'afterSetExtremes' && // we filter this type of event as it is thrown on load and we only want to refilter when there is a zoom action
+        queryParams.min !== `${min}` &&
+        queryParams.max !== `${max}`
+      ) {
+        // We do not need to filter by min and max when we want the whole data to be displayed
+        const newMin = dataMin === min ? undefined : `${Math.round(min)}`;
+        // For an unknown reason dataMax is always different than max, so dataMin === min is on purpose
+        const newMax = dataMin === min ? undefined : `${Math.round(max)}`;
+
+        pushQueryParams({ ...router.query, min: newMin, max: newMax }, undefined, {
+          scroll: false,
+        });
       }
     }, 500),
     [queryParams.min, queryParams.max]
@@ -200,70 +192,57 @@ const SearchPage = ({
 
   const isUrl = type === 'URL';
 
-  const title = searchName;
+  const title = searchName || searchNameFromUrl;
+  const hasVolumetry = volumetry[0]?.data?.length > 0;
 
   return (
-    <Layout
-      title={`${isUrl ? metadata?.url?.title : searchName} | Information Manipulation Analyzer`}
-    >
-      <Header>
-        <div className="fr-container fr-py-4w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <h6 className="text-center">
-                Information Manipulation Analyzer
-                <sup>
-                  <span
-                    style={{
-                      background: '#0762C8',
-                      color: 'white',
-                      fontWeight: 'bold',
-                    }}
-                    className="fr-tag fr-tag--sm fr-ml-1w"
-                  >
-                    BETA
-                  </span>
-                </sup>
-              </h6>
-              <h1 className="text-center ">{title}</h1>
+    <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
+      {title && (
+        <Hero>
+          <div className="fr-container fr-container--fluid fr-py-12w">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col fr-p-0">
+                <h1 className="text-center ">{title}</h1>
 
-              <>
-                {status === 'PROCESSING_PREVIOUS' && (
-                  <Loading size="sm" className="text-center fr-my-2w" />
-                )}
+                <>
+                  {status === 'PROCESSING_PREVIOUS' && (
+                    <Loading size="sm" className="text-center fr-my-2w" />
+                  )}
 
-                <div className="text-center fr-text--xs fr-mb-0 fr-text-color--g500">
-                  <em>
-                    {status !== 'PENDING' ? 'Crawled' : ''}
-                    {status === 'PROCESSING_PREVIOUS' && (
-                      <>
-                        {' '}
-                        from{' '}
-                        <strong>
-                          {oldestProcessedDate
-                            ? dayjs(oldestProcessedDate).format('llll')
-                            : 'Searching...'}
-                        </strong>
-                      </>
-                    )}
-                    {newestProcessedDate && (
-                      <>
-                        {' '}
-                        until{' '}
-                        <strong>
-                          {newestProcessedDate
-                            ? dayjs(newestProcessedDate).format('llll')
-                            : 'Searching...'}
-                        </strong>
-                      </>
-                    )}
-                  </em>
-                </div>
-              </>
+                  <div className="text-center fr-text--xs fr-mb-0 fr-text-color--g500">
+                    <em>
+                      {status !== 'PENDING' && status !== 'PROCESSING' ? 'Crawled' : ''}
+                      {status === 'PROCESSING_PREVIOUS' && (
+                        <>
+                          {' '}
+                          from{' '}
+                          <strong>
+                            {oldestProcessedDate
+                              ? dayjs(oldestProcessedDate).format('llll')
+                              : 'Searching...'}
+                          </strong>
+                        </>
+                      )}
+                      {newestProcessedDate && (
+                        <>
+                          {' '}
+                          until{' '}
+                          <strong>
+                            {newestProcessedDate
+                              ? dayjs(newestProcessedDate).format('llll')
+                              : 'Searching...'}
+                          </strong>
+                        </>
+                      )}
+                    </em>
+                  </div>
+                </>
+              </div>
             </div>
           </div>
-        </div>
-      </Header>
+        </Hero>
+      )}
+
       {(gatheringData || router.isFallback) && <Loading />}
 
       {status === 'PENDING' && (
@@ -303,6 +282,7 @@ const SearchPage = ({
         </div>
       )}
 
+      {/* Breadcrumb */}
       <div className="fr-container fr-container-fluid fr-mt-0">
         <div className="fr-grid-row fr-grid-row--gutters">
           <div className="fr-col">
@@ -313,7 +293,7 @@ const SearchPage = ({
                   {queryParams.fromsearch}
                 </BreadcrumbItem>
               )}
-              <BreadcrumbItem isCurrent={true}>{searchName}</BreadcrumbItem>
+              <BreadcrumbItem isCurrent={true}>{title}</BreadcrumbItem>
             </Breadcrumb>
           </div>
         </div>
@@ -327,7 +307,7 @@ const SearchPage = ({
                 horizontal
                 enlargeLink
                 direction="right"
-                href={searchName as string}
+                href={(searchName as string) || ''}
                 title={metadata?.url?.title}
                 detail={metadata?.url?.site}
                 description={metadata?.url?.description}
@@ -339,124 +319,83 @@ const SearchPage = ({
         </div>
       )}
 
-      {totalNbTweets > 0 && (
-        <div className="fr-container fr-container-fluid">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={
-                  firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'
-                }
-                href={getTwitterLink(`${searchName}`, { endDate: firstOccurenceDate })}
-                description={'Date of first appearance'}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={!gatheringData && !loadingData ? nbUsernames.toLocaleString('en') : '-'}
-                description={'Nb Active users'}
-                noArrow
-                loading={loadingData}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={
-                  !gatheringData && !loadingData ? nbAssociatedHashtags.toLocaleString('en') : '-'
-                }
-                description={'Nb Associated hashtags'}
-                noArrow
-                loading={loadingData}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={!gatheringData && !loadingData ? totalNbTweets.toLocaleString('en') : '-'}
-                description={'Total Tweets'}
-                noArrow
-                loading={loadingData}
-              />
-            </div>
-            <div className="fr-col">
-              <Card
-                horizontal
-                title={'I want this!'}
-                description={'Inauthenticity Probability'}
-                href={getTweetIntentLink(
-                  `Hey @AmbNum, I absolutely need to retrieve the inauthenticity probability on a search on IMA. Thanks`
-                )}
-              />
-            </div>
-          </div>
-        </div>
+      {/* Overview */}
+      {nbTweets > 0 && (
+        <Overview
+          firstOccurenceDate={firstOccurenceDate}
+          searchName={searchName}
+          gatheringData={gatheringData}
+          loadingData={loadingData}
+          nbUsernames={nbUsernames}
+          totalNbTweets={nbTweets}
+          nbAssociatedHashtags={nbAssociatedHashtags}
+        ></Overview>
       )}
 
-      {totalNbTweets === 0 && status === 'DONE' && (
+      {nbTweets === 0 && status === 'DONE' && (
         <h4 className="text-center fr-mb-12w fr-text-color--os500">
           Sorry, we did not found any data for this
         </h4>
       )}
 
-      {volumetry[0]?.data?.length > 0 && (
-        <div className="fr-container fr-my-6w">
-          <div className="fr-grid-row">
-            <div className="fr-col">
-              <VolumetryGraph
-                data={volumetry}
-                defaultValues={queryParams}
-                onPointClick={onLineClick}
-                onFilterDateChange={onFilterDateChange}
-              />
+      {/* Volumetry */}
+      {hasVolumetry && (
+        <>
+          <div className="fr-container fr-container-fluid fr-mt-12w">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
+                <h3>Explore</h3>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-
-      {languages?.length > 0 && (
-        <div className="fr-container fr-container--fluid fr-my-6w">
-          <div className="fr-grid-row r-grid-row--gutters">
-            <div
-              className="fr-col"
-              style={{ height: '400px', margin: '0 auto', opacity: loadingData ? 0.3 : 1 }}
-            >
-              <LanguageGraph data={languages} onSliceClick={onPieClick} />
+          <div className="fr-container fr-container-fluid">
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
+                <h4 className="fr-mb-1v">{nbTweets} tweets</h4>
+                <p className="fr-mb-0">Some words about volumetry.</p>
+              </div>
+            </div>
+            <div className="fr-grid-row fr-grid-row--gutters">
+              <div className="fr-col">
+                <VolumetryGraph
+                  data={volumetry}
+                  defaultValues={queryParams}
+                  onPointClick={onLineClick}
+                  onFilterDateChange={onFilterDateChange}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      )}
-
-      {usernames?.length > 0 && (
-        <div
-          className="fr-container fr-container-fluid fr-my-6w"
-          style={{ opacity: loadingData ? 0.3 : 1 }}
-        >
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <UsernameTable
-                nbData={nbUsernames}
-                data={usernames}
-                onUsernameClick={onUsernameClick}
-                onUsernameSearchClick={onUsernameSearchClick}
-                exportName={`${dayjs(newestProcessedDate).format(
-                  'YYYYMMDDHH'
-                )}__${searchName}__usernames`}
-              />
-              <HashtagTable
-                nbData={nbAssociatedHashtags}
-                data={associatedHashtags}
-                onHashtagClick={onHashtagClick}
-                onHashtagSearchClick={onHashtagSearchClick}
-                exportName={`${dayjs(newestProcessedDate).format(
-                  'YYYYMMDDHH'
-                )}__${searchName}__associated-hashtags`}
-              />
-            </div>
+          {/* Tabs */}
+          <div className="fr-container fr-container-fluid fr-mt-12w">
+            <LanguageData
+              search={searchName}
+              refreshInterval={refreshInterval}
+              onSliceClick={onPieClick}
+              queryParamsStringified={queryParamsStringified}
+            />
+            <UsernameData
+              search={searchName}
+              refreshInterval={refreshInterval}
+              onUsernameClick={onUsernameClick}
+              onUsernameSearchClick={onUsernameSearchClick}
+              queryParamsStringified={queryParamsStringified}
+              exportName={`${dayjs(newestProcessedDate).format(
+                'YYYYMMDDHH'
+              )}__${searchName}__associated-usernames`}
+            />
+            <HashtagData
+              search={searchName}
+              refreshInterval={refreshInterval}
+              onHashtagClick={onHashtagClick}
+              onHashtagSearchClick={onHashtagSearchClick}
+              queryParamsStringified={queryParamsStringified}
+              exportName={`${dayjs(newestProcessedDate).format(
+                'YYYYMMDDHH'
+              )}__${searchName}__associated-hashtags`}
+            />
           </div>
-        </div>
+        </>
       )}
     </Layout>
   );

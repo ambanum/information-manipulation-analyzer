@@ -34,3 +34,15 @@ yarn dev
 ## Deployment
 
 If you are part of `AmbNum`, you can use the deploy scripts in the `package.json`
+
+### Automatic build and deploy from Github
+
+Although the following docs will show you how to deploy from your local machine, a CI process will deploy a new version of the app everytime a tag is created.
+
+So if you want to benefit from this, create a new tag on the `develop` or `main` branch with
+
+```
+npm version <patch|minor|major>
+```
+
+and it will be deployed either on preprod or prod

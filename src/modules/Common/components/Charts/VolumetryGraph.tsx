@@ -50,6 +50,10 @@ const VolumetryGraph = ({
   }));
 
   const previousXscale = usePrevious(chartXscaleDisplay);
+  const previousSeries = usePrevious(initialSeries);
+
+  const isSameData =
+    previousSeries && initialSeries[0].data.length !== previousSeries[0].data.length;
   const [options, setOptions] = React.useState<Highcharts.Options>({
     title: {
       text: '',
@@ -79,8 +83,14 @@ const VolumetryGraph = ({
     },
     xAxis: {
       events: {
-        afterSetExtremes: ({ min, max }: any) => {
-          onFilterDateChange({ min, max });
+        afterSetExtremes: ({ min, max, dataMin, dataMax, type }) => {
+          onFilterDateChange({
+            min,
+            max,
+            dataMin,
+            dataMax,
+            type,
+          });
         },
       },
     },
@@ -112,8 +122,9 @@ const VolumetryGraph = ({
 
   React.useEffect(() => {
     if (
-      previousXscale === chartXscaleDisplay ||
-      (!previousXscale && chartXscaleDisplay === 'hour')
+      (previousXscale === chartXscaleDisplay ||
+        (!previousXscale && chartXscaleDisplay === 'hour')) &&
+      !isSameData
     ) {
       return;
     }
@@ -154,16 +165,14 @@ const VolumetryGraph = ({
       series: newFormattedSeries,
     });
     toggleRecalculating(false);
-  }, [chartXscaleDisplay, previousXscale, setOptions, initialSeries, toggleRecalculating]);
-
-  // React.useEffect(() => {
-  //   const { chart } = chartRef?.current || {};
-  //   console.log(''); //eslint-disable-line
-  //   console.log('╔════START══chartRef══════════════════════════════════════════════════'); //eslint-disable-line
-  //   console.log(chart); //eslint-disable-line
-  //   console.log(chart.xAxis[0]); //eslint-disable-line
-  //   console.log('╚════END════chartRef══════════════════════════════════════════════════'); //eslint-disable-line
-  // }, [chartRef]);
+  }, [
+    chartXscaleDisplay,
+    previousXscale,
+    setOptions,
+    initialSeries,
+    toggleRecalculating,
+    isSameData,
+  ]);
 
   return (
     <div className={styles.wrapper} style={{ opacity: recalculating ? 0.3 : 1 }}>

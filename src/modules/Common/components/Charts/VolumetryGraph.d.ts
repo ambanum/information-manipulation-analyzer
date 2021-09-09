@@ -14,7 +14,13 @@ type XScale = 'hour' | 'day';
 export interface VolumetryGraphProps {
   data: Serie[];
   xScale?: XScale;
-  onFilterDateChange: (data: { min: Number; max: Number }) => unknown;
+  onFilterDateChange: (data: {
+    min: Number;
+    max: Number;
+    dataMin: Number;
+    dataMax: Number;
+    type: string;
+  }) => unknown;
   defaultValues: {
     min: number;
     max: number;
