@@ -194,6 +194,7 @@ const SearchPage = ({
   const isUrl = type === 'URL';
 
   const title = searchName || searchNameFromUrl;
+  const hasVolumetry = volumetry[0]?.data?.length > 0;
 
   return (
     <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
@@ -339,7 +340,7 @@ const SearchPage = ({
       )}
 
       {/* Volumetry */}
-      {volumetry[0]?.data?.length > 0 && (
+      {hasVolumetry && (
         <>
           <div className="fr-container fr-container-fluid fr-mt-12w">
             <div className="fr-grid-row fr-grid-row--gutters">
@@ -366,38 +367,37 @@ const SearchPage = ({
               </div>
             </div>
           </div>
+          {/* Tabs */}
+          <div className="fr-container fr-container-fluid fr-mt-12w">
+            <LanguageData
+              search={searchName}
+              refreshInterval={refreshInterval}
+              onSliceClick={onPieClick}
+              queryParamsStringified={queryParamsStringified}
+            />
+            <UsernameData
+              search={searchName}
+              refreshInterval={refreshInterval}
+              onUsernameClick={onUsernameClick}
+              onUsernameSearchClick={onUsernameSearchClick}
+              queryParamsStringified={queryParamsStringified}
+              exportName={`${dayjs(newestProcessedDate).format(
+                'YYYYMMDDHH'
+              )}__${searchName}__associated-usernames`}
+            />
+            <HashtagData
+              search={searchName}
+              refreshInterval={refreshInterval}
+              onHashtagClick={onHashtagClick}
+              onHashtagSearchClick={onHashtagSearchClick}
+              queryParamsStringified={queryParamsStringified}
+              exportName={`${dayjs(newestProcessedDate).format(
+                'YYYYMMDDHH'
+              )}__${searchName}__associated-hashtags`}
+            />
+          </div>
         </>
       )}
-
-      {/* Tabs */}
-      <div className="fr-container fr-container-fluid fr-mt-12w">
-        <LanguageData
-          search={searchName}
-          refreshInterval={refreshInterval}
-          onSliceClick={onPieClick}
-          queryParamsStringified={queryParamsStringified}
-        />
-        <UsernameData
-          search={searchName}
-          refreshInterval={refreshInterval}
-          onUsernameClick={onUsernameClick}
-          onUsernameSearchClick={onUsernameSearchClick}
-          queryParamsStringified={queryParamsStringified}
-          exportName={`${dayjs(newestProcessedDate).format(
-            'YYYYMMDDHH'
-          )}__${searchName}__associated-usernames`}
-        />
-        <HashtagData
-          search={searchName}
-          refreshInterval={refreshInterval}
-          onHashtagClick={onHashtagClick}
-          onHashtagSearchClick={onHashtagSearchClick}
-          queryParamsStringified={queryParamsStringified}
-          exportName={`${dayjs(newestProcessedDate).format(
-            'YYYYMMDDHH'
-          )}__${searchName}__associated-hashtags`}
-        />
-      </div>
     </Layout>
   );
 };
