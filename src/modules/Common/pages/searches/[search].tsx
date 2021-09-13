@@ -14,6 +14,7 @@ import Layout from 'modules/Embassy/components/Layout';
 import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';
+import Tile from 'modules/Common/components/Tile/Tile';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
 import api from 'utils/api';
@@ -327,15 +328,38 @@ const SearchPage = ({
 
       {/* Overview */}
       {nbTweets > 0 && (
-        <Overview
-          firstOccurenceDate={firstOccurenceDate}
-          searchName={searchName}
-          gatheringData={gatheringData}
-          loadingData={loadingData}
-          nbUsernames={nbUsernames}
-          totalNbTweets={nbTweets}
-          nbAssociatedHashtags={nbAssociatedHashtags}
-        ></Overview>
+        <Overview searchName={searchName}>
+          <div className="fr-col">
+            <Tile
+              title={firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'}
+              description="Date of first appearance"
+              loading={loadingData}
+            ></Tile>
+          </div>
+          <div className="fr-col">
+            <Tile
+              title={!gatheringData && !loadingData ? nbTweets.toLocaleString('en') : '-'}
+              description={'Total of Tweets'}
+              loading={loadingData}
+            ></Tile>
+          </div>
+          <div className="fr-col">
+            <Tile
+              title={!gatheringData && !loadingData ? nbUsernames.toLocaleString('en') : '-'}
+              description={'Total of active users'}
+              loading={loadingData}
+            ></Tile>
+          </div>
+          <div className="fr-col">
+            <Tile
+              title={
+                !gatheringData && !loadingData ? nbAssociatedHashtags.toLocaleString('en') : '-'
+              }
+              description={'Total of associated hashtags'}
+              loading={loadingData}
+            ></Tile>
+          </div>
+        </Overview>
       )}
 
       {nbTweets === 0 && status === 'DONE' && (
@@ -374,7 +398,6 @@ const SearchPage = ({
           </div>
 
           {/* Tabs */}
-
           <Tabs
             selectedTabClassName={classNames(sReactTabs.selectedTab, 'react-tabs__tab--selected"')}
             selectedTabPanelClassName={classNames(
