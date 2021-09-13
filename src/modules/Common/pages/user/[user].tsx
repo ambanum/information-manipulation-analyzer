@@ -1,19 +1,18 @@
-import { GetUserBotScoreResponse, GetUserResponse } from '../../interfaces';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
-import Card from 'components/Card';
+import { GetUserResponse } from '../../interfaces';
 import Hero from 'modules/Common/components/Hero/Hero';
 import Layout from 'modules/Embassy/components/Layout';
 import Link from 'next/link';
+import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';
 import Tile from 'modules/Common/components/Tile/Tile';
-import UserBotScore from 'modules/Common/data-components/UserBotScore';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
-import { getTwitterLink } from 'utils/twitter';
+import dynamic from 'next/dynamic';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import useSwr from 'swr';
@@ -23,6 +22,13 @@ dayjs.extend(relativeTime);
 
 export { default as getStaticPaths } from './[user].staticPaths';
 export { default as getStaticProps } from './[user].staticProps';
+
+const ssrConfig = {
+  loading: () => <Loading />,
+  ssr: false,
+};
+
+const UserBotScore = dynamic(() => import('../../data-components/UserBotScore'), ssrConfig);
 
 const UserPage = ({ user }: { user: string }) => {
   const username = (user || '').replace('@', '');
@@ -202,16 +208,23 @@ const UserPage = ({ user }: { user: string }) => {
             <div className="fr-col">
               <div>
                 <h4 className="fr-mb-1v">Bot score details</h4>
-                <p className="fr-mb-0">
-                  You can read more information about the bot score{' '}
-                  <Link href="/bot-probability">
-                    <a>here</a>
-                  </Link>
-                  .
-                </p>
+                <p className="fr-mb-0">Some explanation.</p>
               </div>
               <div className="fr-mt-2w">
-                <UserBotScore type="full" username={username}></UserBotScore>
+                <div className="fr-mb-2w">
+                  <p className="fr-mb-0">
+                    For the calculation of bot probability that we obtain for this user, we use{' '}
+                    <Link href="https://github.com/ambanum/social-networks-bot-finder">
+                      <a target="_blank">social-networks-bot-finder</a>
+                    </Link>{' '}
+                    and everything you need to know about how the bot score works is detailed{' '}
+                    <Link href="/bot-probability">
+                      <a>on our website</a>
+                    </Link>
+                    .
+                  </p>
+                </div>
+                <UserBotScore type="table" username={username} />
               </div>
             </div>
           </TabPanel>

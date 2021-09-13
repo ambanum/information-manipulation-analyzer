@@ -1,3 +1,4 @@
+import BotScoreMetadataTable from '../components/Datatables/BotScoreMetadataTable';
 import { GetUserBotScoreResponse } from '../interfaces';
 import Link from 'next/link';
 import Loading from 'components/Loading';
@@ -7,7 +8,7 @@ import useSwr from 'swr';
 
 type UserBotScoreProps = {
   username: string;
-  type?: 'raw' | 'small' | 'full';
+  type?: 'raw' | 'small' | 'full' | 'table';
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
@@ -28,6 +29,56 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
     }
 
     const { score, metadata, updatedAt, provider } = data;
+
+    const tableMetadataDescriptions: any = {
+      base_value:
+        'The value that would be predicted by the algorithm if it did not have access to the features to make the prediction.',
+      age: 'The age, in days, of the account - this is rounded up to avoid any possible division by zero. Most bots have a very small age and only serve for a short time.',
+      default_profile:
+        'Whether the account has uploaded a new profile picture or chosen to rely on the default picture. This makes it possible to discriminate against the most primitive bots, which do not change their profile pictures. It should be noted that today the most advanced bots use computer-generated images or images available on the Internet.',
+      friends_followers_ratio:
+        'The ratio of number of subscriptions/(number of subscribers +1). This ratio is most often between 0.8 and 1.3 for human accounts.',
+      friends_growth_rate:
+        'The growth rate of the number of subscriptions - i.e. the ratio of the number of subscriptions to the age of the account. Bots often acquire their followers very quickly in the first moments of account use.',
+      friends_count:
+        'The number of accounts tracked by the account under study. Some very simple bots do not manage to follow enough accounts to be credible.',
+      followers_friend_ratio: 'The ratio number of subscribers/(number of subscriptions +1).',
+      followers_growth_rate:
+        'The growth rate of the number of followers - i.e. the ratio of the number of followers to the age of the account. One of the most important features. Bots often acquire their followers very quickly in the first moments of account use.',
+      followers_count:
+        'The number of followers of the account. This feature is also interesting: bots often have a lot of trouble getting followers, and an account with many followers is unlikely to be a bot.',
+      description_length:
+        'The length, in number of characters, of the description of an account. For a number of rather simple bots, description_length is 0 because they have not filled in this part.',
+      listed_count:
+        'The number of public lists of which the account is a member. Many bots do not have this feature built into their code: listed_count will therefore be 0 and will be a relevant indicator.',
+      favourites_count:
+        'The number of tweets bookmarked by the account. This feature gives an additional clue: a large or small number of favorites is an interesting indicator of whether the account is potentially a bot.',
+      favourites_growth_rate:
+        'The growth rate of the number of tweets bookmarked - i.e. the ratio of the number of tweets bookmarked to the age of the account. Bots often acquire their followers very quickly in the first moments of account use.',
+      listed_growth_rate:
+        'The growth rate of the number of lists to which the account belongs -i.e. the ratio of the number of lists to the age of the account.',
+      name_length:
+        'The length, in number of characters, of the username (@name) of the account. Bots tend to have generated names and therefore often long so as not to come across a name already assigned by twitter. The more advanced generations of names do not have this type of defect.',
+      name_digits:
+        'The number of digits in the username (@name). The simplest generated names tend to have many digits in their name.',
+      screenname_length:
+        'The length, in number of characters, of the account display name. As above, these names are often generated and the length is in some cases a good indicator of generation.',
+      screen_name_digits:
+        'The number of digits contained in the display name. The simplest generated names tend to have a lot of numbers in their name.',
+      profile_use_background_image:
+        "Whether or not the account has loaded a banner image. Again, the simplest bots don't bother to make this change.",
+      statuses_count:
+        'The number of statuses (tweets) posted by the account. This feature is interesting in many cases: for example, an account with a large number of statuses relative to its age is often more likely to be categorised as human.',
+      tweet_frequence:
+        'The frequency with which an account tweets - i.e. the ratio of the number of tweets to the age of the account. This is a good indicator for spotting spambots that are sometimes frenetically active.',
+      verified:
+        'Whether or not the account has obtained Twitter certification. In this case of course the account is automatically recognised as human.',
+    };
+    const tableMetadata = Object.keys(metadata).map((key) => ({
+      title: key,
+      value: metadata[key],
+      description: tableMetadataDescriptions[key],
+    }));
 
     if (type === 'raw') {
       return (
@@ -317,6 +368,10 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
           </ul>
         </div>
       );
+    }
+
+    if (type === 'table') {
+      return <BotScoreMetadataTable exportName="Metadata" data={tableMetadata} />;
     }
 
     return (
