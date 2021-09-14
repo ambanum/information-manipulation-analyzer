@@ -272,10 +272,10 @@ export const getWithData = async ({
       startDate: min,
       endDate: max,
     };
-    console.time('get searchVolumetry');
+    console.time(`get searchVolumetry for ${name}`);
 
     const searchVolumetry = await getVolumetry(filters);
-    console.timeEnd('get searchVolumetry');
+    console.timeEnd(`get searchVolumetry for ${name}`);
 
     let nbTweets: number = 0;
     const usernames: { [key: string]: number } = {};

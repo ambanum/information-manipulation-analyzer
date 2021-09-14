@@ -31,6 +31,7 @@
   "dependencies": {
     "@dataesr/react-dsfr": "0.6.1",
     "@gouvfr/dsfr": "1.1.0",
+    "@lolpants/ptimeout": "^1.0.3",
     "@socialgouv/matomo-next": "1.2.2",
     "@welldone-software/why-did-you-render": "6.2.0",
     "axios": "^0.21.1",
