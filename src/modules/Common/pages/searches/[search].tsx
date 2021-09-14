@@ -381,7 +381,7 @@ const SearchPage = ({
           <div className="fr-container fr-container-fluid">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
-                <h4 className="fr-mb-1v">{nbTweets} tweets</h4>
+                <h4 className="fr-mb-1v">{nbTweets.toLocaleString('en')} tweets</h4>
                 <p className="fr-mb-0">Some words about volumetry.</p>
               </div>
             </div>
