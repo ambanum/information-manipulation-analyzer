@@ -106,6 +106,7 @@ const UserPage = ({ user }: { user: string }) => {
       </Overview>
 
       <Tabs
+        forceRenderTabPanel={true}
         selectedTabClassName={classNames(sReactTabs.selectedTab, 'react-tabs__tab--selected"')}
         selectedTabPanelClassName={classNames(
           sReactTabs.selectedTabPanel,
