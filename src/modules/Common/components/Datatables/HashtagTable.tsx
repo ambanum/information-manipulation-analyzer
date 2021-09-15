@@ -19,6 +19,9 @@ const HashtagTable = ({
         return (
           <a
             href=" "
+            target="_blank"
+            title={`View #${value} on Twitter`}
+            rel="noreferrer noopener"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
