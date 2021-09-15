@@ -74,11 +74,6 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
       verified:
         'Whether or not the account has obtained Twitter certification. In this case of course the account is automatically recognised as human.',
     };
-    const tableMetadata = Object.keys(metadata).map((key) => ({
-      title: key,
-      value: metadata[key],
-      description: tableMetadataDescriptions[key],
-    }));
 
     if (type === 'raw') {
       return (
@@ -371,6 +366,11 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
     }
 
     if (type === 'table') {
+      const tableMetadata = Object.keys(metadata).map((key) => ({
+        title: key,
+        value: metadata[key],
+        description: tableMetadataDescriptions[key],
+      }));
       return <BotScoreMetadataTable exportName="Metadata" data={tableMetadata} />;
     }
 
