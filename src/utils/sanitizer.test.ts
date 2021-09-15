@@ -1,6 +1,6 @@
-import { sanitizeText, sanitizeUrl } from './sanitizer';
+import { sanitizeText, sanitizeUrl, sanitizeWord } from './sanitizer';
 
-const hashtagTests = [
+const wordTests = [
   ['<SCRIPT SRC=http://xss.rocks/xss.js></SCRIPT>', 'scriptsrchttpxssrocksxssjsscript'],
   ['<IMG SRC="javascript:alert(\'XSS\');">', 'imgsrcjavascriptalertxss'],
   ['javascript:alert("ok")', 'javascriptalertok'],
@@ -12,8 +12,22 @@ const hashtagTests = [
   ['ok', 'ok'],
   ['ok129', 'ok129'],
   ['Super', 'super'],
+  ['मस्जिद', 'मस्जिद'],
+  ['फ्रांस', 'फ्रांस'],
   ['فرنسا_الإرهابية', 'فرنسا_الإرهابية'],
   ['Xoроший', 'xoроший'],
+];
+
+const textTests = [
+  ['<SCRIPT SRC=http://xss.rocks/xss.js></SCRIPT>', 'script srchttpxssrocksxssjsscript'],
+  ['<IMG SRC="javascript:alert(\'XSS\');">', 'img srcjavascriptalertxss'],
+  ['javascript:alert("ok")', 'javascriptalertok'],
+  [
+    'perl -e \'print "<IMG SRC=java\0script:alert("XSS")>";\' > out',
+    'perl e print img srcjavascriptalertxss  out',
+  ],
+  ['Set.constructor`alert\x28document.domain\x29', 'setconstructoralertdocumentdomain'],
+  ['une recherche fructueuse', 'une recherche fructueuse'],
 ];
 
 const urls = [
@@ -27,8 +41,11 @@ const urls = [
   ],
 ];
 
+test('any word', () => {
+  wordTests.forEach(([name, sanitizedName]) => expect(sanitizeWord(name)).toBe(sanitizedName));
+});
 test('any text', () => {
-  hashtagTests.forEach(([name, sanitizedName]) => expect(sanitizeText(name)).toBe(sanitizedName));
+  textTests.forEach(([name, sanitizedName]) => expect(sanitizeText(name)).toBe(sanitizedName));
 });
 test('urls', () => {
   urls.forEach(([name, sanitizedName]) => expect(sanitizeUrl(name)).toBe(sanitizedName));
