@@ -3,7 +3,7 @@ import * as SearchManager from '../../managers/SearchManager';
 import { CreateSearchInput, CreateSearchResponse } from '../../interfaces';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { sanitizeText, sanitizeUrl } from 'utils/sanitizer';
+import { sanitizeText, sanitizeUrl, sanitizeWord } from 'utils/sanitizer';
 
 import HttpStatusCode from 'http-status-codes';
 import { SearchTypes } from 'modules/Common/models/Search';
@@ -24,7 +24,7 @@ const create = async (req: NextApiRequest, res: NextApiResponse<CreateSearchResp
     });
     return res;
   }
-  let sanitizedName = name;
+  let sanitizedName = sanitizeText(name);
   let type: keyof typeof SearchTypes = 'KEYWORD';
 
   // check if name is URL
@@ -47,13 +47,13 @@ const create = async (req: NextApiRequest, res: NextApiResponse<CreateSearchResp
     sanitizedName = sanitizeUrl(name);
   } else if (name.startsWith('@')) {
     type = 'MENTION';
-    sanitizedName = `@${sanitizeText(name)}`;
+    sanitizedName = `@${sanitizeWord(name)}`;
   } else if (name.startsWith('#')) {
     type = 'HASHTAG';
-    sanitizedName = `#${sanitizeText(name)}`;
+    sanitizedName = `#${sanitizeWord(name)}`;
   } else if (name.startsWith('$')) {
     type = 'CASHTAG';
-    sanitizedName = `$${sanitizeText(name)}`;
+    sanitizedName = `$${sanitizeWord(name)}`;
   }
 
   let existingSearch: any = await SearchManager.get({ name: sanitizedName });

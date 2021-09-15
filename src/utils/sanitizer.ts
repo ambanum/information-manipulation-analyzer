@@ -1,4 +1,4 @@
-export const sanitizeText = (text: string) =>
+export const sanitizeWord = (text: string) =>
   text
     // replace all accents with plain
     .replace(/[àáâãäå]/g, 'a')
@@ -12,7 +12,13 @@ export const sanitizeText = (text: string) =>
     .replace(/[ùúûü]/g, 'u')
     .replace(/[ýÿ]/g, 'y')
     // replace all non text characters in any alphabet
-    .replace(/[^\p{L}\d_]/gimu, '')
+    .replace(/[^\p{L}\p{M}\d_]/gu, '')
+    .toLowerCase();
+
+export const sanitizeText = (text: string) =>
+  text
+    // replace all non text characters in any alphabet
+    .replace(/[^\p{L}\p{M}\d_\s]/gu, '')
     .toLowerCase();
 
 export const sanitizeUrl = (url: string) =>
