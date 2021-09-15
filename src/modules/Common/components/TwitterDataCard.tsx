@@ -51,7 +51,13 @@ const TwitterDataCard: React.FC<TwitterDataCardProps> = React.memo(
         <div className={s.infosWrapper}>
           {displayname && (
             <div className={s.infosWrapper_name}>
-              <a href=" " rel="noreferrer noopener" onClick={() => onUsernameClick(username)}>
+              <a
+                href=" "
+                rel="noreferrer noopener"
+                title={`View ${displayname} on Twitter`}
+                target="_blank"
+                onClick={() => onUsernameClick(username)}
+              >
                 {displayname}
               </a>
             </div>
