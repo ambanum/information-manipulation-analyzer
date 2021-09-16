@@ -35,12 +35,6 @@ const HashtagTable = ({
       },
     },
     {
-      Header: 'Inauthenticity probability',
-      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
-      align: 'center',
-      size: 2,
-    },
-    {
       Header: 'Nb of use',
       accessor: 'value',
       align: 'right',
@@ -78,7 +72,7 @@ const HashtagTable = ({
           </ul>
         );
       },
-      size: 2,
+      size: 1,
     },
   ];
 

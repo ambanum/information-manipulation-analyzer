@@ -20,12 +20,30 @@ const UsernameTable = ({
       Cell: ({ value }: any) => {
         return <UserData username={value} onUsernameClick={() => onUsernameClick(value)} />;
       },
-      size: 6,
+      size: 3,
     },
     {
-      Header: 'Bot probability',
+      Header: 'Date of first tweet',
+      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
+      align: 'right',
+      size: 2,
+    },
+    {
+      Header: 'Frequency',
+      align: 'right',
+      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
+      size: 1,
+    },
+    {
+      Header: 'Influence',
+      align: 'right',
+      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
+      size: 1,
+    },
+    {
+      Header: 'Bot score',
       Cell: ({ row }: any) => {
-        return <UserBotScore username={row?.original?.label} />;
+        return <UserBotScore username={row?.original?.label} type="raw" />;
       },
       align: 'right',
       size: 1,
