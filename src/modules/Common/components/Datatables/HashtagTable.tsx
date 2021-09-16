@@ -1,5 +1,6 @@
 import { Hashtag, HashtagTableProps } from './HashtagTable.d';
 
+import { RiFilterLine as IconFilter } from 'react-icons/ri';
 import React from 'react';
 import Table from 'components/Table';
 
@@ -28,7 +29,7 @@ const HashtagTable = ({
               onHashtagClick(value);
             }}
           >
-            {value}
+            #{value}
           </a>
         );
       },
@@ -47,25 +48,37 @@ const HashtagTable = ({
       size: 1,
     },
     {
-      Header: ' ',
+      Header: 'Actions',
       align: 'right',
       Cell: ({ ...rest }: any) => {
         return (
-          <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onHashtagSearchClick(rest.row?.original?.label);
-            }}
-            className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-search-line fr-btn--icon-left"
-            title={`Search ${rest.row?.original?.label}`}
-          >
-            Search
-          </button>
+          <ul className="fr-btns-group fr-btns-group--sm fr-btns-group--right fr-btns-group--inline">
+            <li>
+              <button
+                type="button"
+                className="fr-btn fr-btn fr-btn--secondary fr-fi-search-line fr-btn--icon-left"
+                title={`Search #${rest.row?.original?.label}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onHashtagSearchClick(rest.row?.original?.label);
+                }}
+              ></button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="fr-btn fr-btn fr-btn--secondary fr-btn--icon-left"
+                style={{ paddingLeft: '0.56rem', paddingRight: '0.56rem' }}
+                title={`Filter by ${rest.row?.original?.label}`}
+              >
+                <IconFilter style={{ color: 'var(--bf500)' }} />
+              </button>
+            </li>
+          </ul>
         );
       },
-      size: 1,
+      size: 2,
     },
   ];
 
