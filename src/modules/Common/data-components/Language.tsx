@@ -43,10 +43,6 @@ const DataLanguage = ({
 
   return (
     <div className="fr-col">
-      <div>
-        <h4 className="fr-mb-1v">Most used languages</h4>
-        <p className="fr-mb-0">View on pie chart.</p>
-      </div>
       <LanguageGraph data={languages} onSliceClick={onSliceClick} />
       <div className="fr-mt-2w">
         <LanguageTable

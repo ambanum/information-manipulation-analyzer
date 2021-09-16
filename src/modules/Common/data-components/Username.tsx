@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import BotProbabilityGraph from '../components/Charts/BotProbabilityGraph';
 import { GetSearchUsernamesResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import UsernameTable from '../components/Datatables/UsernameTable';
@@ -47,6 +48,22 @@ const DataUsername = ({
         onUsernameSearchClick={onUsernameSearchClick}
         exportName={exportName}
       />
+      <div className="fr-mt-2w">
+        <BotProbabilityGraph
+          data={[
+            { y: 300, x: 10 },
+            { y: 500, x: 20 },
+            { y: 1500, x: 30 },
+            { y: 500, x: 40 },
+            { y: 3000, x: 50 },
+            { y: 10, x: 60 },
+            { y: 2500, x: 70 },
+            { y: 700, x: 80 },
+            { y: 800, x: 90 },
+            { y: 300, x: 100 },
+          ]}
+        />
+      </div>
     </div>
   );
 };
