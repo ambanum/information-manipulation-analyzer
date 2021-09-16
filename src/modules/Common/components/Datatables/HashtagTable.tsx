@@ -90,7 +90,7 @@ const HashtagTable = ({
       ]}
       layoutFixed
       noScroll
-      virtualize={{ height: 1000, itemSize: 56 }}
+      virtualize={{ height: 500, itemSize: 56 }}
       exportable={{
         name: exportName,
       }}
