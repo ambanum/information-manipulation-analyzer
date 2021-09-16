@@ -30,7 +30,7 @@ export interface VirtualizeProps {
 }
 
 export interface TableProps<T extends Record<string, unknown>> extends TableOptions<T> {
-  title: string;
+  title?: string;
   subtitle?: string;
   bordered?: boolean;
   noScroll?: boolean;
@@ -157,7 +157,7 @@ export default function Table<T extends Record<string, unknown>>({
       <div className="table">
         <div className={`caption ${styles.caption}`} role="caption">
           <div>
-            <h4 className="fr-mb-1v">{title}</h4>
+            {title && <h4 className="fr-mb-1v">{title}</h4>}
             {subtitle && (
               <p className="fr-mb-0" style={{ fontWeight: 'normal' }}>
                 {subtitle}

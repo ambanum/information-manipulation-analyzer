@@ -425,6 +425,9 @@ const SearchPage = ({
                   refreshInterval={refreshInterval}
                   onSliceClick={onPieClick}
                   queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__languages`}
                 />
               </TabPanel>
 

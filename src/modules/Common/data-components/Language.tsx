@@ -3,6 +3,8 @@ import * as React from 'react';
 import { GetSearchLanguagesResponse } from '../interfaces';
 import LanguageGraph from '../components/Charts/LanguageGraph';
 import { LanguageGraphProps } from '../components/Charts/LanguageGraph.d';
+import LanguageTable from '../components/Datatables/LanguageTable';
+import { LanguageTableProps } from '../components/Datatables/LanguageTable.d';
 import Loading from 'components/Loading';
 import useSWR from 'swr';
 
@@ -11,6 +13,7 @@ interface DataLanguageProps {
   search: string;
   refreshInterval: number;
   onSliceClick: LanguageGraphProps['onSliceClick'];
+  exportName: LanguageTableProps['exportName'];
 }
 
 const DataLanguage = ({
@@ -18,6 +21,7 @@ const DataLanguage = ({
   refreshInterval,
   onSliceClick,
   queryParamsStringified,
+  exportName,
 }: DataLanguageProps) => {
   const { data } = useSWR<GetSearchLanguagesResponse>(
     `/api/searches/${encodeURIComponent(search)}/languages${queryParamsStringified}`,
@@ -40,11 +44,18 @@ const DataLanguage = ({
   return (
     <div className="fr-col">
       <div>
-        <h4 className="fr-mb-1v">{languages.length} languages used</h4>
-        <p className="fr-mb-0">Click on a language to filter by.</p>
+        <h4 className="fr-mb-1v">Most used languages</h4>
+        <p className="fr-mb-0">View on pie chart.</p>
       </div>
       <LanguageGraph data={languages} onSliceClick={onSliceClick} />
-      {/* Add TABLE LanguageTable */}
+      <div className="fr-mt-2w">
+        <LanguageTable
+          title={`${languages.length} languages used`}
+          subtitle="Every languages used listed"
+          data={languages}
+          exportName={exportName}
+        />
+      </div>
     </div>
   );
 };
