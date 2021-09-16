@@ -58,7 +58,7 @@ const TwitterDataCard: React.FC<TwitterDataCardProps> = React.memo(
                 target="_blank"
                 onClick={() => onUsernameClick(username)}
               >
-                {displayname}
+                <span>{displayname}</span>
               </a>
             </div>
           )}
