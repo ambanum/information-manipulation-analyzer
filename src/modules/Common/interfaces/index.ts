@@ -14,9 +14,9 @@ import {
 } from '../models/Search';
 
 import { HashtagTableProps } from '../components/Datatables/HashtagTable.d';
-import { LanguageGraphProps } from '../components/Charts/LanguageGraph.d';
 import { SearchVolumetry as ModelSearchVolumetry } from '../models/SearchVolumetry';
 import { User as ModelUser } from '../models/User';
+import { PieChartProps } from '../components/Charts/PieChart.d';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 
@@ -78,7 +78,7 @@ export interface CreateSearchResponse extends CommonResponse {
  * Languages
  ******************************************/
 export interface GetSearchLanguagesResponse extends CommonResponse {
-  languages?: LanguageGraphProps['data'];
+  languages?: PieChartProps['data'];
 }
 /******************************************
  * Hashtags
