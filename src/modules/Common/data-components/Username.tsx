@@ -3,6 +3,7 @@ import * as React from 'react';
 import BotProbabilityGraph from '../components/Charts/BotProbabilityGraph';
 import { GetSearchUsernamesResponse } from '../interfaces';
 import Loading from 'components/Loading';
+import PieChart from '../components/Charts/PieChart';
 import UsernameTable from '../components/Datatables/UsernameTable';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
 import useSWR from 'swr';
@@ -48,7 +49,7 @@ const DataUsername = ({
         onUsernameSearchClick={onUsernameSearchClick}
         exportName={exportName}
       />
-      <div className="fr-mt-2w">
+      <div className="fr-mt-8w">
         <BotProbabilityGraph
           data={[
             { y: 300, x: 10 },
@@ -61,6 +62,17 @@ const DataUsername = ({
             { y: 700, x: 80 },
             { y: 800, x: 90 },
             { y: 300, x: 100 },
+          ]}
+        />
+      </div>
+      <div className="fr-mt-8w">
+        <PieChart
+          title="Proportion of deleted and suspended account"
+          subTitle="Lorem ipssum"
+          data={[
+            { id: 'active', label: 'Active', value: 80 },
+            { id: 'suspened', label: 'Suspended', value: 4 },
+            { id: 'deleted', label: 'Deleted', value: 16 },
           ]}
         />
       </div>
