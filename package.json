@@ -54,6 +54,7 @@
     "react-table": "7.7.0",
     "react-tabs": "^3.2.2",
     "react-toastify": "^7.0.4",
+    "react-twitter-embed": "^3.0.3",
     "react-use": "17.2.4",
     "react-virtualized-auto-sizer": "1.0.6",
     "react-window": "^1.8.6",

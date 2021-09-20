@@ -9,10 +9,10 @@ import Card from 'components/Card';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
-import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
 import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
+import { PieChartProps } from '../../components/Charts/PieChart.d';
 import React from 'react';
 import Tile from 'modules/Common/components/Tile/Tile';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
@@ -38,6 +38,7 @@ const LanguageData = dynamic(() => import('../../data-components/Language'), ssr
 const HashtagData = dynamic(() => import('../../data-components/Hashtag'), ssrConfig);
 const UsernameData = dynamic(() => import('../../data-components/Username'), ssrConfig);
 const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), ssrConfig);
+const TweetsData = dynamic(() => import('../../data-components/Tweets'), ssrConfig);
 
 export { default as getStaticPaths } from './[search].staticPaths';
 export { default as getStaticProps } from './[search].staticProps';
@@ -126,7 +127,7 @@ const SearchPage = ({
     [searchName]
   );
 
-  const onPieClick: LanguageGraphProps['onSliceClick'] = React.useCallback(
+  const onPieClick: PieChartProps['onSliceClick'] = React.useCallback(
     ({ id: lang }) => {
       window.open(getTwitterLink(`${searchName}`, { lang: lang as string }));
     },
@@ -416,9 +417,10 @@ const SearchPage = ({
                 <Tab className={sReactTabs.tab}>Languages</Tab>
                 <Tab className={sReactTabs.tab}>Users</Tab>
                 <Tab className={sReactTabs.tab}>Associated hashtags</Tab>
+                <Tab className={sReactTabs.tab}>Tweets</Tab>
               </TabList>
             </div>
-            <div className="fr-container fr-container-fluid ">
+            <div className="fr-container fr-container-fluid">
               <TabPanel>
                 <LanguageData
                   search={searchName}
@@ -455,6 +457,10 @@ const SearchPage = ({
                     'YYYYMMDDHH'
                   )}__${searchName}__associated-hashtags`}
                 />
+              </TabPanel>
+
+              <TabPanel>
+                <TweetsData />
               </TabPanel>
             </div>
           </Tabs>
