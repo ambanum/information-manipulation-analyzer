@@ -29,6 +29,7 @@ const BotProbabilityGraph = (props: BotProbabilityGraphProps & HighchartsReact.P
     },
     series: [
       {
+        name: 'Bot probability',
         type: 'column',
         data: props.data,
       },
@@ -40,8 +41,13 @@ const BotProbabilityGraph = (props: BotProbabilityGraphProps & HighchartsReact.P
         <h4 className="fr-mb-1v">Bot probability distribution</h4>
         <p className="fr-mb-0">Lorem ipsum.</p>
       </div>
-      <div className="fr-mt-4w" style={{ display: 'flex', justifyContent: 'center' }}>
-        <HighchartsReact highcharts={Highcharts} options={data} {...props} />
+      <div className="fr-mt-4w">
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={data}
+          containerProps={{ style: { width: '1150px' } }}
+          {...props}
+        />
       </div>
     </>
   );
