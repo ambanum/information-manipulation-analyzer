@@ -1,19 +1,18 @@
 import * as React from 'react';
 
 import { GetSearchLanguagesResponse } from '../interfaces';
-import LanguageGraph from '../components/Charts/LanguageGraph';
-import { LanguageGraphProps } from '../components/Charts/LanguageGraph.d';
 import LanguageTable from '../components/Datatables/LanguageTable';
 import { LanguageTableProps } from '../components/Datatables/LanguageTable.d';
 import Loading from 'components/Loading';
 import PieChart from '../components/Charts/PieChart';
+import { PieChartProps } from '../components/Charts/PieChart.d';
 import useSWR from 'swr';
 
 interface DataLanguageProps {
   queryParamsStringified: string;
   search: string;
   refreshInterval: number;
-  onSliceClick: LanguageGraphProps['onSliceClick'];
+  onSliceClick: PieChartProps['onSliceClick'];
   exportName: LanguageTableProps['exportName'];
 }
 
