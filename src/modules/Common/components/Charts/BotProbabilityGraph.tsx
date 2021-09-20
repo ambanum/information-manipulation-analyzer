@@ -36,7 +36,7 @@ const BotProbabilityGraph = (props: BotProbabilityGraphProps & HighchartsReact.P
   };
   return (
     <>
-      <div>
+      <div className="fr-mb-2w">
         <h4 className="fr-mb-1v">Bot probability distribution</h4>
         <p className="fr-mb-0">Lorem ipsum.</p>
       </div>

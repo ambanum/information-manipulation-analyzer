@@ -6,6 +6,7 @@ import { LanguageGraphProps } from '../components/Charts/LanguageGraph.d';
 import LanguageTable from '../components/Datatables/LanguageTable';
 import { LanguageTableProps } from '../components/Datatables/LanguageTable.d';
 import Loading from 'components/Loading';
+import PieChart from '../components/Charts/PieChart';
 import useSWR from 'swr';
 
 interface DataLanguageProps {
@@ -43,8 +44,13 @@ const DataLanguage = ({
 
   return (
     <div className="fr-col">
-      <LanguageGraph data={languages} onSliceClick={onSliceClick} />
-      <div className="fr-mt-2w">
+      <PieChart
+        title="Most used languages"
+        subTitle="View on pie chart."
+        data={languages}
+        onSliceClick={onSliceClick}
+      />
+      <div className="fr-mt-8w">
         <LanguageTable
           title={`${languages.length} languages used`}
           subtitle="Every languages used listed"

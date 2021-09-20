@@ -3,21 +3,19 @@ import * as React from 'react';
 
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
-import { LanguageGraphProps } from './LanguageGraph.d';
+import { PieChartProps } from './PieChart.d';
 import { paletteColors } from './config';
 
 if (typeof Highcharts === 'object') {
   HighchartsExporting(Highcharts);
 }
 
-const LanguageGraph = (props: LanguageGraphProps & HighchartsReact.Props) => {
+const PieChart = ({ title, subTitle, data, props }: PieChartProps & HighchartsReact.Props) => {
   // more performant with arrays of number
   // and sort to prevent colors to be the same for big values
-  const seriesData = props.data
-    .map((d: any) => [d.id, d.label, d.value])
-    .sort((a, b) => b[2] - a[2]);
+  const seriesData = data.map((d: any) => [d.id, d.label, d.value]).sort((a, b) => b[2] - a[2]);
 
-  const data: Highcharts.Options = {
+  const chartOptions: Highcharts.Options = {
     title: {
       text: '',
     },
@@ -62,15 +60,15 @@ const LanguageGraph = (props: LanguageGraphProps & HighchartsReact.Props) => {
   };
   return (
     <>
-      <div>
-        <h4 className="fr-mb-1v">Most used languages</h4>
-        <p className="fr-mb-0">View on pie chart.</p>
+      <div className="fr-mb-2w">
+        {title && <h4 className="fr-mb-1v">{title}</h4>}
+        {subTitle && <p className="fr-mb-0">{subTitle}</p>}
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <HighchartsReact highcharts={Highcharts} options={data} {...props} />
+        <HighchartsReact highcharts={Highcharts} options={chartOptions} {...props} />
       </div>
     </>
   );
 };
 
-export default React.memo(LanguageGraph);
+export default React.memo(PieChart);
