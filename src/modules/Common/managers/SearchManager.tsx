@@ -18,14 +18,15 @@ interface SearchFilter {
 const getMatch = ({ searchIds, startDate, endDate }: SearchFilter) => {
   const match: any = { searches: { $in: searchIds } };
   if (startDate || endDate) {
-    match.date = {};
+    match.hour = {};
     if (startDate) {
-      match.date.$gte = new Date(dayjs(+startDate).toISOString());
+      match.hour.$gte = new Date(dayjs(+startDate).toISOString());
     }
     if (endDate) {
-      match.date.$lte = new Date(dayjs(+endDate).toISOString());
+      match.hour.$lte = new Date(dayjs(+endDate).toISOString());
     }
   }
+
   return match;
 };
 
@@ -179,7 +180,7 @@ export const getVolumetry = async (filter: SearchFilter) => {
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   return rawResults.map((rawResult: any) => ({
-    date: rawResult._id.hour,
+    hour: rawResult._id.hour,
     nbTweets: rawResult.nbTweets,
     nbRetweets: rawResult.nbRetweets,
     nbQuotes: rawResult.nbQuotes,
@@ -287,13 +288,13 @@ export const getWithData = async ({
       (acc: VolumetryGraphProps['data'], volumetry) => {
         const newAcc = [...acc];
 
-        const volumetryDate = volumetry.date;
-        const volumetryDayJs = dayjs(volumetry.date);
+        const volumetryDate = volumetry.hour;
+        const volumetryDayJs = dayjs(volumetryDate);
 
         if (i > 0) {
           const volumetryDatePrevHour = volumetryDayJs.add(-1, 'hour').toDate();
 
-          if (volumetryDatePrevHour.toISOString() !== searchVolumetry[i - 1]?.date.toISOString()) {
+          if (volumetryDatePrevHour.toISOString() !== searchVolumetry[i - 1]?.hour.toISOString()) {
             newAcc[0].data.push({ x: volumetryDatePrevHour, y: 0 });
             newAcc[1].data.push({ x: volumetryDatePrevHour, y: 0 });
             newAcc[2].data.push({ x: volumetryDatePrevHour, y: 0 });
@@ -307,8 +308,8 @@ export const getWithData = async ({
         newAcc[3].data.push({ x: volumetryDate, y: volumetry.nbQuotes || 0 });
 
         if (i < volumetryLength - 1) {
-          const volumetryDateNextHour = dayjs(volumetry.date).add(1, 'hour').toDate();
-          if (volumetryDateNextHour.toISOString() !== searchVolumetry[i + 1]?.date.toISOString()) {
+          const volumetryDateNextHour = volumetryDayJs.add(1, 'hour').toDate();
+          if (volumetryDateNextHour.toISOString() !== searchVolumetry[i + 1]?.hour.toISOString()) {
             newAcc[0].data.push({ x: volumetryDateNextHour, y: 0 });
             newAcc[1].data.push({ x: volumetryDateNextHour, y: 0 });
             newAcc[2].data.push({ x: volumetryDateNextHour, y: 0 });
