@@ -411,7 +411,7 @@ export const getHashtags = async (filters: SearchFilter) => {
     { $sort: { count: -1 } },
   ];
 
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
   const nbHashtags = sumBy('count')(rawResults);
 
   return rawResults.map((rawResult: any) => ({
@@ -462,7 +462,7 @@ export const getUsernames = async (filters: SearchFilter) => {
     { $sort: { count: -1 } },
   ];
 
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   const nbUsernames = sumBy('count')(rawResults);
   return rawResults.map((rawResult: any) => ({
