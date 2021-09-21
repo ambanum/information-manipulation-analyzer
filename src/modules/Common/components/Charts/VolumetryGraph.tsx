@@ -52,7 +52,7 @@ const VolumetryGraph = ({
   const previousXscale = usePrevious(chartXscaleDisplay);
   const previousSeries = usePrevious(initialSeries);
 
-  const isSameData =
+  const isNewData =
     previousSeries && initialSeries[0].data.length !== previousSeries[0].data.length;
   const [options, setOptions] = React.useState<Highcharts.Options>({
     title: {
@@ -121,10 +121,17 @@ const VolumetryGraph = ({
   );
 
   React.useEffect(() => {
+    if (isNewData) {
+      const { chart } = chartRef?.current || ({} as any);
+      chart && chart?.zoom();
+    }
+  }, [isNewData]);
+
+  React.useEffect(() => {
     if (
       (previousXscale === chartXscaleDisplay ||
         (!previousXscale && chartXscaleDisplay === 'hour')) &&
-      !isSameData
+      !isNewData
     ) {
       return;
     }
@@ -171,7 +178,7 @@ const VolumetryGraph = ({
     setOptions,
     initialSeries,
     toggleRecalculating,
-    isSameData,
+    isNewData,
   ]);
 
   return (
