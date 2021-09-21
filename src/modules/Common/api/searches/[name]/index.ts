@@ -14,6 +14,9 @@ const get =
     try {
       const search = await SearchManager.getWithData(filter);
 
+      if (filter.min && filter.max) {
+        res.setHeader('Cache-Control', `max-age=${10 * 60}`);
+      }
       res.statusCode = HttpStatusCode.OK;
       res.json({ status: 'ok', message: 'Search detail', ...search });
       return res;
