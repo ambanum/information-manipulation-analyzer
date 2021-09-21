@@ -26,7 +26,7 @@ import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
+import useSplitSWR from 'hooks/useSplitSWR';
 import useUrl from 'hooks/useUrl';
 
 const ssrConfig = {
@@ -49,7 +49,7 @@ const REFRESH_INTERVALS = {
   DONE_ERROR: 0,
   DONE_FIRST_FETCH: 0,
   PENDING: 5 * 1000,
-  PROCESSING: 3 * 1000,
+  PROCESSING: 15 * 1000,
   '': 5 * 1000,
 };
 
@@ -84,14 +84,16 @@ const SearchPage = ({
     REFRESH_INTERVALS[defaultSearch?.status || '']
   );
 
-  const { data, isValidating } = useSWR<GetSearchResponse>(
+  const { data, loading, error } = useSplitSWR(
     searchName
-      ? `/api/searches/${encodeURIComponent(searchName as string)}${queryParamsStringified}`
+      ? `/api/searches/${encodeURIComponent(searchName as string)}/split${queryParamsStringified}`
       : null,
     {
       initialData: {
         status: 'ok',
         message: '',
+        nbLoaded: -1,
+        nbToLoad: -1,
         search: defaultSearch,
         nbTweets: defaultNbTweets,
         volumetry: defaultVolumetry,
@@ -104,9 +106,17 @@ const SearchPage = ({
     }
   );
 
-  const loadingData = !data || isValidating;
+  const loadingData = !data || loading;
 
-  const { nbTweets = 0, volumetry = [], nbUsernames = 0, nbAssociatedHashtags = 0 } = data || {};
+  const {
+    nbTweets = 0,
+    volumetry = [],
+    nbUsernames = 0,
+    nbAssociatedHashtags = 0,
+    nbToLoad,
+    nbLoaded,
+    search,
+  } = data || {};
   const {
     status = '',
     metadata,
@@ -114,10 +124,10 @@ const SearchPage = ({
     firstOccurenceDate,
     oldestProcessedDate,
     newestProcessedDate,
-  } = data?.search || {};
+  } = search || {};
 
-  const gatheringData = ['PROCESSING', 'PENDING'].includes(status);
-
+  const gatheringData = ['PROCESSING', 'PENDING', undefined, ''].includes(status);
+  const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (scale, point) => {
       window.open(
@@ -197,8 +207,8 @@ const SearchPage = ({
   );
 
   React.useEffect(() => {
-    setRefreshInterval(REFRESH_INTERVALS[status]);
-  }, [status]);
+    setRefreshInterval(calculatedRefreshInterval);
+  }, [setRefreshInterval, calculatedRefreshInterval]);
 
   const isUrl = type === 'URL';
 
@@ -209,6 +219,23 @@ const SearchPage = ({
     <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
       {title && (
         <Hero>
+          {/* Should be a dedicated <Progress /> component */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              transition: '1s ease',
+              width:
+                nbLoaded !== nbToLoad
+                  ? `${(nbLoaded / nbToLoad) * 100 || 5}%`
+                  : nbLoaded > 0
+                  ? '100%'
+                  : 0,
+              height: nbLoaded !== -1 && nbLoaded !== nbToLoad ? '5px' : 0,
+              background: '#bd4e4e',
+            }}
+          />
           <div className="fr-container fr-container--fluid fr-py-12w">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col fr-p-0">
@@ -286,6 +313,17 @@ const SearchPage = ({
               <Alert size="small" type="error" className="fr-mb-2w">
                 An error occured and processing stopped, please contact the administrator if you
                 need more data on this hashtag.
+              </Alert>
+            </div>
+          </div>
+        </div>
+      )}
+      {error && (
+        <div className="fr-container fr-container-fluid fr-mt-4w">
+          <div className="fr-grid-row fr-grid-row--gutters">
+            <div className="fr-col">
+              <Alert size="small" type="error" className="fr-mb-2w">
+                {error}
               </Alert>
             </div>
           </div>
@@ -399,7 +437,6 @@ const SearchPage = ({
               </div>
             </div>
           </div>
-
           {/* Tabs */}
           <Tabs
             forceRenderTabPanel={true}
