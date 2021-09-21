@@ -97,3 +97,16 @@ export interface GetSearchUsernamesResponse extends CommonResponse {
  * SearchVolumetry
  ******************************************/
 export type SearchVolumetry = ModelSearchVolumetry;
+
+/******************************************
+ * SplitRequests
+ ******************************************/
+export interface GetSearchSplitRequestsResponse extends CommonResponse {
+  nbTweets?: number;
+  search?: Search;
+  filters?: {
+    startDate: string;
+    endDate: string;
+    name: string;
+  }[];
+}

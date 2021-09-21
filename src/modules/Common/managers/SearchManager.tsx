@@ -268,12 +268,11 @@ export const getWithData = async ({
     if (!search) {
       return null;
     }
-    const filters = {
+    const filters: any = {
       searchIds: [search._id],
-      startDate: min,
-      endDate: max,
     };
-    console.time(`get searchVolumetry for ${name}`);
+    if (min) filters.startDate = min;
+    if (max) filters.endDate = max;
 
     const searchVolumetry = await getVolumetry(filters);
     console.timeEnd(`get searchVolumetry for ${name}`);
@@ -496,4 +495,81 @@ export const countUsernames = async (filters: SearchFilter) => {
   const rawResults: any[] = await TweetModel.aggregate(aggregation);
 
   return rawResults[0]?.count;
+};
+
+export const splitRequests = async ({
+  name,
+  min,
+  max,
+}: {
+  name: string;
+  min?: string;
+  max?: string;
+}) => {
+  try {
+    const search = await get({ name });
+
+    if (!search) {
+      return null;
+    }
+
+    const match: any = getMatch({
+      searchIds: [search._id],
+      startDate: min,
+      endDate: max,
+    });
+    const nbTweets = await TweetModel.count(match);
+    const batchNumber = 20000;
+    const nbBatches = Math.ceil(nbTweets / batchNumber);
+
+    let periods = [];
+    let previousHour = null;
+    if (nbTweets <= batchNumber) {
+      periods = [{ endDate: match?.hour?.$lte, startDate: match?.hour?.$gte }];
+    } else {
+      for (let i = 1; i <= nbBatches; i++) {
+        const lastRequest = i === nbBatches;
+
+        const paginationMatch: any = previousHour
+          ? { ...match, hour: { ...(match.hour || {}), $lte: new Date(previousHour) } }
+          : match;
+
+        const aggregation: any = lastRequest
+          ? [{ $sort: { hour: 1 } }, { $match: match }, { $limit: 1 }]
+          : [
+              { $sort: { hour: -1 } },
+              { $match: paginationMatch },
+              { $skip: batchNumber },
+              { $limit: 1 },
+            ];
+
+        try {
+          const [tweet] = await TweetModel.aggregate(aggregation).exec();
+
+          if (!tweet) {
+            break;
+          }
+
+          const { hour } = tweet;
+
+          if (i === 1) {
+            periods.push({ startDate: hour, endDate: match?.hour?.$lte });
+          } else if (i === nbBatches) {
+            periods.push({ endDate: previousHour, startDate: match?.hour?.$gte });
+          } else {
+            periods.push({ startDate: hour, endDate: previousHour });
+          }
+          previousHour = dayjs(hour).add(-1, 'hour').toDate();
+        } catch (e) {
+          console.error(e);
+          // we did a wrong iteration
+          break;
+        }
+      }
+    }
+    return { search, nbTweets, periods };
+  } catch (e) {
+    console.error(e);
+    throw new Error(`Could not find search in getWithData for ${name}`);
+  }
 };
