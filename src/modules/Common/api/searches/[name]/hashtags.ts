@@ -24,7 +24,9 @@ const getHashtags =
         startDate: filter.min,
         endDate: filter.max,
       });
-
+      if (filter.min && filter.max) {
+        res.setHeader('Cache-Control', `max-age=${10 * 60}`);
+      }
       res.statusCode = HttpStatusCode.OK;
       res.json({ status: 'ok', message: 'Search Languages details', hashtags });
       return res;
