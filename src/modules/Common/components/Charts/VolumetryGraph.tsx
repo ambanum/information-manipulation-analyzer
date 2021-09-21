@@ -41,6 +41,7 @@ const VolumetryGraph = ({
     'ima-volumetry-graph-x-scale',
     xScale
   );
+
   const initialSeries: InitialSerie[] = data.map((d) => ({
     id: d.id as string,
     name: d.id,
@@ -52,8 +53,6 @@ const VolumetryGraph = ({
   const previousXscale = usePrevious(chartXscaleDisplay);
   const previousSeries = usePrevious(initialSeries);
 
-  const isNewData =
-    previousSeries && initialSeries[0].data.length !== previousSeries[0].data.length;
   const [options, setOptions] = React.useState<Highcharts.Options>({
     title: {
       text: '',
@@ -112,6 +111,12 @@ const VolumetryGraph = ({
     series: initialSeries,
   });
 
+  const isNewData =
+    previousSeries &&
+    options.series &&
+    // @ts-ignore
+    (options?.series[0]?.data || []).length !== previousSeries[0].data.length;
+
   const changeXScale = React.useCallback(
     (newXScale: GraphXScale) => () => {
       toggleRecalculating(true);
@@ -135,9 +140,9 @@ const VolumetryGraph = ({
     ) {
       return;
     }
-    const newFormattedSeries: InitialSerie[] = [...initialSeries];
+    const newFormattedSeries: InitialSerie[] = [];
 
-    newFormattedSeries.map((serie) => {
+    initialSeries.forEach((serie) => {
       if (chartXscaleDisplay === 'day') {
         const dayData: any = {};
 
@@ -147,7 +152,7 @@ const VolumetryGraph = ({
         });
         serie.data = Object.keys(dayData).map((day) => [new Date(day).getTime(), dayData[day]]);
       }
-      return serie;
+      newFormattedSeries.push(serie);
     });
 
     setOptions({
