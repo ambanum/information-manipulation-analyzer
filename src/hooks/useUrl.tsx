@@ -21,7 +21,7 @@ const useUrl = () => {
       ? queryString.parse(window.location.search, { arrayFormat: 'bracket' })
       : {};
 
-  const pathname = router.pathname;
+  const pathname = router.asPath || router.pathname;
 
   const setQueryParameter = React.useCallback(
     ({ url, param, value }: IParams) => {
@@ -65,8 +65,9 @@ const useUrl = () => {
           delete parsed[newUrlParam];
         }
       }
+      const qs = queryString.stringify(parsed);
 
-      const newUrl = `${pathname}?${queryString.stringify(parsed)}`;
+      const newUrl = `${pathname}${qs ? `?${qs}` : ''}`;
       router.push(newUrl, as, options);
       return newUrl;
     },

@@ -186,12 +186,14 @@ const SearchPage = ({
         // For an unknown reason dataMax is always different than max, so dataMin === min is on purpose
         const newMax = dataMin === min ? undefined : `${Math.round(max)}`;
 
-        pushQueryParams({ ...router.query, min: newMin, max: newMax }, undefined, {
-          scroll: false,
-        });
+        if (queryParams.min !== newMin || queryParams.max !== newMax) {
+          pushQueryParams({ min: newMin, max: newMax }, undefined, {
+            scroll: false,
+          });
+        }
       }
     }, 500),
-    [queryParams.min, queryParams.max]
+    [queryParams.min, queryParams.max, searchName, router]
   );
 
   React.useEffect(() => {
