@@ -71,7 +71,54 @@ const TagsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: numbe
     </>
   );
 };
+const UrlsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: number }) => {
+  return searches.map((search) => {
+    const loading = !['DONE', 'DONE_ERROR'].includes(search.status);
+    const timeInfo = loading
+      ? dayjs(search.createdAt).fromNow()
+      : dayjs(search.createdAt).format('llll');
 
+    const { hostname } = new URL(search.name);
+
+    const title = (
+      <>
+        <img src={`https://www.google.com/s2/favicons?domain=${hostname}`} className="fr-m-2v" />
+        {search?.metadata?.url?.title || search.name}
+        <small className="fr-m-2v">{hostname}</small>
+      </>
+    );
+
+    return (
+      <React.Fragment key={`last_search_${search.name}`}>
+        <Link
+          key={search._id}
+          as={`/searches/${encodeURIComponent(search.name)}`}
+          href={`/searches/[search]`}
+          prefetch={false}
+        >
+          {loading ? (
+            <a className="fr-tag fr-m-1v">
+              {title}
+              <Loading size="sm" className="fr-ml-2v" />
+            </a>
+          ) : search.status === 'DONE_ERROR' ? (
+            <a
+              title={search.error}
+              className="fr-tag fr-fi-alert-line fr-tag--icon-right fr-m-1v fr-tag-icon-color--error"
+            >
+              {title}
+            </a>
+          ) : (
+            <a className="fr-tag fr-m-1v" title={`Created ${timeInfo}`}>
+              {title}
+            </a>
+          )}
+        </Link>
+        <br />
+      </React.Fragment>
+    );
+  });
+};
 const LastSearches = ({
   filter,
   ...props
@@ -128,7 +175,7 @@ const LastSearches = ({
       {urls.length > 0 && (
         <>
           <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">URLs</h2>
-          <TagsList searches={urls} keyIndex={1} />
+          <UrlsList searches={urls} keyIndex={1} />
         </>
       )}
     </div>
