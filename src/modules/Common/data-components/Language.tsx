@@ -45,7 +45,7 @@ const DataLanguage = ({
     <div className="fr-col">
       <PieChart
         title="Most used languages"
-        subTitle="View on pie chart."
+        subTitle="Views on pie chart"
         data={languages}
         onSliceClick={onSliceClick}
       />
