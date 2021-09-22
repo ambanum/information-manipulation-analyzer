@@ -35,12 +35,6 @@ const UsernameTable = ({
       size: 1,
     },
     {
-      Header: 'Influence',
-      align: 'right',
-      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
-      size: 1,
-    },
-    {
       Header: 'Bot score',
       Cell: ({ row }: any) => {
         return <UserBotScore username={row?.original?.label} type="raw" />;
