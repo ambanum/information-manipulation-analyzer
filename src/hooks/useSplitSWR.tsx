@@ -68,7 +68,7 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
       setLoading(false);
     };
     doFetchPeriods();
-  }, [splitLoading]);
+  }, [splitLoading, setLoading, setData]);
 
   return {
     data,
