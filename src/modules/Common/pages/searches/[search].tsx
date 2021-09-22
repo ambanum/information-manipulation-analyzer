@@ -85,9 +85,7 @@ const SearchPage = ({
   );
 
   const { data, loading, error } = useSplitSWR(
-    searchName
-      ? `/api/searches/${encodeURIComponent(searchName as string)}/split${queryParamsStringified}`
-      : null,
+    searchName ? `/api/searches/${encodeURIComponent(searchName as string)}/split` : null,
     {
       initialData: {
         status: 'ok',
@@ -195,15 +193,15 @@ const SearchPage = ({
         const newMin = dataMin === min ? undefined : `${Math.round(min)}`;
         // For an unknown reason dataMax is always different than max, so dataMin === min is on purpose
         const newMax = dataMin === min ? undefined : `${Math.round(max)}`;
-
         if (queryParams.min !== newMin || queryParams.max !== newMax) {
           pushQueryParams({ min: newMin, max: newMax }, undefined, {
             scroll: false,
+            shallow: true,
           });
         }
       }
     }, 500),
-    [queryParams.min, queryParams.max, searchName, router]
+    [queryParams.min, queryParams.max, pushQueryParams]
   );
 
   React.useEffect(() => {
@@ -225,7 +223,7 @@ const SearchPage = ({
               position: 'absolute',
               bottom: 0,
               left: 0,
-              transition: '1s ease',
+              transition: '300ms ease',
               width:
                 nbLoaded !== nbToLoad
                   ? `${(nbLoaded / nbToLoad) * 100 || 5}%`
@@ -233,7 +231,7 @@ const SearchPage = ({
                   ? '100%'
                   : 0,
               height: nbLoaded !== -1 && nbLoaded !== nbToLoad ? '5px' : 0,
-              background: '#bd4e4e',
+              background: 'var(--info)',
             }}
           />
           <div className="fr-container fr-container--fluid fr-py-12w">

@@ -6,17 +6,12 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
   const [data, setData] = React.useState<any>(options.initialData);
   const [error, setError] = React.useState();
   const [loading, setLoading] = React.useState(true);
-
   const { data: splitData, isValidating, error: splitError } = useSWR(splitUrl, options);
   const splitLoading = !splitData || isValidating;
 
   const { filters: splittedPeriods, search, nbTweets } = splitData || {};
 
   React.useEffect(() => {
-    if (splitLoading) {
-      return;
-    }
-
     if (!splittedPeriods || splitLoading) {
       return;
     }
@@ -66,7 +61,7 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
 
           setData(aggregatedData);
           setError(undefined);
-        } catch (e) {
+        } catch (e: any) {
           setError(e.toString());
         }
       }

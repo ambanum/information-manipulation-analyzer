@@ -114,6 +114,7 @@ const VolumetryGraph = ({
   const isNewData =
     previousSeries &&
     options.series &&
+    previousXscale === chartXscaleDisplay &&
     // @ts-ignore
     (options?.series[0]?.data || []).length !== previousSeries[0].data.length;
 
@@ -128,6 +129,7 @@ const VolumetryGraph = ({
   React.useEffect(() => {
     if (isNewData) {
       const { chart } = chartRef?.current || ({} as any);
+
       chart && chart?.zoom();
     }
   }, [isNewData]);
