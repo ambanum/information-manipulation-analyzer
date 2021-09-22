@@ -1,9 +1,9 @@
 import * as LanguageManager from 'modules/Countries/managers/LanguageManager';
 import * as QueueItemManager from './QueueItemManager';
 
-import { Search, Tweet } from '../interfaces';
 import SearchModel, { SearchTypes } from '../models/Search';
 
+import { Search } from '../interfaces';
 import TweetModel from '../models/Tweet';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 import dayjs from 'dayjs';
