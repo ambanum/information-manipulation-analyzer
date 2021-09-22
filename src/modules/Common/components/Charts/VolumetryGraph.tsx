@@ -32,7 +32,8 @@ const VolumetryGraph = ({
   data,
   xScale = 'hour',
   onFilterDateChange,
-  defaultValues,
+  min,
+  max,
   ...props
 }: VolumetryGraphProps & HighchartsReact.Props) => {
   const chartRef = React.useRef(null);
@@ -65,9 +66,9 @@ const VolumetryGraph = ({
           const chart = this;
           const xAxis = chart.xAxis[0];
 
-          if (defaultValues.min && defaultValues.max) {
-            const newStart = +defaultValues.min;
-            const newEnd = +defaultValues.max;
+          if (min && max) {
+            const newStart = +min;
+            const newEnd = +max;
 
             xAxis.setExtremes(newStart, newEnd);
           }
