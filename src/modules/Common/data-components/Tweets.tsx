@@ -1,20 +1,36 @@
 import * as React from 'react';
 
+import { GetSearchTweetsResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
+import useSWR from 'swr';
 
-interface TweetsProps {}
+interface DataTweetsProps {
+  search: string;
+  refreshInterval: number;
+  queryParamsStringified?: string;
+}
+const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTweetsProps) => {
+  const { data } = useSWR<GetSearchTweetsResponse>(
+    `/api/searches/${encodeURIComponent(search)}/tweets${queryParamsStringified}`,
+    {
+      refreshInterval,
+      revalidateOnMount: true,
+      revalidateOnFocus: false,
+    }
+  );
 
-const Tweets = ({}: TweetsProps) => {
-  const dataFirstTweets = ['1439889669110521859', '1439924306163666952', '1439903412150226946'];
-  const dataMostInfueantialTweets = [
-    '1439676282275463169',
-    '1439920476432879619',
-    '1439930989791391750',
-  ];
+  const {
+    firstTweets = [],
+    mostRetweetedTweets = [],
 
-  if (!dataFirstTweets && !dataMostInfueantialTweets) {
-    return <Loading />;
+    mostLikedTweets = [],
+    mostQuotedTweets = [],
+    mostCommentedTweets = [],
+  } = data || {};
+
+  if (firstTweets.length === 0) {
+    return null;
   }
 
   return (
@@ -24,26 +40,55 @@ const Tweets = ({}: TweetsProps) => {
         <p className="fr-mb-0">Lorem ipsum</p>
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
-        {dataFirstTweets.map((id) => {
-          return (
-            <div className="fr-col">
-              <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
-            </div>
-          );
-        })}
+        {firstTweets.map(({ id }) => (
+          <div className="fr-col">
+            <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
+          </div>
+        ))}
       </div>
       <div className="fr-mb-2w">
-        <h4 className="fr-mb-1v">Most influential tweets</h4>
+        <h4 className="fr-mb-1v">Most retweeted tweets</h4>
         <p className="fr-mb-0">Lorem ipsum</p>
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
-        {dataMostInfueantialTweets.map((id) => {
-          return (
-            <div className="fr-col">
-              <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
-            </div>
-          );
-        })}
+        {mostRetweetedTweets.map(({ id }) => (
+          <div className="fr-col">
+            <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
+          </div>
+        ))}
+      </div>
+      <div className="fr-mb-2w">
+        <h4 className="fr-mb-1v">Most liked tweets</h4>
+        <p className="fr-mb-0">Lorem ipsum</p>
+      </div>
+      <div className="fr-grid-row fr-grid-row--gutters">
+        {mostLikedTweets.map(({ id }) => (
+          <div className="fr-col">
+            <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
+          </div>
+        ))}
+      </div>
+      <div className="fr-mb-2w">
+        <h4 className="fr-mb-1v">Most quoted tweets</h4>
+        <p className="fr-mb-0">Lorem ipsum</p>
+      </div>
+      <div className="fr-grid-row fr-grid-row--gutters">
+        {mostQuotedTweets.map(({ id }) => (
+          <div className="fr-col">
+            <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
+          </div>
+        ))}
+      </div>
+      <div className="fr-mb-2w">
+        <h4 className="fr-mb-1v">Most commented tweets</h4>
+        <p className="fr-mb-0">Lorem ipsum</p>
+      </div>
+      <div className="fr-grid-row fr-grid-row--gutters">
+        {mostCommentedTweets.map(({ id }) => (
+          <div className="fr-col">
+            <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
+          </div>
+        ))}
       </div>
     </>
   );

@@ -1,9 +1,9 @@
 import * as LanguageManager from 'modules/Countries/managers/LanguageManager';
 import * as QueueItemManager from './QueueItemManager';
 
+import { Search, Tweet } from '../interfaces';
 import SearchModel, { SearchTypes } from '../models/Search';
 
-import { Search } from '../interfaces';
 import TweetModel from '../models/Tweet';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 import dayjs from 'dayjs';
@@ -471,4 +471,28 @@ export const splitRequests = async ({
     console.error(e);
     throw new Error(`Could not find search in getWithData for ${name}`);
   }
+};
+
+export const getTweets = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+
+  const sortTweetsAggregation = (sort: any) => [
+    {
+      $match: match,
+    },
+    {
+      $sort: sort,
+    },
+    {
+      $limit: 3,
+    },
+  ];
+
+  return {
+    firstTweets: await TweetModel.aggregate(sortTweetsAggregation({ date: 1 })),
+    mostRetweetedTweets: await TweetModel.aggregate(sortTweetsAggregation({ retweetCount: -1 })),
+    mostLikedTweets: await TweetModel.aggregate(sortTweetsAggregation({ likeCount: -1 })),
+    mostQuotedTweets: await TweetModel.aggregate(sortTweetsAggregation({ quoteCount: -1 })),
+    mostCommentedTweets: await TweetModel.aggregate(sortTweetsAggregation({ replyCount: -1 })),
+  };
 };
