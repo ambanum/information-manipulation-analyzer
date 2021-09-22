@@ -87,10 +87,10 @@ const UrlsList = ({ searches }: { searches: Search[] }) => {
           <>
             <img
               src={`https://www.google.com/s2/favicons?domain=${hostname}`}
-              className="fr-m-2v"
+              className="fr-mr-2v"
             />
             {search?.metadata?.url?.title || search.name}
-            <small className="fr-m-2v">{hostname}</small>
+            <small className="fr-ml-2v">{hostname}</small>
           </>
         );
 
