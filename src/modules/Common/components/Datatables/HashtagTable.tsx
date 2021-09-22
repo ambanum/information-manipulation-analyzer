@@ -80,7 +80,7 @@ const HashtagTable = ({
   return (
     <Table<Hashtag>
       title={`${(nbData || data.length).toLocaleString('en')} associated hashtags`}
-      subtitle="Lorem ispum"
+      subtitle="Every associated hashtags listed"
       columns={columns}
       data={data}
       sortBy={[
