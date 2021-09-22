@@ -7,7 +7,6 @@ import {
 import Loading from 'components/Loading';
 import React from 'react';
 import dayjs from 'dayjs';
-import { getTwitterLink } from 'utils/twitter';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import s from './TwitterDataCard.module.scss';
 

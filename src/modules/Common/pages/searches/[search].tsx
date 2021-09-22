@@ -5,7 +5,6 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import Alert from 'modules/Common/components/Alert/Alert';
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
-import Card from 'components/Card';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
