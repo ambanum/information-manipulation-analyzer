@@ -129,27 +129,7 @@ const LastSearches = ({
       {urls.length > 0 && (
         <>
           <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">URLs</h2>
-          <div className="fr-container fr-container--fluid">
-            <div className="fr-grid-row fr-grid-row--gutters">
-              {urls.map(({ metadata, name }) => (
-                <div className="fr-col fr-col-md-4" key={name}>
-                  <Card
-                    enlargeLink
-                    direction="right"
-                    href={`/searches/${encodeURIComponent(name)}`}
-                    title={metadata?.url?.title}
-                    detail={metadata?.url?.site}
-                    description={metadata?.url?.description}
-                    image={
-                      metadata?.url?.image?.url ||
-                      'https://via.placeholder.com/150/333333/333333/?text='
-                    }
-                    imageAlt={metadata?.url?.title}
-                  />
-                </div>
-              ))}
-            </div>{' '}
-          </div>
+          <TagsList searches={urls} keyIndex={1} />
         </>
       )}
     </div>

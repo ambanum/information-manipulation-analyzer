@@ -9,6 +9,7 @@ type OverviewProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const Overview: React.FC<OverviewProps> = ({ children, className, searchName, ...props }) => {
+  searchName = searchName.length > 30 ? `${searchName.substring(0, 30)}...` : searchName;
   return (
     <div
       className={classNames('fr-container fr-container-fluid', s.overview, className)}
