@@ -15,6 +15,7 @@ import {
 
 import { HashtagTableProps } from '../components/Datatables/HashtagTable.d';
 import { SearchVolumetry as ModelSearchVolumetry } from '../models/SearchVolumetry';
+import { Tweet as ModelTweet } from '../models/Tweet';
 import { User as ModelUser } from '../models/User';
 import { PieChartProps } from '../components/Charts/PieChart.d';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
@@ -32,6 +33,12 @@ export interface CommonResponse {
 export type QueueItem = ModelQueueItem;
 export type QueueItemStatuses = ModelQueueItemStatuses;
 export type QueueItemActionTypes = ModelQueueItemActionTypes;
+
+/******************************************
+ * Tweet
+ ******************************************/
+
+export type Tweet = ModelTweet;
 
 /******************************************
  * User
@@ -91,6 +98,17 @@ export interface GetSearchHashtagsResponse extends CommonResponse {
  ******************************************/
 export interface GetSearchUsernamesResponse extends CommonResponse {
   usernames?: UsernameTableProps['data'];
+}
+
+/******************************************
+ * Tweets
+ ******************************************/
+export interface GetSearchTweetsResponse extends CommonResponse {
+  firstTweets?: ModelTweet[];
+  mostRetweetedTweets?: ModelTweet[];
+  mostLikedTweets?: ModelTweet[];
+  mostQuotedTweets?: ModelTweet[];
+  mostCommentedTweets?: ModelTweet[];
 }
 
 /******************************************

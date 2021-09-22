@@ -490,7 +490,11 @@ const SearchPage = ({
               </TabPanel>
 
               <TabPanel>
-                <TweetsData />
+                <TweetsData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  queryParamsStringified={queryParamsStringified}
+                />
               </TabPanel>
             </div>
           </Tabs>
