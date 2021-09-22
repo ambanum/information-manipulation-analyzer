@@ -7,6 +7,7 @@ import {
 import Loading from 'components/Loading';
 import React from 'react';
 import dayjs from 'dayjs';
+import { getTwitterLink } from 'utils/twitter';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import s from './TwitterDataCard.module.scss';
 
@@ -52,11 +53,14 @@ const TwitterDataCard: React.FC<TwitterDataCardProps> = React.memo(
           {displayname && (
             <div className={s.infosWrapper_name}>
               <a
-                href=" "
+                href={' '}
                 rel="noreferrer noopener"
                 title={`View ${displayname} on Twitter`}
                 target="_blank"
-                onClick={() => onUsernameClick(username)}
+                onClick={(e) => {
+                  onUsernameClick(username);
+                  e.preventDefault();
+                }}
               >
                 <span>{displayname}</span>
               </a>
