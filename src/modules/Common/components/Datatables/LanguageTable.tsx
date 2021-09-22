@@ -30,12 +30,13 @@ const LanguageTable = ({ exportName, data, title, subtitle }: LanguageTableProps
           <ul className="fr-btns-group fr-btns-group--sm fr-btns-group--right fr-btns-group--inline">
             <li>
               <button
+                disabled={true}
                 type="button"
                 className="fr-btn fr-btn fr-btn--secondary fr-btn--icon-left"
                 style={{ paddingLeft: '0.56rem', paddingRight: '0.56rem' }}
                 title={`Filter by ${rest.row?.original?.label}`}
               >
-                <IconFilter style={{ color: 'var(--bf500)' }} />
+                <IconFilter style={{ color: 'var(--g600-g400)' }} />
               </button>
             </li>
           </ul>
