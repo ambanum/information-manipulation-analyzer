@@ -43,7 +43,8 @@ const TagsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: numbe
             {title}
             <Link
               key={search._id}
-              href={`/searches/${encodeURIComponent(search.name)}`}
+              as={`/searches/${encodeURIComponent(search.name)}`}
+              href={`/searches/[search]`}
               prefetch={false}
             >
               {loading ? (
