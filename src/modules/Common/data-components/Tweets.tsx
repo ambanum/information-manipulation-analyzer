@@ -37,7 +37,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
     <>
       <div className="fr-mb-2w">
         <h4 className="fr-mb-1v">The 3 first tweets</h4>
-        <p className="fr-mb-0">Lorem ipsum</p>
+        {/* <p className="fr-mb-0">Lorem ipsum</p> */}
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {firstTweets.map(({ id }) => (
@@ -46,9 +46,9 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
           </div>
         ))}
       </div>
-      <div className="fr-mb-2w">
+      <div className="fr-mt-4w fr-mb-2w">
         <h4 className="fr-mb-1v">Most retweeted tweets</h4>
-        <p className="fr-mb-0">Lorem ipsum</p>
+        {/* <p className="fr-mb-0">Lorem ipsum</p> */}
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostRetweetedTweets.map(({ id }) => (
@@ -57,9 +57,9 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
           </div>
         ))}
       </div>
-      <div className="fr-mb-2w">
+      <div className="fr-mt-4w fr-mb-2w">
         <h4 className="fr-mb-1v">Most liked tweets</h4>
-        <p className="fr-mb-0">Lorem ipsum</p>
+        {/* <p className="fr-mb-0">Lorem ipsum</p> */}
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostLikedTweets.map(({ id }) => (
@@ -68,9 +68,9 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
           </div>
         ))}
       </div>
-      <div className="fr-mb-2w">
+      <div className="fr-mt-4w fr-mb-2w">
         <h4 className="fr-mb-1v">Most quoted tweets</h4>
-        <p className="fr-mb-0">Lorem ipsum</p>
+        {/* <p className="fr-mb-0">Lorem ipsum</p> */}
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostQuotedTweets.map(({ id }) => (
@@ -79,9 +79,9 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
           </div>
         ))}
       </div>
-      <div className="fr-mb-2w">
+      <div className="fr-mt-4w fr-mb-2w">
         <h4 className="fr-mb-1v">Most commented tweets</h4>
-        <p className="fr-mb-0">Lorem ipsum</p>
+        {/* <p className="fr-mb-0">Lorem ipsum</p> */}
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostCommentedTweets.map(({ id }) => (
