@@ -428,7 +428,8 @@ const SearchPage = ({
               <div className="fr-col">
                 <VolumetryGraph
                   data={volumetry}
-                  defaultValues={queryParams}
+                  min={queryParams.min}
+                  max={queryParams.max}
                   onPointClick={onLineClick}
                   onFilterDateChange={onFilterDateChange}
                 />

@@ -21,9 +21,7 @@ export interface VolumetryGraphProps {
     dataMax: Number;
     type: string;
   }) => unknown;
-  defaultValues: {
-    min: number;
-    max: number;
-  };
+  min: number;
+  max: number;
   onClick?: (xScale: XScale, datum: Datum) => unknown;
 }
