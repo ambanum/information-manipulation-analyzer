@@ -277,6 +277,18 @@ const SearchPage = ({
           </div>
         </Hero>
       )}
+      {nbToLoad > 3 && nbLoaded !== nbToLoad && (
+        <div className="fr-container fr-container-fluid fr-mt-4w">
+          <div className="fr-grid-row fr-grid-row--gutters">
+            <div className="fr-col">
+              <Alert size="small" type="info" className="fr-mb-2w">
+                As there is a large quantity of data, please wait for it to load completely (
+                {nbLoaded}/{nbToLoad}).
+              </Alert>
+            </div>
+          </div>
+        </div>
+      )}
 
       {(gatheringData || router.isFallback) && <Loading />}
 
