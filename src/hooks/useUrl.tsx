@@ -21,7 +21,7 @@ const useUrl = () => {
       ? queryString.parse(window.location.search, { arrayFormat: 'bracket' })
       : {};
 
-  const pathname = router.asPath || router.pathname;
+  let pathname = router.pathname;
 
   const setQueryParameter = React.useCallback(
     ({ url, param, value }: IParams) => {
@@ -51,7 +51,7 @@ const useUrl = () => {
   const pushQueryParams = React.useCallback(
     (
       newUrlParams: IParamsObject,
-      as?: Parameters<typeof router.push>[1],
+      asUrl?: Parameters<typeof router.push>[1],
       options?: Parameters<typeof router.push>[2]
     ) => {
       const parsed = queryString.parse(window.location.search, { arrayFormat: 'bracket' });
@@ -68,7 +68,15 @@ const useUrl = () => {
       const qs = queryString.stringify(parsed);
 
       const newUrl = `${pathname}${qs ? `?${qs}` : ''}`;
-      router.push(newUrl, as, options);
+      router.push(
+        pathname,
+        {
+          // @ts-ignore
+          pathname: asUrl || router.asPath.split('?')[0],
+          query: parsed,
+        },
+        options
+      );
       return newUrl;
     },
     [router, pathname, queryParams]
