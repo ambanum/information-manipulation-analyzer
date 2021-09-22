@@ -49,7 +49,7 @@ const DataUsername = ({
         onUsernameSearchClick={onUsernameSearchClick}
         exportName={exportName}
       />
-      <div className="fr-mt-8w">
+      {/* <div className="fr-mt-8w">
         <BotProbabilityGraph
           data={[
             { y: 300, x: 10 },
@@ -64,8 +64,8 @@ const DataUsername = ({
             { y: 300, x: 100 },
           ]}
         />
-      </div>
-      <div className="fr-mt-8w">
+      </div> */}
+      {/* <div className="fr-mt-8w">
         <PieChart
           title="Proportion of deleted and suspended account"
           subTitle="Lorem ipssum"
@@ -75,7 +75,7 @@ const DataUsername = ({
             { id: 'deleted', label: 'Deleted', value: 16 },
           ]}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
