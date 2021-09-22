@@ -89,8 +89,7 @@ const UrlsList = ({ searches }: { searches: Search[] }) => {
               src={`https://www.google.com/s2/favicons?domain=${hostname}`}
               className="fr-mr-2v"
             />
-            {search?.metadata?.url?.title || search.name}
-            <small className="fr-ml-2v">{hostname}</small>
+            {search.name}
           </>
         );
 
@@ -115,7 +114,10 @@ const UrlsList = ({ searches }: { searches: Search[] }) => {
                   {title}
                 </a>
               ) : (
-                <a className="fr-tag fr-m-1v" title={`Created ${timeInfo}`}>
+                <a
+                  className="fr-tag fr-m-1v"
+                  title={`${search?.metadata?.url?.title} - Created ${timeInfo}`}
+                >
                   {title}
                 </a>
               )}
