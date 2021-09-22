@@ -1,7 +1,6 @@
 import { GetSearchesResponse, Search } from '../interfaces';
 
 import Alert from '../components/Alert/Alert';
-import Card from 'components/Card';
 import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
