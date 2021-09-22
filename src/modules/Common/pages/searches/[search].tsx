@@ -357,26 +357,6 @@ const SearchPage = ({
         </div>
       </div>
 
-      {type === 'URL' && (
-        <div className="fr-container fr-container-fluid fr-mb-2w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <Card
-                horizontal
-                enlargeLink
-                direction="right"
-                href={(searchName as string) || ''}
-                title={metadata?.url?.title}
-                detail={metadata?.url?.site}
-                description={metadata?.url?.description}
-                image={metadata?.url?.image?.url}
-                imageAlt={metadata?.url?.title}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Overview */}
       {nbTweets > 0 && (
         <Overview searchName={searchName}>
