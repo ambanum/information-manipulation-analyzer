@@ -73,6 +73,7 @@ const UsernameTable = ({
             </li>
             <li>
               <button
+                disabled={true}
                 type="button"
                 className="fr-btn fr-btn fr-btn--secondary fr-fi-search-line fr-btn--icon-left"
                 title={`Search @${row?.original?.label}`}
@@ -80,12 +81,13 @@ const UsernameTable = ({
             </li>
             <li>
               <button
+                disabled={true}
                 type="button"
                 className="fr-btn fr-btn fr-btn--secondary fr-btn--icon-left"
                 style={{ paddingLeft: '0.56rem', paddingRight: '0.56rem' }}
                 title={`Filter by @${row?.original?.label}`}
               >
-                <IconFilter style={{ color: 'var(--bf500)' }} />
+                <IconFilter style={{ color: 'var(--g600-g400)' }} />
               </button>
             </li>
           </ul>
