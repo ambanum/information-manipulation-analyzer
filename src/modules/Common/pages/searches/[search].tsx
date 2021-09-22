@@ -99,7 +99,7 @@ const SearchPage = ({
         nbAssociatedHashtags: defaultNbAssociatedHashtags,
       },
       refreshInterval,
-      revalidateOnMount: true,
+      revalidateOnMount: false,
       revalidateOnFocus: false,
     }
   );
