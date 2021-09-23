@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import s from './Tile.module.css';
 
 type TileProps = {
-  title: string;
+  title?: React.ReactNode;
   imageSrc?: string;
   description?: string;
   direction?: 'vertical' | 'horizontal';
   href?: string;
   loading?: boolean;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
 const Tile: React.FC<TileProps> = ({
   children,

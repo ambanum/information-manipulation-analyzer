@@ -1,6 +1,6 @@
 {
   "name": "information-manipulation-analyzer",
-  "version": "1.2.3",
+  "version": "1.4.1",
   "prettier": "prettier-config-ambanum",
   "scripts": {
     "dev": "next",
@@ -52,7 +52,9 @@
     "react-dom": "17.0.2",
     "react-icons": "^4.2.0",
     "react-table": "7.7.0",
+    "react-tabs": "^3.2.2",
     "react-toastify": "^7.0.4",
+    "react-twitter-embed": "^3.0.3",
     "react-use": "17.2.4",
     "react-virtualized-auto-sizer": "1.0.6",
     "react-window": "^1.8.6",
@@ -73,6 +75,7 @@
     "@types/react-dom": "17.0.9",
     "@types/react-icons": "^3.0.0",
     "@types/react-table": "7.7.2",
+    "@types/react-tabs": "^2.3.3",
     "@types/react-virtualized-auto-sizer": "1.0.1",
     "@types/react-window": "1.8.5",
     "husky": "7.0.1",

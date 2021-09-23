@@ -1,5 +1,6 @@
 import { Username, UsernameTableProps } from './UsernameTable.d';
 
+import { RiFilterLine as IconFilter } from 'react-icons/ri';
 import React from 'react';
 import Table from 'components/Table';
 import UserBotScore from 'modules/Common/data-components/UserBotScore';
@@ -19,14 +20,26 @@ const UsernameTable = ({
       Cell: ({ value }: any) => {
         return <UserData username={value} onUsernameClick={() => onUsernameClick(value)} />;
       },
-      size: 6,
+      size: 3,
     },
     {
-      Header: 'Bot probability',
+      Header: 'Date of first tweet',
+      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
+      align: 'right',
+      size: 2,
+    },
+    {
+      Header: 'Frequency',
+      align: 'right',
+      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
+      size: 1,
+    },
+    {
+      Header: 'Bot score',
       Cell: ({ row }: any) => {
-        return <UserBotScore username={row?.original?.label} />;
+        return <UserBotScore username={row?.original?.label} type="raw" />;
       },
-      align: 'center',
+      align: 'right',
       size: 1,
     },
     {
@@ -37,23 +50,44 @@ const UsernameTable = ({
       Cell: ({ value }: any) => value.toLocaleString('en'),
     },
     {
-      Header: ' ',
+      Header: 'Actions',
       align: 'right',
       Cell: ({ row }: any) => {
         return (
-          <button
-            type="button"
-            className="fr-btn fr-btn fr-btn--sm fr-btn--secondary fr-fi-account-line fr-btn--icon-left"
-            title={`View details of @${row?.original?.label}`}
-            onClick={() => {
-              onUsernameSearchClick(row?.original?.label);
-            }}
-          >
-            View
-          </button>
+          <ul className="fr-btns-group fr-btns-group--sm fr-btns-group--right fr-btns-group--inline">
+            <li>
+              <button
+                type="button"
+                className="fr-btn fr-btn fr-btn--secondary fr-fi-account-line fr-btn--icon-left"
+                title={`View complete profile of @${row?.original?.label}`}
+                onClick={() => {
+                  onUsernameSearchClick(row?.original?.label);
+                }}
+              ></button>
+            </li>
+            <li>
+              <button
+                disabled={true}
+                type="button"
+                className="fr-btn fr-btn fr-btn--secondary fr-fi-search-line fr-btn--icon-left"
+                title={`Search @${row?.original?.label}`}
+              ></button>
+            </li>
+            <li>
+              <button
+                disabled={true}
+                type="button"
+                className="fr-btn fr-btn fr-btn--secondary fr-btn--icon-left"
+                style={{ paddingLeft: '0.56rem', paddingRight: '0.56rem' }}
+                title={`Filter by @${row?.original?.label}`}
+              >
+                <IconFilter style={{ color: 'var(--g600-g400)' }} />
+              </button>
+            </li>
+          </ul>
         );
       },
-      size: 1,
+      size: 2,
     },
   ];
 
@@ -71,7 +105,7 @@ const UsernameTable = ({
       ]}
       layoutFixed
       noScroll
-      virtualize={{ height: 1000, itemSize: 100 }}
+      virtualize={{ height: 500, itemSize: 100 }}
       exportable={{ name: exportName }}
     />
   );

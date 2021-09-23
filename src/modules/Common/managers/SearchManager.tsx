@@ -16,16 +16,17 @@ interface SearchFilter {
 }
 
 const getMatch = ({ searchIds, startDate, endDate }: SearchFilter) => {
-  const match: any = { searches: { $in: searchIds } };
+  const match: any = {};
   if (startDate || endDate) {
-    match.date = {};
+    match.hour = {};
     if (startDate) {
-      match.date.$gte = new Date(dayjs(+startDate).toISOString());
+      match.hour.$gte = new Date(dayjs(+startDate).toISOString());
     }
     if (endDate) {
-      match.date.$lte = new Date(dayjs(+endDate).toISOString());
+      match.hour.$lte = new Date(dayjs(+endDate).toISOString());
     }
   }
+  match.searches = { $in: searchIds }; // first filter by date and then by searches as it is a multi key index
   return match;
 };
 
@@ -86,12 +87,6 @@ export const getVolumetry = async (filter: SearchFilter) => {
         nbLikes: {
           $sum: '$likeCount',
         },
-        usernames: {
-          $push: '$username',
-        },
-        hashtags: {
-          $push: '$hashtags',
-        },
       },
     },
     {
@@ -99,93 +94,16 @@ export const getVolumetry = async (filter: SearchFilter) => {
         '_id.hour': 1,
       },
     },
-    {
-      $addFields: {
-        hashtags: {
-          $reduce: {
-            input: '$hashtags',
-            initialValue: [],
-            in: { $concatArrays: ['$$value', '$$this'] },
-          },
-        },
-      },
-    },
-    {
-      $addFields: {
-        hashtags: {
-          $arrayToObject: [
-            {
-              $map: {
-                input: '$hashtags',
-                as: 'hash',
-                in: {
-                  k: '$$hash',
-                  v: {
-                    $reduce: {
-                      input: '$hashtags',
-                      initialValue: 0,
-                      in: {
-                        $cond: [
-                          {
-                            $eq: ['$$hash', '$$this'],
-                          },
-                          {
-                            $add: ['$$value', 1],
-                          },
-                          '$$value',
-                        ],
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          ],
-        },
-        usernames: {
-          $arrayToObject: [
-            {
-              $map: {
-                input: '$usernames',
-                as: 'user',
-                in: {
-                  k: '$$user',
-                  v: {
-                    $reduce: {
-                      input: '$usernames',
-                      initialValue: 0,
-                      in: {
-                        $cond: [
-                          {
-                            $eq: ['$$user', '$$this'],
-                          },
-                          {
-                            $add: ['$$value', 1],
-                          },
-                          '$$value',
-                        ],
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          ],
-        },
-      },
-    },
   ];
 
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   return rawResults.map((rawResult: any) => ({
-    date: rawResult._id.hour,
+    hour: rawResult._id.hour,
     nbTweets: rawResult.nbTweets,
     nbRetweets: rawResult.nbRetweets,
     nbQuotes: rawResult.nbQuotes,
     nbLikes: rawResult.nbLikes,
-    usernames: rawResult.usernames,
-    associatedHashtags: rawResult.hashtags,
   }));
 };
 
@@ -267,19 +185,14 @@ export const getWithData = async ({
     if (!search) {
       return null;
     }
-    const filters = {
+    const filters: any = {
       searchIds: [search._id],
-      startDate: min,
-      endDate: max,
     };
-    console.time(`get searchVolumetry for ${name}`);
-
+    if (min) filters.startDate = min;
+    if (max) filters.endDate = max;
     const searchVolumetry = await getVolumetry(filters);
-    console.timeEnd(`get searchVolumetry for ${name}`);
 
     let nbTweets: number = 0;
-    const usernames: { [key: string]: number } = {};
-    const associatedHashtags: { [key: string]: number } = {};
     let i = 0;
     const volumetryLength = searchVolumetry.length;
 
@@ -287,13 +200,13 @@ export const getWithData = async ({
       (acc: VolumetryGraphProps['data'], volumetry) => {
         const newAcc = [...acc];
 
-        const volumetryDate = volumetry.date;
-        const volumetryDayJs = dayjs(volumetry.date);
+        const volumetryDate = volumetry.hour;
+        const volumetryDayJs = dayjs(volumetryDate);
 
         if (i > 0) {
           const volumetryDatePrevHour = volumetryDayJs.add(-1, 'hour').toDate();
 
-          if (volumetryDatePrevHour.toISOString() !== searchVolumetry[i - 1]?.date.toISOString()) {
+          if (volumetryDatePrevHour.toISOString() !== searchVolumetry[i - 1]?.hour.toISOString()) {
             newAcc[0].data.push({ x: volumetryDatePrevHour, y: 0 });
             newAcc[1].data.push({ x: volumetryDatePrevHour, y: 0 });
             newAcc[2].data.push({ x: volumetryDatePrevHour, y: 0 });
@@ -307,8 +220,8 @@ export const getWithData = async ({
         newAcc[3].data.push({ x: volumetryDate, y: volumetry.nbQuotes || 0 });
 
         if (i < volumetryLength - 1) {
-          const volumetryDateNextHour = dayjs(volumetry.date).add(1, 'hour').toDate();
-          if (volumetryDateNextHour.toISOString() !== searchVolumetry[i + 1]?.date.toISOString()) {
+          const volumetryDateNextHour = volumetryDayJs.add(1, 'hour').toDate();
+          if (volumetryDateNextHour.toISOString() !== searchVolumetry[i + 1]?.hour.toISOString()) {
             newAcc[0].data.push({ x: volumetryDateNextHour, y: 0 });
             newAcc[1].data.push({ x: volumetryDateNextHour, y: 0 });
             newAcc[2].data.push({ x: volumetryDateNextHour, y: 0 });
@@ -316,18 +229,6 @@ export const getWithData = async ({
           }
         }
         i++;
-
-        // Calculate number of users
-        Object.keys(volumetry.usernames || {}).forEach((username) => {
-          usernames[username] = (usernames[username] || 0) + volumetry.usernames[username];
-        });
-
-        // Calculate number of users
-        Object.keys(volumetry.associatedHashtags || {}).forEach((associatedSearch) => {
-          associatedHashtags[associatedSearch] =
-            (associatedHashtags[associatedSearch] || 0) +
-            volumetry.associatedHashtags[associatedSearch];
-        });
 
         // Calculate number of tweets
         nbTweets += volumetry.nbTweets;
@@ -341,10 +242,8 @@ export const getWithData = async ({
         { id: 'nbQuotes', data: [] },
       ]
     );
-
-    const nbAssociatedHashtags = Object.keys(associatedHashtags).length;
-
-    const nbUsernames = Object.keys(usernames).length;
+    const nbAssociatedHashtags = await countHashtags(filters);
+    const nbUsernames = await countUsernames(filters);
 
     const result = {
       search: search ? search : null,
@@ -381,6 +280,7 @@ export const getLanguages = async (filters: SearchFilter) => {
       },
     },
   ];
+
   const rawResults: any[] = await TweetModel.aggregate(aggregation);
   const nbLanguages = sumBy('count')(rawResults);
 
@@ -409,8 +309,7 @@ export const getHashtags = async (filters: SearchFilter) => {
     },
     { $sort: { count: -1 } },
   ];
-
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
   const nbHashtags = sumBy('count')(rawResults);
 
   return rawResults.map((rawResult: any) => ({
@@ -461,7 +360,7 @@ export const getUsernames = async (filters: SearchFilter) => {
     { $sort: { count: -1 } },
   ];
 
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   const nbUsernames = sumBy('count')(rawResults);
   return rawResults.map((rawResult: any) => ({
@@ -495,4 +394,105 @@ export const countUsernames = async (filters: SearchFilter) => {
   const rawResults: any[] = await TweetModel.aggregate(aggregation);
 
   return rawResults[0]?.count;
+};
+
+export const splitRequests = async ({
+  name,
+  min,
+  max,
+}: {
+  name: string;
+  min?: string;
+  max?: string;
+}) => {
+  try {
+    const search = await get({ name });
+
+    if (!search) {
+      return null;
+    }
+
+    const match: any = getMatch({
+      searchIds: [search._id],
+      startDate: min,
+      endDate: max,
+    });
+    const nbTweets = await TweetModel.count(match);
+    const batchNumber = 20000;
+    const nbBatches = Math.ceil(nbTweets / batchNumber);
+
+    let periods = [];
+    let previousHour = null;
+    if (nbTweets <= batchNumber) {
+      periods = [{ endDate: match?.hour?.$lte, startDate: match?.hour?.$gte }];
+    } else {
+      for (let i = 1; i <= nbBatches; i++) {
+        const lastRequest = i === nbBatches;
+
+        const paginationMatch: any = previousHour
+          ? { ...match, hour: { ...(match.hour || {}), $lte: new Date(previousHour) } }
+          : match;
+
+        const aggregation: any = lastRequest
+          ? [{ $sort: { hour: 1 } }, { $match: match }, { $limit: 1 }]
+          : [
+              { $sort: { hour: -1 } },
+              { $match: paginationMatch },
+              { $skip: batchNumber },
+              { $limit: 1 },
+            ];
+
+        try {
+          const [tweet] = await TweetModel.aggregate(aggregation).exec();
+
+          if (!tweet) {
+            break;
+          }
+
+          const { hour } = tweet;
+
+          if (i === 1) {
+            periods.push({ startDate: hour, endDate: match?.hour?.$lte });
+          } else if (i === nbBatches) {
+            periods.push({ endDate: previousHour, startDate: match?.hour?.$gte });
+          } else {
+            periods.push({ startDate: hour, endDate: previousHour });
+          }
+          previousHour = dayjs(hour).add(-1, 'hour').toDate();
+        } catch (e) {
+          console.error(e);
+          // we did a wrong iteration
+          break;
+        }
+      }
+    }
+    return { search, nbTweets, periods };
+  } catch (e) {
+    console.error(e);
+    throw new Error(`Could not find search in getWithData for ${name}`);
+  }
+};
+
+export const getTweets = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+
+  const sortTweetsAggregation = (sort: any) => [
+    {
+      $match: match,
+    },
+    {
+      $sort: sort,
+    },
+    {
+      $limit: 3,
+    },
+  ];
+
+  return {
+    firstTweets: await TweetModel.aggregate(sortTweetsAggregation({ date: 1 })),
+    mostRetweetedTweets: await TweetModel.aggregate(sortTweetsAggregation({ retweetCount: -1 })),
+    mostLikedTweets: await TweetModel.aggregate(sortTweetsAggregation({ likeCount: -1 })),
+    mostQuotedTweets: await TweetModel.aggregate(sortTweetsAggregation({ quoteCount: -1 })),
+    mostCommentedTweets: await TweetModel.aggregate(sortTweetsAggregation({ replyCount: -1 })),
+  };
 };

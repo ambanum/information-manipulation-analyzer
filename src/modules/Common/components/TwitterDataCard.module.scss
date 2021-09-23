@@ -43,7 +43,6 @@
   }
 
   .infosWrapper{
-
     margin-left:4px;
   }
 
@@ -54,7 +53,20 @@
   }
 
   .infosWrapper_name {
-   
+    > a{
+      display:flex; 
+      align-items:baseline;
+      box-shadow: none;
+      white-space: nowrap;
+      
+      > span{
+        box-shadow: var(--link-underline);
+        text-overflow: ellipsis;
+        word-break: break-all;
+        overflow: hidden;
+        max-width:170px;
+      }
+    } 
   }
 
   h6 {

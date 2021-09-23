@@ -1,25 +1,31 @@
+import 'react-tabs/style/react-tabs.css';
+
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+
 import Alert from 'modules/Common/components/Alert/Alert';
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
-import Card from 'components/Card';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
-import { LanguageGraphProps } from '../../components/Charts/LanguageGraph.d';
 import Layout from 'modules/Embassy/components/Layout';
 import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
+import { PieChartProps } from '../../components/Charts/PieChart.d';
 import React from 'react';
+import Tile from 'modules/Common/components/Tile/Tile';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
 import api from 'utils/api';
+import classNames from 'classnames';
 import dayjs from 'dayjs';
 import debounce from 'lodash/debounce';
 import dynamic from 'next/dynamic';
 import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
+import useSplitSWR from 'hooks/useSplitSWR';
 import useUrl from 'hooks/useUrl';
 
 const ssrConfig = {
@@ -31,6 +37,7 @@ const LanguageData = dynamic(() => import('../../data-components/Language'), ssr
 const HashtagData = dynamic(() => import('../../data-components/Hashtag'), ssrConfig);
 const UsernameData = dynamic(() => import('../../data-components/Username'), ssrConfig);
 const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), ssrConfig);
+const TweetsData = dynamic(() => import('../../data-components/Tweets'), ssrConfig);
 
 export { default as getStaticPaths } from './[search].staticPaths';
 export { default as getStaticProps } from './[search].staticProps';
@@ -41,7 +48,7 @@ const REFRESH_INTERVALS = {
   DONE_ERROR: 0,
   DONE_FIRST_FETCH: 0,
   PENDING: 5 * 1000,
-  PROCESSING: 3 * 1000,
+  PROCESSING: 15 * 1000,
   '': 5 * 1000,
 };
 
@@ -76,14 +83,14 @@ const SearchPage = ({
     REFRESH_INTERVALS[defaultSearch?.status || '']
   );
 
-  const { data, isValidating } = useSWR<GetSearchResponse>(
-    searchName
-      ? `/api/searches/${encodeURIComponent(searchName as string)}${queryParamsStringified}`
-      : null,
+  const { data, loading, error } = useSplitSWR(
+    searchName ? `/api/searches/${encodeURIComponent(searchName as string)}/split` : null,
     {
       initialData: {
         status: 'ok',
         message: '',
+        nbLoaded: -1,
+        nbToLoad: -1,
         search: defaultSearch,
         nbTweets: defaultNbTweets,
         volumetry: defaultVolumetry,
@@ -91,14 +98,22 @@ const SearchPage = ({
         nbAssociatedHashtags: defaultNbAssociatedHashtags,
       },
       refreshInterval,
-      revalidateOnMount: true,
+      revalidateOnMount: false,
       revalidateOnFocus: false,
     }
   );
 
-  const loadingData = !data || isValidating;
+  const loadingData = !data || loading;
 
-  const { nbTweets = 0, volumetry = [], nbUsernames = 0, nbAssociatedHashtags = 0 } = data || {};
+  const {
+    nbTweets = 0,
+    volumetry = [],
+    nbUsernames = 0,
+    nbAssociatedHashtags = 0,
+    nbToLoad,
+    nbLoaded,
+    search,
+  } = data || {};
   const {
     status = '',
     metadata,
@@ -106,10 +121,10 @@ const SearchPage = ({
     firstOccurenceDate,
     oldestProcessedDate,
     newestProcessedDate,
-  } = data?.search || {};
+  } = search || {};
 
-  const gatheringData = ['PROCESSING', 'PENDING'].includes(status);
-
+  const gatheringData = ['PROCESSING', 'PENDING', undefined, ''].includes(status);
+  const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (scale, point) => {
       window.open(
@@ -119,7 +134,7 @@ const SearchPage = ({
     [searchName]
   );
 
-  const onPieClick: LanguageGraphProps['onSliceClick'] = React.useCallback(
+  const onPieClick: PieChartProps['onSliceClick'] = React.useCallback(
     ({ id: lang }) => {
       window.open(getTwitterLink(`${searchName}`, { lang: lang as string }));
     },
@@ -177,18 +192,20 @@ const SearchPage = ({
         const newMin = dataMin === min ? undefined : `${Math.round(min)}`;
         // For an unknown reason dataMax is always different than max, so dataMin === min is on purpose
         const newMax = dataMin === min ? undefined : `${Math.round(max)}`;
-
-        pushQueryParams({ ...router.query, min: newMin, max: newMax }, undefined, {
-          scroll: false,
-        });
+        if (queryParams.min !== newMin || queryParams.max !== newMax) {
+          pushQueryParams({ min: newMin, max: newMax }, undefined, {
+            scroll: false,
+            shallow: true,
+          });
+        }
       }
     }, 500),
-    [queryParams.min, queryParams.max]
+    [queryParams.min, queryParams.max, pushQueryParams]
   );
 
   React.useEffect(() => {
-    setRefreshInterval(REFRESH_INTERVALS[status]);
-  }, [status]);
+    setRefreshInterval(calculatedRefreshInterval);
+  }, [setRefreshInterval, calculatedRefreshInterval]);
 
   const isUrl = type === 'URL';
 
@@ -199,6 +216,23 @@ const SearchPage = ({
     <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
       {title && (
         <Hero>
+          {/* Should be a dedicated <Progress /> component */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              transition: '300ms ease',
+              width:
+                nbLoaded !== nbToLoad
+                  ? `${(nbLoaded / nbToLoad) * 100 || 5}%`
+                  : nbLoaded > 0
+                  ? '100%'
+                  : 0,
+              height: nbLoaded !== -1 && nbLoaded !== nbToLoad ? '5px' : 0,
+              background: 'var(--info)',
+            }}
+          />
           <div className="fr-container fr-container--fluid fr-py-12w">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col fr-p-0">
@@ -242,6 +276,18 @@ const SearchPage = ({
           </div>
         </Hero>
       )}
+      {nbToLoad > 3 && nbLoaded !== nbToLoad && (
+        <div className="fr-container fr-container-fluid fr-mt-4w">
+          <div className="fr-grid-row fr-grid-row--gutters">
+            <div className="fr-col">
+              <Alert size="small" type="info" className="fr-mb-2w">
+                As there is a large quantity of data, please wait for it to load completely (
+                {nbLoaded}/{nbToLoad}).
+              </Alert>
+            </div>
+          </div>
+        </div>
+      )}
 
       {(gatheringData || router.isFallback) && <Loading />}
 
@@ -281,6 +327,17 @@ const SearchPage = ({
           </div>
         </div>
       )}
+      {error && (
+        <div className="fr-container fr-container-fluid fr-mt-4w">
+          <div className="fr-grid-row fr-grid-row--gutters">
+            <div className="fr-col">
+              <Alert size="small" type="error" className="fr-mb-2w">
+                {error}
+              </Alert>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Breadcrumb */}
       <div className="fr-container fr-container-fluid fr-mt-0">
@@ -299,37 +356,40 @@ const SearchPage = ({
         </div>
       </div>
 
-      {type === 'URL' && (
-        <div className="fr-container fr-container-fluid fr-mb-2w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <Card
-                horizontal
-                enlargeLink
-                direction="right"
-                href={(searchName as string) || ''}
-                title={metadata?.url?.title}
-                detail={metadata?.url?.site}
-                description={metadata?.url?.description}
-                image={metadata?.url?.image?.url}
-                imageAlt={metadata?.url?.title}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Overview */}
       {nbTweets > 0 && (
-        <Overview
-          firstOccurenceDate={firstOccurenceDate}
-          searchName={searchName}
-          gatheringData={gatheringData}
-          loadingData={loadingData}
-          nbUsernames={nbUsernames}
-          totalNbTweets={nbTweets}
-          nbAssociatedHashtags={nbAssociatedHashtags}
-        ></Overview>
+        <Overview searchName={searchName}>
+          <div className="fr-col">
+            <Tile
+              title={firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'}
+              description="Date of first appearance"
+              loading={loadingData}
+            ></Tile>
+          </div>
+          <div className="fr-col">
+            <Tile
+              title={!gatheringData && !loadingData ? nbTweets.toLocaleString('en') : '-'}
+              description={'Total of Tweets'}
+              loading={loadingData}
+            ></Tile>
+          </div>
+          <div className="fr-col">
+            <Tile
+              title={!gatheringData && !loadingData ? nbUsernames.toLocaleString('en') : '-'}
+              description={'Total of active users'}
+              loading={loadingData}
+            ></Tile>
+          </div>
+          <div className="fr-col">
+            <Tile
+              title={
+                !gatheringData && !loadingData ? nbAssociatedHashtags.toLocaleString('en') : '-'
+              }
+              description={'Total of associated hashtags'}
+              loading={loadingData}
+            ></Tile>
+          </div>
+        </Overview>
       )}
 
       {nbTweets === 0 && status === 'DONE' && (
@@ -351,7 +411,7 @@ const SearchPage = ({
           <div className="fr-container fr-container-fluid">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
-                <h4 className="fr-mb-1v">{nbTweets} tweets</h4>
+                <h4 className="fr-mb-1v">{nbTweets.toLocaleString('en')} tweets</h4>
                 <p className="fr-mb-0">Some words about volumetry.</p>
               </div>
             </div>
@@ -359,7 +419,8 @@ const SearchPage = ({
               <div className="fr-col">
                 <VolumetryGraph
                   data={volumetry}
-                  defaultValues={queryParams}
+                  min={queryParams.min}
+                  max={queryParams.max}
                   onPointClick={onLineClick}
                   onFilterDateChange={onFilterDateChange}
                 />
@@ -367,34 +428,75 @@ const SearchPage = ({
             </div>
           </div>
           {/* Tabs */}
-          <div className="fr-container fr-container-fluid fr-mt-12w">
-            <LanguageData
-              search={searchName}
-              refreshInterval={refreshInterval}
-              onSliceClick={onPieClick}
-              queryParamsStringified={queryParamsStringified}
-            />
-            <UsernameData
-              search={searchName}
-              refreshInterval={refreshInterval}
-              onUsernameClick={onUsernameClick}
-              onUsernameSearchClick={onUsernameSearchClick}
-              queryParamsStringified={queryParamsStringified}
-              exportName={`${dayjs(newestProcessedDate).format(
-                'YYYYMMDDHH'
-              )}__${searchName}__associated-usernames`}
-            />
-            <HashtagData
-              search={searchName}
-              refreshInterval={refreshInterval}
-              onHashtagClick={onHashtagClick}
-              onHashtagSearchClick={onHashtagSearchClick}
-              queryParamsStringified={queryParamsStringified}
-              exportName={`${dayjs(newestProcessedDate).format(
-                'YYYYMMDDHH'
-              )}__${searchName}__associated-hashtags`}
-            />
-          </div>
+          <Tabs
+            forceRenderTabPanel={true}
+            selectedTabClassName={classNames(sReactTabs.selectedTab, 'react-tabs__tab--selected"')}
+            selectedTabPanelClassName={classNames(
+              sReactTabs.selectedTabPanel,
+              'react-tabs__tab-panel--selected'
+            )}
+          >
+            <div className="fr-container fr-container-fluid fr-mt-12w">
+              <TabList
+                className={classNames(
+                  'fr-grid-row fr-grid-row--gutters react-tabs__tab-list',
+                  sReactTabs.tabList
+                )}
+              >
+                <Tab className={sReactTabs.tab}>Languages</Tab>
+                <Tab className={sReactTabs.tab}>Users</Tab>
+                <Tab className={sReactTabs.tab}>Associated hashtags</Tab>
+                <Tab className={sReactTabs.tab}>Tweets</Tab>
+              </TabList>
+            </div>
+            <div className="fr-container fr-container-fluid">
+              <TabPanel>
+                <LanguageData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  onSliceClick={onPieClick}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__languages`}
+                />
+              </TabPanel>
+
+              <TabPanel>
+                <UsernameData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  onUsernameClick={onUsernameClick}
+                  onUsernameSearchClick={onUsernameSearchClick}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__associated-usernames`}
+                />
+              </TabPanel>
+
+              <TabPanel>
+                <HashtagData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  onHashtagClick={onHashtagClick}
+                  onHashtagSearchClick={onHashtagSearchClick}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__associated-hashtags`}
+                />
+              </TabPanel>
+
+              <TabPanel>
+                <TweetsData
+                  search={searchName}
+                  refreshInterval={refreshInterval}
+                  queryParamsStringified={queryParamsStringified}
+                />
+              </TabPanel>
+            </div>
+          </Tabs>
         </>
       )}
     </Layout>

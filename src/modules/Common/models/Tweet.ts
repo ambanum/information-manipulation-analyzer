@@ -165,6 +165,11 @@ schema.virtual('inReplyToTweet', {
   justOne: true,
 });
 
+schema.index({ date: 1, searches: 1 });
+schema.index({ hour: -1, searches: 1 });
+schema.index({ hour: 1, searches: 1 });
+schema.index({ searches: 1, hour: -1 });
+
 const TweetModel: Model<Tweet> = models?.Tweet || model('Tweet', schema);
 
 export default TweetModel;

@@ -14,9 +14,10 @@ import {
 } from '../models/Search';
 
 import { HashtagTableProps } from '../components/Datatables/HashtagTable.d';
-import { LanguageGraphProps } from '../components/Charts/LanguageGraph.d';
 import { SearchVolumetry as ModelSearchVolumetry } from '../models/SearchVolumetry';
+import { Tweet as ModelTweet } from '../models/Tweet';
 import { User as ModelUser } from '../models/User';
+import { PieChartProps } from '../components/Charts/PieChart.d';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 
@@ -32,6 +33,12 @@ export interface CommonResponse {
 export type QueueItem = ModelQueueItem;
 export type QueueItemStatuses = ModelQueueItemStatuses;
 export type QueueItemActionTypes = ModelQueueItemActionTypes;
+
+/******************************************
+ * Tweet
+ ******************************************/
+
+export type Tweet = ModelTweet;
 
 /******************************************
  * User
@@ -78,7 +85,7 @@ export interface CreateSearchResponse extends CommonResponse {
  * Languages
  ******************************************/
 export interface GetSearchLanguagesResponse extends CommonResponse {
-  languages?: LanguageGraphProps['data'];
+  languages?: PieChartProps['data'];
 }
 /******************************************
  * Hashtags
@@ -94,6 +101,30 @@ export interface GetSearchUsernamesResponse extends CommonResponse {
 }
 
 /******************************************
+ * Tweets
+ ******************************************/
+export interface GetSearchTweetsResponse extends CommonResponse {
+  firstTweets?: ModelTweet[];
+  mostRetweetedTweets?: ModelTweet[];
+  mostLikedTweets?: ModelTweet[];
+  mostQuotedTweets?: ModelTweet[];
+  mostCommentedTweets?: ModelTweet[];
+}
+
+/******************************************
  * SearchVolumetry
  ******************************************/
 export type SearchVolumetry = ModelSearchVolumetry;
+
+/******************************************
+ * SplitRequests
+ ******************************************/
+export interface GetSearchSplitRequestsResponse extends CommonResponse {
+  nbTweets?: number;
+  search?: Search;
+  filters?: {
+    startDate: string;
+    endDate: string;
+    name: string;
+  }[];
+}
