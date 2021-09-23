@@ -358,6 +358,17 @@ export const getUsernames = async (filters: SearchFilter) => {
       },
     },
     { $sort: { count: -1 } },
+    {
+      $lookup: {
+        from: 'users',
+        localField: '_id',
+        foreignField: 'username',
+        as: 'user',
+      },
+    },
+    {
+      $unwind: '$user',
+    },
   ];
 
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
@@ -368,6 +379,7 @@ export const getUsernames = async (filters: SearchFilter) => {
     label: rawResult._id,
     value: rawResult.count,
     percentage: rawResult.count / nbUsernames,
+    botScore: rawResult.user.botScore,
   }));
 };
 
