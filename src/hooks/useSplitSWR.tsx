@@ -5,7 +5,7 @@ import useSWR from 'swr';
 const useSplitSWR = (splitUrl: string | null, options: any) => {
   const [data, setData] = React.useState<any>(options.initialData);
   const [error, setError] = React.useState();
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
   const { data: splitData, isValidating, error: splitError } = useSWR(splitUrl, options);
   const splitLoading = !splitData || isValidating;
 
