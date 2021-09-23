@@ -1,9 +1,7 @@
 import * as React from 'react';
 
-import BotProbabilityGraph from '../components/Charts/BotProbabilityGraph';
 import { GetSearchUsernamesResponse } from '../interfaces';
 import Loading from 'components/Loading';
-import PieChart from '../components/Charts/PieChart';
 import UsernameTable from '../components/Datatables/UsernameTable';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
 import useSWR from 'swr';
