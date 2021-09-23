@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import BotProbabilityGraph from '../components/Charts/BotProbabilityGraph';
 import { GetSearchUsernamesResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import UsernameTable from '../components/Datatables/UsernameTable';
@@ -38,6 +39,20 @@ const DataUsername = ({
   if (usernames.length === 0) {
     return null;
   }
+
+  const botRepartition: any = usernames.reduce(
+    (repartition, user) => {
+      if (!user || !user.botScore) {
+        return repartition;
+      }
+      const value = Math.round(user.botScore * 100);
+      repartition[value]++;
+      return repartition;
+    },
+
+    [...Array(100)].map(() => 0)
+  );
+
   return (
     <div className="fr-col">
       <UsernameTable
@@ -47,22 +62,14 @@ const DataUsername = ({
         onUsernameSearchClick={onUsernameSearchClick}
         exportName={exportName}
       />
-      {/* <div className="fr-mt-8w">
+      <div className="fr-mt-8w">
         <BotProbabilityGraph
-          data={[
-            { y: 300, x: 10 },
-            { y: 500, x: 20 },
-            { y: 1500, x: 30 },
-            { y: 500, x: 40 },
-            { y: 3000, x: 50 },
-            { y: 10, x: 60 },
-            { y: 2500, x: 70 },
-            { y: 700, x: 80 },
-            { y: 800, x: 90 },
-            { y: 300, x: 100 },
-          ]}
+          data={botRepartition.map((value: number, index: number) => ({
+            x: index,
+            y: value,
+          }))}
         />
-      </div> */}
+      </div>
       {/* <div className="fr-mt-8w">
         <PieChart
           title="Proportion of deleted and suspended account"

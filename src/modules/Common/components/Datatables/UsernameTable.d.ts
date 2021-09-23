@@ -12,4 +12,5 @@ export interface Username {
   label: string;
   value: number;
   percentage?: number;
+  botScore?: number;
 }

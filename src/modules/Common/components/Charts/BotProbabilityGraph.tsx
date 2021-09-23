@@ -20,7 +20,7 @@ const BotProbabilityGraph = (props: BotProbabilityGraphProps & HighchartsReact.P
     },
     colors: paletteColors,
     xAxis: {
-      categories: ['0', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'],
+      categories: [...Array(props.data.length)].map((_, index) => `${index}%`),
     },
     yAxis: {
       title: {
