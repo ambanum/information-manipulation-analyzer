@@ -32,7 +32,7 @@ jobs:
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.SSH_GITHUB_ACTIONS_PRIVATE_KEY }} # generate with ssh-keygen -t rsa -b 4096 -C "martin.ratinaud@beta.gouv.fr"
+          key: ${{ secrets.SSH_GITHUB_ACTIONS_PRIVATE_KEY }} # generate with ssh-keygen -t rsa -b 4096 -C "martin.ratinaud@beta.gouv.fr" and then cat <nameyougave>.pub >> authorized_keys
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }} # generate with ssh-keyscan -H 51.89.231.68
       - run: echo "${{ secrets.ANSIBLE_VAULT_PASSWORD }}" > vault.key # in Safety Box https://github.com/ambanum/disinfo.quaidorsay.fr/wiki/Safety-box
       - run: pip install --upgrade setuptools
