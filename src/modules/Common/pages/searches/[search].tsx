@@ -40,6 +40,9 @@ const HashtagData = dynamic(() => import('../../data-components/Hashtag'), ssrCo
 const UsernameData = dynamic(() => import('../../data-components/Username'), ssrConfig);
 const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), ssrConfig);
 const TweetsData = dynamic(() => import('../../data-components/Tweets'), ssrConfig);
+const VideosData = dynamic(() => import('../../data-components/Videos'), ssrConfig);
+const PhotosData = dynamic(() => import('../../data-components/Photos'), ssrConfig);
+const OutlinksData = dynamic(() => import('../../data-components/Outlinks'), ssrConfig);
 
 export { default as getStaticPaths } from './[search].staticPaths';
 export { default as getStaticProps } from './[search].staticProps';
@@ -458,6 +461,7 @@ const SearchPage = ({
                 <Tab className={sReactTabs.tab}>Users</Tab>
                 <Tab className={sReactTabs.tab}>Associated hashtags</Tab>
                 <Tab className={sReactTabs.tab}>Tweets</Tab>
+                <Tab className={sReactTabs.tab}>Medias</Tab>
               </TabList>
             </div>
             <div className="fr-container fr-container-fluid">
@@ -505,6 +509,34 @@ const SearchPage = ({
                   refreshInterval={refreshInterval}
                   queryParamsStringified={queryParamsStringified}
                 />
+              </TabPanel>
+
+              <TabPanel>
+                <VideosData
+                  search={searchName}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__medias-videos`}
+                />
+                <div className="fr-mt-8w">
+                  <PhotosData
+                    search={searchName}
+                    queryParamsStringified={queryParamsStringified}
+                    exportName={`${dayjs(newestProcessedDate).format(
+                      'YYYYMMDDHH'
+                    )}__${searchName}__medias-photos`}
+                  />
+                </div>
+                <div className="fr-mt-8w">
+                  <OutlinksData
+                    search={searchName}
+                    queryParamsStringified={queryParamsStringified}
+                    exportName={`${dayjs(newestProcessedDate).format(
+                      'YYYYMMDDHH'
+                    )}__${searchName}__medias-outlinks`}
+                  />
+                </div>
               </TabPanel>
             </div>
           </Tabs>
