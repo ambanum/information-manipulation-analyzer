@@ -5,6 +5,8 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import Alert from 'modules/Common/components/Alert/Alert';
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
+import FilterItem from 'modules/Common/components/Filters/FilterItem';
+import Filters from 'modules/Common/components/Filters/Filters';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
@@ -427,6 +429,15 @@ const SearchPage = ({
               </div>
             </div>
           </div>
+
+          {/* Filters */}
+          <Filters>
+            <FilterItem>Oct 31 2020 to Aug 26 2021</FilterItem>
+            <FilterItem>French</FilterItem>
+            <FilterItem>#hashtag</FilterItem>
+            <FilterItem>#hashtag2</FilterItem>
+          </Filters>
+
           {/* Tabs */}
           <Tabs
             forceRenderTabPanel={true}
@@ -436,7 +447,7 @@ const SearchPage = ({
               'react-tabs__tab-panel--selected'
             )}
           >
-            <div className="fr-container fr-container-fluid fr-mt-12w">
+            <div className="fr-container fr-container-fluid fr-mt-6w">
               <TabList
                 className={classNames(
                   'fr-grid-row fr-grid-row--gutters react-tabs__tab-list',
