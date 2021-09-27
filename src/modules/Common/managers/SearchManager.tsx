@@ -383,6 +383,106 @@ export const getUsernames = async (filters: SearchFilter) => {
   }));
 };
 
+// Get Photos
+export const getPhotos = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: { ...match, 'media.type': 'photo' },
+    },
+    {
+      $unwind: '$media',
+    },
+    {
+      $match: { 'media.type': 'photo' },
+    },
+    {
+      $group: {
+        _id: '$media.fullUrl',
+        detail: { $first: '$media' },
+        count: { $sum: 1 },
+      },
+    },
+    {
+      $unwind: '$detail',
+    },
+    { $sort: { count: -1 } },
+  ];
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
+
+  return rawResults.map(({ detail: { _id, ...detail }, count }: any) => ({
+    ...detail,
+    count,
+  }));
+};
+
+//Get videos
+export const getVideos = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: { ...match, 'media.type': 'video' },
+    },
+    {
+      $unwind: '$media',
+    },
+    {
+      $match: { 'media.type': 'video' },
+    },
+    {
+      $group: {
+        _id: '$media.fullUrl',
+        detail: { $first: '$media' },
+        count: { $sum: 1 },
+      },
+    },
+    {
+      $unwind: '$detail',
+    },
+    { $sort: { count: -1 } },
+  ];
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
+
+  return rawResults.map(({ detail: { _id, ...detail }, count }: any) => ({
+    ...detail,
+    count,
+  }));
+};
+
+//Get Outlinks
+export const getOutlinks = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: match,
+    },
+    {
+      $unwind: '$outlinks',
+    },
+    {
+      $group: {
+        _id: '$outlinks',
+        count: { $sum: 1 },
+      },
+    },
+    { $sort: { count: -1 } },
+  ];
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
+
+  console.log(''); //eslint-disable-line
+  console.log('╔════START════════════════════════════════════════════════════'); //eslint-disable-line
+  console.log(JSON.stringify(rawResults, null, 2)); //eslint-disable-line
+  console.log('╚════END══════════════════════════════════════════════════════'); //eslint-disable-line
+
+  return rawResults.map((rawResult: any) => ({
+    url: rawResult._id,
+    count: rawResult.count,
+  }));
+};
+
 export const countUsernames = async (filters: SearchFilter) => {
   const match: any = getMatch(filters);
   const aggregation = [
