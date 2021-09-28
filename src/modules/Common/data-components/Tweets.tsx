@@ -62,7 +62,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
         {mostRetweetedTweets.map(({ id, retweetCount }) => (
           <div className="fr-col">
             <span className="fr-text--sm">
-              <strong>{retweetCount} RT</strong>
+              <strong>{retweetCount.toLocaleString('en')} RT</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>
@@ -77,7 +77,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
         {mostLikedTweets.map(({ id, likeCount }) => (
           <div className="fr-col">
             <span className="fr-text--sm">
-              <strong>{likeCount} likes</strong>
+              <strong>{likeCount.toLocaleString('en')} likes</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>
@@ -92,7 +92,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
         {mostQuotedTweets.map(({ id, quoteCount }) => (
           <div className="fr-col">
             <span className="fr-text--sm">
-              <strong>{quoteCount} quotes</strong>
+              <strong>{quoteCount.toLocaleString('en')} quotes</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>
@@ -107,7 +107,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
         {mostCommentedTweets.map(({ id, replyCount }) => (
           <div className="fr-col">
             <span className="fr-text--sm">
-              <strong>{replyCount} replies</strong>
+              <strong>{replyCount.toLocaleString('en')} replies</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>
