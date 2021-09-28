@@ -472,11 +472,6 @@ export const getOutlinks = async (filters: SearchFilter) => {
 
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
-  console.log(''); //eslint-disable-line
-  console.log('╔════START════════════════════════════════════════════════════'); //eslint-disable-line
-  console.log(JSON.stringify(rawResults, null, 2)); //eslint-disable-line
-  console.log('╚════END══════════════════════════════════════════════════════'); //eslint-disable-line
-
   return rawResults.map((rawResult: any) => ({
     url: rawResult._id,
     count: rawResult.count,
