@@ -7,6 +7,7 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
   const columns = [
     {
       Header: 'Video',
+      disableSortBy: true,
       accessor: 'fullUrl',
       size: 3,
       Cell: ({ value, raw }: any) => (

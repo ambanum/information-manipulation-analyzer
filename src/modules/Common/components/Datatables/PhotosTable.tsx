@@ -7,6 +7,7 @@ const PhotosTable = ({ exportName, data, nbData }: PhotosTableProps) => {
   const columns = [
     {
       Header: 'Photo',
+      disableSortBy: true,
       accessor: 'fullUrl',
       size: 3,
       Cell: ({ value }: any) => (
