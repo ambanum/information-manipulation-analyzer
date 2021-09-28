@@ -1,0 +1,25 @@
+.table {
+  width: 100%;
+}
+
+.th {
+}
+
+.th__sortable {
+  display: flex !important;
+  align-items: center;
+}
+
+.th__sortedDown {
+}
+
+.th__sortedUp {
+}
+
+.th__notSorted {
+}
+
+.caption {
+  display: flex !important;
+  justify-content: space-between;
+}

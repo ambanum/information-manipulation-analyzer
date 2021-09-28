@@ -3,7 +3,9 @@ import React, { PropsWithChildren, ReactElement } from 'react';
 
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
-import styles from './Table.module.scss';
+import { RiArrowUpDownLine as IconArrowUpDown } from 'react-icons/ri';
+import classNames from 'classnames';
+import styles from './Table.module.css';
 import { useRouter } from 'next/router';
 
 // https://codesandbox.io/s/github/ggascoigne/react-table-example?file=/src/Table/Table.tsx
@@ -39,6 +41,7 @@ export interface TableProps<T extends Record<string, unknown>> extends TableOpti
   hideTitle?: boolean; // only use title for accessibility
   sortBy?: UseSortByState<T>['sortBy'];
   virtualize?: VirtualizeProps;
+  disableSortRemove?: boolean;
 }
 
 const hooks = [useSortBy];
@@ -82,6 +85,7 @@ export default function Table<T extends Record<string, unknown>>({
   hideTitle = false,
   exportable = false,
   virtualize,
+  disableSortRemove = true,
 }: PropsWithChildren<TableProps<T>>): ReactElement {
   const initialState: any = React.useMemo(
     () => (initialSortBy ? { sortBy: initialSortBy } : {}),
@@ -90,6 +94,8 @@ export default function Table<T extends Record<string, unknown>>({
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable(
     {
+      //@ts-ignore
+      disableSortRemove,
       columns,
       data,
       initialState,
@@ -182,27 +188,39 @@ export default function Table<T extends Record<string, unknown>>({
                 // @ts-ignore
                 const sortByProps = column.getSortByToggleProps();
                 // @ts-ignore
-                const { isSorted, isSortedDesc, headerClassName } = column;
+                const { isSorted, isSortedDesc, headerClassName, canSort } = column;
                 const headerProps = column.getHeaderProps(sortByProps);
+
+                //@ts-ignore
+                const alignClasses = getAlignClass(column.align);
+                //@ts-ignore
+                const sizeClasses = getSizeClass(column.size);
 
                 return (
                   <div
                     {...headerProps}
-                    className={`th ${
+                    className={classNames(
+                      'th',
+                      styles.th,
+                      canSort ? styles.th__sortable : '',
                       isSorted
                         ? isSortedDesc
-                          ? 'react-table--sorted-down'
-                          : 'react-table--sorted-up'
-                        : ''
-                    } ${headerClassName || ''} ${
-                      //@ts-ignore
-                      getAlignClass(column.align)
-                    } ${
-                      //@ts-ignore
-                      getSizeClass(column.size)
-                    }`}
+                          ? styles.th__sortedDown
+                          : styles.th__sortedUp
+                        : styles.th__notSorted,
+                      headerClassName,
+                      alignClasses,
+                      sizeClasses
+                    )}
                   >
-                    {column.render('Header')}
+                    <div>{column.render('Header')}</div>
+
+                    {canSort &&
+                      (isSorted ? (
+                        <IconArrowUpDown className="fr-ml-1v" style={{ color: 'var(--bf500)' }} />
+                      ) : (
+                        <IconArrowUpDown className="fr-ml-1v" style={{ color: 'var(--g500)' }} />
+                      ))}
                   </div>
                 );
               })}
