@@ -4,7 +4,10 @@ import { GetSearchTweetsResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 import useSWR from 'swr';
+
+dayjs.extend(localizedFormat);
 
 interface DataTweetsProps {
   search: string;
@@ -44,7 +47,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
         {firstTweets.map(({ id, date }) => (
           <div className="fr-col">
             <span className="fr-text--sm">
-              <strong>{dayjs(date).format('MMMM D, YYYY h:mm A')}</strong>
+              <strong>{dayjs(date).format('llll')}</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>
