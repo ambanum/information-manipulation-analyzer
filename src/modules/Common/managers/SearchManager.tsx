@@ -281,7 +281,7 @@ export const getLanguages = async (filters: SearchFilter) => {
     },
   ];
 
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
   const nbLanguages = sumBy('count')(rawResults);
 
   return rawResults.map((rawResult: any) => ({
@@ -340,7 +340,7 @@ export const countHashtags = async (filters: SearchFilter) => {
       },
     },
   ];
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   return rawResults[0]?.count;
 };
@@ -498,7 +498,7 @@ export const countUsernames = async (filters: SearchFilter) => {
     },
   ];
 
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   return rawResults[0]?.count;
 };
