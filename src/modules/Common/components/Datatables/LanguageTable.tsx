@@ -13,9 +13,9 @@ const LanguageTable = ({ exportName, data, title, subtitle }: LanguageTableProps
       size: 3,
     },
     {
+      sortType: 'number',
       Header: 'Percentage',
       accessor: 'percentage',
-
       Cell: ({ row }: any) => (
         <Number value={row?.original?.percentage} percent={true} precision={3} />
       ),
