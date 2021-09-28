@@ -11,7 +11,7 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
       accessor: 'fullUrl',
       size: 3,
       Cell: ({ value, raw }: any) => (
-        <video controls width="256" height="144" poster={raw?.original?.thumbnailUrl}>
+        <video controls width="344" height="194" poster={raw?.original?.thumbnailUrl}>
           <source src={value} type={raw?.original?.contentType}></source>
         </video>
       ),
@@ -20,6 +20,27 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
       Header: 'Count',
       accessor: 'count',
       align: 'right',
+      size: 1,
+    },
+    {
+      Header: 'Actions',
+      align: 'right',
+      Cell: ({ ...rest }: any) => {
+        return (
+          <ul className="fr-btns-group fr-btns-group--sm fr-btns-group--right fr-btns-group--inline">
+            <li>
+              <button
+                type="button"
+                className="fr-btn fr-btn fr-btn--secondary fr-fi-external-link-line fr-btn--icon-left"
+                title={`Go to ${rest.row?.original?.fullUrl}`}
+                onClick={() => {
+                  window.open(rest.row?.original.fullUrl, '_blank');
+                }}
+              ></button>
+            </li>
+          </ul>
+        );
+      },
       size: 1,
     },
   ];
@@ -38,7 +59,7 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
       ]}
       layoutFixed
       noScroll
-      virtualize={{ height: 500, itemSize: 164 }}
+      virtualize={{ height: 500, itemSize: 214 }}
       exportable={{
         name: exportName,
       }}
