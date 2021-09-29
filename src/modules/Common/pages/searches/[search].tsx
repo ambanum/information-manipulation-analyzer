@@ -88,7 +88,9 @@ const SearchPage = ({
   );
 
   const { data, loading, error } = useSplitSWR(
-    searchName ? `/api/searches/${encodeURIComponent(searchName as string)}/split` : null,
+    searchName
+      ? `/api/searches/${encodeURIComponent(searchName as string)}/split${queryParamsStringified}`
+      : null,
     {
       initialData: {
         status: 'ok',
@@ -205,6 +207,15 @@ const SearchPage = ({
       }
     }, 500),
     [queryParams.min, queryParams.max, pushQueryParams]
+  );
+  const onFilterLangChange: any = React.useCallback(
+    (lang: string) => {
+      pushQueryParams({ lang }, undefined, {
+        scroll: false,
+        shallow: true,
+      });
+    },
+    [pushQueryParams]
   );
 
   React.useEffect(() => {
@@ -463,6 +474,7 @@ const SearchPage = ({
                   search={searchName}
                   refreshInterval={refreshInterval}
                   onSliceClick={onPieClick}
+                  onFilter={onFilterLangChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'

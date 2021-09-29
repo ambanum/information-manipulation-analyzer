@@ -9,7 +9,7 @@ import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const getVideos =
-  (filter: { name: string; min?: string; max?: string }) =>
+  (filter: { name: string; min?: string; max?: string; lang?: string }) =>
   async (res: NextApiResponse<GetSearchVideosResponse>) => {
     try {
       const search = await SearchManager.get({ name: filter.name });
@@ -23,6 +23,7 @@ const getVideos =
         searchIds: [search._id],
         startDate: filter.min,
         endDate: filter.max,
+        lang: filter.lang,
       });
       if (filter.min && filter.max) {
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);
@@ -30,12 +31,11 @@ const getVideos =
       res.statusCode = HttpStatusCode.OK;
       res.json({ status: 'ok', message: 'Search videos details', videos });
       return res;
-    } catch (e:any) {
+    } catch (e: any) {
       res.statusCode = HttpStatusCode.METHOD_FAILURE;
       res.json({ status: 'ko', message: e.toString() });
     }
   };
-
 
 const search = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET' && req.query.name) {

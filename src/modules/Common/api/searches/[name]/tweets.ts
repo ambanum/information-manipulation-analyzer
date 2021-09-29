@@ -9,7 +9,7 @@ import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const getTweets =
-  (filter: { name: string; min?: string; max?: string }) =>
+  (filter: { name: string; min?: string; max?: string; lang?: string }) =>
   async (res: NextApiResponse<GetSearchTweetsResponse>) => {
     try {
       const search = await SearchManager.get({ name: filter.name });
@@ -23,6 +23,7 @@ const getTweets =
         searchIds: [search._id],
         startDate: filter.min,
         endDate: filter.max,
+        lang: filter.lang,
       });
 
       if (filter.min && filter.max) {

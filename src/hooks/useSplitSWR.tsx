@@ -32,6 +32,7 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
         const params: any = {};
         if (period.startDate) params.min = new Date(period.startDate).getTime();
         if (period.endDate) params.max = new Date(period.endDate).getTime();
+        if (period.lang) params.lang = period.lang;
 
         const searchParams = new URLSearchParams(params).toString();
         try {

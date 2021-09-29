@@ -5,7 +5,7 @@ import Number from 'components/Number';
 import React from 'react';
 import Table from 'components/Table';
 
-const LanguageTable = ({ exportName, data, title, subtitle }: LanguageTableProps) => {
+const LanguageTable = ({ exportName, data, title, subtitle, onFilter }: LanguageTableProps) => {
   const columns = [
     {
       Header: 'Language',
@@ -25,16 +25,16 @@ const LanguageTable = ({ exportName, data, title, subtitle }: LanguageTableProps
     {
       Header: 'Actions',
       align: 'right',
-      Cell: ({ ...rest }: any) => {
+      Cell: ({ row }: any) => {
         return (
           <ul className="fr-btns-group fr-btns-group--sm fr-btns-group--right fr-btns-group--inline">
             <li>
               <button
-                disabled={true}
                 type="button"
                 className="fr-btn fr-btn fr-btn--secondary fr-btn--icon-left"
                 style={{ paddingLeft: '0.56rem', paddingRight: '0.56rem' }}
-                title={`Filter by ${rest.row?.original?.label}`}
+                title={`Filter by ${row?.original?.label}`}
+                onClick={() => onFilter(row?.original?.id)}
               >
                 <IconFilter style={{ color: 'var(--g600-g400)' }} />
               </button>
