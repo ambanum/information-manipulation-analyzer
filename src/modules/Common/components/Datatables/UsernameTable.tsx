@@ -36,6 +36,8 @@ const UsernameTable = ({
     },
     {
       Header: 'Bot score',
+      canSort: true,
+      sortType: 'number',
       Cell: ({ row }: any) => {
         return <UserBotScore username={row?.original?.label} type="raw" />;
       },
