@@ -92,11 +92,21 @@ const useUrl = () => {
     [pushParam]
   );
 
-  const removeQueryParam = React.useCallback(
-    (paramName: string) => {
-      pushQueryParams({ ...queryParams, [paramName]: undefined });
+  const removeQueryParams = React.useCallback(
+    (paramNames: string[]) => {
+      const newParams = { ...queryParams };
+      paramNames.forEach((paramName) => {
+        newParams[paramName] = undefined;
+      });
+
+      pushQueryParams(newParams);
     },
     [pushQueryParams, queryParams]
+  );
+
+  const removeQueryParam = React.useCallback(
+    (paramName: string) => removeQueryParams([paramName]),
+    [removeQueryParams]
   );
 
   return {
@@ -106,6 +116,7 @@ const useUrl = () => {
     pushQueryParams,
     pushQueryParam,
     removeQueryParam,
+    removeQueryParams,
   };
 };
 
