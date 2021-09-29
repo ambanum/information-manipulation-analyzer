@@ -136,6 +136,15 @@ const VolumetryGraph = ({
   }, [isNewData]);
 
   React.useEffect(() => {
+    if (!min || !max) {
+      // min and max have been reset by an external action
+      const { chart } = chartRef?.current || ({} as any);
+
+      chart && chart?.zoom();
+    }
+  }, [min, max]);
+
+  React.useEffect(() => {
     if (
       (previousXscale === chartXscaleDisplay ||
         (!previousXscale && chartXscaleDisplay === 'hour')) &&
