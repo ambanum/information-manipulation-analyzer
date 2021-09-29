@@ -45,7 +45,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {firstTweets.map(({ id, date }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`first_${id}`}>
             <span className="fr-text--sm">
               <strong>{dayjs(date).format('llll')}</strong>
             </span>
@@ -60,7 +60,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostRetweetedTweets.map(({ id, retweetCount }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`retweet_${id}`}>
             <span className="fr-text--sm">
               <strong>{retweetCount.toLocaleString('en')} RT</strong>
             </span>
@@ -75,7 +75,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostLikedTweets.map(({ id, likeCount }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`liked_${id}`}>
             <span className="fr-text--sm">
               <strong>{likeCount.toLocaleString('en')} likes</strong>
             </span>
@@ -90,7 +90,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostQuotedTweets.map(({ id, quoteCount }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`quote_${id}`}>
             <span className="fr-text--sm">
               <strong>{quoteCount.toLocaleString('en')} quotes</strong>
             </span>
@@ -105,7 +105,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostCommentedTweets.map(({ id, replyCount }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`comment_${id}`}>
             <span className="fr-text--sm">
               <strong>{replyCount.toLocaleString('en')} replies</strong>
             </span>

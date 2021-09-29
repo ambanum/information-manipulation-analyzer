@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import s from './FilterItem.module.css';
+import s from './FilterItem.module.scss';
 
 type FilterItemProps = {
   onRemove: () => void;

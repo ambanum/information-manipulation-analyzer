@@ -13,6 +13,7 @@ interface DataLanguageProps {
   search: string;
   refreshInterval: number;
   onSliceClick: PieChartProps['onSliceClick'];
+  onFilter: LanguageTableProps['onFilter'];
   exportName: LanguageTableProps['exportName'];
 }
 
@@ -20,6 +21,7 @@ const DataLanguage = ({
   search,
   refreshInterval,
   onSliceClick,
+  onFilter,
   queryParamsStringified,
   exportName,
 }: DataLanguageProps) => {
@@ -55,6 +57,7 @@ const DataLanguage = ({
           subtitle="Every languages used listed"
           data={languages}
           exportName={exportName}
+          onFilter={onFilter}
         />
       </div>
     </div>
