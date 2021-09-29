@@ -18,6 +18,18 @@ if (typeof Highcharts === 'object') {
 }
 export type GraphXScale = 'day' | 'hour';
 
+const dataNotEqual = (first: [number, number][], second: [number, number][]) => {
+  if (first.length !== second.length) {
+    return true;
+  }
+  for (let i = 0; i < first.length; i++) {
+    if (first[i][0] !== second[i][0] || first[i][1] !== second[i][1]) {
+      return true;
+    }
+  }
+  return false;
+};
+
 export interface InitialSerie {
   id: string;
   name: any;
@@ -117,7 +129,7 @@ const VolumetryGraph = ({
     options.series &&
     previousXscale === chartXscaleDisplay &&
     // @ts-ignore
-    (options?.series[0]?.data || []).length !== previousSeries[0].data.length;
+    dataNotEqual(options?.series[0]?.data || [], previousSeries[0].data);
 
   const changeXScale = React.useCallback(
     (newXScale: GraphXScale) => () => {
