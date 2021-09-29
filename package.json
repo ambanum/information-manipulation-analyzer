@@ -17,6 +17,7 @@
     "deploy:tflmi:preproduction": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=tflmi-preproduction\" -vvv",
     "deploy:tflmi:production": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=tflmi-production\" -vvv",
     "deploy:ambnum:production": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=ambnum-production\" -vvv",
+    "deploy:cyber:production": "ansible-playbook ops/site.yml -v -i ops/inventories/production.yml -e \"ENV=cyber-production\" -vvv",
     "docker:build:preproduction": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.preproduction",
     "docker:build:production": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.production",
     "docker:build:tflmi:preproduction": "docker build -t $npm_package_name . --build-arg ENV_FILE=.env.local.tflmi.preproduction",
