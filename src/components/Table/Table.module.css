@@ -23,3 +23,21 @@
   display: flex !important;
   justify-content: space-between;
 }
+
+.iconSortable {
+  position: relative;
+  width: 0.875rem;
+  height: 23px;
+}
+
+.iconSortable > svg {
+  position: absolute;
+  left: 0;
+}
+
+.iconSortable > svg:first-child {
+  top: 0;
+}
+.iconSortable > svg:last-child {
+  bottom: 0;
+}

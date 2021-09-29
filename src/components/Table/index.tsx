@@ -1,9 +1,12 @@
 import { Column, Row, TableOptions, UseSortByState, useSortBy, useTable } from 'react-table';
+import {
+  RiArrowDownSLine as IconSmallArrowDown,
+  RiArrowUpSLine as IconSmallArrowUp,
+} from 'react-icons/ri';
 import React, { PropsWithChildren, ReactElement } from 'react';
 
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeList } from 'react-window';
-import { RiArrowUpDownLine as IconArrowUpDown } from 'react-icons/ri';
 import classNames from 'classnames';
 import styles from './Table.module.css';
 import { useRouter } from 'next/router';
@@ -196,6 +199,20 @@ export default function Table<T extends Record<string, unknown>>({
                 //@ts-ignore
                 const sizeClasses = getSizeClass(column.size);
 
+                //Sortable arrows icons colors
+                let colorUp = 'var(--g500)';
+                let colorDown = 'var(--g500)';
+
+                if (canSort && isSorted) {
+                  if (isSortedDesc) {
+                    colorUp = 'var(--bf500)';
+                    colorDown = 'var(--g500)';
+                  } else {
+                    colorUp = 'var(--g500)';
+                    colorDown = 'var(--bf500)';
+                  }
+                }
+
                 return (
                   <div
                     {...headerProps}
@@ -215,12 +232,12 @@ export default function Table<T extends Record<string, unknown>>({
                   >
                     <div>{column.render('Header')}</div>
 
-                    {canSort &&
-                      (isSorted ? (
-                        <IconArrowUpDown className="fr-ml-1v" style={{ color: 'var(--bf500)' }} />
-                      ) : (
-                        <IconArrowUpDown className="fr-ml-1v" style={{ color: 'var(--g500)' }} />
-                      ))}
+                    {canSort && (
+                      <div className={classNames(styles.iconSortable, 'fr-ml-1v')}>
+                        <IconSmallArrowUp size="0.875rem" style={{ color: colorUp }} />
+                        <IconSmallArrowDown size="0.875rem" style={{ color: colorDown }} />
+                      </div>
+                    )}
                   </div>
                 );
               })}
