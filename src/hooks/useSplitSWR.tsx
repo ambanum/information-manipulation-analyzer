@@ -49,6 +49,8 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
       ...data,
       nbTweets,
       search,
+      nbUsernames: 0,
+      nbAssociatedHashtags: 0,
       nbLoaded: 0,
       nbToLoad: splittedPeriods.length,
     };
