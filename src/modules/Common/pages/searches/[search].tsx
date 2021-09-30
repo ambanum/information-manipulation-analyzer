@@ -47,8 +47,8 @@ export { default as getStaticPaths } from './[search].staticPaths';
 export { default as getStaticProps } from './[search].staticProps';
 
 const REFRESH_INTERVALS = {
-  PROCESSING_PREVIOUS: 60 * 1 * 1000,
-  DONE: 60 * 60 * 1 * 1000,
+  PROCESSING_PREVIOUS: 60 * 1000,
+  DONE: 60 * 60 * 1000,
   DONE_ERROR: 0,
   DONE_FIRST_FETCH: 0,
   PENDING: 5 * 1000,

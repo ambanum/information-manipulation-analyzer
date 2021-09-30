@@ -10,7 +10,6 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
   const [data, setData] = React.useState<any>(options.initialData);
   const [error, setError] = React.useState();
   const [loading, setLoading] = React.useState(false);
-  const [loaded, setLoaded] = React.useState(false);
   const { data: splitData, isValidating, error: splitError } = useSWR(splitUrl, options);
   const previousSplitUrl = usePrevious(splitUrl);
   const splitLoading = !splitData || isValidating;
@@ -18,6 +17,8 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
   const { filters: splittedPeriods, search, nbTweets } = splitData || {};
 
   React.useEffect(() => {
+    // in case a new filter has been added, we need to show change the data
+    // so we replace all values by 0 until new data has been retrieved
     if (!splitUrl || !previousSplitUrl) {
       return;
     }
@@ -35,12 +36,12 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
           data: vol.data.map((d: any) => ({ ...d, y: 0 })),
         })),
       });
-      setLoaded(false);
     }
-  }, [previousSplitUrl, splitUrl, loaded]);
+  }, [previousSplitUrl, splitUrl]);
 
   React.useEffect(() => {
-    if (!splittedPeriods || splitLoading || loaded) {
+    // When a new split request has been found, retrieve all gathered periods
+    if (!splittedPeriods || splitLoading) {
       return;
     }
 
@@ -76,14 +77,25 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
             nbAssociatedHashtags:
               (aggregatedData.nbAssociatedHashtags || 0) + newData.nbAssociatedHashtags,
             volumetry: newData.volumetry.map((volumetryLine: any, i: number) => {
-              const newArray = [
+              const newArray: { [key: string]: number } = {};
+
+              // First, aggregate already retrieved data and new data
+              // and keep only the latest value
+              // if there are two records for a given date, first value will be overwritten by second one
+              [
                 ...((aggregatedData?.volumetry || [])[i]?.data || []),
                 ...volumetryLine.data,
-              ].sort((a, b) => new Date(a.x).getTime() - new Date(b.x).getTime());
+              ].forEach(({ x, y }) => (newArray[x] = y));
+
+              // Then, recreate the well formatted array
+              // and sort it by date
+              const newData = Object.keys(newArray)
+                .map((x: string) => ({ x, y: newArray[x] || 0 }))
+                .sort((a, b) => new Date(a.x).getTime() - new Date(b.x).getTime());
 
               return {
                 ...volumetryLine,
-                data: newArray,
+                data: newData,
               };
             }),
           };
@@ -95,10 +107,9 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
         }
       }
       setLoading(false);
-      setLoaded(true);
     };
     doFetchPeriods();
-  }, [splitLoading, setLoading, setData, setLoaded, loaded]);
+  }, [splitLoading, setLoading, setData]);
 
   return {
     data,
