@@ -238,9 +238,16 @@ export const getWithData = async ({
         }
         i++;
 
-        // Calculate number of tweets
-        nbTweets += volumetry.nbTweets;
-
+        if (
+          (!min && !max) ||
+          (min &&
+            max &&
+            volumetryDayJs.isAfter(dayjs(+min)) &&
+            volumetryDayJs.isBefore(dayjs(+max)))
+        ) {
+          // Calculate number of tweets
+          nbTweets += volumetry.nbTweets;
+        }
         return acc;
       },
       [
