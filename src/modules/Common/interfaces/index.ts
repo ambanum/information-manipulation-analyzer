@@ -17,8 +17,11 @@ import { HashtagTableProps } from '../components/Datatables/HashtagTable.d';
 import { SearchVolumetry as ModelSearchVolumetry } from '../models/SearchVolumetry';
 import { Tweet as ModelTweet } from '../models/Tweet';
 import { User as ModelUser } from '../models/User';
+import { OutlinksTableProps } from '../components/Datatables/OutlinksTable.d';
+import { PhotosTableProps } from '../components/Datatables/PhotosTable.d';
 import { PieChartProps } from '../components/Charts/PieChart.d';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
+import { VideosTableProps } from '../components/Datatables/VideosTable.d';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 
 export interface CommonResponse {
@@ -128,3 +131,25 @@ export interface GetSearchSplitRequestsResponse extends CommonResponse {
     name: string;
   }[];
 }
+
+/******************************************
+ * Videos
+ ******************************************/
+export interface GetSearchVideosResponse extends CommonResponse {
+  videos?: VideosTableProps['data'];
+}
+
+/******************************************
+ * Photos
+ ******************************************/
+export interface GetSearchPhotosResponse extends CommonResponse {
+  photos?: PhotosTableProps['data'];
+}
+
+/******************************************
+ * Outlinks
+ ******************************************/
+export interface GetSearchOutlinksResponse extends CommonResponse {
+  outlinks?: OutlinksTableProps['data'];
+}
+

@@ -5,11 +5,16 @@ import React from 'react';
 import Table from 'components/Table';
 import UserBotScore from 'modules/Common/data-components/UserBotScore';
 import UserData from 'modules/Common/data-components/UserData';
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+
+dayjs.extend(localizedFormat);
 
 const UsernameTable = ({
   exportName,
   data,
   onUsernameClick,
+  onUsernameViewClick,
   onUsernameSearchClick,
   nbData,
 }: UsernameTableProps) => {
@@ -23,19 +28,23 @@ const UsernameTable = ({
       size: 3,
     },
     {
-      Header: 'Date of first tweet',
-      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
+      Header: 'Account creation date',
+      accessor: ({ creationDate }: Username) => dayjs(creationDate).toDate(),
+      sortType: 'datetime',
+      Cell: ({ value }: any) => (
+        <div>
+          {dayjs(value).format('ll')}
+          <br />
+          {dayjs(value).fromNow()}
+        </div>
+      ),
       align: 'right',
       size: 2,
     },
     {
-      Header: 'Frequency',
-      align: 'right',
-      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
-      size: 1,
-    },
-    {
       Header: 'Bot score',
+      canSort: true,
+      sortType: 'number',
       Cell: ({ row }: any) => {
         return <UserBotScore username={row?.original?.label} type="raw" />;
       },
@@ -61,16 +70,18 @@ const UsernameTable = ({
                 className="fr-btn fr-btn fr-btn--secondary fr-fi-account-line fr-btn--icon-left"
                 title={`View complete profile of @${row?.original?.label}`}
                 onClick={() => {
-                  onUsernameSearchClick(row?.original?.label);
+                  onUsernameViewClick(row?.original?.label);
                 }}
               ></button>
             </li>
             <li>
               <button
-                disabled={true}
                 type="button"
                 className="fr-btn fr-btn fr-btn--secondary fr-fi-search-line fr-btn--icon-left"
                 title={`Search @${row?.original?.label}`}
+                onClick={() => {
+                  onUsernameSearchClick(row?.original?.label);
+                }}
               ></button>
             </li>
             <li>

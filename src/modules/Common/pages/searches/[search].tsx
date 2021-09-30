@@ -14,6 +14,7 @@ import Overview from 'modules/Common/components/Overview/Overview';
 import { PieChartProps } from '../../components/Charts/PieChart.d';
 import React from 'react';
 import Tile from 'modules/Common/components/Tile/Tile';
+import UrlFilters from 'modules/Common/data-components/UrlFilters';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
 import api from 'utils/api';
@@ -38,13 +39,16 @@ const HashtagData = dynamic(() => import('../../data-components/Hashtag'), ssrCo
 const UsernameData = dynamic(() => import('../../data-components/Username'), ssrConfig);
 const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), ssrConfig);
 const TweetsData = dynamic(() => import('../../data-components/Tweets'), ssrConfig);
+const VideosData = dynamic(() => import('../../data-components/Videos'), ssrConfig);
+const PhotosData = dynamic(() => import('../../data-components/Photos'), ssrConfig);
+const OutlinksData = dynamic(() => import('../../data-components/Outlinks'), ssrConfig);
 
 export { default as getStaticPaths } from './[search].staticPaths';
 export { default as getStaticProps } from './[search].staticProps';
 
 const REFRESH_INTERVALS = {
-  PROCESSING_PREVIOUS: 60 * 1 * 1000,
-  DONE: 60 * 60 * 1 * 1000,
+  PROCESSING_PREVIOUS: 60 * 1000,
+  DONE: 60 * 60 * 1000,
   DONE_ERROR: 0,
   DONE_FIRST_FETCH: 0,
   PENDING: 5 * 1000,
@@ -84,7 +88,9 @@ const SearchPage = ({
   );
 
   const { data, loading, error } = useSplitSWR(
-    searchName ? `/api/searches/${encodeURIComponent(searchName as string)}/split` : null,
+    searchName
+      ? `/api/searches/${encodeURIComponent(searchName as string)}/split${queryParamsStringified}`
+      : null,
     {
       initialData: {
         status: 'ok',
@@ -128,10 +134,14 @@ const SearchPage = ({
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (scale, point) => {
       window.open(
-        getTwitterLink(`${searchName}`, { date: point.data.x as any, asTime: scale === 'hour' })
+        getTwitterLink(`${searchName}`, {
+          date: point.data.x as any,
+          asTime: scale === 'hour',
+          ...(queryParams.lang ? { lang: queryParams.lang } : {}),
+        })
       );
     },
-    [searchName]
+    [searchName, queryParams.lang]
   );
 
   const onPieClick: PieChartProps['onSliceClick'] = React.useCallback(
@@ -167,16 +177,31 @@ const SearchPage = ({
         return;
       }
       await api.post('/api/searches', { name: lowerCasedSearchName });
-      router.push(
-        `/searches/${encodeURIComponent(lowerCasedSearchName)}?fromhashtag=${searchName}`
-      );
+      router.push(`/searches/${encodeURIComponent(lowerCasedSearchName)}?fromsearch=${searchName}`);
     },
     [searchName]
   );
 
-  const onUsernameSearchClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
+  const onUsernameSearchClick: UsernameTableProps['onUsernameSearchClick'] = React.useCallback(
+    async (usernameWithoutAt: string) => {
+      const lowerCasedSearchName = `@${usernameWithoutAt.toLowerCase()}`;
+      if (searchName === lowerCasedSearchName) {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+        return;
+      }
+      await api.post('/api/searches', { name: lowerCasedSearchName });
+      router.push(`/searches/${encodeURIComponent(lowerCasedSearchName)}?fromsearch=${searchName}`);
+    },
+    [searchName]
+  );
+
+  const onUsernameViewClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
     (username: string) => {
-      router.push(`/user/@${username}?fromhashtag=${searchName}`);
+      router.push(`/user/@${username}?fromsearch=${searchName}`);
     },
     [searchName]
   );
@@ -201,6 +226,15 @@ const SearchPage = ({
       }
     }, 500),
     [queryParams.min, queryParams.max, pushQueryParams]
+  );
+  const onFilterLangChange: any = React.useCallback(
+    (lang: string) => {
+      pushQueryParams({ lang }, undefined, {
+        scroll: false,
+        shallow: true,
+      });
+    },
+    [pushQueryParams]
   );
 
   React.useEffect(() => {
@@ -427,6 +461,9 @@ const SearchPage = ({
               </div>
             </div>
           </div>
+
+          <UrlFilters />
+
           {/* Tabs */}
           <Tabs
             forceRenderTabPanel={true}
@@ -436,7 +473,7 @@ const SearchPage = ({
               'react-tabs__tab-panel--selected'
             )}
           >
-            <div className="fr-container fr-container-fluid fr-mt-12w">
+            <div className="fr-container fr-container-fluid fr-mt-6w">
               <TabList
                 className={classNames(
                   'fr-grid-row fr-grid-row--gutters react-tabs__tab-list',
@@ -447,6 +484,7 @@ const SearchPage = ({
                 <Tab className={sReactTabs.tab}>Users</Tab>
                 <Tab className={sReactTabs.tab}>Associated hashtags</Tab>
                 <Tab className={sReactTabs.tab}>Tweets</Tab>
+                <Tab className={sReactTabs.tab}>Medias</Tab>
               </TabList>
             </div>
             <div className="fr-container fr-container-fluid">
@@ -455,6 +493,7 @@ const SearchPage = ({
                   search={searchName}
                   refreshInterval={refreshInterval}
                   onSliceClick={onPieClick}
+                  onFilter={onFilterLangChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
@@ -467,6 +506,7 @@ const SearchPage = ({
                   search={searchName}
                   refreshInterval={refreshInterval}
                   onUsernameClick={onUsernameClick}
+                  onUsernameViewClick={onUsernameViewClick}
                   onUsernameSearchClick={onUsernameSearchClick}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
@@ -494,6 +534,34 @@ const SearchPage = ({
                   refreshInterval={refreshInterval}
                   queryParamsStringified={queryParamsStringified}
                 />
+              </TabPanel>
+
+              <TabPanel>
+                <VideosData
+                  search={searchName}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__medias-videos`}
+                />
+                <div className="fr-mt-8w">
+                  <PhotosData
+                    search={searchName}
+                    queryParamsStringified={queryParamsStringified}
+                    exportName={`${dayjs(newestProcessedDate).format(
+                      'YYYYMMDDHH'
+                    )}__${searchName}__medias-photos`}
+                  />
+                </div>
+                <div className="fr-mt-8w">
+                  <OutlinksData
+                    search={searchName}
+                    queryParamsStringified={queryParamsStringified}
+                    exportName={`${dayjs(newestProcessedDate).format(
+                      'YYYYMMDDHH'
+                    )}__${searchName}__medias-outlinks`}
+                  />
+                </div>
               </TabPanel>
             </div>
           </Tabs>

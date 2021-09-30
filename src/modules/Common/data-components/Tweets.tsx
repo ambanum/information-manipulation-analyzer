@@ -4,7 +4,10 @@ import { GetSearchTweetsResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 import useSWR from 'swr';
+
+dayjs.extend(localizedFormat);
 
 interface DataTweetsProps {
   search: string;
@@ -42,9 +45,9 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {firstTweets.map(({ id, date }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`first_${id}`}>
             <span className="fr-text--sm">
-              <strong>{dayjs(date).format('MMMM D, YYYY h:mm A')}</strong>
+              <strong>{dayjs(date).format('llll')}</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>
@@ -57,9 +60,9 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostRetweetedTweets.map(({ id, retweetCount }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`retweet_${id}`}>
             <span className="fr-text--sm">
-              <strong>{retweetCount} RT</strong>
+              <strong>{retweetCount.toLocaleString('en')} RT</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>
@@ -72,9 +75,9 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostLikedTweets.map(({ id, likeCount }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`liked_${id}`}>
             <span className="fr-text--sm">
-              <strong>{likeCount} likes</strong>
+              <strong>{likeCount.toLocaleString('en')} likes</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>
@@ -87,9 +90,9 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostQuotedTweets.map(({ id, quoteCount }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`quote_${id}`}>
             <span className="fr-text--sm">
-              <strong>{quoteCount} quotes</strong>
+              <strong>{quoteCount.toLocaleString('en')} quotes</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>
@@ -102,9 +105,9 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostCommentedTweets.map(({ id, replyCount }) => (
-          <div className="fr-col">
+          <div className="fr-col" key={`comment_${id}`}>
             <span className="fr-text--sm">
-              <strong>{replyCount} replies</strong>
+              <strong>{replyCount.toLocaleString('en')} replies</strong>
             </span>
             <TwitterTweetEmbed tweetId={id} placeholder={<Loading size="sm" />} />
           </div>

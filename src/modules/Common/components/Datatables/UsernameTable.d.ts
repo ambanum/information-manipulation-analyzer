@@ -3,6 +3,7 @@ export interface UsernameTableProps {
   data: Username[];
   nbData?: number;
   onUsernameClick: (username: string) => any;
+  onUsernameViewClick: (username: string) => any;
   onUsernameSearchClick: (username: string) => any;
 }
 
@@ -12,4 +13,6 @@ export interface Username {
   label: string;
   value: number;
   percentage?: number;
+  botScore?: number;
+  creationDate?: number;
 }

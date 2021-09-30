@@ -9,7 +9,7 @@ import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const get =
-  (filter: { name: string; min?: string; max?: string }) =>
+  (filter: { name: string; min?: string; max?: string; lang?: string }) =>
   async (res: NextApiResponse<GetSearchResponse>) => {
     try {
       const search = await SearchManager.getWithData(filter);

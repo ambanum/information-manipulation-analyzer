@@ -76,9 +76,9 @@ const UserPage = ({ user }: { user: string }) => {
           <div className="fr-col">
             <Breadcrumb>
               <BreadcrumbItem href="/">All hashtags</BreadcrumbItem>
-              {queryParams.fromhashtag && (
-                <BreadcrumbItem href={`/searches/${queryParams.fromhashtag}`}>
-                  {queryParams.fromhashtag}
+              {queryParams.fromsearch && (
+                <BreadcrumbItem href={`/searches/${queryParams.fromsearch}`}>
+                  {queryParams.fromsearch}
                 </BreadcrumbItem>
               )}
               {username && <BreadcrumbItem isCurrent={true}>{username}</BreadcrumbItem>}
@@ -95,10 +95,16 @@ const UserPage = ({ user }: { user: string }) => {
           ></Tile>
         </div>
         <div className="fr-col">
-          <Tile title={data?.user?.followersCount?.toString()} description="Followers count"></Tile>
+          <Tile
+            title={data?.user?.followersCount?.toLocaleString('en')}
+            description="Followers count"
+          ></Tile>
         </div>
         <div className="fr-col">
-          <Tile title={data?.user?.friendsCount?.toString()} description="Friends count"></Tile>
+          <Tile
+            title={data?.user?.friendsCount?.toLocaleString('en')}
+            description="Friends count"
+          ></Tile>
         </div>
         <div className="fr-col">
           <Tile title={dayjs(data?.user?.created).fromNow(true)} description="Account age"></Tile>

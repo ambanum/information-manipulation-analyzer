@@ -3,14 +3,14 @@ import * as SearchManager from '../../../managers/SearchManager';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { GetSearchHashtagsResponse } from 'modules/Common/interfaces';
+import { GetSearchPhotosResponse } from 'modules/Common/interfaces';
 import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
-const getHashtags =
+const getPhotos =
   (filter: { name: string; min?: string; max?: string; lang?: string }) =>
-  async (res: NextApiResponse<GetSearchHashtagsResponse>) => {
+  async (res: NextApiResponse<GetSearchPhotosResponse>) => {
     try {
       const search = await SearchManager.get({ name: filter.name });
 
@@ -19,7 +19,7 @@ const getHashtags =
         res.json({ status: 'ko', message: 'Search was not found' });
         return;
       }
-      const hashtags = await SearchManager.getHashtags({
+      const photos = await SearchManager.getPhotos({
         searchIds: [search._id],
         startDate: filter.min,
         endDate: filter.max,
@@ -29,9 +29,9 @@ const getHashtags =
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);
       }
       res.statusCode = HttpStatusCode.OK;
-      res.json({ status: 'ok', message: 'Search Languages details', hashtags });
+      res.json({ status: 'ok', message: 'Search photos details', photos });
       return res;
-    } catch (e) {
+    } catch (e: any) {
       res.statusCode = HttpStatusCode.METHOD_FAILURE;
       res.json({ status: 'ko', message: e.toString() });
     }
@@ -39,11 +39,10 @@ const getHashtags =
 
 const search = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET' && req.query.name) {
-    return getHashtags(req.query as any)(res);
+    return getPhotos(req.query as any)(res);
   }
 
   res.statusCode = HttpStatusCode.FORBIDDEN;
   res.json({ status: 'ko', message: 'Nothing there' });
 };
-
 export default withAuth(withDb(search));

@@ -13,9 +13,10 @@ interface SearchFilter {
   searchIds: string[];
   startDate?: string;
   endDate?: string;
+  lang?: string;
 }
 
-const getMatch = ({ searchIds, startDate, endDate }: SearchFilter) => {
+const getMatch = ({ searchIds, startDate, endDate, lang }: SearchFilter) => {
   const match: any = {};
   if (startDate || endDate) {
     match.hour = {};
@@ -26,6 +27,10 @@ const getMatch = ({ searchIds, startDate, endDate }: SearchFilter) => {
       match.hour.$lte = new Date(dayjs(+endDate).toISOString());
     }
   }
+  if (lang) {
+    match.lang = lang;
+  }
+
   match.searches = { $in: searchIds }; // first filter by date and then by searches as it is a multi key index
   return match;
 };
@@ -174,10 +179,12 @@ export const getWithData = async ({
   name,
   min,
   max,
+  lang,
 }: {
   name: string;
   min?: string;
   max?: string;
+  lang?: string;
 }) => {
   try {
     const search = await get({ name });
@@ -190,6 +197,7 @@ export const getWithData = async ({
     };
     if (min) filters.startDate = min;
     if (max) filters.endDate = max;
+    if (lang) filters.lang = lang;
     const searchVolumetry = await getVolumetry(filters);
 
     let nbTweets: number = 0;
@@ -230,9 +238,16 @@ export const getWithData = async ({
         }
         i++;
 
-        // Calculate number of tweets
-        nbTweets += volumetry.nbTweets;
-
+        if (
+          (!min && !max) ||
+          (min &&
+            max &&
+            volumetryDayJs.isAfter(dayjs(+min)) &&
+            volumetryDayJs.isBefore(dayjs(+max)))
+        ) {
+          // Calculate number of tweets
+          nbTweets += volumetry.nbTweets;
+        }
         return acc;
       },
       [
@@ -281,7 +296,7 @@ export const getLanguages = async (filters: SearchFilter) => {
     },
   ];
 
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
   const nbLanguages = sumBy('count')(rawResults);
 
   return rawResults.map((rawResult: any) => ({
@@ -340,7 +355,7 @@ export const countHashtags = async (filters: SearchFilter) => {
       },
     },
   ];
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   return rawResults[0]?.count;
 };
@@ -358,16 +373,125 @@ export const getUsernames = async (filters: SearchFilter) => {
       },
     },
     { $sort: { count: -1 } },
+    {
+      $lookup: {
+        from: 'users',
+        localField: '_id',
+        foreignField: 'username',
+        as: 'user',
+      },
+    },
+    {
+      $unwind: '$user',
+    },
   ];
 
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   const nbUsernames = sumBy('count')(rawResults);
+
   return rawResults.map((rawResult: any) => ({
     id: rawResult._id,
     label: rawResult._id,
     value: rawResult.count,
     percentage: rawResult.count / nbUsernames,
+    botScore: rawResult.user.botScore,
+    creationDate: rawResult.user.created,
+  }));
+};
+
+// Get Photos
+export const getPhotos = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: { ...match, 'media.type': 'photo' },
+    },
+    {
+      $unwind: '$media',
+    },
+    {
+      $match: { 'media.type': 'photo' },
+    },
+    {
+      $group: {
+        _id: '$media.fullUrl',
+        detail: { $first: '$media' },
+        count: { $sum: 1 },
+      },
+    },
+    {
+      $unwind: '$detail',
+    },
+    { $sort: { count: -1 } },
+  ];
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
+
+  return rawResults.map(({ detail: { _id, ...detail }, count }: any) => ({
+    ...detail,
+    count,
+  }));
+};
+
+//Get videos
+export const getVideos = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: { ...match, 'media.type': 'video' },
+    },
+    {
+      $unwind: '$media',
+    },
+    {
+      $match: { 'media.type': 'video' },
+    },
+    {
+      $group: {
+        _id: '$media.fullUrl',
+        detail: { $first: '$media' },
+        count: { $sum: 1 },
+      },
+    },
+    {
+      $unwind: '$detail',
+    },
+    { $sort: { count: -1 } },
+  ];
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
+
+  return rawResults.map(({ detail: { _id, ...detail }, count }: any) => ({
+    ...detail,
+    count,
+  }));
+};
+
+//Get Outlinks
+export const getOutlinks = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: match,
+    },
+    {
+      $unwind: '$outlinks',
+    },
+    {
+      $group: {
+        _id: '$outlinks',
+        count: { $sum: 1 },
+      },
+    },
+    { $sort: { count: -1 } },
+  ];
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
+
+  return rawResults.map((rawResult: any) => ({
+    url: rawResult._id,
+    count: rawResult.count,
   }));
 };
 
@@ -391,20 +515,12 @@ export const countUsernames = async (filters: SearchFilter) => {
     },
   ];
 
-  const rawResults: any[] = await TweetModel.aggregate(aggregation);
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   return rawResults[0]?.count;
 };
 
-export const splitRequests = async ({
-  name,
-  min,
-  max,
-}: {
-  name: string;
-  min?: string;
-  max?: string;
-}) => {
+export const splitRequests = async ({ name, lang }: { name: string; lang?: string }) => {
   try {
     const search = await get({ name });
 
@@ -414,9 +530,9 @@ export const splitRequests = async ({
 
     const match: any = getMatch({
       searchIds: [search._id],
-      startDate: min,
-      endDate: max,
+      lang: lang,
     });
+
     const nbTweets = await TweetModel.count(match);
     const batchNumber = 20000;
     const nbBatches = Math.ceil(nbTweets / batchNumber);
@@ -424,7 +540,9 @@ export const splitRequests = async ({
     let periods = [];
     let previousHour = null;
     if (nbTweets <= batchNumber) {
-      periods = [{ endDate: match?.hour?.$lte, startDate: match?.hour?.$gte }];
+      periods = [
+        { endDate: match?.hour?.$lte, startDate: match?.hour?.$gte, ...(lang ? { lang } : {}) },
+      ];
     } else {
       for (let i = 1; i <= nbBatches; i++) {
         const lastRequest = i === nbBatches;
@@ -450,14 +568,20 @@ export const splitRequests = async ({
           }
 
           const { hour } = tweet;
-
+          let period: any = {};
           if (i === 1) {
-            periods.push({ startDate: hour, endDate: match?.hour?.$lte });
+            period = { startDate: hour, endDate: match?.hour?.$lte };
           } else if (i === nbBatches) {
-            periods.push({ endDate: previousHour, startDate: match?.hour?.$gte });
+            period = { endDate: previousHour, startDate: match?.hour?.$gte };
           } else {
-            periods.push({ startDate: hour, endDate: previousHour });
+            period = { startDate: hour, endDate: previousHour };
           }
+
+          if (lang) {
+            period.lang = lang;
+          }
+
+          periods.push(period);
           previousHour = dayjs(hour).add(-1, 'hour').toDate();
         } catch (e) {
           console.error(e);

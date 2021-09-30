@@ -16,22 +16,10 @@ interface LastSearchesProps {
   filter?: string;
 }
 
-const TagsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: number }) => {
-  let firstLetter: string;
-  let title: any = null;
-  const nbSearches = searches.length;
-
+const TagsList = ({ searches }: { searches: Search[]; keyIndex?: number }) => {
   return (
     <>
       {searches.map((search) => {
-        if (typeof keyIndex !== 'undefined' && nbSearches > 10) {
-          const newFirstLetter = search.name[keyIndex];
-          if (newFirstLetter !== firstLetter) {
-            title = <h3 className="fr-m-1v fr-mt-3v">{newFirstLetter.toUpperCase()}</h3>;
-            firstLetter = newFirstLetter;
-          }
-        }
-
         const loading = !['DONE', 'DONE_ERROR'].includes(search.status);
         const timeInfo = loading
           ? dayjs(search.createdAt).fromNow()
@@ -39,7 +27,6 @@ const TagsList = ({ searches, keyIndex }: { searches: Search[]; keyIndex?: numbe
 
         return (
           <React.Fragment key={`last_search_${search.name}`}>
-            {title}
             <Link
               key={search._id}
               as={`/searches/${encodeURIComponent(search.name)}`}
@@ -162,25 +149,25 @@ const LastSearches = ({
       {hashtags.length > 0 && (
         <>
           <h2 className="fr-mt-4w fr-mb-2w fr-ml-1v">#hashtags</h2>
-          <TagsList searches={hashtags} keyIndex={1} />
+          <TagsList searches={hashtags} />
         </>
       )}
       {keywords.length > 0 && (
         <>
           <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">Keywords</h2>
-          <TagsList searches={keywords} keyIndex={0} />
+          <TagsList searches={keywords} />
         </>
       )}
       {mentions.length > 0 && (
         <>
           <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">@mentions</h2>
-          <TagsList searches={mentions} keyIndex={1} />
+          <TagsList searches={mentions} />
         </>
       )}
       {cashtags.length > 0 && (
         <>
           <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">$cashtags</h2>
-          <TagsList searches={cashtags} keyIndex={1} />
+          <TagsList searches={cashtags} />
         </>
       )}
       {urls.length > 0 && (
