@@ -76,9 +76,9 @@ const UserPage = ({ user }: { user: string }) => {
           <div className="fr-col">
             <Breadcrumb>
               <BreadcrumbItem href="/">All hashtags</BreadcrumbItem>
-              {queryParams.fromhashtag && (
-                <BreadcrumbItem href={`/searches/${queryParams.fromhashtag}`}>
-                  {queryParams.fromhashtag}
+              {queryParams.fromsearch && (
+                <BreadcrumbItem href={`/searches/${queryParams.fromsearch}`}>
+                  {queryParams.fromsearch}
                 </BreadcrumbItem>
               )}
               {username && <BreadcrumbItem isCurrent={true}>{username}</BreadcrumbItem>}

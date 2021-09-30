@@ -177,9 +177,7 @@ const SearchPage = ({
         return;
       }
       await api.post('/api/searches', { name: lowerCasedSearchName });
-      router.push(
-        `/searches/${encodeURIComponent(lowerCasedSearchName)}?fromhashtag=${searchName}`
-      );
+      router.push(`/searches/${encodeURIComponent(lowerCasedSearchName)}?fromsearch=${searchName}`);
     },
     [searchName]
   );
@@ -196,16 +194,14 @@ const SearchPage = ({
         return;
       }
       await api.post('/api/searches', { name: lowerCasedSearchName });
-      router.push(
-        `/searches/${encodeURIComponent(lowerCasedSearchName)}?fromhashtag=${searchName}`
-      );
+      router.push(`/searches/${encodeURIComponent(lowerCasedSearchName)}?fromsearch=${searchName}`);
     },
     [searchName]
   );
 
   const onUsernameViewClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
     (username: string) => {
-      router.push(`/user/@${username}?fromhashtag=${searchName}`);
+      router.push(`/user/@${username}?fromsearch=${searchName}`);
     },
     [searchName]
   );
