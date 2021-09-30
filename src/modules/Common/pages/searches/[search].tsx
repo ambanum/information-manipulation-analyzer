@@ -134,10 +134,14 @@ const SearchPage = ({
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (scale, point) => {
       window.open(
-        getTwitterLink(`${searchName}`, { date: point.data.x as any, asTime: scale === 'hour' })
+        getTwitterLink(`${searchName}`, {
+          date: point.data.x as any,
+          asTime: scale === 'hour',
+          ...(queryParams.lang ? { lang: queryParams.lang } : {}),
+        })
       );
     },
-    [searchName]
+    [searchName, queryParams.lang]
   );
 
   const onPieClick: PieChartProps['onSliceClick'] = React.useCallback(
