@@ -1,18 +1,46 @@
+import { isEqual, omit } from 'lodash/fp';
+
 import React from 'react';
 import { fetcher } from 'utils/api';
+import queryString from 'query-string';
+import { usePrevious } from 'react-use';
 import useSWR from 'swr';
 
 const useSplitSWR = (splitUrl: string | null, options: any) => {
   const [data, setData] = React.useState<any>(options.initialData);
   const [error, setError] = React.useState();
   const [loading, setLoading] = React.useState(false);
+  const [loaded, setLoaded] = React.useState(false);
   const { data: splitData, isValidating, error: splitError } = useSWR(splitUrl, options);
+  const previousSplitUrl = usePrevious(splitUrl);
   const splitLoading = !splitData || isValidating;
 
   const { filters: splittedPeriods, search, nbTweets } = splitData || {};
 
   React.useEffect(() => {
-    if (!splittedPeriods || splitLoading) {
+    if (!splitUrl || !previousSplitUrl) {
+      return;
+    }
+    const previousParams = queryString.parse(previousSplitUrl.split('?')[1] || '');
+    const params = queryString.parse(splitUrl.split('?')[1] || '');
+
+    if (
+      previousSplitUrl !== splitUrl &&
+      !isEqual(omit(['min', 'max'])(params), omit(['min', 'max'])(previousParams))
+    ) {
+      setData({
+        ...options.initialData,
+        volumetry: options.initialData.volumetry.map((vol: any) => ({
+          ...vol,
+          data: vol.data.map((d: any) => ({ ...d, y: 0 })),
+        })),
+      });
+      setLoaded(false);
+    }
+  }, [previousSplitUrl, splitUrl, loaded]);
+
+  React.useEffect(() => {
+    if (!splittedPeriods || splitLoading || loaded) {
       return;
     }
 
@@ -67,9 +95,10 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
         }
       }
       setLoading(false);
+      setLoaded(true);
     };
     doFetchPeriods();
-  }, [splitLoading, setLoading, setData]);
+  }, [splitLoading, setLoading, setData, setLoaded, loaded]);
 
   return {
     data,
