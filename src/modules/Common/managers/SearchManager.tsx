@@ -382,12 +382,14 @@ export const getUsernames = async (filters: SearchFilter) => {
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   const nbUsernames = sumBy('count')(rawResults);
+
   return rawResults.map((rawResult: any) => ({
     id: rawResult._id,
     label: rawResult._id,
     value: rawResult.count,
     percentage: rawResult.count / nbUsernames,
     botScore: rawResult.user.botScore,
+    creationDate: rawResult.user.created,
   }));
 };
 

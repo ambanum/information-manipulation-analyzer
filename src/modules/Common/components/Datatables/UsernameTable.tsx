@@ -5,6 +5,10 @@ import React from 'react';
 import Table from 'components/Table';
 import UserBotScore from 'modules/Common/data-components/UserBotScore';
 import UserData from 'modules/Common/data-components/UserData';
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+
+dayjs.extend(localizedFormat);
 
 const UsernameTable = ({
   exportName,
@@ -23,16 +27,18 @@ const UsernameTable = ({
       size: 3,
     },
     {
-      Header: 'Date of first tweet',
-      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
+      Header: 'Account creation date',
+      accessor: ({ creationDate }: Username) => dayjs(creationDate).toDate(),
+      sortType: 'datetime',
+      Cell: ({ value }: any) => (
+        <div>
+          {dayjs(value).format('ll')}
+          <br />
+          {dayjs(value).fromNow()}
+        </div>
+      ),
       align: 'right',
       size: 2,
-    },
-    {
-      Header: 'Frequency',
-      align: 'right',
-      Cell: () => <small className="fr-tag fr-tag--sm">TODO</small>,
-      size: 1,
     },
     {
       Header: 'Bot score',

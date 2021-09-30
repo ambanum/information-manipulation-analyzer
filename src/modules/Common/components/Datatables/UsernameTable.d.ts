@@ -13,4 +13,5 @@ export interface Username {
   value: number;
   percentage?: number;
   botScore?: number;
+  creationDate?: number;
 }
