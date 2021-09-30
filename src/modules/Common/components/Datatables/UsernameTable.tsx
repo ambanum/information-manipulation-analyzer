@@ -14,6 +14,7 @@ const UsernameTable = ({
   exportName,
   data,
   onUsernameClick,
+  onUsernameViewClick,
   onUsernameSearchClick,
   nbData,
 }: UsernameTableProps) => {
@@ -69,16 +70,18 @@ const UsernameTable = ({
                 className="fr-btn fr-btn fr-btn--secondary fr-fi-account-line fr-btn--icon-left"
                 title={`View complete profile of @${row?.original?.label}`}
                 onClick={() => {
-                  onUsernameSearchClick(row?.original?.label);
+                  onUsernameViewClick(row?.original?.label);
                 }}
               ></button>
             </li>
             <li>
               <button
-                disabled={true}
                 type="button"
                 className="fr-btn fr-btn fr-btn--secondary fr-fi-search-line fr-btn--icon-left"
                 title={`Search @${row?.original?.label}`}
+                onClick={() => {
+                  onUsernameSearchClick(row?.original?.label);
+                }}
               ></button>
             </li>
             <li>

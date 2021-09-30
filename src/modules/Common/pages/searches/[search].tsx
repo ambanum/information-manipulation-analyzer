@@ -184,7 +184,26 @@ const SearchPage = ({
     [searchName]
   );
 
-  const onUsernameSearchClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
+  const onUsernameSearchClick: UsernameTableProps['onUsernameSearchClick'] = React.useCallback(
+    async (usernameWithoutAt: string) => {
+      const lowerCasedSearchName = `@${usernameWithoutAt.toLowerCase()}`;
+      if (searchName === lowerCasedSearchName) {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+        return;
+      }
+      await api.post('/api/searches', { name: lowerCasedSearchName });
+      router.push(
+        `/searches/${encodeURIComponent(lowerCasedSearchName)}?fromhashtag=${searchName}`
+      );
+    },
+    [searchName]
+  );
+
+  const onUsernameViewClick: UsernameTableProps['onUsernameClick'] = React.useCallback(
     (username: string) => {
       router.push(`/user/@${username}?fromhashtag=${searchName}`);
     },
@@ -491,6 +510,7 @@ const SearchPage = ({
                   search={searchName}
                   refreshInterval={refreshInterval}
                   onUsernameClick={onUsernameClick}
+                  onUsernameViewClick={onUsernameViewClick}
                   onUsernameSearchClick={onUsernameSearchClick}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(

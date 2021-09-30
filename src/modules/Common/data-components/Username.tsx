@@ -11,6 +11,7 @@ interface DataUsernameProps {
   search: string;
   refreshInterval: number;
   onUsernameClick: UsernameTableProps['onUsernameClick'];
+  onUsernameViewClick: UsernameTableProps['onUsernameViewClick'];
   onUsernameSearchClick: UsernameTableProps['onUsernameSearchClick'];
   queryParamsStringified?: string;
   exportName: UsernameTableProps['exportName'];
@@ -20,6 +21,7 @@ const DataUsername = ({
   search,
   refreshInterval,
   onUsernameClick,
+  onUsernameViewClick,
   onUsernameSearchClick,
   queryParamsStringified = '',
   exportName,
@@ -59,6 +61,7 @@ const DataUsername = ({
         nbData={usernames.length}
         data={usernames}
         onUsernameClick={onUsernameClick}
+        onUsernameViewClick={onUsernameViewClick}
         onUsernameSearchClick={onUsernameSearchClick}
         exportName={exportName}
       />
