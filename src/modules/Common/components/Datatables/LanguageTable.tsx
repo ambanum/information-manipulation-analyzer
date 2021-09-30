@@ -14,6 +14,14 @@ const LanguageTable = ({ exportName, data, title, subtitle, onFilter }: Language
     },
     {
       sortType: 'number',
+      Header: 'Nb of tweets',
+      accessor: 'value',
+      Cell: ({ value }: any) => value.toLocaleString('en'),
+      align: 'right',
+      size: 1,
+    },
+    {
+      sortType: 'number',
       Header: 'Percentage',
       accessor: 'percentage',
       Cell: ({ row }: any) => (
