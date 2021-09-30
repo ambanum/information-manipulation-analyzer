@@ -22,7 +22,7 @@ const Filters: React.FC<FiltersProps> = ({ children, className, ...props }) => {
               className="fr-ml-1v"
             />
           </div>
-          <p className="fr-mb-0">The active fitters are shown below, click on to delete them.</p>
+          <p className="fr-mb-0">The active filters are shown below, click on it to delete.</p>
           <ul className={classNames(s.filters_items, 'fr-mt-2w fr-tags-group')}>{children}</ul>
         </div>
       </div>

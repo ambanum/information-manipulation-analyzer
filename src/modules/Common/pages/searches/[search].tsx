@@ -5,8 +5,6 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import Alert from 'modules/Common/components/Alert/Alert';
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
-import FilterItem from 'modules/Common/components/Filters/FilterItem';
-import Filters from 'modules/Common/components/Filters/Filters';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
@@ -16,6 +14,7 @@ import Overview from 'modules/Common/components/Overview/Overview';
 import { PieChartProps } from '../../components/Charts/PieChart.d';
 import React from 'react';
 import Tile from 'modules/Common/components/Tile/Tile';
+import UrlFilters from 'modules/Common/data-components/UrlFilters';
 import { UsernameTableProps } from '../../components/Datatables/UsernameTable.d';
 import { VolumetryGraphProps } from '../../components/Charts/VolumetryGraph.d';
 import api from 'utils/api';
@@ -89,7 +88,9 @@ const SearchPage = ({
   );
 
   const { data, loading, error } = useSplitSWR(
-    searchName ? `/api/searches/${encodeURIComponent(searchName as string)}/split` : null,
+    searchName
+      ? `/api/searches/${encodeURIComponent(searchName as string)}/split${queryParamsStringified}`
+      : null,
     {
       initialData: {
         status: 'ok',
@@ -206,6 +207,15 @@ const SearchPage = ({
       }
     }, 500),
     [queryParams.min, queryParams.max, pushQueryParams]
+  );
+  const onFilterLangChange: any = React.useCallback(
+    (lang: string) => {
+      pushQueryParams({ lang }, undefined, {
+        scroll: false,
+        shallow: true,
+      });
+    },
+    [pushQueryParams]
   );
 
   React.useEffect(() => {
@@ -433,13 +443,7 @@ const SearchPage = ({
             </div>
           </div>
 
-          {/* Filters */}
-          <Filters>
-            <FilterItem>Oct 31 2020 to Aug 26 2021</FilterItem>
-            <FilterItem>French</FilterItem>
-            <FilterItem>#hashtag</FilterItem>
-            <FilterItem>#hashtag2</FilterItem>
-          </Filters>
+          <UrlFilters />
 
           {/* Tabs */}
           <Tabs
@@ -470,6 +474,7 @@ const SearchPage = ({
                   search={searchName}
                   refreshInterval={refreshInterval}
                   onSliceClick={onPieClick}
+                  onFilter={onFilterLangChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
