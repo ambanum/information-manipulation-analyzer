@@ -33,7 +33,7 @@ const DataVideos = ({ search, queryParamsStringified = '', exportName }: DataVid
   }
 
   return (
-    <div className="fr-col fr-mt-8w">
+    <div className="fr-col fr-mt-1v">
       <VideosTable nbData={videos.length} data={videos} exportName={exportName} />
     </div>
   );
