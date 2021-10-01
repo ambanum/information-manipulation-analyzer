@@ -5,6 +5,7 @@ import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
 import { PieChartProps } from './PieChart.d';
 import { paletteColors } from './config';
+import { useWindowSize } from 'react-use';
 
 if (typeof Highcharts === 'object') {
   HighchartsExporting(Highcharts);
@@ -14,6 +15,7 @@ const PieChart = ({ title, subTitle, data, props }: PieChartProps & HighchartsRe
   // more performant with arrays of number
   // and sort to prevent colors to be the same for big values
   const seriesData = data.map((d: any) => [d.id, d.label, d.value]).sort((a, b) => b[2] - a[2]);
+  const { width } = useWindowSize();
 
   const chartOptions: Highcharts.Options = {
     title: {
@@ -39,6 +41,7 @@ const PieChart = ({ title, subTitle, data, props }: PieChartProps & HighchartsRe
           enabled: true,
           format: '<b>{point.name}</b>: {point.percentage:.1f} %',
         },
+        showInLegend: width <= 560 ? true : false,
       },
     },
     series: [

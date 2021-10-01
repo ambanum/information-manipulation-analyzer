@@ -435,7 +435,7 @@ const SearchPage = ({
       {/* Volumetry */}
       {hasVolumetry && (
         <>
-          <div className="fr-container fr-container-fluid fr-mt-12w">
+          <div className="fr-container fr-container-fluid fr-mt-6w fr-mt-md-12w">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
                 <h3>Explore</h3>
