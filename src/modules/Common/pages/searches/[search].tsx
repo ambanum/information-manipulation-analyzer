@@ -544,24 +544,20 @@ const SearchPage = ({
                     'YYYYMMDDHH'
                   )}__${searchName}__medias-videos`}
                 />
-                <div className="fr-mt-8w">
-                  <PhotosData
-                    search={searchName}
-                    queryParamsStringified={queryParamsStringified}
-                    exportName={`${dayjs(newestProcessedDate).format(
-                      'YYYYMMDDHH'
-                    )}__${searchName}__medias-photos`}
-                  />
-                </div>
-                <div className="fr-mt-8w">
-                  <OutlinksData
-                    search={searchName}
-                    queryParamsStringified={queryParamsStringified}
-                    exportName={`${dayjs(newestProcessedDate).format(
-                      'YYYYMMDDHH'
-                    )}__${searchName}__medias-outlinks`}
-                  />
-                </div>
+                <PhotosData
+                  search={searchName}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__medias-photos`}
+                />
+                <OutlinksData
+                  search={searchName}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__medias-outlinks`}
+                />
               </TabPanel>
             </div>
           </Tabs>

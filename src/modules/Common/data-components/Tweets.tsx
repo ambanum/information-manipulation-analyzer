@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Alert from '../components/Alert/Alert';
 import { GetSearchTweetsResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
@@ -34,7 +35,11 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
   } = data || {};
 
   if (firstTweets.length === 0) {
-    return null;
+    return (
+      <Alert size="small" type="info">
+        No tweets found.
+      </Alert>
+    );
   }
 
   return (

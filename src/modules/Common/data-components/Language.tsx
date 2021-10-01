@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Alert from '../components/Alert/Alert';
 import { GetSearchLanguagesResponse } from '../interfaces';
 import LanguageTable from '../components/Datatables/LanguageTable';
 import { LanguageTableProps } from '../components/Datatables/LanguageTable.d';
@@ -39,7 +40,11 @@ const DataLanguage = ({
 
   const languages = data?.languages || [];
   if (languages.length === 0) {
-    return null;
+    return (
+      <Alert size="small" type="info">
+        No languages found.
+      </Alert>
+    );
   }
 
   return (

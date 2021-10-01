@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Alert from '../components/Alert/Alert';
 import { GetSearchOutlinksResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import OutlinksTable from '../components/Datatables/OutlinksTable';
@@ -24,7 +25,11 @@ const DataOutlinks = ({ search, queryParamsStringified = '', exportName }: DataO
 
   const outlinks = data?.outlinks || [];
   if (outlinks.length === 0) {
-    return null;
+    return (
+      <Alert size="small" type="info">
+        No outlinks found.
+      </Alert>
+    );
   }
 
   return (
