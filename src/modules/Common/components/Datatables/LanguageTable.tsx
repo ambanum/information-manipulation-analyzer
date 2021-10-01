@@ -40,7 +40,7 @@ const LanguageTable = ({ exportName, data, title, subtitle, onFilter }: Language
                 type="button"
                 className="fr-btn fr-btn fr-btn--secondary fr-btn--icon-left"
                 style={{ paddingLeft: '0.56rem', paddingRight: '0.56rem' }}
-                title={`Filter by ${row?.original?.label}`}
+                title={`Filter by ${row?.original?.label} language`}
                 onClick={() => onFilter(row?.original?.id)}
               >
                 <IconFilter style={{ color: 'var(--bf500)' }} />
