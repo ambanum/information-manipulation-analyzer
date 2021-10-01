@@ -55,9 +55,13 @@
   .infosWrapper_name {
     > a{
       display:flex; 
-      align-items:baseline;
+      align-items:center;
       box-shadow: none;
       white-space: nowrap;
+      > svg{
+        width:16px;
+        height:16px;
+      }
       
       > span{
         box-shadow: var(--link-underline);
@@ -65,6 +69,7 @@
         word-break: break-all;
         overflow: hidden;
         max-width:170px;
+        margin-left:4px;
       }
     } 
   }

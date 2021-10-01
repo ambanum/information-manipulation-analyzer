@@ -397,6 +397,7 @@ export const getUsernames = async (filters: SearchFilter) => {
     percentage: rawResult.count / nbUsernames,
     botScore: rawResult.user.botScore,
     creationDate: rawResult.user.created,
+    followersCount: rawResult.user.followersCount,
   }));
 };
 

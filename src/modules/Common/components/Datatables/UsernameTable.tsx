@@ -28,6 +28,14 @@ const UsernameTable = ({
       size: 3,
     },
     {
+      Header: 'Followers',
+      accessor: 'followersCount',
+      canSort: true,
+      sortType: 'number',
+      align: 'right',
+      size: 1,
+    },
+    {
       Header: 'Account creation date',
       accessor: ({ creationDate }: Username) => dayjs(creationDate).toDate(),
       sortType: 'datetime',
