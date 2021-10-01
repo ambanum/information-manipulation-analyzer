@@ -3,6 +3,8 @@
   margin: 0;
   list-style: none;
   border-bottom: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .tabList > li:first-child {
