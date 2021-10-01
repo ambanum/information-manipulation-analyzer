@@ -35,17 +35,9 @@ const PieChart = ({ title, subTitle, data, props }: PieChartProps & HighchartsRe
     plotOptions: {
       pie: {
         allowPointSelect: true,
-        cursor: 'pointer',
         dataLabels: {
           enabled: true,
           format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-        },
-        point: {
-          events: {
-            click: function () {
-              props.onSliceClick(this.options);
-            },
-          },
         },
       },
     },

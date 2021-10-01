@@ -8,10 +8,10 @@ import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem'
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
+import { LanguageTableProps } from 'modules/Common/components/Datatables/LanguageTable.d';
 import Layout from 'modules/Embassy/components/Layout';
 import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
-import { PieChartProps } from '../../components/Charts/PieChart.d';
 import React from 'react';
 import Tile from 'modules/Common/components/Tile/Tile';
 import UrlFilters from 'modules/Common/data-components/UrlFilters';
@@ -144,9 +144,9 @@ const SearchPage = ({
     [searchName, queryParams.lang]
   );
 
-  const onPieClick: PieChartProps['onSliceClick'] = React.useCallback(
-    ({ id: lang }) => {
-      window.open(getTwitterLink(`${searchName}`, { lang: lang as string }));
+  const onLanguageClick: LanguageTableProps['onLanguageClick'] = React.useCallback(
+    (lang: string) => {
+      window.open(getTwitterLink(`${searchName}`, { lang }));
     },
     [searchName]
   );
@@ -492,7 +492,7 @@ const SearchPage = ({
                 <LanguageData
                   search={searchName}
                   refreshInterval={refreshInterval}
-                  onSliceClick={onPieClick}
+                  onLanguageClick={onLanguageClick}
                   onFilter={onFilterLangChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(

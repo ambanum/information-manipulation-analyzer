@@ -11,5 +11,4 @@ export interface PieChartProps {
 	title?: string;
 	subTitle?: string;
 	data: Point[];
-	onSliceClick?: (point: Highcharts.PointOptionsObject) => unknown;
 }

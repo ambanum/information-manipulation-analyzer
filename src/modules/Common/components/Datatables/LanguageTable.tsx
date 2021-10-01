@@ -5,12 +5,37 @@ import Number from 'components/Number';
 import React from 'react';
 import Table from 'components/Table';
 
-const LanguageTable = ({ exportName, data, title, subtitle, onFilter }: LanguageTableProps) => {
+const LanguageTable = ({
+  exportName,
+  data,
+  title,
+  subtitle,
+  onFilter,
+  onLanguageClick,
+}: LanguageTableProps) => {
   const columns = [
     {
       Header: 'Language',
       accessor: 'label',
       size: 3,
+      Cell: ({ value, row }: any) => {
+        console.log(row);
+        return (
+          <a
+            href=" "
+            target="_blank"
+            title={`See the tweets in ${value} on Twitter`}
+            rel="noreferrer noopener"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onLanguageClick(row.original.id);
+            }}
+          >
+            {value}
+          </a>
+        );
+      },
     },
     {
       Header: 'Nb of tweets',
