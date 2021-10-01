@@ -13,7 +13,6 @@ const LanguageTable = ({ exportName, data, title, subtitle, onFilter }: Language
       size: 3,
     },
     {
-      sortType: 'number',
       Header: 'Nb of tweets',
       accessor: 'value',
       Cell: ({ value }: any) => value.toLocaleString('en'),
@@ -44,7 +43,7 @@ const LanguageTable = ({ exportName, data, title, subtitle, onFilter }: Language
                 title={`Filter by ${row?.original?.label}`}
                 onClick={() => onFilter(row?.original?.id)}
               >
-                <IconFilter style={{ color: 'var(--g600-g400)' }} />
+                <IconFilter style={{ color: 'var(--bf500)' }} />
               </button>
             </li>
           </ul>
