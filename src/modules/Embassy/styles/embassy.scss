@@ -98,6 +98,11 @@ hr {
     line-height: 2rem;
   }
 }
+.fr-table .td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: "...";
+}
 .fr-table .td,
 .fr-table .th {
   vertical-align: middle;
@@ -116,7 +121,13 @@ hr {
   }
 }
 .fr-table .th {
-  font-weight: 700;
+  font-weight: 700; 
+  & > div{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: "...";
+  }
+
 }
 .fr-table .thead .td,
 .fr-table .thead .th {
@@ -226,9 +237,11 @@ hr {
 }
 
 .videoContainer{
+  
 }
 
 .videoContainer video {
   max-width: 240px;
   min-width: 160px;
+  position:absolute;
 }
