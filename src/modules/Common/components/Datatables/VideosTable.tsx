@@ -11,9 +11,11 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
       accessor: 'fullUrl',
       size: 3,
       Cell: ({ value, raw }: any) => (
-        <video controls width="344" height="194" poster={raw?.original?.thumbnailUrl}>
-          <source src={value} type={raw?.original?.contentType}></source>
-        </video>
+        <div className="videoContainer">
+          <video height="184" controls poster={raw?.original?.thumbnailUrl}>
+            <source src={value} type={raw?.original?.contentType}></source>
+          </video>
+        </div>
       ),
     },
     {
