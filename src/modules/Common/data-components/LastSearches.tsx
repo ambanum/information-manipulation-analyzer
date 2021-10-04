@@ -72,11 +72,11 @@ const UrlsList = ({ searches }: { searches: Search[] }) => {
 
         const title = (
           <>
-            {search.name}
             <img
               src={`https://www.google.com/s2/favicons?domain=${hostname}`}
               className="fr-mr-2v"
             />
+            {search.name}
           </>
         );
 

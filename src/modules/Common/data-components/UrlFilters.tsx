@@ -29,7 +29,7 @@ const UrlFilters: React.FC<UrlFiltersProps> = ({ children, className, ...props }
     <Filters className={classNames(className)} {...props}>
       {(min || max) && (
         <FilterItem onRemove={() => removeQueryParams(['min', 'max'])}>
-          <FiCalendar />
+          {/* <FiCalendar /> */}
           <span>
             {min && dayjs(+min).format('lll')}
             {max && ' → '}
@@ -39,7 +39,7 @@ const UrlFilters: React.FC<UrlFiltersProps> = ({ children, className, ...props }
       )}
       {lang && (
         <FilterItem onRemove={() => removeQueryParams(['lang'])}>
-          <MdRecordVoiceOver />
+          {/* <MdRecordVoiceOver /> */}
           {LanguageManager.getName(lang)}
         </FilterItem>
       )}
