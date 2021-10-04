@@ -1,9 +1,7 @@
 import * as LanguageManager from 'modules/Countries/managers/LanguageManager';
 
-import { FiCalendar } from 'react-icons/fi';
 import FilterItem from 'modules/Common/components/Filters/FilterItem';
 import Filters from 'modules/Common/components/Filters/Filters';
-import { MdRecordVoiceOver } from 'react-icons/md';
 import React from 'react';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -29,7 +27,6 @@ const UrlFilters: React.FC<UrlFiltersProps> = ({ children, className, ...props }
     <Filters className={classNames(className)} {...props}>
       {(min || max) && (
         <FilterItem onRemove={() => removeQueryParams(['min', 'max'])}>
-          {/* <FiCalendar /> */}
           <span>
             {min && dayjs(+min).format('lll')}
             {max && ' → '}
@@ -39,7 +36,6 @@ const UrlFilters: React.FC<UrlFiltersProps> = ({ children, className, ...props }
       )}
       {lang && (
         <FilterItem onRemove={() => removeQueryParams(['lang'])}>
-          {/* <MdRecordVoiceOver /> */}
           {LanguageManager.getName(lang)}
         </FilterItem>
       )}
