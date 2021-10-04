@@ -11,7 +11,7 @@ const PhotosTable = ({ exportName, data, nbData }: PhotosTableProps) => {
       accessor: 'fullUrl',
       size: 3,
       Cell: ({ value }: any) => (
-        <img src={value} style={{ maxWidth: '344px', maxHeight: '256px' }} />
+        <img src={value} style={{ maxWidth: '344px', maxHeight: '184px' }} />
       ),
     },
     {
@@ -57,7 +57,7 @@ const PhotosTable = ({ exportName, data, nbData }: PhotosTableProps) => {
       ]}
       layoutFixed
       noScroll
-      virtualize={{ height: 500, itemSize: 256 }}
+      virtualize={{ height: 500, itemSize: 214 }}
       exportable={{
         name: exportName,
       }}
