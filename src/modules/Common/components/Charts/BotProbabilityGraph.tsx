@@ -42,12 +42,7 @@ const BotProbabilityGraph = (props: BotProbabilityGraphProps & HighchartsReact.P
         <p className="fr-mb-0">Lorem ipsum.</p>
       </div>
       <div className="fr-mt-4w">
-        <HighchartsReact
-          highcharts={Highcharts}
-          options={data}
-          containerProps={{ style: { width: '1150px' } }}
-          {...props}
-        />
+        <HighchartsReact highcharts={Highcharts} options={data} {...props} />
       </div>
     </>
   );

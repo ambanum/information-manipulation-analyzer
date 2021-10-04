@@ -155,7 +155,7 @@ export default function Table<T extends Record<string, unknown>>({
 
   return (
     <div
-      className={`fr-table
+      className={`fr-table 
         ${styles.table}
         ${hideTitle ? 'fr-table--no-caption' : ''}
         ${bordered ? 'fr-table--bordered' : ''}

@@ -42,7 +42,12 @@ const PieChart = ({ title, subTitle, data, props }: PieChartProps & HighchartsRe
           format: '<b>{point.name}</b>: {point.percentage:.1f} %',
         },
         showInLegend: width <= 560 ? true : false,
+        center: ['50%', '50%'],
       },
+    },
+    legend: {
+      itemDistance: 12,
+      padding: 4,
     },
     series: [
       {
