@@ -19,7 +19,7 @@ const OutlinksTable = ({ exportName, data, nbData }: OutlinksTableProps) => {
       size: 3,
     },
     {
-      Header: 'Count',
+      Header: 'Number of appearances',
       accessor: 'count',
       align: 'right',
       size: 1,
@@ -28,8 +28,8 @@ const OutlinksTable = ({ exportName, data, nbData }: OutlinksTableProps) => {
 
   return (
     <Table<Outlink>
-      title={`${(nbData || data.length).toLocaleString('en')} outlinks`}
-      subtitle="Lorem ipsum"
+      title="Outlinks"
+      subtitle={`${(nbData || data.length).toLocaleString('en')} outlinks by number of appearances`}
       columns={columns}
       data={data}
       sortBy={[

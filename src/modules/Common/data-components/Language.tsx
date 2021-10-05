@@ -49,11 +49,15 @@ const DataLanguage = ({
 
   return (
     <div className="fr-col">
-      <PieChart title="Most used languages" subTitle="Views on pie chart" data={languages} />
+      <PieChart
+        title="Most used languages"
+        subTitle="By percentage of use, views on pie chart"
+        data={languages}
+      />
       <div className="fr-mt-8w">
         <LanguageTable
-          title={`${languages.length} languages used`}
-          subtitle="Every languages used listed"
+          title={`Languages`}
+          subtitle={`${languages.length} languages listed by percentage of use`}
           data={languages}
           exportName={exportName}
           onFilter={onFilter}

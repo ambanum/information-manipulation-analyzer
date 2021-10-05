@@ -45,8 +45,8 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
   return (
     <>
       <div className="fr-mb-2w">
-        <h4 className="fr-mb-1v">The 3 first tweets</h4>
-        {/* <p className="fr-mb-0">Lorem ipsum</p> */}
+        <h4 className="fr-mb-1v">First 3 tweets</h4>
+        <p className="fr-mb-0">By date of appearance</p>
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {firstTweets.map(({ id, date }) => (
@@ -61,7 +61,7 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
 
       <div className="fr-mt-4w fr-mb-2w">
         <h4 className="fr-mb-1v">Most retweeted tweets</h4>
-        {/* <p className="fr-mb-0">Lorem ipsum</p> */}
+        {/* <p className="fr-mb-0">By date of appearance</p> */}
       </div>
       <div className="fr-grid-row fr-grid-row--gutters">
         {mostRetweetedTweets.map(({ id, retweetCount }) => (

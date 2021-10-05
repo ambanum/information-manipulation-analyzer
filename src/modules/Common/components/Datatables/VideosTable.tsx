@@ -19,7 +19,7 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
       ),
     },
     {
-      Header: 'Count',
+      Header: 'Number of appearances',
       accessor: 'count',
       align: 'right',
       size: 1,
@@ -49,8 +49,8 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
 
   return (
     <Table<Video>
-      title={`${(nbData || data.length).toLocaleString('en')} videos`}
-      subtitle="Lorem ipsum"
+      title="Associated videos"
+      subtitle={`${(nbData || data.length).toLocaleString('en')} videos by number of appearances`}
       columns={columns}
       data={data}
       sortBy={[

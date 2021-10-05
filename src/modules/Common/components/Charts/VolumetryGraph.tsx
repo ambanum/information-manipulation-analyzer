@@ -55,6 +55,8 @@ const VolumetryGraph = ({
     xScale
   );
 
+  console.log('yoyoyoyo', data);
+
   const initialSeries: InitialSerie[] = data.map((d) => ({
     id: d.id as string,
     name: d.id,

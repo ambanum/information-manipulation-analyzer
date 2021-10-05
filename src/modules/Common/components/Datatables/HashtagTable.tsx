@@ -79,8 +79,8 @@ const HashtagTable = ({
 
   return (
     <Table<Hashtag>
-      title={`${(nbData || data.length).toLocaleString('en')} associated hashtags`}
-      subtitle="Every associated hashtags listed"
+      title="Associated hashtags"
+      subtitle={`${(nbData || data.length).toLocaleString('en')} hashtags listed by number of use`}
       columns={columns}
       data={data}
       sortBy={[

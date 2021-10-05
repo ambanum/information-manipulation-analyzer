@@ -19,7 +19,6 @@ const LanguageTable = ({
       accessor: 'label',
       size: 3,
       Cell: ({ value, row }: any) => {
-        console.log(row);
         return (
           <a
             href=" "

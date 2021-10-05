@@ -445,8 +445,14 @@ const SearchPage = ({
           <div className="fr-container fr-container-fluid">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
-                <h4 className="fr-mb-1v">{nbTweets.toLocaleString('en')} tweets</h4>
-                <p className="fr-mb-0">Some words about volumetry.</p>
+                <h4 className="fr-mb-1v">Volumetry</h4>
+                <p className="fr-mb-0">
+                  {nbTweets.toLocaleString('en')} tweets
+                  {/* TODO : display number of retweets, likes and quotes
+                  {volumetry[1].data.length} retweets
+                  {volumetry[2].data.length} likes
+                  {volumetry[3].data.length} quotes over time */}
+                </p>
               </div>
             </div>
             <div className="fr-grid-row fr-grid-row--gutters">

@@ -15,7 +15,7 @@ const PhotosTable = ({ exportName, data, nbData }: PhotosTableProps) => {
       ),
     },
     {
-      Header: 'Count',
+      Header: 'Number of appearances',
       accessor: 'count',
       align: 'right',
       size: 1,
@@ -45,8 +45,8 @@ const PhotosTable = ({ exportName, data, nbData }: PhotosTableProps) => {
 
   return (
     <Table<Photo>
-      title={`${(nbData || data.length).toLocaleString('en')} photos`}
-      subtitle="Lorem ipsum"
+      title="Photos"
+      subtitle={`${(nbData || data.length).toLocaleString('en')} photos by number of appearances`}
       columns={columns}
       data={data}
       sortBy={[
