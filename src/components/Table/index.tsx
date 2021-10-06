@@ -155,7 +155,7 @@ export default function Table<T extends Record<string, unknown>>({
 
   return (
     <div
-      className={`fr-table
+      className={`fr-table 
         ${styles.table}
         ${hideTitle ? 'fr-table--no-caption' : ''}
         ${bordered ? 'fr-table--bordered' : ''}
@@ -200,18 +200,31 @@ export default function Table<T extends Record<string, unknown>>({
                 const sizeClasses = getSizeClass(column.size);
 
                 //Sortable arrows icons colors
-                let colorUp = 'var(--g500)';
-                let colorDown = 'var(--g500)';
+                // let colorUp = 'var(--g500)';
+                // let colorDown = 'var(--g500)';
 
-                if (canSort && isSorted) {
-                  if (isSortedDesc) {
-                    colorUp = 'var(--bf500)';
-                    colorDown = 'var(--g500)';
-                  } else {
-                    colorUp = 'var(--g500)';
-                    colorDown = 'var(--bf500)';
-                  }
-                }
+                // if (canSort && isSorted) {
+                //   if (isSortedDesc) {
+                //     colorUp = 'var(--bf500)';
+                //     colorDown = 'var(--g500)';
+                //   } else {
+                //     colorUp = 'var(--g500)';
+                //     colorDown = 'var(--bf500)';
+                //   }
+                // }
+
+                let colorUp =
+                  canSort && isSorted
+                    ? isSortedDesc
+                      ? 'var(--bf500)'
+                      : 'var(--g500)'
+                    : 'var(--g500)';
+                let colorDown =
+                  canSort && isSorted
+                    ? isSortedDesc
+                      ? 'var(--g500)'
+                      : 'var(--bf500)'
+                    : 'var(--g500)';
 
                 return (
                   <div

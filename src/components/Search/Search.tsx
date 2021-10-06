@@ -37,7 +37,13 @@ const Search = ({
 
   return (
     <div className={classNames(s.search, className)}>
-      <div className={classNames('fr-container fr-container--fluid fr-p-12w', s.search, className)}>
+      <div
+        className={classNames(
+          'fr-container fr-container--fluid fr-p-4w fr-p-md-12w',
+          s.search,
+          className
+        )}
+      >
         <div className="fr-grid-row">
           <div className="fr-col">
             <p className="text-center fr-text--lead fr-mt-0 fr-mb-2w">

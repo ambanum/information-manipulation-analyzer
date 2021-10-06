@@ -9,10 +9,7 @@ const Header = () => (
           <div className="fr-header__brand fr-enlarge-link">
             <div className="fr-header__brand-top">
               <div className="fr-header__logo">
-                <a
-                  href="/"
-                  title="Accueil - [À MODIFIER - nom de l’entité (ministère , secrétariat d‘état, gouvernement)]"
-                >
+                <a href="/" title="Home - [Information Manipulation Analyser]">
                   <p className="fr-logo">
                     République
                     <br />
@@ -299,9 +296,9 @@ const Header = () => (
     <div className="fr-header__menu fr-modal" id="modal-851" aria-labelledby="button-852">
       <div className="fr-container">
         <button className="fr-link--close fr-link" aria-controls="modal-851">
-          Fermer
+          Close
         </button>
-        <nav className="fr-nav" id="navigation-850" role="navigation" aria-label="Menu principal">
+        <nav className="fr-nav" id="navigation-850" role="navigation" aria-label="Main menu">
           <ul className="fr-nav__list">
             <li className="fr-nav__item">
               <Link href="/">

@@ -54,7 +54,7 @@ const TagsList = ({ searches }: { searches: Search[]; keyIndex?: number }) => {
           </React.Fragment>
         );
       })}
-      <hr className="fr-mt-6w" />
+      <hr className="fr-mt-2w fr-mt-md-6w" />
     </>
   );
 };
@@ -148,31 +148,31 @@ const LastSearches = ({
       )}
       {hashtags.length > 0 && (
         <>
-          <h2 className="fr-mt-4w fr-mb-2w fr-ml-1v">#hashtags</h2>
+          <h2 className="fr-mt-2w fr-mt-md-4w fr-mb-2w fr-ml-1v">#hashtags</h2>
           <TagsList searches={hashtags} />
         </>
       )}
       {keywords.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">Keywords</h2>
+          <h2 className="fr-mt-2w fr-mt-md-6w fr-mb-2w fr-ml-1v">Keywords</h2>
           <TagsList searches={keywords} />
         </>
       )}
       {mentions.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">@mentions</h2>
+          <h2 className="fr-mt-2w fr-mt-md-6w fr-mb-2w fr-ml-1v">@mentions</h2>
           <TagsList searches={mentions} />
         </>
       )}
       {cashtags.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">$cashtags</h2>
+          <h2 className="fr-mt-2w fr-mt-md-6w fr-mb-2w fr-ml-1v">$cashtags</h2>
           <TagsList searches={cashtags} />
         </>
       )}
       {urls.length > 0 && (
         <>
-          <h2 className="fr-mt-6w fr-mb-2w fr-ml-1v">URLs</h2>
+          <h2 className="fr-mt-2w fr-mt-md-6w fr-mb-2w fr-ml-1v">URLs</h2>
           <UrlsList searches={urls} />
         </>
       )}

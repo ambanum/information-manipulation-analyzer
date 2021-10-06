@@ -31,6 +31,22 @@ yarn
 yarn dev
 ```
 
+### Deploying to your local IP address
+
+When building responsive applications, it is very important to be able to test on mobile and other devices in real-time.
+
+Get your local IP
+
+```
+ipconfig getifaddr en0
+```
+
+Run
+
+```
+yarn dev -H YOUR.LOCAL.IP.ADRESS
+```
+
 ## Deployment
 
 If you are part of `AmbNum`, you can use the deploy scripts in the `package.json`

@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Alert from '../components/Alert/Alert';
 import { GetSearchPhotosResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import PhotosTable from '../components/Datatables/PhotosTable';
@@ -24,11 +25,15 @@ const DataPhotos = ({ search, queryParamsStringified = '', exportName }: DataPho
 
   const photos = data?.photos || [];
   if (photos.length === 0) {
-    return null;
+    return (
+      <Alert size="small" type="info">
+        No photos found.
+      </Alert>
+    );
   }
 
   return (
-    <div className="fr-col">
+    <div className="fr-col fr-mt-8w">
       <PhotosTable nbData={photos.length} data={photos} exportName={exportName} />
     </div>
   );

@@ -1,18 +1,18 @@
 import * as React from 'react';
 
+import Alert from '../components/Alert/Alert';
 import { GetSearchLanguagesResponse } from '../interfaces';
 import LanguageTable from '../components/Datatables/LanguageTable';
 import { LanguageTableProps } from '../components/Datatables/LanguageTable.d';
 import Loading from 'components/Loading';
 import PieChart from '../components/Charts/PieChart';
-import { PieChartProps } from '../components/Charts/PieChart.d';
 import useSWR from 'swr';
 
 interface DataLanguageProps {
   queryParamsStringified: string;
   search: string;
   refreshInterval: number;
-  onSliceClick: PieChartProps['onSliceClick'];
+  onLanguageClick: LanguageTableProps['onLanguageClick'];
   onFilter: LanguageTableProps['onFilter'];
   exportName: LanguageTableProps['exportName'];
 }
@@ -20,7 +20,7 @@ interface DataLanguageProps {
 const DataLanguage = ({
   search,
   refreshInterval,
-  onSliceClick,
+  onLanguageClick,
   onFilter,
   queryParamsStringified,
   exportName,
@@ -40,24 +40,28 @@ const DataLanguage = ({
 
   const languages = data?.languages || [];
   if (languages.length === 0) {
-    return null;
+    return (
+      <Alert size="small" type="info">
+        No languages found.
+      </Alert>
+    );
   }
 
   return (
     <div className="fr-col">
       <PieChart
         title="Most used languages"
-        subTitle="Views on pie chart"
+        subTitle="By percentage of use, views on pie chart"
         data={languages}
-        onSliceClick={onSliceClick}
       />
       <div className="fr-mt-8w">
         <LanguageTable
-          title={`${languages.length} languages used`}
-          subtitle="Every languages used listed"
+          title={`Languages`}
+          subtitle={`${languages.length} languages listed by percentage of use`}
           data={languages}
           exportName={exportName}
           onFilter={onFilter}
+          onLanguageClick={onLanguageClick}
         />
       </div>
     </div>

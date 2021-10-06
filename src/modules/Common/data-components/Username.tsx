@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Alert from '../components/Alert/Alert';
 import BotProbabilityGraph from '../components/Charts/BotProbabilityGraph';
 import { GetSearchUsernamesResponse } from '../interfaces';
 import Loading from 'components/Loading';
@@ -39,7 +40,11 @@ const DataUsername = ({
   }
   const usernames = data?.usernames || [];
   if (usernames.length === 0) {
-    return null;
+    return (
+      <Alert size="small" type="info">
+        No users found.
+      </Alert>
+    );
   }
 
   const botRepartition: any = usernames.reduce(

@@ -32,9 +32,7 @@ const UserData: React.FC<UserDataProps> = React.memo(({ username, onUsernameClic
         onUsernameClick={onUsernameClick}
         username={`@${username}`}
         image={user?.profileImageUrl || 'https://via.placeholder.com/30/DDDDDD/FFFFFF/?text=%20'}
-        nbFollowers={user?.followersCount}
         verified={user?.verified}
-        created={user?.created}
       />
     </div>
   );

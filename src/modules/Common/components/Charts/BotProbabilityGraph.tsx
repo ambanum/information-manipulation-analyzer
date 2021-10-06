@@ -38,16 +38,11 @@ const BotProbabilityGraph = (props: BotProbabilityGraphProps & HighchartsReact.P
   return (
     <>
       <div className="fr-mb-2w">
-        <h4 className="fr-mb-1v">Bot probability distribution</h4>
-        <p className="fr-mb-0">Lorem ipsum.</p>
+        <h4 className="fr-mb-1v">Bot probability</h4>
+        <p className="fr-mb-0">In number of users, views on bar chart</p>
       </div>
       <div className="fr-mt-4w">
-        <HighchartsReact
-          highcharts={Highcharts}
-          options={data}
-          containerProps={{ style: { width: '1150px' } }}
-          {...props}
-        />
+        <HighchartsReact highcharts={Highcharts} options={data} {...props} />
       </div>
     </>
   );

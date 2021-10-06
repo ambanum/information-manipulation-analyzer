@@ -5,15 +5,38 @@ import Number from 'components/Number';
 import React from 'react';
 import Table from 'components/Table';
 
-const LanguageTable = ({ exportName, data, title, subtitle, onFilter }: LanguageTableProps) => {
+const LanguageTable = ({
+  exportName,
+  data,
+  title,
+  subtitle,
+  onFilter,
+  onLanguageClick,
+}: LanguageTableProps) => {
   const columns = [
     {
       Header: 'Language',
       accessor: 'label',
       size: 3,
+      Cell: ({ value, row }: any) => {
+        return (
+          <a
+            href=" "
+            target="_blank"
+            title={`See the tweets in ${value} on Twitter`}
+            rel="noreferrer noopener"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onLanguageClick(row.original.id);
+            }}
+          >
+            {value}
+          </a>
+        );
+      },
     },
     {
-      sortType: 'number',
       Header: 'Nb of tweets',
       accessor: 'value',
       Cell: ({ value }: any) => value.toLocaleString('en'),
@@ -41,10 +64,10 @@ const LanguageTable = ({ exportName, data, title, subtitle, onFilter }: Language
                 type="button"
                 className="fr-btn fr-btn fr-btn--secondary fr-btn--icon-left"
                 style={{ paddingLeft: '0.56rem', paddingRight: '0.56rem' }}
-                title={`Filter by ${row?.original?.label}`}
+                title={`Filter by ${row?.original?.label} language`}
                 onClick={() => onFilter(row?.original?.id)}
               >
-                <IconFilter style={{ color: 'var(--g600-g400)' }} />
+                <IconFilter style={{ color: 'var(--bf500)' }} />
               </button>
             </li>
           </ul>

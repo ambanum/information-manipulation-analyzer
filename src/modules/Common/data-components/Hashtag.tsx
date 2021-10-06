@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Alert from '../components/Alert/Alert';
 import { GetSearchHashtagsResponse } from '../interfaces';
 import HashtagTable from '../components/Datatables/HashtagTable';
 import { HashtagTableProps } from '../components/Datatables/HashtagTable.d';
@@ -37,7 +38,11 @@ const DataHashtag = ({
   const hashtags = data?.hashtags || [];
 
   if (hashtags.length === 0) {
-    return null;
+    return (
+      <Alert type="info" size="small">
+        No associated hashtags found.
+      </Alert>
+    );
   }
 
   return (

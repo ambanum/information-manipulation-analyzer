@@ -35,6 +35,12 @@ hr {
   margin-left: 13px;
 }
 
+.icon-filter-line{
+  padding-left:0.55rem;
+  padding-right:0.55rem;
+  border:1px solid red;
+}
+
 /* ------------------------------------ *\
   TABLE
 \* ------------------------------------ */
@@ -43,6 +49,7 @@ hr {
   overflow: hidden;
   max-width: 100%;
   margin-bottom: 2.5rem;
+  padding-top: calc(var(--table-offset) + 1rem);
   /* Style bordered, enleve le style even/odd et ajoute des bordures entre chaque ligne */
   /*
   * Cache la caption
@@ -91,24 +98,36 @@ hr {
     line-height: 2rem;
   }
 }
+.fr-table .td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: "...";
+}
 .fr-table .td,
 .fr-table .th {
-  // text-align: left;
   vertical-align: middle;
   display: table-cell;
   border: 0;
   padding: 0.75rem;
   font-size: 0.875rem;
   line-height: 1.5rem;
+  min-width: 160px;
 }
 @media (min-width: 48em) {
   .fr-table .td,
   .fr-table .th {
     padding: 1rem;
+    min-width: 0;
   }
 }
 .fr-table .th {
-  font-weight: 700;
+  font-weight: 700; 
+  & > div{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: "...";
+  }
+
 }
 .fr-table .thead .td,
 .fr-table .thead .th {
@@ -213,8 +232,16 @@ hr {
   overflow-x: auto;
 }
 
-.icon-filter-line{
-  padding-left:0.55rem;
-  padding-right:0.55rem;
-  border:1px solid red;
+.thead{
+  overflow: auto;
+}
+
+.videoContainer{
+  
+}
+
+.videoContainer video {
+  max-width: 240px;
+  min-width: 160px;
+  position:absolute;
 }

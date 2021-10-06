@@ -21,7 +21,7 @@ const HomePage = () => {
       } else {
         notify('warning', data.message || '');
       }
-    } catch (e) {
+    } catch (e: any) {
       notify('error', e.toString());
     }
   };

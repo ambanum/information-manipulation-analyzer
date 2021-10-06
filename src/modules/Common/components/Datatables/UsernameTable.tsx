@@ -28,6 +28,14 @@ const UsernameTable = ({
       size: 3,
     },
     {
+      Header: 'Followers',
+      accessor: 'followersCount',
+      canSort: true,
+      sortType: 'number',
+      align: 'right',
+      size: 1,
+    },
+    {
       Header: 'Account creation date',
       accessor: ({ creationDate }: Username) => dayjs(creationDate).toDate(),
       sortType: 'datetime',
@@ -104,8 +112,8 @@ const UsernameTable = ({
 
   return (
     <Table<Username>
-      title={`${(nbData || data.length).toLocaleString('en')} active users`}
-      subtitle="Active user are user who tweeted this term"
+      title={`Active users`}
+      subtitle={`${(nbData || data.length).toLocaleString('en')} users listed by number of use`}
       columns={columns}
       data={data}
       sortBy={[

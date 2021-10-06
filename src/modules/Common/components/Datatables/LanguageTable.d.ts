@@ -4,6 +4,7 @@ export interface LanguageTableProps {
   subtitle?: string;
   data: Language[];
   onFilter: (lang: string) => any;
+  onLanguageClick: (lang: string) => any;
 }
 
 export interface Language {

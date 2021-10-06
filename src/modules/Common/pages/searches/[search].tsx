@@ -8,10 +8,10 @@ import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem'
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
+import { LanguageTableProps } from 'modules/Common/components/Datatables/LanguageTable.d';
 import Layout from 'modules/Embassy/components/Layout';
 import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
-import { PieChartProps } from '../../components/Charts/PieChart.d';
 import React from 'react';
 import Tile from 'modules/Common/components/Tile/Tile';
 import UrlFilters from 'modules/Common/data-components/UrlFilters';
@@ -144,9 +144,9 @@ const SearchPage = ({
     [searchName, queryParams.lang]
   );
 
-  const onPieClick: PieChartProps['onSliceClick'] = React.useCallback(
-    ({ id: lang }) => {
-      window.open(getTwitterLink(`${searchName}`, { lang: lang as string }));
+  const onLanguageClick: LanguageTableProps['onLanguageClick'] = React.useCallback(
+    (lang: string) => {
+      window.open(getTwitterLink(`${searchName}`, { lang }));
     },
     [searchName]
   );
@@ -435,7 +435,7 @@ const SearchPage = ({
       {/* Volumetry */}
       {hasVolumetry && (
         <>
-          <div className="fr-container fr-container-fluid fr-mt-12w">
+          <div className="fr-container fr-container-fluid fr-mt-6w fr-mt-md-12w">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
                 <h3>Explore</h3>
@@ -445,8 +445,14 @@ const SearchPage = ({
           <div className="fr-container fr-container-fluid">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
-                <h4 className="fr-mb-1v">{nbTweets.toLocaleString('en')} tweets</h4>
-                <p className="fr-mb-0">Some words about volumetry.</p>
+                <h4 className="fr-mb-1v">Volumetry</h4>
+                <p className="fr-mb-0">
+                  {nbTweets.toLocaleString('en')} tweets
+                  {/* TODO : display number of retweets, likes and quotes
+                  {volumetry[1].data.length} retweets
+                  {volumetry[2].data.length} likes
+                  {volumetry[3].data.length} quotes over time */}
+                </p>
               </div>
             </div>
             <div className="fr-grid-row fr-grid-row--gutters">
@@ -492,7 +498,7 @@ const SearchPage = ({
                 <LanguageData
                   search={searchName}
                   refreshInterval={refreshInterval}
-                  onSliceClick={onPieClick}
+                  onLanguageClick={onLanguageClick}
                   onFilter={onFilterLangChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
@@ -544,24 +550,20 @@ const SearchPage = ({
                     'YYYYMMDDHH'
                   )}__${searchName}__medias-videos`}
                 />
-                <div className="fr-mt-8w">
-                  <PhotosData
-                    search={searchName}
-                    queryParamsStringified={queryParamsStringified}
-                    exportName={`${dayjs(newestProcessedDate).format(
-                      'YYYYMMDDHH'
-                    )}__${searchName}__medias-photos`}
-                  />
-                </div>
-                <div className="fr-mt-8w">
-                  <OutlinksData
-                    search={searchName}
-                    queryParamsStringified={queryParamsStringified}
-                    exportName={`${dayjs(newestProcessedDate).format(
-                      'YYYYMMDDHH'
-                    )}__${searchName}__medias-outlinks`}
-                  />
-                </div>
+                <PhotosData
+                  search={searchName}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__medias-photos`}
+                />
+                <OutlinksData
+                  search={searchName}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__medias-outlinks`}
+                />
               </TabPanel>
             </div>
           </Tabs>

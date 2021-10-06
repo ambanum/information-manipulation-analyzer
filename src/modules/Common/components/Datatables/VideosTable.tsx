@@ -11,13 +11,15 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
       accessor: 'fullUrl',
       size: 3,
       Cell: ({ value, raw }: any) => (
-        <video controls width="344" height="194" poster={raw?.original?.thumbnailUrl}>
-          <source src={value} type={raw?.original?.contentType}></source>
-        </video>
+        <div className="videoContainer">
+          <video height="184" controls poster={raw?.original?.thumbnailUrl}>
+            <source src={value} type={raw?.original?.contentType}></source>
+          </video>
+        </div>
       ),
     },
     {
-      Header: 'Count',
+      Header: 'Number of appearances',
       accessor: 'count',
       align: 'right',
       size: 1,
@@ -47,8 +49,8 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
 
   return (
     <Table<Video>
-      title={`${(nbData || data.length).toLocaleString('en')} videos`}
-      subtitle="Lorem ipsum"
+      title="Associated videos"
+      subtitle={`${(nbData || data.length).toLocaleString('en')} videos by number of appearances`}
       columns={columns}
       data={data}
       sortBy={[

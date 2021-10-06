@@ -11,11 +11,11 @@ const PhotosTable = ({ exportName, data, nbData }: PhotosTableProps) => {
       accessor: 'fullUrl',
       size: 3,
       Cell: ({ value }: any) => (
-        <img src={value} style={{ maxWidth: '344px', maxHeight: '256px' }} />
+        <img src={value} style={{ maxWidth: '344px', maxHeight: '184px' }} />
       ),
     },
     {
-      Header: 'Count',
+      Header: 'Number of appearances',
       accessor: 'count',
       align: 'right',
       size: 1,
@@ -45,8 +45,8 @@ const PhotosTable = ({ exportName, data, nbData }: PhotosTableProps) => {
 
   return (
     <Table<Photo>
-      title={`${(nbData || data.length).toLocaleString('en')} photos`}
-      subtitle="Lorem ipsum"
+      title="Photos"
+      subtitle={`${(nbData || data.length).toLocaleString('en')} photos by number of appearances`}
       columns={columns}
       data={data}
       sortBy={[
@@ -57,7 +57,7 @@ const PhotosTable = ({ exportName, data, nbData }: PhotosTableProps) => {
       ]}
       layoutFixed
       noScroll
-      virtualize={{ height: 500, itemSize: 256 }}
+      virtualize={{ height: 500, itemSize: 214 }}
       exportable={{
         name: exportName,
       }}

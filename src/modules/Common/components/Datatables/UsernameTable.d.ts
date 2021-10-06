@@ -15,4 +15,5 @@ export interface Username {
   percentage?: number;
   botScore?: number;
   creationDate?: number;
+  followersCount?:number;
 }
