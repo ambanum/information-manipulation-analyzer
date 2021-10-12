@@ -9,12 +9,17 @@ const OutlinksTable = ({ exportName, data, nbData }: OutlinksTableProps) => {
       Header: 'Outlinks',
       accessor: 'url',
       Cell: ({ value }: Outlink) => (
-        <>
-          <img src={`https://www.google.com/s2/favicons?domain=${value}`} className="fr-mr-2v" />
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <img
+            src={`https://www.google.com/s2/favicons?domain=${value}`}
+            className="fr-mr-2v"
+            width="16"
+            height="16"
+          />
           <a href={value} target="_blank" rel="noopener noreferrer">
             {value}
           </a>
-        </>
+        </div>
       ),
       size: 3,
     },
