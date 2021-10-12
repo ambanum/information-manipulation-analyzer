@@ -31,7 +31,7 @@ yarn
 yarn dev
 ```
 
-### Deploying to your local IP address
+### Testing to your local IP address
 
 When building responsive applications, it is very important to be able to test on mobile and other devices in real-time.
 
