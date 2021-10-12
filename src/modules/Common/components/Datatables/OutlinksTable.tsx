@@ -27,6 +27,8 @@ const OutlinksTable = ({ exportName, data, nbData }: OutlinksTableProps) => {
       Header: 'Number of appearances',
       accessor: 'count',
       align: 'right',
+      sortType: 'number',
+      Cell: ({ value }: any) => value.toLocaleString('en'),
       size: 1,
     },
   ];

@@ -33,6 +33,7 @@ const UsernameTable = ({
       canSort: true,
       sortType: 'number',
       align: 'right',
+      Cell: ({ value }: any) => value.toLocaleString('en'),
       size: 1,
     },
     {

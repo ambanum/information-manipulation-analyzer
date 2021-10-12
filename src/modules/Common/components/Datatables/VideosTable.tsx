@@ -21,6 +21,8 @@ const VideosTable = ({ exportName, data, nbData }: VideosTableProps) => {
     {
       Header: 'Number of appearances',
       accessor: 'count',
+      sortType: 'number',
+      Cell: ({ value }: any) => value.toLocaleString('en'),
       align: 'right',
       size: 1,
     },
