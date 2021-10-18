@@ -228,9 +228,27 @@ const SearchPage = ({
     [queryParams.min, queryParams.max, pushQueryParams]
   );
 
-  const onFilterChange = React.useCallback(
-    (fieldName: string) => (value: string) => {
-      pushQueryParams({ [fieldName]: value }, undefined, {
+  const onFilterHashtagChange = React.useCallback(
+    (value: string) => {
+      pushQueryParams({ hashtag: value }, undefined, {
+        scroll: false,
+        shallow: true,
+      });
+    },
+    [pushQueryParams]
+  );
+  const onFilterLangChange = React.useCallback(
+    (value: string) => {
+      pushQueryParams({ lang: value }, undefined, {
+        scroll: false,
+        shallow: true,
+      });
+    },
+    [pushQueryParams]
+  );
+  const onFilterUsernameChange = React.useCallback(
+    (value: string) => {
+      pushQueryParams({ username: value }, undefined, {
         scroll: false,
         shallow: true,
       });
@@ -245,7 +263,7 @@ const SearchPage = ({
   const isUrl = type === 'URL';
 
   const title = searchName || searchNameFromUrl;
-  const hasVolumetry = volumetry[0]?.data?.length > 0;
+  const hasVolumetry = volumetry.length > 0;
 
   return (
     <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
@@ -500,7 +518,7 @@ const SearchPage = ({
                   search={searchName}
                   refreshInterval={refreshInterval}
                   onLanguageClick={onLanguageClick}
-                  onFilter={onFilterChange('lang')}
+                  onFilter={onFilterLangChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
@@ -515,7 +533,7 @@ const SearchPage = ({
                   onUsernameClick={onUsernameClick}
                   onUsernameViewClick={onUsernameViewClick}
                   onUsernameSearchClick={onUsernameSearchClick}
-                  onUsernameFilterClick={onFilterChange('username')}
+                  onUsernameFilterClick={onFilterUsernameChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
@@ -529,7 +547,7 @@ const SearchPage = ({
                   refreshInterval={refreshInterval}
                   onHashtagClick={onHashtagClick}
                   onHashtagSearchClick={onHashtagSearchClick}
-                  onHashtagFilterClick={onFilterChange('hashtag')}
+                  onHashtagFilterClick={onFilterHashtagChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'

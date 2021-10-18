@@ -79,28 +79,9 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
             nbUsernames: (aggregatedData.nbUsernames || 0) + newData.nbUsernames,
             nbAssociatedHashtags:
               (aggregatedData.nbAssociatedHashtags || 0) + newData.nbAssociatedHashtags,
-            volumetry: newData.volumetry.map((volumetryLine: any, i: number) => {
-              const newArray: { [key: string]: number } = {};
-
-              // First, aggregate already retrieved data and new data
-              // and keep only the latest value
-              // if there are two records for a given date, first value will be overwritten by second one
-              [
-                ...((aggregatedData?.volumetry || [])[i]?.data || []),
-                ...volumetryLine.data,
-              ].forEach(({ x, y }) => (newArray[x] = y));
-
-              // Then, recreate the well formatted array
-              // and sort it by date
-              const newData = Object.keys(newArray)
-                .map((x: string) => ({ x, y: newArray[x] || 0 }))
-                .sort((a, b) => new Date(a.x).getTime() - new Date(b.x).getTime());
-
-              return {
-                ...volumetryLine,
-                data: newData,
-              };
-            }),
+            volumetry: [...(aggregatedData.volumetry || []), ...newData.volumetry].sort(
+              (a, b) => new Date(a.hour).getTime() - new Date(b.hour).getTime()
+            ),
           };
 
           setData(aggregatedData);

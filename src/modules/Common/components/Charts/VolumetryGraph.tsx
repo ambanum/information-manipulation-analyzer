@@ -1,12 +1,12 @@
 import * as Highcharts from 'highcharts/highstock';
 import * as React from 'react';
 
+import { Serie, VolumetryGraphProps } from './VolumetryGraph.d';
 import { useLocalStorage, usePrevious, useToggle } from 'react-use';
 
 import Boost from 'highcharts/modules/boost';
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
-import { VolumetryGraphProps } from './VolumetryGraph.d';
 import dayjs from 'dayjs';
 import { paletteColors } from './config';
 import styles from './Graph.module.scss';
@@ -30,6 +30,23 @@ const dataNotEqual = (first: [number, number][], second: [number, number][]) => 
   return false;
 };
 
+const formatData = (data: VolumetryGraphProps['data']) => {
+  const series: any = [
+    { id: 'nbTweets', data: [] },
+    { id: 'nbRetweets', data: [] },
+    { id: 'nbLikes', data: [] },
+    { id: 'nbQuotes', data: [] },
+  ];
+
+  data.forEach(({ hour, nbTweets, nbRetweets, nbLikes, nbQuotes }) => {
+    series[0].data.push([new Date(hour).getTime(), nbTweets]);
+    series[1].data.push([new Date(hour).getTime(), nbRetweets]);
+    series[2].data.push([new Date(hour).getTime(), nbLikes]);
+    series[3].data.push([new Date(hour).getTime(), nbQuotes]);
+  });
+  return series;
+};
+
 export interface InitialSerie {
   id: string;
   name: any;
@@ -41,13 +58,15 @@ const timezoneDelayInMinutes: number = new Date().getTimezoneOffset();
 
 const VolumetryGraph = ({
   onPointClick,
-  data,
+  data: rawData,
   xScale = 'hour',
   onFilterDateChange,
   min,
   max,
   ...props
 }: VolumetryGraphProps & HighchartsReact.Props) => {
+  const data = formatData(rawData);
+
   const chartRef = React.useRef(null);
   const [recalculating, toggleRecalculating] = useToggle(false);
   const [chartXscaleDisplay, setChartXscaleDisplay] = useLocalStorage<GraphXScale>(
@@ -60,7 +79,7 @@ const VolumetryGraph = ({
     name: d.id,
     showInLegend: true,
     type: 'spline',
-    data: d.data.map(({ x, y }: any) => [new Date(x).getTime(), y]),
+    data: d.data,
   }));
 
   const previousXscale = usePrevious(chartXscaleDisplay);

@@ -24,6 +24,7 @@ const getUsernames =
         endDate: filter.max,
         lang: filter.lang,
         username: filter.username,
+        hashtag: filter.hashtag,
       });
       if (filter.min && filter.max) {
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);

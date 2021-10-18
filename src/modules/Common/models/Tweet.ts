@@ -188,7 +188,8 @@ function getCombinations(valuesArray: String[]) {
   return combi;
 }
 
-const allCombinations = getCombinations(['hour', 'lang', 'username', 'hashtags']);
+const allCombinations = getCombinations(['hour', 'lang', 'username']);
+// Do not use "hashtags" because there would be 2 arrays indexed. Which is not authorized
 
 schema.index({ date: 1, searches: 1 });
 schema.index({ hour: -1, searches: 1 });

@@ -1,11 +1,10 @@
 import * as LanguageManager from 'modules/Countries/managers/LanguageManager';
 import * as QueueItemManager from './QueueItemManager';
 
-import { CommonGetFilters, Search } from '../interfaces';
+import { CommonGetFilters, GetVolumetry, Search } from '../interfaces';
 import SearchModel, { SearchTypes } from '../models/Search';
 
 import TweetModel from '../models/Tweet';
-import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 import dayjs from 'dayjs';
 import sumBy from 'lodash/fp/sumBy';
 
@@ -220,65 +219,63 @@ export const getWithData = async ({
     let i = 0;
     const volumetryLength = searchVolumetry.length;
 
-    const volumetry = searchVolumetry.reduce(
-      (acc: VolumetryGraphProps['data'], volumetry) => {
-        const newAcc = [...acc];
+    let extendedVolumetry: GetVolumetry[] = [];
 
-        const volumetryDate = volumetry.hour;
-        const volumetryDayJs = dayjs(volumetryDate);
+    searchVolumetry.forEach((volumetry) => {
+      const volumetryHour = volumetry.hour;
+      const volumetryDayJs = dayjs(volumetryHour);
 
-        if (i > 0) {
-          const volumetryDatePrevHour = volumetryDayJs.add(-1, 'hour').toDate();
+      if (i > 0) {
+        const volumetryPrevHour = volumetryDayJs.add(-1, 'hour').toDate();
 
-          if (volumetryDatePrevHour.toISOString() !== searchVolumetry[i - 1]?.hour.toISOString()) {
-            newAcc[0].data.push({ x: volumetryDatePrevHour, y: 0 });
-            newAcc[1].data.push({ x: volumetryDatePrevHour, y: 0 });
-            newAcc[2].data.push({ x: volumetryDatePrevHour, y: 0 });
-            newAcc[3].data.push({ x: volumetryDatePrevHour, y: 0 });
-          }
+        if (volumetryPrevHour.toISOString() !== searchVolumetry[i - 1]?.hour.toISOString()) {
+          extendedVolumetry.push({
+            hour: volumetryPrevHour,
+            nbTweets: 0,
+            nbRetweets: 0,
+            nbLikes: 0,
+            nbQuotes: 0,
+          });
         }
+      }
 
-        newAcc[0].data.push({ x: volumetryDate, y: volumetry.nbTweets || 0 });
-        newAcc[1].data.push({ x: volumetryDate, y: volumetry.nbRetweets || 0 });
-        newAcc[2].data.push({ x: volumetryDate, y: volumetry.nbLikes || 0 });
-        newAcc[3].data.push({ x: volumetryDate, y: volumetry.nbQuotes || 0 });
+      extendedVolumetry.push({
+        hour: volumetryHour,
+        nbTweets: volumetry.nbTweets || 0,
+        nbRetweets: volumetry.nbRetweets || 0,
+        nbLikes: volumetry.nbLikes || 0,
+        nbQuotes: volumetry.nbQuotes || 0,
+      });
 
-        if (i < volumetryLength - 1) {
-          const volumetryDateNextHour = volumetryDayJs.add(1, 'hour').toDate();
-          if (volumetryDateNextHour.toISOString() !== searchVolumetry[i + 1]?.hour.toISOString()) {
-            newAcc[0].data.push({ x: volumetryDateNextHour, y: 0 });
-            newAcc[1].data.push({ x: volumetryDateNextHour, y: 0 });
-            newAcc[2].data.push({ x: volumetryDateNextHour, y: 0 });
-            newAcc[3].data.push({ x: volumetryDateNextHour, y: 0 });
-          }
+      if (i < volumetryLength - 1) {
+        const volumetryNextHour = volumetryDayJs.add(1, 'hour').toDate();
+        if (volumetryNextHour.toISOString() !== searchVolumetry[i + 1]?.hour.toISOString()) {
+          extendedVolumetry.push({
+            hour: volumetryNextHour,
+            nbTweets: 0,
+            nbRetweets: 0,
+            nbLikes: 0,
+            nbQuotes: 0,
+          });
         }
-        i++;
+      }
+      i++;
 
-        if (
-          (!min && !max) ||
-          (min &&
-            max &&
-            volumetryDayJs.isAfter(dayjs(+min)) &&
-            volumetryDayJs.isBefore(dayjs(+max)))
-        ) {
-          // Calculate number of tweets
-          nbTweets += volumetry.nbTweets;
-        }
-        return acc;
-      },
-      [
-        { id: 'nbTweets', data: [] },
-        { id: 'nbRetweets', data: [] },
-        { id: 'nbLikes', data: [] },
-        { id: 'nbQuotes', data: [] },
-      ]
-    );
+      if (
+        (!min && !max) ||
+        (min && max && volumetryDayJs.isAfter(dayjs(+min)) && volumetryDayJs.isBefore(dayjs(+max)))
+      ) {
+        // Calculate number of tweets
+        nbTweets += volumetry.nbTweets;
+      }
+    });
+
     const nbAssociatedHashtags = await countHashtags(filters);
     const nbUsernames = await countUsernames(filters);
 
     const result = {
       search: search ? search : null,
-      volumetry,
+      volumetry: extendedVolumetry,
       nbTweets,
       nbUsernames,
       nbAssociatedHashtags,

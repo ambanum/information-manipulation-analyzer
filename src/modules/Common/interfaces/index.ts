@@ -77,10 +77,18 @@ export interface GetSearchesResponse extends CommonResponse {
   searches: Search[];
 }
 
+export interface GetVolumetry {
+  hour: Date;
+  nbTweets: number;
+  nbRetweets: number;
+  nbLikes: number;
+  nbQuotes: number;
+}
+
 export interface GetSearchResponse extends CommonResponse {
   search?: Search | null;
   nbTweets?: number;
-  volumetry?: VolumetryGraphProps['data'];
+  volumetry?: GetVolumetry[];
   nbUsernames?: number;
   nbAssociatedHashtags?: number;
 }
