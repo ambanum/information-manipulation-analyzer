@@ -228,19 +228,9 @@ const SearchPage = ({
     [queryParams.min, queryParams.max, pushQueryParams]
   );
 
-  const onFilterLangChange: any = React.useCallback(
-    (lang: string) => {
-      pushQueryParams({ lang }, undefined, {
-        scroll: false,
-        shallow: true,
-      });
-    },
-    [pushQueryParams]
-  );
-
-  const onUsernameFilterClick: any = React.useCallback(
-    (username: string) => {
-      pushQueryParams({ username }, undefined, {
+  const onFilterChange = React.useCallback(
+    (fieldName: string) => (value: string) => {
+      pushQueryParams({ [fieldName]: value }, undefined, {
         scroll: false,
         shallow: true,
       });
@@ -510,7 +500,7 @@ const SearchPage = ({
                   search={searchName}
                   refreshInterval={refreshInterval}
                   onLanguageClick={onLanguageClick}
-                  onFilter={onFilterLangChange}
+                  onFilter={onFilterChange('lang')}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
@@ -525,7 +515,7 @@ const SearchPage = ({
                   onUsernameClick={onUsernameClick}
                   onUsernameViewClick={onUsernameViewClick}
                   onUsernameSearchClick={onUsernameSearchClick}
-                  onUsernameFilterClick={onUsernameFilterClick}
+                  onUsernameFilterClick={onFilterChange('username')}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
@@ -539,6 +529,7 @@ const SearchPage = ({
                   refreshInterval={refreshInterval}
                   onHashtagClick={onHashtagClick}
                   onHashtagSearchClick={onHashtagSearchClick}
+                  onHashtagFilterClick={onFilterChange('hashtag')}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
