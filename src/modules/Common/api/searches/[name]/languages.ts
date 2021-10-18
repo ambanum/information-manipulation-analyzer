@@ -22,6 +22,7 @@ const getLanguages =
         searchIds: [search._id],
         startDate: filter.min,
         endDate: filter.max,
+        lang: filter.lang,
         username: filter.username,
       });
       if (filter.min && filter.max) {

@@ -23,7 +23,7 @@ const getUsernames =
         startDate: filter.min,
         endDate: filter.max,
         lang: filter.lang,
-        // Do not filter by username here as we always want the full list
+        username: filter.username,
       });
       if (filter.min && filter.max) {
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);
