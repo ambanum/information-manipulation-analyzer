@@ -15,9 +15,10 @@ interface SearchFilter {
   endDate?: string;
   lang?: string;
   username?: string;
+  hashtag?: string;
 }
 
-const getMatch = ({ searchIds, startDate, endDate, lang, username }: SearchFilter) => {
+const getMatch = ({ searchIds, startDate, endDate, lang, username, hashtag }: SearchFilter) => {
   const match: any = {};
   if (startDate || endDate) {
     match.hour = {};
@@ -33,6 +34,9 @@ const getMatch = ({ searchIds, startDate, endDate, lang, username }: SearchFilte
   }
   if (username) {
     match.username = username;
+  }
+  if (hashtag) {
+    match.hashtags = hashtag;
   }
 
   match.searches = { $in: searchIds }; // first filter by date and then by searches as it is a multi key index
@@ -186,12 +190,14 @@ export const getWithData = async ({
   max,
   lang,
   username,
+  hashtag,
 }: {
   name: string;
   min?: string;
   max?: string;
   lang?: string;
   username?: string;
+  hashtag?: string;
 }) => {
   try {
     const search = await get({ name });
@@ -205,15 +211,10 @@ export const getWithData = async ({
       endDate: max,
       lang,
       username,
+      hashtag,
     };
 
-    const searchVolumetry = await getVolumetry({
-      searchIds: [search._id],
-      startDate: min,
-      endDate: max,
-      lang,
-      username,
-    });
+    const searchVolumetry = await getVolumetry(filters);
 
     let nbTweets: number = 0;
     let i = 0;

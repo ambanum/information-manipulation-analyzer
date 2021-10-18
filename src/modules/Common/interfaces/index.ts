@@ -35,6 +35,7 @@ export interface CommonGetFilters {
   max?: string;
   lang?: string;
   username?: string;
+  hashtag?: string;
 }
 
 /******************************************

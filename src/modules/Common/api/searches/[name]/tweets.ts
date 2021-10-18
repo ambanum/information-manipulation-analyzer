@@ -24,6 +24,7 @@ const getTweets =
         endDate: filter.max,
         lang: filter.lang,
         username: filter.username,
+        hashtag: filter.hashtag,
       });
 
       if (filter.min && filter.max) {

@@ -21,7 +21,7 @@ const UrlFilters: React.FC<UrlFiltersProps> = ({ children, className, ...props }
   if (nbParams === 0) {
     return null;
   }
-  const { min, max, lang, username } = queryParams;
+  const { min, max, lang, username, hashtag } = queryParams;
 
   return (
     <Filters className={classNames(className)} {...props}>
@@ -41,6 +41,9 @@ const UrlFilters: React.FC<UrlFiltersProps> = ({ children, className, ...props }
       )}
       {username && (
         <FilterItem onRemove={() => removeQueryParams(['username'])}>@{username}</FilterItem>
+      )}
+      {hashtag && (
+        <FilterItem onRemove={() => removeQueryParams(['hashtag'])}>#{hashtag}</FilterItem>
       )}
     </Filters>
   );
