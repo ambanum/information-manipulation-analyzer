@@ -104,7 +104,7 @@ const UsernameTable = ({
                   onUsernameFilterClick(row?.original?.label);
                 }}
               >
-                <IconFilter style={{ color: 'var(--g600-g400)' }} />
+                <IconFilter style={{ color: 'var(--bf500)' }} />
               </button>
             </li>
           </ul>
