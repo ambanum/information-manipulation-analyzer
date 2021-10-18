@@ -1,9 +1,9 @@
 import * as LanguageManager from 'modules/Countries/managers/LanguageManager';
 import * as QueueItemManager from './QueueItemManager';
 
+import { CommonGetFilters, Search } from '../interfaces';
 import SearchModel, { SearchTypes } from '../models/Search';
 
-import { Search } from '../interfaces';
 import TweetModel from '../models/Tweet';
 import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 import dayjs from 'dayjs';
@@ -14,9 +14,10 @@ interface SearchFilter {
   startDate?: string;
   endDate?: string;
   lang?: string;
+  username?: string;
 }
 
-const getMatch = ({ searchIds, startDate, endDate, lang }: SearchFilter) => {
+const getMatch = ({ searchIds, startDate, endDate, lang, username }: SearchFilter) => {
   const match: any = {};
   if (startDate || endDate) {
     match.hour = {};
@@ -30,8 +31,12 @@ const getMatch = ({ searchIds, startDate, endDate, lang }: SearchFilter) => {
   if (lang) {
     match.lang = lang;
   }
+  if (username) {
+    match.username = username;
+  }
 
   match.searches = { $in: searchIds }; // first filter by date and then by searches as it is a multi key index
+
   return match;
 };
 
@@ -180,11 +185,13 @@ export const getWithData = async ({
   min,
   max,
   lang,
+  username,
 }: {
   name: string;
   min?: string;
   max?: string;
   lang?: string;
+  username?: string;
 }) => {
   try {
     const search = await get({ name });
@@ -194,11 +201,19 @@ export const getWithData = async ({
     }
     const filters: any = {
       searchIds: [search._id],
+      startDate: min,
+      endDate: max,
+      lang,
+      username,
     };
-    if (min) filters.startDate = min;
-    if (max) filters.endDate = max;
-    if (lang) filters.lang = lang;
-    const searchVolumetry = await getVolumetry(filters);
+
+    const searchVolumetry = await getVolumetry({
+      searchIds: [search._id],
+      startDate: min,
+      endDate: max,
+      lang,
+      username,
+    });
 
     let nbTweets: number = 0;
     let i = 0;
@@ -521,7 +536,7 @@ export const countUsernames = async (filters: SearchFilter) => {
   return rawResults[0]?.count;
 };
 
-export const splitRequests = async ({ name, lang }: { name: string; lang?: string }) => {
+export const splitRequests = async ({ name, min, max, ...commonParams }: CommonGetFilters) => {
   try {
     const search = await get({ name });
 
@@ -531,7 +546,7 @@ export const splitRequests = async ({ name, lang }: { name: string; lang?: strin
 
     const match: any = getMatch({
       searchIds: [search._id],
-      lang: lang,
+      ...commonParams,
     });
 
     const nbTweets = await TweetModel.count(match);
@@ -542,7 +557,11 @@ export const splitRequests = async ({ name, lang }: { name: string; lang?: strin
     let previousHour = null;
     if (nbTweets <= batchNumber) {
       periods = [
-        { endDate: match?.hour?.$lte, startDate: match?.hour?.$gte, ...(lang ? { lang } : {}) },
+        {
+          endDate: match?.hour?.$lte,
+          startDate: match?.hour?.$gte,
+          ...commonParams,
+        },
       ];
     } else {
       for (let i = 1; i <= nbBatches; i++) {
@@ -569,17 +588,13 @@ export const splitRequests = async ({ name, lang }: { name: string; lang?: strin
           }
 
           const { hour } = tweet;
-          let period: any = {};
+          let period: any = { ...commonParams };
           if (i === 1) {
             period = { startDate: hour, endDate: match?.hour?.$lte };
           } else if (i === nbBatches) {
             period = { endDate: previousHour, startDate: match?.hour?.$gte };
           } else {
             period = { startDate: hour, endDate: previousHour };
-          }
-
-          if (lang) {
-            period.lang = lang;
           }
 
           periods.push(period);

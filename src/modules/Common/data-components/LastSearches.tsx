@@ -75,6 +75,8 @@ const UrlsList = ({ searches }: { searches: Search[] }) => {
             <img
               src={`https://www.google.com/s2/favicons?domain=${hostname}`}
               className="fr-mr-2v"
+              width="16"
+              height="16"
             />
             {search.name}
           </>

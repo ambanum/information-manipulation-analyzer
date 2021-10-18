@@ -5,6 +5,7 @@ export interface UsernameTableProps {
   onUsernameClick: (username: string) => any;
   onUsernameViewClick: (username: string) => any;
   onUsernameSearchClick: (username: string) => any;
+  onUsernameFilterClick: (username: string) => any;
 }
 
 export interface Username {
@@ -15,5 +16,5 @@ export interface Username {
   percentage?: number;
   botScore?: number;
   creationDate?: number;
-  followersCount?:number;
+  followersCount?: number;
 }

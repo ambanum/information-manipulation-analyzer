@@ -1,16 +1,15 @@
 import * as SearchManager from '../../../managers/SearchManager';
 
+import { CommonGetFilters, GetSearchPhotosResponse } from 'modules/Common/interfaces';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { GetSearchPhotosResponse } from 'modules/Common/interfaces';
 import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const getPhotos =
-  (filter: { name: string; min?: string; max?: string; lang?: string }) =>
-  async (res: NextApiResponse<GetSearchPhotosResponse>) => {
+  (filter: CommonGetFilters) => async (res: NextApiResponse<GetSearchPhotosResponse>) => {
     try {
       const search = await SearchManager.get({ name: filter.name });
 
@@ -24,6 +23,7 @@ const getPhotos =
         startDate: filter.min,
         endDate: filter.max,
         lang: filter.lang,
+        username: filter.username,
       });
       if (filter.min && filter.max) {
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);

@@ -1,16 +1,15 @@
 import * as SearchManager from '../../../managers/SearchManager';
 
+import { CommonGetFilters, GetSearchTweetsResponse } from 'modules/Common/interfaces';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { GetSearchTweetsResponse } from 'modules/Common/interfaces';
 import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const getTweets =
-  (filter: { name: string; min?: string; max?: string; lang?: string }) =>
-  async (res: NextApiResponse<GetSearchTweetsResponse>) => {
+  (filter: CommonGetFilters) => async (res: NextApiResponse<GetSearchTweetsResponse>) => {
     try {
       const search = await SearchManager.get({ name: filter.name });
 
@@ -24,6 +23,7 @@ const getTweets =
         startDate: filter.min,
         endDate: filter.max,
         lang: filter.lang,
+        username: filter.username,
       });
 
       if (filter.min && filter.max) {

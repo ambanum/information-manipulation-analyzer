@@ -29,6 +29,14 @@ export interface CommonResponse {
   message?: string;
 }
 
+export interface CommonGetFilters {
+  name: string;
+  min?: string;
+  max?: string;
+  lang?: string;
+  username?: string;
+}
+
 /******************************************
  * QueueItem
  ******************************************/
@@ -152,4 +160,3 @@ export interface GetSearchPhotosResponse extends CommonResponse {
 export interface GetSearchOutlinksResponse extends CommonResponse {
   outlinks?: OutlinksTableProps['data'];
 }
-

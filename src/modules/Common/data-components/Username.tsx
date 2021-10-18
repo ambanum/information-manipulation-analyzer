@@ -14,6 +14,7 @@ interface DataUsernameProps {
   onUsernameClick: UsernameTableProps['onUsernameClick'];
   onUsernameViewClick: UsernameTableProps['onUsernameViewClick'];
   onUsernameSearchClick: UsernameTableProps['onUsernameSearchClick'];
+  onUsernameFilterClick: UsernameTableProps['onUsernameFilterClick'];
   queryParamsStringified?: string;
   exportName: UsernameTableProps['exportName'];
 }
@@ -24,6 +25,7 @@ const DataUsername = ({
   onUsernameClick,
   onUsernameViewClick,
   onUsernameSearchClick,
+  onUsernameFilterClick,
   queryParamsStringified = '',
   exportName,
 }: DataUsernameProps) => {
@@ -68,6 +70,7 @@ const DataUsername = ({
         onUsernameClick={onUsernameClick}
         onUsernameViewClick={onUsernameViewClick}
         onUsernameSearchClick={onUsernameSearchClick}
+        onUsernameFilterClick={onUsernameFilterClick}
         exportName={exportName}
       />
       <div className="fr-mt-8w">
