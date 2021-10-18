@@ -170,6 +170,10 @@ schema.index({ hour: -1, searches: 1 });
 schema.index({ hour: 1, searches: 1 });
 schema.index({ searches: 1, hour: -1 });
 
+schema.index({ username: 1, searches: 1 });
+schema.index({ lang: 1, searches: 1 });
+schema.index({ hour: -1, lang: 1, searches: 1 });
+
 const TweetModel: Model<Tweet> = models?.Tweet || model('Tweet', schema);
 
 export default TweetModel;

@@ -1,16 +1,15 @@
 import * as SearchManager from '../../../managers/SearchManager';
 
+import { CommonGetFilters, GetSearchLanguagesResponse } from 'modules/Common/interfaces';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { GetSearchLanguagesResponse } from 'modules/Common/interfaces';
 import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const getLanguages =
-  (filter: { name: string; min?: string; max?: string }) =>
-  async (res: NextApiResponse<GetSearchLanguagesResponse>) => {
+  (filter: CommonGetFilters) => async (res: NextApiResponse<GetSearchLanguagesResponse>) => {
     try {
       const search = await SearchManager.get({ name: filter.name });
 
@@ -23,6 +22,7 @@ const getLanguages =
         searchIds: [search._id],
         startDate: filter.min,
         endDate: filter.max,
+        username: filter.username,
       });
       if (filter.min && filter.max) {
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);

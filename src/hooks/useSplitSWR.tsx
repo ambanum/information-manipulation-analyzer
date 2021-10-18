@@ -59,11 +59,12 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
     setData(aggregatedData);
 
     const doFetchPeriods = async () => {
-      for (const { name, ...period } of splittedPeriods) {
-        const params: any = {};
-        if (period.startDate) params.min = new Date(period.startDate).getTime();
-        if (period.endDate) params.max = new Date(period.endDate).getTime();
-        if (period.lang) params.lang = period.lang;
+      for (const { name, startDate, endDate, ...period } of splittedPeriods) {
+        const params: any = {
+          ...period,
+        };
+        if (startDate) params.min = new Date(startDate).getTime();
+        if (endDate) params.max = new Date(endDate).getTime();
 
         const searchParams = new URLSearchParams(params).toString();
         try {

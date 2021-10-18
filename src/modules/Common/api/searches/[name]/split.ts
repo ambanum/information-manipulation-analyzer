@@ -1,16 +1,15 @@
 import * as SearchManager from '../../../managers/SearchManager';
 
+import { CommonGetFilters, GetSearchSplitRequestsResponse } from 'modules/Common/interfaces';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { GetSearchSplitRequestsResponse } from 'modules/Common/interfaces';
 import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const get =
-  (filter: { name: string; min?: string; max?: string }) =>
-  async (res: NextApiResponse<GetSearchSplitRequestsResponse>) => {
+  (filter: CommonGetFilters) => async (res: NextApiResponse<GetSearchSplitRequestsResponse>) => {
     try {
       const splits = await SearchManager.splitRequests(filter);
 

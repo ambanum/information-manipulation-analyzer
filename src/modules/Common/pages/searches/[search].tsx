@@ -227,9 +227,20 @@ const SearchPage = ({
     }, 500),
     [queryParams.min, queryParams.max, pushQueryParams]
   );
+
   const onFilterLangChange: any = React.useCallback(
     (lang: string) => {
       pushQueryParams({ lang }, undefined, {
+        scroll: false,
+        shallow: true,
+      });
+    },
+    [pushQueryParams]
+  );
+
+  const onUsernameFilterClick: any = React.useCallback(
+    (username: string) => {
+      pushQueryParams({ username }, undefined, {
         scroll: false,
         shallow: true,
       });
@@ -514,6 +525,7 @@ const SearchPage = ({
                   onUsernameClick={onUsernameClick}
                   onUsernameViewClick={onUsernameViewClick}
                   onUsernameSearchClick={onUsernameSearchClick}
+                  onUsernameFilterClick={onUsernameFilterClick}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
