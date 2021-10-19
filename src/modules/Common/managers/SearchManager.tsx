@@ -507,7 +507,7 @@ export const splitRequests = async ({ name, min, max, ...commonParams }: CommonG
     });
 
     const nbTweets = await TweetModel.count(match);
-    const batchNumber = 20000;
+    const batchNumber = 30000;
     const nbBatches = Math.ceil(nbTweets / batchNumber);
 
     let periods = [];
