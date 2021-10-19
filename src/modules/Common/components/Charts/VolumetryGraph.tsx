@@ -83,13 +83,15 @@ const addMissingPoints = (volumetryData: VolumetryGraphProps['data']) => {
   return extendedVolumetry;
 };
 
+type VolumetrySeries = Highcharts.SeriesOptionsType & { data: [number, number][] };
+
 const dataToSeries = (data: VolumetryGraphProps['data']) => {
-  const series: any = [
-    { id: 'nbTweets', data: [] },
-    { id: 'nbRetweets', data: [] },
-    { id: 'nbLikes', data: [] },
-    { id: 'nbQuotes', data: [] },
-    { id: 'nbReplies', data: [] },
+  const series: VolumetrySeries[] = [
+    { id: 'nbTweets', name: 'nbTweets', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbRetweets', name: 'nbRetweets', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbLikes', name: 'nbLikes', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbQuotes', name: 'nbQuotes', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbReplies', name: 'nbReplies', type: 'spline', showInLegend: true, data: [] },
   ];
 
   data.forEach(({ hour, nbTweets, nbRetweets, nbLikes, nbQuotes, nbReplies }) => {
@@ -102,13 +104,6 @@ const dataToSeries = (data: VolumetryGraphProps['data']) => {
   return series;
 };
 
-export interface InitialSerie {
-  id: string;
-  name: any;
-  showInLegend: boolean;
-  type: 'line' | 'spline';
-  data: [number, number][];
-}
 const timezoneDelayInMinutes: number = new Date().getTimezoneOffset();
 
 const VolumetryGraph = ({
@@ -120,7 +115,7 @@ const VolumetryGraph = ({
   max,
   ...props
 }: VolumetryGraphProps & HighchartsReact.Props) => {
-  const data = dataToSeries(addMissingPoints(rawData));
+  const initialSeries = dataToSeries(addMissingPoints(rawData));
 
   const chartRef = React.useRef(null);
   const [recalculating, toggleRecalculating] = useToggle(false);
@@ -128,14 +123,6 @@ const VolumetryGraph = ({
     'ima-volumetry-graph-x-scale',
     xScale
   );
-
-  const initialSeries: InitialSerie[] = data.map((d) => ({
-    id: d.id as string,
-    name: d.id,
-    showInLegend: true,
-    type: 'spline',
-    data: d.data,
-  }));
 
   const previousXscale = usePrevious(chartXscaleDisplay);
   const previousSeries = usePrevious(initialSeries);
@@ -189,7 +176,9 @@ const VolumetryGraph = ({
         point: {
           events: {
             click: function () {
-              onPointClick(chartXscaleDisplay, { data: data[this.series.index].data[this.index] });
+              onPointClick(chartXscaleDisplay, {
+                data: initialSeries[this.series.index].data[this.index],
+              });
             },
           },
         },
@@ -238,16 +227,17 @@ const VolumetryGraph = ({
     ) {
       return;
     }
-    const newFormattedSeries: InitialSerie[] = [];
+    const newFormattedSeries: VolumetrySeries[] = [];
 
     initialSeries.forEach((serie) => {
       if (chartXscaleDisplay === 'day') {
         const dayData: any = {};
 
-        serie.data.forEach(([x, y]) => {
+        serie.data.forEach(([x, y]: [number, number]) => {
           const dayX: string = dayjs(x as any).format('YYYY-MM-DD');
           dayData[dayX] = (dayData[dayX] || 0) + (y as number);
         });
+        // @ts-ignore
         serie.data = Object.keys(dayData).map((day) => [new Date(day).getTime(), dayData[day]]);
       }
       newFormattedSeries.push(serie);
@@ -265,7 +255,7 @@ const VolumetryGraph = ({
               ...options.plotOptions?.spline?.point?.events,
               click: function () {
                 onPointClick(chartXscaleDisplay, {
-                  data: data[this.series.index].data[this.index],
+                  data: initialSeries[this.series.index].data[this.index],
                 });
               },
             },

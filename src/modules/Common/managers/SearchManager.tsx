@@ -1,7 +1,7 @@
 import * as LanguageManager from 'modules/Countries/managers/LanguageManager';
 import * as QueueItemManager from './QueueItemManager';
 
-import { CommonGetFilters, GetVolumetry, Search } from '../interfaces';
+import { CommonGetFilters, Search } from '../interfaces';
 import SearchModel, { SearchTypes } from '../models/Search';
 
 import TweetModel from '../models/Tweet';

@@ -22,7 +22,6 @@ import { PhotosTableProps } from '../components/Datatables/PhotosTable.d';
 import { PieChartProps } from '../components/Charts/PieChart.d';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
 import { VideosTableProps } from '../components/Datatables/VideosTable.d';
-import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 
 export interface CommonResponse {
   status: 'ok' | 'ko';

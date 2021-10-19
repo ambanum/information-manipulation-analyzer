@@ -161,7 +161,7 @@ const SearchPage = ({
     (scale, point) => {
       window.open(
         getTwitterLink(`${searchName}`, {
-          date: point.data.x as any,
+          date: point.data[0] as any,
           asTime: scale === 'hour',
           ...(queryParams.lang ? { lang: queryParams.lang } : {}),
         })

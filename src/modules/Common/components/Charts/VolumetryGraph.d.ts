@@ -6,12 +6,6 @@ export interface Datum {
   [key: string]: any;
 }
 
-export interface Serie {
-  id: string | number;
-  data: Datum[];
-  [key: string]: any;
-}
-
 type XScale = 'hour' | 'day';
 export interface VolumetryGraphProps {
   data: GetVolumetry[];
