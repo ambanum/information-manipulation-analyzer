@@ -83,6 +83,7 @@ export interface GetVolumetry {
   nbRetweets: number;
   nbLikes: number;
   nbQuotes: number;
+  nbReplies: number;
 }
 
 export interface GetSearchResponse extends CommonResponse {

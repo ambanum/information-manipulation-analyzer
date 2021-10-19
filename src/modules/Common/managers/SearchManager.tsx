@@ -100,6 +100,9 @@ export const getVolumetry = async (filter: SearchFilter) => {
         nbLikes: {
           $sum: '$likeCount',
         },
+        nbReplies: {
+          $sum: '$replyCount',
+        },
       },
     },
     {
@@ -117,6 +120,7 @@ export const getVolumetry = async (filter: SearchFilter) => {
     nbRetweets: rawResult.nbRetweets,
     nbQuotes: rawResult.nbQuotes,
     nbLikes: rawResult.nbLikes,
+    nbReplies: rawResult.nbReplies,
   }));
 };
 

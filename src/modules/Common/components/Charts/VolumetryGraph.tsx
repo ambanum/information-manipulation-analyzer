@@ -1,12 +1,12 @@
 import * as Highcharts from 'highcharts/highstock';
 import * as React from 'react';
 
-import { Serie, VolumetryGraphProps } from './VolumetryGraph.d';
 import { useLocalStorage, usePrevious, useToggle } from 'react-use';
 
 import Boost from 'highcharts/modules/boost';
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
+import { VolumetryGraphProps } from './VolumetryGraph.d';
 import dayjs from 'dayjs';
 import { paletteColors } from './config';
 import styles from './Graph.module.scss';
@@ -34,7 +34,6 @@ const addMissingPoints = (volumetryData: VolumetryGraphProps['data']) => {
   let extendedVolumetry: VolumetryGraphProps['data'] = [];
   let i = 0;
   const volumetryLength = volumetryData.length;
-  console.log(volumetryData);
 
   volumetryData.forEach((volumetry) => {
     const volumetryHour = volumetry.hour;
@@ -50,6 +49,7 @@ const addMissingPoints = (volumetryData: VolumetryGraphProps['data']) => {
           nbRetweets: 0,
           nbLikes: 0,
           nbQuotes: 0,
+          nbReplies: 0,
         });
       }
     }
@@ -60,6 +60,7 @@ const addMissingPoints = (volumetryData: VolumetryGraphProps['data']) => {
       nbRetweets: volumetry.nbRetweets || 0,
       nbLikes: volumetry.nbLikes || 0,
       nbQuotes: volumetry.nbQuotes || 0,
+      nbReplies: volumetry.nbReplies || 0,
     });
 
     if (i < volumetryLength - 1) {
@@ -72,6 +73,7 @@ const addMissingPoints = (volumetryData: VolumetryGraphProps['data']) => {
           nbRetweets: 0,
           nbLikes: 0,
           nbQuotes: 0,
+          nbReplies: 0,
         });
       }
     }
@@ -87,13 +89,15 @@ const dataToSeries = (data: VolumetryGraphProps['data']) => {
     { id: 'nbRetweets', data: [] },
     { id: 'nbLikes', data: [] },
     { id: 'nbQuotes', data: [] },
+    { id: 'nbReplies', data: [] },
   ];
 
-  data.forEach(({ hour, nbTweets, nbRetweets, nbLikes, nbQuotes }) => {
+  data.forEach(({ hour, nbTweets, nbRetweets, nbLikes, nbQuotes, nbReplies }) => {
     series[0].data.push([new Date(hour).getTime(), nbTweets]);
     series[1].data.push([new Date(hour).getTime(), nbRetweets]);
     series[2].data.push([new Date(hour).getTime(), nbLikes]);
     series[3].data.push([new Date(hour).getTime(), nbQuotes]);
+    series[4].data.push([new Date(hour).getTime(), nbReplies]);
   });
   return series;
 };
