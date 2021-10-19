@@ -12,11 +12,28 @@ const useSplitSWR = (splitUrl: string | null, { initialData, ...options }: any) 
   const [error, setError] = React.useState();
   const [loading, setLoading] = React.useState(false);
 
-  const { data: splitData, isValidating, error: splitError } = useSWR(splitUrl, options);
   const previousSplitUrl = usePrevious(splitUrl);
-  const splitLoading = !splitData || isValidating;
-
   const urlParams = splitUrl ? queryString.parse(splitUrl.split('?')[1] || '') : {};
+
+  const previousParams = queryString.parse(previousSplitUrl?.split('?')[1] || '');
+  const params = queryString.parse(splitUrl?.split('?')[1] || '');
+
+  const hasUpdatedParamWhichIsNotMinOrMax = !isEqual(
+    omit(['min', 'max'])(params),
+    omit(['min', 'max'])(previousParams)
+  );
+  const hasUpdatedMinOrMax =
+    params.min &&
+    params.max &&
+    (previousParams.min !== params.min || previousParams.max !== params.max);
+  const skipRefresh = params.min && !hasUpdatedParamWhichIsNotMinOrMax;
+
+  const {
+    data: splitData,
+    isValidating,
+    error: splitError,
+  } = useSWR(skipRefresh ? null : splitUrl, options);
+  const splitLoading = !skipRefresh && (!splitData || isValidating);
 
   const {
     filters: splittedPeriods,
@@ -34,12 +51,9 @@ const useSplitSWR = (splitUrl: string | null, { initialData, ...options }: any) 
     if (!splitUrl || !previousSplitUrl) {
       return;
     }
-    const previousParams = queryString.parse(previousSplitUrl.split('?')[1] || '');
-    const params = queryString.parse(splitUrl.split('?')[1] || '');
 
     if (previousSplitUrl !== splitUrl) {
-      if (!isEqual(omit(['min', 'max'])(params), omit(['min', 'max'])(previousParams))) {
-        // other than min and max have change
+      if (hasUpdatedParamWhichIsNotMinOrMax) {
         setData({
           ...initialData,
           volumetry: initialData.volumetry.map((vol: any) => ({
@@ -51,7 +65,7 @@ const useSplitSWR = (splitUrl: string | null, { initialData, ...options }: any) 
             nbReplies: 0,
           })),
         });
-      } else if (previousParams.min !== params.min || previousParams.max !== params.max) {
+      } else if (hasUpdatedMinOrMax) {
         // min or max have changed, refilter
         const newAggregatedData = {
           ...data,
@@ -85,9 +99,18 @@ const useSplitSWR = (splitUrl: string | null, { initialData, ...options }: any) 
           }
         });
         setData(newAggregatedData);
+        setLoading(false);
       }
     }
-  }, [previousSplitUrl, splitUrl, data, urlParams.min, urlParams.max]);
+  }, [
+    previousSplitUrl,
+    splitUrl,
+    data,
+    urlParams.min,
+    urlParams.max,
+    hasUpdatedMinOrMax,
+    hasUpdatedParamWhichIsNotMinOrMax,
+  ]);
 
   React.useEffect(() => {
     // When a new split request has been found, retrieve all gathered periods
