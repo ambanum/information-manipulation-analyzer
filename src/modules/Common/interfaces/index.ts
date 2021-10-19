@@ -89,6 +89,10 @@ export interface GetVolumetry {
 export interface GetSearchResponse extends CommonResponse {
   search?: Search | null;
   nbTweets?: number;
+  nbRetweets?: number;
+  nbLikes?: number;
+  nbQuotes?: number;
+  nbReplies?: number;
   volumetry?: GetVolumetry[];
   nbUsernames?: number;
   nbAssociatedHashtags?: number;

@@ -220,6 +220,10 @@ export const getWithData = async ({
     const searchVolumetry = await getVolumetry(filters);
 
     let nbTweets: number = 0;
+    let nbLikes: number = 0;
+    let nbRetweets: number = 0;
+    let nbReplies: number = 0;
+    let nbQuotes: number = 0;
 
     searchVolumetry.forEach((volumetry) => {
       const volumetryDayJs = dayjs(volumetry.hour);
@@ -230,6 +234,10 @@ export const getWithData = async ({
       ) {
         // Calculate number of tweets
         nbTweets += volumetry.nbTweets;
+        nbLikes += volumetry.nbLikes;
+        nbRetweets += volumetry.nbRetweets;
+        nbReplies += volumetry.nbReplies;
+        nbQuotes += volumetry.nbQuotes;
       }
     });
 
@@ -240,6 +248,10 @@ export const getWithData = async ({
       search: search ? search : null,
       volumetry: searchVolumetry,
       nbTweets,
+      nbLikes,
+      nbRetweets,
+      nbReplies,
+      nbQuotes,
       nbUsernames,
       nbAssociatedHashtags,
     };
