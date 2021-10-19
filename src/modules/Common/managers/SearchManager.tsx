@@ -216,50 +216,9 @@ export const getWithData = async ({
     const searchVolumetry = await getVolumetry(filters);
 
     let nbTweets: number = 0;
-    let i = 0;
-    const volumetryLength = searchVolumetry.length;
-
-    let extendedVolumetry: GetVolumetry[] = [];
 
     searchVolumetry.forEach((volumetry) => {
-      const volumetryHour = volumetry.hour;
-      const volumetryDayJs = dayjs(volumetryHour);
-
-      if (i > 0) {
-        const volumetryPrevHour = volumetryDayJs.add(-1, 'hour').toDate();
-
-        if (volumetryPrevHour.toISOString() !== searchVolumetry[i - 1]?.hour.toISOString()) {
-          extendedVolumetry.push({
-            hour: volumetryPrevHour,
-            nbTweets: 0,
-            nbRetweets: 0,
-            nbLikes: 0,
-            nbQuotes: 0,
-          });
-        }
-      }
-
-      extendedVolumetry.push({
-        hour: volumetryHour,
-        nbTweets: volumetry.nbTweets || 0,
-        nbRetweets: volumetry.nbRetweets || 0,
-        nbLikes: volumetry.nbLikes || 0,
-        nbQuotes: volumetry.nbQuotes || 0,
-      });
-
-      if (i < volumetryLength - 1) {
-        const volumetryNextHour = volumetryDayJs.add(1, 'hour').toDate();
-        if (volumetryNextHour.toISOString() !== searchVolumetry[i + 1]?.hour.toISOString()) {
-          extendedVolumetry.push({
-            hour: volumetryNextHour,
-            nbTweets: 0,
-            nbRetweets: 0,
-            nbLikes: 0,
-            nbQuotes: 0,
-          });
-        }
-      }
-      i++;
+      const volumetryDayJs = dayjs(volumetry.hour);
 
       if (
         (!min && !max) ||
@@ -275,7 +234,7 @@ export const getWithData = async ({
 
     const result = {
       search: search ? search : null,
-      volumetry: extendedVolumetry,
+      volumetry: searchVolumetry,
       nbTweets,
       nbUsernames,
       nbAssociatedHashtags,

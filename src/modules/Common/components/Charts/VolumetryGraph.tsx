@@ -30,7 +30,58 @@ const dataNotEqual = (first: [number, number][], second: [number, number][]) => 
   return false;
 };
 
-const formatData = (data: VolumetryGraphProps['data']) => {
+const addMissingPoints = (volumetryData: VolumetryGraphProps['data']) => {
+  let extendedVolumetry: VolumetryGraphProps['data'] = [];
+  let i = 0;
+  const volumetryLength = volumetryData.length;
+  console.log(volumetryData);
+
+  volumetryData.forEach((volumetry) => {
+    const volumetryHour = volumetry.hour;
+    const volumetryDayJs = dayjs(volumetryHour);
+
+    if (i > 0) {
+      const volumetryPrevHour = volumetryDayJs.add(-1, 'hour').toDate();
+
+      if (volumetryPrevHour.toISOString() !== dayjs(volumetryData[i - 1]?.hour).toISOString()) {
+        extendedVolumetry.push({
+          hour: volumetryPrevHour,
+          nbTweets: 0,
+          nbRetweets: 0,
+          nbLikes: 0,
+          nbQuotes: 0,
+        });
+      }
+    }
+
+    extendedVolumetry.push({
+      hour: volumetryHour,
+      nbTweets: volumetry.nbTweets || 0,
+      nbRetweets: volumetry.nbRetweets || 0,
+      nbLikes: volumetry.nbLikes || 0,
+      nbQuotes: volumetry.nbQuotes || 0,
+    });
+
+    if (i < volumetryLength - 1) {
+      const volumetryNextHour = volumetryDayJs.add(1, 'hour').toDate();
+
+      if (volumetryNextHour.toISOString() !== dayjs(volumetryData[i + 1]?.hour).toISOString()) {
+        extendedVolumetry.push({
+          hour: volumetryNextHour,
+          nbTweets: 0,
+          nbRetweets: 0,
+          nbLikes: 0,
+          nbQuotes: 0,
+        });
+      }
+    }
+    i++;
+  });
+
+  return extendedVolumetry;
+};
+
+const dataToSeries = (data: VolumetryGraphProps['data']) => {
   const series: any = [
     { id: 'nbTweets', data: [] },
     { id: 'nbRetweets', data: [] },
@@ -65,7 +116,7 @@ const VolumetryGraph = ({
   max,
   ...props
 }: VolumetryGraphProps & HighchartsReact.Props) => {
-  const data = formatData(rawData);
+  const data = dataToSeries(addMissingPoints(rawData));
 
   const chartRef = React.useRef(null);
   const [recalculating, toggleRecalculating] = useToggle(false);
