@@ -1,18 +1,14 @@
+import { GetVolumetry } from 'modules/Common/interfaces';
+
 export interface Datum {
   x?: string | number | Date | null;
   y?: string | number | Date | null;
   [key: string]: any;
 }
 
-export interface Serie {
-  id: string | number;
-  data: Datum[];
-  [key: string]: any;
-}
-
 type XScale = 'hour' | 'day';
 export interface VolumetryGraphProps {
-  data: Serie[];
+  data: GetVolumetry[];
   xScale?: XScale;
   onFilterDateChange: (data: {
     min: Number;
