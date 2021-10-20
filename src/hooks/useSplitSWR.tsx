@@ -8,25 +8,25 @@ import { usePrevious } from 'react-use';
 import useSWR from 'swr';
 
 const useSplitSWR = (splitUrl: string | null, { initialData, ...options }: any) => {
+  const firstUpdate = React.useRef(true);
   const [data, setData] = React.useState<any>(initialData);
   const [error, setError] = React.useState();
   const [loading, setLoading] = React.useState(false);
 
   const previousSplitUrl = usePrevious(splitUrl);
-  const urlParams = splitUrl ? queryString.parse(splitUrl.split('?')[1] || '') : {};
+  const urlParams = queryString.parse(splitUrl?.split('?')[1] || '');
 
-  const previousParams = queryString.parse(previousSplitUrl?.split('?')[1] || '');
-  const params = queryString.parse(splitUrl?.split('?')[1] || '');
+  const previousUrlParams = queryString.parse(previousSplitUrl?.split('?')[1] || '');
 
   const hasUpdatedParamWhichIsNotMinOrMax = !isEqual(
-    omit(['min', 'max'])(params),
-    omit(['min', 'max'])(previousParams)
+    omit(['min', 'max'])(urlParams),
+    omit(['min', 'max'])(previousUrlParams)
   );
   const hasUpdatedMinOrMax =
-    params.min &&
-    params.max &&
-    (previousParams.min !== params.min || previousParams.max !== params.max);
-  const skipRefresh = params.min && !hasUpdatedParamWhichIsNotMinOrMax;
+    urlParams.min &&
+    urlParams.max &&
+    (previousUrlParams.min !== urlParams.min || previousUrlParams.max !== urlParams.max);
+  const skipRefresh = !firstUpdate && urlParams.min && !hasUpdatedParamWhichIsNotMinOrMax;
 
   const {
     data: splitData,
@@ -44,6 +44,13 @@ const useSplitSWR = (splitUrl: string | null, { initialData, ...options }: any) 
     nbQuotes,
     nbReplies,
   } = splitData || {};
+
+  React.useEffect(() => {
+    if (firstUpdate.current) {
+      firstUpdate.current = false;
+      return;
+    }
+  });
 
   React.useEffect(() => {
     // in case a new filter has been added, we need to show change the data
