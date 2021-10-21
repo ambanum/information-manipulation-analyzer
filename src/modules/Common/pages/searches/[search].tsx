@@ -160,7 +160,7 @@ const SearchPage = ({
       },
       refreshInterval,
       dedupingInterval: refreshInterval,
-      revalidateOnMount: false,
+      revalidateOnMount: true,
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
     }
