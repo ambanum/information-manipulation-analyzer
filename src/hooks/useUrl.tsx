@@ -109,9 +109,15 @@ const useUrl = () => {
     [removeQueryParams]
   );
 
+  const stringifyParams = React.useCallback((params: object) => {
+    const queryParamsNotMinAndMaxStringified = queryString.stringify(params);
+    return queryParamsNotMinAndMaxStringified ? `?${queryParamsNotMinAndMaxStringified}` : '';
+  }, []);
+
   return {
     queryParams,
     queryParamsStringified: `?${queryString.stringify(queryParams)}`,
+    stringifyParams,
     replaceQueryParams,
     pushQueryParams,
     pushQueryParam,

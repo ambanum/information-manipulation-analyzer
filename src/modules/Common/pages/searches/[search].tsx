@@ -24,6 +24,7 @@ import debounce from 'lodash/debounce';
 import dynamic from 'next/dynamic';
 import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import omit from 'lodash/fp/omit';
 import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useRouter } from 'next/router';
 import useSplitSWR from 'hooks/useSplitSWR';
@@ -58,6 +59,43 @@ const REFRESH_INTERVALS = {
 
 dayjs.extend(localizedFormat);
 
+const recalculateTotals = (volumetry: any[], { min, max }: any) => {
+  let nbTweets = 0;
+  let nbLikes = 0;
+  let nbRetweets = 0;
+  let nbReplies = 0;
+  let nbQuotes = 0;
+  let nbUsernames = 0;
+  let nbAssociatedHashtags = 0;
+  volumetry.forEach((vol: any) => {
+    const volumetryDayJs = dayjs(vol.hour);
+
+    if (
+      (!min && !max) ||
+      (min && max && volumetryDayJs.isAfter(dayjs(+min)) && volumetryDayJs.isBefore(dayjs(+max)))
+    ) {
+      // Calculate number of tweets
+      nbTweets += vol.nbTweets;
+      nbLikes += vol.nbLikes;
+      nbRetweets += vol.nbRetweets;
+      nbReplies += vol.nbReplies;
+      nbQuotes += vol.nbQuotes;
+      nbUsernames += vol.nbUsernames;
+      nbAssociatedHashtags += vol.nbAssociatedHashtags;
+    }
+  });
+
+  return {
+    nbTweets,
+    nbLikes,
+    nbRetweets,
+    nbReplies,
+    nbQuotes,
+    nbUsernames,
+    nbAssociatedHashtags,
+  };
+};
+
 const SearchPage = ({
   search: defaultSearch,
   volumetry: defaultVolumetry,
@@ -89,15 +127,20 @@ const SearchPage = ({
 
   const searchName = defaultSearch?.name || (router.query.search as string);
 
-  const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
+  const { queryParams, pushQueryParams, queryParamsStringified, stringifyParams } = useUrl();
 
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultSearch?.status || '']
   );
 
+  const queryParamsNotMinAndMax = omit(['min', 'max'], queryParams);
+  const queryParamsNotMinAndMaxStringified = stringifyParams(queryParamsNotMinAndMax);
+
   const { data, loading, error } = useSplitSWR(
     searchName
-      ? `/api/searches/${encodeURIComponent(searchName as string)}/split${queryParamsStringified}`
+      ? `/api/searches/${encodeURIComponent(
+          searchName as string
+        )}/split${queryParamsNotMinAndMaxStringified}`
       : null,
     {
       initialData: {
@@ -113,14 +156,7 @@ const SearchPage = ({
         totalNbQuotes: defaultNbQuotes,
         totalNbUsernames: defaultNbUsernames,
         totalNbAssociatedHashtags: defaultNbAssociatedHashtags,
-        nbTweets: 0,
-        nbRetweets: 0,
-        nbLikes: 0,
-        nbReplies: 0,
-        nbQuotes: 0,
         volumetry: defaultVolumetry,
-        nbUsernames: 0,
-        nbAssociatedHashtags: 0,
       },
       refreshInterval,
       dedupingInterval: refreshInterval,
@@ -136,16 +172,12 @@ const SearchPage = ({
     totalNbTweets = 0,
     totalNbUsernames = 0,
     totalNbAssociatedHashtags = 0,
-    nbTweets = 0,
-    nbRetweets = 0,
-    nbLikes = 0,
-    nbQuotes = 0,
-    nbReplies = 0,
     volumetry = [],
     nbToLoad,
     nbLoaded,
     search,
   } = data || {};
+
   const {
     status = '',
     metadata,
@@ -154,6 +186,11 @@ const SearchPage = ({
     oldestProcessedDate,
     newestProcessedDate,
   } = search || {};
+
+  const { nbTweets, nbRetweets, nbLikes, nbQuotes, nbReplies } = recalculateTotals(volumetry, {
+    min: queryParams.min,
+    max: queryParams.max,
+  });
 
   const gatheringData = ['PROCESSING', 'PENDING', undefined, ''].includes(status);
   const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
