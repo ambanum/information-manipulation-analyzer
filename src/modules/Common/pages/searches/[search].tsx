@@ -160,7 +160,7 @@ const SearchPage = ({
       },
       refreshInterval,
       dedupingInterval: refreshInterval,
-      // revalidateOnMount: false, if we do this, we will never resend request when url changes, which is not what we want
+      revalidateOnMount: false,
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
     }
