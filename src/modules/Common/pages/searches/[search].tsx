@@ -484,7 +484,9 @@ const SearchPage = ({
           </div>
           <div className="fr-col">
             <Tile
-              title={!gatheringData && !loadingData ? totalNbTweets.toLocaleString('en') : '-'}
+              title={
+                !gatheringData && !loadingData ? totalNbTweets.toLocaleString('en') : totalNbTweets
+              }
               description={'Total of Tweets'}
               loading={loadingData}
             ></Tile>
@@ -532,9 +534,9 @@ const SearchPage = ({
                 <h4 className="fr-mb-1v">Volumetry</h4>
                 <p className="fr-mb-0">
                   <strong>{nbTweets === undefined ? '-' : nbTweets.toLocaleString('en')}</strong>{' '}
-                  tweets, <strong>{nbRetweets.toLocaleString('en')}</strong> retweets,{' '}
-                  <strong>{nbLikes.toLocaleString('en')}</strong> likes,{' '}
-                  <strong>{nbQuotes.toLocaleString('en')}</strong> quotes,{' '}
+                  tweets <strong>{nbRetweets.toLocaleString('en')}</strong> retweets{' '}
+                  <strong>{nbLikes.toLocaleString('en')}</strong> likes{' '}
+                  <strong>{nbQuotes.toLocaleString('en')}</strong> quotes{' '}
                   <strong>{nbReplies.toLocaleString('en')}</strong> replies
                 </p>
               </div>
