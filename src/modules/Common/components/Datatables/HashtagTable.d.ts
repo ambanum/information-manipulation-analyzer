@@ -4,6 +4,7 @@ export interface HashtagTableProps {
   nbData?: number;
   onHashtagClick: (username: string) => any;
   onHashtagSearchClick: (hashtag: string) => any;
+  onHashtagFilterClick: (hashtag: string) => any;
 }
 
 export interface Hashtag {

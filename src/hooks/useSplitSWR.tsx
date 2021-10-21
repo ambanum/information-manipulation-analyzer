@@ -1,43 +1,16 @@
-import { isEqual, omit } from 'lodash/fp';
-
 import React from 'react';
 import { fetcher } from 'utils/api';
-import queryString from 'query-string';
-import { usePrevious } from 'react-use';
 import useSWR from 'swr';
 
-const useSplitSWR = (splitUrl: string | null, options: any) => {
-  const [data, setData] = React.useState<any>(options.initialData);
+const useSplitSWR = (splitUrl: string | null, { initialData, ...options }: any) => {
+  const [data, setData] = React.useState<any>(initialData);
   const [error, setError] = React.useState();
   const [loading, setLoading] = React.useState(false);
+
   const { data: splitData, isValidating, error: splitError } = useSWR(splitUrl, options);
-  const previousSplitUrl = usePrevious(splitUrl);
   const splitLoading = !splitData || isValidating;
 
-  const { filters: splittedPeriods, search, nbTweets } = splitData || {};
-
-  React.useEffect(() => {
-    // in case a new filter has been added, we need to show change the data
-    // so we replace all values by 0 until new data has been retrieved
-    if (!splitUrl || !previousSplitUrl) {
-      return;
-    }
-    const previousParams = queryString.parse(previousSplitUrl.split('?')[1] || '');
-    const params = queryString.parse(splitUrl.split('?')[1] || '');
-
-    if (
-      previousSplitUrl !== splitUrl &&
-      !isEqual(omit(['min', 'max'])(params), omit(['min', 'max'])(previousParams))
-    ) {
-      setData({
-        ...options.initialData,
-        volumetry: options.initialData.volumetry.map((vol: any) => ({
-          ...vol,
-          data: vol.data.map((d: any) => ({ ...d, y: 0 })),
-        })),
-      });
-    }
-  }, [previousSplitUrl, splitUrl]);
+  const { filters: splittedPeriods, search } = splitData || {};
 
   React.useEffect(() => {
     // When a new split request has been found, retrieve all gathered periods
@@ -46,11 +19,15 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
     }
 
     let aggregatedData = {
-      ...data,
-      nbTweets,
+      volumetry: [],
+      totalNbTweets: splitData.nbTweets,
+      totalNbRetweets: 0,
+      totalNbLikes: 0,
+      totalNbQuotes: 0,
+      totalNbReplies: 0,
+      totalNbUsernames: 0,
+      totalNbAssociatedHashtags: 0,
       search,
-      nbUsernames: 0,
-      nbAssociatedHashtags: 0,
       nbLoaded: 0,
       nbToLoad: splittedPeriods.length,
     };
@@ -72,35 +49,20 @@ const useSplitSWR = (splitUrl: string | null, options: any) => {
             `/api/searches/${encodeURIComponent(name)}${searchParams ? `?${searchParams}` : ''}`,
             {}
           );
-
           aggregatedData = {
             ...aggregatedData,
             nbLoaded: aggregatedData.nbLoaded + 1,
-            nbUsernames: (aggregatedData.nbUsernames || 0) + newData.nbUsernames,
-            nbAssociatedHashtags:
-              (aggregatedData.nbAssociatedHashtags || 0) + newData.nbAssociatedHashtags,
-            volumetry: newData.volumetry.map((volumetryLine: any, i: number) => {
-              const newArray: { [key: string]: number } = {};
-
-              // First, aggregate already retrieved data and new data
-              // and keep only the latest value
-              // if there are two records for a given date, first value will be overwritten by second one
-              [
-                ...((aggregatedData?.volumetry || [])[i]?.data || []),
-                ...volumetryLine.data,
-              ].forEach(({ x, y }) => (newArray[x] = y));
-
-              // Then, recreate the well formatted array
-              // and sort it by date
-              const newData = Object.keys(newArray)
-                .map((x: string) => ({ x, y: newArray[x] || 0 }))
-                .sort((a, b) => new Date(a.x).getTime() - new Date(b.x).getTime());
-
-              return {
-                ...volumetryLine,
-                data: newData,
-              };
-            }),
+            totalNbUsernames: aggregatedData.totalNbUsernames + newData.nbUsernames,
+            totalNbRetweets: aggregatedData.totalNbRetweets + newData.nbRetweets,
+            totalNbLikes: aggregatedData.totalNbLikes + newData.nbLikes,
+            totalNbQuotes: aggregatedData.totalNbQuotes + newData.nbQuotes,
+            totalNbReplies: aggregatedData.totalNbReplies + newData.nbReplies,
+            totalNbAssociatedHashtags:
+              aggregatedData.totalNbAssociatedHashtags + newData.nbAssociatedHashtags,
+            // @ts-ignore
+            volumetry: [...(aggregatedData.volumetry || []), ...newData.volumetry].sort(
+              (a, b) => new Date(a.hour).getTime() - new Date(b.hour).getTime()
+            ),
           };
 
           setData(aggregatedData);

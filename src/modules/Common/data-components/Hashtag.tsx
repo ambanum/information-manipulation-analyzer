@@ -12,6 +12,7 @@ interface DataHashtagProps {
   refreshInterval: number;
   onHashtagClick: HashtagTableProps['onHashtagClick'];
   onHashtagSearchClick: HashtagTableProps['onHashtagSearchClick'];
+  onHashtagFilterClick: HashtagTableProps['onHashtagFilterClick'];
   queryParamsStringified?: string;
   exportName: HashtagTableProps['exportName'];
 }
@@ -21,6 +22,7 @@ const DataHashtag = ({
   refreshInterval,
   onHashtagClick,
   onHashtagSearchClick,
+  onHashtagFilterClick,
   queryParamsStringified = '',
   exportName,
 }: DataHashtagProps) => {
@@ -52,6 +54,7 @@ const DataHashtag = ({
         data={hashtags}
         onHashtagClick={onHashtagClick}
         onHashtagSearchClick={onHashtagSearchClick}
+        onHashtagFilterClick={onHashtagFilterClick}
         exportName={exportName}
       />
     </div>

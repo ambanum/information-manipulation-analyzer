@@ -165,14 +165,43 @@ schema.virtual('inReplyToTweet', {
   justOne: true,
 });
 
+// combination array of
+
+function getCombinations(valuesArray: String[]) {
+  var combi = [];
+  var temp = [];
+  var slent = Math.pow(2, valuesArray.length);
+
+  for (var i = 0; i < slent; i++) {
+    temp = [];
+    for (var j = 0; j < valuesArray.length; j++) {
+      if (i & Math.pow(2, j)) {
+        temp.push(valuesArray[j]);
+      }
+    }
+    if (temp.length > 0) {
+      combi.push(temp);
+    }
+  }
+
+  combi.sort((a, b) => a.length - b.length);
+  return combi;
+}
+
+const allCombinations = getCombinations(['hour', 'lang', 'username']);
+// Do not use "hashtags" because there would be 2 arrays indexed. Which is not authorized
+
 schema.index({ date: 1, searches: 1 });
 schema.index({ hour: -1, searches: 1 });
-schema.index({ hour: 1, searches: 1 });
 schema.index({ searches: 1, hour: -1 });
 
-schema.index({ username: 1, searches: 1 });
-schema.index({ lang: 1, searches: 1 });
-schema.index({ hour: -1, lang: 1, searches: 1 });
+allCombinations.forEach((combination) => {
+  schema.index({
+    // @ts-ignore
+    ...combination.reduce((acc, val) => ({ ...acc, [val]: 1 }), {}),
+    searches: 1,
+  });
+});
 
 const TweetModel: Model<Tweet> = models?.Tweet || model('Tweet', schema);
 

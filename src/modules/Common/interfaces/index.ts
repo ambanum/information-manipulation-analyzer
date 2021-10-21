@@ -22,7 +22,6 @@ import { PhotosTableProps } from '../components/Datatables/PhotosTable.d';
 import { PieChartProps } from '../components/Charts/PieChart.d';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
 import { VideosTableProps } from '../components/Datatables/VideosTable.d';
-import { VolumetryGraphProps } from '../components/Charts/VolumetryGraph.d';
 
 export interface CommonResponse {
   status: 'ok' | 'ko';
@@ -35,6 +34,7 @@ export interface CommonGetFilters {
   max?: string;
   lang?: string;
   username?: string;
+  hashtag?: string;
 }
 
 /******************************************
@@ -76,10 +76,23 @@ export interface GetSearchesResponse extends CommonResponse {
   searches: Search[];
 }
 
+export interface GetVolumetry {
+  hour: Date;
+  nbTweets: number;
+  nbRetweets: number;
+  nbLikes: number;
+  nbQuotes: number;
+  nbReplies: number;
+}
+
 export interface GetSearchResponse extends CommonResponse {
   search?: Search | null;
   nbTweets?: number;
-  volumetry?: VolumetryGraphProps['data'];
+  nbRetweets?: number;
+  nbLikes?: number;
+  nbQuotes?: number;
+  nbReplies?: number;
+  volumetry?: GetVolumetry[];
   nbUsernames?: number;
   nbAssociatedHashtags?: number;
 }

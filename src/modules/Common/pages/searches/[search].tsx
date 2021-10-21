@@ -24,6 +24,7 @@ import debounce from 'lodash/debounce';
 import dynamic from 'next/dynamic';
 import { getTwitterLink } from 'utils/twitter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import omit from 'lodash/fp/omit';
 import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useRouter } from 'next/router';
 import useSplitSWR from 'hooks/useSplitSWR';
@@ -58,15 +59,60 @@ const REFRESH_INTERVALS = {
 
 dayjs.extend(localizedFormat);
 
+const recalculateTotals = (volumetry: any[], { min, max }: any) => {
+  let nbTweets = 0;
+  let nbLikes = 0;
+  let nbRetweets = 0;
+  let nbReplies = 0;
+  let nbQuotes = 0;
+  let nbUsernames = 0;
+  let nbAssociatedHashtags = 0;
+  volumetry.forEach((vol: any) => {
+    const volumetryDayJs = dayjs(vol.hour);
+
+    if (
+      (!min && !max) ||
+      (min && max && volumetryDayJs.isAfter(dayjs(+min)) && volumetryDayJs.isBefore(dayjs(+max)))
+    ) {
+      // Calculate number of tweets
+      nbTweets += vol.nbTweets;
+      nbLikes += vol.nbLikes;
+      nbRetweets += vol.nbRetweets;
+      nbReplies += vol.nbReplies;
+      nbQuotes += vol.nbQuotes;
+      nbUsernames += vol.nbUsernames;
+      nbAssociatedHashtags += vol.nbAssociatedHashtags;
+    }
+  });
+
+  return {
+    nbTweets,
+    nbLikes,
+    nbRetweets,
+    nbReplies,
+    nbQuotes,
+    nbUsernames,
+    nbAssociatedHashtags,
+  };
+};
+
 const SearchPage = ({
   search: defaultSearch,
   volumetry: defaultVolumetry,
   nbUsernames: defaultNbUsernames,
   nbTweets: defaultNbTweets,
+  nbRetweets: defaultNbReweets,
+  nbLikes: defaultNbLikes,
+  nbReplies: defaultNbReplies,
+  nbQuotes: defaultNbQuotes,
   nbAssociatedHashtags: defaultNbAssociatedHashtags,
 }: {
   search: GetSearchResponse['search'];
   nbTweets: GetSearchResponse['nbTweets'];
+  nbRetweets: GetSearchResponse['nbRetweets'];
+  nbLikes: GetSearchResponse['nbLikes'];
+  nbReplies: GetSearchResponse['nbReplies'];
+  nbQuotes: GetSearchResponse['nbQuotes'];
   volumetry: GetSearchResponse['volumetry'];
   nbUsernames: GetSearchResponse['nbUsernames'];
   nbAssociatedHashtags: GetSearchResponse['nbAssociatedHashtags'];
@@ -81,15 +127,20 @@ const SearchPage = ({
 
   const searchName = defaultSearch?.name || (router.query.search as string);
 
-  const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
+  const { queryParams, pushQueryParams, queryParamsStringified, stringifyParams } = useUrl();
 
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultSearch?.status || '']
   );
 
+  const queryParamsNotMinAndMax = omit(['min', 'max'], queryParams);
+  const queryParamsNotMinAndMaxStringified = stringifyParams(queryParamsNotMinAndMax);
+
   const { data, loading, error } = useSplitSWR(
     searchName
-      ? `/api/searches/${encodeURIComponent(searchName as string)}/split${queryParamsStringified}`
+      ? `/api/searches/${encodeURIComponent(
+          searchName as string
+        )}/split${queryParamsNotMinAndMaxStringified}`
       : null,
     {
       initialData: {
@@ -98,28 +149,35 @@ const SearchPage = ({
         nbLoaded: -1,
         nbToLoad: -1,
         search: defaultSearch,
-        nbTweets: defaultNbTweets,
+        totalNbTweets: defaultNbTweets,
+        totalNbRetweets: defaultNbReweets,
+        totalNbLikes: defaultNbLikes,
+        totalNbReplies: defaultNbReplies,
+        totalNbQuotes: defaultNbQuotes,
+        totalNbUsernames: defaultNbUsernames,
+        totalNbAssociatedHashtags: defaultNbAssociatedHashtags,
         volumetry: defaultVolumetry,
-        nbUsernames: defaultNbUsernames,
-        nbAssociatedHashtags: defaultNbAssociatedHashtags,
       },
       refreshInterval,
+      dedupingInterval: refreshInterval,
       revalidateOnMount: false,
       revalidateOnFocus: false,
+      revalidateOnReconnect: false,
     }
   );
 
   const loadingData = !data || loading;
 
   const {
-    nbTweets = 0,
+    totalNbTweets = 0,
+    totalNbUsernames = 0,
+    totalNbAssociatedHashtags = 0,
     volumetry = [],
-    nbUsernames = 0,
-    nbAssociatedHashtags = 0,
     nbToLoad,
     nbLoaded,
     search,
   } = data || {};
+
   const {
     status = '',
     metadata,
@@ -129,13 +187,18 @@ const SearchPage = ({
     newestProcessedDate,
   } = search || {};
 
+  const { nbTweets, nbRetweets, nbLikes, nbQuotes, nbReplies } = recalculateTotals(volumetry, {
+    min: queryParams.min,
+    max: queryParams.max,
+  });
+
   const gatheringData = ['PROCESSING', 'PENDING', undefined, ''].includes(status);
   const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (scale, point) => {
       window.open(
         getTwitterLink(`${searchName}`, {
-          date: point.data.x as any,
+          date: point.data[0] as any,
           asTime: scale === 'hour',
           ...(queryParams.lang ? { lang: queryParams.lang } : {}),
         })
@@ -228,19 +291,27 @@ const SearchPage = ({
     [queryParams.min, queryParams.max, pushQueryParams]
   );
 
-  const onFilterLangChange: any = React.useCallback(
-    (lang: string) => {
-      pushQueryParams({ lang }, undefined, {
+  const onFilterHashtagChange = React.useCallback(
+    (value: string) => {
+      pushQueryParams({ hashtag: value }, undefined, {
         scroll: false,
         shallow: true,
       });
     },
     [pushQueryParams]
   );
-
-  const onUsernameFilterClick: any = React.useCallback(
-    (username: string) => {
-      pushQueryParams({ username }, undefined, {
+  const onFilterLangChange = React.useCallback(
+    (value: string) => {
+      pushQueryParams({ lang: value }, undefined, {
+        scroll: false,
+        shallow: true,
+      });
+    },
+    [pushQueryParams]
+  );
+  const onFilterUsernameChange = React.useCallback(
+    (value: string) => {
+      pushQueryParams({ username: value }, undefined, {
         scroll: false,
         shallow: true,
       });
@@ -255,7 +326,7 @@ const SearchPage = ({
   const isUrl = type === 'URL';
 
   const title = searchName || searchNameFromUrl;
-  const hasVolumetry = volumetry[0]?.data?.length > 0;
+  const hasVolumetry = volumetry.length > 0;
 
   return (
     <Layout title={`${isUrl ? metadata?.url?.title : title} | Information Manipulation Analyzer`}>
@@ -402,7 +473,7 @@ const SearchPage = ({
       </div>
 
       {/* Overview */}
-      {nbTweets > 0 && (
+      {totalNbTweets > 0 && (
         <Overview searchName={searchName}>
           <div className="fr-col">
             <Tile
@@ -413,14 +484,16 @@ const SearchPage = ({
           </div>
           <div className="fr-col">
             <Tile
-              title={!gatheringData && !loadingData ? nbTweets.toLocaleString('en') : '-'}
+              title={
+                !gatheringData && !loadingData ? totalNbTweets.toLocaleString('en') : totalNbTweets
+              }
               description={'Total of Tweets'}
               loading={loadingData}
             ></Tile>
           </div>
           <div className="fr-col">
             <Tile
-              title={!gatheringData && !loadingData ? nbUsernames.toLocaleString('en') : '-'}
+              title={!gatheringData && !loadingData ? totalNbUsernames.toLocaleString('en') : '-'}
               description={'Total of active users'}
               loading={loadingData}
             ></Tile>
@@ -428,7 +501,9 @@ const SearchPage = ({
           <div className="fr-col">
             <Tile
               title={
-                !gatheringData && !loadingData ? nbAssociatedHashtags.toLocaleString('en') : '-'
+                !gatheringData && !loadingData
+                  ? totalNbAssociatedHashtags.toLocaleString('en')
+                  : '-'
               }
               description={'Total of associated hashtags'}
               loading={loadingData}
@@ -437,7 +512,7 @@ const SearchPage = ({
         </Overview>
       )}
 
-      {nbTweets === 0 && status === 'DONE' && (
+      {totalNbTweets === 0 && status === 'DONE' && (
         <h4 className="text-center fr-mb-12w fr-text-color--os500">
           Sorry, we did not found any data for this
         </h4>
@@ -458,11 +533,11 @@ const SearchPage = ({
               <div className="fr-col">
                 <h4 className="fr-mb-1v">Volumetry</h4>
                 <p className="fr-mb-0">
-                  {nbTweets.toLocaleString('en')} tweets
-                  {/* TODO : display number of retweets, likes and quotes
-                  {volumetry[1].data.length} retweets
-                  {volumetry[2].data.length} likes
-                  {volumetry[3].data.length} quotes over time */}
+                  <strong>{nbTweets === undefined ? '-' : nbTweets.toLocaleString('en')}</strong>{' '}
+                  tweets <strong>{nbRetweets.toLocaleString('en')}</strong> retweets{' '}
+                  <strong>{nbLikes.toLocaleString('en')}</strong> likes{' '}
+                  <strong>{nbQuotes.toLocaleString('en')}</strong> quotes{' '}
+                  <strong>{nbReplies.toLocaleString('en')}</strong> replies
                 </p>
               </div>
             </div>
@@ -525,7 +600,7 @@ const SearchPage = ({
                   onUsernameClick={onUsernameClick}
                   onUsernameViewClick={onUsernameViewClick}
                   onUsernameSearchClick={onUsernameSearchClick}
-                  onUsernameFilterClick={onUsernameFilterClick}
+                  onUsernameFilterClick={onFilterUsernameChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
@@ -539,6 +614,7 @@ const SearchPage = ({
                   refreshInterval={refreshInterval}
                   onHashtagClick={onHashtagClick}
                   onHashtagSearchClick={onHashtagSearchClick}
+                  onHashtagFilterClick={onFilterHashtagChange}
                   queryParamsStringified={queryParamsStringified}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'

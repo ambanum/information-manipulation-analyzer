@@ -30,38 +30,99 @@ const dataNotEqual = (first: [number, number][], second: [number, number][]) => 
   return false;
 };
 
-export interface InitialSerie {
-  id: string;
-  name: any;
-  showInLegend: boolean;
-  type: 'line' | 'spline';
-  data: [number, number][];
-}
+const addMissingPoints = (volumetryData: VolumetryGraphProps['data']) => {
+  let extendedVolumetry: VolumetryGraphProps['data'] = [];
+  let i = 0;
+  const volumetryLength = volumetryData.length;
+
+  volumetryData.forEach((volumetry) => {
+    const volumetryHour = volumetry.hour;
+    const volumetryDayJs = dayjs(volumetryHour);
+
+    if (i > 0) {
+      const volumetryPrevHour = volumetryDayJs.add(-1, 'hour').toDate();
+
+      if (volumetryPrevHour.toISOString() !== dayjs(volumetryData[i - 1]?.hour).toISOString()) {
+        extendedVolumetry.push({
+          hour: volumetryPrevHour,
+          nbTweets: 0,
+          nbRetweets: 0,
+          nbLikes: 0,
+          nbQuotes: 0,
+          nbReplies: 0,
+        });
+      }
+    }
+
+    extendedVolumetry.push({
+      hour: volumetryHour,
+      nbTweets: volumetry.nbTweets || 0,
+      nbRetweets: volumetry.nbRetweets || 0,
+      nbLikes: volumetry.nbLikes || 0,
+      nbQuotes: volumetry.nbQuotes || 0,
+      nbReplies: volumetry.nbReplies || 0,
+    });
+
+    if (i < volumetryLength - 1) {
+      const volumetryNextHour = volumetryDayJs.add(1, 'hour').toDate();
+
+      if (volumetryNextHour.toISOString() !== dayjs(volumetryData[i + 1]?.hour).toISOString()) {
+        extendedVolumetry.push({
+          hour: volumetryNextHour,
+          nbTweets: 0,
+          nbRetweets: 0,
+          nbLikes: 0,
+          nbQuotes: 0,
+          nbReplies: 0,
+        });
+      }
+    }
+    i++;
+  });
+
+  return extendedVolumetry;
+};
+
+type VolumetrySeries = Highcharts.SeriesOptionsType & { data: [number, number][] };
+
+const dataToSeries = (data: VolumetryGraphProps['data']) => {
+  const series: VolumetrySeries[] = [
+    { id: 'nbTweets', name: 'nbTweets', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbRetweets', name: 'nbRetweets', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbLikes', name: 'nbLikes', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbQuotes', name: 'nbQuotes', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbReplies', name: 'nbReplies', type: 'spline', showInLegend: true, data: [] },
+  ];
+
+  data.forEach(({ hour, nbTweets, nbRetweets, nbLikes, nbQuotes, nbReplies }) => {
+    series[0].data.push([new Date(hour).getTime(), nbTweets]);
+    series[1].data.push([new Date(hour).getTime(), nbRetweets]);
+    series[2].data.push([new Date(hour).getTime(), nbLikes]);
+    series[3].data.push([new Date(hour).getTime(), nbQuotes]);
+    series[4].data.push([new Date(hour).getTime(), nbReplies]);
+  });
+  return series;
+};
+
 const timezoneDelayInMinutes: number = new Date().getTimezoneOffset();
 
 const VolumetryGraph = ({
   onPointClick,
-  data,
+  data: rawData,
   xScale = 'hour',
   onFilterDateChange,
   min,
   max,
   ...props
 }: VolumetryGraphProps & HighchartsReact.Props) => {
+  const initialSeries = dataToSeries(addMissingPoints(rawData));
+
   const chartRef = React.useRef(null);
   const [recalculating, toggleRecalculating] = useToggle(false);
   const [chartXscaleDisplay, setChartXscaleDisplay] = useLocalStorage<GraphXScale>(
     'ima-volumetry-graph-x-scale',
     xScale
   );
-
-  const initialSeries: InitialSerie[] = data.map((d) => ({
-    id: d.id as string,
-    name: d.id,
-    showInLegend: true,
-    type: 'spline',
-    data: d.data.map(({ x, y }: any) => [new Date(x).getTime(), y]),
-  }));
 
   const previousXscale = usePrevious(chartXscaleDisplay);
   const previousSeries = usePrevious(initialSeries);
@@ -115,7 +176,9 @@ const VolumetryGraph = ({
         point: {
           events: {
             click: function () {
-              onPointClick(chartXscaleDisplay, { data: data[this.series.index].data[this.index] });
+              onPointClick(chartXscaleDisplay, {
+                data: initialSeries[this.series.index].data[this.index],
+              });
             },
           },
         },
@@ -164,16 +227,17 @@ const VolumetryGraph = ({
     ) {
       return;
     }
-    const newFormattedSeries: InitialSerie[] = [];
+    const newFormattedSeries: VolumetrySeries[] = [];
 
     initialSeries.forEach((serie) => {
       if (chartXscaleDisplay === 'day') {
         const dayData: any = {};
 
-        serie.data.forEach(([x, y]) => {
+        serie.data.forEach(([x, y]: [number, number]) => {
           const dayX: string = dayjs(x as any).format('YYYY-MM-DD');
           dayData[dayX] = (dayData[dayX] || 0) + (y as number);
         });
+        // @ts-ignore
         serie.data = Object.keys(dayData).map((day) => [new Date(day).getTime(), dayData[day]]);
       }
       newFormattedSeries.push(serie);
@@ -191,7 +255,7 @@ const VolumetryGraph = ({
               ...options.plotOptions?.spline?.point?.events,
               click: function () {
                 onPointClick(chartXscaleDisplay, {
-                  data: data[this.series.index].data[this.index],
+                  data: initialSeries[this.series.index].data[this.index],
                 });
               },
             },
