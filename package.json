@@ -45,7 +45,7 @@
     "lodash": "^4.17.21",
     "mongoose": "5.13.7",
     "mongoose-lean-virtuals": "0.9.0",
-    "next": "11.1.0",
+    "next": "12.0.1",
     "next-auth": "3.29.0",
     "next-mdx-remote": "3.0.6",
     "nprogress": "^0.2.0",
