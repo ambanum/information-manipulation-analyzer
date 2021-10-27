@@ -78,7 +78,7 @@ const list = async (_: any, res: NextApiResponse) => {
     res.statusCode = HttpStatusCode.OK;
     res.json({ status: 'ok', message: 'List of searches', searches });
     return res;
-  } catch (e) {
+  } catch (e: any) {
     res.statusCode = HttpStatusCode.METHOD_FAILURE;
     res.json({ status: 'ko', message: e.toString() });
   }

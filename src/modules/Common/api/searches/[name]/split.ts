@@ -29,7 +29,7 @@ const get =
         filters: periods.map((period) => ({ ...period, name: filter.name })),
       });
       return res;
-    } catch (e) {
+    } catch (e: any) {
       res.statusCode = HttpStatusCode.METHOD_FAILURE;
       res.json({ status: 'ko', message: e.toString() });
     }

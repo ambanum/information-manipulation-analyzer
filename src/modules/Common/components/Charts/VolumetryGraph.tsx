@@ -11,9 +11,8 @@ import dayjs from 'dayjs';
 import { paletteColors } from './config';
 import styles from './Graph.module.scss';
 
-Boost(Highcharts);
-
 if (typeof Highcharts === 'object') {
+  Boost(Highcharts);
   HighchartsExporting(Highcharts);
 }
 export type GraphXScale = 'day' | 'hour';

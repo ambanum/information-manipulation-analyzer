@@ -1,7 +1,7 @@
 import React from 'react';
+import { batchedPromiseAll } from 'batched-promise-all';
 import { fetcher } from 'utils/api';
 import useSWR from 'swr';
-
 const useSplitSWR = (splitUrl: string | null, { initialData, ...options }: any) => {
   const [data, setData] = React.useState<any>(initialData);
   const [error, setError] = React.useState();
@@ -36,41 +36,48 @@ const useSplitSWR = (splitUrl: string | null, { initialData, ...options }: any) 
     setData(aggregatedData);
 
     const doFetchPeriods = async () => {
-      for (const { name, startDate, endDate, ...period } of splittedPeriods) {
-        const params: any = {
-          ...period,
-        };
-        if (startDate) params.min = new Date(startDate).getTime();
-        if (endDate) params.max = new Date(endDate).getTime();
-
-        const searchParams = new URLSearchParams(params).toString();
-        try {
-          const newData = await fetcher(
-            `/api/searches/${encodeURIComponent(name)}${searchParams ? `?${searchParams}` : ''}`,
-            {}
-          );
-          aggregatedData = {
-            ...aggregatedData,
-            nbLoaded: aggregatedData.nbLoaded + 1,
-            totalNbUsernames: aggregatedData.totalNbUsernames + newData.nbUsernames,
-            totalNbRetweets: aggregatedData.totalNbRetweets + newData.nbRetweets,
-            totalNbLikes: aggregatedData.totalNbLikes + newData.nbLikes,
-            totalNbQuotes: aggregatedData.totalNbQuotes + newData.nbQuotes,
-            totalNbReplies: aggregatedData.totalNbReplies + newData.nbReplies,
-            totalNbAssociatedHashtags:
-              aggregatedData.totalNbAssociatedHashtags + newData.nbAssociatedHashtags,
-            // @ts-ignore
-            volumetry: [...(aggregatedData.volumetry || []), ...newData.volumetry].sort(
-              (a, b) => new Date(a.hour).getTime() - new Date(b.hour).getTime()
-            ),
+      await batchedPromiseAll(
+        // this will be 4x slower and consume 1/4 of memory compared to the Promise.all(array.map(...))
+        splittedPeriods,
+        async ({ name, startDate, endDate, ...period }: any) => {
+          // your iterator callback-same as you would use for .map method on your array
+          const params: any = {
+            ...period,
           };
+          if (startDate) params.min = new Date(startDate).getTime();
+          if (endDate) params.max = new Date(endDate).getTime();
 
-          setData(aggregatedData);
-          setError(undefined);
-        } catch (e: any) {
-          setError(e.toString());
-        }
-      }
+          const searchParams = new URLSearchParams(params).toString();
+          try {
+            const newData = await fetcher(
+              `/api/searches/${encodeURIComponent(name)}${searchParams ? `?${searchParams}` : ''}`,
+              {}
+            );
+            aggregatedData = {
+              ...aggregatedData,
+              nbLoaded: aggregatedData.nbLoaded + 1,
+              totalNbUsernames: aggregatedData.totalNbUsernames + newData.nbUsernames,
+              totalNbRetweets: aggregatedData.totalNbRetweets + newData.nbRetweets,
+              totalNbLikes: aggregatedData.totalNbLikes + newData.nbLikes,
+              totalNbQuotes: aggregatedData.totalNbQuotes + newData.nbQuotes,
+              totalNbReplies: aggregatedData.totalNbReplies + newData.nbReplies,
+              totalNbAssociatedHashtags:
+                aggregatedData.totalNbAssociatedHashtags + newData.nbAssociatedHashtags,
+              // @ts-ignore
+              volumetry: [...(aggregatedData.volumetry || []), ...newData.volumetry].sort(
+                (a, b) => new Date(a.hour).getTime() - new Date(b.hour).getTime()
+              ),
+            };
+
+            setData(aggregatedData);
+            setError(undefined);
+          } catch (e: any) {
+            setError(e.toString());
+          }
+        },
+        6 // max connections https://docs.pushtechnology.com/cloud/latest/manual/html/designguide/solution/support/connection_limitations.html#:~:text=Most%20modern%20browsers%20allow%20six,the%20reason%20for%20browser%20limits.
+      );
+
       setLoading(false);
     };
     doFetchPeriods();

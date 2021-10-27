@@ -484,9 +484,7 @@ const SearchPage = ({
           </div>
           <div className="fr-col">
             <Tile
-              title={
-                !gatheringData && !loadingData ? totalNbTweets.toLocaleString('en') : totalNbTweets
-              }
+              title={totalNbTweets?.toLocaleString('en') || ''}
               description={'Total of Tweets'}
               loading={loadingData}
             ></Tile>

@@ -32,7 +32,7 @@ const getUsernames =
       res.statusCode = HttpStatusCode.OK;
       res.json({ status: 'ok', message: 'Search Usernames details', usernames });
       return res;
-    } catch (e) {
+    } catch (e: any) {
       res.statusCode = HttpStatusCode.METHOD_FAILURE;
       res.json({ status: 'ko', message: e.toString() });
     }

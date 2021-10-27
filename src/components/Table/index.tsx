@@ -56,8 +56,8 @@ const downloadCSVData =
     data,
   }: {
     name: string;
-    columns: Column<T>[];
-    data: T[];
+    columns: Readonly<Column<T>[]>;
+    data: Readonly<T[]>;
   }): any =>
   () => {
     const headerNames = [columns.map((c) => c.Header)];

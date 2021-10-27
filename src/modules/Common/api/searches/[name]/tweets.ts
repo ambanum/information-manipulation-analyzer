@@ -33,7 +33,7 @@ const getTweets =
       res.statusCode = HttpStatusCode.OK;
       res.json({ status: 'ok', message: 'Search Tweets details', ...tweets });
       return res;
-    } catch (e) {
+    } catch (e: any) {
       res.statusCode = HttpStatusCode.METHOD_FAILURE;
       res.json({ status: 'ko', message: e.toString() });
     }
