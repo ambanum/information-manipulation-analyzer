@@ -174,9 +174,10 @@ const VolumetryGraph = ({
         cursor: 'pointer',
         point: {
           events: {
-            click: function () {
+            click: function ({ point }) {
               onPointClick(chartXscaleDisplay, {
-                data: initialSeries[this.series.index].data[this.index],
+                x: point.x,
+                y: point.y,
               });
             },
           },
@@ -244,23 +245,6 @@ const VolumetryGraph = ({
 
     setOptions({
       ...options,
-      plotOptions: {
-        ...options.plotOptions,
-        spline: {
-          ...options.plotOptions?.spline,
-          point: {
-            ...options.plotOptions?.spline?.point,
-            events: {
-              ...options.plotOptions?.spline?.point?.events,
-              click: function () {
-                onPointClick(chartXscaleDisplay, {
-                  data: initialSeries[this.series.index].data[this.index],
-                });
-              },
-            },
-          },
-        },
-      },
       series: newFormattedSeries,
     });
     toggleRecalculating(false);

@@ -20,14 +20,15 @@ const wordTests = [
 
 const textTests = [
   ['<SCRIPT SRC=http://xss.rocks/xss.js></SCRIPT>', 'script srchttpxssrocksxssjsscript'],
-  ['<IMG SRC="javascript:alert(\'XSS\');">', 'img srcjavascriptalertxss'],
-  ['javascript:alert("ok")', 'javascriptalertok'],
+  ['<IMG SRC="javascript:alert(\'XSS\');">', 'img src"javascriptalertxss"'],
+  ['javascript:alert("ok")', 'javascriptalert"ok"'],
   [
     'perl -e \'print "<IMG SRC=java\0script:alert("XSS")>";\' > out',
-    'perl e print img srcjavascriptalertxss  out',
+    'perl e print "img srcjavascriptalert"xss""  out',
   ],
   ['Set.constructor`alert\x28document.domain\x29', 'setconstructoralertdocumentdomain'],
   ['une recherche fructueuse', 'une recherche fructueuse'],
+  ['"primum non nocere"', '"primum non nocere"'],
 ];
 
 const urls = [
