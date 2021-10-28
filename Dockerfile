@@ -18,9 +18,11 @@ COPY ./docker/$ENV_FILE /usr/src/app/.env.production
 # Run install before setting NODE_ENV to install all development modules
 RUN yarn
 
-
 ENV NODE_ENV=production
-ENV NODE_OPTIONS='--max_old_space_size=8192'
+
+# prevent HookWebpackError: error:0308010C:digital envelope routines::unsupported with --openssl-legacy-provider
+# See https://github.com/webpack/webpack/issues/14532
+ENV NODE_OPTIONS='--max_old_space_size=8192 --openssl-legacy-provider'
 
 RUN yarn build
 
