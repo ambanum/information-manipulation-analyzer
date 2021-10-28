@@ -18,7 +18,7 @@ export const sanitizeWord = (text: string) =>
 export const sanitizeText = (text: string) =>
   text
     // replace all non text characters in any alphabet
-    .replace(/[^\p{L}\p{M}\d_\s]/gu, '')
+    .replace(/[^\p{L}\p{M}\d_"\s]/gu, '')
     .toLowerCase();
 
 export const sanitizeUrl = (url: string) =>
