@@ -36,7 +36,7 @@ export interface VirtualizeProps {
 
 export interface TableProps<T extends Record<string, unknown>> extends TableOptions<T> {
   title?: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   bordered?: boolean;
   noScroll?: boolean;
   layoutFixed?: boolean;

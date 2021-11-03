@@ -17,4 +17,5 @@ export interface Username {
   botScore?: number;
   creationDate?: number;
   followersCount?: number;
+  verified?: boolean;
 }
