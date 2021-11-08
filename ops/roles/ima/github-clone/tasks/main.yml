@@ -47,6 +47,12 @@
     restart: yes
     state: started
     restart_policy: unless-stopped
+    etc_hosts: >
+{
+  "mongo1": "172.17.0.1",
+  "mongo2" : "172.17.0.1",
+  "mongo3" : "172.17.0.1"
+}
     env:
       AUTH_CREDENTIALS: "{{ nextauth_basic_auth if nextauth_basic_auth is defined else '' }}"
       AUTH_JWT_SECRET: "{{ nextauth_secret if nextauth_secret is defined else '' }}"
