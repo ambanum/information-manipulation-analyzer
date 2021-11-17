@@ -14,7 +14,7 @@ const Footer = () => (
             française
           </p>
           <Link href="/">
-            <a className="fr-footer__brand-link" title="IMA Home">
+            <a className="fr-footer__brand-link" title="Information Manipulation Analyzer">
               <svg
                 className="logo_drawings--footer"
                 fill="none"
@@ -259,7 +259,7 @@ const Footer = () => (
           <ul className="fr-footer__content-list">
             <li className="fr-footer__content-item">
               <Link href="/">
-                <a className="fr-footer__content-link">IMA Home</a>
+                <a className="fr-footer__content-link">Home</a>
               </Link>
             </li>
             <li className="fr-footer__content-item">

@@ -267,7 +267,7 @@ const Header = () => (
             </div>
             <div className="fr-header__service">
               <Link href="/">
-                <a title="IMA Home">
+                <a title="Home">
                   <p className="fr-header__service-title">
                     Information Manipulation Analyser
                     <sup>
