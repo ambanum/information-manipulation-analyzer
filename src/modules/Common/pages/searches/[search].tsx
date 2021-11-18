@@ -6,6 +6,7 @@ import Alert from 'modules/Common/components/Alert/Alert';
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import { GetSearchResponse } from '../../interfaces';
+import Graph from '../../data-components/Graph';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
 import { LanguageTableProps } from 'modules/Common/components/Datatables/LanguageTable.d';
@@ -604,6 +605,7 @@ const SearchPage = ({
                   sReactTabs.tabList
                 )}
               >
+                <Tab className={sReactTabs.tab}>Graph</Tab>
                 <Tab className={sReactTabs.tab}>Languages</Tab>
                 <Tab className={sReactTabs.tab}>Users</Tab>
                 <Tab className={sReactTabs.tab}>Associated hashtags</Tab>
@@ -613,6 +615,9 @@ const SearchPage = ({
               </TabList>
             </div>
             <div className="fr-container fr-container-fluid">
+              <TabPanel>
+                <Graph search={search?.name} />
+              </TabPanel>
               <TabPanel>
                 <LanguageData
                   search={searchName}
