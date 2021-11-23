@@ -45,10 +45,10 @@ const highlightNodesAndEdges = (
   const inactiveNodes: string[] = [];
 
   newData.nodes.map((node) => {
-    if (startDate && dayjs(node.date).isBefore(startDate)) {
+    if (startDate && dayjs(node.metadata.date).isBefore(startDate)) {
       node.color = 'rgb(240,240,240)';
       inactiveNodes.push(node.id);
-    } else if (endDate && dayjs(node.date).isAfter(endDate)) {
+    } else if (endDate && dayjs(node.metadata.date).isAfter(endDate)) {
       node.color = 'rgb(240,240,240)';
       inactiveNodes.push(node.id);
     } else {
@@ -111,6 +111,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       var updated = newgraph.edges.find((e) => e.id == n.id);
       Object.assign(n, pick(['color'])(updated));
     });
+
     sigma.refresh();
   }, [startDate, endDate]);
 
@@ -129,6 +130,10 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       <Position />
     </LoadGEXF>
   );
+  console.log(''); //eslint-disable-line
+  console.log('╔════START══graph══════════════════════════════════════════════════'); //eslint-disable-line
+  console.log(graph); //eslint-disable-line
+  console.log('╚════END════graph══════════════════════════════════════════════════'); //eslint-disable-line
 
   return (
     <div className={classNames(s.wrapper, className)} {...props}>

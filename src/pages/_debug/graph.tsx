@@ -55,7 +55,7 @@ const NetworkGraphDebugPage = () => {
   return (
     <>
       <h1>
-        Testing {path}
+        Testing {path2}
         <br />
         <small>({dayjs(date).format()})</small>
       </h1>

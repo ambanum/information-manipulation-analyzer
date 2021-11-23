@@ -1,156 +1,433 @@
 {
   "nodes": [
     {
-      "label": "@Daaaaaarsh1",
-      "image": {
-        "url": "https://pbs.twimg.com/profile_images/1428716743296536587/X6ujcfcD_normal.jpg"
+      "id": "raidi1000",
+      "label": "@raidi1000",
+      "x": 536.4058345168997,
+      "y": 1049.8284432759976,
+      "metadata": {
+        "date": "2021-11-23T10:48:50+00:00",
+        "tweets": [
+          "https://twitter.com/raidi1000/status/1463097200297361415"
+        ]
       },
-      "x": 893.0211715263764,
-      "y": 1065.796929121847,
-      "id": "Daaaaaarsh1",
-      "attributes": {
-        "Modularity Class": "80"
-      },
-      "date": "2021-11-21T17:10:58+00:00",
-      "size": 116
+      "size": 1
     },
     {
-      "label": "@AlrefaeeMustafa",
-      "image": {
-        "url": "https://pbs.twimg.com/profile_images/1336103127532134401/KHY7pO9H_normal.jpg"
+      "id": "islamsunnaa",
+      "label": "@islamsunnaa",
+      "x": 520.2255490755467,
+      "y": 447.23000373004356,
+      "metadata": {
+        "date": "2021-11-23T10:42:35+00:00",
+        "tweets": [
+          "https://twitter.com/islamsunnaa/status/1463095627840110599"
+        ]
       },
-      "x": 838.7196410958114,
-      "y": 596.4273889741609,
-      "id": "AlrefaeeMustafa",
-      "attributes": {
-        "Modularity Class": "80"
-      },
-      "date": "2021-11-21T23:42:49+00:00",
-      "size": 2
+      "size": 1
     },
     {
-      "label": "@drassagheer",
-      "image": {
-        "url": "https://pbs.twimg.com/profile_images/1459887311936704519/gBOKEdBO_normal.jpg"
+      "id": "Bo__Rajab",
+      "label": "@Bo__Rajab",
+      "x": 770.5364067753088,
+      "y": 410.2937359063272,
+      "metadata": {
+        "date": "2021-11-22T13:29:12+00:00",
+        "tweets": [
+          "https://twitter.com/Bo__Rajab/status/1462775172071575555"
+        ]
       },
-      "x": 200.89175027260126,
-      "y": 266.5330045556555,
-      "id": "drassagheer",
-      "attributes": {
-        "Modularity Class": "80"
-      },
-      "date": "2021-11-21T08:45:26+00:00",
-      "size": 530
+      "size": 1
     },
     {
-      "label": "@lupomannaro777",
-      "image": {
-        "url": "https://pbs.twimg.com/profile_images/1391228380096434178/Kyn5aIYw_normal.jpg"
+      "id": "boody201348",
+      "label": "@boody201348",
+      "x": 195.30558935816182,
+      "y": 334.86813058803006,
+      "metadata": {
+        "date": "2021-11-22T12:28:07+00:00",
+        "tweets": [
+          "https://twitter.com/boody201348/status/1462759800870113281"
+        ]
       },
-      "x": 600.1337568209767,
-      "y": 911.8402201517355,
+      "size": 1
+    },
+    {
       "id": "lupomannaro777",
-      "attributes": {
-        "Modularity Class": "80"
+      "label": "@lupomannaro777",
+      "x": 212.49085878602187,
+      "y": 490.6015262267182,
+      "metadata": {
+        "date": "2021-11-22T10:28:31+00:00",
+        "tweets": [
+          "https://twitter.com/lupomannaro777/status/1462729701689016324"
+        ]
       },
-      "date": "2021-11-21T15:25:25+00:00",
       "size": 1
     },
     {
-      "label": "@RFI",
-      "image": {
-        "url": "https://pbs.twimg.com/profile_images/875628776276631552/dxkZBJp7_normal.jpg"
+      "id": "DailyMailUK",
+      "label": "@DailyMailUK",
+      "x": 266.13779301894476,
+      "y": 282.83330812544966,
+      "metadata": {
+        "date": "2021-11-23T13:09:47+00:00"
       },
-      "x": 1070.0667557246088,
-      "y": 832.5527137384552,
-      "id": "RFI",
-      "attributes": {
-        "Modularity Class": "80"
-      },
-      "date": "2021-11-21T03:20:05+00:00",
-      "size": 23
-    },
-    {
-      "label": "@FasoDen1",
-      "image": {
-        "url": "https://pbs.twimg.com/profile_images/1445696859494776840/YbXyhcng_normal.jpg"
-      },
-      "x": 707.1737216379903,
-      "y": 659.0237275299373,
-      "id": "FasoDen1",
-      "attributes": {
-        "Modularity Class": "80"
-      },
-      "date": "2021-11-21T12:33:56+00:00",
       "size": 1
     },
     {
-      "label": "@Rama_Albaj",
-      "image": {
-        "url": "https://pbs.twimg.com/profile_images/1395722635682660352/1BKUSBGG_normal.jpg"
+      "id": "sshaw04",
+      "label": "@sshaw04",
+      "x": 1077.1482305221252,
+      "y": 793.7507396888452,
+      "metadata": {
+        "date": "2021-11-23T13:09:47+00:00"
       },
-      "x": 1185.8855925784674,
-      "y": 703.5974753047813,
-      "id": "Rama_Albaj",
-      "attributes": {
-        "Modularity Class": "80"
-      },
-      "date": "2021-11-21T11:44:00+00:00",
       "size": 1
     },
     {
-      "label": "@AFinPxKnrQ8JA1c",
-      "image": {
-        "url": "https://pbs.twimg.com/profile_images/1422533413572067340/bAbHSKPk_normal.jpg"
+      "id": "HGVJoker",
+      "label": "@HGVJoker",
+      "x": 312.70333875278436,
+      "y": 575.6463169681895,
+      "metadata": {
+        "date": "2021-11-23T13:05:07+00:00"
       },
-      "x": 1019.6526064259647,
-      "y": 435.2722749228772,
-      "id": "AFinPxKnrQ8JA1c",
-      "attributes": {
-        "Modularity Class": "80"
-      },
-      "date": "2021-11-21T08:20:11+00:00",
       "size": 1
     },
     {
-      "label": "@Khuliwi5",
-      "image": {
-        "url": "https://pbs.twimg.com/profile_images/1455686602370560000/jHDW115h_normal.jpg"
+      "id": "drassagheer",
+      "label": "@drassagheer",
+      "x": 710.7756532665181,
+      "y": 688.906881946524,
+      "metadata": {
+        "date": "2021-11-23T11:53:49+00:00"
       },
-      "x": 722.2933090845071,
-      "y": 440.36685516754056,
-      "id": "Khuliwi5",
-      "attributes": {
-        "Modularity Class": "80"
+      "size": 1
+    },
+    {
+      "id": "Tahir88243680",
+      "label": "@Tahir88243680",
+      "x": 1052.8035402237738,
+      "y": 477.5146810737642,
+      "metadata": {
+        "date": "2021-11-23T11:53:49+00:00"
       },
-      "date": "2021-11-21T07:13:46+00:00",
-      "size": 14
+      "size": 1
+    },
+    {
+      "id": "Mrbrary",
+      "label": "@Mrbrary",
+      "x": 822.505060749532,
+      "y": 281.0655077195183,
+      "metadata": {
+        "date": "2021-11-23T11:37:33+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "majhol_majholzx",
+      "label": "@majhol_majholzx",
+      "x": 380.2869236148178,
+      "y": 668.5698856417062,
+      "metadata": {
+        "date": "2021-11-23T11:37:33+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "T5khqkRESWURMFj",
+      "label": "@T5khqkRESWURMFj",
+      "x": 245.14826620283318,
+      "y": 1140.901436412243,
+      "metadata": {
+        "date": "2021-11-23T10:51:15+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "Ilina_tekayah",
+      "label": "@Ilina_tekayah",
+      "x": 452.7995664082471,
+      "y": 784.8815397817876,
+      "metadata": {
+        "date": "2021-11-23T10:51:15+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "samr_155",
+      "label": "@samr_155",
+      "x": 996.1590074400614,
+      "y": 659.9797699670031,
+      "metadata": {
+        "date": "2021-11-23T08:20:18+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "Mahmoudelshab",
+      "label": "@Mahmoudelshab",
+      "x": 293.9965727112665,
+      "y": 1146.7247026265652,
+      "metadata": {
+        "date": "2021-11-23T07:53:28+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "1PijVT1D3GIgwpG",
+      "label": "@1PijVT1D3GIgwpG",
+      "x": 422.9814056466787,
+      "y": 597.872028495098,
+      "metadata": {
+        "date": "2021-11-23T07:32:34+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "Shaimaa26233793",
+      "label": "@Shaimaa26233793",
+      "x": 380.58575927663946,
+      "y": 429.9455300922681,
+      "metadata": {
+        "date": "2021-11-23T00:14:02+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "fighter009988",
+      "label": "@fighter009988",
+      "x": 308.5967027116602,
+      "y": 1033.6143884416197,
+      "metadata": {
+        "date": "2021-11-23T00:14:02+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "mariamkalamm",
+      "label": "@mariamkalamm",
+      "x": 1122.4148887126466,
+      "y": 1060.4630983217635,
+      "metadata": {
+        "date": "2021-11-22T23:16:00+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "AlrefaeeMustafa",
+      "label": "@AlrefaeeMustafa",
+      "x": 334.7281828105117,
+      "y": 356.75159785254857,
+      "metadata": {
+        "date": "2021-11-22T23:16:00+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "SupportProphetM",
+      "label": "@SupportProphetM",
+      "x": 999.7453821601118,
+      "y": 636.9583591175971,
+      "metadata": {
+        "date": "2021-11-22T23:15:23+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "moh_elashy",
+      "label": "@moh_elashy",
+      "x": 958.3171397682013,
+      "y": 558.5965206854905,
+      "metadata": {
+        "date": "2021-11-22T21:05:27+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "UtancGunlugu",
+      "label": "@UtancGunlugu",
+      "x": 697.0797148026137,
+      "y": 980.706164556881,
+      "metadata": {
+        "date": "2021-11-22T14:14:43+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "Yahia55989428",
+      "label": "@Yahia55989428",
+      "x": 1056.5664667727572,
+      "y": 200.5290371595207,
+      "metadata": {
+        "date": "2021-11-22T14:14:43+00:00"
+      },
+      "size": 1
+    },
+    {
+      "id": "derda990",
+      "label": "@derda990",
+      "x": 949.5420988092977,
+      "y": 479.70174976858755,
+      "metadata": {
+        "date": "2021-11-22T13:24:41+00:00"
+      },
+      "size": 1
     }
   ],
   "edges": [
     {
-      "target": "AlrefaeeMustafa",
-      "source": "Daaaaaarsh1",
+      "target": "sshaw04",
+      "source": "DailyMailUK",
       "label": "has quoted",
       "attributes": {},
-      "size": 2,
-      "id": "edge_0"
+      "size": 1,
+      "id": "edge_4"
     },
     {
-      "target": "lupomannaro777",
+      "target": "HGVJoker",
+      "source": "DailyMailUK",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_5"
+    },
+    {
+      "target": "Tahir88243680",
       "source": "drassagheer",
       "label": "has quoted",
       "attributes": {},
       "size": 1,
-      "id": "edge_2"
+      "id": "edge_6"
     },
     {
-      "target": "FasoDen1",
-      "source": "RFI",
+      "target": "majhol_majholzx",
+      "source": "Mrbrary",
       "label": "has quoted",
       "attributes": {},
       "size": 1,
-      "id": "edge_3"
+      "id": "edge_8"
+    },
+    {
+      "target": "Ilina_tekayah",
+      "source": "T5khqkRESWURMFj",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_9"
+    },
+    {
+      "target": "samr_155",
+      "source": "samr_155",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_19"
+    },
+    {
+      "target": "Mahmoudelshab",
+      "source": "drassagheer",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_20"
+    },
+    {
+      "target": "1PijVT1D3GIgwpG",
+      "source": "1PijVT1D3GIgwpG",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_21"
+    },
+    {
+      "target": "fighter009988",
+      "source": "Shaimaa26233793",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_45"
+    },
+    {
+      "target": "Shaimaa26233793",
+      "source": "Shaimaa26233793",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_46"
+    },
+    {
+      "target": "AlrefaeeMustafa",
+      "source": "mariamkalamm",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_51"
+    },
+    {
+      "target": "AlrefaeeMustafa",
+      "source": "SupportProphetM",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_52"
+    },
+    {
+      "target": "AlrefaeeMustafa",
+      "source": "T5khqkRESWURMFj",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_53"
+    },
+    {
+      "target": "AlrefaeeMustafa",
+      "source": "samr_155",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_54"
+    },
+    {
+      "target": "AlrefaeeMustafa",
+      "source": "Shaimaa26233793",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_55"
+    },
+    {
+      "target": "Ilina_tekayah",
+      "source": "moh_elashy",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_58"
+    },
+    {
+      "target": "lupomannaro777",
+      "source": "SupportProphetM",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_62"
+    },
+    {
+      "target": "Yahia55989428",
+      "source": "UtancGunlugu",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_66"
+    },
+    {
+      "target": "derda990",
+      "source": "UtancGunlugu",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_74"
     }
   ]
 }
