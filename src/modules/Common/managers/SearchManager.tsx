@@ -686,8 +686,10 @@ export const retrieveAndUpdateGraph = async (
 export const getGraph = async (filter: { name: string }): Promise<Partial<Search>> => {
   try {
     const { name } = filter;
-    let search: Partial<Search> = await SearchModel.findOne(filter);
-
+    let search: Partial<Search> | null = await SearchModel.findOne(filter);
+    if (!search) {
+      throw new Error('Could not find search');
+    }
     if (!search.graphUrl) {
       // scrape it
       search = (await retrieveAndUpdateGraph(name)) || search;
@@ -696,6 +698,6 @@ export const getGraph = async (filter: { name: string }): Promise<Partial<Search
     return pick(graphPickFields)(search);
   } catch (e) {
     console.error(e);
-    throw new Error('Could not find hashtag');
+    throw new Error('Could not find search');
   }
 };

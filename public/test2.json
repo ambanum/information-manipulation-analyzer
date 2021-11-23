@@ -1,0 +1,156 @@
+{
+  "nodes": [
+    {
+      "label": "@Daaaaaarsh1",
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/1428716743296536587/X6ujcfcD_normal.jpg"
+      },
+      "x": 893.0211715263764,
+      "y": 1065.796929121847,
+      "id": "Daaaaaarsh1",
+      "attributes": {
+        "Modularity Class": "80"
+      },
+      "date": "2021-11-21T17:10:58+00:00",
+      "size": 116
+    },
+    {
+      "label": "@AlrefaeeMustafa",
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/1336103127532134401/KHY7pO9H_normal.jpg"
+      },
+      "x": 838.7196410958114,
+      "y": 596.4273889741609,
+      "id": "AlrefaeeMustafa",
+      "attributes": {
+        "Modularity Class": "80"
+      },
+      "date": "2021-11-21T23:42:49+00:00",
+      "size": 2
+    },
+    {
+      "label": "@drassagheer",
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/1459887311936704519/gBOKEdBO_normal.jpg"
+      },
+      "x": 200.89175027260126,
+      "y": 266.5330045556555,
+      "id": "drassagheer",
+      "attributes": {
+        "Modularity Class": "80"
+      },
+      "date": "2021-11-21T08:45:26+00:00",
+      "size": 530
+    },
+    {
+      "label": "@lupomannaro777",
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/1391228380096434178/Kyn5aIYw_normal.jpg"
+      },
+      "x": 600.1337568209767,
+      "y": 911.8402201517355,
+      "id": "lupomannaro777",
+      "attributes": {
+        "Modularity Class": "80"
+      },
+      "date": "2021-11-21T15:25:25+00:00",
+      "size": 1
+    },
+    {
+      "label": "@RFI",
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/875628776276631552/dxkZBJp7_normal.jpg"
+      },
+      "x": 1070.0667557246088,
+      "y": 832.5527137384552,
+      "id": "RFI",
+      "attributes": {
+        "Modularity Class": "80"
+      },
+      "date": "2021-11-21T03:20:05+00:00",
+      "size": 23
+    },
+    {
+      "label": "@FasoDen1",
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/1445696859494776840/YbXyhcng_normal.jpg"
+      },
+      "x": 707.1737216379903,
+      "y": 659.0237275299373,
+      "id": "FasoDen1",
+      "attributes": {
+        "Modularity Class": "80"
+      },
+      "date": "2021-11-21T12:33:56+00:00",
+      "size": 1
+    },
+    {
+      "label": "@Rama_Albaj",
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/1395722635682660352/1BKUSBGG_normal.jpg"
+      },
+      "x": 1185.8855925784674,
+      "y": 703.5974753047813,
+      "id": "Rama_Albaj",
+      "attributes": {
+        "Modularity Class": "80"
+      },
+      "date": "2021-11-21T11:44:00+00:00",
+      "size": 1
+    },
+    {
+      "label": "@AFinPxKnrQ8JA1c",
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/1422533413572067340/bAbHSKPk_normal.jpg"
+      },
+      "x": 1019.6526064259647,
+      "y": 435.2722749228772,
+      "id": "AFinPxKnrQ8JA1c",
+      "attributes": {
+        "Modularity Class": "80"
+      },
+      "date": "2021-11-21T08:20:11+00:00",
+      "size": 1
+    },
+    {
+      "label": "@Khuliwi5",
+      "image": {
+        "url": "https://pbs.twimg.com/profile_images/1455686602370560000/jHDW115h_normal.jpg"
+      },
+      "x": 722.2933090845071,
+      "y": 440.36685516754056,
+      "id": "Khuliwi5",
+      "attributes": {
+        "Modularity Class": "80"
+      },
+      "date": "2021-11-21T07:13:46+00:00",
+      "size": 14
+    }
+  ],
+  "edges": [
+    {
+      "target": "AlrefaeeMustafa",
+      "source": "Daaaaaarsh1",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 2,
+      "id": "edge_0"
+    },
+    {
+      "target": "lupomannaro777",
+      "source": "drassagheer",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_2"
+    },
+    {
+      "target": "FasoDen1",
+      "source": "RFI",
+      "label": "has quoted",
+      "attributes": {},
+      "size": 1,
+      "id": "edge_3"
+    }
+  ]
+}
