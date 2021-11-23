@@ -30,8 +30,38 @@ export type OnClickEvent = {
   target: any;
 };
 
+export interface GraphNode {
+  label: string;
+  x: number;
+  y: number;
+  id: string;
+  attributes?: { 'Modularity Class': string };
+  color: string;
+  botScore: number;
+  date: string;
+  size: number;
+}
+
+export interface GraphEdge {
+  source: string;
+  target: string;
+  id: string;
+  attributes: {
+    [key: string]: any;
+  };
+  color: string;
+  size: number;
+}
+
+export interface NetworkGraphJson {
+  nodes: GraphNode[];
+  edges: GraphEdge[];
+}
+
 export type NetworkGraphProps = {
   path?: string;
+  startDate?: string;
+  endDate?: string;
   gexf?: string;
   url?: string;
   width?: string;
