@@ -1,0 +1,6134 @@
+{
+  "edges": [
+    {
+      "source": "AvecJuvin",
+      "target": "AndreRouget",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:31:00+00:00"], "tweet_id": ["1463153113020436485"] }
+    },
+    {
+      "source": "AvecJuvin",
+      "target": "AvecJuvinAura",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:55:06+00:00"], "tweet_id": ["1463128976105345035"] }
+    },
+    {
+      "source": "AvecJuvin",
+      "target": "GerardRass",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 02:15:38+00:00"], "tweet_id": ["1463330439179948036"] }
+    },
+    {
+      "source": "AvecJuvin",
+      "target": "OccitanieJuvin",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 15:16:44+00:00"], "tweet_id": ["1463164622605803522"] }
+    },
+    {
+      "source": "AvecJuvin",
+      "target": "percykempmoon",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 15:24:02+00:00"], "tweet_id": ["1463166458205245458"] }
+    },
+    {
+      "source": "CBarrely",
+      "target": "BoidinFabrice",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:07:02+00:00"], "tweet_id": ["1463252775572234246"] }
+    },
+    {
+      "source": "CBarrely",
+      "target": "GilbertJeanine1",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:54:44+00:00"], "tweet_id": ["1463053389735071745"] }
+    },
+    {
+      "source": "CBarrely",
+      "target": "MARCLANDES40",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:28:59+00:00"], "tweet_id": ["1463213001813725193"] }
+    },
+    {
+      "source": "CBarrely",
+      "target": "ManuelFranois1",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:41:37+00:00"], "tweet_id": ["1463065187242717185"] }
+    },
+    {
+      "source": "CBarrely",
+      "target": "Traineur2",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:45:27+00:00"], "tweet_id": ["1463217147505745920"] }
+    },
+    {
+      "source": "CBarrely",
+      "target": "michel37230",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:21:11+00:00"], "tweet_id": ["1463044945623883777"] }
+    },
+    {
+      "source": "CBarrely",
+      "target": "olvSyl",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:35:23+00:00"], "tweet_id": ["1463259911266181127"] }
+    },
+    {
+      "source": "CBarrely",
+      "target": "pbriday",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:03:39+00:00"], "tweet_id": ["1463055629585719300"] }
+    },
+    {
+      "source": "Calam_media",
+      "target": "Sev14423512",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 05:08:51+00:00"], "tweet_id": ["1463374030103326720"] }
+    },
+    {
+      "source": "CroissyEm",
+      "target": "HeleneRky",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 16:37:28+00:00"], "tweet_id": ["1463184935829876749"] }
+    },
+    {
+      "source": "CroissyEm",
+      "target": "nordsud6213",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-23 15:51:23+00:00", "2021-11-23 15:47:50+00:00"],
+        "tweet_id": ["1463173339376201743", "1463172447956619277"]
+      }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "BorniolMaison",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:02:05+00:00"], "tweet_id": ["1463206233721262080"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "CarolWood777",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:53:05+00:00"], "tweet_id": ["1463158668803948562"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "CatVenise",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:45:31+00:00"], "tweet_id": ["1463202064910143502"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "ChBouchet",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:46:07+00:00"], "tweet_id": ["1463111616799645696"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "DuvalHlne2",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:34:26+00:00"], "tweet_id": ["1463108677498552321"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "Emsky73",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 15:39:38+00:00"], "tweet_id": ["1463170384400990220"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "HumexG",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:19:13+00:00"], "tweet_id": ["1463104847088074755"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "JDemasque",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:46:32+00:00"], "tweet_id": ["1463111723485962248"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "Larsgrisette",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:51:47+00:00"], "tweet_id": ["1463203640714346496"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "Ludroquette",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:42:18+00:00"], "tweet_id": ["1463125755072860161"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "PhantomPace",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:28:54+00:00"], "tweet_id": ["1463122382764355588"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "PierreEdouardLt",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:39:38+00:00"], "tweet_id": ["1463155285128888322"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "RLFranceJohnZ",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 13:00:22+00:00"], "tweet_id": ["1463130301090123779"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "Wopidou09",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:29:37+00:00"], "tweet_id": ["1463213159834075138"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "caroIline0031",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:18:48+00:00"], "tweet_id": ["1463104741140058116"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "chabadalalaCha",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 13:04:32+00:00"], "tweet_id": ["1463131352384131078"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "drirah",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:22:51+00:00"], "tweet_id": ["1463120859921625088"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "marie_dismas",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 06:21:20+00:00"], "tweet_id": ["1463392271676624898"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "muzzam78693",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 15:28:58+00:00"], "tweet_id": ["1463167700935528462"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "nature15106452",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 15:30:07+00:00"], "tweet_id": ["1463167988132110350"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "ploutreur",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:24:32+00:00"], "tweet_id": ["1463121283781124106"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "sparkctx",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:59:57+00:00"], "tweet_id": ["1463205694904143883"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "trib_la",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 13:48:30+00:00"], "tweet_id": ["1463142417784348677"] }
+    },
+    {
+      "source": "EclairePenseur",
+      "target": "viralvideovlogs",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:24:33+00:00"], "tweet_id": ["1463121289581891587"] }
+    },
+    {
+      "source": "LaFrancematuer",
+      "target": "DeniSimonin",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 16:25:58+00:00"], "tweet_id": ["1463182045845331969"] }
+    },
+    {
+      "source": "LaFrancematuer",
+      "target": "FlorenceFlo765",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:16:30+00:00"], "tweet_id": ["1463209860003155975"] }
+    },
+    {
+      "source": "LaFrancematuer",
+      "target": "bonuscr",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 16:12:41+00:00"], "tweet_id": ["1463178701454065666"] }
+    },
+    {
+      "source": "MAPICOS",
+      "target": "ChantalRobertet",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:38:29+00:00"], "tweet_id": ["1463079498220457984"] }
+    },
+    {
+      "source": "MAPICOS",
+      "target": "Fiscalitor",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:47:03+00:00"], "tweet_id": ["1463066555261014023"] }
+    },
+    {
+      "source": "MAPICOS",
+      "target": "JeanDoobs",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 05:15:06+00:00"], "tweet_id": ["1463013213713448961"] }
+    },
+    {
+      "source": "MAPICOS",
+      "target": "N_Lecaussin",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:10:02+00:00"], "tweet_id": ["1463072338816163843"] }
+    },
+    {
+      "source": "MAPICOS",
+      "target": "YvesPDB",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:26:38+00:00"], "tweet_id": ["1463061414034169857"] }
+    },
+    {
+      "source": "MagazineCapital",
+      "target": "NSandanassamy",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:48:34+00:00"], "tweet_id": ["1463157534265651210"] }
+    },
+    {
+      "source": "MarcBernier53",
+      "target": "MarieRagu",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:47:15+00:00"], "tweet_id": ["1463247796740538372"] }
+    },
+    {
+      "source": "MarcBernier53",
+      "target": "tchemtcem",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 16:32:24+00:00",
+          "2021-11-23 16:32:17+00:00",
+          "2021-11-23 16:32:10+00:00"
+        ],
+        "tweet_id": ["1463183664125300753", "1463183634517614599", "1463183602427076612"]
+      }
+    },
+    {
+      "source": "OccitanieJuvin",
+      "target": "GainandB",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:14:17+00:00"], "tweet_id": ["1463118703575326723"] }
+    },
+    {
+      "source": "OccitanieJuvin",
+      "target": "Izaza2222",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:01:36+00:00"], "tweet_id": ["1463070215512674307"] }
+    },
+    {
+      "source": "OccitanieJuvin",
+      "target": "alaindufourbing",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 02:13:50+00:00"], "tweet_id": ["1463329984462962692"] }
+    },
+    {
+      "source": "OccitanieJuvin",
+      "target": "et_shera",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:37:53+00:00"], "tweet_id": ["1463245438723702786"] }
+    },
+    {
+      "source": "OccitanieJuvin",
+      "target": "percykempmoon",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:14:32+00:00"], "tweet_id": ["1463073468610756618"] }
+    },
+    {
+      "source": "OccitanieJuvin",
+      "target": "viaud_alain",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:45:50+00:00"], "tweet_id": ["1463126647226441738"] }
+    },
+    {
+      "source": "Ph_Gerbier",
+      "target": "Tyranosaure2",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:46:46+00:00"], "tweet_id": ["1463157080395767820"] }
+    },
+    {
+      "source": "Resistance2017",
+      "target": "CMulticoleur",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:49:07+00:00"], "tweet_id": ["1463263366273720321"] }
+    },
+    {
+      "source": "Resistance2017",
+      "target": "ClPeqt",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 06:56:31+00:00"], "tweet_id": ["1463038735189172224"] }
+    },
+    {
+      "source": "Resistance2017",
+      "target": "remangere",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:29:44+00:00"], "tweet_id": ["1463047096513269762"] }
+    },
+    {
+      "source": "SaidAichourd",
+      "target": "MontvalSarth",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:53:34+00:00"], "tweet_id": ["1463068191656185861"] }
+    },
+    {
+      "source": "Sondage_Opinion",
+      "target": "Sondage_Opinion",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 00:07:22+00:00"], "tweet_id": ["1463298158788845569"] }
+    },
+    {
+      "source": "Sondage_Opinion",
+      "target": "Tinaja37206594",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 04:50:42+00:00"], "tweet_id": ["1463369462846042114"] }
+    },
+    {
+      "source": "Sondage_Opinion",
+      "target": "dossantos5271",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 05:43:05+00:00"], "tweet_id": ["1463382644041920517"] }
+    },
+    {
+      "source": "Sondage_Opinion",
+      "target": "totozozo5",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 01:13:28+00:00"], "tweet_id": ["1463314793364869124"] }
+    },
+    {
+      "source": "frasza",
+      "target": "MalotChat",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 15:56:50+00:00"], "tweet_id": ["1463174711928659974"] }
+    },
+    {
+      "source": "frasza",
+      "target": "MarcCoyote",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 16:06:24+00:00"], "tweet_id": ["1463177121073934354"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "AchilleHector73",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:52:07+00:00"], "tweet_id": ["1463067830472040452"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Andrgilles1",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:16:21+00:00"], "tweet_id": ["1463224920159174659"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "AnitaMa82354294",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:47:59+00:00"], "tweet_id": ["1463202683393921027"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "ArianeGrammat",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 16:19:49+00:00"], "tweet_id": ["1463180495265710089"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "AudeLarous",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:58:47+00:00"], "tweet_id": ["1463054405192896514"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "BSCHFR1",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:30:35+00:00"], "tweet_id": ["1463198305194852359"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "BellocSonia",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:47:37+00:00"], "tweet_id": ["1463232791404027913"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Blodwyn_KH69_",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:46:26+00:00"], "tweet_id": ["1463217394525032456"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "BontempsAlain3",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 13:35:10+00:00"], "tweet_id": ["1463139061397393418"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "BrunoMa37931427",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:32:45+00:00"], "tweet_id": ["1463047855686434816"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "CamebracF",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:51:13+00:00"], "tweet_id": ["1463067602054524932"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "CecBreizh",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 06:58:21+00:00"], "tweet_id": ["1463039197573435406"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Chacha78180",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:16:03+00:00"], "tweet_id": ["1463194647514259467"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "ChristianHAAG14",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:57:45+00:00"], "tweet_id": ["1463054147998171137"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Desnoyelle5",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:01:46+00:00"], "tweet_id": ["1463055158208831494"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "DuvehatJp",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:01:40+00:00"], "tweet_id": ["1463070231132266500"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "FabienneSauquet",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:16:22+00:00"], "tweet_id": ["1463119228169564164"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Franckylebest",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 10:55:59+00:00"], "tweet_id": ["1463099001318907905"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "GeirangerA",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:58:56+00:00"], "tweet_id": ["1463129943890669568"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "GeorgeP76500486",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:09:34+00:00"], "tweet_id": ["1463072219932864514"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "GuemroudB",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:36:29+00:00"], "tweet_id": ["1463229988606562310"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "GuzmanStephane",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:31:14+00:00"], "tweet_id": ["1463077674193231873"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Hydrure",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:50:08+00:00"], "tweet_id": ["1463248523286220804"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "JeanLucBernar13",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:18:49+00:00"], "tweet_id": ["1463044348971470851"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Joegallo59",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:01:09+00:00"], "tweet_id": ["1463190899454877704"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "JohnMordom",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 10:34:31+00:00"], "tweet_id": ["1463093596651986947"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "LaNabote",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:26:27+00:00"], "tweet_id": ["1463227461936758789"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "La_FemmeDuBoss",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:33:19+00:00"], "tweet_id": ["1463047998167035907"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "LeftDemystified",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:47:53+00:00"], "tweet_id": ["1463081863153655814"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "LoicLuneau",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:18:54+00:00"], "tweet_id": ["1463044369129345031"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Mauvaisfrancoi1",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:29:49+00:00"], "tweet_id": ["1463152815241666573"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Mcp38563922",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:14:48+00:00"], "tweet_id": ["1463043338660159488"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Michael20371415",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:25:06+00:00"], "tweet_id": ["1463076127635906562"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Michel13989918",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:13:37+00:00"], "tweet_id": ["1463058141332004864"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Nath92798323",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:29:00+00:00"], "tweet_id": ["1463152609406107652"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "NicoleARNAUD9",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 22:46:28+00:00"], "tweet_id": ["1463277797733015553"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Paul57184810",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:11:01+00:00"], "tweet_id": ["1463072585575448583"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Philippe_FQSP",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:34:55+00:00"], "tweet_id": ["1463244693576298503"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Quetzal00862691",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:49:09+00:00"], "tweet_id": ["1463248275360911363"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "RomyDepardieu",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:12:43+00:00"], "tweet_id": ["1463103210743377928"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "SIMON26588769",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:13:32+00:00"], "tweet_id": ["1463254412739108868"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "SophieDeRochas",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:27:36+00:00"], "tweet_id": ["1463212651748765697"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "ThibaultCheva11",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 06:57:23+00:00"], "tweet_id": ["1463038953351696384"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Thierrydugard30",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:46:21+00:00"], "tweet_id": ["1463051276141350916"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "ToulousainP",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:53:31+00:00"], "tweet_id": ["1463128577214459907"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "VincentFredFR",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 23:05:19+00:00"], "tweet_id": ["1463282544728850439"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "WhitelineAlex",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:51:34+00:00"], "tweet_id": ["1463112987527495688"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "Zoram381",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:40:44+00:00"], "tweet_id": ["1463200860700295169"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "asmsuzanne",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:34:50+00:00"], "tweet_id": ["1463229574922350598"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "aubert_jm",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 15:00:18+00:00"], "tweet_id": ["1463160484597796880"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "bert6691",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:51:48+00:00"], "tweet_id": ["1463067747307470850"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "bertrandbea2",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:29:10+00:00"], "tweet_id": ["1463197948788019201"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "carynrobiyo",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 09:04:14+00:00"], "tweet_id": ["1463070878904815620"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "christi09129736",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:08:07+00:00"], "tweet_id": ["1463041655213281280"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "claviedidier",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:29:24+00:00"], "tweet_id": ["1463152708790140942"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "danielrivaud",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 16:26:17+00:00"], "tweet_id": ["1463182121753788421"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "demons8311",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 10:46:40+00:00"], "tweet_id": ["1463096657223077891"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "djerazore",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:43:02+00:00"], "tweet_id": ["1463050443865694210"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "domiallard",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:50:35+00:00"], "tweet_id": ["1463052344984285192"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "epok83",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:30:05+00:00"], "tweet_id": ["1463198178921127942"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "francois94160",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 16:57:30+00:00"], "tweet_id": ["1463189978008231947"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "fulberti_laving",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:25:17+00:00"], "tweet_id": ["1463045977766514689"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "jcj073",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 10:38:42+00:00"], "tweet_id": ["1463094652895215620"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "jeanlu30",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:39:13+00:00"], "tweet_id": ["1463215578672418818"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "jiaiffert",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 22:41:37+00:00"], "tweet_id": ["1463276577479962625"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "l_occident",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:28:12+00:00"], "tweet_id": ["1463046710079459338"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "lovebresil01",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:41:22+00:00"], "tweet_id": ["1463231217944383491"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "lucaspi22277815",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:13:38+00:00"], "tweet_id": ["1463239339140390915"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "michael_a15",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:03:59+00:00"], "tweet_id": ["1463040614791098369"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "millot1179",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 10:01:47+00:00"], "tweet_id": ["1463085361131839489"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "miseb29",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:24:01+00:00"], "tweet_id": ["1463226851762057224"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "natechonchon",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:48:01+00:00"], "tweet_id": ["1463263091710435328"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "nimegue70",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 00:48:42+00:00"], "tweet_id": ["1463308560494997510"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "noemiebruneau2",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:42:35+00:00"], "tweet_id": ["1463050328690106374"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "predicator72",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:01:53+00:00"], "tweet_id": ["1463100487541137422"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "queen63000",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 07:29:13+00:00"], "tweet_id": ["1463046964724051969"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "sky1948",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:13:27+00:00"], "tweet_id": ["1463224192950849540"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "soso13390",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 08:42:20+00:00"], "tweet_id": ["1463065367216103431"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "tcuttoli",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 17:09:03+00:00"], "tweet_id": ["1463192885306736647"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "ugolusso",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:27:46+00:00"], "tweet_id": ["1463257995052294144"] }
+    },
+    {
+      "source": "gabriellecluzel",
+      "target": "wonderjustice",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 12:25:13+00:00"], "tweet_id": ["1463121457182089224"] }
+    },
+    {
+      "source": "jeanpaulmulot",
+      "target": "JGuechoud",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 13:27:37+00:00"], "tweet_id": ["1463137160819793932"] }
+    },
+    {
+      "source": "jeanpaulmulot",
+      "target": "LegrouxVincent",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 10:03:43+00:00"], "tweet_id": ["1463085846597455872"] }
+    },
+    {
+      "source": "michedici",
+      "target": "pilounettes",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 22:26:59+00:00"], "tweet_id": ["1463272895375978497"] }
+    },
+    {
+      "source": "nicolas_rivard",
+      "target": "DLombard83",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:49:37+00:00"], "tweet_id": ["1463263491259838471"] }
+    },
+    {
+      "source": "ramina63",
+      "target": "Petitje07386566",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:22:34+00:00"], "tweet_id": ["1463105690818555910"] }
+    },
+    {
+      "source": "ramina63",
+      "target": "WJoumarin1",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 11:33:29+00:00"], "tweet_id": ["1463108438477705221"] }
+    },
+    {
+      "source": "ramina63",
+      "target": "chaussat_helene",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 13:33:15+00:00"], "tweet_id": ["1463138577592762375"] }
+    },
+    {
+      "source": "ramina63",
+      "target": "shooting38",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 22:24:09+00:00"], "tweet_id": ["1463272182566592512"] }
+    },
+    {
+      "source": "romainribas2021",
+      "target": "AGReichenbach",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:42:49+00:00"], "tweet_id": ["1463156083720077326"] }
+    },
+    {
+      "source": "romainribas2021",
+      "target": "BobLeCentriste",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:23:49+00:00"], "tweet_id": ["1463151303803158528"] }
+    },
+    {
+      "source": "romainribas2021",
+      "target": "LeDanator",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:26:39+00:00"], "tweet_id": ["1463152018621673487"] }
+    },
+    {
+      "source": "romainribas2021",
+      "target": "catpom27",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 16:12:46+00:00"], "tweet_id": ["1463178721351847938"] }
+    },
+    {
+      "source": "romainribas2021",
+      "target": "perchedunois21",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 13:59:29+00:00"], "tweet_id": ["1463145179657998340"] }
+    },
+    {
+      "source": "romainribas2021",
+      "target": "piRdumont",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 14:49:01+00:00"], "tweet_id": ["1463157644793946119"] }
+    },
+    {
+      "source": "romainribas2021",
+      "target": "radicauxenmarch",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 13:59:42+00:00"], "tweet_id": ["1463145234142015495"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "007dijon",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:18:03+00:00"], "tweet_id": ["1463255548695134212"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "2dbrive",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:24:05+00:00"], "tweet_id": ["1463241967656181761"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "BMillo_",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 22:16:12+00:00"], "tweet_id": ["1463270184513384449"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "BastienThierry4",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 06:24:41+00:00"], "tweet_id": ["1463393113687396353"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "BernardChaix",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:54:00+00:00"], "tweet_id": ["1463234397159755778"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "BruchardDe",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:49:44+00:00"], "tweet_id": ["1463233323946450946"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "CaroTV04",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-24 05:38:07+00:00",
+          "2021-11-24 05:38:05+00:00",
+          "2021-11-24 05:36:18+00:00"
+        ],
+        "tweet_id": ["1463381392834932737", "1463381385272561669", "1463380936511401986"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "ClPeqt",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-24 05:27:21+00:00",
+          "2021-11-24 05:27:13+00:00",
+          "2021-11-24 05:25:01+00:00"
+        ],
+        "tweet_id": ["1463378686544166914", "1463378653862055938", "1463378099828051970"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "ContactKi",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 05:28:47+00:00"], "tweet_id": ["1463379045547139075"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "CrisSpriet06",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:43:56+00:00"], "tweet_id": ["1463246961306267653"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "DJ083bis",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:15:10+00:00"], "tweet_id": ["1463239724940808192"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "DJANGOETCHARLO1",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-24 06:24:32+00:00",
+          "2021-11-24 06:21:03+00:00",
+          "2021-11-24 06:20:50+00:00"
+        ],
+        "tweet_id": ["1463393077947686912", "1463392197861122050", "1463392142844432384"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "DaniellePomay",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-23 23:02:03+00:00", "2021-11-23 23:01:47+00:00"],
+        "tweet_id": ["1463281720816549889", "1463281653107859459"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "EKraftschenko",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 23:10:01+00:00",
+          "2021-11-23 23:09:47+00:00",
+          "2021-11-23 23:09:33+00:00"
+        ],
+        "tweet_id": ["1463283725542821893", "1463283666809982983", "1463283608811147265"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "EdouardVian",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:18:50+00:00"], "tweet_id": ["1463255747219894275"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Enrique92112945",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:09:29+00:00"], "tweet_id": ["1463253393368141825"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "EriKa110768",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:07:43+00:00"], "tweet_id": ["1463237849969577993"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "FFillon06",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-24 06:04:06+00:00", "2021-11-24 05:16:07+00:00"],
+        "tweet_id": ["1463387931675185156", "1463375860342345732"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "FJGdePoel",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 04:57:42+00:00"], "tweet_id": ["1463371224864727042"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "FrancoisedeCCLP",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 03:02:14+00:00"], "tweet_id": ["1463342166823124995"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "HopeInPast",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 03:16:30+00:00"], "tweet_id": ["1463345755096297478"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "JPFOTOGRAFOSS",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-24 04:21:39+00:00", "2021-11-23 20:36:58+00:00"],
+        "tweet_id": ["1463362151482077189", "1463245210666811399"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "JeromeTaurelle",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:22:33+00:00"], "tweet_id": ["1463256679668146176"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Joda09223896",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:21:25+00:00"], "tweet_id": ["1463241297364406273"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "LeDroitard2022",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 22:57:05+00:00"], "tweet_id": ["1463280470960005126"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Le_reseau_teur",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 06:38:11+00:00"], "tweet_id": ["1463396510771654664"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "LegrouxVincent",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 06:51:17+00:00"], "tweet_id": ["1463399808396320771"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "M75Sylvie",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:43:16+00:00"], "tweet_id": ["1463246796751355908"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "MKimemo",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:04:05+00:00"], "tweet_id": ["1463236932612276224"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Madzikeen",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 07:10:38+00:00"], "tweet_id": ["1463404677530333184"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "MalouBlandini",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 03:10:18+00:00"], "tweet_id": ["1463344196098703366"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "MarieDamiano",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 19:54:55+00:00",
+          "2021-11-23 19:54:26+00:00",
+          "2021-11-23 19:54:22+00:00"
+        ],
+        "tweet_id": ["1463234627099893761", "1463234507922976781", "1463234487517597708"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "MarionLglt",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:51:26+00:00"], "tweet_id": ["1463233751044009990"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "MaunierR",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-24 07:09:04+00:00", "2021-11-23 22:14:29+00:00"],
+        "tweet_id": ["1463404281076326407", "1463269750084186113"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Mounette449",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 22:41:47+00:00",
+          "2021-11-23 22:25:05+00:00",
+          "2021-11-23 22:17:51+00:00"
+        ],
+        "tweet_id": ["1463276622023467010", "1463272418491969548", "1463270596691869698"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Neantotal11",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:50:16+00:00"], "tweet_id": ["1463233459158196233"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "OddoRomanCorinn",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-23 19:53:37+00:00", "2021-11-23 19:52:42+00:00"],
+        "tweet_id": ["1463234299600195586", "1463234071874740229"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "OlivierMerkel",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 23:16:58+00:00"], "tweet_id": ["1463285475049885698"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "OuthierC",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 23:06:34+00:00"], "tweet_id": ["1463282858475327489"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "PGriselin",
+      "size": 6,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 22:38:11+00:00",
+          "2021-11-23 22:37:49+00:00",
+          "2021-11-23 22:31:00+00:00",
+          "2021-11-23 22:29:21+00:00",
+          "2021-11-23 22:28:37+00:00",
+          "2021-11-23 22:26:17+00:00"
+        ],
+        "tweet_id": [
+          "1463275713138765831",
+          "1463275621455474692",
+          "1463273908384276481",
+          "1463273493559193617",
+          "1463273308946845703",
+          "1463272719680741379"
+        ]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "ParanteauD",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 22:25:04+00:00"], "tweet_id": ["1463272413756633099"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Patricia_M06",
+      "size": 4,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 23:02:42+00:00",
+          "2021-11-23 23:01:56+00:00",
+          "2021-11-23 22:53:39+00:00",
+          "2021-11-23 22:51:53+00:00"
+        ],
+        "tweet_id": [
+          "1463281886021754887",
+          "1463281691020177421",
+          "1463279605691953162",
+          "1463279164081979398"
+        ]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Philippe_FQSP",
+      "size": 4,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 20:24:54+00:00",
+          "2021-11-23 20:18:31+00:00",
+          "2021-11-23 20:18:25+00:00",
+          "2021-11-23 20:18:19+00:00"
+        ],
+        "tweet_id": [
+          "1463242174238232590",
+          "1463240566179782669",
+          "1463240543320870915",
+          "1463240514493464576"
+        ]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Poncinmarie1",
+      "size": 5,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 22:37:20+00:00",
+          "2021-11-23 22:35:20+00:00",
+          "2021-11-23 21:02:36+00:00",
+          "2021-11-23 21:02:00+00:00",
+          "2021-11-23 21:01:50+00:00"
+        ],
+        "tweet_id": [
+          "1463275500911091718",
+          "1463274996877479937",
+          "1463251662324350980",
+          "1463251510326960132",
+          "1463251466043510784"
+        ]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "PrLCastillo",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 19:51:12+00:00",
+          "2021-11-23 19:50:59+00:00",
+          "2021-11-23 19:50:49+00:00"
+        ],
+        "tweet_id": ["1463233692642521089", "1463233638640889874", "1463233597272657920"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "PuissegurRemi",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:20:04+00:00"], "tweet_id": ["1463256054607880199"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Quentin_mna",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:17:40+00:00"], "tweet_id": ["1463255451055833089"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "ReffuveilleS",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 23:12:23+00:00"], "tweet_id": ["1463284321989668866"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "SMH_DH",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 07:01:30+00:00"], "tweet_id": ["1463402378313490432"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "SoutienCiotti",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-23 20:09:24+00:00", "2021-11-23 20:09:16+00:00"],
+        "tweet_id": ["1463238274567262212", "1463238241079992327"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "Sylvain_UN",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 06:05:29+00:00"], "tweet_id": ["1463388283052953600"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "SylvieP13",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 23:12:46+00:00",
+          "2021-11-23 23:06:13+00:00",
+          "2021-11-23 20:01:04+00:00"
+        ],
+        "tweet_id": ["1463284419364540416", "1463282769421905922", "1463236176232554504"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "TheoDutrieu",
+      "size": 4,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 20:16:55+00:00",
+          "2021-11-23 19:57:13+00:00",
+          "2021-11-23 19:57:09+00:00",
+          "2021-11-23 19:57:04+00:00"
+        ],
+        "tweet_id": [
+          "1463240163761561618",
+          "1463235205293129734",
+          "1463235189098926088",
+          "1463235170513862658"
+        ]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "TonioVermeulen",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 22:05:21+00:00"], "tweet_id": ["1463267454310928384"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "UrbainNatacha",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:34:22+00:00"], "tweet_id": ["1463259655438835717"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "YoannThibault",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 20:13:22+00:00",
+          "2021-11-23 19:52:20+00:00",
+          "2021-11-23 19:52:00+00:00"
+        ],
+        "tweet_id": ["1463239272744505345", "1463233976416583680", "1463233893608402947"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "YvesPDB",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:47:36+00:00"], "tweet_id": ["1463232786928705543"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "alberti_maurice",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 22:03:30+00:00"], "tweet_id": ["1463266984813027332"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "allobroges74",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 23:20:04+00:00"], "tweet_id": ["1463286255299534849"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "apidjo",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 06:59:05+00:00"], "tweet_id": ["1463401770709827584"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "avel_du",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:22:51+00:00"], "tweet_id": ["1463256755727699977"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "baptiste58180",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 06:36:51+00:00"], "tweet_id": ["1463396175785177088"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "boxcalf1",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-24 05:36:53+00:00", "2021-11-24 05:33:25+00:00"],
+        "tweet_id": ["1463381084662636544", "1463380210749947907"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "ch_coulon",
+      "size": 4,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-24 06:08:28+00:00",
+          "2021-11-24 06:07:11+00:00",
+          "2021-11-24 06:05:32+00:00",
+          "2021-11-24 06:00:45+00:00"
+        ],
+        "tweet_id": [
+          "1463389032042356737",
+          "1463388708888006660",
+          "1463388295438680065",
+          "1463387091186991105"
+        ]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "chlomaky",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-24 06:06:03+00:00", "2021-11-24 05:32:59+00:00"],
+        "tweet_id": ["1463388424006688780", "1463380104323678208"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "de_lyon1",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-24 06:12:45+00:00", "2021-11-23 20:17:34+00:00"],
+        "tweet_id": ["1463390109290668037", "1463240326974513161"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "depaz_beth",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:52:40+00:00"], "tweet_id": ["1463234063163174917"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "droite_sensee",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:14:55+00:00"], "tweet_id": ["1463239660847697922"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "garbo68",
+      "size": 5,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 19:52:08+00:00",
+          "2021-11-23 19:52:01+00:00",
+          "2021-11-23 19:50:58+00:00",
+          "2021-11-23 19:48:50+00:00",
+          "2021-11-23 19:48:28+00:00"
+        ],
+        "tweet_id": [
+          "1463233928358154241",
+          "1463233896166924297",
+          "1463233632261357581",
+          "1463233096510230531",
+          "1463233002792751109"
+        ]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "herve_bureau",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 19:51:41+00:00",
+          "2021-11-23 19:51:24+00:00",
+          "2021-11-23 19:51:03+00:00"
+        ],
+        "tweet_id": ["1463233815892172801", "1463233742311505922", "1463233654289743874"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "ideali111",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:55:52+00:00"], "tweet_id": ["1463234868846993412"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "imberic07",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 07:06:46+00:00"], "tweet_id": ["1463403706012127232"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "jaclostermann",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 20:13:09+00:00"], "tweet_id": ["1463239216981233673"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "janyabadi",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 05:45:29+00:00"], "tweet_id": ["1463383250672312323"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "jcdrski_c",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 07:11:16+00:00"], "tweet_id": ["1463404834980347913"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "jeannotdupeuple",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 21:10:41+00:00"], "tweet_id": ["1463253694502387718"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "jmsavelli",
+      "size": 2,
+      "label": "retweeted",
+      "metadata": {
+        "date": ["2021-11-23 20:20:18+00:00", "2021-11-23 20:19:22+00:00"],
+        "tweet_id": ["1463241016002199555", "1463240780039004164"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "lebossdur",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 06:10:00+00:00"], "tweet_id": ["1463389417285066752"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "lucbt067",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 20:01:53+00:00",
+          "2021-11-23 20:01:44+00:00",
+          "2021-11-23 20:01:33+00:00"
+        ],
+        "tweet_id": ["1463236381686308868", "1463236344054960130", "1463236297359822855"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "pampitpamp",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 20:10:17+00:00",
+          "2021-11-23 19:52:38+00:00",
+          "2021-11-23 19:45:28+00:00"
+        ],
+        "tweet_id": ["1463238495502311436", "1463234055152058384", "1463232248497463301"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "paul_norel",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 07:11:11+00:00"], "tweet_id": ["1463404815451578368"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "pierregas2014",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 05:59:58+00:00"], "tweet_id": ["1463386894222471169"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "pilouerre",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-23 21:28:25+00:00",
+          "2021-11-23 20:17:55+00:00",
+          "2021-11-23 20:17:41+00:00"
+        ],
+        "tweet_id": ["1463258157787004931", "1463240417563103234", "1463240356728909839"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "remangere",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 05:42:30+00:00"], "tweet_id": ["1463382496108756992"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "snop61",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 05:37:48+00:00"], "tweet_id": ["1463381314728513536"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "thierry27200",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 19:54:04+00:00"], "tweet_id": ["1463234415333679114"] }
+    },
+    {
+      "source": "slerudulier",
+      "target": "tressi34",
+      "size": 3,
+      "label": "retweeted",
+      "metadata": {
+        "date": [
+          "2021-11-24 06:04:58+00:00",
+          "2021-11-24 05:45:39+00:00",
+          "2021-11-24 05:15:43+00:00"
+        ],
+        "tweet_id": ["1463388153046257664", "1463383290430300161", "1463375757368078337"]
+      }
+    },
+    {
+      "source": "slerudulier",
+      "target": "vilaxbibou",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-24 05:39:44+00:00"], "tweet_id": ["1463381800953262081"] }
+    },
+    {
+      "source": "vaguebleue17e",
+      "target": "MeunierElisabe1",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:25:33+00:00"], "tweet_id": ["1463212139255156738"] }
+    },
+    {
+      "source": "vaguebleue17e",
+      "target": "WJoumarin1",
+      "size": 1,
+      "label": "retweeted",
+      "metadata": { "date": ["2021-11-23 18:52:38+00:00"], "tweet_id": ["1463218954361581574"] }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AvecJuvin",
+      "label": "AvecJuvin",
+      "size": 5,
+      "x": -0.797776525630562,
+      "y": 0.010378376301992537,
+      "metadata": {
+        "date": ["2021-11-23 09:04:02+00:00", "2021-11-23 14:25:48+00:00"],
+        "tweet_id": ["1463070827151249411", "1463151803650957326"],
+        "retweetCount": [4, 1],
+        "role": ["Tweet", "Tweet"],
+        "url": [
+          "https://twitter.com/AvecJuvin/status/1463070827151249411",
+          "https://twitter.com/AvecJuvin/status/1463151803650957326"
+        ]
+      }
+    },
+    {
+      "id": "AndreRouget",
+      "label": "AndreRouget",
+      "size": 1,
+      "x": -0.8470459271136409,
+      "y": -0.002380829322464652,
+      "metadata": {
+        "date": ["2021-11-23 14:31:00+00:00"],
+        "tweet_id": ["1463153113020436485"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/AndreRouget/status/1463153113020436485"]
+      }
+    },
+    {
+      "id": "AvecJuvinAura",
+      "label": "AvecJuvinAura",
+      "size": 1,
+      "x": -0.7891035071250107,
+      "y": -0.02295256635455645,
+      "metadata": {
+        "date": ["2021-11-23 12:55:06+00:00"],
+        "tweet_id": ["1463128976105345035"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/AvecJuvinAura/status/1463128976105345035"]
+      }
+    },
+    {
+      "id": "GerardRass",
+      "label": "GerardRass",
+      "size": 1,
+      "x": -0.8467635078229532,
+      "y": 0.018588007830316822,
+      "metadata": {
+        "date": ["2021-11-24 02:15:38+00:00"],
+        "tweet_id": ["1463330439179948036"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/GerardRass/status/1463330439179948036"]
+      }
+    },
+    {
+      "id": "OccitanieJuvin",
+      "label": "OccitanieJuvin",
+      "size": 1,
+      "x": -0.7387021086789234,
+      "y": 0.027578654664125606,
+      "metadata": {
+        "date": ["2021-11-23 15:16:44+00:00"],
+        "tweet_id": ["1463164622605803522"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/OccitanieJuvin/status/1463164622605803522"]
+      }
+    },
+    {
+      "id": "OccitanieJuvin",
+      "label": "OccitanieJuvin",
+      "size": 6,
+      "x": -0.7387021086789234,
+      "y": 0.027578654664125606,
+      "metadata": {
+        "date": ["2021-11-23 08:58:36+00:00"],
+        "tweet_id": ["1463069461276237828"],
+        "retweetCount": [6],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/OccitanieJuvin/status/1463069461276237828"]
+      }
+    },
+    {
+      "id": "percykempmoon",
+      "label": "percykempmoon",
+      "size": 1,
+      "x": -0.7783431705337235,
+      "y": 0.031810653007073066,
+      "metadata": {
+        "date": ["2021-11-23 09:14:32+00:00", "2021-11-23 15:24:02+00:00"],
+        "tweet_id": ["1463073468610756618", "1463166458205245458"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/percykempmoon/status/1463073468610756618",
+          "https://twitter.com/percykempmoon/status/1463166458205245458"
+        ]
+      }
+    },
+    {
+      "id": "CBarrely",
+      "label": "CBarrely",
+      "size": 9,
+      "x": -0.5335288376057795,
+      "y": 0.5791242058185605,
+      "metadata": {
+        "date": ["2021-11-23 07:13:23+00:00"],
+        "tweet_id": ["1463042983494930434"],
+        "retweetCount": [9],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/CBarrely/status/1463042983494930434"]
+      }
+    },
+    {
+      "id": "BoidinFabrice",
+      "label": "BoidinFabrice",
+      "size": 1,
+      "x": -0.5706876724291519,
+      "y": 0.6204189349301759,
+      "metadata": {
+        "date": ["2021-11-23 21:07:02+00:00"],
+        "tweet_id": ["1463252775572234246"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BoidinFabrice/status/1463252775572234246"]
+      }
+    },
+    {
+      "id": "GilbertJeanine1",
+      "label": "GilbertJeanine1",
+      "size": 1,
+      "x": -0.4840637942656314,
+      "y": 0.5356039729994475,
+      "metadata": {
+        "date": ["2021-11-23 07:54:44+00:00"],
+        "tweet_id": ["1463053389735071745"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/GilbertJeanine1/status/1463053389735071745"]
+      }
+    },
+    {
+      "id": "MARCLANDES40",
+      "label": "MARCLANDES40",
+      "size": 1,
+      "x": -0.5640975579650414,
+      "y": 0.6018957180684745,
+      "metadata": {
+        "date": ["2021-11-23 18:28:59+00:00"],
+        "tweet_id": ["1463213001813725193"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/MARCLANDES40/status/1463213001813725193"]
+      }
+    },
+    {
+      "id": "ManuelFranois1",
+      "label": "ManuelFranois1",
+      "size": 1,
+      "x": -0.5844211842654872,
+      "y": 0.6018906748145989,
+      "metadata": {
+        "date": ["2021-11-23 08:41:37+00:00"],
+        "tweet_id": ["1463065187242717185"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ManuelFranois1/status/1463065187242717185"]
+      }
+    },
+    {
+      "id": "Traineur2",
+      "label": "Traineur2",
+      "size": 1,
+      "x": -0.513069720373766,
+      "y": 0.540672750557,
+      "metadata": {
+        "date": ["2021-11-23 18:45:27+00:00"],
+        "tweet_id": ["1463217147505745920"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Traineur2/status/1463217147505745920"]
+      }
+    },
+    {
+      "id": "michel37230",
+      "label": "michel37230",
+      "size": 1,
+      "x": -0.5793044060794118,
+      "y": 0.5796337889892762,
+      "metadata": {
+        "date": ["2021-11-23 07:21:11+00:00"],
+        "tweet_id": ["1463044945623883777"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/michel37230/status/1463044945623883777"]
+      }
+    },
+    {
+      "id": "olvSyl",
+      "label": "olvSyl",
+      "size": 1,
+      "x": -0.4883098057637909,
+      "y": 0.5803375055699947,
+      "metadata": {
+        "date": ["2021-11-23 21:35:23+00:00"],
+        "tweet_id": ["1463259911266181127"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/olvSyl/status/1463259911266181127"]
+      }
+    },
+    {
+      "id": "pbriday",
+      "label": "pbriday",
+      "size": 1,
+      "x": -0.5496052322256233,
+      "y": 0.6233453253486133,
+      "metadata": {
+        "date": ["2021-11-23 08:03:39+00:00"],
+        "tweet_id": ["1463055629585719300"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/pbriday/status/1463055629585719300"]
+      }
+    },
+    {
+      "id": "Calam_media",
+      "label": "Calam_media",
+      "size": 1,
+      "x": -0.7290127274767951,
+      "y": 0.44060377446186066,
+      "metadata": {
+        "date": ["2021-11-23 20:27:39+00:00"],
+        "tweet_id": ["1463242866411593732"],
+        "retweetCount": [1],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/Calam_media/status/1463242866411593732"]
+      }
+    },
+    {
+      "id": "Sev14423512",
+      "label": "Sev14423512",
+      "size": 1,
+      "x": -0.6875081831154717,
+      "y": 0.4210478929009602,
+      "metadata": {
+        "date": ["2021-11-24 05:08:51+00:00"],
+        "tweet_id": ["1463374030103326720"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Sev14423512/status/1463374030103326720"]
+      }
+    },
+    {
+      "id": "CroissyEm",
+      "label": "CroissyEm",
+      "size": 3,
+      "x": -0.9725372710036776,
+      "y": 0.18558302848959882,
+      "metadata": {
+        "date": ["2021-11-23 15:39:50+00:00", "2021-11-23 15:45:20+00:00"],
+        "tweet_id": ["1463170435047170053", "1463171819410702344"],
+        "retweetCount": [1, 2],
+        "role": ["Tweet", "Tweet"],
+        "url": [
+          "https://twitter.com/CroissyEm/status/1463170435047170053",
+          "https://twitter.com/CroissyEm/status/1463171819410702344"
+        ]
+      }
+    },
+    {
+      "id": "HeleneRky",
+      "label": "HeleneRky",
+      "size": 1,
+      "x": -0.9853571673118813,
+      "y": 0.2083433319576558,
+      "metadata": {
+        "date": ["2021-11-23 16:37:28+00:00"],
+        "tweet_id": ["1463184935829876749"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/HeleneRky/status/1463184935829876749"]
+      }
+    },
+    {
+      "id": "nordsud6213",
+      "label": "nordsud6213",
+      "size": 1,
+      "x": -1.0,
+      "y": 0.1759450354401496,
+      "metadata": {
+        "date": ["2021-11-23 15:47:50+00:00", "2021-11-23 15:51:23+00:00"],
+        "tweet_id": ["1463172447956619277", "1463173339376201743"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/nordsud6213/status/1463172447956619277",
+          "https://twitter.com/nordsud6213/status/1463173339376201743"
+        ]
+      }
+    },
+    {
+      "id": "EclairePenseur",
+      "label": "EclairePenseur",
+      "size": 27,
+      "x": 0.039036919569842246,
+      "y": -0.12859910120444287,
+      "metadata": {
+        "date": ["2021-11-23 10:23:54+00:00"],
+        "tweet_id": ["1463090926977536002"],
+        "retweetCount": [27],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/EclairePenseur/status/1463090926977536002"]
+      }
+    },
+    {
+      "id": "BorniolMaison",
+      "label": "BorniolMaison",
+      "size": 1,
+      "x": 0.023778979168198974,
+      "y": -0.10168238377816816,
+      "metadata": {
+        "date": ["2021-11-23 18:02:05+00:00"],
+        "tweet_id": ["1463206233721262080"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BorniolMaison/status/1463206233721262080"]
+      }
+    },
+    {
+      "id": "CarolWood777",
+      "label": "CarolWood777",
+      "size": 1,
+      "x": 0.07868495858350405,
+      "y": -0.14456406327415147,
+      "metadata": {
+        "date": ["2021-11-23 14:53:05+00:00"],
+        "tweet_id": ["1463158668803948562"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/CarolWood777/status/1463158668803948562"]
+      }
+    },
+    {
+      "id": "CatVenise",
+      "label": "CatVenise",
+      "size": 1,
+      "x": 0.009582386166320218,
+      "y": -0.14476598404820926,
+      "metadata": {
+        "date": ["2021-11-23 17:45:31+00:00"],
+        "tweet_id": ["1463202064910143502"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/CatVenise/status/1463202064910143502"]
+      }
+    },
+    {
+      "id": "ChBouchet",
+      "label": "ChBouchet",
+      "size": 1,
+      "x": -0.016836719310514173,
+      "y": -0.15272331617514906,
+      "metadata": {
+        "date": ["2021-11-23 11:46:07+00:00"],
+        "tweet_id": ["1463111616799645696"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ChBouchet/status/1463111616799645696"]
+      }
+    },
+    {
+      "id": "DuvalHlne2",
+      "label": "DuvalHlne2",
+      "size": 1,
+      "x": -0.01887760082568552,
+      "y": -0.11172052935159653,
+      "metadata": {
+        "date": ["2021-11-23 11:34:26+00:00"],
+        "tweet_id": ["1463108677498552321"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/DuvalHlne2/status/1463108677498552321"]
+      }
+    },
+    {
+      "id": "Emsky73",
+      "label": "Emsky73",
+      "size": 1,
+      "x": 0.08520583850511466,
+      "y": -0.11102372942418688,
+      "metadata": {
+        "date": ["2021-11-23 15:39:38+00:00"],
+        "tweet_id": ["1463170384400990220"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Emsky73/status/1463170384400990220"]
+      }
+    },
+    {
+      "id": "HumexG",
+      "label": "HumexG",
+      "size": 1,
+      "x": 0.04369932577145324,
+      "y": -0.09189571159676051,
+      "metadata": {
+        "date": ["2021-11-23 11:19:13+00:00"],
+        "tweet_id": ["1463104847088074755"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/HumexG/status/1463104847088074755"]
+      }
+    },
+    {
+      "id": "JDemasque",
+      "label": "JDemasque",
+      "size": 1,
+      "x": -0.007677614338644659,
+      "y": -0.09856526029982614,
+      "metadata": {
+        "date": ["2021-11-23 11:46:32+00:00"],
+        "tweet_id": ["1463111723485962248"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/JDemasque/status/1463111723485962248"]
+      }
+    },
+    {
+      "id": "Larsgrisette",
+      "label": "Larsgrisette",
+      "size": 1,
+      "x": 0.07106352380027273,
+      "y": -0.09990439082704708,
+      "metadata": {
+        "date": ["2021-11-23 17:51:47+00:00"],
+        "tweet_id": ["1463203640714346496"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Larsgrisette/status/1463203640714346496"]
+      }
+    },
+    {
+      "id": "Ludroquette",
+      "label": "Ludroquette",
+      "size": 1,
+      "x": 0.09891622004616529,
+      "y": -0.12669143622657802,
+      "metadata": {
+        "date": ["2021-11-23 12:42:18+00:00"],
+        "tweet_id": ["1463125755072860161"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Ludroquette/status/1463125755072860161"]
+      }
+    },
+    {
+      "id": "PhantomPace",
+      "label": "PhantomPace",
+      "size": 1,
+      "x": 0.09844679938805218,
+      "y": -0.14546694976438845,
+      "metadata": {
+        "date": ["2021-11-23 12:28:54+00:00"],
+        "tweet_id": ["1463122382764355588"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/PhantomPace/status/1463122382764355588"]
+      }
+    },
+    {
+      "id": "PierreEdouardLt",
+      "label": "PierreEdouardLt",
+      "size": 1,
+      "x": -0.020495582829590995,
+      "y": -0.12846191193924203,
+      "metadata": {
+        "date": ["2021-11-23 14:39:38+00:00"],
+        "tweet_id": ["1463155285128888322"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/PierreEdouardLt/status/1463155285128888322"]
+      }
+    },
+    {
+      "id": "RLFranceJohnZ",
+      "label": "RLFranceJohnZ",
+      "size": 1,
+      "x": 0.05987710033077471,
+      "y": -0.08539489589022722,
+      "metadata": {
+        "date": ["2021-11-23 13:00:22+00:00"],
+        "tweet_id": ["1463130301090123779"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/RLFranceJohnZ/status/1463130301090123779"]
+      }
+    },
+    {
+      "id": "Wopidou09",
+      "label": "Wopidou09",
+      "size": 1,
+      "x": 0.01811777532313046,
+      "y": -0.17349066812074793,
+      "metadata": {
+        "date": ["2021-11-23 18:29:37+00:00"],
+        "tweet_id": ["1463213159834075138"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Wopidou09/status/1463213159834075138"]
+      }
+    },
+    {
+      "id": "caroIline0031",
+      "label": "caroIline0031",
+      "size": 1,
+      "x": 0.04521274163616286,
+      "y": -0.17376436519620317,
+      "metadata": {
+        "date": ["2021-11-23 11:18:48+00:00"],
+        "tweet_id": ["1463104741140058116"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/caroIline0031/status/1463104741140058116"]
+      }
+    },
+    {
+      "id": "chabadalalaCha",
+      "label": "chabadalalaCha",
+      "size": 1,
+      "x": 0.06116780545645416,
+      "y": -0.16171122724248777,
+      "metadata": {
+        "date": ["2021-11-23 13:04:32+00:00"],
+        "tweet_id": ["1463131352384131078"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/chabadalalaCha/status/1463131352384131078"]
+      }
+    },
+    {
+      "id": "drirah",
+      "label": "drirah",
+      "size": 1,
+      "x": 0.07022649208881185,
+      "y": -0.12595798021950447,
+      "metadata": {
+        "date": ["2021-11-23 12:22:51+00:00"],
+        "tweet_id": ["1463120859921625088"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/drirah/status/1463120859921625088"]
+      }
+    },
+    {
+      "id": "marie_dismas",
+      "label": "marie_dismas",
+      "size": 1,
+      "x": 0.024295929438642574,
+      "y": -0.08067783147820752,
+      "metadata": {
+        "date": ["2021-11-24 06:21:20+00:00"],
+        "tweet_id": ["1463392271676624898"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/marie_dismas/status/1463392271676624898"]
+      }
+    },
+    {
+      "id": "muzzam78693",
+      "label": "muzzam78693",
+      "size": 1,
+      "x": 0.029596705882602495,
+      "y": -0.15914456556503365,
+      "metadata": {
+        "date": ["2021-11-23 15:28:58+00:00"],
+        "tweet_id": ["1463167700935528462"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/muzzam78693/status/1463167700935528462"]
+      }
+    },
+    {
+      "id": "nature15106452",
+      "label": "nature15106452",
+      "size": 1,
+      "x": 0.07878236864344537,
+      "y": -0.1637458979929727,
+      "metadata": {
+        "date": ["2021-11-23 15:30:07+00:00"],
+        "tweet_id": ["1463167988132110350"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/nature15106452/status/1463167988132110350"]
+      }
+    },
+    {
+      "id": "ploutreur",
+      "label": "ploutreur",
+      "size": 1,
+      "x": -0.009040180961011524,
+      "y": -0.1386212061478569,
+      "metadata": {
+        "date": ["2021-11-23 12:24:32+00:00"],
+        "tweet_id": ["1463121283781124106"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ploutreur/status/1463121283781124106"]
+      }
+    },
+    {
+      "id": "sparkctx",
+      "label": "sparkctx",
+      "size": 1,
+      "x": 0.0012575931014885335,
+      "y": -0.11797175901552334,
+      "metadata": {
+        "date": ["2021-11-23 17:59:57+00:00"],
+        "tweet_id": ["1463205694904143883"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/sparkctx/status/1463205694904143883"]
+      }
+    },
+    {
+      "id": "trib_la",
+      "label": "trib_la",
+      "size": 1,
+      "x": -0.0005862175948983861,
+      "y": -0.1644084475653483,
+      "metadata": {
+        "date": ["2021-11-23 13:48:30+00:00"],
+        "tweet_id": ["1463142417784348677"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/trib_la/status/1463142417784348677"]
+      }
+    },
+    {
+      "id": "viralvideovlogs",
+      "label": "viralvideovlogs",
+      "size": 1,
+      "x": 0.0059384515716608775,
+      "y": -0.08900450781268045,
+      "metadata": {
+        "date": ["2021-11-23 12:24:33+00:00"],
+        "tweet_id": ["1463121289581891587"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/viralvideovlogs/status/1463121289581891587"]
+      }
+    },
+    {
+      "id": "LaFrancematuer",
+      "label": "LaFrancematuer",
+      "size": 3,
+      "x": 0.03213629836032044,
+      "y": 0.7975159232325266,
+      "metadata": {
+        "date": ["2021-11-23 16:08:46+00:00"],
+        "tweet_id": ["1463177715973070854"],
+        "retweetCount": [3],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/LaFrancematuer/status/1463177715973070854"]
+      }
+    },
+    {
+      "id": "DeniSimonin",
+      "label": "DeniSimonin",
+      "size": 1,
+      "x": 0.03027855237279797,
+      "y": 0.7209181529644053,
+      "metadata": {
+        "date": ["2021-11-23 16:25:58+00:00"],
+        "tweet_id": ["1463182045845331969"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/DeniSimonin/status/1463182045845331969"]
+      }
+    },
+    {
+      "id": "FlorenceFlo765",
+      "label": "FlorenceFlo765",
+      "size": 1,
+      "x": 0.023471991796804478,
+      "y": 0.8470448877739634,
+      "metadata": {
+        "date": ["2021-11-23 18:16:30+00:00"],
+        "tweet_id": ["1463209860003155975"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/FlorenceFlo765/status/1463209860003155975"]
+      }
+    },
+    {
+      "id": "bonuscr",
+      "label": "bonuscr",
+      "size": 1,
+      "x": 0.043411389646531316,
+      "y": 0.8462267340734964,
+      "metadata": {
+        "date": ["2021-11-23 16:12:41+00:00"],
+        "tweet_id": ["1463178701454065666"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/bonuscr/status/1463178701454065666"]
+      }
+    },
+    {
+      "id": "MAPICOS",
+      "label": "MAPICOS",
+      "size": 5,
+      "x": -0.09681283139041365,
+      "y": 0.3100414042474505,
+      "metadata": {
+        "date": ["2021-11-23 05:08:35+00:00"],
+        "tweet_id": ["1463011573237170185"],
+        "retweetCount": [5],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/MAPICOS/status/1463011573237170185"]
+      }
+    },
+    {
+      "id": "ChantalRobertet",
+      "label": "ChantalRobertet",
+      "size": 1,
+      "x": -0.1364756669504948,
+      "y": 0.34922651023539036,
+      "metadata": {
+        "date": ["2021-11-23 09:38:29+00:00"],
+        "tweet_id": ["1463079498220457984"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ChantalRobertet/status/1463079498220457984"]
+      }
+    },
+    {
+      "id": "Fiscalitor",
+      "label": "Fiscalitor",
+      "size": 1,
+      "x": -0.15499080048110803,
+      "y": 0.324022506509624,
+      "metadata": {
+        "date": ["2021-11-23 08:47:03+00:00"],
+        "tweet_id": ["1463066555261014023"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Fiscalitor/status/1463066555261014023"]
+      }
+    },
+    {
+      "id": "JeanDoobs",
+      "label": "JeanDoobs",
+      "size": 1,
+      "x": -0.15121285088795838,
+      "y": 0.3084561195668172,
+      "metadata": {
+        "date": ["2021-11-23 05:15:06+00:00"],
+        "tweet_id": ["1463013213713448961"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/JeanDoobs/status/1463013213713448961"]
+      }
+    },
+    {
+      "id": "N_Lecaussin",
+      "label": "N_Lecaussin",
+      "size": 1,
+      "x": -0.14749863138449942,
+      "y": 0.33727945950443244,
+      "metadata": {
+        "date": ["2021-11-23 09:10:02+00:00"],
+        "tweet_id": ["1463072338816163843"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/N_Lecaussin/status/1463072338816163843"]
+      }
+    },
+    {
+      "id": "YvesPDB",
+      "label": "YvesPDB",
+      "size": 1,
+      "x": 0.02767712981918404,
+      "y": 0.28114579176093907,
+      "metadata": {
+        "date": ["2021-11-23 08:26:38+00:00", "2021-11-23 19:47:36+00:00"],
+        "tweet_id": ["1463061414034169857", "1463232786928705543"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/YvesPDB/status/1463061414034169857",
+          "https://twitter.com/YvesPDB/status/1463232786928705543"
+        ]
+      }
+    },
+    {
+      "id": "MagazineCapital",
+      "label": "MagazineCapital",
+      "size": 1,
+      "x": 0.7673774129570989,
+      "y": -0.5136416000507892,
+      "metadata": {
+        "date": ["2021-11-23 14:30:10+00:00"],
+        "tweet_id": ["1463152902227349524"],
+        "retweetCount": [1],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/MagazineCapital/status/1463152902227349524"]
+      }
+    },
+    {
+      "id": "NSandanassamy",
+      "label": "NSandanassamy",
+      "size": 1,
+      "x": 0.7971850004851491,
+      "y": -0.5297250094210525,
+      "metadata": {
+        "date": ["2021-11-23 14:48:34+00:00"],
+        "tweet_id": ["1463157534265651210"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/NSandanassamy/status/1463157534265651210"]
+      }
+    },
+    {
+      "id": "MarcBernier53",
+      "label": "MarcBernier53",
+      "size": 4,
+      "x": 0.59663162912361,
+      "y": 0.7771065807033252,
+      "metadata": {
+        "date": [
+          "2021-11-23 12:16:16+00:00",
+          "2021-11-23 12:16:57+00:00",
+          "2021-11-23 12:17:51+00:00"
+        ],
+        "tweet_id": ["1463119203599372290", "1463119376622702595", "1463119604411162639"],
+        "retweetCount": [2, 1, 1],
+        "role": ["Tweet", "Tweet", "Tweet"],
+        "url": [
+          "https://twitter.com/MarcBernier53/status/1463119203599372290",
+          "https://twitter.com/MarcBernier53/status/1463119376622702595",
+          "https://twitter.com/MarcBernier53/status/1463119604411162639"
+        ]
+      }
+    },
+    {
+      "id": "MarieRagu",
+      "label": "MarieRagu",
+      "size": 1,
+      "x": 0.5875452560195841,
+      "y": 0.7533525744263597,
+      "metadata": {
+        "date": ["2021-11-23 20:47:15+00:00"],
+        "tweet_id": ["1463247796740538372"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/MarieRagu/status/1463247796740538372"]
+      }
+    },
+    {
+      "id": "tchemtcem",
+      "label": "tchemtcem",
+      "size": 1,
+      "x": 0.6102907725358752,
+      "y": 0.8017300847851573,
+      "metadata": {
+        "date": [
+          "2021-11-23 16:32:10+00:00",
+          "2021-11-23 16:32:17+00:00",
+          "2021-11-23 16:32:24+00:00"
+        ],
+        "tweet_id": ["1463183602427076612", "1463183634517614599", "1463183664125300753"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/tchemtcem/status/1463183602427076612",
+          "https://twitter.com/tchemtcem/status/1463183634517614599",
+          "https://twitter.com/tchemtcem/status/1463183664125300753"
+        ]
+      }
+    },
+    {
+      "id": "GainandB",
+      "label": "GainandB",
+      "size": 1,
+      "x": -0.7743448210868193,
+      "y": 0.017238412601612695,
+      "metadata": {
+        "date": ["2021-11-23 12:14:17+00:00"],
+        "tweet_id": ["1463118703575326723"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/GainandB/status/1463118703575326723"]
+      }
+    },
+    {
+      "id": "Izaza2222",
+      "label": "Izaza2222",
+      "size": 1,
+      "x": -0.6719160031054962,
+      "y": 0.02685387761992976,
+      "metadata": {
+        "date": ["2021-11-23 09:01:36+00:00"],
+        "tweet_id": ["1463070215512674307"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Izaza2222/status/1463070215512674307"]
+      }
+    },
+    {
+      "id": "alaindufourbing",
+      "label": "alaindufourbing",
+      "size": 1,
+      "x": -0.740809249212883,
+      "y": 0.059034635090796254,
+      "metadata": {
+        "date": ["2021-11-24 02:13:50+00:00"],
+        "tweet_id": ["1463329984462962692"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/alaindufourbing/status/1463329984462962692"]
+      }
+    },
+    {
+      "id": "et_shera",
+      "label": "et_shera",
+      "size": 1,
+      "x": -0.7731148993137588,
+      "y": 0.05554772316119135,
+      "metadata": {
+        "date": ["2021-11-23 20:37:53+00:00"],
+        "tweet_id": ["1463245438723702786"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/et_shera/status/1463245438723702786"]
+      }
+    },
+    {
+      "id": "viaud_alain",
+      "label": "viaud_alain",
+      "size": 1,
+      "x": -0.7580642857623043,
+      "y": 0.00030534364072473956,
+      "metadata": {
+        "date": ["2021-11-23 12:45:50+00:00"],
+        "tweet_id": ["1463126647226441738"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/viaud_alain/status/1463126647226441738"]
+      }
+    },
+    {
+      "id": "Ph_Gerbier",
+      "label": "Ph_Gerbier",
+      "size": 1,
+      "x": -0.45002358672795345,
+      "y": 0.8382058207552912,
+      "metadata": {
+        "date": ["2021-11-23 14:34:21+00:00"],
+        "tweet_id": ["1463153952942342155"],
+        "retweetCount": [1],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/Ph_Gerbier/status/1463153952942342155"]
+      }
+    },
+    {
+      "id": "Tyranosaure2",
+      "label": "Tyranosaure2",
+      "size": 1,
+      "x": -0.47073108937444086,
+      "y": 0.8828210942569278,
+      "metadata": {
+        "date": ["2021-11-23 14:46:46+00:00"],
+        "tweet_id": ["1463157080395767820"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Tyranosaure2/status/1463157080395767820"]
+      }
+    },
+    {
+      "id": "Resistance2017",
+      "label": "Resistance2017",
+      "size": 4,
+      "x": 0.30795905422173503,
+      "y": 0.36492033995330386,
+      "metadata": {
+        "date": ["2021-11-23 06:55:16+00:00"],
+        "tweet_id": ["1463038424269692928"],
+        "retweetCount": [4],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/Resistance2017/status/1463038424269692928"]
+      }
+    },
+    {
+      "id": "CMulticoleur",
+      "label": "CMulticoleur",
+      "size": 1,
+      "x": 0.3579257254686665,
+      "y": 0.4082831520720402,
+      "metadata": {
+        "date": ["2021-11-23 21:49:07+00:00"],
+        "tweet_id": ["1463263366273720321"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/CMulticoleur/status/1463263366273720321"]
+      }
+    },
+    {
+      "id": "ClPeqt",
+      "label": "ClPeqt",
+      "size": 1,
+      "x": 0.2606987806829158,
+      "y": 0.31575680950111823,
+      "metadata": {
+        "date": [
+          "2021-11-23 06:56:31+00:00",
+          "2021-11-24 05:25:01+00:00",
+          "2021-11-24 05:27:13+00:00",
+          "2021-11-24 05:27:21+00:00"
+        ],
+        "tweet_id": [
+          "1463038735189172224",
+          "1463378099828051970",
+          "1463378653862055938",
+          "1463378686544166914"
+        ],
+        "retweetCount": [0, 0, 0, 0],
+        "role": ["RT", "RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/ClPeqt/status/1463038735189172224",
+          "https://twitter.com/ClPeqt/status/1463378099828051970",
+          "https://twitter.com/ClPeqt/status/1463378653862055938",
+          "https://twitter.com/ClPeqt/status/1463378686544166914"
+        ]
+      }
+    },
+    {
+      "id": "remangere",
+      "label": "remangere",
+      "size": 1,
+      "x": 0.25242471546297407,
+      "y": 0.3248566735939836,
+      "metadata": {
+        "date": ["2021-11-23 07:29:44+00:00", "2021-11-24 05:42:30+00:00"],
+        "tweet_id": ["1463047096513269762", "1463382496108756992"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/remangere/status/1463047096513269762",
+          "https://twitter.com/remangere/status/1463382496108756992"
+        ]
+      }
+    },
+    {
+      "id": "SaidAichourd",
+      "label": "SaidAichourd",
+      "size": 1,
+      "x": -0.21580374646702324,
+      "y": 0.7664872433111999,
+      "metadata": {
+        "date": ["2021-11-23 08:52:27+00:00"],
+        "tweet_id": ["1463067913703895040"],
+        "retweetCount": [1],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/SaidAichourd/status/1463067913703895040"]
+      }
+    },
+    {
+      "id": "MontvalSarth",
+      "label": "MontvalSarth",
+      "size": 1,
+      "x": -0.2275665019990848,
+      "y": 0.8141866825544296,
+      "metadata": {
+        "date": ["2021-11-23 08:53:34+00:00"],
+        "tweet_id": ["1463068191656185861"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/MontvalSarth/status/1463068191656185861"]
+      }
+    },
+    {
+      "id": "Sondage_Opinion",
+      "label": "Sondage_Opinion",
+      "size": 1,
+      "x": 0.7605784061686587,
+      "y": -0.0038973309197121,
+      "metadata": {
+        "date": ["2021-11-24 00:07:22+00:00"],
+        "tweet_id": ["1463298158788845569"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Sondage_Opinion/status/1463298158788845569"]
+      }
+    },
+    {
+      "id": "Sondage_Opinion",
+      "label": "Sondage_Opinion",
+      "size": 4,
+      "x": 0.7605784061686587,
+      "y": -0.0038973309197121,
+      "metadata": {
+        "date": ["2021-11-23 23:07:54+00:00"],
+        "tweet_id": ["1463283194720051210"],
+        "retweetCount": [4],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/Sondage_Opinion/status/1463283194720051210"]
+      }
+    },
+    {
+      "id": "Tinaja37206594",
+      "label": "Tinaja37206594",
+      "size": 1,
+      "x": 0.8079791985849587,
+      "y": -0.014677202856878773,
+      "metadata": {
+        "date": ["2021-11-24 04:50:42+00:00"],
+        "tweet_id": ["1463369462846042114"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Tinaja37206594/status/1463369462846042114"]
+      }
+    },
+    {
+      "id": "dossantos5271",
+      "label": "dossantos5271",
+      "size": 1,
+      "x": 0.8066401339212149,
+      "y": 0.0058595221095544435,
+      "metadata": {
+        "date": ["2021-11-24 05:43:05+00:00"],
+        "tweet_id": ["1463382644041920517"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/dossantos5271/status/1463382644041920517"]
+      }
+    },
+    {
+      "id": "totozozo5",
+      "label": "totozozo5",
+      "size": 1,
+      "x": 0.6903131860086295,
+      "y": -0.002691727090616827,
+      "metadata": {
+        "date": ["2021-11-24 01:13:28+00:00"],
+        "tweet_id": ["1463314793364869124"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/totozozo5/status/1463314793364869124"]
+      }
+    },
+    {
+      "id": "frasza",
+      "label": "frasza",
+      "size": 2,
+      "x": -0.5450288822669491,
+      "y": -0.5387406925193934,
+      "metadata": {
+        "date": ["2021-11-23 14:40:08+00:00"],
+        "tweet_id": ["1463155411725520906"],
+        "retweetCount": [2],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/frasza/status/1463155411725520906"]
+      }
+    },
+    {
+      "id": "MalotChat",
+      "label": "MalotChat",
+      "size": 1,
+      "x": -0.5813725143596821,
+      "y": -0.5710783201512721,
+      "metadata": {
+        "date": ["2021-11-23 15:56:50+00:00"],
+        "tweet_id": ["1463174711928659974"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/MalotChat/status/1463174711928659974"]
+      }
+    },
+    {
+      "id": "MarcCoyote",
+      "label": "MarcCoyote",
+      "size": 1,
+      "x": -0.49854266631194094,
+      "y": -0.4979949057261795,
+      "metadata": {
+        "date": ["2021-11-23 16:06:24+00:00"],
+        "tweet_id": ["1463177121073934354"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/MarcCoyote/status/1463177121073934354"]
+      }
+    },
+    {
+      "id": "gabriellecluzel",
+      "label": "gabriellecluzel",
+      "size": 85,
+      "x": 0.08862078445902938,
+      "y": -0.44092123361636415,
+      "metadata": {
+        "date": ["2021-11-23 06:51:57+00:00"],
+        "tweet_id": ["1463037587887697924"],
+        "retweetCount": [85],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/gabriellecluzel/status/1463037587887697924"]
+      }
+    },
+    {
+      "id": "AchilleHector73",
+      "label": "AchilleHector73",
+      "size": 1,
+      "x": 0.03216795248742425,
+      "y": -0.5141190462482774,
+      "metadata": {
+        "date": ["2021-11-23 08:52:07+00:00"],
+        "tweet_id": ["1463067830472040452"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/AchilleHector73/status/1463067830472040452"]
+      }
+    },
+    {
+      "id": "Andrgilles1",
+      "label": "Andrgilles1",
+      "size": 1,
+      "x": 0.10274290110900366,
+      "y": -0.37838118811784505,
+      "metadata": {
+        "date": ["2021-11-23 19:16:21+00:00"],
+        "tweet_id": ["1463224920159174659"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Andrgilles1/status/1463224920159174659"]
+      }
+    },
+    {
+      "id": "AnitaMa82354294",
+      "label": "AnitaMa82354294",
+      "size": 1,
+      "x": 0.1500457894264093,
+      "y": -0.4870001813278562,
+      "metadata": {
+        "date": ["2021-11-23 17:47:59+00:00"],
+        "tweet_id": ["1463202683393921027"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/AnitaMa82354294/status/1463202683393921027"]
+      }
+    },
+    {
+      "id": "ArianeGrammat",
+      "label": "ArianeGrammat",
+      "size": 1,
+      "x": 0.06079343258656667,
+      "y": -0.45227307669144634,
+      "metadata": {
+        "date": ["2021-11-23 16:19:49+00:00"],
+        "tweet_id": ["1463180495265710089"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ArianeGrammat/status/1463180495265710089"]
+      }
+    },
+    {
+      "id": "AudeLarous",
+      "label": "AudeLarous",
+      "size": 1,
+      "x": 0.09872241089576664,
+      "y": -0.5139029691517638,
+      "metadata": {
+        "date": ["2021-11-23 07:58:47+00:00"],
+        "tweet_id": ["1463054405192896514"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/AudeLarous/status/1463054405192896514"]
+      }
+    },
+    {
+      "id": "BSCHFR1",
+      "label": "BSCHFR1",
+      "size": 1,
+      "x": 0.15042881902279537,
+      "y": -0.41771920270782265,
+      "metadata": {
+        "date": ["2021-11-23 17:30:35+00:00"],
+        "tweet_id": ["1463198305194852359"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BSCHFR1/status/1463198305194852359"]
+      }
+    },
+    {
+      "id": "BellocSonia",
+      "label": "BellocSonia",
+      "size": 1,
+      "x": 0.056785674629733246,
+      "y": -0.4148063662286322,
+      "metadata": {
+        "date": ["2021-11-23 19:47:37+00:00"],
+        "tweet_id": ["1463232791404027913"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BellocSonia/status/1463232791404027913"]
+      }
+    },
+    {
+      "id": "Blodwyn_KH69_",
+      "label": "Blodwyn_KH69_",
+      "size": 1,
+      "x": 0.13119127487290078,
+      "y": -0.4841436474200049,
+      "metadata": {
+        "date": ["2021-11-23 18:46:26+00:00"],
+        "tweet_id": ["1463217394525032456"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Blodwyn_KH69_/status/1463217394525032456"]
+      }
+    },
+    {
+      "id": "BontempsAlain3",
+      "label": "BontempsAlain3",
+      "size": 1,
+      "x": 0.005663467376412229,
+      "y": -0.43548867259155194,
+      "metadata": {
+        "date": ["2021-11-23 13:35:10+00:00"],
+        "tweet_id": ["1463139061397393418"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BontempsAlain3/status/1463139061397393418"]
+      }
+    },
+    {
+      "id": "BrunoMa37931427",
+      "label": "BrunoMa37931427",
+      "size": 1,
+      "x": 0.14141470601234887,
+      "y": -0.5004478217858405,
+      "metadata": {
+        "date": ["2021-11-23 07:32:45+00:00"],
+        "tweet_id": ["1463047855686434816"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BrunoMa37931427/status/1463047855686434816"]
+      }
+    },
+    {
+      "id": "CamebracF",
+      "label": "CamebracF",
+      "size": 1,
+      "x": 0.03204144982610151,
+      "y": -0.49463796321164544,
+      "metadata": {
+        "date": ["2021-11-23 08:51:13+00:00"],
+        "tweet_id": ["1463067602054524932"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/CamebracF/status/1463067602054524932"]
+      }
+    },
+    {
+      "id": "CecBreizh",
+      "label": "CecBreizh",
+      "size": 1,
+      "x": 0.15698739649957527,
+      "y": -0.5014840673309147,
+      "metadata": {
+        "date": ["2021-11-23 06:58:21+00:00"],
+        "tweet_id": ["1463039197573435406"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/CecBreizh/status/1463039197573435406"]
+      }
+    },
+    {
+      "id": "Chacha78180",
+      "label": "Chacha78180",
+      "size": 1,
+      "x": 0.07774248907359194,
+      "y": -0.5036940439680668,
+      "metadata": {
+        "date": ["2021-11-23 17:16:03+00:00"],
+        "tweet_id": ["1463194647514259467"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Chacha78180/status/1463194647514259467"]
+      }
+    },
+    {
+      "id": "ChristianHAAG14",
+      "label": "ChristianHAAG14",
+      "size": 1,
+      "x": 0.01675441992716751,
+      "y": -0.46663009394426425,
+      "metadata": {
+        "date": ["2021-11-23 07:57:45+00:00"],
+        "tweet_id": ["1463054147998171137"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ChristianHAAG14/status/1463054147998171137"]
+      }
+    },
+    {
+      "id": "Desnoyelle5",
+      "label": "Desnoyelle5",
+      "size": 1,
+      "x": 0.15466692738776966,
+      "y": -0.4019386122776485,
+      "metadata": {
+        "date": ["2021-11-23 08:01:46+00:00"],
+        "tweet_id": ["1463055158208831494"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Desnoyelle5/status/1463055158208831494"]
+      }
+    },
+    {
+      "id": "DuvehatJp",
+      "label": "DuvehatJp",
+      "size": 1,
+      "x": 0.05860794492341267,
+      "y": -0.5285546133680432,
+      "metadata": {
+        "date": ["2021-11-23 09:01:40+00:00"],
+        "tweet_id": ["1463070231132266500"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/DuvehatJp/status/1463070231132266500"]
+      }
+    },
+    {
+      "id": "FabienneSauquet",
+      "label": "FabienneSauquet",
+      "size": 1,
+      "x": 0.12080170770091993,
+      "y": -0.4667959838401993,
+      "metadata": {
+        "date": ["2021-11-23 12:16:22+00:00"],
+        "tweet_id": ["1463119228169564164"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/FabienneSauquet/status/1463119228169564164"]
+      }
+    },
+    {
+      "id": "Franckylebest",
+      "label": "Franckylebest",
+      "size": 1,
+      "x": 0.003882329495863671,
+      "y": -0.4518547336390492,
+      "metadata": {
+        "date": ["2021-11-23 10:55:59+00:00"],
+        "tweet_id": ["1463099001318907905"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Franckylebest/status/1463099001318907905"]
+      }
+    },
+    {
+      "id": "GeirangerA",
+      "label": "GeirangerA",
+      "size": 1,
+      "x": 0.0919246683779048,
+      "y": -0.49552741315464954,
+      "metadata": {
+        "date": ["2021-11-23 12:58:56+00:00"],
+        "tweet_id": ["1463129943890669568"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/GeirangerA/status/1463129943890669568"]
+      }
+    },
+    {
+      "id": "GeorgeP76500486",
+      "label": "GeorgeP76500486",
+      "size": 1,
+      "x": 0.046501876650546725,
+      "y": -0.4875473327395813,
+      "metadata": {
+        "date": ["2021-11-23 09:09:34+00:00"],
+        "tweet_id": ["1463072219932864514"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/GeorgeP76500486/status/1463072219932864514"]
+      }
+    },
+    {
+      "id": "GuemroudB",
+      "label": "GuemroudB",
+      "size": 1,
+      "x": 0.14178293554155189,
+      "y": -0.4319829996556721,
+      "metadata": {
+        "date": ["2021-11-23 19:36:29+00:00"],
+        "tweet_id": ["1463229988606562310"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/GuemroudB/status/1463229988606562310"]
+      }
+    },
+    {
+      "id": "GuzmanStephane",
+      "label": "GuzmanStephane",
+      "size": 1,
+      "x": 0.12102912059983603,
+      "y": -0.4343336773432127,
+      "metadata": {
+        "date": ["2021-11-23 09:31:14+00:00"],
+        "tweet_id": ["1463077674193231873"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/GuzmanStephane/status/1463077674193231873"]
+      }
+    },
+    {
+      "id": "Hydrure",
+      "label": "Hydrure",
+      "size": 1,
+      "x": 0.003728602570797982,
+      "y": -0.46687708535902195,
+      "metadata": {
+        "date": ["2021-11-23 20:50:08+00:00"],
+        "tweet_id": ["1463248523286220804"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Hydrure/status/1463248523286220804"]
+      }
+    },
+    {
+      "id": "JeanLucBernar13",
+      "label": "JeanLucBernar13",
+      "size": 1,
+      "x": 0.010194943941505677,
+      "y": -0.4191976627176742,
+      "metadata": {
+        "date": ["2021-11-23 07:18:49+00:00"],
+        "tweet_id": ["1463044348971470851"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/JeanLucBernar13/status/1463044348971470851"]
+      }
+    },
+    {
+      "id": "Joegallo59",
+      "label": "Joegallo59",
+      "size": 1,
+      "x": 0.06906758838859038,
+      "y": -0.4862493176595561,
+      "metadata": {
+        "date": ["2021-11-23 17:01:09+00:00"],
+        "tweet_id": ["1463190899454877704"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Joegallo59/status/1463190899454877704"]
+      }
+    },
+    {
+      "id": "JohnMordom",
+      "label": "JohnMordom",
+      "size": 1,
+      "x": 0.04420783678475925,
+      "y": -0.5079671187105168,
+      "metadata": {
+        "date": ["2021-11-23 10:34:31+00:00"],
+        "tweet_id": ["1463093596651986947"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/JohnMordom/status/1463093596651986947"]
+      }
+    },
+    {
+      "id": "LaNabote",
+      "label": "LaNabote",
+      "size": 1,
+      "x": 0.022558079642580886,
+      "y": -0.4282756794933568,
+      "metadata": {
+        "date": ["2021-11-23 19:26:27+00:00"],
+        "tweet_id": ["1463227461936758789"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/LaNabote/status/1463227461936758789"]
+      }
+    },
+    {
+      "id": "La_FemmeDuBoss",
+      "label": "La_FemmeDuBoss",
+      "size": 1,
+      "x": 0.10220997364533276,
+      "y": -0.39663437614203323,
+      "metadata": {
+        "date": ["2021-11-23 07:33:19+00:00"],
+        "tweet_id": ["1463047998167035907"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/La_FemmeDuBoss/status/1463047998167035907"]
+      }
+    },
+    {
+      "id": "LeftDemystified",
+      "label": "LeftDemystified",
+      "size": 1,
+      "x": 0.08568263881946388,
+      "y": -0.37725474058952985,
+      "metadata": {
+        "date": ["2021-11-23 09:47:53+00:00"],
+        "tweet_id": ["1463081863153655814"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/LeftDemystified/status/1463081863153655814"]
+      }
+    },
+    {
+      "id": "LoicLuneau",
+      "label": "LoicLuneau",
+      "size": 1,
+      "x": 0.10834622149147925,
+      "y": -0.5001454686175435,
+      "metadata": {
+        "date": ["2021-11-23 07:18:54+00:00"],
+        "tweet_id": ["1463044369129345031"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/LoicLuneau/status/1463044369129345031"]
+      }
+    },
+    {
+      "id": "Mauvaisfrancoi1",
+      "label": "Mauvaisfrancoi1",
+      "size": 1,
+      "x": 0.08959878571626692,
+      "y": -0.5356974534877833,
+      "metadata": {
+        "date": ["2021-11-23 14:29:49+00:00"],
+        "tweet_id": ["1463152815241666573"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Mauvaisfrancoi1/status/1463152815241666573"]
+      }
+    },
+    {
+      "id": "Mcp38563922",
+      "label": "Mcp38563922",
+      "size": 1,
+      "x": 0.09463529169554216,
+      "y": -0.4140804342391437,
+      "metadata": {
+        "date": ["2021-11-23 07:14:48+00:00"],
+        "tweet_id": ["1463043338660159488"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Mcp38563922/status/1463043338660159488"]
+      }
+    },
+    {
+      "id": "Michael20371415",
+      "label": "Michael20371415",
+      "size": 1,
+      "x": 0.03289647266217902,
+      "y": -0.4473281477413161,
+      "metadata": {
+        "date": ["2021-11-23 09:25:06+00:00"],
+        "tweet_id": ["1463076127635906562"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Michael20371415/status/1463076127635906562"]
+      }
+    },
+    {
+      "id": "Michel13989918",
+      "label": "Michel13989918",
+      "size": 1,
+      "x": 0.1136070541231482,
+      "y": -0.5171343795851749,
+      "metadata": {
+        "date": ["2021-11-23 08:13:37+00:00"],
+        "tweet_id": ["1463058141332004864"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Michel13989918/status/1463058141332004864"]
+      }
+    },
+    {
+      "id": "Nath92798323",
+      "label": "Nath92798323",
+      "size": 1,
+      "x": 0.07631523425134591,
+      "y": -0.3889712671950713,
+      "metadata": {
+        "date": ["2021-11-23 14:29:00+00:00"],
+        "tweet_id": ["1463152609406107652"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Nath92798323/status/1463152609406107652"]
+      }
+    },
+    {
+      "id": "NicoleARNAUD9",
+      "label": "NicoleARNAUD9",
+      "size": 1,
+      "x": 0.17194658877365626,
+      "y": -0.46205098681248097,
+      "metadata": {
+        "date": ["2021-11-23 22:46:28+00:00"],
+        "tweet_id": ["1463277797733015553"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/NicoleARNAUD9/status/1463277797733015553"]
+      }
+    },
+    {
+      "id": "Paul57184810",
+      "label": "Paul57184810",
+      "size": 1,
+      "x": 0.1458185527036552,
+      "y": -0.5143963523862274,
+      "metadata": {
+        "date": ["2021-11-23 09:11:01+00:00"],
+        "tweet_id": ["1463072585575448583"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Paul57184810/status/1463072585575448583"]
+      }
+    },
+    {
+      "id": "Philippe_FQSP",
+      "label": "Philippe_FQSP",
+      "size": 1,
+      "x": 0.13264586843119155,
+      "y": -0.09711683373235146,
+      "metadata": {
+        "date": [
+          "2021-11-23 20:18:19+00:00",
+          "2021-11-23 20:18:25+00:00",
+          "2021-11-23 20:18:31+00:00",
+          "2021-11-23 20:24:54+00:00",
+          "2021-11-23 20:34:55+00:00"
+        ],
+        "tweet_id": [
+          "1463240514493464576",
+          "1463240543320870915",
+          "1463240566179782669",
+          "1463242174238232590",
+          "1463244693576298503"
+        ],
+        "retweetCount": [0, 0, 0, 0, 0],
+        "role": ["RT", "RT", "RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/Philippe_FQSP/status/1463240514493464576",
+          "https://twitter.com/Philippe_FQSP/status/1463240543320870915",
+          "https://twitter.com/Philippe_FQSP/status/1463240566179782669",
+          "https://twitter.com/Philippe_FQSP/status/1463242174238232590",
+          "https://twitter.com/Philippe_FQSP/status/1463244693576298503"
+        ]
+      }
+    },
+    {
+      "id": "Quetzal00862691",
+      "label": "Quetzal00862691",
+      "size": 1,
+      "x": 0.12840869154451418,
+      "y": -0.5113792431553954,
+      "metadata": {
+        "date": ["2021-11-23 20:49:09+00:00"],
+        "tweet_id": ["1463248275360911363"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Quetzal00862691/status/1463248275360911363"]
+      }
+    },
+    {
+      "id": "RomyDepardieu",
+      "label": "RomyDepardieu",
+      "size": 1,
+      "x": 0.15897934450372028,
+      "y": -0.4388729743604208,
+      "metadata": {
+        "date": ["2021-11-23 11:12:43+00:00"],
+        "tweet_id": ["1463103210743377928"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/RomyDepardieu/status/1463103210743377928"]
+      }
+    },
+    {
+      "id": "SIMON26588769",
+      "label": "SIMON26588769",
+      "size": 1,
+      "x": 0.16764965513780572,
+      "y": -0.47474422970475677,
+      "metadata": {
+        "date": ["2021-11-23 21:13:32+00:00"],
+        "tweet_id": ["1463254412739108868"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/SIMON26588769/status/1463254412739108868"]
+      }
+    },
+    {
+      "id": "SophieDeRochas",
+      "label": "SophieDeRochas",
+      "size": 1,
+      "x": 0.04846640582249136,
+      "y": -0.4379044644715837,
+      "metadata": {
+        "date": ["2021-11-23 18:27:36+00:00"],
+        "tweet_id": ["1463212651748765697"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/SophieDeRochas/status/1463212651748765697"]
+      }
+    },
+    {
+      "id": "ThibaultCheva11",
+      "label": "ThibaultCheva11",
+      "size": 1,
+      "x": 0.03287010286981399,
+      "y": -0.47743643997029334,
+      "metadata": {
+        "date": ["2021-11-23 06:57:23+00:00"],
+        "tweet_id": ["1463038953351696384"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ThibaultCheva11/status/1463038953351696384"]
+      }
+    },
+    {
+      "id": "Thierrydugard30",
+      "label": "Thierrydugard30",
+      "size": 1,
+      "x": 0.08610327023020094,
+      "y": -0.47574341974901146,
+      "metadata": {
+        "date": ["2021-11-23 07:46:21+00:00"],
+        "tweet_id": ["1463051276141350916"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Thierrydugard30/status/1463051276141350916"]
+      }
+    },
+    {
+      "id": "ToulousainP",
+      "label": "ToulousainP",
+      "size": 1,
+      "x": 0.018541832631178375,
+      "y": -0.4887295634527146,
+      "metadata": {
+        "date": ["2021-11-23 12:53:31+00:00"],
+        "tweet_id": ["1463128577214459907"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ToulousainP/status/1463128577214459907"]
+      }
+    },
+    {
+      "id": "VincentFredFR",
+      "label": "VincentFredFR",
+      "size": 1,
+      "x": 0.1349272704331623,
+      "y": -0.4112059466982657,
+      "metadata": {
+        "date": ["2021-11-23 23:05:19+00:00"],
+        "tweet_id": ["1463282544728850439"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/VincentFredFR/status/1463282544728850439"]
+      }
+    },
+    {
+      "id": "WhitelineAlex",
+      "label": "WhitelineAlex",
+      "size": 1,
+      "x": 0.15586011034473077,
+      "y": -0.46503608071246794,
+      "metadata": {
+        "date": ["2021-11-23 11:51:34+00:00"],
+        "tweet_id": ["1463112987527495688"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/WhitelineAlex/status/1463112987527495688"]
+      }
+    },
+    {
+      "id": "Zoram381",
+      "label": "Zoram381",
+      "size": 1,
+      "x": 0.07395827750683949,
+      "y": -0.5200648536898004,
+      "metadata": {
+        "date": ["2021-11-23 17:40:44+00:00"],
+        "tweet_id": ["1463200860700295169"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Zoram381/status/1463200860700295169"]
+      }
+    },
+    {
+      "id": "asmsuzanne",
+      "label": "asmsuzanne",
+      "size": 1,
+      "x": 0.0607553992268856,
+      "y": -0.3798412102808752,
+      "metadata": {
+        "date": ["2021-11-23 19:34:50+00:00"],
+        "tweet_id": ["1463229574922350598"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/asmsuzanne/status/1463229574922350598"]
+      }
+    },
+    {
+      "id": "aubert_jm",
+      "label": "aubert_jm",
+      "size": 1,
+      "x": 0.10333281947137674,
+      "y": -0.5317851982701997,
+      "metadata": {
+        "date": ["2021-11-23 15:00:18+00:00"],
+        "tweet_id": ["1463160484597796880"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/aubert_jm/status/1463160484597796880"]
+      }
+    },
+    {
+      "id": "bert6691",
+      "label": "bert6691",
+      "size": 1,
+      "x": 0.12380809821436535,
+      "y": -0.4974817680817906,
+      "metadata": {
+        "date": ["2021-11-23 08:51:48+00:00"],
+        "tweet_id": ["1463067747307470850"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/bert6691/status/1463067747307470850"]
+      }
+    },
+    {
+      "id": "bertrandbea2",
+      "label": "bertrandbea2",
+      "size": 1,
+      "x": 0.07171465871590313,
+      "y": -0.4050971448362616,
+      "metadata": {
+        "date": ["2021-11-23 17:29:10+00:00"],
+        "tweet_id": ["1463197948788019201"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/bertrandbea2/status/1463197948788019201"]
+      }
+    },
+    {
+      "id": "carynrobiyo",
+      "label": "carynrobiyo",
+      "size": 1,
+      "x": 0.03595250821994489,
+      "y": -0.40649789918114776,
+      "metadata": {
+        "date": ["2021-11-23 09:04:14+00:00"],
+        "tweet_id": ["1463070878904815620"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/carynrobiyo/status/1463070878904815620"]
+      }
+    },
+    {
+      "id": "christi09129736",
+      "label": "christi09129736",
+      "size": 1,
+      "x": 0.17249009787786126,
+      "y": -0.44894410703017534,
+      "metadata": {
+        "date": ["2021-11-23 07:08:07+00:00"],
+        "tweet_id": ["1463041655213281280"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/christi09129736/status/1463041655213281280"]
+      }
+    },
+    {
+      "id": "claviedidier",
+      "label": "claviedidier",
+      "size": 1,
+      "x": 0.13252165605051264,
+      "y": -0.5245941094592268,
+      "metadata": {
+        "date": ["2021-11-23 14:29:24+00:00"],
+        "tweet_id": ["1463152708790140942"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/claviedidier/status/1463152708790140942"]
+      }
+    },
+    {
+      "id": "danielrivaud",
+      "label": "danielrivaud",
+      "size": 1,
+      "x": 0.01695558792277125,
+      "y": -0.44541683595185816,
+      "metadata": {
+        "date": ["2021-11-23 16:26:17+00:00"],
+        "tweet_id": ["1463182121753788421"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/danielrivaud/status/1463182121753788421"]
+      }
+    },
+    {
+      "id": "demons8311",
+      "label": "demons8311",
+      "size": 1,
+      "x": 0.060526685758552086,
+      "y": -0.513672042408479,
+      "metadata": {
+        "date": ["2021-11-23 10:46:40+00:00"],
+        "tweet_id": ["1463096657223077891"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/demons8311/status/1463096657223077891"]
+      }
+    },
+    {
+      "id": "djerazore",
+      "label": "djerazore",
+      "size": 1,
+      "x": 0.02104240062750554,
+      "y": -0.5037307410188857,
+      "metadata": {
+        "date": ["2021-11-23 07:43:02+00:00"],
+        "tweet_id": ["1463050443865694210"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/djerazore/status/1463050443865694210"]
+      }
+    },
+    {
+      "id": "domiallard",
+      "label": "domiallard",
+      "size": 1,
+      "x": 0.03107950884462599,
+      "y": -0.46242677520962217,
+      "metadata": {
+        "date": ["2021-11-23 07:50:35+00:00"],
+        "tweet_id": ["1463052344984285192"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/domiallard/status/1463052344984285192"]
+      }
+    },
+    {
+      "id": "epok83",
+      "label": "epok83",
+      "size": 1,
+      "x": 0.049911621074599094,
+      "y": -0.3907341753516689,
+      "metadata": {
+        "date": ["2021-11-23 17:30:05+00:00"],
+        "tweet_id": ["1463198178921127942"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/epok83/status/1463198178921127942"]
+      }
+    },
+    {
+      "id": "francois94160",
+      "label": "francois94160",
+      "size": 1,
+      "x": 0.11709481454408083,
+      "y": -0.38560622021235386,
+      "metadata": {
+        "date": ["2021-11-23 16:57:30+00:00"],
+        "tweet_id": ["1463189978008231947"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/francois94160/status/1463189978008231947"]
+      }
+    },
+    {
+      "id": "fulberti_laving",
+      "label": "fulberti_laving",
+      "size": 1,
+      "x": 0.13254452601031003,
+      "y": -0.45214147912721253,
+      "metadata": {
+        "date": ["2021-11-23 07:25:17+00:00"],
+        "tweet_id": ["1463045977766514689"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/fulberti_laving/status/1463045977766514689"]
+      }
+    },
+    {
+      "id": "jcj073",
+      "label": "jcj073",
+      "size": 1,
+      "x": 0.034687991013881404,
+      "y": -0.392298229969426,
+      "metadata": {
+        "date": ["2021-11-23 10:38:42+00:00"],
+        "tweet_id": ["1463094652895215620"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/jcj073/status/1463094652895215620"]
+      }
+    },
+    {
+      "id": "jeanlu30",
+      "label": "jeanlu30",
+      "size": 1,
+      "x": 0.1643063619209866,
+      "y": -0.4873985029585938,
+      "metadata": {
+        "date": ["2021-11-23 18:39:13+00:00"],
+        "tweet_id": ["1463215578672418818"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/jeanlu30/status/1463215578672418818"]
+      }
+    },
+    {
+      "id": "jiaiffert",
+      "label": "jiaiffert",
+      "size": 1,
+      "x": 0.0732839144360058,
+      "y": -0.5337599625876825,
+      "metadata": {
+        "date": ["2021-11-23 22:41:37+00:00"],
+        "tweet_id": ["1463276577479962625"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/jiaiffert/status/1463276577479962625"]
+      }
+    },
+    {
+      "id": "l_occident",
+      "label": "l_occident",
+      "size": 1,
+      "x": 0.038350923421803434,
+      "y": -0.42320914183953057,
+      "metadata": {
+        "date": ["2021-11-23 07:28:12+00:00"],
+        "tweet_id": ["1463046710079459338"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/l_occident/status/1463046710079459338"]
+      }
+    },
+    {
+      "id": "lovebresil01",
+      "label": "lovebresil01",
+      "size": 1,
+      "x": 0.05789418376756865,
+      "y": -0.4994421845982774,
+      "metadata": {
+        "date": ["2021-11-23 19:41:22+00:00"],
+        "tweet_id": ["1463231217944383491"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/lovebresil01/status/1463231217944383491"]
+      }
+    },
+    {
+      "id": "lucaspi22277815",
+      "label": "lucaspi22277815",
+      "size": 1,
+      "x": 0.05355613429336493,
+      "y": -0.47034387011612905,
+      "metadata": {
+        "date": ["2021-11-23 20:13:38+00:00"],
+        "tweet_id": ["1463239339140390915"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/lucaspi22277815/status/1463239339140390915"]
+      }
+    },
+    {
+      "id": "michael_a15",
+      "label": "michael_a15",
+      "size": 1,
+      "x": 0.1503595413754212,
+      "y": -0.4510249216466525,
+      "metadata": {
+        "date": ["2021-11-23 07:03:59+00:00"],
+        "tweet_id": ["1463040614791098369"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/michael_a15/status/1463040614791098369"]
+      }
+    },
+    {
+      "id": "millot1179",
+      "label": "millot1179",
+      "size": 1,
+      "x": 0.13093914774352103,
+      "y": -0.3848900850144168,
+      "metadata": {
+        "date": ["2021-11-23 10:01:47+00:00"],
+        "tweet_id": ["1463085361131839489"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/millot1179/status/1463085361131839489"]
+      }
+    },
+    {
+      "id": "miseb29",
+      "label": "miseb29",
+      "size": 1,
+      "x": 0.14118640414200606,
+      "y": -0.3951352288668923,
+      "metadata": {
+        "date": ["2021-11-23 19:24:01+00:00"],
+        "tweet_id": ["1463226851762057224"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/miseb29/status/1463226851762057224"]
+      }
+    },
+    {
+      "id": "natechonchon",
+      "label": "natechonchon",
+      "size": 1,
+      "x": 0.11765252692325086,
+      "y": -0.5304837652928597,
+      "metadata": {
+        "date": ["2021-11-23 21:48:01+00:00"],
+        "tweet_id": ["1463263091710435328"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/natechonchon/status/1463263091710435328"]
+      }
+    },
+    {
+      "id": "nimegue70",
+      "label": "nimegue70",
+      "size": 1,
+      "x": 0.10769278353351362,
+      "y": -0.4799172348486379,
+      "metadata": {
+        "date": ["2021-11-24 00:48:42+00:00"],
+        "tweet_id": ["1463308560494997510"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/nimegue70/status/1463308560494997510"]
+      }
+    },
+    {
+      "id": "noemiebruneau2",
+      "label": "noemiebruneau2",
+      "size": 1,
+      "x": 0.17107686584652232,
+      "y": -0.4323689232421241,
+      "metadata": {
+        "date": ["2021-11-23 07:42:35+00:00"],
+        "tweet_id": ["1463050328690106374"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/noemiebruneau2/status/1463050328690106374"]
+      }
+    },
+    {
+      "id": "predicator72",
+      "label": "predicator72",
+      "size": 1,
+      "x": 0.14272944189682038,
+      "y": -0.4726816299891522,
+      "metadata": {
+        "date": ["2021-11-23 11:01:53+00:00"],
+        "tweet_id": ["1463100487541137422"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/predicator72/status/1463100487541137422"]
+      }
+    },
+    {
+      "id": "queen63000",
+      "label": "queen63000",
+      "size": 1,
+      "x": 0.008819290971843793,
+      "y": -0.4819516476733029,
+      "metadata": {
+        "date": ["2021-11-23 07:29:13+00:00"],
+        "tweet_id": ["1463046964724051969"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/queen63000/status/1463046964724051969"]
+      }
+    },
+    {
+      "id": "sky1948",
+      "label": "sky1948",
+      "size": 1,
+      "x": 0.02034930368709517,
+      "y": -0.40697058064988406,
+      "metadata": {
+        "date": ["2021-11-23 19:13:27+00:00"],
+        "tweet_id": ["1463224192950849540"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/sky1948/status/1463224192950849540"]
+      }
+    },
+    {
+      "id": "soso13390",
+      "label": "soso13390",
+      "size": 1,
+      "x": 0.04550344191090676,
+      "y": -0.5229713453488701,
+      "metadata": {
+        "date": ["2021-11-23 08:42:20+00:00"],
+        "tweet_id": ["1463065367216103431"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/soso13390/status/1463065367216103431"]
+      }
+    },
+    {
+      "id": "tcuttoli",
+      "label": "tcuttoli",
+      "size": 1,
+      "x": 0.08778575679278253,
+      "y": -0.5215564705151066,
+      "metadata": {
+        "date": ["2021-11-23 17:09:03+00:00"],
+        "tweet_id": ["1463192885306736647"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/tcuttoli/status/1463192885306736647"]
+      }
+    },
+    {
+      "id": "ugolusso",
+      "label": "ugolusso",
+      "size": 1,
+      "x": 0.11891863823682937,
+      "y": -0.4091093356993276,
+      "metadata": {
+        "date": ["2021-11-23 21:27:46+00:00"],
+        "tweet_id": ["1463257995052294144"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ugolusso/status/1463257995052294144"]
+      }
+    },
+    {
+      "id": "wonderjustice",
+      "label": "wonderjustice",
+      "size": 1,
+      "x": 0.1648235737830463,
+      "y": -0.4177650325470399,
+      "metadata": {
+        "date": ["2021-11-23 12:25:13+00:00"],
+        "tweet_id": ["1463121457182089224"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/wonderjustice/status/1463121457182089224"]
+      }
+    },
+    {
+      "id": "jeanpaulmulot",
+      "label": "jeanpaulmulot",
+      "size": 2,
+      "x": 0.1870800791448553,
+      "y": 0.4635855914274032,
+      "metadata": {
+        "date": ["2021-11-23 10:02:37+00:00"],
+        "tweet_id": ["1463085569047728139"],
+        "retweetCount": [2],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/jeanpaulmulot/status/1463085569047728139"]
+      }
+    },
+    {
+      "id": "JGuechoud",
+      "label": "JGuechoud",
+      "size": 1,
+      "x": 0.19429523340949015,
+      "y": 0.5260481928267271,
+      "metadata": {
+        "date": ["2021-11-23 13:27:37+00:00"],
+        "tweet_id": ["1463137160819793932"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/JGuechoud/status/1463137160819793932"]
+      }
+    },
+    {
+      "id": "LegrouxVincent",
+      "label": "LegrouxVincent",
+      "size": 1,
+      "x": 0.17941564038147859,
+      "y": 0.37213267804198696,
+      "metadata": {
+        "date": ["2021-11-23 10:03:43+00:00", "2021-11-24 06:51:17+00:00"],
+        "tweet_id": ["1463085846597455872", "1463399808396320771"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/LegrouxVincent/status/1463085846597455872",
+          "https://twitter.com/LegrouxVincent/status/1463399808396320771"
+        ]
+      }
+    },
+    {
+      "id": "michedici",
+      "label": "michedici",
+      "size": 1,
+      "x": 0.5655675026387027,
+      "y": -0.8515101695442144,
+      "metadata": {
+        "date": ["2021-11-23 22:26:09+00:00"],
+        "tweet_id": ["1463272687766286338"],
+        "retweetCount": [1],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/michedici/status/1463272687766286338"]
+      }
+    },
+    {
+      "id": "pilounettes",
+      "label": "pilounettes",
+      "size": 1,
+      "x": 0.594490311933141,
+      "y": -0.8896054736594252,
+      "metadata": {
+        "date": ["2021-11-23 22:26:59+00:00"],
+        "tweet_id": ["1463272895375978497"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/pilounettes/status/1463272895375978497"]
+      }
+    },
+    {
+      "id": "nicolas_rivard",
+      "label": "nicolas_rivard",
+      "size": 1,
+      "x": -0.8301654140637302,
+      "y": 0.3594544918267248,
+      "metadata": {
+        "date": ["2021-11-23 21:30:16+00:00"],
+        "tweet_id": ["1463258621656113153"],
+        "retweetCount": [1],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/nicolas_rivard/status/1463258621656113153"]
+      }
+    },
+    {
+      "id": "DLombard83",
+      "label": "DLombard83",
+      "size": 1,
+      "x": -0.8121329007122324,
+      "y": 0.3689035479697748,
+      "metadata": {
+        "date": ["2021-11-23 21:49:37+00:00"],
+        "tweet_id": ["1463263491259838471"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/DLombard83/status/1463263491259838471"]
+      }
+    },
+    {
+      "id": "ramina63",
+      "label": "ramina63",
+      "size": 4,
+      "x": -0.45094661821543225,
+      "y": 0.6692777465145676,
+      "metadata": {
+        "date": ["2021-11-23 11:19:05+00:00"],
+        "tweet_id": ["1463104813810520065"],
+        "retweetCount": [4],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/ramina63/status/1463104813810520065"]
+      }
+    },
+    {
+      "id": "Petitje07386566",
+      "label": "Petitje07386566",
+      "size": 1,
+      "x": -0.4445650892335825,
+      "y": 0.7073700986467156,
+      "metadata": {
+        "date": ["2021-11-23 11:22:34+00:00"],
+        "tweet_id": ["1463105690818555910"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Petitje07386566/status/1463105690818555910"]
+      }
+    },
+    {
+      "id": "WJoumarin1",
+      "label": "WJoumarin1",
+      "size": 1,
+      "x": -0.46056227014482215,
+      "y": 0.61656725108685,
+      "metadata": {
+        "date": ["2021-11-23 11:33:29+00:00", "2021-11-23 18:52:38+00:00"],
+        "tweet_id": ["1463108438477705221", "1463218954361581574"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/WJoumarin1/status/1463108438477705221",
+          "https://twitter.com/WJoumarin1/status/1463218954361581574"
+        ]
+      }
+    },
+    {
+      "id": "chaussat_helene",
+      "label": "chaussat_helene",
+      "size": 1,
+      "x": -0.48443078468096396,
+      "y": 0.7090208864924092,
+      "metadata": {
+        "date": ["2021-11-23 13:33:15+00:00"],
+        "tweet_id": ["1463138577592762375"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/chaussat_helene/status/1463138577592762375"]
+      }
+    },
+    {
+      "id": "shooting38",
+      "label": "shooting38",
+      "size": 1,
+      "x": -0.4657693518895165,
+      "y": 0.7145707597950068,
+      "metadata": {
+        "date": ["2021-11-23 22:24:09+00:00"],
+        "tweet_id": ["1463272182566592512"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/shooting38/status/1463272182566592512"]
+      }
+    },
+    {
+      "id": "romainribas2021",
+      "label": "romainribas2021",
+      "size": 7,
+      "x": -0.7484868276889933,
+      "y": -0.29385571082411255,
+      "metadata": {
+        "date": ["2021-11-23 13:58:45+00:00"],
+        "tweet_id": ["1463144997348425730"],
+        "retweetCount": [7],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/romainribas2021/status/1463144997348425730"]
+      }
+    },
+    {
+      "id": "AGReichenbach",
+      "label": "AGReichenbach",
+      "size": 1,
+      "x": -0.7710169546117674,
+      "y": -0.33336098157724153,
+      "metadata": {
+        "date": ["2021-11-23 14:42:49+00:00"],
+        "tweet_id": ["1463156083720077326"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/AGReichenbach/status/1463156083720077326"]
+      }
+    },
+    {
+      "id": "BobLeCentriste",
+      "label": "BobLeCentriste",
+      "size": 1,
+      "x": -0.7851723604014228,
+      "y": -0.3248069988418501,
+      "metadata": {
+        "date": ["2021-11-23 14:23:49+00:00"],
+        "tweet_id": ["1463151303803158528"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BobLeCentriste/status/1463151303803158528"]
+      }
+    },
+    {
+      "id": "LeDanator",
+      "label": "LeDanator",
+      "size": 1,
+      "x": -0.7157040727746258,
+      "y": -0.28138802105638083,
+      "metadata": {
+        "date": ["2021-11-23 14:26:39+00:00"],
+        "tweet_id": ["1463152018621673487"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/LeDanator/status/1463152018621673487"]
+      }
+    },
+    {
+      "id": "catpom27",
+      "label": "catpom27",
+      "size": 1,
+      "x": -0.7842513508054237,
+      "y": -0.2823103276280432,
+      "metadata": {
+        "date": ["2021-11-23 16:12:46+00:00"],
+        "tweet_id": ["1463178721351847938"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/catpom27/status/1463178721351847938"]
+      }
+    },
+    {
+      "id": "perchedunois21",
+      "label": "perchedunois21",
+      "size": 1,
+      "x": -0.7962477986160369,
+      "y": -0.31319113906971074,
+      "metadata": {
+        "date": ["2021-11-23 13:59:29+00:00"],
+        "tweet_id": ["1463145179657998340"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/perchedunois21/status/1463145179657998340"]
+      }
+    },
+    {
+      "id": "piRdumont",
+      "label": "piRdumont",
+      "size": 1,
+      "x": -0.7970705413042678,
+      "y": -0.29608569258229916,
+      "metadata": {
+        "date": ["2021-11-23 14:49:01+00:00"],
+        "tweet_id": ["1463157644793946119"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/piRdumont/status/1463157644793946119"]
+      }
+    },
+    {
+      "id": "radicauxenmarch",
+      "label": "radicauxenmarch",
+      "size": 1,
+      "x": -0.6812251242742059,
+      "y": -0.26278188661898544,
+      "metadata": {
+        "date": ["2021-11-23 13:59:42+00:00"],
+        "tweet_id": ["1463145234142015495"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/radicauxenmarch/status/1463145234142015495"]
+      }
+    },
+    {
+      "id": "slerudulier",
+      "label": "slerudulier",
+      "size": 160,
+      "x": 0.17191374251412778,
+      "y": 0.24718679560498305,
+      "metadata": {
+        "date": [
+          "2021-11-23 19:31:18+00:00",
+          "2021-11-23 19:43:39+00:00",
+          "2021-11-23 19:44:41+00:00",
+          "2021-11-23 19:46:53+00:00",
+          "2021-11-23 19:49:24+00:00",
+          "2021-11-23 19:51:29+00:00",
+          "2021-11-23 22:16:01+00:00"
+        ],
+        "tweet_id": [
+          "1463228684974895114",
+          "1463231790743793683",
+          "1463232053458182155",
+          "1463232606196187142",
+          "1463233240047702023",
+          "1463233763878526989",
+          "1463270135746207753"
+        ],
+        "retweetCount": [3, 47, 27, 35, 14, 27, 7],
+        "role": ["Tweet", "Tweet", "Tweet", "Tweet", "Tweet", "Tweet", "Tweet"],
+        "url": [
+          "https://twitter.com/slerudulier/status/1463228684974895114",
+          "https://twitter.com/slerudulier/status/1463231790743793683",
+          "https://twitter.com/slerudulier/status/1463232053458182155",
+          "https://twitter.com/slerudulier/status/1463232606196187142",
+          "https://twitter.com/slerudulier/status/1463233240047702023",
+          "https://twitter.com/slerudulier/status/1463233763878526989",
+          "https://twitter.com/slerudulier/status/1463270135746207753"
+        ]
+      }
+    },
+    {
+      "id": "007dijon",
+      "label": "007dijon",
+      "size": 1,
+      "x": 0.09037855321578311,
+      "y": 0.25259203251652956,
+      "metadata": {
+        "date": ["2021-11-23 21:18:03+00:00"],
+        "tweet_id": ["1463255548695134212"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/007dijon/status/1463255548695134212"]
+      }
+    },
+    {
+      "id": "2dbrive",
+      "label": "2dbrive",
+      "size": 1,
+      "x": 0.13282288895167574,
+      "y": 0.2631707012089556,
+      "metadata": {
+        "date": ["2021-11-23 20:24:05+00:00"],
+        "tweet_id": ["1463241967656181761"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/2dbrive/status/1463241967656181761"]
+      }
+    },
+    {
+      "id": "BMillo_",
+      "label": "BMillo_",
+      "size": 1,
+      "x": 0.16993479214384563,
+      "y": 0.32416301050305873,
+      "metadata": {
+        "date": ["2021-11-23 22:16:12+00:00"],
+        "tweet_id": ["1463270184513384449"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BMillo_/status/1463270184513384449"]
+      }
+    },
+    {
+      "id": "BastienThierry4",
+      "label": "BastienThierry4",
+      "size": 1,
+      "x": 0.12501324830795474,
+      "y": 0.21841774617146986,
+      "metadata": {
+        "date": ["2021-11-24 06:24:41+00:00"],
+        "tweet_id": ["1463393113687396353"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BastienThierry4/status/1463393113687396353"]
+      }
+    },
+    {
+      "id": "BernardChaix",
+      "label": "BernardChaix",
+      "size": 1,
+      "x": 0.16800230901797744,
+      "y": 0.33757555714591836,
+      "metadata": {
+        "date": ["2021-11-23 19:54:00+00:00"],
+        "tweet_id": ["1463234397159755778"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BernardChaix/status/1463234397159755778"]
+      }
+    },
+    {
+      "id": "BruchardDe",
+      "label": "BruchardDe",
+      "size": 1,
+      "x": 0.13351389040561742,
+      "y": 0.2039822199891013,
+      "metadata": {
+        "date": ["2021-11-23 19:49:44+00:00"],
+        "tweet_id": ["1463233323946450946"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/BruchardDe/status/1463233323946450946"]
+      }
+    },
+    {
+      "id": "CaroTV04",
+      "label": "CaroTV04",
+      "size": 1,
+      "x": 0.20851250062930235,
+      "y": 0.24444169286796888,
+      "metadata": {
+        "date": [
+          "2021-11-24 05:36:18+00:00",
+          "2021-11-24 05:38:05+00:00",
+          "2021-11-24 05:38:07+00:00"
+        ],
+        "tweet_id": ["1463380936511401986", "1463381385272561669", "1463381392834932737"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/CaroTV04/status/1463380936511401986",
+          "https://twitter.com/CaroTV04/status/1463381385272561669",
+          "https://twitter.com/CaroTV04/status/1463381392834932737"
+        ]
+      }
+    },
+    {
+      "id": "ContactKi",
+      "label": "ContactKi",
+      "size": 1,
+      "x": 0.23098387468331685,
+      "y": 0.25071375029389614,
+      "metadata": {
+        "date": ["2021-11-24 05:28:47+00:00"],
+        "tweet_id": ["1463379045547139075"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ContactKi/status/1463379045547139075"]
+      }
+    },
+    {
+      "id": "CrisSpriet06",
+      "label": "CrisSpriet06",
+      "size": 1,
+      "x": 0.16806849048582712,
+      "y": 0.17350892505707205,
+      "metadata": {
+        "date": ["2021-11-23 20:43:56+00:00"],
+        "tweet_id": ["1463246961306267653"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/CrisSpriet06/status/1463246961306267653"]
+      }
+    },
+    {
+      "id": "DJ083bis",
+      "label": "DJ083bis",
+      "size": 1,
+      "x": 0.11008380237103123,
+      "y": 0.22699176688446004,
+      "metadata": {
+        "date": ["2021-11-23 20:15:10+00:00"],
+        "tweet_id": ["1463239724940808192"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/DJ083bis/status/1463239724940808192"]
+      }
+    },
+    {
+      "id": "DJANGOETCHARLO1",
+      "label": "DJANGOETCHARLO1",
+      "size": 1,
+      "x": 0.12862938447471226,
+      "y": 0.3020891676644314,
+      "metadata": {
+        "date": [
+          "2021-11-24 06:20:50+00:00",
+          "2021-11-24 06:21:03+00:00",
+          "2021-11-24 06:24:32+00:00"
+        ],
+        "tweet_id": ["1463392142844432384", "1463392197861122050", "1463393077947686912"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/DJANGOETCHARLO1/status/1463392142844432384",
+          "https://twitter.com/DJANGOETCHARLO1/status/1463392197861122050",
+          "https://twitter.com/DJANGOETCHARLO1/status/1463393077947686912"
+        ]
+      }
+    },
+    {
+      "id": "DaniellePomay",
+      "label": "DaniellePomay",
+      "size": 1,
+      "x": 0.23611140026076574,
+      "y": 0.2875122253234551,
+      "metadata": {
+        "date": ["2021-11-23 23:01:47+00:00", "2021-11-23 23:02:03+00:00"],
+        "tweet_id": ["1463281653107859459", "1463281720816549889"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/DaniellePomay/status/1463281653107859459",
+          "https://twitter.com/DaniellePomay/status/1463281720816549889"
+        ]
+      }
+    },
+    {
+      "id": "EKraftschenko",
+      "label": "EKraftschenko",
+      "size": 1,
+      "x": 0.20050471729575778,
+      "y": 0.3333223952416774,
+      "metadata": {
+        "date": [
+          "2021-11-23 23:09:33+00:00",
+          "2021-11-23 23:09:47+00:00",
+          "2021-11-23 23:10:01+00:00"
+        ],
+        "tweet_id": ["1463283608811147265", "1463283666809982983", "1463283725542821893"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/EKraftschenko/status/1463283608811147265",
+          "https://twitter.com/EKraftschenko/status/1463283666809982983",
+          "https://twitter.com/EKraftschenko/status/1463283725542821893"
+        ]
+      }
+    },
+    {
+      "id": "EdouardVian",
+      "label": "EdouardVian",
+      "size": 1,
+      "x": 0.211805478186097,
+      "y": 0.22479015404859864,
+      "metadata": {
+        "date": ["2021-11-23 21:18:50+00:00"],
+        "tweet_id": ["1463255747219894275"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/EdouardVian/status/1463255747219894275"]
+      }
+    },
+    {
+      "id": "Enrique92112945",
+      "label": "Enrique92112945",
+      "size": 1,
+      "x": 0.1547967802384645,
+      "y": 0.27096001109297646,
+      "metadata": {
+        "date": ["2021-11-23 21:09:29+00:00"],
+        "tweet_id": ["1463253393368141825"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Enrique92112945/status/1463253393368141825"]
+      }
+    },
+    {
+      "id": "EriKa110768",
+      "label": "EriKa110768",
+      "size": 1,
+      "x": 0.24993604465414035,
+      "y": 0.21681285446954454,
+      "metadata": {
+        "date": ["2021-11-23 20:07:43+00:00"],
+        "tweet_id": ["1463237849969577993"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/EriKa110768/status/1463237849969577993"]
+      }
+    },
+    {
+      "id": "FFillon06",
+      "label": "FFillon06",
+      "size": 1,
+      "x": 0.23567236208802983,
+      "y": 0.23406208452827845,
+      "metadata": {
+        "date": ["2021-11-24 05:16:07+00:00", "2021-11-24 06:04:06+00:00"],
+        "tweet_id": ["1463375860342345732", "1463387931675185156"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/FFillon06/status/1463375860342345732",
+          "https://twitter.com/FFillon06/status/1463387931675185156"
+        ]
+      }
+    },
+    {
+      "id": "FJGdePoel",
+      "label": "FJGdePoel",
+      "size": 1,
+      "x": 0.19953042385102032,
+      "y": 0.174661515549047,
+      "metadata": {
+        "date": ["2021-11-24 04:57:42+00:00"],
+        "tweet_id": ["1463371224864727042"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/FJGdePoel/status/1463371224864727042"]
+      }
+    },
+    {
+      "id": "FrancoisedeCCLP",
+      "label": "FrancoisedeCCLP",
+      "size": 1,
+      "x": 0.2246891646646004,
+      "y": 0.29970750276872415,
+      "metadata": {
+        "date": ["2021-11-24 03:02:14+00:00"],
+        "tweet_id": ["1463342166823124995"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/FrancoisedeCCLP/status/1463342166823124995"]
+      }
+    },
+    {
+      "id": "HopeInPast",
+      "label": "HopeInPast",
+      "size": 1,
+      "x": 0.1280820340585843,
+      "y": 0.32605722639888307,
+      "metadata": {
+        "date": ["2021-11-24 03:16:30+00:00"],
+        "tweet_id": ["1463345755096297478"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/HopeInPast/status/1463345755096297478"]
+      }
+    },
+    {
+      "id": "JPFOTOGRAFOSS",
+      "label": "JPFOTOGRAFOSS",
+      "size": 1,
+      "x": 0.23010373395171854,
+      "y": 0.190206410103037,
+      "metadata": {
+        "date": ["2021-11-23 20:36:58+00:00", "2021-11-24 04:21:39+00:00"],
+        "tweet_id": ["1463245210666811399", "1463362151482077189"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/JPFOTOGRAFOSS/status/1463245210666811399",
+          "https://twitter.com/JPFOTOGRAFOSS/status/1463362151482077189"
+        ]
+      }
+    },
+    {
+      "id": "JeromeTaurelle",
+      "label": "JeromeTaurelle",
+      "size": 1,
+      "x": 0.11809206435722634,
+      "y": 0.3173770098804481,
+      "metadata": {
+        "date": ["2021-11-23 21:22:33+00:00"],
+        "tweet_id": ["1463256679668146176"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/JeromeTaurelle/status/1463256679668146176"]
+      }
+    },
+    {
+      "id": "Joda09223896",
+      "label": "Joda09223896",
+      "size": 1,
+      "x": 0.15071955862274478,
+      "y": 0.22042630195031993,
+      "metadata": {
+        "date": ["2021-11-23 20:21:25+00:00"],
+        "tweet_id": ["1463241297364406273"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Joda09223896/status/1463241297364406273"]
+      }
+    },
+    {
+      "id": "LeDroitard2022",
+      "label": "LeDroitard2022",
+      "size": 1,
+      "x": 0.22482286626541034,
+      "y": 0.31668725580010765,
+      "metadata": {
+        "date": ["2021-11-23 22:57:05+00:00"],
+        "tweet_id": ["1463280470960005126"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/LeDroitard2022/status/1463280470960005126"]
+      }
+    },
+    {
+      "id": "Le_reseau_teur",
+      "label": "Le_reseau_teur",
+      "size": 1,
+      "x": 0.1525897787224849,
+      "y": 0.178094604091759,
+      "metadata": {
+        "date": ["2021-11-24 06:38:11+00:00"],
+        "tweet_id": ["1463396510771654664"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Le_reseau_teur/status/1463396510771654664"]
+      }
+    },
+    {
+      "id": "M75Sylvie",
+      "label": "M75Sylvie",
+      "size": 1,
+      "x": 0.25851773628707075,
+      "y": 0.2766966198951881,
+      "metadata": {
+        "date": ["2021-11-23 20:43:16+00:00"],
+        "tweet_id": ["1463246796751355908"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/M75Sylvie/status/1463246796751355908"]
+      }
+    },
+    {
+      "id": "MKimemo",
+      "label": "MKimemo",
+      "size": 1,
+      "x": 0.21678241945829588,
+      "y": 0.28377918089982035,
+      "metadata": {
+        "date": ["2021-11-23 20:04:05+00:00"],
+        "tweet_id": ["1463236932612276224"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/MKimemo/status/1463236932612276224"]
+      }
+    },
+    {
+      "id": "Madzikeen",
+      "label": "Madzikeen",
+      "size": 1,
+      "x": 0.22702427049855764,
+      "y": 0.22189793168993874,
+      "metadata": {
+        "date": ["2021-11-24 07:10:38+00:00"],
+        "tweet_id": ["1463404677530333184"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Madzikeen/status/1463404677530333184"]
+      }
+    },
+    {
+      "id": "MalouBlandini",
+      "label": "MalouBlandini",
+      "size": 1,
+      "x": 0.2616017191042543,
+      "y": 0.24529868507059255,
+      "metadata": {
+        "date": ["2021-11-24 03:10:18+00:00"],
+        "tweet_id": ["1463344196098703366"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/MalouBlandini/status/1463344196098703366"]
+      }
+    },
+    {
+      "id": "MarieDamiano",
+      "label": "MarieDamiano",
+      "size": 1,
+      "x": 0.21594523158576812,
+      "y": 0.2627593475026909,
+      "metadata": {
+        "date": [
+          "2021-11-23 19:54:22+00:00",
+          "2021-11-23 19:54:26+00:00",
+          "2021-11-23 19:54:55+00:00"
+        ],
+        "tweet_id": ["1463234487517597708", "1463234507922976781", "1463234627099893761"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/MarieDamiano/status/1463234487517597708",
+          "https://twitter.com/MarieDamiano/status/1463234507922976781",
+          "https://twitter.com/MarieDamiano/status/1463234627099893761"
+        ]
+      }
+    },
+    {
+      "id": "MarionLglt",
+      "label": "MarionLglt",
+      "size": 1,
+      "x": 0.24918574417335132,
+      "y": 0.2897689490342453,
+      "metadata": {
+        "date": ["2021-11-23 19:51:26+00:00"],
+        "tweet_id": ["1463233751044009990"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/MarionLglt/status/1463233751044009990"]
+      }
+    },
+    {
+      "id": "MaunierR",
+      "label": "MaunierR",
+      "size": 1,
+      "x": 0.18479344982865756,
+      "y": 0.33638349385098076,
+      "metadata": {
+        "date": ["2021-11-23 22:14:29+00:00", "2021-11-24 07:09:04+00:00"],
+        "tweet_id": ["1463269750084186113", "1463404281076326407"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/MaunierR/status/1463269750084186113",
+          "https://twitter.com/MaunierR/status/1463404281076326407"
+        ]
+      }
+    },
+    {
+      "id": "Mounette449",
+      "label": "Mounette449",
+      "size": 1,
+      "x": 0.1022336374325571,
+      "y": 0.302088954142676,
+      "metadata": {
+        "date": [
+          "2021-11-23 22:17:51+00:00",
+          "2021-11-23 22:25:05+00:00",
+          "2021-11-23 22:41:47+00:00"
+        ],
+        "tweet_id": ["1463270596691869698", "1463272418491969548", "1463276622023467010"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/Mounette449/status/1463270596691869698",
+          "https://twitter.com/Mounette449/status/1463272418491969548",
+          "https://twitter.com/Mounette449/status/1463276622023467010"
+        ]
+      }
+    },
+    {
+      "id": "Neantotal11",
+      "label": "Neantotal11",
+      "size": 1,
+      "x": 0.24658856165261983,
+      "y": 0.27174290843514265,
+      "metadata": {
+        "date": ["2021-11-23 19:50:16+00:00"],
+        "tweet_id": ["1463233459158196233"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Neantotal11/status/1463233459158196233"]
+      }
+    },
+    {
+      "id": "OddoRomanCorinn",
+      "label": "OddoRomanCorinn",
+      "size": 1,
+      "x": 0.21933953660920902,
+      "y": 0.20023931054503924,
+      "metadata": {
+        "date": ["2021-11-23 19:52:42+00:00", "2021-11-23 19:53:37+00:00"],
+        "tweet_id": ["1463234071874740229", "1463234299600195586"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/OddoRomanCorinn/status/1463234071874740229",
+          "https://twitter.com/OddoRomanCorinn/status/1463234299600195586"
+        ]
+      }
+    },
+    {
+      "id": "OlivierMerkel",
+      "label": "OlivierMerkel",
+      "size": 1,
+      "x": 0.1737483709404308,
+      "y": 0.30903556701855756,
+      "metadata": {
+        "date": ["2021-11-23 23:16:58+00:00"],
+        "tweet_id": ["1463285475049885698"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/OlivierMerkel/status/1463285475049885698"]
+      }
+    },
+    {
+      "id": "OuthierC",
+      "label": "OuthierC",
+      "size": 1,
+      "x": 0.17244965018383684,
+      "y": 0.18857441039309566,
+      "metadata": {
+        "date": ["2021-11-23 23:06:34+00:00"],
+        "tweet_id": ["1463282858475327489"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/OuthierC/status/1463282858475327489"]
+      }
+    },
+    {
+      "id": "PGriselin",
+      "label": "PGriselin",
+      "size": 1,
+      "x": 0.2371176732573904,
+      "y": 0.30473076173404273,
+      "metadata": {
+        "date": [
+          "2021-11-23 22:26:17+00:00",
+          "2021-11-23 22:28:37+00:00",
+          "2021-11-23 22:29:21+00:00",
+          "2021-11-23 22:31:00+00:00",
+          "2021-11-23 22:37:49+00:00",
+          "2021-11-23 22:38:11+00:00"
+        ],
+        "tweet_id": [
+          "1463272719680741379",
+          "1463273308946845703",
+          "1463273493559193617",
+          "1463273908384276481",
+          "1463275621455474692",
+          "1463275713138765831"
+        ],
+        "retweetCount": [0, 0, 0, 0, 0, 0],
+        "role": ["RT", "RT", "RT", "RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/PGriselin/status/1463272719680741379",
+          "https://twitter.com/PGriselin/status/1463273308946845703",
+          "https://twitter.com/PGriselin/status/1463273493559193617",
+          "https://twitter.com/PGriselin/status/1463273908384276481",
+          "https://twitter.com/PGriselin/status/1463275621455474692",
+          "https://twitter.com/PGriselin/status/1463275713138765831"
+        ]
+      }
+    },
+    {
+      "id": "ParanteauD",
+      "label": "ParanteauD",
+      "size": 1,
+      "x": 0.18377289011382403,
+      "y": 0.20288920412582692,
+      "metadata": {
+        "date": ["2021-11-23 22:25:04+00:00"],
+        "tweet_id": ["1463272413756633099"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ParanteauD/status/1463272413756633099"]
+      }
+    },
+    {
+      "id": "Patricia_M06",
+      "label": "Patricia_M06",
+      "size": 1,
+      "x": 0.15395718308830678,
+      "y": 0.3343391100401124,
+      "metadata": {
+        "date": [
+          "2021-11-23 22:51:53+00:00",
+          "2021-11-23 22:53:39+00:00",
+          "2021-11-23 23:01:56+00:00",
+          "2021-11-23 23:02:42+00:00"
+        ],
+        "tweet_id": [
+          "1463279164081979398",
+          "1463279605691953162",
+          "1463281691020177421",
+          "1463281886021754887"
+        ],
+        "retweetCount": [0, 0, 0, 0],
+        "role": ["RT", "RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/Patricia_M06/status/1463279164081979398",
+          "https://twitter.com/Patricia_M06/status/1463279605691953162",
+          "https://twitter.com/Patricia_M06/status/1463281691020177421",
+          "https://twitter.com/Patricia_M06/status/1463281886021754887"
+        ]
+      }
+    },
+    {
+      "id": "Poncinmarie1",
+      "label": "Poncinmarie1",
+      "size": 1,
+      "x": 0.19242710666904306,
+      "y": 0.30725701930230753,
+      "metadata": {
+        "date": [
+          "2021-11-23 21:01:50+00:00",
+          "2021-11-23 21:02:00+00:00",
+          "2021-11-23 21:02:36+00:00",
+          "2021-11-23 22:35:20+00:00",
+          "2021-11-23 22:37:20+00:00"
+        ],
+        "tweet_id": [
+          "1463251466043510784",
+          "1463251510326960132",
+          "1463251662324350980",
+          "1463274996877479937",
+          "1463275500911091718"
+        ],
+        "retweetCount": [0, 0, 0, 0, 0],
+        "role": ["RT", "RT", "RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/Poncinmarie1/status/1463251466043510784",
+          "https://twitter.com/Poncinmarie1/status/1463251510326960132",
+          "https://twitter.com/Poncinmarie1/status/1463251662324350980",
+          "https://twitter.com/Poncinmarie1/status/1463274996877479937",
+          "https://twitter.com/Poncinmarie1/status/1463275500911091718"
+        ]
+      }
+    },
+    {
+      "id": "PrLCastillo",
+      "label": "PrLCastillo",
+      "size": 1,
+      "x": 0.1483061242629108,
+      "y": 0.30297793115087057,
+      "metadata": {
+        "date": [
+          "2021-11-23 19:50:49+00:00",
+          "2021-11-23 19:50:59+00:00",
+          "2021-11-23 19:51:12+00:00"
+        ],
+        "tweet_id": ["1463233597272657920", "1463233638640889874", "1463233692642521089"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/PrLCastillo/status/1463233597272657920",
+          "https://twitter.com/PrLCastillo/status/1463233638640889874",
+          "https://twitter.com/PrLCastillo/status/1463233692642521089"
+        ]
+      }
+    },
+    {
+      "id": "PuissegurRemi",
+      "label": "PuissegurRemi",
+      "size": 1,
+      "x": 0.11374955522385212,
+      "y": 0.3048687147849738,
+      "metadata": {
+        "date": ["2021-11-23 21:20:04+00:00"],
+        "tweet_id": ["1463256054607880199"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/PuissegurRemi/status/1463256054607880199"]
+      }
+    },
+    {
+      "id": "Quentin_mna",
+      "label": "Quentin_mna",
+      "size": 1,
+      "x": 0.2579381151097052,
+      "y": 0.22786550664150068,
+      "metadata": {
+        "date": ["2021-11-23 21:17:40+00:00"],
+        "tweet_id": ["1463255451055833089"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Quentin_mna/status/1463255451055833089"]
+      }
+    },
+    {
+      "id": "ReffuveilleS",
+      "label": "ReffuveilleS",
+      "size": 1,
+      "x": 0.2433751579202836,
+      "y": 0.20098062916996062,
+      "metadata": {
+        "date": ["2021-11-23 23:12:23+00:00"],
+        "tweet_id": ["1463284321989668866"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ReffuveilleS/status/1463284321989668866"]
+      }
+    },
+    {
+      "id": "SMH_DH",
+      "label": "SMH_DH",
+      "size": 1,
+      "x": 0.09551795150942909,
+      "y": 0.28813144991363043,
+      "metadata": {
+        "date": ["2021-11-24 07:01:30+00:00"],
+        "tweet_id": ["1463402378313490432"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/SMH_DH/status/1463402378313490432"]
+      }
+    },
+    {
+      "id": "SoutienCiotti",
+      "label": "SoutienCiotti",
+      "size": 1,
+      "x": 0.10870965467158279,
+      "y": 0.26086381025241706,
+      "metadata": {
+        "date": ["2021-11-23 20:09:16+00:00", "2021-11-23 20:09:24+00:00"],
+        "tweet_id": ["1463238241079992327", "1463238274567262212"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/SoutienCiotti/status/1463238241079992327",
+          "https://twitter.com/SoutienCiotti/status/1463238274567262212"
+        ]
+      }
+    },
+    {
+      "id": "Sylvain_UN",
+      "label": "Sylvain_UN",
+      "size": 1,
+      "x": 0.2153859472152523,
+      "y": 0.18250092848444566,
+      "metadata": {
+        "date": ["2021-11-24 06:05:29+00:00"],
+        "tweet_id": ["1463388283052953600"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/Sylvain_UN/status/1463388283052953600"]
+      }
+    },
+    {
+      "id": "SylvieP13",
+      "label": "SylvieP13",
+      "size": 1,
+      "x": 0.2042177208572645,
+      "y": 0.2047724460242764,
+      "metadata": {
+        "date": [
+          "2021-11-23 20:01:04+00:00",
+          "2021-11-23 23:06:13+00:00",
+          "2021-11-23 23:12:46+00:00"
+        ],
+        "tweet_id": ["1463236176232554504", "1463282769421905922", "1463284419364540416"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/SylvieP13/status/1463236176232554504",
+          "https://twitter.com/SylvieP13/status/1463282769421905922",
+          "https://twitter.com/SylvieP13/status/1463284419364540416"
+        ]
+      }
+    },
+    {
+      "id": "TheoDutrieu",
+      "label": "TheoDutrieu",
+      "size": 1,
+      "x": 0.18016938553805179,
+      "y": 0.289878506043983,
+      "metadata": {
+        "date": [
+          "2021-11-23 19:57:04+00:00",
+          "2021-11-23 19:57:09+00:00",
+          "2021-11-23 19:57:13+00:00",
+          "2021-11-23 20:16:55+00:00"
+        ],
+        "tweet_id": [
+          "1463235170513862658",
+          "1463235189098926088",
+          "1463235205293129734",
+          "1463240163761561618"
+        ],
+        "retweetCount": [0, 0, 0, 0],
+        "role": ["RT", "RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/TheoDutrieu/status/1463235170513862658",
+          "https://twitter.com/TheoDutrieu/status/1463235189098926088",
+          "https://twitter.com/TheoDutrieu/status/1463235205293129734",
+          "https://twitter.com/TheoDutrieu/status/1463240163761561618"
+        ]
+      }
+    },
+    {
+      "id": "TonioVermeulen",
+      "label": "TonioVermeulen",
+      "size": 1,
+      "x": 0.18394466020572608,
+      "y": 0.17577776233834866,
+      "metadata": {
+        "date": ["2021-11-23 22:05:21+00:00"],
+        "tweet_id": ["1463267454310928384"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/TonioVermeulen/status/1463267454310928384"]
+      }
+    },
+    {
+      "id": "UrbainNatacha",
+      "label": "UrbainNatacha",
+      "size": 1,
+      "x": 0.13518210135784406,
+      "y": 0.2357497525034038,
+      "metadata": {
+        "date": ["2021-11-23 21:34:22+00:00"],
+        "tweet_id": ["1463259655438835717"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/UrbainNatacha/status/1463259655438835717"]
+      }
+    },
+    {
+      "id": "YoannThibault",
+      "label": "YoannThibault",
+      "size": 1,
+      "x": 0.16257924007602262,
+      "y": 0.20423306273070954,
+      "metadata": {
+        "date": [
+          "2021-11-23 19:52:00+00:00",
+          "2021-11-23 19:52:20+00:00",
+          "2021-11-23 20:13:22+00:00"
+        ],
+        "tweet_id": ["1463233893608402947", "1463233976416583680", "1463239272744505345"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/YoannThibault/status/1463233893608402947",
+          "https://twitter.com/YoannThibault/status/1463233976416583680",
+          "https://twitter.com/YoannThibault/status/1463239272744505345"
+        ]
+      }
+    },
+    {
+      "id": "alberti_maurice",
+      "label": "alberti_maurice",
+      "size": 1,
+      "x": 0.10572743595632383,
+      "y": 0.24358693018347427,
+      "metadata": {
+        "date": ["2021-11-23 22:03:30+00:00"],
+        "tweet_id": ["1463266984813027332"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/alberti_maurice/status/1463266984813027332"]
+      }
+    },
+    {
+      "id": "allobroges74",
+      "label": "allobroges74",
+      "size": 1,
+      "x": 0.09027820269971218,
+      "y": 0.2680951429246976,
+      "metadata": {
+        "date": ["2021-11-23 23:20:04+00:00"],
+        "tweet_id": ["1463286255299534849"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/allobroges74/status/1463286255299534849"]
+      }
+    },
+    {
+      "id": "apidjo",
+      "label": "apidjo",
+      "size": 1,
+      "x": 0.1907290779253386,
+      "y": 0.22301870300901036,
+      "metadata": {
+        "date": ["2021-11-24 06:59:05+00:00"],
+        "tweet_id": ["1463401770709827584"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/apidjo/status/1463401770709827584"]
+      }
+    },
+    {
+      "id": "avel_du",
+      "label": "avel_du",
+      "size": 1,
+      "x": 0.24914553454440733,
+      "y": 0.23917637386257296,
+      "metadata": {
+        "date": ["2021-11-23 21:22:51+00:00"],
+        "tweet_id": ["1463256755727699977"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/avel_du/status/1463256755727699977"]
+      }
+    },
+    {
+      "id": "baptiste58180",
+      "label": "baptiste58180",
+      "size": 1,
+      "x": 0.2315737499931877,
+      "y": 0.2718005765238695,
+      "metadata": {
+        "date": ["2021-11-24 06:36:51+00:00"],
+        "tweet_id": ["1463396175785177088"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/baptiste58180/status/1463396175785177088"]
+      }
+    },
+    {
+      "id": "boxcalf1",
+      "label": "boxcalf1",
+      "size": 1,
+      "x": 0.12162467012869824,
+      "y": 0.24828077326700546,
+      "metadata": {
+        "date": ["2021-11-24 05:33:25+00:00", "2021-11-24 05:36:53+00:00"],
+        "tweet_id": ["1463380210749947907", "1463381084662636544"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/boxcalf1/status/1463380210749947907",
+          "https://twitter.com/boxcalf1/status/1463381084662636544"
+        ]
+      }
+    },
+    {
+      "id": "ch_coulon",
+      "label": "ch_coulon",
+      "size": 1,
+      "x": 0.11014643946372646,
+      "y": 0.20596725056346832,
+      "metadata": {
+        "date": [
+          "2021-11-24 06:00:45+00:00",
+          "2021-11-24 06:05:32+00:00",
+          "2021-11-24 06:07:11+00:00",
+          "2021-11-24 06:08:28+00:00"
+        ],
+        "tweet_id": [
+          "1463387091186991105",
+          "1463388295438680065",
+          "1463388708888006660",
+          "1463389032042356737"
+        ],
+        "retweetCount": [0, 0, 0, 0],
+        "role": ["RT", "RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/ch_coulon/status/1463387091186991105",
+          "https://twitter.com/ch_coulon/status/1463388295438680065",
+          "https://twitter.com/ch_coulon/status/1463388708888006660",
+          "https://twitter.com/ch_coulon/status/1463389032042356737"
+        ]
+      }
+    },
+    {
+      "id": "chlomaky",
+      "label": "chlomaky",
+      "size": 1,
+      "x": 0.14757412096205433,
+      "y": 0.19384799952288564,
+      "metadata": {
+        "date": ["2021-11-24 05:32:59+00:00", "2021-11-24 06:06:03+00:00"],
+        "tweet_id": ["1463380104323678208", "1463388424006688780"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/chlomaky/status/1463380104323678208",
+          "https://twitter.com/chlomaky/status/1463388424006688780"
+        ]
+      }
+    },
+    {
+      "id": "de_lyon1",
+      "label": "de_lyon1",
+      "size": 1,
+      "x": 0.1622074919237303,
+      "y": 0.2929762369130203,
+      "metadata": {
+        "date": ["2021-11-23 20:17:34+00:00", "2021-11-24 06:12:45+00:00"],
+        "tweet_id": ["1463240326974513161", "1463390109290668037"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/de_lyon1/status/1463240326974513161",
+          "https://twitter.com/de_lyon1/status/1463390109290668037"
+        ]
+      }
+    },
+    {
+      "id": "depaz_beth",
+      "label": "depaz_beth",
+      "size": 1,
+      "x": 0.14122259740531418,
+      "y": 0.3313004820702076,
+      "metadata": {
+        "date": ["2021-11-23 19:52:40+00:00"],
+        "tweet_id": ["1463234063163174917"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/depaz_beth/status/1463234063163174917"]
+      }
+    },
+    {
+      "id": "droite_sensee",
+      "label": "droite_sensee",
+      "size": 1,
+      "x": 0.11970629790671361,
+      "y": 0.19356759950630326,
+      "metadata": {
+        "date": ["2021-11-23 20:14:55+00:00"],
+        "tweet_id": ["1463239660847697922"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/droite_sensee/status/1463239660847697922"]
+      }
+    },
+    {
+      "id": "garbo68",
+      "label": "garbo68",
+      "size": 1,
+      "x": 0.09326088712700749,
+      "y": 0.23533455973461062,
+      "metadata": {
+        "date": [
+          "2021-11-23 19:48:28+00:00",
+          "2021-11-23 19:48:50+00:00",
+          "2021-11-23 19:50:58+00:00",
+          "2021-11-23 19:52:01+00:00",
+          "2021-11-23 19:52:08+00:00"
+        ],
+        "tweet_id": [
+          "1463233002792751109",
+          "1463233096510230531",
+          "1463233632261357581",
+          "1463233896166924297",
+          "1463233928358154241"
+        ],
+        "retweetCount": [0, 0, 0, 0, 0],
+        "role": ["RT", "RT", "RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/garbo68/status/1463233002792751109",
+          "https://twitter.com/garbo68/status/1463233096510230531",
+          "https://twitter.com/garbo68/status/1463233632261357581",
+          "https://twitter.com/garbo68/status/1463233896166924297",
+          "https://twitter.com/garbo68/status/1463233928358154241"
+        ]
+      }
+    },
+    {
+      "id": "herve_bureau",
+      "label": "herve_bureau",
+      "size": 1,
+      "x": 0.1985748526375545,
+      "y": 0.1890181294207689,
+      "metadata": {
+        "date": [
+          "2021-11-23 19:51:03+00:00",
+          "2021-11-23 19:51:24+00:00",
+          "2021-11-23 19:51:41+00:00"
+        ],
+        "tweet_id": ["1463233654289743874", "1463233742311505922", "1463233815892172801"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/herve_bureau/status/1463233654289743874",
+          "https://twitter.com/herve_bureau/status/1463233742311505922",
+          "https://twitter.com/herve_bureau/status/1463233815892172801"
+        ]
+      }
+    },
+    {
+      "id": "ideali111",
+      "label": "ideali111",
+      "size": 1,
+      "x": 0.13874608204214944,
+      "y": 0.3155178954567934,
+      "metadata": {
+        "date": ["2021-11-23 19:55:52+00:00"],
+        "tweet_id": ["1463234868846993412"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/ideali111/status/1463234868846993412"]
+      }
+    },
+    {
+      "id": "imberic07",
+      "label": "imberic07",
+      "size": 1,
+      "x": 0.19819439645725417,
+      "y": 0.2893898921671798,
+      "metadata": {
+        "date": ["2021-11-24 07:06:46+00:00"],
+        "tweet_id": ["1463403706012127232"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/imberic07/status/1463403706012127232"]
+      }
+    },
+    {
+      "id": "jaclostermann",
+      "label": "jaclostermann",
+      "size": 1,
+      "x": 0.18648895222254316,
+      "y": 0.3227240308492089,
+      "metadata": {
+        "date": ["2021-11-23 20:13:09+00:00"],
+        "tweet_id": ["1463239216981233673"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/jaclostermann/status/1463239216981233673"]
+      }
+    },
+    {
+      "id": "janyabadi",
+      "label": "janyabadi",
+      "size": 1,
+      "x": 0.1557843096854455,
+      "y": 0.317907841861396,
+      "metadata": {
+        "date": ["2021-11-24 05:45:29+00:00"],
+        "tweet_id": ["1463383250672312323"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/janyabadi/status/1463383250672312323"]
+      }
+    },
+    {
+      "id": "jcdrski_c",
+      "label": "jcdrski_c",
+      "size": 1,
+      "x": 0.1020439197404793,
+      "y": 0.2741474232685874,
+      "metadata": {
+        "date": ["2021-11-24 07:11:16+00:00"],
+        "tweet_id": ["1463404834980347913"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/jcdrski_c/status/1463404834980347913"]
+      }
+    },
+    {
+      "id": "jeannotdupeuple",
+      "label": "jeannotdupeuple",
+      "size": 1,
+      "x": 0.21528190467088468,
+      "y": 0.32684219579003215,
+      "metadata": {
+        "date": ["2021-11-23 21:10:41+00:00"],
+        "tweet_id": ["1463253694502387718"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/jeannotdupeuple/status/1463253694502387718"]
+      }
+    },
+    {
+      "id": "jmsavelli",
+      "label": "jmsavelli",
+      "size": 1,
+      "x": 0.20384410093544006,
+      "y": 0.31878429754294996,
+      "metadata": {
+        "date": ["2021-11-23 20:19:22+00:00", "2021-11-23 20:20:18+00:00"],
+        "tweet_id": ["1463240780039004164", "1463241016002199555"],
+        "retweetCount": [0, 0],
+        "role": ["RT", "RT"],
+        "url": [
+          "https://twitter.com/jmsavelli/status/1463240780039004164",
+          "https://twitter.com/jmsavelli/status/1463241016002199555"
+        ]
+      }
+    },
+    {
+      "id": "lebossdur",
+      "label": "lebossdur",
+      "size": 1,
+      "x": 0.12479373836140119,
+      "y": 0.28165820419185567,
+      "metadata": {
+        "date": ["2021-11-24 06:10:00+00:00"],
+        "tweet_id": ["1463389417285066752"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/lebossdur/status/1463389417285066752"]
+      }
+    },
+    {
+      "id": "lucbt067",
+      "label": "lucbt067",
+      "size": 1,
+      "x": 0.09855796583339493,
+      "y": 0.21758177045815408,
+      "metadata": {
+        "date": [
+          "2021-11-23 20:01:33+00:00",
+          "2021-11-23 20:01:44+00:00",
+          "2021-11-23 20:01:53+00:00"
+        ],
+        "tweet_id": ["1463236297359822855", "1463236344054960130", "1463236381686308868"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/lucbt067/status/1463236297359822855",
+          "https://twitter.com/lucbt067/status/1463236344054960130",
+          "https://twitter.com/lucbt067/status/1463236381686308868"
+        ]
+      }
+    },
+    {
+      "id": "pampitpamp",
+      "label": "pampitpamp",
+      "size": 1,
+      "x": 0.2109216923354313,
+      "y": 0.3043775086654936,
+      "metadata": {
+        "date": [
+          "2021-11-23 19:45:28+00:00",
+          "2021-11-23 19:52:38+00:00",
+          "2021-11-23 20:10:17+00:00"
+        ],
+        "tweet_id": ["1463232248497463301", "1463234055152058384", "1463238495502311436"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/pampitpamp/status/1463232248497463301",
+          "https://twitter.com/pampitpamp/status/1463234055152058384",
+          "https://twitter.com/pampitpamp/status/1463238495502311436"
+        ]
+      }
+    },
+    {
+      "id": "paul_norel",
+      "label": "paul_norel",
+      "size": 1,
+      "x": 0.2603987406113348,
+      "y": 0.260352832303773,
+      "metadata": {
+        "date": ["2021-11-24 07:11:11+00:00"],
+        "tweet_id": ["1463404815451578368"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/paul_norel/status/1463404815451578368"]
+      }
+    },
+    {
+      "id": "pierregas2014",
+      "label": "pierregas2014",
+      "size": 1,
+      "x": 0.23505494460425377,
+      "y": 0.21056039359658427,
+      "metadata": {
+        "date": ["2021-11-24 05:59:58+00:00"],
+        "tweet_id": ["1463386894222471169"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/pierregas2014/status/1463386894222471169"]
+      }
+    },
+    {
+      "id": "pilouerre",
+      "label": "pilouerre",
+      "size": 1,
+      "x": 0.24591185198782584,
+      "y": 0.255578658892859,
+      "metadata": {
+        "date": [
+          "2021-11-23 20:17:41+00:00",
+          "2021-11-23 20:17:55+00:00",
+          "2021-11-23 21:28:25+00:00"
+        ],
+        "tweet_id": ["1463240356728909839", "1463240417563103234", "1463258157787004931"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/pilouerre/status/1463240356728909839",
+          "https://twitter.com/pilouerre/status/1463240417563103234",
+          "https://twitter.com/pilouerre/status/1463258157787004931"
+        ]
+      }
+    },
+    {
+      "id": "snop61",
+      "label": "snop61",
+      "size": 1,
+      "x": 0.13462826537059894,
+      "y": 0.1836115505116221,
+      "metadata": {
+        "date": ["2021-11-24 05:37:48+00:00"],
+        "tweet_id": ["1463381314728513536"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/snop61/status/1463381314728513536"]
+      }
+    },
+    {
+      "id": "thierry27200",
+      "label": "thierry27200",
+      "size": 1,
+      "x": 0.19694875118318525,
+      "y": 0.27002923204051765,
+      "metadata": {
+        "date": ["2021-11-23 19:54:04+00:00"],
+        "tweet_id": ["1463234415333679114"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/thierry27200/status/1463234415333679114"]
+      }
+    },
+    {
+      "id": "tressi34",
+      "label": "tressi34",
+      "size": 1,
+      "x": 0.11131158780668861,
+      "y": 0.2860100798684697,
+      "metadata": {
+        "date": [
+          "2021-11-24 05:15:43+00:00",
+          "2021-11-24 05:45:39+00:00",
+          "2021-11-24 06:04:58+00:00"
+        ],
+        "tweet_id": ["1463375757368078337", "1463383290430300161", "1463388153046257664"],
+        "retweetCount": [0, 0, 0],
+        "role": ["RT", "RT", "RT"],
+        "url": [
+          "https://twitter.com/tressi34/status/1463375757368078337",
+          "https://twitter.com/tressi34/status/1463383290430300161",
+          "https://twitter.com/tressi34/status/1463388153046257664"
+        ]
+      }
+    },
+    {
+      "id": "vilaxbibou",
+      "label": "vilaxbibou",
+      "size": 1,
+      "x": 0.13965225567391795,
+      "y": 0.2858201197707141,
+      "metadata": {
+        "date": ["2021-11-24 05:39:44+00:00"],
+        "tweet_id": ["1463381800953262081"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/vilaxbibou/status/1463381800953262081"]
+      }
+    },
+    {
+      "id": "vaguebleue17e",
+      "label": "vaguebleue17e",
+      "size": 2,
+      "x": -0.4916016011508308,
+      "y": 0.5751729944141052,
+      "metadata": {
+        "date": ["2021-11-23 18:21:02+00:00"],
+        "tweet_id": ["1463210999469817864"],
+        "retweetCount": [2],
+        "role": ["Tweet"],
+        "url": ["https://twitter.com/vaguebleue17e/status/1463210999469817864"]
+      }
+    },
+    {
+      "id": "MeunierElisabe1",
+      "label": "MeunierElisabe1",
+      "size": 1,
+      "x": -0.528232284569505,
+      "y": 0.5647744797795169,
+      "metadata": {
+        "date": ["2021-11-23 18:25:33+00:00"],
+        "tweet_id": ["1463212139255156738"],
+        "retweetCount": [0],
+        "role": ["RT"],
+        "url": ["https://twitter.com/MeunierElisabe1/status/1463212139255156738"]
+      }
+    }
+  ]
+}

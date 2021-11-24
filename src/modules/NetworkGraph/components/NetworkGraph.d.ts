@@ -37,8 +37,10 @@ export interface GraphNode {
   id: string;
   attributes?: { 'Modularity Class': string };
   color: string;
-  botScore: number;
-  date: string;
+  metadata: {
+    botScore: number;
+    date: string[];
+  };
   size: number;
 }
 
