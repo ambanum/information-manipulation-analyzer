@@ -15,31 +15,32 @@ const graph = {
 let firstDate = "2030-10-10";
 let lastDate = "1965-10-10";
 
-const TEST = 86
+const maxRows = Infinity
 
 json.forEach((item, i) => {
-    if (i>TEST) {
+    if (i > maxRows) {
         return;
     }
-    const existingItem = graph.nodes.find(node => node.id === item.id);
-    const nbRetweets = item.retweetCount;
+    const existingItem = graph.nodes.find(node => node.id === item.user.username);
+    const nbRetweets = item.retweetCount + item.quoteCount;
 
     if (item.quotedTweet) {
 
     } else if (item.retweetedTweet) {
 
     } else {
-        if (nbRetweets >= 1) {
+        if (nbRetweets >= 1 && !existingItem) {
             graph.nodes.push({
                 id: `${item.user.username}`,
                 label: `@${item.user.username}`,
                 "x": 193 + Math.random() * 1000,
                 "y": 175 + Math.random() * 1000,
                 metadata: {
-                    "date": item.date,
+                    "date": [item.date],
                     "tweets": [
                         item.url
-                    ]
+                    ],
+                    "from": 'original'
                 },
                 "size": nbRetweets,
             })
@@ -56,7 +57,7 @@ json.forEach((item, i) => {
 });
 
 json.forEach((item, i) => {
-    if (i>TEST) {
+    if (i > maxRows) {
         return;
     }
     if (item.quotedTweet) {
@@ -68,9 +69,11 @@ json.forEach((item, i) => {
                 "x": 193 + Math.random() * 1000,
                 "y": 175 + Math.random() * 1000,
                 metadata: {
-                    "date": item.date,
+                    "date": [item.date],
+                    "tweets": [item.url],
                 },
-                "size": 1,
+                "size": item.quotedTweet.retweetCount + item.quotedTweet.quoteCount,
+                "from": 'quoted'
             })
         }
         const existingItem2 = graph.nodes.find(node => node.id === item.user.username);
@@ -81,42 +84,55 @@ json.forEach((item, i) => {
                 "x": 193 + Math.random() * 1000,
                 "y": 175 + Math.random() * 1000,
                 metadata: {
-                    "date": item.date,
+                    "date": [item.date],
+                    "tweets": [item.url],
                 },
-                "size": 1,
+                "size": item.retweetCount + item.quoteCount,
+                "from": 'quoted'
             })
         }
 
-            const existing = graph.edges.find(({
-                target,
-                source
-            }) => target === item.user.username && source === item.quotedTweet.user.username)
-            if (existing) {
-                existing.size += 1;
-            } else {
-                graph.edges.push({
-                    "target": item.user.username,
-                    "source": item.quotedTweet.user.username,
-                    'label': "has quoted",
-                    "attributes": {},
-                    "size": 1.0,
-                    "id": `edge_${i}`
-                })
-            }
+        const existing = graph.edges.find(({
+            target,
+            source
+        }) => source === item.user.username && target === item.quotedTweet.user.username)
+        if (existing) {
+            existing.size += 1;
+            existing.metadata.date.push(item.date)
+            existing.metadata.tweets.push(item.url)
+        } else {
+            graph.edges.push({
+                "source": item.user.username,
+                "target": item.quotedTweet.user.username,
+                'label': "has quoted",
+                "attributes": {},
+                "size": 1.0,
+                "id": `edge_${i}`,
+                metadata: {
+                    "date": [item.date],
+                    "tweets": [item.url],
+                },
+            })
+        }
 
     } else if (item.retweeted) {
-        const existingItem = graph.nodes.find(node => node.id === item.retweeted.user.username);
+        const existingItem = graph.nodes.find(node => node.id === item.retweetedTweet.user.username);
         if (!existingItem) {
             graph.nodes.push({
-                id: `${item.retweeted.user.username}`,
-                label: `@${item.retweeted.user.username}`,
+                id: `${item.retweetedTweet.user.username}`,
+                label: `@${item.retweetedTweet.user.username}`,
                 "x": 193 + Math.random() * 1000,
                 "y": 175 + Math.random() * 1000,
                 metadata: {
-                    "date": item.date,
+                    "date": [item.date],
+                    "tweets": [item.url],
                 },
-                "size": 1,
+                "size": item.retweetedTweet.retweetCount + item.retweetedTweet.quoteCount,
+                "from": 'retweeted'
             })
+        } else {
+            existingItem.metadata.date.push(item.date)
+            existingItem.metadata.tweets.push(item.url)
         }
         const existingItem2 = graph.nodes.find(node => node.id === item.user.username);
         if (!existingItem2) {
@@ -126,27 +142,38 @@ json.forEach((item, i) => {
                 "x": 193 + Math.random() * 1000,
                 "y": 175 + Math.random() * 1000,
                 metadata: {
-                    "date": item.date,
+                    "date": [item.date],
+                    "tweets": [item.url],
                 },
-                "size": 1,
+                "size": item.retweetCount + item.quoteCount,
+                "from": 'retweeted'
+            })
+        } else {
+            existingItem2.metadata.date.push(item.date)
+            existingItem2.metadata.tweets.push(item.url)
+        }
+        const existing = graph.edges.find(({
+            target,
+            source
+        }) => source === item.user.username && target === item.retweeted.user.username)
+        if (existing) {
+            existing.size += 1;
+            existing.metadata.date.push(item.date)
+            existing.metadata.tweets.push(item.url)
+        } else {
+            graph.edges.push({
+                "source": item.user.username,
+                "target": item.retweeted.user.username,
+                'label': "has retweeted",
+                "attributes": {},
+                "size": 1.0,
+                "id": `edge_${i}`,
+                metadata: {
+                    "date": [item.date],
+                    "tweets": [item.url],
+                },
             })
         }
-            const existing = graph.edges.find(({
-                target,
-                source
-            }) => target === item.user.username && source === item.retweeted.user.username)
-            if (existing) {
-                existing.size += 1;
-            } else {
-                graph.edges.push({
-                    "target": item.user.username,
-                    "source": item.retweeted.user.username,
-                    'label': "has retweeted",
-                    "attributes": {},
-                    "size": 1.0,
-                    "id": `edge_${i}`
-                })
-            }
 
     }
 });
@@ -272,6 +299,9 @@ json.forEach((item, i) => {
 //     }
 // })
 
+
+graph.nodes = graph.nodes.sort((b, a) => dayjs(b.metadata.date).toDate().getTime() - dayjs(a.metadata.date).toDate().getTime())
+graph.edges = graph.edges.map((edge) => ({...edge, type:"arrow"}))
 
 fs.writeFileSync('./public/test2.json', JSON.stringify(graph, null, 2), 'utf8')
 console.log(''); //eslint-disable-line

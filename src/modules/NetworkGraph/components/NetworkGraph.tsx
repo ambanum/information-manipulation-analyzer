@@ -29,7 +29,7 @@ import pick from 'lodash/fp/pick';
 const Position = (props: any) => (
   <RandomizeNodePositions {...props}>
     <ForceAtlas2 iterationsPerRender={1} timeout={1000} />
-    <RelativeSize initialSize={30} />
+    {/* <RelativeSize initialSize={30} /> */}
   </RandomizeNodePositions>
 );
 
@@ -45,10 +45,12 @@ const highlightNodesAndEdges = (
   const inactiveNodes: string[] = [];
 
   newData.nodes.map((node) => {
-    if (startDate && dayjs(node.metadata.date).isBefore(startDate)) {
+    const date = Array.isArray(node.metadata.date) ? node.metadata.date[0] : node.metadata.date;
+
+    if (startDate && dayjs(date).isBefore(startDate)) {
       node.color = 'rgb(240,240,240)';
       inactiveNodes.push(node.id);
-    } else if (endDate && dayjs(node.metadata.date).isAfter(endDate)) {
+    } else if (endDate && dayjs(date).isAfter(endDate)) {
       node.color = 'rgb(240,240,240)';
       inactiveNodes.push(node.id);
     } else {
@@ -103,6 +105,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       return;
     }
     const newgraph = highlightNodesAndEdges(graph, { startDate, endDate });
+
     sigma.graph.nodes().forEach((n: GraphNode) => {
       var updated = newgraph.nodes.find((e) => e.id == n.id);
       Object.assign(n, pick(['color'])(updated));
@@ -147,41 +150,52 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
           margin: '0 auto',
         }}
         onClickNode={onClickNode}
-        settings={{
-          // // Performance
-          // hideEdgesOnMove: false,
-          // hideLabelsOnMove: false,
-          // renderLabels: true,
-          // renderEdgeLabels: true,
-
-          // // Component rendering
-          // defaultNodeColor: '#999',
-          // defaultNodeType: 'circle',
-          // defaultEdgeColor: '#ccc',
-          // defaultEdgeType: 'line',
-          // labelFont: 'MarianneBold',
-          // labelSize: 16,
-          // labelWeight: 'normal',
-          // edgeLabelFont: 'Arial',
-          // edgeLabelSize: 14,
-          // edgeLabelWeight: 'normal',
-          // stagePadding: 30,
-
-          // // Labels
-          // labelDensity: 0.07,
-          // labelGridCellSize: 60,
-          // labelRenderedSizeThreshold: 6,
-
-          drawEdges: true,
-          renderEdgeLabels: true,
-          defaultLabelSize: 16,
-          font: 'MarianneBold',
-          // minEdgeSize: 0.5,
-          // maxEdgeSize: 1,
-          // minNodeSize: 1,
-          // maxNodeSize: 12,
-          animationsTime: 100,
+        onHoverNode={(props) => {
+          console.log(''); //eslint-disable-line
+          console.log('╔════START══props══════════════════════════════════════════════════'); //eslint-disable-line
+          console.log(props); //eslint-disable-line
+          console.log('╚════END════props══════════════════════════════════════════════════'); //eslint-disable-line
         }}
+        onHoverEdge={(props) => {
+          console.log(''); //eslint-disable-line
+          console.log('╔════START══props══════════════════════════════════════════════════'); //eslint-disable-line
+          console.log(props); //eslint-disable-line
+          console.log('╚════END════props══════════════════════════════════════════════════'); //eslint-disable-line
+        }}
+        settings={
+          {
+            // // Performance
+            // hideEdgesOnMove: false,
+            // hideLabelsOnMove: false,
+            // renderLabels: true,
+            // renderEdgeLabels: true,
+            // // Component rendering
+            // defaultNodeColor: '#999',
+            // defaultNodeType: 'circle',
+            // defaultEdgeColor: '#ccc',
+            // defaultEdgeType: 'line',
+            // labelFont: 'MarianneBold',
+            // labelSize: 16,
+            // labelWeight: 'normal',
+            // edgeLabelFont: 'Arial',
+            // edgeLabelSize: 14,
+            // edgeLabelWeight: 'normal',
+            // stagePadding: 30,
+            // // Labels
+            // labelDensity: 0.07,
+            // labelGridCellSize: 60,
+            // labelRenderedSizeThreshold: 6,
+            // drawEdges: true,
+            // renderEdgeLabels: true,
+            // defaultLabelSize: 16,
+            // font: 'MarianneBold',
+            // // minEdgeSize: 0.5,
+            // // maxEdgeSize: 1,
+            // // minNodeSize: 1,
+            // // maxNodeSize: 12,
+            // animationsTime: 100,
+          }
+        }
       >
         <EdgeShapes default="curvedArrow" />
         <NodeShapes default="star" />
