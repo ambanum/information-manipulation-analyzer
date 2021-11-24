@@ -33,49 +33,13 @@ const Position = (props: any) => (
   </RandomizeNodePositions>
 );
 
-const highlightNodesAndEdges = (
-  data: NetworkGraphJson,
-  { startDate, endDate }: { startDate?: string; endDate?: string }
-) => {
-  if (!startDate && !endDate) {
-    return data;
-  }
-
-  const newData = { ...data };
-  const inactiveNodes: string[] = [];
-
-  newData.nodes.map((node) => {
-    const date = Array.isArray(node.metadata.date) ? node.metadata.date[0] : node.metadata.date;
-
-    if (startDate && dayjs(date).isBefore(startDate)) {
-      node.color = 'rgb(240,240,240)';
-      inactiveNodes.push(node.id);
-    } else if (endDate && dayjs(date).isAfter(endDate)) {
-      node.color = 'rgb(240,240,240)';
-      inactiveNodes.push(node.id);
-    } else {
-      node.color = node.botScore ? colorGradient.getColor(node.botScore) : 'rgb(255,200,100)';
-    }
-    return node;
-  });
-
-  newData.edges.map((edge) => {
-    if (inactiveNodes.includes(edge.source) && inactiveNodes.includes(edge.target)) {
-      edge.color = 'rgb(240,240,240)';
-    } else {
-      edge.color = 'rgb(0,0,0)';
-    }
-    return edge;
-  });
-  return newData;
-};
-
 const NetworkGraph: React.FC<NetworkGraphProps> = ({
   children,
   className,
   path,
   gexf,
   url,
+  graph,
   startDate,
   endDate,
   width = '100%',
@@ -84,43 +48,37 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
   ...props
 }) => {
   const graphRef = React.useRef<typeof Sigma>();
-  const [graph, setGraph] = React.useState<NetworkGraphJson>();
-  const [loading, toggleLoading] = useToggle(!!url);
+  // const [graph, setGraph] = React.useState<NetworkGraphJson>(graphDefault);
+  // const [loading, toggleLoading] = useToggle(!!url);
 
-  React.useEffect(() => {
-    if (!url) {
-      return;
-    }
-    const fetchUrl = async () => {
-      const { data } = await axios.get<NetworkGraphJson>(url);
-      setGraph(highlightNodesAndEdges(data, { startDate, endDate }));
-      toggleLoading(false);
-    };
-    fetchUrl();
-  }, [url]);
+  // React.useEffect(() => {
+  //   if (!url) {
+  //     return;
+  //   }
+  //   const fetchUrl = async () => {
+  //     const { data } = await axios.get<NetworkGraphJson>(url);
+  //     setGraph(highlightNodesAndEdges(data, { startDate, endDate }));
+  //     toggleLoading(false);
+  //   };
+  //   fetchUrl();
+  // }, [url]);
 
   React.useEffect(() => {
     const { sigma } = graphRef?.current || {};
     if (!graph || !sigma) {
       return;
     }
-    const newgraph = highlightNodesAndEdges(graph, { startDate, endDate });
-
     sigma.graph.nodes().forEach((n: GraphNode) => {
-      var updated = newgraph.nodes.find((e) => e.id == n.id);
+      var updated = graph.nodes.find((e) => e.id == n.id);
       Object.assign(n, pick(['color'])(updated));
     });
     sigma.graph.edges().forEach((n: GraphEdge) => {
-      var updated = newgraph.edges.find((e) => e.id == n.id);
+      var updated = graph.edges.find((e) => e.id == n.id);
       Object.assign(n, pick(['color'])(updated));
     });
 
     sigma.refresh();
-  }, [startDate, endDate]);
-
-  if (loading) {
-    return null;
-  }
+  }, [graph]);
 
   const position = graph ? (
     <Position />
@@ -133,10 +91,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       <Position />
     </LoadGEXF>
   );
-  console.log(''); //eslint-disable-line
-  console.log('╔════START══graph══════════════════════════════════════════════════'); //eslint-disable-line
-  console.log(graph); //eslint-disable-line
-  console.log('╚════END════graph══════════════════════════════════════════════════'); //eslint-disable-line
 
   return (
     <div className={classNames(s.wrapper, className)} {...props}>

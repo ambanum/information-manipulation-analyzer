@@ -1,0 +1,3957 @@
+{
+  "edges": [
+    {
+      "source": "3sl7WfDJRCtQUYi",
+      "target": "fallofthefranks",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_0",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-16 14:28:23+00:00"],
+        "tweets": ["https://twitter.com/3sl7WfDJRCtQUYi/status/1460615736326504450"]
+      }
+    },
+    {
+      "source": "4DRight",
+      "target": "1PijVT1D3GIgwpG",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_1",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-21 17:20:21+00:00"],
+        "tweets": ["https://twitter.com/4DRight/status/1462470953384951808"]
+      }
+    },
+    {
+      "source": "4DRight",
+      "target": "FasoDen1",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_2",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-21 17:20:09+00:00"],
+        "tweets": ["https://twitter.com/4DRight/status/1462470905028825096"]
+      }
+    },
+    {
+      "source": "52RHOCGbQ0AReRH",
+      "target": "drassagheer",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_3",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-10 12:36:20+00:00"],
+        "tweets": ["https://twitter.com/52RHOCGbQ0AReRH/status/1458413211775033349"]
+      }
+    },
+    {
+      "source": "6oldie6alactic",
+      "target": "Fanm_Anbisye",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_4",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 14:59:43+00:00"],
+        "tweets": ["https://twitter.com/6oldie6alactic/status/1463160338589884422"]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "AFinPxKnrQ8JA1c",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_5",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-21 08:36:08+00:00"],
+        "tweets": ["https://twitter.com/AbulHassna/status/1462339030557806596"]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "AlrefaeeMustafa",
+      "size": 18,
+      "label": "has RT",
+      "id": "edge_6",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-24 08:32:35+00:00",
+          "2021-11-24 08:32:26+00:00",
+          "2021-11-24 08:32:14+00:00",
+          "2021-11-24 08:32:03+00:00",
+          "2021-11-24 08:31:45+00:00",
+          "2021-11-21 08:10:06+00:00",
+          "2021-11-21 08:09:55+00:00",
+          "2021-11-21 08:09:44+00:00",
+          "2021-11-21 08:09:31+00:00",
+          "2021-11-18 11:04:39+00:00",
+          "2021-11-18 11:04:11+00:00",
+          "2021-11-18 11:03:59+00:00",
+          "2021-11-18 11:03:46+00:00",
+          "2021-11-18 11:02:50+00:00",
+          "2021-11-17 12:07:07+00:00",
+          "2021-11-17 12:05:56+00:00",
+          "2021-11-17 12:04:47+00:00",
+          "2021-11-17 12:04:16+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AbulHassna/status/1463425302625935363",
+          "https://twitter.com/AbulHassna/status/1463425261349879810",
+          "https://twitter.com/AbulHassna/status/1463425212997771266",
+          "https://twitter.com/AbulHassna/status/1463425166076223488",
+          "https://twitter.com/AbulHassna/status/1463425090746466307",
+          "https://twitter.com/AbulHassna/status/1462332477750620169",
+          "https://twitter.com/AbulHassna/status/1462332431672000514",
+          "https://twitter.com/AbulHassna/status/1462332387703107585",
+          "https://twitter.com/AbulHassna/status/1462332331935637509",
+          "https://twitter.com/AbulHassna/status/1461289242118787073",
+          "https://twitter.com/AbulHassna/status/1461289124564983812",
+          "https://twitter.com/AbulHassna/status/1461289073172262917",
+          "https://twitter.com/AbulHassna/status/1461289018415624194",
+          "https://twitter.com/AbulHassna/status/1461288785354936320",
+          "https://twitter.com/AbulHassna/status/1460942573384708100",
+          "https://twitter.com/AbulHassna/status/1460942279099703303",
+          "https://twitter.com/AbulHassna/status/1460941989239742466",
+          "https://twitter.com/AbulHassna/status/1460941856020254728"
+        ]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "Khuliwi5",
+      "size": 12,
+      "label": "has RT",
+      "id": "edge_7",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-21 08:09:00+00:00",
+          "2021-11-21 08:09:00+00:00",
+          "2021-11-21 08:08:50+00:00",
+          "2021-11-21 08:08:40+00:00",
+          "2021-11-21 08:08:19+00:00",
+          "2021-11-21 08:08:08+00:00",
+          "2021-11-20 20:23:56+00:00",
+          "2021-11-20 20:23:56+00:00",
+          "2021-11-20 20:23:30+00:00",
+          "2021-11-20 20:23:30+00:00",
+          "2021-11-20 20:23:18+00:00",
+          "2021-11-20 20:23:05+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AbulHassna/status/1462332200502841344",
+          "https://twitter.com/AbulHassna/status/1462332200498696193",
+          "https://twitter.com/AbulHassna/status/1462332158492696581",
+          "https://twitter.com/AbulHassna/status/1462332119137542146",
+          "https://twitter.com/AbulHassna/status/1462332028343488513",
+          "https://twitter.com/AbulHassna/status/1462331982122266625",
+          "https://twitter.com/AbulHassna/status/1462154765341704196",
+          "https://twitter.com/AbulHassna/status/1462154764968419328",
+          "https://twitter.com/AbulHassna/status/1462154657476886528",
+          "https://twitter.com/AbulHassna/status/1462154657455869954",
+          "https://twitter.com/AbulHassna/status/1462154605220044808",
+          "https://twitter.com/AbulHassna/status/1462154554561159180"
+        ]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "Muslim40066720",
+      "size": 8,
+      "label": "has RT",
+      "id": "edge_8",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-24 08:28:00+00:00",
+          "2021-11-24 08:22:04+00:00",
+          "2021-11-20 19:59:42+00:00",
+          "2021-11-20 19:59:13+00:00",
+          "2021-11-20 19:59:02+00:00",
+          "2021-11-19 07:33:19+00:00",
+          "2021-11-18 10:39:50+00:00",
+          "2021-11-17 11:56:32+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AbulHassna/status/1463424148429021186",
+          "https://twitter.com/AbulHassna/status/1463422655948808193",
+          "https://twitter.com/AbulHassna/status/1462148667972988939",
+          "https://twitter.com/AbulHassna/status/1462148547902644229",
+          "https://twitter.com/AbulHassna/status/1462148501916291074",
+          "https://twitter.com/AbulHassna/status/1461598448168407042",
+          "https://twitter.com/AbulHassna/status/1461282997756436482",
+          "https://twitter.com/AbulHassna/status/1460939912115589123"
+        ]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "Phalastini8787",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_9",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-19 07:58:52+00:00",
+          "2021-11-19 07:58:30+00:00",
+          "2021-11-19 07:58:18+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AbulHassna/status/1461604876400660481",
+          "https://twitter.com/AbulHassna/status/1461604785359044610",
+          "https://twitter.com/AbulHassna/status/1461604732682842112"
+        ]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "bariq_ismael",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_10",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-19 07:40:11+00:00",
+          "2021-11-18 11:03:11+00:00",
+          "2021-11-17 12:04:38+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AbulHassna/status/1461600176112807937",
+          "https://twitter.com/AbulHassna/status/1461288872571248652",
+          "https://twitter.com/AbulHassna/status/1460941951000272899"
+        ]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "dinodz35",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_11",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 08:07:48+00:00"],
+        "tweets": ["https://twitter.com/AbulHassna/status/1461607123733917696"]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "islamsunnaa",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_12",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-24 08:31:33+00:00",
+          "2021-11-20 20:26:05+00:00",
+          "2021-11-17 12:08:34+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AbulHassna/status/1463425039555088386",
+          "https://twitter.com/AbulHassna/status/1462155307451396097",
+          "https://twitter.com/AbulHassna/status/1460942940235304965"
+        ]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "raidi1000",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_13",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-20 20:24:14+00:00",
+          "2021-11-18 11:02:39+00:00",
+          "2021-11-17 12:03:47+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AbulHassna/status/1462154839992020996",
+          "https://twitter.com/AbulHassna/status/1461288737606934528",
+          "https://twitter.com/AbulHassna/status/1460941735174025222"
+        ]
+      }
+    },
+    {
+      "source": "Ahmad78534324",
+      "target": "Laas39066189",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_14",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-24 11:01:46+00:00",
+          "2021-11-19 15:14:58+00:00",
+          "2021-11-19 15:14:53+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Ahmad78534324/status/1463462842808647686",
+          "https://twitter.com/Ahmad78534324/status/1461714624236199938",
+          "https://twitter.com/Ahmad78534324/status/1461714604439003136"
+        ]
+      }
+    },
+    {
+      "source": "AhmedFO24219903",
+      "target": "Muslim40066720",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_15",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-20 20:15:18+00:00",
+          "2021-11-20 20:15:12+00:00",
+          "2021-11-19 08:33:39+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AhmedFO24219903/status/1462152593300504582",
+          "https://twitter.com/AhmedFO24219903/status/1462152568000421901",
+          "https://twitter.com/AhmedFO24219903/status/1461613630747820035"
+        ]
+      }
+    },
+    {
+      "source": "AhmedFO24219903",
+      "target": "Phalastini8787",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_16",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-19 08:36:13+00:00",
+          "2021-11-19 08:35:55+00:00",
+          "2021-11-19 08:35:21+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AhmedFO24219903/status/1461614275521355781",
+          "https://twitter.com/AhmedFO24219903/status/1461614200715890691",
+          "https://twitter.com/AhmedFO24219903/status/1461614057476218880"
+        ]
+      }
+    },
+    {
+      "source": "AhmedFO24219903",
+      "target": "bariq_ismael",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_17",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 08:35:24+00:00", "2021-11-17 12:38:36+00:00"],
+        "tweets": [
+          "https://twitter.com/AhmedFO24219903/status/1461614068754702341",
+          "https://twitter.com/AhmedFO24219903/status/1460950496508792837"
+        ]
+      }
+    },
+    {
+      "source": "AhmedFO24219903",
+      "target": "dinodz35",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_18",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 08:34:35+00:00"],
+        "tweets": ["https://twitter.com/AhmedFO24219903/status/1461613865494589442"]
+      }
+    },
+    {
+      "source": "AhmedFO24219903",
+      "target": "raidi1000",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_19",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 12:38:54+00:00"],
+        "tweets": ["https://twitter.com/AhmedFO24219903/status/1460950571796549639"]
+      }
+    },
+    {
+      "source": "Almstor2",
+      "target": "Muslim40066720",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_20",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 12:12:06+00:00", "2021-11-17 13:44:33+00:00"],
+        "tweets": [
+          "https://twitter.com/Almstor2/status/1461306216018325506",
+          "https://twitter.com/Almstor2/status/1460967092820361221"
+        ]
+      }
+    },
+    {
+      "source": "Almstor2",
+      "target": "bariq_ismael",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_21",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 13:39:02+00:00"],
+        "tweets": ["https://twitter.com/Almstor2/status/1460965704983851010"]
+      }
+    },
+    {
+      "source": "Almstor2",
+      "target": "raidi1000",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_22",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 13:00:16+00:00", "2021-11-17 13:42:38+00:00"],
+        "tweets": [
+          "https://twitter.com/Almstor2/status/1461318340362878982",
+          "https://twitter.com/Almstor2/status/1460966611167424518"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "Baeaaelaml",
+      "size": 3,
+      "label": "has quoted",
+      "id": "edge_23",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-24 00:04:31+00:00",
+          "2021-11-20 00:23:18+00:00",
+          "2021-11-14 07:00:42+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1463297442905042949",
+          "https://twitter.com/AlrefaeeMustafa/status/1461852616581857282",
+          "https://twitter.com/AlrefaeeMustafa/status/1459778297529782272"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "BosaynaRYad",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_24",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 22:54:03+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1461105380155658241"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "Daaaaaarsh1",
+      "size": 2,
+      "label": "has quoted",
+      "id": "edge_25",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-21 23:46:24+00:00", "2021-11-21 23:42:49+00:00"],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1462568105981456399",
+          "https://twitter.com/AlrefaeeMustafa/status/1462567204461887489"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "HAlexTahreg",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_26",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-10 00:34:58+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1458231673154412545"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "JamalSufian",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_27",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-15 14:16:25+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1460250337051357188"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "LjwDuwG1Vw79MIH",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_28",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-24 00:05:15+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1463297625407594503"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "M1ftGbTugB5tpiO",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_29",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-24 00:07:23+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1463298162911809542"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "PalyStey",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_30",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 10:55:57+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1460924666135166980"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "PfpZfUXenLauGAi",
+      "size": 2,
+      "label": "has quoted",
+      "id": "edge_31",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-15 23:51:51+00:00", "2021-11-15 23:51:30+00:00"],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1460395149792620547",
+          "https://twitter.com/AlrefaeeMustafa/status/1460395063016517634"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "Raa238a",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_32",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 22:53:38+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1461105276019482625"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "Shaimaa26233793",
+      "size": 2,
+      "label": "has quoted",
+      "id": "edge_33",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-22 23:12:23+00:00", "2021-11-20 23:41:40+00:00"],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1462921934459621378",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204528149860361"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "T5khqkRESWURMFj",
+      "size": 4,
+      "label": "has quoted",
+      "id": "edge_34",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-22 23:14:34+00:00",
+          "2021-11-20 23:40:56+00:00",
+          "2021-11-19 09:10:09+00:00",
+          "2021-11-17 22:52:41+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1462922484110565380",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204343743045636",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622815455686660",
+          "https://twitter.com/AlrefaeeMustafa/status/1461105036440789000"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "TurkiShalhoub",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_35",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-16 00:01:28+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1460397572200218631"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "YamenAl22447075",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_36",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-20 23:42:17+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1462204682403782656"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "aer0ay",
+      "size": 2,
+      "label": "has quoted",
+      "id": "edge_37",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 09:10:50+00:00", "2021-11-17 10:58:06+00:00"],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1461622985417187331",
+          "https://twitter.com/AlrefaeeMustafa/status/1460925207808512003"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "hdayh13",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_38",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 22:58:52+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1461106591420358657"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "lcg8WG2QQ1tsPQl",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_39",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-15 23:50:18+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1460394762184314889"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "liphip12",
+      "size": 2,
+      "label": "has quoted",
+      "id": "edge_40",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 10:50:36+00:00", "2021-11-14 06:55:45+00:00"],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1460923318702329860",
+          "https://twitter.com/AlrefaeeMustafa/status/1459777051477659652"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "lnaallah77",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_41",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-24 00:08:17+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1463298390368870402"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "m10832253",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_42",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-14 07:04:01+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1459779135514025985"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "mariamkalamm",
+      "size": 3,
+      "label": "has quoted",
+      "id": "edge_43",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-24 00:08:39+00:00",
+          "2021-11-20 23:40:38+00:00",
+          "2021-11-19 09:08:49+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1463298479908864001",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204268795109378",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622481937129472"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "moh_elashy",
+      "size": 2,
+      "label": "has quoted",
+      "id": "edge_44",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-21 23:41:11+00:00", "2021-11-12 01:11:52+00:00"],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1462566793927606281",
+          "https://twitter.com/AlrefaeeMustafa/status/1458965737607938052"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "muslim2day",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_45",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-12 01:13:15+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1458966084078424069"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "omar_ahmedomar",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_46",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-12 01:11:32+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1458965652618854401"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "osamaAh73502553",
+      "size": 2,
+      "label": "has quoted",
+      "id": "edge_47",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 09:10:29+00:00", "2021-11-17 10:50:49+00:00"],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1461622898888695812",
+          "https://twitter.com/AlrefaeeMustafa/status/1460923371881959425"
+        ]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "pJ5wZCHBkkXR0KS",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_48",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 22:56:22+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1461105964476678149"]
+      }
+    },
+    {
+      "source": "AlrefaeeMustafa",
+      "target": "samr_155",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_49",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-22 23:14:16+00:00"],
+        "tweets": ["https://twitter.com/AlrefaeeMustafa/status/1462922407216353281"]
+      }
+    },
+    {
+      "source": "Alzhraflower",
+      "target": "boody201348",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_50",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-22 16:01:34+00:00"],
+        "tweets": ["https://twitter.com/Alzhraflower/status/1462813514561736714"]
+      }
+    },
+    {
+      "source": "Baeaaelaml",
+      "target": "AlrefaeeMustafa",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_51",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-20 00:24:23+00:00"],
+        "tweets": ["https://twitter.com/Baeaaelaml/status/1461852888007913473"]
+      }
+    },
+    {
+      "source": "BoZak_and_Taha",
+      "target": "fallofthefranks",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_52",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-16 14:23:09+00:00"],
+        "tweets": ["https://twitter.com/BoZak_and_Taha/status/1460614420950917120"]
+      }
+    },
+    {
+      "source": "Daaaaaarsh1",
+      "target": "AlrefaeeMustafa",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_53",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-22 05:38:52+00:00", "2021-11-22 05:38:48+00:00"],
+        "tweets": [
+          "https://twitter.com/Daaaaaarsh1/status/1462656807906811909",
+          "https://twitter.com/Daaaaaarsh1/status/1462656789099470849"
+        ]
+      }
+    },
+    {
+      "source": "FasoDen1",
+      "target": "RFI",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_54",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-21 12:33:56+00:00"],
+        "tweets": ["https://twitter.com/FasoDen1/status/1462398874635624453"]
+      }
+    },
+    {
+      "source": "Fatihas86524105",
+      "target": "Eman_Abdrabboh",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_55",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 22:41:35+00:00"],
+        "tweets": ["https://twitter.com/Fatihas86524105/status/1461827021110185991"]
+      }
+    },
+    {
+      "source": "HGVJoker",
+      "target": "DailyMailUK",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_56",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 13:05:07+00:00"],
+        "tweets": ["https://twitter.com/HGVJoker/status/1463131499360927748"]
+      }
+    },
+    {
+      "source": "Ilina_tekayah",
+      "target": "AlrefaeeMustafa",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_57",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 10:51:15+00:00", "2021-11-22 21:05:27+00:00"],
+        "tweets": [
+          "https://twitter.com/Ilina_tekayah/status/1463097809406676992",
+          "https://twitter.com/Ilina_tekayah/status/1462889990464155656"
+        ]
+      }
+    },
+    {
+      "source": "Ilina_tekayah",
+      "target": "Khuliwi5",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_58",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-24 19:29:58+00:00",
+          "2021-11-21 20:09:18+00:00",
+          "2021-11-17 21:39:12+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Ilina_tekayah/status/1463590736935501824",
+          "https://twitter.com/Ilina_tekayah/status/1462513471136972819",
+          "https://twitter.com/Ilina_tekayah/status/1461086544073302018"
+        ]
+      }
+    },
+    {
+      "source": "Ilina_tekayah",
+      "target": "bariq_ismael",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_59",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-22 21:04:33+00:00"],
+        "tweets": ["https://twitter.com/Ilina_tekayah/status/1462889761878728705"]
+      }
+    },
+    {
+      "source": "Ilina_tekayah",
+      "target": "islamsunnaa",
+      "size": 5,
+      "label": "has RT",
+      "id": "edge_60",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-25 07:43:57+00:00",
+          "2021-11-23 10:47:56+00:00",
+          "2021-11-22 21:05:16+00:00",
+          "2021-11-20 12:13:24+00:00",
+          "2021-11-20 12:12:17+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Ilina_tekayah/status/1463775450199740417",
+          "https://twitter.com/Ilina_tekayah/status/1463096973993689089",
+          "https://twitter.com/Ilina_tekayah/status/1462889943743803395",
+          "https://twitter.com/Ilina_tekayah/status/1462031320788443141",
+          "https://twitter.com/Ilina_tekayah/status/1462031036909596678"
+        ]
+      }
+    },
+    {
+      "source": "Ilina_tekayah",
+      "target": "raidi1000",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_61",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 10:50:14+00:00"],
+        "tweets": ["https://twitter.com/Ilina_tekayah/status/1463097552816021512"]
+      }
+    },
+    {
+      "source": "LjwDuwG1Vw79MIH",
+      "target": "AlrefaeeMustafa",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_62",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-24 12:27:39+00:00"],
+        "tweets": ["https://twitter.com/LjwDuwG1Vw79MIH/status/1463484457894260737"]
+      }
+    },
+    {
+      "source": "MS55716129",
+      "target": "Laas39066189",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_63",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-16 15:10:54+00:00"],
+        "tweets": ["https://twitter.com/MS55716129/status/1460626437753421830"]
+      }
+    },
+    {
+      "source": "Mahmoudelshab",
+      "target": "drassagheer",
+      "size": 2,
+      "label": "has quoted",
+      "id": "edge_64",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 07:53:28+00:00", "2021-11-12 15:20:27+00:00"],
+        "tweets": [
+          "https://twitter.com/Mahmoudelshab/status/1463053069197971459",
+          "https://twitter.com/Mahmoudelshab/status/1459179288352149507"
+        ]
+      }
+    },
+    {
+      "source": "Mahmoudelshab",
+      "target": "fbijarch",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_65",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-11 09:54:10+00:00"],
+        "tweets": ["https://twitter.com/Mahmoudelshab/status/1458734789247262720"]
+      }
+    },
+    {
+      "source": "MaryemChreif",
+      "target": "Phalastini8787",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_66",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 14:45:52+00:00"],
+        "tweets": ["https://twitter.com/MaryemChreif/status/1461707301560147975"]
+      }
+    },
+    {
+      "source": "MohamedMandraw1",
+      "target": "Khuliwi5",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_67",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-21 09:29:24+00:00",
+          "2021-11-21 09:28:47+00:00",
+          "2021-11-21 09:28:42+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/MohamedMandraw1/status/1462352433972232194",
+          "https://twitter.com/MohamedMandraw1/status/1462352281890967554",
+          "https://twitter.com/MohamedMandraw1/status/1462352260705529856"
+        ]
+      }
+    },
+    {
+      "source": "Mohamma32495175",
+      "target": "AlrefaeeMustafa",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_68",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-21 13:36:18+00:00"],
+        "tweets": ["https://twitter.com/Mohamma32495175/status/1462414568718807050"]
+      }
+    },
+    {
+      "source": "NamirShadid",
+      "target": "Phalastini8787",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_69",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 15:32:28+00:00"],
+        "tweets": ["https://twitter.com/NamirShadid/status/1461719030465712132"]
+      }
+    },
+    {
+      "source": "NeilEastell",
+      "target": "HGVJoker",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_70",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-25 09:19:30+00:00"],
+        "tweets": ["https://twitter.com/NeilEastell/status/1463799496660369411"]
+      }
+    },
+    {
+      "source": "NiNa12082576",
+      "target": "lupomannaro777",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_71",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-16 23:02:38+00:00", "2021-11-16 23:02:28+00:00"],
+        "tweets": [
+          "https://twitter.com/NiNa12082576/status/1460745151555551235",
+          "https://twitter.com/NiNa12082576/status/1460745111604711428"
+        ]
+      }
+    },
+    {
+      "source": "Nonso_general",
+      "target": "Fanm_Anbisye",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_72",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 15:00:13+00:00"],
+        "tweets": ["https://twitter.com/Nonso_general/status/1463160462619648008"]
+      }
+    },
+    {
+      "source": "Omar___Karim",
+      "target": "Laas39066189",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_73",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 17:55:57+00:00"],
+        "tweets": ["https://twitter.com/Omar___Karim/status/1461755136284381184"]
+      }
+    },
+    {
+      "source": "Shaimaa26233793",
+      "target": "AlrefaeeMustafa",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_74",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 00:03:00+00:00", "2021-11-21 02:49:54+00:00"],
+        "tweets": [
+          "https://twitter.com/Shaimaa26233793/status/1462934671738740740",
+          "https://twitter.com/Shaimaa26233793/status/1462251899604852736"
+        ]
+      }
+    },
+    {
+      "source": "Tahir88243680",
+      "target": "Mahmoudelshab",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_75",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 11:53:49+00:00"],
+        "tweets": ["https://twitter.com/Tahir88243680/status/1463113553737654276"]
+      }
+    },
+    {
+      "source": "Yahia55989428",
+      "target": "derda990",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_76",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-22 14:14:43+00:00"],
+        "tweets": ["https://twitter.com/Yahia55989428/status/1462786627529588737"]
+      }
+    },
+    {
+      "source": "Yahia55989428",
+      "target": "lupomannaro777",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_77",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-21 15:37:49+00:00"],
+        "tweets": ["https://twitter.com/Yahia55989428/status/1462445152115564546"]
+      }
+    },
+    {
+      "source": "abdessamed154",
+      "target": "lupomannaro777",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_78",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-24 16:45:36+00:00"],
+        "tweets": ["https://twitter.com/abdessamed154/status/1463549373166592002"]
+      }
+    },
+    {
+      "source": "abutaraf410225",
+      "target": "1PijVT1D3GIgwpG",
+      "size": 5,
+      "label": "has RT",
+      "id": "edge_79",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-19 09:56:46+00:00",
+          "2021-11-18 10:09:36+00:00",
+          "2021-11-18 10:09:35+00:00",
+          "2021-11-18 10:09:32+00:00",
+          "2021-11-18 10:09:29+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/abutaraf410225/status/1461634547494313987",
+          "https://twitter.com/abutaraf410225/status/1461275389704253446",
+          "https://twitter.com/abutaraf410225/status/1461275385354674177",
+          "https://twitter.com/abutaraf410225/status/1461275372666986499",
+          "https://twitter.com/abutaraf410225/status/1461275359782002690"
+        ]
+      }
+    },
+    {
+      "source": "abutaraf410225",
+      "target": "AlrefaeeMustafa",
+      "size": 4,
+      "label": "has RT",
+      "id": "edge_80",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-19 09:52:54+00:00",
+          "2021-11-19 09:52:50+00:00",
+          "2021-11-19 09:52:47+00:00",
+          "2021-11-19 09:52:45+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/abutaraf410225/status/1461633573774102531",
+          "https://twitter.com/abutaraf410225/status/1461633556644519940",
+          "https://twitter.com/abutaraf410225/status/1461633543541604356",
+          "https://twitter.com/abutaraf410225/status/1461633535022968833"
+        ]
+      }
+    },
+    {
+      "source": "abutaraf410225",
+      "target": "Bo__Rajab",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_81",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 10:08:46+00:00", "2021-11-18 10:08:45+00:00"],
+        "tweets": [
+          "https://twitter.com/abutaraf410225/status/1461275179833774086",
+          "https://twitter.com/abutaraf410225/status/1461275175622742019"
+        ]
+      }
+    },
+    {
+      "source": "abutaraf410225",
+      "target": "IbrahimAGHA4",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_82",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 09:51:02+00:00"],
+        "tweets": ["https://twitter.com/abutaraf410225/status/1461633105169690626"]
+      }
+    },
+    {
+      "source": "abutaraf410225",
+      "target": "dinodz35",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_83",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 10:08:52+00:00"],
+        "tweets": ["https://twitter.com/abutaraf410225/status/1461275205272322056"]
+      }
+    },
+    {
+      "source": "bashar123418",
+      "target": "AlrefaeeMustafa",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_84",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-16 16:56:47+00:00", "2021-11-16 14:59:45+00:00"],
+        "tweets": [
+          "https://twitter.com/bashar123418/status/1460653085051789325",
+          "https://twitter.com/bashar123418/status/1460623629792784390"
+        ]
+      }
+    },
+    {
+      "source": "bashar123418",
+      "target": "Bo__Rajab",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_85",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-22 13:31:32+00:00"],
+        "tweets": ["https://twitter.com/bashar123418/status/1462775757009215488"]
+      }
+    },
+    {
+      "source": "derda990",
+      "target": "UtancGunlugu",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_86",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-22 13:24:41+00:00"],
+        "tweets": ["https://twitter.com/derda990/status/1462774032986783745"]
+      }
+    },
+    {
+      "source": "fighter009988",
+      "target": "AlrefaeeMustafa",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_87",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 00:14:02+00:00"],
+        "tweets": ["https://twitter.com/fighter009988/status/1462937448099549184"]
+      }
+    },
+    {
+      "source": "hdayh13",
+      "target": "AlrefaeeMustafa",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_88",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 23:32:27+00:00"],
+        "tweets": ["https://twitter.com/hdayh13/status/1461115043903332352"]
+      }
+    },
+    {
+      "source": "hosamhosam1972",
+      "target": "fallofthefranks",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_89",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-20 14:30:09+00:00"],
+        "tweets": ["https://twitter.com/hosamhosam1972/status/1462065735983943691"]
+      }
+    },
+    {
+      "source": "iJugyy4BfvdYC0U",
+      "target": "lupomannaro777",
+      "size": 9,
+      "label": "has RT",
+      "id": "edge_90",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-25 06:23:29+00:00",
+          "2021-11-23 17:03:32+00:00",
+          "2021-11-23 17:03:29+00:00",
+          "2021-11-22 13:36:53+00:00",
+          "2021-11-22 13:36:50+00:00",
+          "2021-11-22 13:36:47+00:00",
+          "2021-11-22 13:36:44+00:00",
+          "2021-11-20 15:30:43+00:00",
+          "2021-11-19 22:32:53+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1463755201270059008",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1463191499621994500",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1463191487085264898",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462777104974630914",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462777091087380485",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462777081100652552",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462777066135371777",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462080976658571267",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1461824829699473408"
+        ]
+      }
+    },
+    {
+      "source": "john_kilmister",
+      "target": "HGVJoker",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_91",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-25 09:21:04+00:00"],
+        "tweets": ["https://twitter.com/john_kilmister/status/1463799887900954625"]
+      }
+    },
+    {
+      "source": "lupomannaro777",
+      "target": "drassagheer",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_92",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-21 15:25:25+00:00"],
+        "tweets": ["https://twitter.com/lupomannaro777/status/1462442029351325696"]
+      }
+    },
+    {
+      "source": "majhol_majholzx",
+      "target": "TRTArabi",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_93",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-13 05:02:10+00:00"],
+        "tweets": ["https://twitter.com/majhol_majholzx/status/1459386082701815810"]
+      }
+    },
+    {
+      "source": "mans33ah",
+      "target": "mdmuflehi",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_94",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 12:37:02+00:00"],
+        "tweets": ["https://twitter.com/mans33ah/status/1460950104727343107"]
+      }
+    },
+    {
+      "source": "mkatmntf",
+      "target": "Bo__Rajab",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_95",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 09:14:48+00:00"],
+        "tweets": ["https://twitter.com/mkatmntf/status/1461261599617036290"]
+      }
+    },
+    {
+      "source": "mkatmntf",
+      "target": "Laas39066189",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_96",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-24 15:57:31+00:00"],
+        "tweets": ["https://twitter.com/mkatmntf/status/1463537271198658560"]
+      }
+    },
+    {
+      "source": "mkatmntf",
+      "target": "raidi1000",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_97",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 11:53:19+00:00"],
+        "tweets": ["https://twitter.com/mkatmntf/status/1461301489822060544"]
+      }
+    },
+    {
+      "source": "mwarlimd77",
+      "target": "AuresDz3",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_98",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 00:48:52+00:00"],
+        "tweets": ["https://twitter.com/mwarlimd77/status/1461496665039200256"]
+      }
+    },
+    {
+      "source": "mwarlimd77",
+      "target": "Phalastini8787",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_99",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 00:49:38+00:00"],
+        "tweets": ["https://twitter.com/mwarlimd77/status/1461496854701432832"]
+      }
+    },
+    {
+      "source": "mwarlimd77",
+      "target": "WavingServant",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_100",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 12:44:47+00:00"],
+        "tweets": ["https://twitter.com/mwarlimd77/status/1461314443338346496"]
+      }
+    },
+    {
+      "source": "mwarlimd77",
+      "target": "fallofthefranks",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_101",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 00:49:54+00:00", "2021-11-19 00:48:26+00:00"],
+        "tweets": [
+          "https://twitter.com/mwarlimd77/status/1461496925379698692",
+          "https://twitter.com/mwarlimd77/status/1461496555727306753"
+        ]
+      }
+    },
+    {
+      "source": "mwarlimd77",
+      "target": "tanbourasam",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_102",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 12:44:26+00:00"],
+        "tweets": ["https://twitter.com/mwarlimd77/status/1461314353123053569"]
+      }
+    },
+    {
+      "source": "nLH6wbFds57zX4Y",
+      "target": "Khuliwi5",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_103",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-20 20:32:41+00:00", "2021-11-20 20:25:07+00:00"],
+        "tweets": [
+          "https://twitter.com/nLH6wbFds57zX4Y/status/1462156966583750657",
+          "https://twitter.com/nLH6wbFds57zX4Y/status/1462155063225430018"
+        ]
+      }
+    },
+    {
+      "source": "nasser_allm",
+      "target": "Khuliwi5",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_104",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-20 20:30:50+00:00"],
+        "tweets": ["https://twitter.com/nasser_allm/status/1462156502656028678"]
+      }
+    },
+    {
+      "source": "osamaAh73502553",
+      "target": "AlrefaeeMustafa",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_105",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-20 07:07:19+00:00"],
+        "tweets": ["https://twitter.com/osamaAh73502553/status/1461954292097630209"]
+      }
+    },
+    {
+      "source": "saadturky75",
+      "target": "Khuliwi5",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_106",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-24 19:41:52+00:00"],
+        "tweets": ["https://twitter.com/saadturky75/status/1463593729546203138"]
+      }
+    },
+    {
+      "source": "samr_155",
+      "target": "AlrefaeeMustafa",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_107",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 08:20:18+00:00"],
+        "tweets": ["https://twitter.com/samr_155/status/1463059822413238272"]
+      }
+    },
+    {
+      "source": "shrouky14297342",
+      "target": "Laas39066189",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_108",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-24 15:50:24+00:00",
+          "2021-11-23 16:23:20+00:00",
+          "2021-11-16 16:15:59+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/shrouky14297342/status/1463535482646802443",
+          "https://twitter.com/shrouky14297342/status/1463181382067408903",
+          "https://twitter.com/shrouky14297342/status/1460642814413484039"
+        ]
+      }
+    },
+    {
+      "source": "shrouky14297342",
+      "target": "VLUBzD7eu9miDJz",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_109",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-22 16:25:25+00:00",
+          "2021-11-20 19:18:05+00:00",
+          "2021-11-18 18:21:42+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/shrouky14297342/status/1462819518632411148",
+          "https://twitter.com/shrouky14297342/status/1462138195123093511",
+          "https://twitter.com/shrouky14297342/status/1461399230661242885"
+        ]
+      }
+    },
+    {
+      "source": "shrouky14297342",
+      "target": "dinodz35",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_110",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-20 18:45:36+00:00"],
+        "tweets": ["https://twitter.com/shrouky14297342/status/1462130021779320836"]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "AlrefaeeMustafa",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_111",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-17 14:56:08+00:00"],
+        "tweets": ["https://twitter.com/sohailayasser52/status/1460985111143501826"]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "IbrahimAGHA4",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_112",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-24 14:53:40+00:00"],
+        "tweets": ["https://twitter.com/sohailayasser52/status/1463521205126848522"]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "Laas39066189",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_113",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-19 17:52:23+00:00", "2021-11-16 14:44:11+00:00"],
+        "tweets": [
+          "https://twitter.com/sohailayasser52/status/1461754238829223940",
+          "https://twitter.com/sohailayasser52/status/1460619713801773059"
+        ]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "Mahmoudelshab",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_114",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 14:50:41+00:00"],
+        "tweets": ["https://twitter.com/sohailayasser52/status/1463158064169762825"]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "Rama_Albaj",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_115",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-24 14:53:36+00:00",
+          "2021-11-21 14:56:45+00:00",
+          "2021-11-20 14:59:55+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/sohailayasser52/status/1463521186990727170",
+          "https://twitter.com/sohailayasser52/status/1462434817996468226",
+          "https://twitter.com/sohailayasser52/status/1462073226780098566"
+        ]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "bariq_ismael",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_116",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 14:56:54+00:00"],
+        "tweets": ["https://twitter.com/sohailayasser52/status/1463159630356529159"]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "din_khayr",
+      "size": 11,
+      "label": "has RT",
+      "id": "edge_117",
+      "type": "arrow",
+      "metadata": {
+        "date": [
+          "2021-11-23 14:52:00+00:00",
+          "2021-11-18 17:55:30+00:00",
+          "2021-11-18 17:55:29+00:00",
+          "2021-11-18 17:55:26+00:00",
+          "2021-11-18 17:55:23+00:00",
+          "2021-11-18 17:55:22+00:00",
+          "2021-11-18 17:55:19+00:00",
+          "2021-11-18 17:55:17+00:00",
+          "2021-11-18 17:55:14+00:00",
+          "2021-11-18 17:55:13+00:00",
+          "2021-11-18 17:55:10+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/sohailayasser52/status/1463158394202775555",
+          "https://twitter.com/sohailayasser52/status/1461392638058315779",
+          "https://twitter.com/sohailayasser52/status/1461392631871811595",
+          "https://twitter.com/sohailayasser52/status/1461392618030571529",
+          "https://twitter.com/sohailayasser52/status/1461392607720914946",
+          "https://twitter.com/sohailayasser52/status/1461392601190391816",
+          "https://twitter.com/sohailayasser52/status/1461392588431368199",
+          "https://twitter.com/sohailayasser52/status/1461392583381377033",
+          "https://twitter.com/sohailayasser52/status/1461392570911756301",
+          "https://twitter.com/sohailayasser52/status/1461392563802365961",
+          "https://twitter.com/sohailayasser52/status/1461392552456826882"
+        ]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "dinodz35",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_118",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 14:51:19+00:00"],
+        "tweets": ["https://twitter.com/sohailayasser52/status/1463158222534098946"]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "islamsunnaa",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_119",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 17:44:02+00:00"],
+        "tweets": ["https://twitter.com/sohailayasser52/status/1461389751890722825"]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "khairallah10",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_120",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-18 17:52:07+00:00"],
+        "tweets": ["https://twitter.com/sohailayasser52/status/1461391786832760845"]
+      }
+    },
+    {
+      "source": "sshaw04",
+      "target": "HGVJoker",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_121",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 13:09:47+00:00"],
+        "tweets": ["https://twitter.com/sshaw04/status/1463132673308823556"]
+      }
+    },
+    {
+      "source": "veBEGkgneUcEjW8",
+      "target": "lupomannaro777",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_122",
+      "type": "arrow",
+      "metadata": {
+        "date": ["2021-11-23 16:59:19+00:00"],
+        "tweets": ["https://twitter.com/veBEGkgneUcEjW8/status/1463190435183177736"]
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "3sl7WfDJRCtQUYi",
+      "label": "@3sl7WfDJRCtQUYi",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-16 14:28:23+00:00"],
+        "tweets": ["https://twitter.com/3sl7WfDJRCtQUYi/status/1460615736326504450"]
+      },
+      "x": 0.20521383621192082,
+      "y": 0.38566707401851247
+    },
+    {
+      "id": "fallofthefranks",
+      "label": "@fallofthefranks",
+      "size": 8,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-16 13:24:49+00:00",
+          "2021-11-16 13:34:47+00:00",
+          "2021-11-18 01:36:31+00:00",
+          "2021-11-18 01:38:43+00:00",
+          "2021-11-20 14:21:53+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/fallofthefranks/status/1460599742686240770",
+          "https://twitter.com/fallofthefranks/status/1460602248015273991",
+          "https://twitter.com/fallofthefranks/status/1461146268592480257",
+          "https://twitter.com/fallofthefranks/status/1461146820525101062",
+          "https://twitter.com/fallofthefranks/status/1462063654837403676"
+        ]
+      },
+      "x": 0.13669855329176225,
+      "y": 0.37520785310061666
+    },
+    {
+      "id": "4DRight",
+      "label": "@4DRight",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-21 17:20:09+00:00", "2021-11-21 17:20:21+00:00"],
+        "tweets": [
+          "https://twitter.com/4DRight/status/1462470905028825096",
+          "https://twitter.com/4DRight/status/1462470953384951808"
+        ]
+      },
+      "x": -0.32599527894276636,
+      "y": -0.13098832431696944
+    },
+    {
+      "id": "1PijVT1D3GIgwpG",
+      "label": "@1PijVT1D3GIgwpG",
+      "size": 7,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-16 07:21:27+00:00",
+          "2021-11-18 08:27:35+00:00",
+          "2021-11-18 08:28:15+00:00",
+          "2021-11-18 08:29:00+00:00",
+          "2021-11-18 08:29:49+00:00",
+          "2021-11-19 08:26:04+00:00",
+          "2021-11-20 08:16:30+00:00",
+          "2021-11-21 12:06:59+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/1PijVT1D3GIgwpG/status/1460508295119228931",
+          "https://twitter.com/1PijVT1D3GIgwpG/status/1461249714364555268",
+          "https://twitter.com/1PijVT1D3GIgwpG/status/1461249881952116738",
+          "https://twitter.com/1PijVT1D3GIgwpG/status/1461250071509577735",
+          "https://twitter.com/1PijVT1D3GIgwpG/status/1461250276044820483",
+          "https://twitter.com/1PijVT1D3GIgwpG/status/1461611720217088000",
+          "https://twitter.com/1PijVT1D3GIgwpG/status/1461971702192222212",
+          "https://twitter.com/1PijVT1D3GIgwpG/status/1462392093498822656"
+        ]
+      },
+      "x": -0.190485446825176,
+      "y": -0.1152650984859686
+    },
+    {
+      "id": "FasoDen1",
+      "label": "@FasoDen1",
+      "size": 2,
+      "from": "has quoted",
+      "metadata": {
+        "date": ["2021-11-21 12:33:56+00:00", "2021-11-21 12:33:56+00:00"],
+        "tweets": [
+          "https://twitter.com/FasoDen1/status/1462398874635624453",
+          "https://twitter.com/FasoDen1/status/1462398874635624453"
+        ]
+      },
+      "x": -0.43807299359302293,
+      "y": -0.14771599154382065
+    },
+    {
+      "id": "52RHOCGbQ0AReRH",
+      "label": "@52RHOCGbQ0AReRH",
+      "size": 8,
+      "from": "has quoted",
+      "metadata": {
+        "date": ["2021-11-10 12:36:20+00:00"],
+        "tweets": ["https://twitter.com/52RHOCGbQ0AReRH/status/1458413211775033349"]
+      },
+      "x": -0.05242961089443911,
+      "y": -0.6030124023212817
+    },
+    {
+      "id": "drassagheer",
+      "label": "@drassagheer",
+      "size": 15,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-10 12:00:19+00:00",
+          "2021-11-12 11:10:25+00:00",
+          "2021-11-21 08:45:26+00:00",
+          "2021-11-23 07:32:53+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/drassagheer/status/1458404147406032898",
+          "https://twitter.com/drassagheer/status/1459116366909296644",
+          "https://twitter.com/drassagheer/status/1462341372489437184",
+          "https://twitter.com/drassagheer/status/1463047890679521286"
+        ]
+      },
+      "x": -0.024891750512054986,
+      "y": -0.5307112465929604
+    },
+    {
+      "id": "6oldie6alactic",
+      "label": "@6oldie6alactic",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-23 14:59:43+00:00"],
+        "tweets": ["https://twitter.com/6oldie6alactic/status/1463160338589884422"]
+      },
+      "x": -0.7623742627781857,
+      "y": 0.569598681029628
+    },
+    {
+      "id": "Fanm_Anbisye",
+      "label": "@Fanm_Anbisye",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-23 14:57:20+00:00"],
+        "tweets": ["https://twitter.com/Fanm_Anbisye/status/1463159739429400584"]
+      },
+      "x": -0.8114695861688321,
+      "y": 0.6132333537602862
+    },
+    {
+      "id": "AbulHassna",
+      "label": "@AbulHassna",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-17 11:56:32+00:00",
+          "2021-11-17 12:03:47+00:00",
+          "2021-11-17 12:04:16+00:00",
+          "2021-11-17 12:04:38+00:00",
+          "2021-11-17 12:04:47+00:00",
+          "2021-11-17 12:05:56+00:00",
+          "2021-11-17 12:07:07+00:00",
+          "2021-11-17 12:08:34+00:00",
+          "2021-11-18 10:39:50+00:00",
+          "2021-11-18 11:02:39+00:00",
+          "2021-11-18 11:02:50+00:00",
+          "2021-11-18 11:03:11+00:00",
+          "2021-11-18 11:03:46+00:00",
+          "2021-11-18 11:03:59+00:00",
+          "2021-11-18 11:04:11+00:00",
+          "2021-11-18 11:04:39+00:00",
+          "2021-11-19 07:33:19+00:00",
+          "2021-11-19 07:40:11+00:00",
+          "2021-11-19 07:58:18+00:00",
+          "2021-11-19 07:58:30+00:00",
+          "2021-11-19 07:58:52+00:00",
+          "2021-11-19 08:07:48+00:00",
+          "2021-11-20 19:59:02+00:00",
+          "2021-11-20 19:59:13+00:00",
+          "2021-11-20 19:59:42+00:00",
+          "2021-11-20 20:23:05+00:00",
+          "2021-11-20 20:23:18+00:00",
+          "2021-11-20 20:23:30+00:00",
+          "2021-11-20 20:23:30+00:00",
+          "2021-11-20 20:23:56+00:00",
+          "2021-11-20 20:23:56+00:00",
+          "2021-11-20 20:24:14+00:00",
+          "2021-11-20 20:26:05+00:00",
+          "2021-11-21 08:08:08+00:00",
+          "2021-11-21 08:08:19+00:00",
+          "2021-11-21 08:08:40+00:00",
+          "2021-11-21 08:08:50+00:00",
+          "2021-11-21 08:09:00+00:00",
+          "2021-11-21 08:09:00+00:00",
+          "2021-11-21 08:09:31+00:00",
+          "2021-11-21 08:09:44+00:00",
+          "2021-11-21 08:09:55+00:00",
+          "2021-11-21 08:10:06+00:00",
+          "2021-11-21 08:36:08+00:00",
+          "2021-11-24 08:22:04+00:00",
+          "2021-11-24 08:28:00+00:00",
+          "2021-11-24 08:31:33+00:00",
+          "2021-11-24 08:31:45+00:00",
+          "2021-11-24 08:32:03+00:00",
+          "2021-11-24 08:32:14+00:00",
+          "2021-11-24 08:32:26+00:00",
+          "2021-11-24 08:32:35+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AbulHassna/status/1460939912115589123",
+          "https://twitter.com/AbulHassna/status/1460941735174025222",
+          "https://twitter.com/AbulHassna/status/1460941856020254728",
+          "https://twitter.com/AbulHassna/status/1460941951000272899",
+          "https://twitter.com/AbulHassna/status/1460941989239742466",
+          "https://twitter.com/AbulHassna/status/1460942279099703303",
+          "https://twitter.com/AbulHassna/status/1460942573384708100",
+          "https://twitter.com/AbulHassna/status/1460942940235304965",
+          "https://twitter.com/AbulHassna/status/1461282997756436482",
+          "https://twitter.com/AbulHassna/status/1461288737606934528",
+          "https://twitter.com/AbulHassna/status/1461288785354936320",
+          "https://twitter.com/AbulHassna/status/1461288872571248652",
+          "https://twitter.com/AbulHassna/status/1461289018415624194",
+          "https://twitter.com/AbulHassna/status/1461289073172262917",
+          "https://twitter.com/AbulHassna/status/1461289124564983812",
+          "https://twitter.com/AbulHassna/status/1461289242118787073",
+          "https://twitter.com/AbulHassna/status/1461598448168407042",
+          "https://twitter.com/AbulHassna/status/1461600176112807937",
+          "https://twitter.com/AbulHassna/status/1461604732682842112",
+          "https://twitter.com/AbulHassna/status/1461604785359044610",
+          "https://twitter.com/AbulHassna/status/1461604876400660481",
+          "https://twitter.com/AbulHassna/status/1461607123733917696",
+          "https://twitter.com/AbulHassna/status/1462148501916291074",
+          "https://twitter.com/AbulHassna/status/1462148547902644229",
+          "https://twitter.com/AbulHassna/status/1462148667972988939",
+          "https://twitter.com/AbulHassna/status/1462154554561159180",
+          "https://twitter.com/AbulHassna/status/1462154605220044808",
+          "https://twitter.com/AbulHassna/status/1462154657476886528",
+          "https://twitter.com/AbulHassna/status/1462154657455869954",
+          "https://twitter.com/AbulHassna/status/1462154764968419328",
+          "https://twitter.com/AbulHassna/status/1462154765341704196",
+          "https://twitter.com/AbulHassna/status/1462154839992020996",
+          "https://twitter.com/AbulHassna/status/1462155307451396097",
+          "https://twitter.com/AbulHassna/status/1462331982122266625",
+          "https://twitter.com/AbulHassna/status/1462332028343488513",
+          "https://twitter.com/AbulHassna/status/1462332119137542146",
+          "https://twitter.com/AbulHassna/status/1462332158492696581",
+          "https://twitter.com/AbulHassna/status/1462332200498696193",
+          "https://twitter.com/AbulHassna/status/1462332200502841344",
+          "https://twitter.com/AbulHassna/status/1462332331935637509",
+          "https://twitter.com/AbulHassna/status/1462332387703107585",
+          "https://twitter.com/AbulHassna/status/1462332431672000514",
+          "https://twitter.com/AbulHassna/status/1462332477750620169",
+          "https://twitter.com/AbulHassna/status/1462339030557806596",
+          "https://twitter.com/AbulHassna/status/1463422655948808193",
+          "https://twitter.com/AbulHassna/status/1463424148429021186",
+          "https://twitter.com/AbulHassna/status/1463425039555088386",
+          "https://twitter.com/AbulHassna/status/1463425090746466307",
+          "https://twitter.com/AbulHassna/status/1463425166076223488",
+          "https://twitter.com/AbulHassna/status/1463425212997771266",
+          "https://twitter.com/AbulHassna/status/1463425261349879810",
+          "https://twitter.com/AbulHassna/status/1463425302625935363"
+        ]
+      },
+      "x": -0.04725181190713028,
+      "y": 0.002839516324908966
+    },
+    {
+      "id": "AFinPxKnrQ8JA1c",
+      "label": "@AFinPxKnrQ8JA1c",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-21 08:20:11+00:00"],
+        "tweets": ["https://twitter.com/AFinPxKnrQ8JA1c/status/1462335016315371528"]
+      },
+      "x": -0.013590924775951058,
+      "y": 0.07949952480251325
+    },
+    {
+      "id": "AlrefaeeMustafa",
+      "label": "@AlrefaeeMustafa",
+      "size": 101,
+      "from": "has quoted",
+      "metadata": {
+        "date": [
+          "2021-11-10 00:34:58+00:00",
+          "2021-11-12 01:11:32+00:00",
+          "2021-11-12 01:11:52+00:00",
+          "2021-11-12 01:13:15+00:00",
+          "2021-11-14 06:55:45+00:00",
+          "2021-11-14 07:00:42+00:00",
+          "2021-11-14 07:04:01+00:00",
+          "2021-11-15 14:16:25+00:00",
+          "2021-11-15 23:50:18+00:00",
+          "2021-11-15 23:51:30+00:00",
+          "2021-11-15 23:51:30+00:00",
+          "2021-11-15 23:51:51+00:00",
+          "2021-11-15 23:51:51+00:00",
+          "2021-11-16 00:01:28+00:00",
+          "2021-11-17 10:50:36+00:00",
+          "2021-11-17 10:50:36+00:00",
+          "2021-11-17 10:50:49+00:00",
+          "2021-11-17 10:50:49+00:00",
+          "2021-11-17 10:55:57+00:00",
+          "2021-11-17 10:55:57+00:00",
+          "2021-11-17 10:58:06+00:00",
+          "2021-11-17 10:58:06+00:00",
+          "2021-11-17 22:52:41+00:00",
+          "2021-11-17 22:52:41+00:00",
+          "2021-11-17 22:53:38+00:00",
+          "2021-11-17 22:53:38+00:00",
+          "2021-11-17 22:54:03+00:00",
+          "2021-11-17 22:54:03+00:00",
+          "2021-11-17 22:56:22+00:00",
+          "2021-11-17 22:56:22+00:00",
+          "2021-11-17 22:58:52+00:00",
+          "2021-11-17 22:58:52+00:00",
+          "2021-11-19 09:08:49+00:00",
+          "2021-11-19 09:08:49+00:00",
+          "2021-11-19 09:10:09+00:00",
+          "2021-11-19 09:10:09+00:00",
+          "2021-11-19 09:10:29+00:00",
+          "2021-11-19 09:10:29+00:00",
+          "2021-11-19 09:10:50+00:00",
+          "2021-11-19 09:10:50+00:00",
+          "2021-11-20 00:23:18+00:00",
+          "2021-11-20 00:23:18+00:00",
+          "2021-11-20 23:40:38+00:00",
+          "2021-11-20 23:40:38+00:00",
+          "2021-11-20 23:40:56+00:00",
+          "2021-11-20 23:40:56+00:00",
+          "2021-11-20 23:41:40+00:00",
+          "2021-11-20 23:41:40+00:00",
+          "2021-11-20 23:42:17+00:00",
+          "2021-11-20 23:42:17+00:00",
+          "2021-11-21 23:41:11+00:00",
+          "2021-11-21 23:41:11+00:00",
+          "2021-11-21 23:42:49+00:00",
+          "2021-11-21 23:42:49+00:00",
+          "2021-11-21 23:46:24+00:00",
+          "2021-11-21 23:46:24+00:00",
+          "2021-11-22 23:12:23+00:00",
+          "2021-11-22 23:12:23+00:00",
+          "2021-11-22 23:14:16+00:00",
+          "2021-11-22 23:14:16+00:00",
+          "2021-11-22 23:14:34+00:00",
+          "2021-11-22 23:14:34+00:00",
+          "2021-11-24 00:04:31+00:00",
+          "2021-11-24 00:04:31+00:00",
+          "2021-11-24 00:05:15+00:00",
+          "2021-11-24 00:05:15+00:00",
+          "2021-11-24 00:07:23+00:00",
+          "2021-11-24 00:07:23+00:00",
+          "2021-11-24 00:08:17+00:00",
+          "2021-11-24 00:08:17+00:00",
+          "2021-11-24 00:08:39+00:00",
+          "2021-11-24 00:08:39+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AlrefaeeMustafa/status/1458231673154412545",
+          "https://twitter.com/AlrefaeeMustafa/status/1458965652618854401",
+          "https://twitter.com/AlrefaeeMustafa/status/1458965737607938052",
+          "https://twitter.com/AlrefaeeMustafa/status/1458966084078424069",
+          "https://twitter.com/AlrefaeeMustafa/status/1459777051477659652",
+          "https://twitter.com/AlrefaeeMustafa/status/1459778297529782272",
+          "https://twitter.com/AlrefaeeMustafa/status/1459779135514025985",
+          "https://twitter.com/AlrefaeeMustafa/status/1460250337051357188",
+          "https://twitter.com/AlrefaeeMustafa/status/1460394762184314889",
+          "https://twitter.com/AlrefaeeMustafa/status/1460395063016517634",
+          "https://twitter.com/AlrefaeeMustafa/status/1460395063016517634",
+          "https://twitter.com/AlrefaeeMustafa/status/1460395149792620547",
+          "https://twitter.com/AlrefaeeMustafa/status/1460395149792620547",
+          "https://twitter.com/AlrefaeeMustafa/status/1460397572200218631",
+          "https://twitter.com/AlrefaeeMustafa/status/1460923318702329860",
+          "https://twitter.com/AlrefaeeMustafa/status/1460923318702329860",
+          "https://twitter.com/AlrefaeeMustafa/status/1460923371881959425",
+          "https://twitter.com/AlrefaeeMustafa/status/1460923371881959425",
+          "https://twitter.com/AlrefaeeMustafa/status/1460924666135166980",
+          "https://twitter.com/AlrefaeeMustafa/status/1460924666135166980",
+          "https://twitter.com/AlrefaeeMustafa/status/1460925207808512003",
+          "https://twitter.com/AlrefaeeMustafa/status/1460925207808512003",
+          "https://twitter.com/AlrefaeeMustafa/status/1461105036440789000",
+          "https://twitter.com/AlrefaeeMustafa/status/1461105036440789000",
+          "https://twitter.com/AlrefaeeMustafa/status/1461105276019482625",
+          "https://twitter.com/AlrefaeeMustafa/status/1461105276019482625",
+          "https://twitter.com/AlrefaeeMustafa/status/1461105380155658241",
+          "https://twitter.com/AlrefaeeMustafa/status/1461105380155658241",
+          "https://twitter.com/AlrefaeeMustafa/status/1461105964476678149",
+          "https://twitter.com/AlrefaeeMustafa/status/1461105964476678149",
+          "https://twitter.com/AlrefaeeMustafa/status/1461106591420358657",
+          "https://twitter.com/AlrefaeeMustafa/status/1461106591420358657",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622481937129472",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622481937129472",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622815455686660",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622815455686660",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622898888695812",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622898888695812",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622985417187331",
+          "https://twitter.com/AlrefaeeMustafa/status/1461622985417187331",
+          "https://twitter.com/AlrefaeeMustafa/status/1461852616581857282",
+          "https://twitter.com/AlrefaeeMustafa/status/1461852616581857282",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204268795109378",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204268795109378",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204343743045636",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204343743045636",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204528149860361",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204528149860361",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204682403782656",
+          "https://twitter.com/AlrefaeeMustafa/status/1462204682403782656",
+          "https://twitter.com/AlrefaeeMustafa/status/1462566793927606281",
+          "https://twitter.com/AlrefaeeMustafa/status/1462566793927606281",
+          "https://twitter.com/AlrefaeeMustafa/status/1462567204461887489",
+          "https://twitter.com/AlrefaeeMustafa/status/1462567204461887489",
+          "https://twitter.com/AlrefaeeMustafa/status/1462568105981456399",
+          "https://twitter.com/AlrefaeeMustafa/status/1462568105981456399",
+          "https://twitter.com/AlrefaeeMustafa/status/1462921934459621378",
+          "https://twitter.com/AlrefaeeMustafa/status/1462921934459621378",
+          "https://twitter.com/AlrefaeeMustafa/status/1462922407216353281",
+          "https://twitter.com/AlrefaeeMustafa/status/1462922407216353281",
+          "https://twitter.com/AlrefaeeMustafa/status/1462922484110565380",
+          "https://twitter.com/AlrefaeeMustafa/status/1462922484110565380",
+          "https://twitter.com/AlrefaeeMustafa/status/1463297442905042949",
+          "https://twitter.com/AlrefaeeMustafa/status/1463297442905042949",
+          "https://twitter.com/AlrefaeeMustafa/status/1463297625407594503",
+          "https://twitter.com/AlrefaeeMustafa/status/1463297625407594503",
+          "https://twitter.com/AlrefaeeMustafa/status/1463298162911809542",
+          "https://twitter.com/AlrefaeeMustafa/status/1463298162911809542",
+          "https://twitter.com/AlrefaeeMustafa/status/1463298390368870402",
+          "https://twitter.com/AlrefaeeMustafa/status/1463298390368870402",
+          "https://twitter.com/AlrefaeeMustafa/status/1463298479908864001",
+          "https://twitter.com/AlrefaeeMustafa/status/1463298479908864001"
+        ]
+      },
+      "x": 0.12338449209036645,
+      "y": -0.13821425572495427
+    },
+    {
+      "id": "Khuliwi5",
+      "label": "@Khuliwi5",
+      "size": 46,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-16 20:51:26+00:00",
+          "2021-11-16 20:51:32+00:00",
+          "2021-11-16 20:51:55+00:00",
+          "2021-11-16 20:51:58+00:00",
+          "2021-11-16 20:52:23+00:00",
+          "2021-11-16 20:52:27+00:00",
+          "2021-11-16 20:53:01+00:00",
+          "2021-11-16 20:53:04+00:00",
+          "2021-11-16 20:53:21+00:00",
+          "2021-11-16 20:53:24+00:00",
+          "2021-11-16 20:53:43+00:00",
+          "2021-11-16 20:53:46+00:00",
+          "2021-11-20 19:44:52+00:00",
+          "2021-11-20 19:45:06+00:00",
+          "2021-11-20 19:45:21+00:00",
+          "2021-11-20 19:45:25+00:00",
+          "2021-11-20 19:45:53+00:00",
+          "2021-11-20 19:45:57+00:00",
+          "2021-11-20 19:46:22+00:00",
+          "2021-11-20 19:46:27+00:00",
+          "2021-11-20 19:46:50+00:00",
+          "2021-11-20 19:46:53+00:00",
+          "2021-11-20 19:47:13+00:00",
+          "2021-11-20 19:47:15+00:00",
+          "2021-11-21 07:13:23+00:00",
+          "2021-11-21 07:13:25+00:00",
+          "2021-11-21 07:13:46+00:00",
+          "2021-11-21 07:13:49+00:00",
+          "2021-11-21 07:16:03+00:00",
+          "2021-11-21 07:16:05+00:00",
+          "2021-11-21 07:16:29+00:00",
+          "2021-11-21 07:16:33+00:00",
+          "2021-11-21 07:16:52+00:00",
+          "2021-11-21 07:16:55+00:00",
+          "2021-11-21 07:17:14+00:00",
+          "2021-11-21 07:17:17+00:00",
+          "2021-11-24 09:30:52+00:00",
+          "2021-11-24 09:30:54+00:00",
+          "2021-11-24 09:31:03+00:00",
+          "2021-11-24 09:31:06+00:00",
+          "2021-11-24 09:31:27+00:00",
+          "2021-11-24 09:31:29+00:00",
+          "2021-11-24 09:31:54+00:00",
+          "2021-11-24 09:31:56+00:00",
+          "2021-11-24 09:32:13+00:00",
+          "2021-11-24 09:32:15+00:00",
+          "2021-11-24 09:32:31+00:00",
+          "2021-11-24 09:32:33+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Khuliwi5/status/1460712135747674115",
+          "https://twitter.com/Khuliwi5/status/1460712160309481479",
+          "https://twitter.com/Khuliwi5/status/1460712256048672772",
+          "https://twitter.com/Khuliwi5/status/1460712268111532035",
+          "https://twitter.com/Khuliwi5/status/1460712374952996865",
+          "https://twitter.com/Khuliwi5/status/1460712391260442628",
+          "https://twitter.com/Khuliwi5/status/1460712532847562756",
+          "https://twitter.com/Khuliwi5/status/1460712544864190465",
+          "https://twitter.com/Khuliwi5/status/1460712616318410754",
+          "https://twitter.com/Khuliwi5/status/1460712631401078792",
+          "https://twitter.com/Khuliwi5/status/1460712711038410764",
+          "https://twitter.com/Khuliwi5/status/1460712720899182595",
+          "https://twitter.com/Khuliwi5/status/1462144937009598471",
+          "https://twitter.com/Khuliwi5/status/1462144994920349698",
+          "https://twitter.com/Khuliwi5/status/1462145055653830663",
+          "https://twitter.com/Khuliwi5/status/1462145071739027458",
+          "https://twitter.com/Khuliwi5/status/1462145192518164489",
+          "https://twitter.com/Khuliwi5/status/1462145209693782020",
+          "https://twitter.com/Khuliwi5/status/1462145314396196864",
+          "https://twitter.com/Khuliwi5/status/1462145333291585536",
+          "https://twitter.com/Khuliwi5/status/1462145429697667081",
+          "https://twitter.com/Khuliwi5/status/1462145440649035776",
+          "https://twitter.com/Khuliwi5/status/1462145525164171270",
+          "https://twitter.com/Khuliwi5/status/1462145535746445313",
+          "https://twitter.com/Khuliwi5/status/1462318204173361154",
+          "https://twitter.com/Khuliwi5/status/1462318215867080708",
+          "https://twitter.com/Khuliwi5/status/1462318303834169344",
+          "https://twitter.com/Khuliwi5/status/1462318314437451777",
+          "https://twitter.com/Khuliwi5/status/1462318875517894660",
+          "https://twitter.com/Khuliwi5/status/1462318883583504384",
+          "https://twitter.com/Khuliwi5/status/1462318987937787905",
+          "https://twitter.com/Khuliwi5/status/1462319004236886024",
+          "https://twitter.com/Khuliwi5/status/1462319084125802498",
+          "https://twitter.com/Khuliwi5/status/1462319093000945666",
+          "https://twitter.com/Khuliwi5/status/1462319176232677379",
+          "https://twitter.com/Khuliwi5/status/1462319185518903296",
+          "https://twitter.com/Khuliwi5/status/1463439966973931522",
+          "https://twitter.com/Khuliwi5/status/1463439976402665484",
+          "https://twitter.com/Khuliwi5/status/1463440016353505283",
+          "https://twitter.com/Khuliwi5/status/1463440025526362117",
+          "https://twitter.com/Khuliwi5/status/1463440114160443392",
+          "https://twitter.com/Khuliwi5/status/1463440124923064322",
+          "https://twitter.com/Khuliwi5/status/1463440226278416386",
+          "https://twitter.com/Khuliwi5/status/1463440234813792260",
+          "https://twitter.com/Khuliwi5/status/1463440308046376961",
+          "https://twitter.com/Khuliwi5/status/1463440315692597254",
+          "https://twitter.com/Khuliwi5/status/1463440384126767108",
+          "https://twitter.com/Khuliwi5/status/1463440393270407170"
+        ]
+      },
+      "x": -0.1991097102785343,
+      "y": -0.013415676279479405
+    },
+    {
+      "id": "Muslim40066720",
+      "label": "@Muslim40066720",
+      "size": 13,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-17 06:16:37+00:00",
+          "2021-11-18 07:10:20+00:00",
+          "2021-11-19 07:11:40+00:00",
+          "2021-11-20 06:21:29+00:00",
+          "2021-11-20 06:21:48+00:00",
+          "2021-11-20 06:22:05+00:00",
+          "2021-11-23 07:31:38+00:00",
+          "2021-11-24 08:21:25+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Muslim40066720/status/1460854368601845760",
+          "https://twitter.com/Muslim40066720/status/1461230274688299010",
+          "https://twitter.com/Muslim40066720/status/1461592999461376004",
+          "https://twitter.com/Muslim40066720/status/1461942756385955841",
+          "https://twitter.com/Muslim40066720/status/1461942837566746624",
+          "https://twitter.com/Muslim40066720/status/1461942909155131397",
+          "https://twitter.com/Muslim40066720/status/1463047574525550594",
+          "https://twitter.com/Muslim40066720/status/1463422490881970176"
+        ]
+      },
+      "x": -0.12288571040036651,
+      "y": 0.03651003704420345
+    },
+    {
+      "id": "Phalastini8787",
+      "label": "@Phalastini8787",
+      "size": 9,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-14 11:08:21+00:00",
+          "2021-11-19 07:55:55+00:00",
+          "2021-11-19 07:56:08+00:00",
+          "2021-11-19 07:56:17+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Phalastini8787/status/1459840621418528772",
+          "https://twitter.com/Phalastini8787/status/1461604133316800514",
+          "https://twitter.com/Phalastini8787/status/1461604190187315202",
+          "https://twitter.com/Phalastini8787/status/1461604224626745347"
+        ]
+      },
+      "x": -0.05196781309345116,
+      "y": 0.1715029494416596
+    },
+    {
+      "id": "bariq_ismael",
+      "label": "@bariq_ismael",
+      "size": 8,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-16 07:58:48+00:00",
+          "2021-11-18 06:20:25+00:00",
+          "2021-11-18 23:08:18+00:00",
+          "2021-11-21 23:41:20+00:00",
+          "2021-11-22 23:01:05+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/bariq_ismael/status/1460517693971382276",
+          "https://twitter.com/bariq_ismael/status/1461217714702323719",
+          "https://twitter.com/bariq_ismael/status/1461471354318958592",
+          "https://twitter.com/bariq_ismael/status/1462566830325878790",
+          "https://twitter.com/bariq_ismael/status/1462919091824513024"
+        ]
+      },
+      "x": -0.09817891428212353,
+      "y": -0.029318608273393252
+    },
+    {
+      "id": "dinodz35",
+      "label": "@dinodz35",
+      "size": 5,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-18 08:49:08+00:00",
+          "2021-11-19 07:39:28+00:00",
+          "2021-11-20 18:04:16+00:00",
+          "2021-11-23 06:00:16+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/dinodz35/status/1461255138375569410",
+          "https://twitter.com/dinodz35/status/1461599996239880192",
+          "https://twitter.com/dinodz35/status/1462119619179823110",
+          "https://twitter.com/dinodz35/status/1463024579782352897"
+        ]
+      },
+      "x": -0.08297363405979366,
+      "y": -0.005889439728600681
+    },
+    {
+      "id": "islamsunnaa",
+      "label": "@islamsunnaa",
+      "size": 9,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-17 05:06:12+00:00",
+          "2021-11-18 17:04:48+00:00",
+          "2021-11-19 17:43:55+00:00",
+          "2021-11-20 05:53:06+00:00",
+          "2021-11-22 04:44:58+00:00",
+          "2021-11-23 10:42:35+00:00",
+          "2021-11-24 06:07:06+00:00",
+          "2021-11-25 00:00:00+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/islamsunnaa/status/1460836646711173123",
+          "https://twitter.com/islamsunnaa/status/1461379878771728395",
+          "https://twitter.com/islamsunnaa/status/1461752109745979397",
+          "https://twitter.com/islamsunnaa/status/1461935615503699971",
+          "https://twitter.com/islamsunnaa/status/1462643241862508547",
+          "https://twitter.com/islamsunnaa/status/1463095627840110599",
+          "https://twitter.com/islamsunnaa/status/1463388686809190401",
+          "https://twitter.com/islamsunnaa/status/1463658692059054086"
+        ]
+      },
+      "x": -0.08924952284828741,
+      "y": -0.06935375078990239
+    },
+    {
+      "id": "raidi1000",
+      "label": "@raidi1000",
+      "size": 9,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-17 07:13:09+00:00",
+          "2021-11-18 06:55:36+00:00",
+          "2021-11-20 16:02:36+00:00",
+          "2021-11-23 10:48:50+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/raidi1000/status/1460868597534834693",
+          "https://twitter.com/raidi1000/status/1461226568244768772",
+          "https://twitter.com/raidi1000/status/1462088999992967173",
+          "https://twitter.com/raidi1000/status/1463097200297361415"
+        ]
+      },
+      "x": -0.09806206588129782,
+      "y": 0.01262062488656706
+    },
+    {
+      "id": "Ahmad78534324",
+      "label": "@Ahmad78534324",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-19 15:14:53+00:00",
+          "2021-11-19 15:14:58+00:00",
+          "2021-11-24 11:01:46+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Ahmad78534324/status/1461714604439003136",
+          "https://twitter.com/Ahmad78534324/status/1461714624236199938",
+          "https://twitter.com/Ahmad78534324/status/1463462842808647686"
+        ]
+      },
+      "x": -0.23346829726789806,
+      "y": 0.09744629962174198
+    },
+    {
+      "id": "Laas39066189",
+      "label": "@Laas39066189",
+      "size": 11,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-16 14:03:37+00:00",
+          "2021-11-18 11:26:42+00:00",
+          "2021-11-19 13:10:01+00:00",
+          "2021-11-23 15:17:52+00:00",
+          "2021-11-24 15:38:12+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Laas39066189/status/1460609505704779780",
+          "https://twitter.com/Laas39066189/status/1461294792785211392",
+          "https://twitter.com/Laas39066189/status/1461683178771472387",
+          "https://twitter.com/Laas39066189/status/1463164905331347470",
+          "https://twitter.com/Laas39066189/status/1463532409169887235"
+        ]
+      },
+      "x": -0.15200313465187354,
+      "y": 0.046940372135902964
+    },
+    {
+      "id": "AhmedFO24219903",
+      "label": "@AhmedFO24219903",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-17 12:38:36+00:00",
+          "2021-11-17 12:38:54+00:00",
+          "2021-11-19 08:33:39+00:00",
+          "2021-11-19 08:34:35+00:00",
+          "2021-11-19 08:35:21+00:00",
+          "2021-11-19 08:35:24+00:00",
+          "2021-11-19 08:35:55+00:00",
+          "2021-11-19 08:36:13+00:00",
+          "2021-11-20 20:15:12+00:00",
+          "2021-11-20 20:15:18+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/AhmedFO24219903/status/1460950496508792837",
+          "https://twitter.com/AhmedFO24219903/status/1460950571796549639",
+          "https://twitter.com/AhmedFO24219903/status/1461613630747820035",
+          "https://twitter.com/AhmedFO24219903/status/1461613865494589442",
+          "https://twitter.com/AhmedFO24219903/status/1461614057476218880",
+          "https://twitter.com/AhmedFO24219903/status/1461614068754702341",
+          "https://twitter.com/AhmedFO24219903/status/1461614200715890691",
+          "https://twitter.com/AhmedFO24219903/status/1461614275521355781",
+          "https://twitter.com/AhmedFO24219903/status/1462152568000421901",
+          "https://twitter.com/AhmedFO24219903/status/1462152593300504582"
+        ]
+      },
+      "x": -0.09143281610197503,
+      "y": 0.06743712799049507
+    },
+    {
+      "id": "Almstor2",
+      "label": "@Almstor2",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-17 13:39:02+00:00",
+          "2021-11-17 13:42:38+00:00",
+          "2021-11-17 13:44:33+00:00",
+          "2021-11-18 12:12:06+00:00",
+          "2021-11-18 13:00:16+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Almstor2/status/1460965704983851010",
+          "https://twitter.com/Almstor2/status/1460966611167424518",
+          "https://twitter.com/Almstor2/status/1460967092820361221",
+          "https://twitter.com/Almstor2/status/1461306216018325506",
+          "https://twitter.com/Almstor2/status/1461318340362878982"
+        ]
+      },
+      "x": -0.15416533995103013,
+      "y": 0.001915289690049444
+    },
+    {
+      "id": "Baeaaelaml",
+      "label": "@Baeaaelaml",
+      "size": 3,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-13 19:52:33+00:00",
+          "2021-11-19 18:51:51+00:00",
+          "2021-11-20 00:24:23+00:00",
+          "2021-11-23 17:01:32+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Baeaaelaml/status/1459610152697532418",
+          "https://twitter.com/Baeaaelaml/status/1461769206903578628",
+          "https://twitter.com/Baeaaelaml/status/1461852888007913473",
+          "https://twitter.com/Baeaaelaml/status/1463190993440841743"
+        ]
+      },
+      "x": 0.15136822073004205,
+      "y": -0.047632743400670266
+    },
+    {
+      "id": "BosaynaRYad",
+      "label": "@BosaynaRYad",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-14 04:45:06+00:00"],
+        "tweets": ["https://twitter.com/BosaynaRYad/status/1459744174274662408"]
+      },
+      "x": 0.1670682545817883,
+      "y": -0.07760355630348263
+    },
+    {
+      "id": "Daaaaaarsh1",
+      "label": "@Daaaaaarsh1",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-21 17:10:58+00:00",
+          "2021-11-22 05:38:48+00:00",
+          "2021-11-22 05:38:52+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Daaaaaarsh1/status/1462468593816416259",
+          "https://twitter.com/Daaaaaarsh1/status/1462656789099470849",
+          "https://twitter.com/Daaaaaarsh1/status/1462656807906811909"
+        ]
+      },
+      "x": 0.2022816276680222,
+      "y": -0.13975093980608405
+    },
+    {
+      "id": "HAlexTahreg",
+      "label": "@HAlexTahreg",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-10 00:04:05+00:00"],
+        "tweets": ["https://twitter.com/HAlexTahreg/status/1458223900815413251"]
+      },
+      "x": 0.15768020332538604,
+      "y": -0.1743806762083606
+    },
+    {
+      "id": "JamalSufian",
+      "label": "@JamalSufian",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-14 21:30:03+00:00"],
+        "tweets": ["https://twitter.com/JamalSufian/status/1459997079384870917"]
+      },
+      "x": 0.06530260237303206,
+      "y": -0.21289304352059
+    },
+    {
+      "id": "LjwDuwG1Vw79MIH",
+      "label": "@LjwDuwG1Vw79MIH",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-23 07:10:50+00:00", "2021-11-24 12:27:39+00:00"],
+        "tweets": [
+          "https://twitter.com/LjwDuwG1Vw79MIH/status/1463042341149806593",
+          "https://twitter.com/LjwDuwG1Vw79MIH/status/1463484457894260737"
+        ]
+      },
+      "x": 0.12600462110825147,
+      "y": -0.07242186688703169
+    },
+    {
+      "id": "M1ftGbTugB5tpiO",
+      "label": "@M1ftGbTugB5tpiO",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-23 15:54:13+00:00"],
+        "tweets": ["https://twitter.com/M1ftGbTugB5tpiO/status/1463174052185575436"]
+      },
+      "x": 0.18405856625627595,
+      "y": -0.05172742875450852
+    },
+    {
+      "id": "PalyStey",
+      "label": "@PalyStey",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-17 00:42:57+00:00"],
+        "tweets": ["https://twitter.com/PalyStey/status/1460770399634010120"]
+      },
+      "x": 0.19201085600117615,
+      "y": -0.21200309131467088
+    },
+    {
+      "id": "PfpZfUXenLauGAi",
+      "label": "@PfpZfUXenLauGAi",
+      "size": 9,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-15 23:35:28+00:00", "2021-11-15 23:35:45+00:00"],
+        "tweets": [
+          "https://twitter.com/PfpZfUXenLauGAi/status/1460391028222046212",
+          "https://twitter.com/PfpZfUXenLauGAi/status/1460391100825444357"
+        ]
+      },
+      "x": 0.05987813065103372,
+      "y": -0.17822459762117013
+    },
+    {
+      "id": "Raa238a",
+      "label": "@Raa238a",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-17 02:53:26+00:00"],
+        "tweets": ["https://twitter.com/Raa238a/status/1460803234419859459"]
+      },
+      "x": 0.18829783985462603,
+      "y": -0.23848198702858825
+    },
+    {
+      "id": "Shaimaa26233793",
+      "label": "@Shaimaa26233793",
+      "size": 5,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-20 22:39:57+00:00",
+          "2021-11-21 02:49:54+00:00",
+          "2021-11-22 05:52:12+00:00",
+          "2021-11-23 00:03:00+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Shaimaa26233793/status/1462188996726034437",
+          "https://twitter.com/Shaimaa26233793/status/1462251899604852736",
+          "https://twitter.com/Shaimaa26233793/status/1462660165115727876",
+          "https://twitter.com/Shaimaa26233793/status/1462934671738740740"
+        ]
+      },
+      "x": 0.11101848412404404,
+      "y": -0.24641452066646718
+    },
+    {
+      "id": "T5khqkRESWURMFj",
+      "label": "@T5khqkRESWURMFj",
+      "size": 4,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-17 09:42:25+00:00",
+          "2021-11-18 06:17:46+00:00",
+          "2021-11-20 06:48:58+00:00",
+          "2021-11-22 10:13:32+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/T5khqkRESWURMFj/status/1460906161184595970",
+          "https://twitter.com/T5khqkRESWURMFj/status/1461217046721667076",
+          "https://twitter.com/T5khqkRESWURMFj/status/1461949672130494465",
+          "https://twitter.com/T5khqkRESWURMFj/status/1462725930972069892"
+        ]
+      },
+      "x": 0.24321601969971343,
+      "y": -0.1333762586876033
+    },
+    {
+      "id": "TurkiShalhoub",
+      "label": "@TurkiShalhoub",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-15 17:00:00+00:00"],
+        "tweets": ["https://twitter.com/TurkiShalhoub/status/1460291507517231109"]
+      },
+      "x": 0.07936803366581795,
+      "y": -0.13205783651396946
+    },
+    {
+      "id": "YamenAl22447075",
+      "label": "@YamenAl22447075",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-20 23:23:09+00:00"],
+        "tweets": ["https://twitter.com/YamenAl22447075/status/1462199868932427780"]
+      },
+      "x": 0.09637042448717967,
+      "y": -0.18996773456630056
+    },
+    {
+      "id": "aer0ay",
+      "label": "@aer0ay",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-17 04:52:22+00:00", "2021-11-19 04:21:13+00:00"],
+        "tweets": [
+          "https://twitter.com/aer0ay/status/1460833164931260420",
+          "https://twitter.com/aer0ay/status/1461550104951808008"
+        ]
+      },
+      "x": 0.23349720016167505,
+      "y": -0.19101077675667993
+    },
+    {
+      "id": "hdayh13",
+      "label": "@hdayh13",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-17 22:20:39+00:00", "2021-11-17 23:32:27+00:00"],
+        "tweets": [
+          "https://twitter.com/hdayh13/status/1461096976137785349",
+          "https://twitter.com/hdayh13/status/1461115043903332352"
+        ]
+      },
+      "x": 0.12238792969782691,
+      "y": -0.21210889576581685
+    },
+    {
+      "id": "lcg8WG2QQ1tsPQl",
+      "label": "@lcg8WG2QQ1tsPQl",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-15 23:40:02+00:00"],
+        "tweets": ["https://twitter.com/lcg8WG2QQ1tsPQl/status/1460392176320499713"]
+      },
+      "x": 0.08771324561723765,
+      "y": -0.23204458094766447
+    },
+    {
+      "id": "liphip12",
+      "label": "@liphip12",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-14 02:51:47+00:00", "2021-11-17 02:47:23+00:00"],
+        "tweets": [
+          "https://twitter.com/liphip12/status/1459715656912408579",
+          "https://twitter.com/liphip12/status/1460801714559279105"
+        ]
+      },
+      "x": 0.13727418325722998,
+      "y": -0.24697572082879443
+    },
+    {
+      "id": "lnaallah77",
+      "label": "@lnaallah77",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-23 18:55:15+00:00"],
+        "tweets": ["https://twitter.com/lnaallah77/status/1463219611869106177"]
+      },
+      "x": 0.1747772057270593,
+      "y": -0.11049871448489267
+    },
+    {
+      "id": "m10832253",
+      "label": "@m10832253",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-14 05:49:10+00:00"],
+        "tweets": ["https://twitter.com/m10832253/status/1459760298940846082"]
+      },
+      "x": 0.20775141418800852,
+      "y": -0.09031936123078833
+    },
+    {
+      "id": "mariamkalamm",
+      "label": "@mariamkalamm",
+      "size": 3,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-18 19:41:05+00:00",
+          "2021-11-20 18:39:27+00:00",
+          "2021-11-23 19:23:15+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/mariamkalamm/status/1461419207007117313",
+          "https://twitter.com/mariamkalamm/status/1462128470750867472",
+          "https://twitter.com/mariamkalamm/status/1463226659931308038"
+        ]
+      },
+      "x": 0.21698989634320068,
+      "y": -0.21375428632505594
+    },
+    {
+      "id": "moh_elashy",
+      "label": "@moh_elashy",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-11 20:29:42+00:00", "2021-11-21 19:20:09+00:00"],
+        "tweets": [
+          "https://twitter.com/moh_elashy/status/1458894728330727430",
+          "https://twitter.com/moh_elashy/status/1462501101215887367"
+        ]
+      },
+      "x": 0.18813480871933447,
+      "y": -0.17599272884189662
+    },
+    {
+      "id": "muslim2day",
+      "label": "@muslim2day",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-12 00:36:55+00:00"],
+        "tweets": ["https://twitter.com/muslim2day/status/1458956940449656840"]
+      },
+      "x": 0.21562334914847056,
+      "y": -0.1713068624096122
+    },
+    {
+      "id": "omar_ahmedomar",
+      "label": "@omar_ahmedomar",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-10 21:47:36+00:00"],
+        "tweets": ["https://twitter.com/omar_ahmedomar/status/1458551943241011208"]
+      },
+      "x": 0.15708760009917375,
+      "y": -0.2115579846531711
+    },
+    {
+      "id": "osamaAh73502553",
+      "label": "@osamaAh73502553",
+      "size": 3,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-16 21:17:03+00:00",
+          "2021-11-18 14:50:07+00:00",
+          "2021-11-20 07:07:19+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/osamaAh73502553/status/1460718581105278979",
+          "https://twitter.com/osamaAh73502553/status/1461345984240254980",
+          "https://twitter.com/osamaAh73502553/status/1461954292097630209"
+        ]
+      },
+      "x": 0.1623611616871151,
+      "y": -0.24404642536947763
+    },
+    {
+      "id": "pJ5wZCHBkkXR0KS",
+      "label": "@pJ5wZCHBkkXR0KS",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-17 22:30:57+00:00"],
+        "tweets": ["https://twitter.com/pJ5wZCHBkkXR0KS/status/1461099567982784516"]
+      },
+      "x": 0.23768134603059288,
+      "y": -0.09795440354869794
+    },
+    {
+      "id": "samr_155",
+      "label": "@samr_155",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-22 18:54:36+00:00", "2021-11-23 08:20:18+00:00"],
+        "tweets": [
+          "https://twitter.com/samr_155/status/1462857061126004739",
+          "https://twitter.com/samr_155/status/1463059822413238272"
+        ]
+      },
+      "x": 0.23996412666831698,
+      "y": -0.15957615333645772
+    },
+    {
+      "id": "Alzhraflower",
+      "label": "@Alzhraflower",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-22 16:01:34+00:00"],
+        "tweets": ["https://twitter.com/Alzhraflower/status/1462813514561736714"]
+      },
+      "x": -0.9400340827275109,
+      "y": 0.0037829530108354397
+    },
+    {
+      "id": "boody201348",
+      "label": "@boody201348",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-22 12:28:07+00:00"],
+        "tweets": ["https://twitter.com/boody201348/status/1462759800870113281"]
+      },
+      "x": -1.0,
+      "y": 0.0028830603303498185
+    },
+    {
+      "id": "BoZak_and_Taha",
+      "label": "@BoZak_and_Taha",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-16 14:23:09+00:00"],
+        "tweets": ["https://twitter.com/BoZak_and_Taha/status/1460614420950917120"]
+      },
+      "x": 0.17377804184048312,
+      "y": 0.4431274654068148
+    },
+    {
+      "id": "RFI",
+      "label": "@RFI",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-21 03:20:05+00:00"],
+        "tweets": ["https://twitter.com/RFI/status/1462259493924864001"]
+      },
+      "x": -0.5185093685446537,
+      "y": -0.16227711139851692
+    },
+    {
+      "id": "Fatihas86524105",
+      "label": "@Fatihas86524105",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-19 22:41:35+00:00"],
+        "tweets": ["https://twitter.com/Fatihas86524105/status/1461827021110185991"]
+      },
+      "x": 0.9114010835449338,
+      "y": 0.3561466676302785
+    },
+    {
+      "id": "Eman_Abdrabboh",
+      "label": "@Eman_Abdrabboh",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-19 21:49:17+00:00"],
+        "tweets": ["https://twitter.com/Eman_Abdrabboh/status/1461813857073119239"]
+      },
+      "x": 0.8483700078598585,
+      "y": 0.33588851814527226
+    },
+    {
+      "id": "HGVJoker",
+      "label": "@HGVJoker",
+      "size": 6,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-23 13:05:07+00:00", "2021-11-23 13:05:07+00:00"],
+        "tweets": [
+          "https://twitter.com/HGVJoker/status/1463131499360927748",
+          "https://twitter.com/HGVJoker/status/1463131499360927748"
+        ]
+      },
+      "x": -0.09379799311496889,
+      "y": 0.8539278743675698
+    },
+    {
+      "id": "DailyMailUK",
+      "label": "@DailyMailUK",
+      "size": 3,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-23 08:15:05+00:00"],
+        "tweets": ["https://twitter.com/DailyMailUK/status/1463058507192799232"]
+      },
+      "x": -0.07898324106776511,
+      "y": 0.739258308711083
+    },
+    {
+      "id": "Ilina_tekayah",
+      "label": "@Ilina_tekayah",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-17 21:39:12+00:00",
+          "2021-11-20 12:12:17+00:00",
+          "2021-11-20 12:13:24+00:00",
+          "2021-11-21 20:09:18+00:00",
+          "2021-11-22 21:04:33+00:00",
+          "2021-11-22 21:05:16+00:00",
+          "2021-11-22 21:05:27+00:00",
+          "2021-11-23 10:47:56+00:00",
+          "2021-11-23 10:50:14+00:00",
+          "2021-11-23 10:51:15+00:00",
+          "2021-11-24 19:29:58+00:00",
+          "2021-11-25 07:43:57+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Ilina_tekayah/status/1461086544073302018",
+          "https://twitter.com/Ilina_tekayah/status/1462031036909596678",
+          "https://twitter.com/Ilina_tekayah/status/1462031320788443141",
+          "https://twitter.com/Ilina_tekayah/status/1462513471136972819",
+          "https://twitter.com/Ilina_tekayah/status/1462889761878728705",
+          "https://twitter.com/Ilina_tekayah/status/1462889943743803395",
+          "https://twitter.com/Ilina_tekayah/status/1462889990464155656",
+          "https://twitter.com/Ilina_tekayah/status/1463096973993689089",
+          "https://twitter.com/Ilina_tekayah/status/1463097552816021512",
+          "https://twitter.com/Ilina_tekayah/status/1463097809406676992",
+          "https://twitter.com/Ilina_tekayah/status/1463590736935501824",
+          "https://twitter.com/Ilina_tekayah/status/1463775450199740417"
+        ]
+      },
+      "x": -0.05056977761329173,
+      "y": -0.05830926264162398
+    },
+    {
+      "id": "MS55716129",
+      "label": "@MS55716129",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-16 15:10:54+00:00"],
+        "tweets": ["https://twitter.com/MS55716129/status/1460626437753421830"]
+      },
+      "x": -0.1853156237817466,
+      "y": 0.14852888164096742
+    },
+    {
+      "id": "Mahmoudelshab",
+      "label": "@Mahmoudelshab",
+      "size": 10,
+      "from": "has quoted",
+      "metadata": {
+        "date": [
+          "2021-11-11 09:54:10+00:00",
+          "2021-11-12 15:20:27+00:00",
+          "2021-11-23 07:53:28+00:00",
+          "2021-11-23 07:53:28+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Mahmoudelshab/status/1458734789247262720",
+          "https://twitter.com/Mahmoudelshab/status/1459179288352149507",
+          "https://twitter.com/Mahmoudelshab/status/1463053069197971459",
+          "https://twitter.com/Mahmoudelshab/status/1463053069197971459"
+        ]
+      },
+      "x": -0.07266842712901707,
+      "y": -0.35084350717191176
+    },
+    {
+      "id": "fbijarch",
+      "label": "@fbijarch",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-11 09:13:41+00:00"],
+        "tweets": ["https://twitter.com/fbijarch/status/1458724603103219721"]
+      },
+      "x": -0.13205692248985432,
+      "y": -0.4096057689038582
+    },
+    {
+      "id": "MaryemChreif",
+      "label": "@MaryemChreif",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-19 14:45:52+00:00"],
+        "tweets": ["https://twitter.com/MaryemChreif/status/1461707301560147975"]
+      },
+      "x": -0.11765234270149859,
+      "y": 0.20496541946195782
+    },
+    {
+      "id": "MohamedMandraw1",
+      "label": "@MohamedMandraw1",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-21 09:28:42+00:00",
+          "2021-11-21 09:28:47+00:00",
+          "2021-11-21 09:29:24+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/MohamedMandraw1/status/1462352260705529856",
+          "https://twitter.com/MohamedMandraw1/status/1462352281890967554",
+          "https://twitter.com/MohamedMandraw1/status/1462352433972232194"
+        ]
+      },
+      "x": -0.300944127700509,
+      "y": 0.011791651390294325
+    },
+    {
+      "id": "Mohamma32495175",
+      "label": "@Mohamma32495175",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-21 13:36:18+00:00"],
+        "tweets": ["https://twitter.com/Mohamma32495175/status/1462414568718807050"]
+      },
+      "x": 0.21973192376208373,
+      "y": -0.11819556101660314
+    },
+    {
+      "id": "NamirShadid",
+      "label": "@NamirShadid",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-19 15:32:28+00:00"],
+        "tweets": ["https://twitter.com/NamirShadid/status/1461719030465712132"]
+      },
+      "x": -0.11202293284349507,
+      "y": 0.23000433703972756
+    },
+    {
+      "id": "NeilEastell",
+      "label": "@NeilEastell",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-25 09:19:30+00:00"],
+        "tweets": ["https://twitter.com/NeilEastell/status/1463799496660369411"]
+      },
+      "x": -0.13436053448234653,
+      "y": 0.9094363285493052
+    },
+    {
+      "id": "NiNa12082576",
+      "label": "@NiNa12082576",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-16 23:02:28+00:00", "2021-11-16 23:02:38+00:00"],
+        "tweets": [
+          "https://twitter.com/NiNa12082576/status/1460745111604711428",
+          "https://twitter.com/NiNa12082576/status/1460745151555551235"
+        ]
+      },
+      "x": 0.08570900459545733,
+      "y": -0.7436039860940084
+    },
+    {
+      "id": "lupomannaro777",
+      "label": "@lupomannaro777",
+      "size": 20,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-14 07:07:23+00:00",
+          "2021-11-15 08:28:30+00:00",
+          "2021-11-19 10:47:45+00:00",
+          "2021-11-19 10:48:40+00:00",
+          "2021-11-20 08:41:30+00:00",
+          "2021-11-21 15:25:25+00:00",
+          "2021-11-21 15:25:25+00:00",
+          "2021-11-22 08:54:17+00:00",
+          "2021-11-22 08:57:57+00:00",
+          "2021-11-22 09:14:40+00:00",
+          "2021-11-22 10:28:31+00:00",
+          "2021-11-23 09:21:11+00:00",
+          "2021-11-23 10:22:58+00:00",
+          "2021-11-24 09:41:59+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/lupomannaro777/status/1459779980800495618",
+          "https://twitter.com/lupomannaro777/status/1460162780347211780",
+          "https://twitter.com/lupomannaro777/status/1461647377975201798",
+          "https://twitter.com/lupomannaro777/status/1461647609358172165",
+          "https://twitter.com/lupomannaro777/status/1461977993132269574",
+          "https://twitter.com/lupomannaro777/status/1462442029351325696",
+          "https://twitter.com/lupomannaro777/status/1462442029351325696",
+          "https://twitter.com/lupomannaro777/status/1462705987928965121",
+          "https://twitter.com/lupomannaro777/status/1462706909543387139",
+          "https://twitter.com/lupomannaro777/status/1462711114702237696",
+          "https://twitter.com/lupomannaro777/status/1462729701689016324",
+          "https://twitter.com/lupomannaro777/status/1463075142972674049",
+          "https://twitter.com/lupomannaro777/status/1463090692532625411",
+          "https://twitter.com/lupomannaro777/status/1463442765048651783"
+        ]
+      },
+      "x": 0.04807420842591372,
+      "y": -0.6776656739891975
+    },
+    {
+      "id": "Nonso_general",
+      "label": "@Nonso_general",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-23 15:00:13+00:00"],
+        "tweets": ["https://twitter.com/Nonso_general/status/1463160462619648008"]
+      },
+      "x": -0.8028298138683595,
+      "y": 0.6511243437902412
+    },
+    {
+      "id": "Omar___Karim",
+      "label": "@Omar___Karim",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-19 17:55:57+00:00"],
+        "tweets": ["https://twitter.com/Omar___Karim/status/1461755136284381184"]
+      },
+      "x": -0.21586064132907,
+      "y": 0.12184562896201526
+    },
+    {
+      "id": "Tahir88243680",
+      "label": "@Tahir88243680",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-23 11:53:49+00:00"],
+        "tweets": ["https://twitter.com/Tahir88243680/status/1463113553737654276"]
+      },
+      "x": -0.10029023829243551,
+      "y": -0.429437524832675
+    },
+    {
+      "id": "Yahia55989428",
+      "label": "@Yahia55989428",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-21 15:37:49+00:00", "2021-11-22 14:14:43+00:00"],
+        "tweets": [
+          "https://twitter.com/Yahia55989428/status/1462445152115564546",
+          "https://twitter.com/Yahia55989428/status/1462786627529588737"
+        ]
+      },
+      "x": 0.1588180445130481,
+      "y": -0.6767582334786378
+    },
+    {
+      "id": "derda990",
+      "label": "@derda990",
+      "size": 2,
+      "from": "has quoted",
+      "metadata": {
+        "date": ["2021-11-22 13:24:41+00:00", "2021-11-22 13:24:41+00:00"],
+        "tweets": [
+          "https://twitter.com/derda990/status/1462774032986783745",
+          "https://twitter.com/derda990/status/1462774032986783745"
+        ]
+      },
+      "x": 0.25552282502780393,
+      "y": -0.6553748405865354
+    },
+    {
+      "id": "abdessamed154",
+      "label": "@abdessamed154",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-24 16:45:36+00:00"],
+        "tweets": ["https://twitter.com/abdessamed154/status/1463549373166592002"]
+      },
+      "x": 0.06140809021501232,
+      "y": -0.7623600529853684
+    },
+    {
+      "id": "abutaraf410225",
+      "label": "@abutaraf410225",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-18 10:08:45+00:00",
+          "2021-11-18 10:08:46+00:00",
+          "2021-11-18 10:08:52+00:00",
+          "2021-11-18 10:09:29+00:00",
+          "2021-11-18 10:09:32+00:00",
+          "2021-11-18 10:09:35+00:00",
+          "2021-11-18 10:09:36+00:00",
+          "2021-11-19 09:51:02+00:00",
+          "2021-11-19 09:52:45+00:00",
+          "2021-11-19 09:52:47+00:00",
+          "2021-11-19 09:52:50+00:00",
+          "2021-11-19 09:52:54+00:00",
+          "2021-11-19 09:56:46+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/abutaraf410225/status/1461275175622742019",
+          "https://twitter.com/abutaraf410225/status/1461275179833774086",
+          "https://twitter.com/abutaraf410225/status/1461275205272322056",
+          "https://twitter.com/abutaraf410225/status/1461275359782002690",
+          "https://twitter.com/abutaraf410225/status/1461275372666986499",
+          "https://twitter.com/abutaraf410225/status/1461275385354674177",
+          "https://twitter.com/abutaraf410225/status/1461275389704253446",
+          "https://twitter.com/abutaraf410225/status/1461633105169690626",
+          "https://twitter.com/abutaraf410225/status/1461633535022968833",
+          "https://twitter.com/abutaraf410225/status/1461633543541604356",
+          "https://twitter.com/abutaraf410225/status/1461633556644519940",
+          "https://twitter.com/abutaraf410225/status/1461633573774102531",
+          "https://twitter.com/abutaraf410225/status/1461634547494313987"
+        ]
+      },
+      "x": -0.03376963941904086,
+      "y": -0.08602664367450734
+    },
+    {
+      "id": "Bo__Rajab",
+      "label": "@Bo__Rajab",
+      "size": 4,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-18 08:53:53+00:00",
+          "2021-11-18 08:54:33+00:00",
+          "2021-11-22 13:29:12+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Bo__Rajab/status/1461256332925939714",
+          "https://twitter.com/Bo__Rajab/status/1461256502270996485",
+          "https://twitter.com/Bo__Rajab/status/1462775172071575555"
+        ]
+      },
+      "x": -0.0011583911173757633,
+      "y": -0.013867995855324139
+    },
+    {
+      "id": "IbrahimAGHA4",
+      "label": "@IbrahimAGHA4",
+      "size": 2,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-19 09:47:28+00:00", "2021-11-24 11:41:27+00:00"],
+        "tweets": [
+          "https://twitter.com/IbrahimAGHA4/status/1461632208003907591",
+          "https://twitter.com/IbrahimAGHA4/status/1463472831589756935"
+        ]
+      },
+      "x": -0.01728370084707667,
+      "y": -0.10582666101442756
+    },
+    {
+      "id": "bashar123418",
+      "label": "@bashar123418",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-16 14:59:45+00:00",
+          "2021-11-16 16:56:47+00:00",
+          "2021-11-22 13:31:32+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/bashar123418/status/1460623629792784390",
+          "https://twitter.com/bashar123418/status/1460653085051789325",
+          "https://twitter.com/bashar123418/status/1462775757009215488"
+        ]
+      },
+      "x": 0.069604891896235,
+      "y": -0.05853936289572114
+    },
+    {
+      "id": "UtancGunlugu",
+      "label": "@UtancGunlugu",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-22 11:46:40+00:00"],
+        "tweets": ["https://twitter.com/UtancGunlugu/status/1462749369279602691"]
+      },
+      "x": 0.3287357101902347,
+      "y": -0.6355905896053412
+    },
+    {
+      "id": "fighter009988",
+      "label": "@fighter009988",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-23 00:14:02+00:00"],
+        "tweets": ["https://twitter.com/fighter009988/status/1462937448099549184"]
+      },
+      "x": 0.21077732392566506,
+      "y": -0.06547622769309917
+    },
+    {
+      "id": "hosamhosam1972",
+      "label": "@hosamhosam1972",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-20 14:30:09+00:00"],
+        "tweets": ["https://twitter.com/hosamhosam1972/status/1462065735983943691"]
+      },
+      "x": 0.19925966009969137,
+      "y": 0.3514054428057701
+    },
+    {
+      "id": "iJugyy4BfvdYC0U",
+      "label": "@iJugyy4BfvdYC0U",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-19 22:32:53+00:00",
+          "2021-11-20 15:30:43+00:00",
+          "2021-11-22 13:36:44+00:00",
+          "2021-11-22 13:36:47+00:00",
+          "2021-11-22 13:36:50+00:00",
+          "2021-11-22 13:36:53+00:00",
+          "2021-11-23 17:03:29+00:00",
+          "2021-11-23 17:03:32+00:00",
+          "2021-11-25 06:23:29+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1461824829699473408",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462080976658571267",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462777066135371777",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462777081100652552",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462777091087380485",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1462777104974630914",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1463191487085264898",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1463191499621994500",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1463755201270059008"
+        ]
+      },
+      "x": 0.03163096962735071,
+      "y": -0.7614353899586224
+    },
+    {
+      "id": "john_kilmister",
+      "label": "@john_kilmister",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-25 09:21:04+00:00"],
+        "tweets": ["https://twitter.com/john_kilmister/status/1463799887900954625"]
+      },
+      "x": -0.0684878040494931,
+      "y": 0.9161020512700717
+    },
+    {
+      "id": "majhol_majholzx",
+      "label": "@majhol_majholzx",
+      "size": 1,
+      "from": "has quoted",
+      "metadata": {
+        "date": ["2021-11-13 05:02:10+00:00"],
+        "tweets": ["https://twitter.com/majhol_majholzx/status/1459386082701815810"]
+      },
+      "x": 0.6780688382464743,
+      "y": 0.6221212998123353
+    },
+    {
+      "id": "TRTArabi",
+      "label": "@TRTArabi",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-12 20:01:00+00:00"],
+        "tweets": ["https://twitter.com/TRTArabi/status/1459249891222298626"]
+      },
+      "x": 0.6743648016056764,
+      "y": 0.657863643133378
+    },
+    {
+      "id": "mans33ah",
+      "label": "@mans33ah",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-17 12:37:02+00:00"],
+        "tweets": ["https://twitter.com/mans33ah/status/1460950104727343107"]
+      },
+      "x": 0.4213707508680666,
+      "y": 0.7979539838229003
+    },
+    {
+      "id": "mdmuflehi",
+      "label": "@mdmuflehi",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-17 03:48:38+00:00"],
+        "tweets": ["https://twitter.com/mdmuflehi/status/1460817126063804417"]
+      },
+      "x": 0.38922917729779305,
+      "y": 0.7378630482195995
+    },
+    {
+      "id": "mkatmntf",
+      "label": "@mkatmntf",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-18 09:14:48+00:00",
+          "2021-11-18 11:53:19+00:00",
+          "2021-11-24 15:57:31+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/mkatmntf/status/1461261599617036290",
+          "https://twitter.com/mkatmntf/status/1461301489822060544",
+          "https://twitter.com/mkatmntf/status/1463537271198658560"
+        ]
+      },
+      "x": -0.07153165560249436,
+      "y": 0.041961110909742715
+    },
+    {
+      "id": "mwarlimd77",
+      "label": "@mwarlimd77",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-18 12:44:26+00:00",
+          "2021-11-18 12:44:47+00:00",
+          "2021-11-19 00:48:26+00:00",
+          "2021-11-19 00:48:52+00:00",
+          "2021-11-19 00:49:38+00:00",
+          "2021-11-19 00:49:54+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/mwarlimd77/status/1461314353123053569",
+          "https://twitter.com/mwarlimd77/status/1461314443338346496",
+          "https://twitter.com/mwarlimd77/status/1461496555727306753",
+          "https://twitter.com/mwarlimd77/status/1461496665039200256",
+          "https://twitter.com/mwarlimd77/status/1461496854701432832",
+          "https://twitter.com/mwarlimd77/status/1461496925379698692"
+        ]
+      },
+      "x": 0.024176182107088613,
+      "y": 0.32763797988096804
+    },
+    {
+      "id": "AuresDz3",
+      "label": "@AuresDz3",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-14 10:21:50+00:00"],
+        "tweets": ["https://twitter.com/AuresDz3/status/1459828914734481420"]
+      },
+      "x": 0.05178282163897656,
+      "y": 0.39542277090838956
+    },
+    {
+      "id": "WavingServant",
+      "label": "@WavingServant",
+      "size": 4,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-12 20:16:36+00:00"],
+        "tweets": ["https://twitter.com/WavingServant/status/1459253820043763712"]
+      },
+      "x": 0.02244057280455454,
+      "y": 0.41048478679756367
+    },
+    {
+      "id": "tanbourasam",
+      "label": "@tanbourasam",
+      "size": 6,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-12 08:08:59+00:00"],
+        "tweets": ["https://twitter.com/tanbourasam/status/1459070707950768135"]
+      },
+      "x": -0.008485671732338619,
+      "y": 0.40071378651470513
+    },
+    {
+      "id": "nLH6wbFds57zX4Y",
+      "label": "@nLH6wbFds57zX4Y",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-20 20:25:07+00:00", "2021-11-20 20:32:41+00:00"],
+        "tweets": [
+          "https://twitter.com/nLH6wbFds57zX4Y/status/1462155063225430018",
+          "https://twitter.com/nLH6wbFds57zX4Y/status/1462156966583750657"
+        ]
+      },
+      "x": -0.28390189675686733,
+      "y": 0.03279446744469397
+    },
+    {
+      "id": "nasser_allm",
+      "label": "@nasser_allm",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-20 20:30:50+00:00"],
+        "tweets": ["https://twitter.com/nasser_allm/status/1462156502656028678"]
+      },
+      "x": -0.2890181677522415,
+      "y": -0.04085532595126447
+    },
+    {
+      "id": "saadturky75",
+      "label": "@saadturky75",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-24 19:41:52+00:00"],
+        "tweets": ["https://twitter.com/saadturky75/status/1463593729546203138"]
+      },
+      "x": -0.2979662016793735,
+      "y": -0.014398692228299077
+    },
+    {
+      "id": "shrouky14297342",
+      "label": "@shrouky14297342",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-16 16:15:59+00:00",
+          "2021-11-18 18:21:42+00:00",
+          "2021-11-20 18:45:36+00:00",
+          "2021-11-20 19:18:05+00:00",
+          "2021-11-22 16:25:25+00:00",
+          "2021-11-23 16:23:20+00:00",
+          "2021-11-24 15:50:24+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/shrouky14297342/status/1460642814413484039",
+          "https://twitter.com/shrouky14297342/status/1461399230661242885",
+          "https://twitter.com/shrouky14297342/status/1462130021779320836",
+          "https://twitter.com/shrouky14297342/status/1462138195123093511",
+          "https://twitter.com/shrouky14297342/status/1462819518632411148",
+          "https://twitter.com/shrouky14297342/status/1463181382067408903",
+          "https://twitter.com/shrouky14297342/status/1463535482646802443"
+        ]
+      },
+      "x": -0.13150141993972275,
+      "y": 0.11275328149894161
+    },
+    {
+      "id": "VLUBzD7eu9miDJz",
+      "label": "@VLUBzD7eu9miDJz",
+      "size": 4,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-18 03:50:18+00:00",
+          "2021-11-20 06:52:32+00:00",
+          "2021-11-22 04:15:22+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/VLUBzD7eu9miDJz/status/1461179935951925248",
+          "https://twitter.com/VLUBzD7eu9miDJz/status/1461950571376742403",
+          "https://twitter.com/VLUBzD7eu9miDJz/status/1462635796259909635"
+        ]
+      },
+      "x": -0.15368964346040903,
+      "y": 0.21994639663658916
+    },
+    {
+      "id": "sohailayasser52",
+      "label": "@sohailayasser52",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": [
+          "2021-11-16 14:44:11+00:00",
+          "2021-11-17 14:56:08+00:00",
+          "2021-11-18 17:44:02+00:00",
+          "2021-11-18 17:52:07+00:00",
+          "2021-11-18 17:55:10+00:00",
+          "2021-11-18 17:55:13+00:00",
+          "2021-11-18 17:55:14+00:00",
+          "2021-11-18 17:55:17+00:00",
+          "2021-11-18 17:55:19+00:00",
+          "2021-11-18 17:55:22+00:00",
+          "2021-11-18 17:55:23+00:00",
+          "2021-11-18 17:55:26+00:00",
+          "2021-11-18 17:55:29+00:00",
+          "2021-11-18 17:55:30+00:00",
+          "2021-11-19 17:52:23+00:00",
+          "2021-11-20 14:59:55+00:00",
+          "2021-11-21 14:56:45+00:00",
+          "2021-11-23 14:50:41+00:00",
+          "2021-11-23 14:51:19+00:00",
+          "2021-11-23 14:52:00+00:00",
+          "2021-11-23 14:56:54+00:00",
+          "2021-11-24 14:53:36+00:00",
+          "2021-11-24 14:53:40+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/sohailayasser52/status/1460619713801773059",
+          "https://twitter.com/sohailayasser52/status/1460985111143501826",
+          "https://twitter.com/sohailayasser52/status/1461389751890722825",
+          "https://twitter.com/sohailayasser52/status/1461391786832760845",
+          "https://twitter.com/sohailayasser52/status/1461392552456826882",
+          "https://twitter.com/sohailayasser52/status/1461392563802365961",
+          "https://twitter.com/sohailayasser52/status/1461392570911756301",
+          "https://twitter.com/sohailayasser52/status/1461392583381377033",
+          "https://twitter.com/sohailayasser52/status/1461392588431368199",
+          "https://twitter.com/sohailayasser52/status/1461392601190391816",
+          "https://twitter.com/sohailayasser52/status/1461392607720914946",
+          "https://twitter.com/sohailayasser52/status/1461392618030571529",
+          "https://twitter.com/sohailayasser52/status/1461392631871811595",
+          "https://twitter.com/sohailayasser52/status/1461392638058315779",
+          "https://twitter.com/sohailayasser52/status/1461754238829223940",
+          "https://twitter.com/sohailayasser52/status/1462073226780098566",
+          "https://twitter.com/sohailayasser52/status/1462434817996468226",
+          "https://twitter.com/sohailayasser52/status/1463158064169762825",
+          "https://twitter.com/sohailayasser52/status/1463158222534098946",
+          "https://twitter.com/sohailayasser52/status/1463158394202775555",
+          "https://twitter.com/sohailayasser52/status/1463159630356529159",
+          "https://twitter.com/sohailayasser52/status/1463521186990727170",
+          "https://twitter.com/sohailayasser52/status/1463521205126848522"
+        ]
+      },
+      "x": -0.06767592406680549,
+      "y": -0.12896299208459913
+    },
+    {
+      "id": "Rama_Albaj",
+      "label": "@Rama_Albaj",
+      "size": 3,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-20 11:44:00+00:00",
+          "2021-11-21 11:44:00+00:00",
+          "2021-11-24 11:45:00+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Rama_Albaj/status/1462023919737655299",
+          "https://twitter.com/Rama_Albaj/status/1462386307716419588",
+          "https://twitter.com/Rama_Albaj/status/1463473723286212618"
+        ]
+      },
+      "x": -0.1407484442493385,
+      "y": -0.1831175998224882
+    },
+    {
+      "id": "din_khayr",
+      "label": "@din_khayr",
+      "size": 11,
+      "from": "original",
+      "metadata": {
+        "date": [
+          "2021-11-18 13:48:18+00:00",
+          "2021-11-18 13:48:22+00:00",
+          "2021-11-18 13:48:26+00:00",
+          "2021-11-18 13:48:30+00:00",
+          "2021-11-18 13:48:33+00:00",
+          "2021-11-18 13:48:39+00:00",
+          "2021-11-18 13:48:43+00:00",
+          "2021-11-18 13:48:45+00:00",
+          "2021-11-18 13:48:48+00:00",
+          "2021-11-18 13:48:52+00:00",
+          "2021-11-23 04:51:56+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/din_khayr/status/1461330425045999624",
+          "https://twitter.com/din_khayr/status/1461330443849113603",
+          "https://twitter.com/din_khayr/status/1461330461528055815",
+          "https://twitter.com/din_khayr/status/1461330475218264078",
+          "https://twitter.com/din_khayr/status/1461330490053607431",
+          "https://twitter.com/din_khayr/status/1461330515726905352",
+          "https://twitter.com/din_khayr/status/1461330529287090176",
+          "https://twitter.com/din_khayr/status/1461330541597372423",
+          "https://twitter.com/din_khayr/status/1461330553131749376",
+          "https://twitter.com/din_khayr/status/1461330566935162884",
+          "https://twitter.com/din_khayr/status/1463007385644118017"
+        ]
+      },
+      "x": -0.0625129633662097,
+      "y": -0.09305390251201799
+    },
+    {
+      "id": "khairallah10",
+      "label": "@khairallah10",
+      "size": 1,
+      "from": "original",
+      "metadata": {
+        "date": ["2021-11-18 15:14:38+00:00"],
+        "tweets": ["https://twitter.com/khairallah10/status/1461352154703097861"]
+      },
+      "x": -0.1151281010832807,
+      "y": -0.2049922734209321
+    },
+    {
+      "id": "sshaw04",
+      "label": "@sshaw04",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-23 13:09:47+00:00"],
+        "tweets": ["https://twitter.com/sshaw04/status/1463132673308823556"]
+      },
+      "x": -0.10321665779337028,
+      "y": 0.9288041140625815
+    },
+    {
+      "id": "veBEGkgneUcEjW8",
+      "label": "@veBEGkgneUcEjW8",
+      "size": 0,
+      "from": "has RT",
+      "metadata": {
+        "date": ["2021-11-23 16:59:19+00:00"],
+        "tweets": ["https://twitter.com/veBEGkgneUcEjW8/status/1463190435183177736"]
+      },
+      "x": 0.007311812258067783,
+      "y": -0.7424151563506117
+    }
+  ]
+}
