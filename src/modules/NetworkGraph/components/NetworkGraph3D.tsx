@@ -15,7 +15,12 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
 }) => {
   return (
     <div className={classNames(className)} {...props}>
-      <ForceGraph3D graphData={graph} linkDirectionalArrowLength={7} backgroundColor="green" />
+      <ForceGraph3D
+        graphData={graph}
+        linkDirectionalArrowLength={7}
+        backgroundColor="lightgreen"
+        nodeAutoColorBy="color"
+      />
     </div>
   );
 };

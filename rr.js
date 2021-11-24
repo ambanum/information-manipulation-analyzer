@@ -33,8 +33,8 @@ json.forEach((item, i) => {
             graph.nodes.push({
                 id: `${item.user.username}`,
                 label: `@${item.user.username}`,
-                "x": 193 + Math.random() * 1000,
-                "y": 175 + Math.random() * 1000,
+                // "x": 193 + Math.random() * 1000,
+                // "y": 175 + Math.random() * 1000,
                 metadata: {
                     "date": [item.date],
                     "tweets": [
@@ -66,8 +66,8 @@ json.forEach((item, i) => {
             graph.nodes.push({
                 id: `${item.quotedTweet.user.username}`,
                 label: `@${item.quotedTweet.user.username}`,
-                "x": 193 + Math.random() * 1000,
-                "y": 175 + Math.random() * 1000,
+                // "x": 193 + Math.random() * 1000,
+                // "y": 175 + Math.random() * 1000,
                 metadata: {
                     "date": [item.date],
                     "tweets": [item.url],
@@ -81,8 +81,8 @@ json.forEach((item, i) => {
             graph.nodes.push({
                 id: `${item.user.username}`,
                 label: `@${item.user.username}`,
-                "x": 193 + Math.random() * 1000,
-                "y": 175 + Math.random() * 1000,
+                // "x": 193 + Math.random() * 1000,
+                // "y": 175 + Math.random() * 1000,
                 metadata: {
                     "date": [item.date],
                     "tweets": [item.url],
@@ -121,8 +121,8 @@ json.forEach((item, i) => {
             graph.nodes.push({
                 id: `${item.retweetedTweet.user.username}`,
                 label: `@${item.retweetedTweet.user.username}`,
-                "x": 193 + Math.random() * 1000,
-                "y": 175 + Math.random() * 1000,
+                // "x": 193 + Math.random() * 1000,
+                // "y": 175 + Math.random() * 1000,
                 metadata: {
                     "date": [item.date],
                     "tweets": [item.url],
@@ -139,8 +139,8 @@ json.forEach((item, i) => {
             graph.nodes.push({
                 id: `${item.user.username}`,
                 label: `@${item.user.username}`,
-                "x": 193 + Math.random() * 1000,
-                "y": 175 + Math.random() * 1000,
+                // "x": 193 + Math.random() * 1000,
+                // "y": 175 + Math.random() * 1000,
                 metadata: {
                     "date": [item.date],
                     "tweets": [item.url],
@@ -196,8 +196,8 @@ json.forEach((item, i) => {
 
 //         graph.nodes.push({
 //             "label": `@${item.retweetedTweet.user.username}`,
-//             "x": 193 + Math.random() * 1000,
-//             "y": 175 + Math.random() * 1000,
+            // "x": 193 + Math.random() * 1000,
+            // "y": 175 + Math.random() * 1000,
 //             "id": item.retweetedTweet.user.username,
 //             "attributes": {
 //                 "Modularity Class": "80"
@@ -219,8 +219,8 @@ json.forEach((item, i) => {
 //         console.log("Add quotedTweet");
 //         graph.nodes.push({
 //             "label": `@${item.quotedTweet.user.username}`,
-//             "x": 193 + Math.random() * 1000,
-//             "y": 175 + Math.random() * 1000,
+            // "x": 193 + Math.random() * 1000,
+            // "y": 175 + Math.random() * 1000,
 //             "id": item.quotedTweet.user.username,
 //             "attributes": {
 //                 "Modularity Class": "80"
@@ -242,8 +242,8 @@ json.forEach((item, i) => {
 //         console.log("Add user");
 //         graph.nodes.push({
 //             "label": `@${item.user.username}`,
-//             "x": 193 + Math.random() * 1000,
-//             "y": 175 + Math.random() * 1000,
+            // "x": 193 + Math.random() * 1000,
+            // "y": 175 + Math.random() * 1000,
 //             "id": item.user.username,
 //             "attributes": {
 //                 "Modularity Class": "80"
