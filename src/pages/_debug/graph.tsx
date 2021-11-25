@@ -12,7 +12,11 @@ const NetworkGraph2D = dynamic(() => import('modules/NetworkGraph/components/Net
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
 import { useToggle } from 'react-use';
 import dayjs from 'dayjs';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
 import Gradient from 'javascript-color-gradient';
 const colorGradient = new Gradient();
 colorGradient.setGradient('#008000', '#e1000f'); // from red to green
@@ -22,10 +26,14 @@ const hashtag = 'ok';
 const file = 'test1.json';
 
 // const path = String(process.env.NEXT_PUBLIC_BASE_PATH) + '/test1.json';
-const path2 = String(process.env.NEXT_PUBLIC_BASE_PATH) + `/${file}`;
+// const path2 = String(process.env.NEXT_PUBLIC_BASE_PATH) + `/${file}`;
 
 import json from '../../../public/test1.json';
 const { nodes } = json;
+
+const dates = nodes
+  .reduce((acc, node) => [...acc, ...(node?.metadata?.date || [])], [])
+  .sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
 const highlightNodesAndEdges = (
   data: NetworkGraphJson,
@@ -38,9 +46,8 @@ const highlightNodesAndEdges = (
   const newData = { ...data };
   const inactiveNodes: string[] = [];
 
-  newData.nodes.map((node) => {
+  newData.nodes.map((node, i) => {
     const date = Array.isArray(node.metadata.date) ? node.metadata.date[0] : node.metadata.date;
-
     if (startDate && dayjs(date).isBefore(startDate)) {
       node.color = '#EEEEEEAA';
       inactiveNodes.push(node.id);
@@ -73,7 +80,7 @@ const highlightNodesAndEdges = (
 };
 
 const NetworkGraphDebugPage = () => {
-  const startDate = nodes[0].metadata.date[0];
+  const startDate = dates[0];
 
   const [tick, setTick] = React.useState<number>();
   const [active, toggleActive] = useToggle(false);
@@ -85,8 +92,6 @@ const NetworkGraphDebugPage = () => {
       interval = setInterval(() => {
         setTick((currentTick) => {
           const newTick = currentTick !== undefined ? currentTick + 1 : 0;
-          console.log(currentTick);
-          console.log(newTick);
 
           if (newTick > nodes.length) {
             clearInterval(interval);
@@ -109,22 +114,21 @@ const NetworkGraphDebugPage = () => {
   const filteredNodes = highlightNodesAndEdges(json, {
     active,
     startDate,
-    endDate: nodes[tick || nodes.length - 1].metadata.date[0],
+    endDate: dates[tick],
   });
 
   const { nodes: newNodes, edges: newEdges } = filteredNodes;
 
-  console.log(filteredNodes);
   return (
     <>
-      <h2>
-        Testing {path2}
+      <h3>
+        Testing {file}
         <br />
         <small style={{ fontSize: '0.5em' }}>
-          Fr ({dayjs(nodes[0].metadata.date[0]).format()})<br />
-          To ({dayjs(nodes[tick || nodes.length - 1].metadata.date[0]).format()})
+          Fr ({dayjs(startDate).format()})<br />
+          To ({dayjs(dates[tick]).format()})
         </small>
-      </h2>
+      </h3>
       <button onClick={() => setTick((tick || 0) - 1)} disabled={active || (tick || 0) === 0}>
         Before
       </button>{' '}
