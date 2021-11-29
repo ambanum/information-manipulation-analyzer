@@ -1,3 +1,4 @@
+// @ts-nocheck
 import dynamic from 'next/dynamic';
 const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
   ssr: false,

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import classNames from 'classnames';
 import ForceGraph3D from 'react-force-graph-3d';

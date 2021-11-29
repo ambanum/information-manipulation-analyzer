@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   EdgeShapes,
   ForceAtlas2,
@@ -69,11 +70,12 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       return;
     }
     sigma.graph.nodes().forEach((n: GraphNode) => {
-      var updated = graph.nodes.find((e) => e.id == n.id);
+      var updated = graph.nodes.find((e) => e.id === n.id);
       Object.assign(n, pick(['color'])(updated));
     });
     sigma.graph.edges().forEach((n: GraphEdge) => {
-      var updated = graph.edges.find((e) => e.id == n.id);
+      var updated = graph.edges.find((e) => e.id === n.id);
+
       Object.assign(n, pick(['color'])(updated));
     });
 

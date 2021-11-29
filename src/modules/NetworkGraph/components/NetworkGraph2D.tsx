@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import classNames from 'classnames';
 import ForceGraph2D from 'react-force-graph-2d';
@@ -15,10 +16,7 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
 }) => {
   const fgRef = React.useRef();
   const [data, setData] = React.useState(graph);
-  console.log(''); //eslint-disable-line
-  console.log('╔════START══graph══════════════════════════════════════════════════'); //eslint-disable-line
-  console.log(graph); //eslint-disable-line
-  console.log('╚════END════graph══════════════════════════════════════════════════'); //eslint-disable-line
+
   const [highlightNodes, setHighlightNodes] = React.useState(new Set());
   const [highlightLinks, setHighlightLinks] = React.useState(new Set());
   const [hoverNode, setHoverNode] = React.useState(null);
