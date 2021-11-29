@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import dynamic from 'next/dynamic';
 const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
@@ -29,6 +30,7 @@ const file = 'test1.json';
 // const path2 = String(process.env.NEXT_PUBLIC_BASE_PATH) + `/${file}`;
 
 import json from '../../../public/test1.json';
+import { log } from 'console';
 const { nodes } = json;
 
 const dates = nodes
@@ -44,20 +46,38 @@ const highlightNodesAndEdges = (
   }
 
   const newData = { ...data };
-  const inactiveNodes: string[] = [];
 
-  newData.nodes.map((node, i) => {
-    const date = Array.isArray(node.metadata.date) ? node.metadata.date[0] : node.metadata.date;
-    if (startDate && dayjs(date).isBefore(startDate)) {
+  newData.nodes.map((node) => {
+    const lastDateIndex = node.metadata.date.reduce((acc: number, date2: string, index) => {
+      if (
+        startDate &&
+        dayjs(startDate).isSameOrBefore(date2) &&
+        endDate &&
+        dayjs(endDate).isSameOrAfter(date2)
+      ) {
+        return index;
+      }
+      return acc;
+    }, 0);
+
+    const firstDate = node.metadata.date[0];
+    const date = node.metadata.date[lastDateIndex];
+
+    if (!node.originalSize) {
+      node.originalSize = node.size;
+    }
+
+    if (
+      (startDate && dayjs(date).isSameOrBefore(startDate)) ||
+      (endDate && dayjs(date).isSameOrAfter(endDate))
+    ) {
       node.color = '#EEEEEEAA';
-      inactiveNodes.push(node.id);
-    } else if (endDate && dayjs(date).isAfter(endDate)) {
-      node.color = '#EEEEEEAA';
-      inactiveNodes.push(node.id);
+      node.size = node.originalSize * (lastDateIndex / node.originalSize);
     } else {
       // @ts-ignore
       node.color = node.botScore ? colorGradient.getColor(node.botScore) : '#FA0000AA';
     }
+
     if (active) {
       // @ts-ignore
       node.fx = node.x;
@@ -69,10 +89,32 @@ const highlightNodesAndEdges = (
   });
 
   newData.edges.map((edge: any) => {
-    if (inactiveNodes.includes(edge.source) && inactiveNodes.includes(edge.target)) {
-      edge.color = '#EEEEEEAA';
+    const lastDateIndex = edge.metadata.date.reduce((acc: number, date2: string, index) => {
+      if (
+        startDate &&
+        dayjs(startDate).isSameOrBefore(date2) &&
+        endDate &&
+        dayjs(endDate).isSameOrAfter(date2)
+      ) {
+        return index;
+      }
+      return acc;
+    }, 0);
+
+    const date = edge.metadata.date[lastDateIndex];
+
+    if (!edge.originalSize) {
+      edge.originalSize = edge.size;
+    }
+
+    if (
+      (startDate && dayjs(date).isSameOrBefore(startDate)) ||
+      (endDate && dayjs(date).isSameOrAfter(endDate))
+    ) {
+      edge.color = '#00000008';
+      edge.size = edge.originalSize * (lastDateIndex / edge.originalSize);
     } else {
-      edge.color = '#CCCCCCF4';
+      edge.color = '#00000033';
     }
     return edge;
   });
@@ -93,7 +135,7 @@ const NetworkGraphDebugPage = () => {
         setTick((currentTick) => {
           const newTick = currentTick !== undefined ? currentTick + 1 : 0;
 
-          if (newTick > nodes.length) {
+          if (newTick > dates.length) {
             clearInterval(interval);
           }
           return newTick;
@@ -101,7 +143,7 @@ const NetworkGraphDebugPage = () => {
       }, 200);
     }
     return () => clearInterval(interval);
-  }, [active, nodes.length]);
+  }, [active, dates.length]);
 
   const onClickNode = (event: any) => {
     console.log(''); //eslint-disable-line
@@ -122,7 +164,7 @@ const NetworkGraphDebugPage = () => {
   return (
     <>
       <h3>
-        Testing {file}
+        Testing {file} ({tick} / {dates.length})
         <br />
         <small style={{ fontSize: '0.5em' }}>
           Fr ({dayjs(startDate).format()})<br />
