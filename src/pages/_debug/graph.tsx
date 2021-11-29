@@ -31,11 +31,12 @@ const file = 'test1.json';
 
 import json from '../../../public/test1.json';
 import { log } from 'console';
-const { nodes } = json;
+const { nodes, edges } = json;
 
-const dates = nodes
-  .reduce((acc, node) => [...acc, ...(node?.metadata?.date || [])], [])
-  .sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+const dates = [
+  ...nodes.reduce((acc, node) => [...acc, ...(node?.metadata?.date || [])], []),
+  ...edges.reduce((acc, edge) => [...acc, ...(edge?.metadata?.date || [])], []),
+].sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
 const highlightNodesAndEdges = (
   data: NetworkGraphJson,
@@ -47,36 +48,60 @@ const highlightNodesAndEdges = (
 
   const newData = { ...data };
 
-  newData.nodes.map((node) => {
-    const lastDateIndex = node.metadata.date.reduce((acc: number, date2: string, index) => {
+  const getLastDateIndex = (dates: string[]) => {
+    return dates.reduce((acc: number, date2: string, index) => {
       if (
         startDate &&
-        dayjs(startDate).isSameOrBefore(date2) &&
+        dayjs(startDate).isBefore(date2) &&
         endDate &&
-        dayjs(endDate).isSameOrAfter(date2)
+        dayjs(endDate).isAfter(date2)
       ) {
         return index;
       }
       return acc;
     }, 0);
+  };
 
-    const firstDate = node.metadata.date[0];
-    const date = node.metadata.date[lastDateIndex];
-
-    if (!node.originalSize) {
-      node.originalSize = node.size;
-    }
+  newData.edges.map((edge: any) => {
+    const lastDateIndex = getLastDateIndex(edge.metadata.date);
+    const date = edge.metadata.date[lastDateIndex];
 
     if (
-      (startDate && dayjs(date).isSameOrBefore(startDate)) ||
-      (endDate && dayjs(date).isSameOrAfter(endDate))
+      (startDate && dayjs(date).isBefore(startDate)) ||
+      (endDate && dayjs(date).isAfter(endDate))
     ) {
-      node.color = '#EEEEEEAA';
-      node.size = node.originalSize * (lastDateIndex / node.originalSize);
+      edge.active = false;
+      edge.color = '#00000008';
     } else {
+      edge.active = true;
+      edge.color = '#00000033';
+    }
+
+    edge.size = endDate ? lastDateIndex || 1 : edge.size;
+    return edge;
+  });
+
+  newData.nodes.map((node) => {
+    const lastDateIndex = getLastDateIndex(node.metadata.date);
+    const date = node.metadata.date[lastDateIndex];
+
+    if (
+      (startDate && dayjs(date).isBefore(startDate)) ||
+      (endDate && dayjs(date).isAfter(endDate))
+    ) {
+      node.active = false;
+      node.color = '#EEEEEEAA';
+    } else {
+      node.active = true;
       // @ts-ignore
       node.color = node.botScore ? colorGradient.getColor(node.botScore) : '#FA0000AA';
     }
+
+    node.size = endDate
+      ? newData.edges
+          .filter((edge) => edge.active && (edge.target?.id || edge.target) === node.id)
+          .reduce((acc, val) => acc + val.size, 0)
+      : node.size;
 
     if (active) {
       // @ts-ignore
@@ -88,36 +113,6 @@ const highlightNodesAndEdges = (
     return node;
   });
 
-  newData.edges.map((edge: any) => {
-    const lastDateIndex = edge.metadata.date.reduce((acc: number, date2: string, index) => {
-      if (
-        startDate &&
-        dayjs(startDate).isSameOrBefore(date2) &&
-        endDate &&
-        dayjs(endDate).isSameOrAfter(date2)
-      ) {
-        return index;
-      }
-      return acc;
-    }, 0);
-
-    const date = edge.metadata.date[lastDateIndex];
-
-    if (!edge.originalSize) {
-      edge.originalSize = edge.size;
-    }
-
-    if (
-      (startDate && dayjs(date).isSameOrBefore(startDate)) ||
-      (endDate && dayjs(date).isSameOrAfter(endDate))
-    ) {
-      edge.color = '#00000008';
-      edge.size = edge.originalSize * (lastDateIndex / edge.originalSize);
-    } else {
-      edge.color = '#00000033';
-    }
-    return edge;
-  });
   return newData;
 };
 
