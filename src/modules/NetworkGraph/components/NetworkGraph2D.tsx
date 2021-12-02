@@ -91,7 +91,7 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
         graphData={data}
         nodeLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
         linkCurvature={0} /* curve edges */
-        backgroundColor="aliceblue"
+        backgroundColor="white"
         nodeAutoColorBy="color" /* give color to node */
         linkDirectionalArrowRelPos={0.5} /* if arrow is on the edge or in the middle */
         linkDirectionalArrowLength={5} /* Size of arrow */
