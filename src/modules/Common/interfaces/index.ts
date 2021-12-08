@@ -36,7 +36,7 @@ export interface CommonGetFilters {
   lang?: string;
   username?: string;
   hashtag?: string;
-  tweetContent?: string;
+  content?: string;
 }
 
 /******************************************

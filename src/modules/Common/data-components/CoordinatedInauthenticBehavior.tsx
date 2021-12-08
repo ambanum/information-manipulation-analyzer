@@ -11,12 +11,14 @@ interface DataCoordinatedInauthenticBehavior {
   search: string;
   queryParamsStringified?: string;
   exportName: TweetContentTableProps['exportName'];
+  onTweetContentFilterClick: TweetContentTableProps['onFilter'];
 }
 
 const DataCoordinatedInauthenticBehavior = ({
   search,
   queryParamsStringified = '',
   exportName,
+  onTweetContentFilterClick,
 }: DataCoordinatedInauthenticBehavior) => {
   const { data, error } = useSWR<GetSearchTweetContentsResponse>(
     `/api/searches/${encodeURIComponent(search)}/tweetContents${queryParamsStringified}`,
@@ -58,6 +60,7 @@ const DataCoordinatedInauthenticBehavior = ({
         nbData={tweetContents.length}
         data={tweetContents}
         exportName={exportName}
+        onFilter={onTweetContentFilterClick}
       />
     </div>
   );

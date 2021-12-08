@@ -25,6 +25,7 @@ const getTweets =
         lang: filter.lang,
         username: filter.username,
         hashtag: filter.hashtag,
+        content: filter.content,
       });
 
       if (filter.min && filter.max) {

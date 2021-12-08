@@ -331,6 +331,15 @@ const SearchPage = ({
     },
     [pushQueryParams]
   );
+  const onFilterTweetContentChange = React.useCallback(
+    (value: string) => {
+      pushQueryParams({ content: value }, undefined, {
+        scroll: false,
+        shallow: true,
+      });
+    },
+    [pushQueryParams]
+  );
 
   React.useEffect(() => {
     setRefreshInterval(calculatedRefreshInterval);
@@ -681,6 +690,7 @@ const SearchPage = ({
                 <CoordinatedInauthenticBehaviorData
                   search={searchName}
                   queryParamsStringified={queryParamsStringified}
+                  onTweetContentFilterClick={onFilterTweetContentChange}
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
                   )}__${searchName}__medias-videos`}

@@ -15,7 +15,7 @@ interface SearchFilter {
   lang?: string;
   username?: string;
   hashtag?: string;
-  tweetContent?: string;
+  content?: string;
 }
 
 const getMatch = ({
@@ -25,7 +25,7 @@ const getMatch = ({
   lang,
   username,
   hashtag,
-  tweetContent,
+  content,
 }: SearchFilter) => {
   const match: any = {};
   if (startDate || endDate) {
@@ -46,8 +46,8 @@ const getMatch = ({
   if (hashtag) {
     match.hashtags = hashtag;
   }
-  if (tweetContent) {
-    match.content = tweetContent;
+  if (content) {
+    match.content = content;
   }
 
   match.searches = { $in: searchIds }; // first filter by date and then by searches as it is a multi key index

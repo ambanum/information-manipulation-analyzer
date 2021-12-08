@@ -25,7 +25,7 @@ const getTweetContents =
         lang: filter.lang,
         username: filter.username,
         hashtag: filter.hashtag,
-        tweetContent: filter.tweetContent,
+        content: filter.content,
       });
       if (filter.min && filter.max) {
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);
