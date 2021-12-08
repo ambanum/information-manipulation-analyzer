@@ -43,6 +43,10 @@ const TweetsData = dynamic(() => import('../../data-components/Tweets'), ssrConf
 const VideosData = dynamic(() => import('../../data-components/Videos'), ssrConfig);
 const PhotosData = dynamic(() => import('../../data-components/Photos'), ssrConfig);
 const OutlinksData = dynamic(() => import('../../data-components/Outlinks'), ssrConfig);
+const CoordinatedInauthenticBehaviorData = dynamic(
+  () => import('../../data-components/CoordinatedInauthenticBehavior'),
+  ssrConfig
+);
 
 export { default as getStaticPaths } from './[search].staticPaths';
 export { default as getStaticProps } from './[search].staticProps';
@@ -595,6 +599,7 @@ const SearchPage = ({
                 <Tab className={sReactTabs.tab}>Associated hashtags</Tab>
                 <Tab className={sReactTabs.tab}>Tweets</Tab>
                 <Tab className={sReactTabs.tab}>Medias</Tab>
+                <Tab className={sReactTabs.tab}>C.I.B</Tab>
               </TabList>
             </div>
             <div className="fr-container fr-container-fluid">
@@ -669,6 +674,15 @@ const SearchPage = ({
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
                   )}__${searchName}__medias-outlinks`}
+                />
+              </TabPanel>
+              <TabPanel>
+                <CoordinatedInauthenticBehaviorData
+                  search={searchName}
+                  queryParamsStringified={queryParamsStringified}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__medias-videos`}
                 />
               </TabPanel>
             </div>

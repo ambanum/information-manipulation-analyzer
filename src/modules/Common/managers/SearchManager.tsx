@@ -15,9 +15,18 @@ interface SearchFilter {
   lang?: string;
   username?: string;
   hashtag?: string;
+  tweetContent?: string;
 }
 
-const getMatch = ({ searchIds, startDate, endDate, lang, username, hashtag }: SearchFilter) => {
+const getMatch = ({
+  searchIds,
+  startDate,
+  endDate,
+  lang,
+  username,
+  hashtag,
+  tweetContent,
+}: SearchFilter) => {
   const match: any = {};
   if (startDate || endDate) {
     match.hour = {};
@@ -36,6 +45,9 @@ const getMatch = ({ searchIds, startDate, endDate, lang, username, hashtag }: Se
   }
   if (hashtag) {
     match.hashtags = hashtag;
+  }
+  if (tweetContent) {
+    match.content = tweetContent;
   }
 
   match.searches = { $in: searchIds }; // first filter by date and then by searches as it is a multi key index
@@ -194,6 +206,7 @@ export const getWithData = async ({
   lang,
   username,
   hashtag,
+  tweetContent,
 }: {
   name: string;
   min?: string;
@@ -201,6 +214,7 @@ export const getWithData = async ({
   lang?: string;
   username?: string;
   hashtag?: string;
+  tweetContent?: string;
 }) => {
   try {
     const search = await get({ name });
@@ -215,6 +229,7 @@ export const getWithData = async ({
       lang,
       username,
       hashtag,
+      tweetContent,
     };
 
     const searchVolumetry = await getVolumetry(filters);
@@ -486,6 +501,37 @@ export const getOutlinks = async (filters: SearchFilter) => {
 
   return rawResults.map((rawResult: any) => ({
     url: rawResult._id,
+    count: rawResult.count,
+  }));
+};
+
+//Get TweetContents
+export const getTweetContents = async (filters: SearchFilter) => {
+  const { content, ...match }: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: {
+        content: content || {
+          // $not: { $regex: '^RT .*$', $options: 'g' },
+          $not: /^RT .*/,
+        },
+        ...match,
+      },
+    },
+    {
+      $group: {
+        _id: '$content',
+        count: { $sum: 1 },
+      },
+    },
+    { $match: { count: { $gt: 1 } } },
+    { $sort: { count: -1 } },
+  ];
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
+
+  return rawResults.map((rawResult: any) => ({
+    content: rawResult._id,
     count: rawResult.count,
   }));
 };

@@ -22,6 +22,7 @@ import { PhotosTableProps } from '../components/Datatables/PhotosTable.d';
 import { PieChartProps } from '../components/Charts/PieChart.d';
 import { UsernameTableProps } from '../components/Datatables/UsernameTable.d';
 import { VideosTableProps } from '../components/Datatables/VideosTable.d';
+import { TweetContentTableProps } from '../components/Datatables/TweetContentTable.d';
 
 export interface CommonResponse {
   status: 'ok' | 'ko';
@@ -35,6 +36,7 @@ export interface CommonGetFilters {
   lang?: string;
   username?: string;
   hashtag?: string;
+  tweetContent?: string;
 }
 
 /******************************************
@@ -172,4 +174,11 @@ export interface GetSearchPhotosResponse extends CommonResponse {
  ******************************************/
 export interface GetSearchOutlinksResponse extends CommonResponse {
   outlinks?: OutlinksTableProps['data'];
+}
+
+/******************************************
+ * GetSearchTweetContentsResponse
+ ******************************************/
+export interface GetSearchTweetContentsResponse extends CommonResponse {
+  tweetContents?: TweetContentTableProps['data'];
 }
