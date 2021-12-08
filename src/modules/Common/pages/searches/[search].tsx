@@ -564,7 +564,12 @@ const SearchPage = ({
               'react-tabs__tab-panel--selected'
             )}
             selectedIndex={+queryParams.tabIndex || 0}
-            onSelect={pushQueryParam('tabIndex') as any}
+            onSelect={
+              pushQueryParam('tabIndex', undefined, {
+                scroll: false,
+                shallow: true,
+              }) as any
+            }
           >
             <div className="fr-container fr-container-fluid fr-mt-6w">
               <TabList
