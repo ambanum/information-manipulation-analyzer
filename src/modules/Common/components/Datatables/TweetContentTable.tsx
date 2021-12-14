@@ -9,15 +9,22 @@ const TweetContentsTable = ({ exportName, data, nbData, onFilter }: TweetContent
     {
       Header: 'Content',
       accessor: 'content',
-      size: 3,
+      size: 4,
+      style: { whiteSpace: 'normal', overflowY: 'auto', lineHeight: '1.3em' },
     },
     {
-      Header: 'Number of appearances',
+      Header: (
+        <span>
+          Number of <br />
+          appearances
+        </span>
+      ),
       accessor: 'count',
       align: 'right',
       sortType: 'number',
       Cell: ({ value }: any) => value.toLocaleString('en'),
       size: 1,
+      style: { minWidth: 0 },
     },
     {
       Header: 'Actions',
@@ -30,7 +37,7 @@ const TweetContentsTable = ({ exportName, data, nbData, onFilter }: TweetContent
                 type="button"
                 className="fr-btn fr-btn fr-btn--secondary fr-btn--icon-left"
                 style={{ paddingLeft: '0.56rem', paddingRight: '0.56rem' }}
-                title={`Filter by ${row?.original?.label} content`}
+                title={`Filter by tweet content`}
                 onClick={() => onFilter(row?.original?.content)}
               >
                 <IconFilter style={{ color: 'var(--bf500)' }} />
@@ -40,6 +47,7 @@ const TweetContentsTable = ({ exportName, data, nbData, onFilter }: TweetContent
         );
       },
       size: 1,
+      style: { minWidth: 0 },
     },
   ];
 
@@ -57,7 +65,7 @@ const TweetContentsTable = ({ exportName, data, nbData, onFilter }: TweetContent
       ]}
       layoutFixed
       noScroll
-      virtualize={{ height: 500, itemSize: 56 }}
+      virtualize={{ height: 500, itemSize: 120 }}
       exportable={{
         name: exportName,
       }}
