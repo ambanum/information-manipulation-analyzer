@@ -127,20 +127,27 @@ const SearchPage = ({
 
   const searchName = defaultSearch?.name || (router.query.search as string);
 
-  const { queryParams, pushQueryParams, queryParamsStringified, stringifyParams } = useUrl();
+  const {
+    queryParams,
+    pushQueryParams,
+    queryParamsStringified,
+    stringifyParams,
+    pushQueryParam,
+    removeQueryParam,
+  } = useUrl();
 
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultSearch?.status || '']
   );
 
-  const queryParamsNotMinAndMax = omit(['min', 'max'], queryParams);
-  const queryParamsNotMinAndMaxStringified = stringifyParams(queryParamsNotMinAndMax);
+  const queryParamsThatCauseRefresh = omit(['min', 'max', 'tabIndex'], queryParams);
+  const queryParamsThatCauseRefreshStringified = stringifyParams(queryParamsThatCauseRefresh);
 
   const { data, loading, error } = useSplitSWR(
     searchName
       ? `/api/searches/${encodeURIComponent(
           searchName as string
-        )}/split${queryParamsNotMinAndMaxStringified}`
+        )}/split${queryParamsThatCauseRefreshStringified}`
       : null,
     {
       initialData: {
@@ -562,6 +569,19 @@ const SearchPage = ({
               sReactTabs.selectedTabPanel,
               'react-tabs__tab-panel--selected'
             )}
+            selectedIndex={+queryParams.tabIndex || 0}
+            onSelect={
+              ((tabIndex: number) => {
+                const options = {
+                  scroll: false,
+                  shallow: true,
+                };
+                if (tabIndex === 0) {
+                  return removeQueryParam('tabIndex', undefined, options);
+                }
+                return pushQueryParam('tabIndex', undefined, options)(tabIndex);
+              }) as any
+            }
           >
             <div className="fr-container fr-container-fluid fr-mt-6w">
               <TabList

@@ -21,7 +21,7 @@ const useUrl = () => {
       ? queryString.parse(window.location.search, { arrayFormat: 'bracket' })
       : {};
 
-  let pathname = router.pathname;
+  let pathname = router.asPath.split('?')[0];
 
   const setQueryParameter = React.useCallback(
     ({ url, param, value }: IParams) => {
@@ -41,9 +41,13 @@ const useUrl = () => {
   );
 
   const pushParam = React.useCallback(
-    (params: IParams) => {
+    (
+      params: IParams,
+      asUrl?: Parameters<typeof router.push>[1],
+      options?: Parameters<typeof router.push>[2]
+    ) => {
       const newUrl = setQueryParameter(params);
-      return router.push(newUrl);
+      return router.push(newUrl, asUrl, options);
     },
     [router, setQueryParameter]
   );
@@ -87,25 +91,39 @@ const useUrl = () => {
   };
 
   const pushQueryParam = React.useCallback(
-    (paramName: string) => (value: string | number | string[]) =>
-      pushParam({ param: paramName, value }),
+    (
+        paramName: string,
+        asUrl?: Parameters<typeof router.push>[1],
+        options?: Parameters<typeof router.push>[2]
+      ) =>
+      (value: string | number | string[]) =>
+        pushParam({ param: paramName, value }, asUrl, options),
     [pushParam]
   );
 
   const removeQueryParams = React.useCallback(
-    (paramNames: string[]) => {
+    (
+      paramNames: string[],
+      asUrl?: Parameters<typeof router.push>[1],
+      options?: Parameters<typeof router.push>[2]
+    ) => {
       const newParams = { ...queryParams };
       paramNames.forEach((paramName) => {
         newParams[paramName] = undefined;
       });
 
-      pushQueryParams(newParams);
+      pushQueryParams(newParams, asUrl, options);
+      return true;
     },
     [pushQueryParams, queryParams]
   );
 
   const removeQueryParam = React.useCallback(
-    (paramName: string) => removeQueryParams([paramName]),
+    (
+      paramName: string,
+      asUrl?: Parameters<typeof router.push>[1],
+      options?: Parameters<typeof router.push>[2]
+    ) => removeQueryParams([paramName], asUrl, options),
     [removeQueryParams]
   );
 
