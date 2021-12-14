@@ -127,8 +127,14 @@ const SearchPage = ({
 
   const searchName = defaultSearch?.name || (router.query.search as string);
 
-  const { queryParams, pushQueryParams, queryParamsStringified, stringifyParams, pushQueryParam } =
-    useUrl();
+  const {
+    queryParams,
+    pushQueryParams,
+    queryParamsStringified,
+    stringifyParams,
+    pushQueryParam,
+    removeQueryParam,
+  } = useUrl();
 
   const [refreshInterval, setRefreshInterval] = React.useState(
     REFRESH_INTERVALS[defaultSearch?.status || '']
@@ -565,9 +571,15 @@ const SearchPage = ({
             )}
             selectedIndex={+queryParams.tabIndex || 0}
             onSelect={
-              pushQueryParam('tabIndex', undefined, {
-                scroll: false,
-                shallow: true,
+              ((tabIndex: number) => {
+                const options = {
+                  scroll: false,
+                  shallow: true,
+                };
+                if (tabIndex === 0) {
+                  return removeQueryParam('tabIndex', undefined, options);
+                }
+                return pushQueryParam('tabIndex', undefined, options)(tabIndex);
               }) as any
             }
           >
