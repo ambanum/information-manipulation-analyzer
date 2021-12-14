@@ -46,7 +46,11 @@ const UrlFilters: React.FC<UrlFiltersProps> = ({ children, className, ...props }
         <FilterItem onRemove={() => removeQueryParams(['hashtag'])}>#{hashtag}</FilterItem>
       )}
       {content && (
-        <FilterItem onRemove={() => removeQueryParams(['content'])}>"{content}"</FilterItem>
+        <FilterItem onRemove={() => removeQueryParams(['content'])}>
+          <span style={{ maxWidth: '400px', whiteSpace: 'nowrap', overflowX: 'auto' }}>
+            "{content}"
+          </span>
+        </FilterItem>
       )}
     </Filters>
   );
