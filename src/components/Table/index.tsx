@@ -114,7 +114,8 @@ export default function Table<T extends Record<string, unknown>>({
         className="tr"
       >
         {row.cells.map((cell) => {
-          let { className = '', ...cellProps } = cell.getCellProps();
+          let { className = '', style = {}, ...cellProps } = cell.getCellProps();
+
           className = `${className} ${
             //@ts-ignore
             getAlignClass(cell.column.align)
@@ -123,7 +124,11 @@ export default function Table<T extends Record<string, unknown>>({
             getSizeClass(cell.column.size)
           }`;
           return (
-            <div className={`td ${className}`} {...cellProps}>
+            <div
+              className={`td ${className}`}
+              style={{ ...style, ...((cell.column as any).style || {}) }}
+              {...cellProps}
+            >
               {cell.render('Cell')}
             </div>
           );
@@ -191,7 +196,7 @@ export default function Table<T extends Record<string, unknown>>({
                 // @ts-ignore
                 const sortByProps = column.getSortByToggleProps();
                 // @ts-ignore
-                const { isSorted, isSortedDesc, headerClassName, canSort } = column;
+                const { isSorted, isSortedDesc, headerClassName, canSort, style } = column;
                 const headerProps = column.getHeaderProps(sortByProps);
 
                 //@ts-ignore
@@ -242,6 +247,7 @@ export default function Table<T extends Record<string, unknown>>({
                       alignClasses,
                       sizeClasses
                     )}
+                    style={{ ...((column as any).style || {}) }}
                   >
                     <div>{column.render('Header')}</div>
 

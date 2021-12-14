@@ -25,6 +25,10 @@ const Tweets = ({ search, refreshInterval, queryParamsStringified = '' }: DataTw
     }
   );
 
+  if (!data) {
+    return <Loading />;
+  }
+
   const {
     firstTweets = [],
     mostRetweetedTweets = [],
