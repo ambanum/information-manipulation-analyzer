@@ -43,6 +43,12 @@ const TweetsData = dynamic(() => import('../../data-components/Tweets'), ssrConf
 const VideosData = dynamic(() => import('../../data-components/Videos'), ssrConfig);
 const PhotosData = dynamic(() => import('../../data-components/Photos'), ssrConfig);
 const OutlinksData = dynamic(() => import('../../data-components/Outlinks'), ssrConfig);
+const CoordinatedInauthenticBehaviorData = dynamic(
+  () => import('../../data-components/CoordinatedInauthenticBehavior'),
+  ssrConfig
+);
+
+const humanize = Intl.NumberFormat('en', { notation: 'compact' }).format;
 
 export { default as getStaticPaths } from './[search].staticPaths';
 export { default as getStaticProps } from './[search].staticProps';
@@ -325,6 +331,15 @@ const SearchPage = ({
     },
     [pushQueryParams]
   );
+  const onFilterTweetContentChange = React.useCallback(
+    (value: string) => {
+      pushQueryParams({ content: value }, undefined, {
+        scroll: false,
+        shallow: true,
+      });
+    },
+    [pushQueryParams]
+  );
 
   React.useEffect(() => {
     setRefreshInterval(calculatedRefreshInterval);
@@ -538,11 +553,10 @@ const SearchPage = ({
               <div className="fr-col">
                 <h4 className="fr-mb-1v">Volumetry</h4>
                 <p className="fr-mb-0">
-                  <strong>{nbTweets === undefined ? '-' : nbTweets.toLocaleString('en')}</strong>{' '}
-                  tweets <strong>{nbRetweets.toLocaleString('en')}</strong> retweets{' '}
-                  <strong>{nbLikes.toLocaleString('en')}</strong> likes{' '}
-                  <strong>{nbQuotes.toLocaleString('en')}</strong> quotes{' '}
-                  <strong>{nbReplies.toLocaleString('en')}</strong> replies
+                  <strong>{nbTweets === undefined ? '-' : humanize(nbTweets)}</strong> tweets{' '}
+                  <strong>{humanize(nbRetweets)}</strong> retweets{' '}
+                  <strong>{humanize(nbLikes)}</strong> likes <strong>{humanize(nbQuotes)}</strong>{' '}
+                  quotes <strong>{humanize(nbReplies)}</strong> replies
                 </p>
               </div>
             </div>
@@ -595,6 +609,7 @@ const SearchPage = ({
                 <Tab className={sReactTabs.tab}>Associated hashtags</Tab>
                 <Tab className={sReactTabs.tab}>Tweets</Tab>
                 <Tab className={sReactTabs.tab}>Medias</Tab>
+                <Tab className={sReactTabs.tab}>C.I.B</Tab>
               </TabList>
             </div>
             <div className="fr-container fr-container-fluid">
@@ -669,6 +684,16 @@ const SearchPage = ({
                   exportName={`${dayjs(newestProcessedDate).format(
                     'YYYYMMDDHH'
                   )}__${searchName}__medias-outlinks`}
+                />
+              </TabPanel>
+              <TabPanel>
+                <CoordinatedInauthenticBehaviorData
+                  search={searchName}
+                  queryParamsStringified={queryParamsStringified}
+                  onTweetContentFilterClick={onFilterTweetContentChange}
+                  exportName={`${dayjs(newestProcessedDate).format(
+                    'YYYYMMDDHH'
+                  )}__${searchName}__medias-videos`}
                 />
               </TabPanel>
             </div>
