@@ -96,9 +96,7 @@ const schema = new Schema<Tweet>(
     id: { type: String, required: true, index: true, unique: true },
     date: { type: Date, required: true, index: true },
     hour: { type: Date, required: true, index: true },
-    // NOTE: we do not index `content` on purpose
-    // it would be too costy in case text is too long or contains unicode characters
-    content: { type: String, required: true },
+    content: { type: String, required: true, index: 'text' },
     username: { type: String, required: true, index: true },
     replyCount: { type: Number, required: true, index: true },
     retweetCount: { type: Number, required: true, index: true },
