@@ -1,10 +1,8 @@
-const { version } = require('./package.json');
-
 module.exports = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   webpack5: true,
   publicRuntimeConfig: {
-    version,
+    version: process.env.VERSION || '',
   },
   experimental: {
     pageDataCollectionTimeout: 200,
