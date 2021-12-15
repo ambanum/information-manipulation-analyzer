@@ -520,8 +520,20 @@ export const getTweetContents = async (filters: SearchFilter) => {
     },
     {
       $group: {
-        _id: '$content',
+        _id: {
+          content: '$content',
+          username: '$username',
+        },
         count: { $sum: 1 },
+      },
+    },
+    {
+      $group: {
+        _id: '$_id.content',
+
+        count: {
+          $sum: 1,
+        },
       },
     },
     { $match: { count: { $gt: 1 } } },
