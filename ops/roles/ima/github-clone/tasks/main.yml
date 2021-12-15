@@ -1,18 +1,6 @@
 - name: Include vars
   include_vars: '{{ENV}}.yml'
 
-- name: Find out ops's path
-  shell: pwd
-  register: ops_path_output
-  connection: local
-
-- name: get version from package
-  shell: cat "{{ops_path_output.stdout}}/../package.json"
-  register: package_json
-  connection: local
-
-- set_fact: package="{{ package_json.stdout | from_json }}"
-
 - name: Clone Repo
   git:
     repo: '{{ repository }}'
@@ -36,14 +24,14 @@
       args:
         ENV_FILE: '{{ env_file }}'
       path: '/home/{{ ansible_user }}/{{ app }}'
-    name: '{{ app }}:{{ package.version }}'
+    name: '{{ app }}:{{ result_git_clone.before[:8] }}'
     force_source: yes
 
 - name: Start the container
   become: yes
   community.general.docker_container:
     name: '{{ app }}'
-    image: '{{ app }}:{{ package.version }}'
+    image: '{{ app }}:{{ result_git_clone.before[:8] }}'
     restart: yes
     state: started
     restart_policy: unless-stopped
@@ -55,6 +43,7 @@
       AUTH_CREDENTIALS: "{{ nextauth_basic_auth if nextauth_basic_auth is defined else '' }}"
       AUTH_JWT_SECRET: "{{ nextauth_secret if nextauth_secret is defined else '' }}"
       PROCESSOR_API_URL: "{{ api_url if api_url is defined else '' }}"
+      VERSION: '{{ result_git_clone.before[:8] }}'
     ports:
       - '{{ app_port }}:3000'
 
