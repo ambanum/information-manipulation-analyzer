@@ -206,7 +206,7 @@ export const getWithData = async ({
   lang,
   username,
   hashtag,
-  tweetContent,
+  content,
 }: {
   name: string;
   min?: string;
@@ -214,7 +214,7 @@ export const getWithData = async ({
   lang?: string;
   username?: string;
   hashtag?: string;
-  tweetContent?: string;
+  content?: string;
 }) => {
   try {
     const search = await get({ name });
@@ -229,7 +229,7 @@ export const getWithData = async ({
       lang,
       username,
       hashtag,
-      tweetContent,
+      content,
     };
 
     const searchVolumetry = await getVolumetry(filters);
