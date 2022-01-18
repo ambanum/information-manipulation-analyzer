@@ -1,9 +1,9 @@
+// @ts-nocheck
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import { GetServerSideProps } from 'next';
 import Gradient from 'javascript-color-gradient';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
-// @ts-nocheck
 import React from 'react';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -166,6 +166,7 @@ const highlightNodesAndEdges = (
 
 const NetworkgraphDetail = ({ name, json }) => {
   const [tick, setTick] = React.useState<number>();
+  const [tickInterval, setTickInterval] = React.useState<number>(200);
   const [active, toggleActive] = useToggle(false);
   const { nodes, edges } = json;
 
@@ -173,7 +174,9 @@ const NetworkgraphDetail = ({ name, json }) => {
     ...nodes.reduce((acc, node) => [...acc, ...(node?.metadata?.dates || [])], []),
     ...edges.reduce((acc, edge) => [...acc, ...(edge?.metadata?.dates || [])], []),
   ].sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+
   const startDate = dates[0];
+  const endDate = dates[tick];
 
   React.useEffect(() => {
     let interval: NodeJS.Timer;
@@ -188,7 +191,7 @@ const NetworkgraphDetail = ({ name, json }) => {
           }
           return newTick;
         });
-      }, 200);
+      }, tickInterval);
     }
     return () => clearInterval(interval);
   }, [active, dates.length]);
@@ -204,7 +207,7 @@ const NetworkgraphDetail = ({ name, json }) => {
   const filteredNodes = highlightNodesAndEdges(json, {
     active,
     startDate,
-    endDate: dates[tick],
+    endDate,
   });
 
   const { nodes: newNodes, edges: newEdges } = filteredNodes;
@@ -215,18 +218,25 @@ const NetworkgraphDetail = ({ name, json }) => {
         From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
         <strong title={dates[tick]}>{dayjs(dates[tick]).format('llll')}</strong>
       </div>
-      <div className="fr-mx-2w fr-my-2w">
-        <small>
-          <strong>{tick || 0}</strong> / {dates.length} dates
-        </small>{' '}
-        <small>
-          <strong>{nodes.length}</strong> nodes
-        </small>{' '}
-        <small>
-          <strong>{edges.length}</strong> edges
-        </small>
-      </div>
       <div className="fr-mx-2w fr-my-2w text-right">
+        <span className="fr-mx-2w fr-my-2w">
+          <small>
+            <strong>{tick || 0}</strong> / {dates.length} dates
+          </small>{' '}
+          <small>
+            <strong>{nodes.length}</strong> nodes
+          </small>{' '}
+          <small>
+            <strong>{edges.length}</strong> edges
+          </small>
+        </span>
+        <input
+          onChange={(event) => setTickInterval(+event.target.value)}
+          value={tickInterval}
+          disabled={active}
+          size={4}
+        />
+        ms{' '}
         <button
           className="fr-btn--sm fr-btn fr-fi-arrow-left-s-line-double fr-btn--icon-left"
           onClick={() => setTick((tick || 0) - 1)}
