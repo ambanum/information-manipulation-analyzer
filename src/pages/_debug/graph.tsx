@@ -1,6 +1,21 @@
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+
+import { GetServerSideProps } from 'next';
+import Gradient from 'javascript-color-gradient';
+import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
 // @ts-nocheck
 import React from 'react';
+import classNames from 'classnames';
+import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
+import fs from 'fs';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+import path from 'path';
+import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
+import { useToggle } from 'react-use';
+
 const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
   ssr: false,
 });
@@ -10,24 +25,11 @@ const NetworkGraph2D = dynamic(() => import('modules/NetworkGraph/components/Net
 const NetworkGraph3D = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph3D'), {
   ssr: false,
 });
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
-import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
-import { useToggle } from 'react-use';
-import dayjs from 'dayjs';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import localizedFormat from 'dayjs/plugin/localizedFormat';
-import { GetServerSideProps } from 'next';
-import fs from 'fs';
-import path from 'path';
 
-import classNames from 'classnames';
 dayjs.extend(localizedFormat);
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 
-import Gradient from 'javascript-color-gradient';
 const colorGradient = new Gradient();
 colorGradient.setGradient('#008000', '#e1000f'); // from red to green
 colorGradient.setMidpoint(0.5);
@@ -70,23 +72,57 @@ const highlightNodesAndEdges = (
   console.timeEnd('edges');
   console.log('nodes', newData.nodes.length); //eslint-disable-line
   console.time('nodes');
-  newData.nodes.map((node) => {
-    const date = node.metadata.dates[node.metadata.dates.length - 1];
 
-    if (
-      (startDate && dayjs(date).isBefore(startDate)) ||
-      (endDate && dayjs(date).isAfter(endDate))
-    ) {
-      node.active = false;
-      node.color = '#EEEEEEAA';
-    } else {
-      node.active = true;
-      // @ts-ignore
-      node.color = node?.metadata?.botscore
-        ? colorGradient.getColor(node?.metadata?.botscore)
-        : '#FA0000AA';
-      console.log(`${node?.metadata?.botscore} %c${node.color}`, `color: ${node.color}`); //eslint-disable-line
-    }
+  const nodeColors = [
+    '#FFCA3A',
+    '#FFBD00',
+    '#FBC3BC',
+    '#FF595E',
+    '#FF0054',
+    '#FF5400',
+    '#9E0059',
+    '#6A4C93',
+    '#1982C4',
+    '#2D7DD2',
+    '#657ED4',
+    '#390099',
+    '#8AC926',
+    '#97CC04',
+    '#09BC8A',
+    '#87BAAB',
+    '#1282A2',
+    '#508991',
+    '#B8F2E6',
+    '#AED9E0',
+    '#0F7173',
+    '#065143',
+    '#C2B8B2',
+    '#EDB183',
+    '#D8A47F',
+    '#81171B',
+    '#540804',
+    '#443627',
+  ];
+
+  newData.nodes.map((node) => {
+    // const date = node.metadata.dates[node.metadata.dates.length - 1];
+
+    // if (
+    //   (startDate && dayjs(date).isBefore(startDate)) ||
+    //   (endDate && dayjs(date).isAfter(endDate))
+    // ) {
+    //   node.active = false;
+    //   node.color = '#EEEEEEAA';
+    // } else {
+    //   node.active = true;
+    //   // @ts-ignore
+    //   node.color = node?.metadata?.botscore
+    //     ? colorGradient.getColor(node?.metadata?.botscore)
+    //     : '#FA0000AA';
+    //   console.log(`${node?.metadata?.botscore} %c${node.color}`, `color: ${node.color}`); //eslint-disable-line
+    // }
+
+    node.color = nodeColors[node?.community_id];
 
     node.size = endDate
       ? newData.edges
