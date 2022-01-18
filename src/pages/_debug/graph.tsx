@@ -345,7 +345,7 @@ const NetworkGraphDebugPage = ({ files }: any) => {
   if (!files.length) {
     return <div>No files found</div>;
   }
-
+  const metadata = file.json.metadata || {};
   return (
     <>
       <h3 className="fr-mx-2w fr-my-2w">
@@ -357,7 +357,12 @@ const NetworkGraphDebugPage = ({ files }: any) => {
           ))}
         </select>
       </h3>
-
+      <pre
+        className="fr-mx-2w fr-my-1w fr-px-1w text-xs"
+        style={{ fontSize: '10px', background: '#333', color: '#FFF', borderRadius: '4px' }}
+      >
+        graphgenerator "{metadata.search}" -j ./public/graph/{file.name}
+      </pre>
       <NetworkgraphDetail {...file} />
     </>
   );
