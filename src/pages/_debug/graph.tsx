@@ -179,6 +179,11 @@ const NetworkgraphDetail = ({ name, json }) => {
   const endDate = dates[tick];
 
   React.useEffect(() => {
+    setTick(0);
+    toggleActive(false);
+  }, [name]);
+
+  React.useEffect(() => {
     let interval: NodeJS.Timer;
 
     if (active) {
