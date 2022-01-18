@@ -16,6 +16,7 @@ import path from 'path';
 import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import shuffle from 'lodash/shuffle';
 import useUrl from 'hooks/useUrl';
+import { useToggle } from 'react-use';
 
 const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
   ssr: false,
