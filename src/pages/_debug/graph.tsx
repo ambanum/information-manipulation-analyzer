@@ -15,7 +15,7 @@ import localizedFormat from 'dayjs/plugin/localizedFormat';
 import path from 'path';
 import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import shuffle from 'lodash/shuffle';
-import { useToggle } from 'react-use';
+import useUrl from 'hooks/useUrl';
 
 const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
   ssr: false,
@@ -335,11 +335,12 @@ const NetworkgraphDetail = ({ name, json }) => {
 };
 
 const NetworkGraphDebugPage = ({ files }: any) => {
-  const [selectedFile, setSelectedFile] = React.useState(1);
+  const { queryParams, pushQueryParam } = useUrl();
+  const selectedFile = queryParams.selected || 1;
   const file = files[selectedFile];
 
   const onChange = (event: any) => {
-    setSelectedFile(event.target.value);
+    pushQueryParam('selected', undefined, { shallow: true })(event.target.value);
   };
 
   if (!files.length) {
