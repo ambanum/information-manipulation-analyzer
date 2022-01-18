@@ -19,13 +19,6 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
   const [hoverNode, setHoverNode] = React.useState(null);
 
   const updateHighlight = () => {
-    console.log(''); //eslint-disable-line
-    console.log('╔════START══"update"══════════════════════════════════════════════════'); //eslint-disable-line
-    console.log('update'); //eslint-disable-line
-    console.log('highlightLinks', highlightLinks); //eslint-disable-line
-    console.log('highlightNodes', highlightNodes); //eslint-disable-line
-    console.log('╚════END════"update"══════════════════════════════════════════════════'); //eslint-disable-line
-
     setHighlightNodes(highlightNodes);
     setHighlightLinks(highlightLinks);
   };
@@ -75,7 +68,7 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
       <ForceGraph3D
         graphData={graph}
         linkDirectionalArrowLength={7}
-        backgroundColor="white"
+        backgroundColor="#333"
         nodeAutoColorBy="color"
         nodeVal={(node) => node.size}
         nodeLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
