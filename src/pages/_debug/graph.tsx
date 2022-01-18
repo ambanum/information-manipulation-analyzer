@@ -120,8 +120,6 @@ const highlightNodesAndEdges = (
     '#a26859',
   ]);
 
-  console.log(nodeColors);
-
   newData.nodes.map((node) => {
     // const date = node.metadata.dates[node.metadata.dates.length - 1];
 
