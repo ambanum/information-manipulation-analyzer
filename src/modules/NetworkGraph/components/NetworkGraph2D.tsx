@@ -1,8 +1,8 @@
+import ForceGraph2D from 'react-force-graph-2d';
+import type { NetworkGraphJson } from './NetworkGraph.d';
 // @ts-nocheck
 import React from 'react';
 import classNames from 'classnames';
-import ForceGraph2D from 'react-force-graph-2d';
-import type { NetworkGraphJson } from './NetworkGraph.d';
 
 type NetworkGraphReactTreeProps = {
   graph: NetworkGraphJson;
