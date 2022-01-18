@@ -6454,6 +6454,11 @@ thenify-all@^1.0.0:
   dependencies:
     any-promise "^1.0.0"
 
+three-css2drender@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/three-css2drender/-/three-css2drender-1.0.0.tgz#2065e64c9d117033c08bfdc957a78edfe4b6ed1b"
+  integrity sha512-redDCSBDvgxiJIm6EDT8WO5WJTVg5gUEy/vjtAgJa/zX4peEUnZ8K+mXo6v94EudbnuI5h48/hQo9NExf04ENg==
+
 three-forcegraph@^1.39:
   version "1.39.1"
   resolved "https://registry.yarnpkg.com/three-forcegraph/-/three-forcegraph-1.39.1.tgz#8e4b95d059a43d9c7c03305e0690eb138e6f5550"

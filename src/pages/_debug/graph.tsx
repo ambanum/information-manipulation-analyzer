@@ -27,21 +27,21 @@ dayjs.extend(isSameOrAfter);
 import Gradient from 'javascript-color-gradient';
 const colorGradient = new Gradient();
 colorGradient.setGradient('#008000', '#e1000f'); // from red to green
-colorGradient.setMidpoint(10); // set to 8 color steps
+colorGradient.setMidpoint(0.5);
 
 const hashtag = 'ok';
-const file = '#DébatLR.json';
+const file = 'freesenegal_10000.json';
 
 // const path = String(process.env.NEXT_PUBLIC_BASE_PATH) + '/#DébatLR.json';
 // const path2 = String(process.env.NEXT_PUBLIC_BASE_PATH) + `/${file}`;
 
-import json from '../../../public/#DébatLR.json';
+import json from '../../../public/freesenegal_10000.json';
 import { log } from 'console';
 const { nodes, edges } = json;
 
 const dates = [
-  ...nodes.reduce((acc, node) => [...acc, ...(node?.metadata?.date || [])], []),
-  ...edges.reduce((acc, edge) => [...acc, ...(edge?.metadata?.date || [])], []),
+  ...nodes.reduce((acc, node) => [...acc, ...(node?.metadata?.dates || [])], []),
+  ...edges.reduce((acc, edge) => [...acc, ...(edge?.metadata?.dates || [])], []),
 ].sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
 const highlightNodesAndEdges = (
@@ -51,26 +51,14 @@ const highlightNodesAndEdges = (
   if (!startDate && !endDate) {
     return data;
   }
-
   const newData = { ...data };
-
-  const getLastDateIndex = (dates: string[]) => {
-    return dates.reduce((acc: number, date2: string, index) => {
-      if (
-        startDate &&
-        dayjs(startDate).isBefore(date2) &&
-        endDate &&
-        dayjs(endDate).isAfter(date2)
-      ) {
-        return index;
-      }
-      return acc;
-    }, 0);
-  };
-
+  console.log(''); //eslint-disable-line
+  console.log('╔════START════════════════════════════════════════════════════'); //eslint-disable-line
+  console.log('highlightNodesAndEdges'); //eslint-disable-line
+  console.log('edges', newData.edges.length); //eslint-disable-line
+  console.time('edges');
   newData.edges.map((edge: any) => {
-    const lastDateIndex = getLastDateIndex(edge.metadata.date);
-    const date = edge.metadata.date[lastDateIndex];
+    const date = edge.metadata.dates[edge.metadata.dates.length - 1];
 
     if (
       (startDate && dayjs(date).isBefore(startDate)) ||
@@ -83,13 +71,14 @@ const highlightNodesAndEdges = (
       edge.color = '#00000022';
     }
 
-    edge.size = endDate ? lastDateIndex || 1 : edge.size;
+    edge.size = endDate ? edge.metadata.dates.length || 1 : edge.size;
     return edge;
   });
-
+  console.timeEnd('edges');
+  console.log('nodes', newData.nodes.length); //eslint-disable-line
+  console.time('nodes');
   newData.nodes.map((node) => {
-    const lastDateIndex = getLastDateIndex(node.metadata.date);
-    const date = node.metadata.date[lastDateIndex];
+    const date = node.metadata.dates[node.metadata.dates.length - 1];
 
     if (
       (startDate && dayjs(date).isBefore(startDate)) ||
@@ -100,7 +89,10 @@ const highlightNodesAndEdges = (
     } else {
       node.active = true;
       // @ts-ignore
-      node.color = node.botScore ? colorGradient.getColor(node.botScore) : '#FA0000AA';
+      node.color = node?.metadata?.botscore
+        ? colorGradient.getColor(node?.metadata?.botscore)
+        : '#FA0000AA';
+      console.log(`${node?.metadata?.botscore} %c${node.color}`, `color: ${node.color}`); //eslint-disable-line
     }
 
     node.size = endDate
@@ -120,6 +112,8 @@ const highlightNodesAndEdges = (
 
     return node;
   });
+  console.timeEnd('nodes');
+  console.log('╚════END══════════════════════════════════════════════════════'); //eslint-disable-line
 
   return newData;
 };
@@ -231,12 +225,20 @@ const NetworkGraphDebugPage = () => {
               sReactTabs.tabList
             )}
           >
+            <Tab className={sReactTabs.tab}>ForceGraph3D</Tab>
             <Tab className={sReactTabs.tab}>Sigma</Tab>
             <Tab className={sReactTabs.tab}>ForceGraph2D</Tab>
-            <Tab className={sReactTabs.tab}>ForceGraph3D</Tab>
           </TabList>
         </div>
         <div className="">
+          <TabPanel>
+            <h3>
+              <a target="_blank" href="https://github.vasturiano/react-force-graph">
+                react-force-graph-3d
+              </a>
+            </h3>
+            <NetworkGraph3D graph={{ nodes: newNodes, links: newEdges }} />
+          </TabPanel>
           <TabPanel>
             <h3>
               <a target="_blank" href="https://github.com/dunnock/react-sigma">
@@ -263,14 +265,6 @@ const NetworkGraphDebugPage = () => {
                 links: newEdges,
               }}
             />
-          </TabPanel>
-          <TabPanel>
-            <h3>
-              <a target="_blank" href="https://github.vasturiano/react-force-graph">
-                react-force-graph-3d
-              </a>
-            </h3>
-            <NetworkGraph3D graph={{ nodes: newNodes, links: newEdges }} />
           </TabPanel>
         </div>
       </Tabs>

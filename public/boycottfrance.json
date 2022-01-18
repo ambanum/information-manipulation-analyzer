@@ -1,0 +1,2515 @@
+{
+  "edges": [
+    {
+      "source": "3572rob",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_0",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T20:29:27+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/3572rob/status/1481362712512843780"]
+      }
+    },
+    {
+      "source": "AbdelAz17604856",
+      "target": "Adil_Charkaoui",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_1",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T15:57:38+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/AbdelAz17604856/status/1483106247943540740"]
+      }
+    },
+    {
+      "source": "AbdelAz17604856",
+      "target": "K_Mythe",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_2",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T15:58:10+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/AbdelAz17604856/status/1483106379686633474"]
+      }
+    },
+    {
+      "source": "AbdelAz17604856",
+      "target": "Saladin1086",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_3",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T15:57:57+00:00", "2022-01-17T15:58:28+00:00"],
+        "quoted": ["", ""],
+        "retweets": [
+          "https://twitter.com/AbdelAz17604856/status/1483106323847860233",
+          "https://twitter.com/AbdelAz17604856/status/1483106453745549321"
+        ]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "Muslim40066720",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_4",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-13T19:46:58+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/AbulHassna/status/1481714408367734784"]
+      }
+    },
+    {
+      "source": "AbulHassna",
+      "target": "Saladin1086",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_5",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T11:08:03+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/AbulHassna/status/1483033371898957826"]
+      }
+    },
+    {
+      "source": "Captaintrips74",
+      "target": "ThisIsTheWorl18",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_6",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T00:37:12+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Captaintrips74/status/1482874610832007174"]
+      }
+    },
+    {
+      "source": "DMDent",
+      "target": "PeterSweden7",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_7",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T19:54:02+00:00"],
+        "quoted": ["https://twitter.com/DMDent/status/1483165739515273222"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "Eorganorgan",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_8",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T19:26:15+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Eorganorgan/status/1481346808018264064"]
+      }
+    },
+    {
+      "source": "EsmatHashem2",
+      "target": "Khuliwi5",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_9",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T13:31:04+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/EsmatHashem2/status/1481257422282973189"]
+      }
+    },
+    {
+      "source": "FrancesUssenbai",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_10",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T10:36:56+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/FrancesUssenbai/status/1481213598814900226"]
+      }
+    },
+    {
+      "source": "HaddadeRachid",
+      "target": "Saladin1086",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_11",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T14:48:16+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/HaddadeRachid/status/1483088788184346629"]
+      }
+    },
+    {
+      "source": "JAYLAMB1",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_12",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T23:44:09+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/JAYLAMB1/status/1481411707906007053"]
+      }
+    },
+    {
+      "source": "Jan_S_B_459",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_13",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T10:40:53+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Jan_S_B_459/status/1481214592495796232"]
+      }
+    },
+    {
+      "source": "JimmyKranki",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_14",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T13:22:01+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/JimmyKranki/status/1481255145358999555"]
+      }
+    },
+    {
+      "source": "LosPoll63976350",
+      "target": "Adil_Charkaoui",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_15",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-14T21:58:18+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/LosPoll63976350/status/1482109849110564866"]
+      }
+    },
+    {
+      "source": "MARIEDo35155472",
+      "target": "Socialistesque",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_16",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-16T00:36:56+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/MARIEDo35155472/status/1482512157258485761"]
+      }
+    },
+    {
+      "source": "MoePhx1",
+      "target": "1PijVT1D3GIgwpG",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_17",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-15T02:39:29+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/MoePhx1/status/1482180608545591298"]
+      }
+    },
+    {
+      "source": "Muslim40066720",
+      "target": "ShlagSparrow",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_18",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-15T08:16:31+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Muslim40066720/status/1482265426604167173"]
+      }
+    },
+    {
+      "source": "NeilJamesWeekes",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_19",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T10:25:33+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/NeilJamesWeekes/status/1481210737011961862"]
+      }
+    },
+    {
+      "source": "PatriciaNiclas",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_20",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T21:50:39+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/PatriciaNiclas/status/1481383144452407305"]
+      }
+    },
+    {
+      "source": "Royston08029210",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_21",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T19:27:06+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Royston08029210/status/1481347020891865089"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "1PijVT1D3GIgwpG",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_22",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-14T14:46:40+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1482001223599509507"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "Adil_Charkaoui",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_23",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-14T14:46:29+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1482001176254160903"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "AkaiMPC2000",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_24",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T08:58:05+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1483000660908032003"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "DMDent",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_25",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T20:50:28+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1483179938891059206"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "FursieRS6",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_26",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-14T14:45:51+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1482001018934247426"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "K_Mythe",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_27",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-16T07:12:38+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1482611739426496514"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "Muslim40066720",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_28",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-13T09:16:54+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1481555845557145600"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "PimBouwensMedia",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_29",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T20:50:46+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1483180013843324934"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "Saladin1086",
+      "size": 4,
+      "label": "has RT",
+      "id": "edge_30",
+      "type": "arrow",
+      "metadata": {
+        "dates": [
+          "2022-01-13T13:11:50+00:00",
+          "2022-01-15T09:22:34+00:00",
+          "2022-01-17T08:57:42+00:00",
+          "2022-01-17T08:58:07+00:00"
+        ],
+        "quoted": ["", "", "", ""],
+        "retweets": [
+          "https://twitter.com/ShlagSparrow/status/1481614967824650244",
+          "https://twitter.com/ShlagSparrow/status/1482282047976652800",
+          "https://twitter.com/ShlagSparrow/status/1483000565651095553",
+          "https://twitter.com/ShlagSparrow/status/1483000672803074049"
+        ]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "Socialistesque",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_31",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-16T07:11:39+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1482611491513716740"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "The_real_Jambo_",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_32",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-13T12:13:49+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1481600369469837314"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "ThisIsTheWorl18",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_33",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T08:58:01+00:00", "2022-01-17T20:51:58+00:00"],
+        "quoted": ["", ""],
+        "retweets": [
+          "https://twitter.com/ShlagSparrow/status/1483000646492172289",
+          "https://twitter.com/ShlagSparrow/status/1483180317053698048"
+        ]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "Thunderace4",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_34",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-15T09:23:39+00:00"],
+        "quoted": ["https://twitter.com/ShlagSparrow/status/1482282320812027913"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "VRALIAM",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_35",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T08:57:46+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1483000582067703812"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "_ForeverBb",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_36",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T20:51:17+00:00", "2022-01-17T20:51:55+00:00"],
+        "quoted": ["", ""],
+        "retweets": [
+          "https://twitter.com/ShlagSparrow/status/1483180146743906306",
+          "https://twitter.com/ShlagSparrow/status/1483180305129345025"
+        ]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "_HDDZD",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_37",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-14T17:15:37+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1482038709222576130"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "centurynews1",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_38",
+      "type": "arrow",
+      "metadata": {
+        "dates": [
+          "2022-01-17T20:51:00+00:00",
+          "2022-01-17T20:51:14+00:00",
+          "2022-01-17T20:51:25+00:00"
+        ],
+        "quoted": ["", "", ""],
+        "retweets": [
+          "https://twitter.com/ShlagSparrow/status/1483180073234665473",
+          "https://twitter.com/ShlagSparrow/status/1483180134630887425",
+          "https://twitter.com/ShlagSparrow/status/1483180177723170821"
+        ]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "crypto_bizz",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_39",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T10:08:13+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1483018312019759105"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "dclparis",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_40",
+      "type": "arrow",
+      "metadata": {
+        "dates": [
+          "2022-01-12T09:59:07+00:00",
+          "2022-01-12T09:59:16+00:00",
+          "2022-01-12T09:59:22+00:00"
+        ],
+        "quoted": ["", "", ""],
+        "retweets": [
+          "https://twitter.com/ShlagSparrow/status/1481204081998053377",
+          "https://twitter.com/ShlagSparrow/status/1481204118978920450",
+          "https://twitter.com/ShlagSparrow/status/1481204145243701254"
+        ]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "derda990",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_41",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-13T10:26:33+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1481573372978941957"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "friendofrussia",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_42",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T20:50:53+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1483180046324015112"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "hollydais",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_43",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T20:51:47+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1483180270484398085"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "mark_knight23",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_44",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-13T00:00:21+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1481415786979860482"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "ruactive2",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_45",
+      "type": "arrow",
+      "metadata": {
+        "dates": [
+          "2022-01-17T20:49:51+00:00",
+          "2022-01-17T20:50:24+00:00",
+          "2022-01-17T20:50:50+00:00"
+        ],
+        "quoted": ["", "", ""],
+        "retweets": [
+          "https://twitter.com/ShlagSparrow/status/1483179782800089090",
+          "https://twitter.com/ShlagSparrow/status/1483179923804237831",
+          "https://twitter.com/ShlagSparrow/status/1483180032285622278"
+        ]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "s_occurring",
+      "size": 3,
+      "label": "has RT",
+      "id": "edge_46",
+      "type": "arrow",
+      "metadata": {
+        "dates": [
+          "2022-01-13T12:14:00+00:00",
+          "2022-01-14T17:18:51+00:00",
+          "2022-01-17T20:51:38+00:00"
+        ],
+        "quoted": ["", "", ""],
+        "retweets": [
+          "https://twitter.com/ShlagSparrow/status/1481600416144150534",
+          "https://twitter.com/ShlagSparrow/status/1482039523236274182",
+          "https://twitter.com/ShlagSparrow/status/1483180231955472392"
+        ]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "syribou",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_47",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T20:52:03+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1483180336431386627"]
+      }
+    },
+    {
+      "source": "ShlagSparrow",
+      "target": "vincentkoala2",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_48",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T20:50:41+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ShlagSparrow/status/1483179995455492098"]
+      }
+    },
+    {
+      "source": "Socialistesque",
+      "target": "Ch_Dul",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_49",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-15T21:38:29+00:00"],
+        "quoted": ["https://twitter.com/Socialistesque/status/1482467246773579784"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "Sofian_1959",
+      "target": "Adil_Charkaoui",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_50",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-13T23:45:26+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Sofian_1959/status/1481774421203431428"]
+      }
+    },
+    {
+      "source": "SparrowKraken",
+      "target": "DMDent",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_51",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T20:23:53+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/SparrowKraken/status/1483173249500520456"]
+      }
+    },
+    {
+      "source": "ThisIsTheWorl18",
+      "target": "BernieSpofforth",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_52",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T13:02:34+00:00"],
+        "quoted": ["https://twitter.com/ThisIsTheWorl18/status/1483062187677601798"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "ZahiraDjenane1",
+      "target": "Adil_Charkaoui",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_53",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-14T21:54:51+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ZahiraDjenane1/status/1482108978993770497"]
+      }
+    },
+    {
+      "source": "_HDDZD",
+      "target": "Reuters",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_54",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-14T15:50:34+00:00"],
+        "quoted": ["https://twitter.com/_HDDZD/status/1482017304552558599"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "altelfah1",
+      "target": "derda990",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_55",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-13T10:20:24+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/altelfah1/status/1481571827335979009"]
+      }
+    },
+    {
+      "source": "annselah",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_56",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T10:20:02+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/annselah/status/1481209348407939073"]
+      }
+    },
+    {
+      "source": "crypto_bizz",
+      "target": "AFP",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_57",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T09:37:30+00:00"],
+        "quoted": ["https://twitter.com/crypto_bizz/status/1483010581384806400"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "dead_cat2",
+      "target": "hollydais",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_58",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T13:49:18+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/dead_cat2/status/1483073949302939650"]
+      }
+    },
+    {
+      "source": "derda990",
+      "target": "drassagheer",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_59",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-13T10:03:19+00:00"],
+        "quoted": ["https://twitter.com/derda990/status/1481567529407504385"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "ewanorandy",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_60",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T20:11:35+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ewanorandy/status/1481358215615033346"]
+      }
+    },
+    {
+      "source": "hollydais",
+      "target": "BernieSpofforth",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_61",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T13:14:49+00:00"],
+        "quoted": ["https://twitter.com/hollydais/status/1483065271703289858"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "huffvl",
+      "target": "hollydais",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_62",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T14:22:42+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/huffvl/status/1483082356621811718"]
+      }
+    },
+    {
+      "source": "iJugyy4BfvdYC0U",
+      "target": "Adil_Charkaoui",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_63",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-14T22:21:02+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/iJugyy4BfvdYC0U/status/1482115569226764289"]
+      }
+    },
+    {
+      "source": "iJugyy4BfvdYC0U",
+      "target": "Saladin1086",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_64",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-16T19:34:56+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/iJugyy4BfvdYC0U/status/1482798544616673281"]
+      }
+    },
+    {
+      "source": "mgt_coull26",
+      "target": "NeilEastell",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_65",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T11:13:39+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/mgt_coull26/status/1481222840103981061"]
+      }
+    },
+    {
+      "source": "momoe30860340",
+      "target": "Saladin1086",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_66",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-15T15:17:31+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/momoe30860340/status/1482371374266073098"]
+      }
+    },
+    {
+      "source": "put_beznadja",
+      "target": "DMDent",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_67",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T20:06:51+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/put_beznadja/status/1483168964570238977"]
+      }
+    },
+    {
+      "source": "ruactive2",
+      "target": "PeterSweden7",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_68",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T17:56:05+00:00"],
+        "quoted": ["https://twitter.com/ruactive2/status/1483136054513307652"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "s_occurring",
+      "target": "imUrB00gieman",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_69",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T14:16:03+00:00"],
+        "quoted": ["https://twitter.com/s_occurring/status/1483080681760694275"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "shrouky14297342",
+      "target": "Muslim40066720",
+      "size": 1,
+      "label": "has RT",
+      "id": "edge_70",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-13T13:58:01+00:00"],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/shrouky14297342/status/1481626590232686596"]
+      }
+    },
+    {
+      "source": "sohailayasser52",
+      "target": "Khuliwi5",
+      "size": 2,
+      "label": "has RT",
+      "id": "edge_71",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-12T14:49:35+00:00", "2022-01-12T14:49:35+00:00"],
+        "quoted": ["", ""],
+        "retweets": [
+          "https://twitter.com/sohailayasser52/status/1481277179929497604",
+          "https://twitter.com/sohailayasser52/status/1481277179958902784"
+        ]
+      }
+    },
+    {
+      "source": "syribou",
+      "target": "GuthrieTait",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_72",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T12:12:51+00:00"],
+        "quoted": ["https://twitter.com/syribou/status/1483049675464843273"],
+        "retweets": [""]
+      }
+    },
+    {
+      "source": "vincentkoala2",
+      "target": "PeterSweden7",
+      "size": 1,
+      "label": "has quoted",
+      "id": "edge_73",
+      "type": "arrow",
+      "metadata": {
+        "dates": ["2022-01-17T19:10:30+00:00"],
+        "quoted": ["https://twitter.com/vincentkoala2/status/1483154784173633544"],
+        "retweets": [""]
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "3572rob",
+      "label": "@3572rob",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T20:29:27+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/3572rob/status/1481362712512843780"],
+        "dates_edges": [],
+        "botscore": 0.107
+      },
+      "x": -0.9536942351430712,
+      "y": -0.34567815886632264,
+      "community_id": 0
+    },
+    {
+      "id": "NeilEastell",
+      "label": "@NeilEastell",
+      "size": 12.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-12T10:19:07+00:00"],
+        "tweets": ["https://twitter.com/NeilEastell/status/1481209115099734023"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": [
+          "2022-01-12T10:20:02+00:00",
+          "2022-01-12T10:25:33+00:00",
+          "2022-01-12T10:36:56+00:00",
+          "2022-01-12T10:40:53+00:00",
+          "2022-01-12T11:13:39+00:00",
+          "2022-01-12T13:22:01+00:00",
+          "2022-01-12T19:26:15+00:00",
+          "2022-01-12T19:27:06+00:00",
+          "2022-01-12T20:11:35+00:00",
+          "2022-01-12T20:29:27+00:00",
+          "2022-01-12T21:50:39+00:00",
+          "2022-01-12T23:44:09+00:00"
+        ],
+        "botscore": 0.173
+      },
+      "x": -0.8860759860296157,
+      "y": -0.42133886047307517,
+      "community_id": 0
+    },
+    {
+      "id": "AbdelAz17604856",
+      "label": "@AbdelAz17604856",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": [
+          "2022-01-17T15:57:38+00:00",
+          "2022-01-17T15:57:57+00:00",
+          "2022-01-17T15:58:10+00:00",
+          "2022-01-17T15:58:28+00:00"
+        ],
+        "tweets": ["", "", "", ""],
+        "quoted": ["", "", "", ""],
+        "retweets": [
+          "https://twitter.com/AbdelAz17604856/status/1483106247943540740",
+          "https://twitter.com/AbdelAz17604856/status/1483106323847860233",
+          "https://twitter.com/AbdelAz17604856/status/1483106379686633474",
+          "https://twitter.com/AbdelAz17604856/status/1483106453745549321"
+        ],
+        "dates_edges": [],
+        "botscore": 0.857
+      },
+      "x": 0.031083187015678835,
+      "y": -0.036465264082205316,
+      "community_id": 1
+    },
+    {
+      "id": "Adil_Charkaoui",
+      "label": "@Adil_Charkaoui",
+      "size": 6.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-13T23:06:50+00:00"],
+        "tweets": ["https://twitter.com/Adil_Charkaoui/status/1481764707086307329"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": [
+          "2022-01-13T23:45:26+00:00",
+          "2022-01-14T14:46:29+00:00",
+          "2022-01-14T21:54:51+00:00",
+          "2022-01-14T21:58:18+00:00",
+          "2022-01-14T22:21:02+00:00",
+          "2022-01-17T15:57:38+00:00"
+        ],
+        "botscore": 0.183
+      },
+      "x": 0.05425059077936337,
+      "y": -0.12364692136482133,
+      "community_id": 1
+    },
+    {
+      "id": "K_Mythe",
+      "label": "@K_Mythe",
+      "size": 2.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-15T14:22:49+00:00"],
+        "tweets": ["https://twitter.com/K_Mythe/status/1482357608245776393"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-16T07:12:38+00:00", "2022-01-17T15:58:10+00:00"],
+        "botscore": 0.361
+      },
+      "x": 0.09555955687307614,
+      "y": -0.005974095695892148,
+      "community_id": 1
+    },
+    {
+      "id": "Saladin1086",
+      "label": "@Saladin1086",
+      "size": 10.0,
+      "from": "original",
+      "metadata": {
+        "dates": [
+          "2022-01-13T12:39:49+00:00",
+          "2022-01-15T09:20:26+00:00",
+          "2022-01-16T10:11:52+00:00",
+          "2022-01-17T08:21:38+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/Saladin1086/status/1481606912831545350",
+          "https://twitter.com/Saladin1086/status/1482281512498302981",
+          "https://twitter.com/Saladin1086/status/1482656842232782848",
+          "https://twitter.com/Saladin1086/status/1482991490578194432"
+        ],
+        "quoted": ["", "", "", ""],
+        "retweets": ["", "", "", ""],
+        "dates_edges": [
+          "2022-01-13T13:11:50+00:00",
+          "2022-01-15T09:22:34+00:00",
+          "2022-01-15T15:17:31+00:00",
+          "2022-01-16T19:34:56+00:00",
+          "2022-01-17T08:57:42+00:00",
+          "2022-01-17T08:58:07+00:00",
+          "2022-01-17T11:08:03+00:00",
+          "2022-01-17T14:48:16+00:00",
+          "2022-01-17T15:57:57+00:00",
+          "2022-01-17T15:58:28+00:00"
+        ],
+        "botscore": 0.531
+      },
+      "x": 0.049617936756508906,
+      "y": 0.044470456534052835,
+      "community_id": 1
+    },
+    {
+      "id": "AbulHassna",
+      "label": "@AbulHassna",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-13T19:46:58+00:00", "2022-01-17T11:08:03+00:00"],
+        "tweets": ["", ""],
+        "quoted": ["", ""],
+        "retweets": [
+          "https://twitter.com/AbulHassna/status/1481714408367734784",
+          "https://twitter.com/AbulHassna/status/1483033371898957826"
+        ],
+        "dates_edges": [],
+        "botscore": 0.453
+      },
+      "x": -0.038204753844336005,
+      "y": 0.1138189237472118,
+      "community_id": 1
+    },
+    {
+      "id": "Muslim40066720",
+      "label": "@Muslim40066720",
+      "size": 3.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-13T06:52:33+00:00", "2022-01-15T08:16:31+00:00"],
+        "tweets": ["https://twitter.com/Muslim40066720/status/1481519519587880961", ""],
+        "quoted": ["", ""],
+        "retweets": ["", "https://twitter.com/Muslim40066720/status/1482265426604167173"],
+        "dates_edges": [
+          "2022-01-13T09:16:54+00:00",
+          "2022-01-13T13:58:01+00:00",
+          "2022-01-13T19:46:58+00:00"
+        ],
+        "botscore": 0.688
+      },
+      "x": 0.013774078059350698,
+      "y": 0.1588434047616771,
+      "community_id": 1
+    },
+    {
+      "id": "Captaintrips74",
+      "label": "@Captaintrips74",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-17T00:37:12+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Captaintrips74/status/1482874610832007174"],
+        "dates_edges": [],
+        "botscore": 0.193
+      },
+      "x": 0.12395262563813735,
+      "y": 0.33561218506746837,
+      "community_id": 4
+    },
+    {
+      "id": "ThisIsTheWorl18",
+      "label": "@ThisIsTheWorl18",
+      "size": 3.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-16T23:26:36+00:00", "2022-01-17T13:02:34+00:00"],
+        "tweets": ["https://twitter.com/ThisIsTheWorl18/status/1482856842422362116", ""],
+        "quoted": ["", "https://twitter.com/ThisIsTheWorl18/status/1483062187677601798"],
+        "retweets": ["", ""],
+        "dates_edges": [
+          "2022-01-17T00:37:12+00:00",
+          "2022-01-17T08:58:01+00:00",
+          "2022-01-17T20:51:58+00:00"
+        ],
+        "botscore": 0.194
+      },
+      "x": 0.17032468572389137,
+      "y": 0.21388378615944575,
+      "community_id": 4
+    },
+    {
+      "id": "DMDent",
+      "label": "@DMDent",
+      "size": 3.0,
+      "from": "has quoted",
+      "metadata": {
+        "dates": ["2022-01-17T19:54:02+00:00"],
+        "tweets": [""],
+        "quoted": ["https://twitter.com/DMDent/status/1483165739515273222"],
+        "retweets": [""],
+        "dates_edges": [
+          "2022-01-17T20:06:51+00:00",
+          "2022-01-17T20:23:53+00:00",
+          "2022-01-17T20:50:28+00:00"
+        ],
+        "botscore": 0.13
+      },
+      "x": 0.28995117655403735,
+      "y": -0.1181099524611023,
+      "community_id": 6
+    },
+    {
+      "id": "PeterSweden7",
+      "label": "@PeterSweden7",
+      "size": 3.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-17T14:40:22+00:00", "2022-01-17T18:28:10+00:00"],
+        "tweets": [
+          "https://twitter.com/PeterSweden7/status/1483086803091566596",
+          "https://twitter.com/PeterSweden7/status/1483144127390916613"
+        ],
+        "quoted": ["", ""],
+        "retweets": ["", ""],
+        "dates_edges": [
+          "2022-01-17T17:56:05+00:00",
+          "2022-01-17T19:10:30+00:00",
+          "2022-01-17T19:54:02+00:00"
+        ],
+        "botscore": 0.065
+      },
+      "x": 0.2389875013499482,
+      "y": -0.12238129585677106,
+      "community_id": 6
+    },
+    {
+      "id": "Eorganorgan",
+      "label": "@Eorganorgan",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T19:26:15+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Eorganorgan/status/1481346808018264064"],
+        "dates_edges": [],
+        "botscore": 0.148
+      },
+      "x": -0.8065690101529155,
+      "y": -0.35865604457699896,
+      "community_id": 0
+    },
+    {
+      "id": "EsmatHashem2",
+      "label": "@EsmatHashem2",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T13:31:04+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/EsmatHashem2/status/1481257422282973189"],
+        "dates_edges": [],
+        "botscore": 0.784
+      },
+      "x": 0.9517803760691936,
+      "y": 0.6082009263336212,
+      "community_id": 7
+    },
+    {
+      "id": "Khuliwi5",
+      "label": "@Khuliwi5",
+      "size": 3.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-12T11:36:43+00:00", "2022-01-12T11:39:36+00:00"],
+        "tweets": [
+          "https://twitter.com/Khuliwi5/status/1481228645326802948",
+          "https://twitter.com/Khuliwi5/status/1481229369641156608"
+        ],
+        "quoted": ["", ""],
+        "retweets": ["", ""],
+        "dates_edges": [
+          "2022-01-12T13:31:04+00:00",
+          "2022-01-12T14:49:35+00:00",
+          "2022-01-12T14:49:35+00:00"
+        ],
+        "botscore": 0.243
+      },
+      "x": 0.8803648630197495,
+      "y": 0.5934001953962635,
+      "community_id": 7
+    },
+    {
+      "id": "FrancesUssenbai",
+      "label": "@FrancesUssenbai",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T10:36:56+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/FrancesUssenbai/status/1481213598814900226"],
+        "dates_edges": [],
+        "botscore": 0.361
+      },
+      "x": -0.9604825990991618,
+      "y": -0.5131172843102081,
+      "community_id": 0
+    },
+    {
+      "id": "HaddadeRachid",
+      "label": "@HaddadeRachid",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-17T14:48:16+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/HaddadeRachid/status/1483088788184346629"],
+        "dates_edges": [],
+        "botscore": 0.618
+      },
+      "x": -0.08256382815323852,
+      "y": 0.09607341330104263,
+      "community_id": 1
+    },
+    {
+      "id": "JAYLAMB1",
+      "label": "@JAYLAMB1",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T23:44:09+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/JAYLAMB1/status/1481411707906007053"],
+        "dates_edges": [],
+        "botscore": 0.133
+      },
+      "x": -0.836342559478117,
+      "y": -0.5138256945983926,
+      "community_id": 0
+    },
+    {
+      "id": "Jan_S_B_459",
+      "label": "@Jan_S_B_459",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T10:40:53+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Jan_S_B_459/status/1481214592495796232"],
+        "dates_edges": [],
+        "botscore": 0.271
+      },
+      "x": -0.913949863092334,
+      "y": -0.5275904122718326,
+      "community_id": 0
+    },
+    {
+      "id": "JimmyKranki",
+      "label": "@JimmyKranki",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T13:22:01+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/JimmyKranki/status/1481255145358999555"],
+        "dates_edges": [],
+        "botscore": 0.243
+      },
+      "x": -0.9976870644475891,
+      "y": -0.415368810261297,
+      "community_id": 0
+    },
+    {
+      "id": "LosPoll63976350",
+      "label": "@LosPoll63976350",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-14T21:58:18+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/LosPoll63976350/status/1482109849110564866"],
+        "dates_edges": [],
+        "botscore": 0.597
+      },
+      "x": 0.0135037579115633,
+      "y": -0.24846848428432136,
+      "community_id": 1
+    },
+    {
+      "id": "MARIEDo35155472",
+      "label": "@MARIEDo35155472",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-16T00:36:56+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/MARIEDo35155472/status/1482512157258485761"],
+        "dates_edges": [],
+        "botscore": 0.283
+      },
+      "x": 0.21967491318526408,
+      "y": 0.41391855120841636,
+      "community_id": 8
+    },
+    {
+      "id": "Socialistesque",
+      "label": "@Socialistesque",
+      "size": 2.0,
+      "from": "has quoted",
+      "metadata": {
+        "dates": ["2022-01-15T21:38:29+00:00"],
+        "tweets": [""],
+        "quoted": ["https://twitter.com/Socialistesque/status/1482467246773579784"],
+        "retweets": [""],
+        "dates_edges": ["2022-01-16T00:36:56+00:00", "2022-01-16T07:11:39+00:00"],
+        "botscore": 0.202
+      },
+      "x": 0.218701745198813,
+      "y": 0.28174682776199544,
+      "community_id": 8
+    },
+    {
+      "id": "MoePhx1",
+      "label": "@MoePhx1",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-15T02:39:29+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/MoePhx1/status/1482180608545591298"],
+        "dates_edges": [],
+        "botscore": 0.153
+      },
+      "x": 0.027514276769780417,
+      "y": 0.3511610582766528,
+      "community_id": 9
+    },
+    {
+      "id": "1PijVT1D3GIgwpG",
+      "label": "@1PijVT1D3GIgwpG",
+      "size": 2.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-14T08:29:53+00:00"],
+        "tweets": ["https://twitter.com/1PijVT1D3GIgwpG/status/1481906401748430848"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-14T14:46:40+00:00", "2022-01-15T02:39:29+00:00"],
+        "botscore": 0.343
+      },
+      "x": 0.08963139826044494,
+      "y": 0.2337381284317017,
+      "community_id": 9
+    },
+    {
+      "id": "ShlagSparrow",
+      "label": "@ShlagSparrow",
+      "size": 1.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": [
+          "2022-01-12T09:59:07+00:00",
+          "2022-01-12T09:59:16+00:00",
+          "2022-01-12T09:59:22+00:00",
+          "2022-01-13T00:00:21+00:00",
+          "2022-01-13T09:16:54+00:00",
+          "2022-01-13T10:26:33+00:00",
+          "2022-01-13T10:32:46+00:00",
+          "2022-01-13T12:13:49+00:00",
+          "2022-01-13T12:14:00+00:00",
+          "2022-01-13T13:11:50+00:00",
+          "2022-01-14T14:45:51+00:00",
+          "2022-01-14T14:46:29+00:00",
+          "2022-01-14T14:46:40+00:00",
+          "2022-01-14T17:15:37+00:00",
+          "2022-01-14T17:18:51+00:00",
+          "2022-01-15T09:22:34+00:00",
+          "2022-01-15T09:23:39+00:00",
+          "2022-01-16T07:11:39+00:00",
+          "2022-01-16T07:12:38+00:00",
+          "2022-01-17T08:57:42+00:00",
+          "2022-01-17T08:57:46+00:00",
+          "2022-01-17T08:58:01+00:00",
+          "2022-01-17T08:58:05+00:00",
+          "2022-01-17T08:58:07+00:00",
+          "2022-01-17T10:08:13+00:00",
+          "2022-01-17T20:49:51+00:00",
+          "2022-01-17T20:50:24+00:00",
+          "2022-01-17T20:50:28+00:00",
+          "2022-01-17T20:50:41+00:00",
+          "2022-01-17T20:50:46+00:00",
+          "2022-01-17T20:50:50+00:00",
+          "2022-01-17T20:50:53+00:00",
+          "2022-01-17T20:51:00+00:00",
+          "2022-01-17T20:51:14+00:00",
+          "2022-01-17T20:51:17+00:00",
+          "2022-01-17T20:51:25+00:00",
+          "2022-01-17T20:51:38+00:00",
+          "2022-01-17T20:51:47+00:00",
+          "2022-01-17T20:51:55+00:00",
+          "2022-01-17T20:51:58+00:00",
+          "2022-01-17T20:52:03+00:00"
+        ],
+        "tweets": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "https://twitter.com/ShlagSparrow/status/1481574940595965955",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "quoted": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "https://twitter.com/ShlagSparrow/status/1482282320812027913",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "retweets": [
+          "https://twitter.com/ShlagSparrow/status/1481204081998053377",
+          "https://twitter.com/ShlagSparrow/status/1481204118978920450",
+          "https://twitter.com/ShlagSparrow/status/1481204145243701254",
+          "https://twitter.com/ShlagSparrow/status/1481415786979860482",
+          "https://twitter.com/ShlagSparrow/status/1481555845557145600",
+          "https://twitter.com/ShlagSparrow/status/1481573372978941957",
+          "",
+          "https://twitter.com/ShlagSparrow/status/1481600369469837314",
+          "https://twitter.com/ShlagSparrow/status/1481600416144150534",
+          "https://twitter.com/ShlagSparrow/status/1481614967824650244",
+          "https://twitter.com/ShlagSparrow/status/1482001018934247426",
+          "https://twitter.com/ShlagSparrow/status/1482001176254160903",
+          "https://twitter.com/ShlagSparrow/status/1482001223599509507",
+          "https://twitter.com/ShlagSparrow/status/1482038709222576130",
+          "https://twitter.com/ShlagSparrow/status/1482039523236274182",
+          "https://twitter.com/ShlagSparrow/status/1482282047976652800",
+          "",
+          "https://twitter.com/ShlagSparrow/status/1482611491513716740",
+          "https://twitter.com/ShlagSparrow/status/1482611739426496514",
+          "https://twitter.com/ShlagSparrow/status/1483000565651095553",
+          "https://twitter.com/ShlagSparrow/status/1483000582067703812",
+          "https://twitter.com/ShlagSparrow/status/1483000646492172289",
+          "https://twitter.com/ShlagSparrow/status/1483000660908032003",
+          "https://twitter.com/ShlagSparrow/status/1483000672803074049",
+          "https://twitter.com/ShlagSparrow/status/1483018312019759105",
+          "https://twitter.com/ShlagSparrow/status/1483179782800089090",
+          "https://twitter.com/ShlagSparrow/status/1483179923804237831",
+          "https://twitter.com/ShlagSparrow/status/1483179938891059206",
+          "https://twitter.com/ShlagSparrow/status/1483179995455492098",
+          "https://twitter.com/ShlagSparrow/status/1483180013843324934",
+          "https://twitter.com/ShlagSparrow/status/1483180032285622278",
+          "https://twitter.com/ShlagSparrow/status/1483180046324015112",
+          "https://twitter.com/ShlagSparrow/status/1483180073234665473",
+          "https://twitter.com/ShlagSparrow/status/1483180134630887425",
+          "https://twitter.com/ShlagSparrow/status/1483180146743906306",
+          "https://twitter.com/ShlagSparrow/status/1483180177723170821",
+          "https://twitter.com/ShlagSparrow/status/1483180231955472392",
+          "https://twitter.com/ShlagSparrow/status/1483180270484398085",
+          "https://twitter.com/ShlagSparrow/status/1483180305129345025",
+          "https://twitter.com/ShlagSparrow/status/1483180317053698048",
+          "https://twitter.com/ShlagSparrow/status/1483180336431386627"
+        ],
+        "dates_edges": ["2022-01-15T08:16:31+00:00"],
+        "botscore": 0.891
+      },
+      "x": 0.17583576973986156,
+      "y": 0.07242204074306555,
+      "community_id": 4
+    },
+    {
+      "id": "NeilJamesWeekes",
+      "label": "@NeilJamesWeekes",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T10:25:33+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/NeilJamesWeekes/status/1481210737011961862"],
+        "dates_edges": [],
+        "botscore": 0.259
+      },
+      "x": -0.8535001004152304,
+      "y": -0.47652921580698665,
+      "community_id": 0
+    },
+    {
+      "id": "PatriciaNiclas",
+      "label": "@PatriciaNiclas",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T21:50:39+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/PatriciaNiclas/status/1481383144452407305"],
+        "dates_edges": [],
+        "botscore": 0.176
+      },
+      "x": -0.8728746875631682,
+      "y": -0.3317808051038507,
+      "community_id": 0
+    },
+    {
+      "id": "Royston08029210",
+      "label": "@Royston08029210",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T19:27:06+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Royston08029210/status/1481347020891865089"],
+        "dates_edges": [],
+        "botscore": 0.476
+      },
+      "x": -0.7947258200879213,
+      "y": -0.4246547789404373,
+      "community_id": 0
+    },
+    {
+      "id": "AkaiMPC2000",
+      "label": "@AkaiMPC2000",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-16T21:32:52+00:00"],
+        "tweets": ["https://twitter.com/AkaiMPC2000/status/1482828221322338305"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T08:58:05+00:00"],
+        "botscore": 0.137
+      },
+      "x": 0.13065095449928707,
+      "y": 0.1636561139742326,
+      "community_id": 4
+    },
+    {
+      "id": "FursieRS6",
+      "label": "@FursieRS6",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-13T18:14:34+00:00"],
+        "tweets": ["https://twitter.com/FursieRS6/status/1481691153196101637"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-14T14:45:51+00:00"],
+        "botscore": 0.155
+      },
+      "x": 0.21452141283697254,
+      "y": 0.1725415691582396,
+      "community_id": 4
+    },
+    {
+      "id": "PimBouwensMedia",
+      "label": "@PimBouwensMedia",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-17T18:21:51+00:00"],
+        "tweets": ["https://twitter.com/PimBouwensMedia/status/1483142540689920007"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T20:50:46+00:00"],
+        "botscore": 0.323
+      },
+      "x": 0.26937075817333356,
+      "y": 0.09208236760521094,
+      "community_id": 4
+    },
+    {
+      "id": "The_real_Jambo_",
+      "label": "@The_real_Jambo_",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-13T11:42:44+00:00"],
+        "tweets": ["https://twitter.com/The_real_Jambo_/status/1481592547248017409"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-13T12:13:49+00:00"],
+        "botscore": 0.513
+      },
+      "x": 0.28130194297378397,
+      "y": 0.024261216187358783,
+      "community_id": 4
+    },
+    {
+      "id": "Thunderace4",
+      "label": "@Thunderace4",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-15T04:47:29+00:00"],
+        "tweets": ["https://twitter.com/Thunderace4/status/1482212821496647681"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-15T09:23:39+00:00"],
+        "botscore": 0.093
+      },
+      "x": 0.26000479201238047,
+      "y": 0.15490468304940214,
+      "community_id": 4
+    },
+    {
+      "id": "VRALIAM",
+      "label": "@VRALIAM",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-17T01:06:44+00:00"],
+        "tweets": ["https://twitter.com/VRALIAM/status/1482882041972772864"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T08:57:46+00:00"],
+        "botscore": 0.783
+      },
+      "x": 0.2553637204677627,
+      "y": -0.01613182685216629,
+      "community_id": 4
+    },
+    {
+      "id": "_ForeverBb",
+      "label": "@_ForeverBb",
+      "size": 2.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-17T13:12:50+00:00", "2022-01-17T14:31:56+00:00"],
+        "tweets": [
+          "https://twitter.com/_ForeverBb/status/1483064771335311360",
+          "https://twitter.com/_ForeverBb/status/1483084679817449474"
+        ],
+        "quoted": ["", ""],
+        "retweets": ["", ""],
+        "dates_edges": ["2022-01-17T20:51:17+00:00", "2022-01-17T20:51:55+00:00"],
+        "botscore": 0.163
+      },
+      "x": 0.18302503893716682,
+      "y": 0.12425765753686349,
+      "community_id": 4
+    },
+    {
+      "id": "_HDDZD",
+      "label": "@_HDDZD",
+      "size": 1.0,
+      "from": "has quoted",
+      "metadata": {
+        "dates": ["2022-01-14T15:50:34+00:00"],
+        "tweets": [""],
+        "quoted": ["https://twitter.com/_HDDZD/status/1482017304552558599"],
+        "retweets": [""],
+        "dates_edges": ["2022-01-14T17:15:37+00:00"],
+        "botscore": 0.785
+      },
+      "x": 0.3400807271300146,
+      "y": -0.018362692214567163,
+      "community_id": 10
+    },
+    {
+      "id": "centurynews1",
+      "label": "@centurynews1",
+      "size": 3.0,
+      "from": "original",
+      "metadata": {
+        "dates": [
+          "2022-01-17T14:27:27+00:00",
+          "2022-01-17T14:43:39+00:00",
+          "2022-01-17T14:46:08+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/centurynews1/status/1483083551528697857",
+          "https://twitter.com/centurynews1/status/1483087626353709063",
+          "https://twitter.com/centurynews1/status/1483088252525498370"
+        ],
+        "quoted": ["", "", ""],
+        "retweets": ["", "", ""],
+        "dates_edges": [
+          "2022-01-17T20:51:00+00:00",
+          "2022-01-17T20:51:14+00:00",
+          "2022-01-17T20:51:25+00:00"
+        ],
+        "botscore": 0.174
+      },
+      "x": 0.21261829614236163,
+      "y": 0.04826016795178493,
+      "community_id": 4
+    },
+    {
+      "id": "crypto_bizz",
+      "label": "@crypto_bizz",
+      "size": 1.0,
+      "from": "has quoted",
+      "metadata": {
+        "dates": ["2022-01-17T09:37:30+00:00"],
+        "tweets": [""],
+        "quoted": ["https://twitter.com/crypto_bizz/status/1483010581384806400"],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T10:08:13+00:00"],
+        "botscore": 0.15
+      },
+      "x": 0.10160631707498903,
+      "y": -0.07619721117205057,
+      "community_id": 11
+    },
+    {
+      "id": "dclparis",
+      "label": "@dclparis",
+      "size": 3.0,
+      "from": "original",
+      "metadata": {
+        "dates": [
+          "2022-01-11T22:03:34+00:00",
+          "2022-01-12T05:17:18+00:00",
+          "2022-01-12T06:20:18+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/dclparis/status/1481024007172509704",
+          "https://twitter.com/dclparis/status/1481133161513902080",
+          "https://twitter.com/dclparis/status/1481149014984871937"
+        ],
+        "quoted": ["", "", ""],
+        "retweets": ["", "", ""],
+        "dates_edges": [
+          "2022-01-12T09:59:07+00:00",
+          "2022-01-12T09:59:16+00:00",
+          "2022-01-12T09:59:22+00:00"
+        ],
+        "botscore": 0.118
+      },
+      "x": 0.14338315827647113,
+      "y": 0.040505625892641804,
+      "community_id": 4
+    },
+    {
+      "id": "derda990",
+      "label": "@derda990",
+      "size": 2.0,
+      "from": "has quoted",
+      "metadata": {
+        "dates": ["2022-01-13T10:03:19+00:00"],
+        "tweets": [""],
+        "quoted": ["https://twitter.com/derda990/status/1481567529407504385"],
+        "retweets": [""],
+        "dates_edges": ["2022-01-13T10:20:24+00:00", "2022-01-13T10:26:33+00:00"],
+        "botscore": 0.166
+      },
+      "x": 0.394546533088477,
+      "y": 0.08663338677391393,
+      "community_id": 2
+    },
+    {
+      "id": "friendofrussia",
+      "label": "@friendofrussia",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-17T17:29:41+00:00"],
+        "tweets": ["https://twitter.com/friendofrussia/status/1483129410307956740"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T20:50:53+00:00"],
+        "botscore": 0.11
+      },
+      "x": 0.29784964133146535,
+      "y": 0.1264719273262003,
+      "community_id": 4
+    },
+    {
+      "id": "hollydais",
+      "label": "@hollydais",
+      "size": 3.0,
+      "from": "has quoted",
+      "metadata": {
+        "dates": ["2022-01-17T13:14:49+00:00"],
+        "tweets": [""],
+        "quoted": ["https://twitter.com/hollydais/status/1483065271703289858"],
+        "retweets": [""],
+        "dates_edges": [
+          "2022-01-17T13:49:18+00:00",
+          "2022-01-17T14:22:42+00:00",
+          "2022-01-17T20:51:47+00:00"
+        ],
+        "botscore": 0.164
+      },
+      "x": 0.3024654095820442,
+      "y": 0.24966405961182225,
+      "community_id": 3
+    },
+    {
+      "id": "mark_knight23",
+      "label": "@mark_knight23",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-12T22:59:27+00:00"],
+        "tweets": ["https://twitter.com/mark_knight23/status/1481400461144043528"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-13T00:00:21+00:00"],
+        "botscore": 0.172
+      },
+      "x": 0.3050584617767099,
+      "y": 0.06367179713651352,
+      "community_id": 4
+    },
+    {
+      "id": "ruactive2",
+      "label": "@ruactive2",
+      "size": 3.0,
+      "from": "has quoted",
+      "metadata": {
+        "dates": [
+          "2022-01-17T17:56:05+00:00",
+          "2022-01-17T20:13:48+00:00",
+          "2022-01-17T20:28:17+00:00"
+        ],
+        "tweets": [
+          "",
+          "https://twitter.com/ruactive2/status/1483170712160452613",
+          "https://twitter.com/ruactive2/status/1483174358625493005"
+        ],
+        "quoted": ["https://twitter.com/ruactive2/status/1483136054513307652", "", ""],
+        "retweets": ["", "", ""],
+        "dates_edges": [
+          "2022-01-17T20:49:51+00:00",
+          "2022-01-17T20:50:24+00:00",
+          "2022-01-17T20:50:50+00:00"
+        ],
+        "botscore": 0.18
+      },
+      "x": 0.1966382724617489,
+      "y": -0.012844918578598518,
+      "community_id": 4
+    },
+    {
+      "id": "s_occurring",
+      "label": "@s_occurring",
+      "size": 3.0,
+      "from": "original",
+      "metadata": {
+        "dates": [
+          "2022-01-13T11:29:01+00:00",
+          "2022-01-13T14:03:32+00:00",
+          "2022-01-17T14:16:03+00:00"
+        ],
+        "tweets": [
+          "https://twitter.com/s_occurring/status/1481589096929767435",
+          "https://twitter.com/s_occurring/status/1481627978517958660",
+          ""
+        ],
+        "quoted": ["", "", "https://twitter.com/s_occurring/status/1483080681760694275"],
+        "retweets": ["", "", ""],
+        "dates_edges": [
+          "2022-01-13T12:14:00+00:00",
+          "2022-01-14T17:18:51+00:00",
+          "2022-01-17T20:51:38+00:00"
+        ],
+        "botscore": 0.169
+      },
+      "x": 0.09475144492047541,
+      "y": 0.12694045889096772,
+      "community_id": 4
+    },
+    {
+      "id": "syribou",
+      "label": "@syribou",
+      "size": 1.0,
+      "from": "has quoted",
+      "metadata": {
+        "dates": ["2022-01-17T12:12:51+00:00"],
+        "tweets": [""],
+        "quoted": ["https://twitter.com/syribou/status/1483049675464843273"],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T20:52:03+00:00"],
+        "botscore": 0.21
+      },
+      "x": 8.83824357009455e-6,
+      "y": 0.035178502615301026,
+      "community_id": 5
+    },
+    {
+      "id": "vincentkoala2",
+      "label": "@vincentkoala2",
+      "size": 1.0,
+      "from": "has quoted",
+      "metadata": {
+        "dates": ["2022-01-17T19:10:30+00:00"],
+        "tweets": [""],
+        "quoted": ["https://twitter.com/vincentkoala2/status/1483154784173633544"],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T20:50:41+00:00"],
+        "botscore": 0.74
+      },
+      "x": 0.21069689203125933,
+      "y": -0.0613348570670386,
+      "community_id": 6
+    },
+    {
+      "id": "Ch_Dul",
+      "label": "@Ch_Dul",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-15T11:03:49+00:00"],
+        "tweets": ["https://twitter.com/Ch_Dul/status/1482307530252599297"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-15T21:38:29+00:00"],
+        "botscore": 0.136
+      },
+      "x": 0.2706210466502103,
+      "y": 0.4036615571739112,
+      "community_id": 8
+    },
+    {
+      "id": "Sofian_1959",
+      "label": "@Sofian_1959",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-13T23:45:26+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/Sofian_1959/status/1481774421203431428"],
+        "dates_edges": [],
+        "botscore": 0.394
+      },
+      "x": -0.03325026647807507,
+      "y": -0.22222269023497562,
+      "community_id": 1
+    },
+    {
+      "id": "SparrowKraken",
+      "label": "@SparrowKraken",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-17T20:23:53+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/SparrowKraken/status/1483173249500520456"],
+        "dates_edges": [],
+        "botscore": 0.285
+      },
+      "x": 0.33948620506254923,
+      "y": -0.23963695335127447,
+      "community_id": 6
+    },
+    {
+      "id": "BernieSpofforth",
+      "label": "@BernieSpofforth",
+      "size": 2.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-17T12:07:40+00:00"],
+        "tweets": ["https://twitter.com/BernieSpofforth/status/1483048371153682432"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T13:02:34+00:00", "2022-01-17T13:14:49+00:00"],
+        "botscore": 0.143
+      },
+      "x": 0.23672416309992894,
+      "y": 0.3107718444211282,
+      "community_id": 3
+    },
+    {
+      "id": "ZahiraDjenane1",
+      "label": "@ZahiraDjenane1",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-14T21:54:51+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ZahiraDjenane1/status/1482108978993770497"],
+        "dates_edges": [],
+        "botscore": 0.639
+      },
+      "x": 0.06333749869110328,
+      "y": -0.25177737618067125,
+      "community_id": 1
+    },
+    {
+      "id": "Reuters",
+      "label": "@Reuters",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-14T15:25:16+00:00"],
+        "tweets": ["https://twitter.com/Reuters/status/1482010937712418818"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-14T15:50:34+00:00"],
+        "botscore": 0.455
+      },
+      "x": 0.4560991515259929,
+      "y": -0.08042924800113152,
+      "community_id": 10
+    },
+    {
+      "id": "altelfah1",
+      "label": "@altelfah1",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-13T10:20:24+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/altelfah1/status/1481571827335979009"],
+        "dates_edges": [],
+        "botscore": 0.349
+      },
+      "x": 0.5195420528511613,
+      "y": 0.06707747651188878,
+      "community_id": 2
+    },
+    {
+      "id": "annselah",
+      "label": "@annselah",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T10:20:02+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/annselah/status/1481209348407939073"],
+        "dates_edges": [],
+        "botscore": 0.141
+      },
+      "x": -0.9557588639007674,
+      "y": -0.4651246712625279,
+      "community_id": 0
+    },
+    {
+      "id": "AFP",
+      "label": "@AFP",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-17T09:30:46+00:00"],
+        "tweets": ["https://twitter.com/AFP/status/1483008889285140480"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T09:37:30+00:00"],
+        "botscore": 0.363
+      },
+      "x": 0.023414814363020835,
+      "y": -0.17344015892945822,
+      "community_id": 11
+    },
+    {
+      "id": "dead_cat2",
+      "label": "@dead_cat2",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-17T13:49:18+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/dead_cat2/status/1483073949302939650"],
+        "dates_edges": [],
+        "botscore": 0.27
+      },
+      "x": 0.37571565928478357,
+      "y": 0.35688837884563007,
+      "community_id": 3
+    },
+    {
+      "id": "drassagheer",
+      "label": "@drassagheer",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-13T08:12:20+00:00"],
+        "tweets": ["https://twitter.com/drassagheer/status/1481539597339353090"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-13T10:03:19+00:00"],
+        "botscore": 0.055
+      },
+      "x": 0.5158420905092308,
+      "y": 0.11989194868086714,
+      "community_id": 2
+    },
+    {
+      "id": "ewanorandy",
+      "label": "@ewanorandy",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T20:11:35+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/ewanorandy/status/1481358215615033346"],
+        "dates_edges": [],
+        "botscore": 0.109
+      },
+      "x": -1.0,
+      "y": -0.46446153398605766,
+      "community_id": 0
+    },
+    {
+      "id": "huffvl",
+      "label": "@huffvl",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-17T14:22:42+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/huffvl/status/1483082356621811718"],
+        "dates_edges": [],
+        "botscore": 0.344
+      },
+      "x": 0.41038790491339683,
+      "y": 0.31928562461715404,
+      "community_id": 3
+    },
+    {
+      "id": "iJugyy4BfvdYC0U",
+      "label": "@iJugyy4BfvdYC0U",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-14T22:21:02+00:00", "2022-01-16T19:34:56+00:00"],
+        "tweets": ["", ""],
+        "quoted": ["", ""],
+        "retweets": [
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1482115569226764289",
+          "https://twitter.com/iJugyy4BfvdYC0U/status/1482798544616673281"
+        ],
+        "dates_edges": [],
+        "botscore": 0.215
+      },
+      "x": -0.013727648588604932,
+      "y": -0.06813160831107576,
+      "community_id": 1
+    },
+    {
+      "id": "mgt_coull26",
+      "label": "@mgt_coull26",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T11:13:39+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/mgt_coull26/status/1481222840103981061"],
+        "dates_edges": [],
+        "botscore": 0.291
+      },
+      "x": -0.9783900609361578,
+      "y": -0.3778183394367372,
+      "community_id": 0
+    },
+    {
+      "id": "momoe30860340",
+      "label": "@momoe30860340",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-15T15:17:31+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/momoe30860340/status/1482371374266073098"],
+        "dates_edges": [],
+        "botscore": 0.88
+      },
+      "x": -0.0769426822821948,
+      "y": 0.027570353648704003,
+      "community_id": 1
+    },
+    {
+      "id": "put_beznadja",
+      "label": "@put_beznadja",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-17T20:06:51+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/put_beznadja/status/1483168964570238977"],
+        "dates_edges": [],
+        "botscore": 0.884
+      },
+      "x": 0.3818739388392394,
+      "y": -0.2098835628189048,
+      "community_id": 6
+    },
+    {
+      "id": "imUrB00gieman",
+      "label": "@imUrB00gieman",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-16T21:23:13+00:00"],
+        "tweets": ["https://twitter.com/imUrB00gieman/status/1482825792627216386"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T14:16:03+00:00"],
+        "botscore": 0.431
+      },
+      "x": -0.01174171085578844,
+      "y": 0.2111705480023361,
+      "community_id": 4
+    },
+    {
+      "id": "shrouky14297342",
+      "label": "@shrouky14297342",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-13T13:58:01+00:00"],
+        "tweets": [""],
+        "quoted": [""],
+        "retweets": ["https://twitter.com/shrouky14297342/status/1481626590232686596"],
+        "dates_edges": [],
+        "botscore": 0.661
+      },
+      "x": -0.09489418090039589,
+      "y": 0.24003339890519101,
+      "community_id": 1
+    },
+    {
+      "id": "sohailayasser52",
+      "label": "@sohailayasser52",
+      "size": 0.0,
+      "from": "has RT",
+      "metadata": {
+        "dates": ["2022-01-12T14:49:35+00:00", "2022-01-12T14:49:35+00:00"],
+        "tweets": ["", ""],
+        "quoted": ["", ""],
+        "retweets": [
+          "https://twitter.com/sohailayasser52/status/1481277179958902784",
+          "https://twitter.com/sohailayasser52/status/1481277179929497604"
+        ],
+        "dates_edges": [],
+        "botscore": 0.51
+      },
+      "x": 0.8625157466374908,
+      "y": 0.636216771889418,
+      "community_id": 7
+    },
+    {
+      "id": "GuthrieTait",
+      "label": "@GuthrieTait",
+      "size": 1.0,
+      "from": "original",
+      "metadata": {
+        "dates": ["2022-01-16T18:25:18+00:00"],
+        "tweets": ["https://twitter.com/GuthrieTait/status/1482781021460381696"],
+        "quoted": [""],
+        "retweets": [""],
+        "dates_edges": ["2022-01-17T12:12:51+00:00"],
+        "botscore": 0.255
+      },
+      "x": -0.1326354018443595,
+      "y": 0.002496393222451652,
+      "community_id": 5
+    }
+  ],
+  "metadata": {
+    "search": "boycottfrance",
+    "since": "2022-01-11",
+    "type_search": "include:nativeretweets",
+    "maxresults": null,
+    "minretweets": 1,
+    "last_collected_tweet": 1480836426715516929,
+    "last_collected_date": "2022-01-11T09:38:11+00:00",
+    "data_collection_date": "2022-01-18 06:07:55.318491+00:00",
+    "most_recent_tweet": "1483272701355700235"
+  }
+}
