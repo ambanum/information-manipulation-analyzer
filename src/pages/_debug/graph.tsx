@@ -18,6 +18,9 @@ import dayjs from 'dayjs';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import { GetServerSideProps } from 'next';
+import fs from 'fs';
+import path from 'path';
 
 import classNames from 'classnames';
 dayjs.extend(localizedFormat);
@@ -30,19 +33,9 @@ colorGradient.setGradient('#008000', '#e1000f'); // from red to green
 colorGradient.setMidpoint(0.5);
 
 const hashtag = 'ok';
-const file = 'freesenegal_10000.json';
 
 // const path = String(process.env.NEXT_PUBLIC_BASE_PATH) + '/#DébatLR.json';
 // const path2 = String(process.env.NEXT_PUBLIC_BASE_PATH) + `/${file}`;
-
-import json from '../../../public/freesenegal_10000.json';
-import { log } from 'console';
-const { nodes, edges } = json;
-
-const dates = [
-  ...nodes.reduce((acc, node) => [...acc, ...(node?.metadata?.dates || [])], []),
-  ...edges.reduce((acc, edge) => [...acc, ...(edge?.metadata?.dates || [])], []),
-].sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
 
 const highlightNodesAndEdges = (
   data: NetworkGraphJson,
@@ -118,11 +111,16 @@ const highlightNodesAndEdges = (
   return newData;
 };
 
-const NetworkGraphDebugPage = () => {
-  const startDate = dates[0];
-
+const NetworkgraphDetail = ({ name, json }) => {
   const [tick, setTick] = React.useState<number>();
   const [active, toggleActive] = useToggle(false);
+  const { nodes, edges } = json;
+
+  const dates = [
+    ...nodes.reduce((acc, node) => [...acc, ...(node?.metadata?.dates || [])], []),
+    ...edges.reduce((acc, edge) => [...acc, ...(edge?.metadata?.dates || [])], []),
+  ].sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+  const startDate = dates[0];
 
   React.useEffect(() => {
     let interval: NodeJS.Timer;
@@ -160,13 +158,9 @@ const NetworkGraphDebugPage = () => {
 
   return (
     <>
-      <h3 className="fr-mx-2w fr-my-2w">
-        Testing {file}
-        <br />
-      </h3>
       <div className="fr-mx-2w fr-my-2w">
-        From <strong>{dayjs(startDate).format('llll')}</strong> to{' '}
-        <strong>{dayjs(dates[tick]).format('llll')}</strong>
+        From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
+        <strong title={dates[tick]}>{dayjs(dates[tick]).format('llll')}</strong>
       </div>
       <div className="fr-mx-2w fr-my-2w">
         <small>
@@ -272,4 +266,56 @@ const NetworkGraphDebugPage = () => {
   );
 };
 
+const NetworkGraphDebugPage = ({ files }: any) => {
+  const [selectedFile, setSelectedFile] = React.useState(1);
+  const file = files[selectedFile];
+
+  const onChange = (event: any) => {
+    setSelectedFile(event.target.value);
+  };
+
+  if (!files.length) {
+    return <div>No files found</div>;
+  }
+
+  return (
+    <>
+      <h3 className="fr-mx-2w fr-my-2w">
+        <select onChange={onChange}>
+          {files.map((file: any, index: number) => (
+            <option value={index} selected={index === selectedFile}>
+              {file.name}
+            </option>
+          ))}
+        </select>
+      </h3>
+
+      <NetworkgraphDetail {...file} />
+    </>
+  );
+};
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const FOLDER = 'public/graph';
+  const files = fs.readdirSync(path.join(FOLDER));
+
+  const validFiles = [];
+  for (const file of files.filter((file) => file.endsWith('.json'))) {
+    try {
+      const json = JSON.parse(fs.readFileSync(`${FOLDER}/${file}`));
+      validFiles.push({
+        name: file,
+        path: path.join(FOLDER, file),
+        json,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  return {
+    props: {
+      files: validFiles,
+    },
+  };
+};
 export default NetworkGraphDebugPage;
