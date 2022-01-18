@@ -1,8 +1,8 @@
+import ForceGraph3D from 'react-force-graph-3d';
+import type { NetworkGraphJson } from './NetworkGraph.d';
 // @ts-nocheck
 import React from 'react';
 import classNames from 'classnames';
-import ForceGraph3D from 'react-force-graph-3d';
-import type { NetworkGraphJson } from './NetworkGraph.d';
 
 type NetworkGraphReactTreeProps = {
   graph: NetworkGraphJson;
@@ -68,7 +68,7 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
       <ForceGraph3D
         graphData={graph}
         linkDirectionalArrowLength={7}
-        backgroundColor="#333"
+        backgroundColor="#1b1b35"
         nodeAutoColorBy="color"
         nodeVal={(node) => node.size}
         nodeLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}

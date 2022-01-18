@@ -14,6 +14,7 @@ import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import path from 'path';
 import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
+import shuffle from 'lodash/shuffle';
 import { useToggle } from 'react-use';
 
 const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
@@ -73,36 +74,52 @@ const highlightNodesAndEdges = (
   console.log('nodes', newData.nodes.length); //eslint-disable-line
   console.time('nodes');
 
-  const nodeColors = [
-    '#FFCA3A',
-    '#FFBD00',
-    '#FBC3BC',
-    '#FF595E',
-    '#FF0054',
-    '#FF5400',
-    '#9E0059',
-    '#6A4C93',
-    '#1982C4',
-    '#2D7DD2',
-    '#657ED4',
-    '#390099',
-    '#8AC926',
-    '#97CC04',
-    '#09BC8A',
-    '#87BAAB',
-    '#1282A2',
-    '#508991',
-    '#B8F2E6',
-    '#AED9E0',
-    '#0F7173',
-    '#065143',
-    '#C2B8B2',
-    '#EDB183',
-    '#D8A47F',
-    '#81171B',
-    '#540804',
-    '#443627',
-  ];
+  const nodeColors = shuffle([
+    '#91ae4f',
+    '#107449',
+    '#169b62',
+    '#344f4b',
+    '#008169',
+    '#00ac8c',
+    '#80d5c6',
+    '#41548e',
+    '#5770be',
+    '#abb8df',
+    '#d5dbef',
+    '#ededf2',
+    '#363a5b',
+    '#484d7a',
+    '#a3a6bc',
+    '#d1d2de',
+    '#bf6a5e',
+    '#ff8d7e',
+    '#ffc6be',
+    '#9c6759',
+    '#c0806f',
+    '#ffc29e',
+    '#bfae00',
+    '#ead737',
+    '#ffe800',
+    '#fff480',
+    '#fff9bf',
+    '#be9b31',
+    '#fdcf41',
+    '#bf7330',
+    '#ff9940',
+    '#d0805b',
+    '#bf5339',
+    '#cb634b',
+    '#ff6f4c',
+    '#ffb7a5',
+    '#5e3a44',
+    '#7d4e5b',
+    '#bea7ad',
+    '#794e43',
+    '#956052',
+    '#a26859',
+  ]);
+
+  console.log(nodeColors);
 
   newData.nodes.map((node) => {
     // const date = node.metadata.dates[node.metadata.dates.length - 1];
