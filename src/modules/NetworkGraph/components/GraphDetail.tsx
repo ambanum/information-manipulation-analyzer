@@ -111,6 +111,11 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
   const [tickInterval, setTickInterval] = React.useState<number>(200);
   const [active, toggleActive] = useToggle(false);
   const { nodes, edges } = json;
+  console.log(''); //eslint-disable-line
+  console.log('╔════START══name══════════════════════════════════════════════════'); //eslint-disable-line
+  console.log(name); //eslint-disable-line
+  console.log(json); //eslint-disable-line
+  console.log('╚════END════name══════════════════════════════════════════════════'); //eslint-disable-line
 
   const dates = [
     ...nodes.reduce((acc: string[], node) => [...acc, ...(node?.metadata?.dates || [])], []),
