@@ -11,6 +11,9 @@ import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useToggle } from 'react-use';
+import NodeDetail from './NodeDetail';
+import EdgeDetail from './EdgeDetail';
+import s from './GraphDetail.module.css';
 
 const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
   ssr: false,
@@ -107,15 +110,11 @@ interface GraphDetailProps {
 }
 
 const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
+  const [info, setInfo] = React.useState<React.ReactNode>();
   const [tick, setTick] = React.useState<number | undefined>();
   const [tickInterval, setTickInterval] = React.useState<number>(200);
   const [active, toggleActive] = useToggle(false);
   const { nodes, edges } = json;
-  console.log(''); //eslint-disable-line
-  console.log('╔════START══name══════════════════════════════════════════════════'); //eslint-disable-line
-  console.log(name); //eslint-disable-line
-  console.log(json); //eslint-disable-line
-  console.log('╚════END════name══════════════════════════════════════════════════'); //eslint-disable-line
 
   const dates = [
     ...nodes.reduce((acc: string[], node) => [...acc, ...(node?.metadata?.dates || [])], []),
@@ -150,17 +149,35 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
 
   const onClickNode = (event: any) => {
     console.log(''); //eslint-disable-line
-    console.log('╔════START══event══════════════════════════════════════════════════'); //eslint-disable-line
+    console.log('╔════START═onClickNode══════════════════════════════════════════════'); //eslint-disable-line
     console.log(event); //eslint-disable-line
-    console.log('╚════END════event══════════════════════════════════════════════════'); //eslint-disable-line
+    console.log('╚════END═══onClickNode══════════════════════════════════════════════'); //eslint-disable-line
   };
-  const onClickLink = (event: any, ...rest: any[]) => {
-    console.log(''); //eslint-disable-line
-    console.log('╔════START══onClickLink═════════════════════════════════════════════════'); //eslint-disable-line
-    console.log(event); //eslint-disable-line
-    console.log(rest); //eslint-disable-line
-    console.log('╚════END════onClickLink═════════════════════════════════════════════════'); //eslint-disable-line
-  };
+
+  const onNodeHover = React.useCallback(
+    (node: any) => {
+      toggleActive(true);
+      setInfo(
+        <div>
+          Node<pre>{JSON.stringify(node, null, 2)}</pre>
+        </div>
+      );
+      toggleActive(false);
+    },
+    [setInfo]
+  );
+  const onEdgeHover = React.useCallback(
+    (edge: any) => {
+      toggleActive(true);
+      setInfo(
+        <div>
+          Edge<pre>{JSON.stringify(edge, null, 2)}</pre>
+        </div>
+      );
+      toggleActive(false);
+    },
+    [setInfo]
+  );
 
   const filteredNodes = highlightNodesAndEdges(json, colors, {
     active,
@@ -168,8 +185,15 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
     endDate,
   });
 
+  const infoCard = info ? (
+    <div className={s.infoCard}>
+      <button onClick={() => setInfo(undefined)}>Close</button>
+      {info}
+    </div>
+  ) : null;
+
   return (
-    <>
+    <div className={s.wrapper}>
       <div className="fr-mx-2w fr-my-2w">
         From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
         <strong title={endDate}>{dayjs(endDate).format('llll')}</strong>
@@ -243,14 +267,21 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
             <Tab className={sReactTabs.tab}>ForceGraph2D</Tab>
           </TabList>
         </div>
-        <div className="">
+        <div>
           <TabPanel>
             <h3>
               <a target="_blank" href="https://github.vasturiano/react-force-graph">
                 react-force-graph-3d
               </a>
             </h3>
-            <NetworkGraph3D graph={filteredNodes} onLinkClick={onClickLink} />
+            <div className={s.graphWrapper}>
+              {infoCard}
+              <NetworkGraph3D
+                graph={filteredNodes}
+                onNodeHover={onNodeHover}
+                onLinkHover={onEdgeHover}
+              />
+            </div>
           </TabPanel>
           <TabPanel>
             <h3>
@@ -258,11 +289,14 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
                 react-sigma
               </a>
             </h3>
-            <NetworkGraph
-              // @ts-ignore
-              graph={filteredNodes}
-              onClickNode={onClickNode}
-            />
+            <div className={s.graphWrapper}>
+              {infoCard}
+              <NetworkGraph
+                // @ts-ignore
+                graph={filteredNodes}
+                onClickNode={onClickNode}
+              />
+            </div>
           </TabPanel>
 
           <TabPanel>
@@ -271,11 +305,18 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
                 react-force-graph-2d
               </a>
             </h3>
-            <NetworkGraph2D graph={filteredNodes} />
+            <div className={s.graphWrapper}>
+              {infoCard}
+              <NetworkGraph2D
+                graph={filteredNodes}
+                onNodeHover={onNodeHover}
+                onLinkHover={onEdgeHover}
+              />
+            </div>
           </TabPanel>
         </div>
       </Tabs>
-    </>
+    </div>
   );
 };
 

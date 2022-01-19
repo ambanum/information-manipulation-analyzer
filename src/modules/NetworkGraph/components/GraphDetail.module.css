@@ -1,0 +1,26 @@
+.graphWrapper {
+  position: relative;
+}
+
+.infoCard {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: white;
+  opacity: 0.95;
+  padding: 20px;
+  width: 300px;
+  overflow-y: auto;
+}
+
+.infoCard button {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.infoCard pre {
+  font-size: 12px;
+}
