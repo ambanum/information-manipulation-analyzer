@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
 import ForceGraph3D, { ForceGraphProps } from 'react-force-graph-3d';
+
 import type { NetworkGraphJson } from './NetworkGraph.d';
 // @ts-nocheck
 import React from 'react';
@@ -90,9 +91,10 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReact3DProps> = React.memo(
           }}
           linkWidth={({ size }) => Math.sqrt(size)}
           enableNodeDrag={false} /* disable node drag */
-          onNodeHover={handleNodeHover}
-          onLinkHover={handleLinkHover}
-          onLinkClick={onLinkClick}
+          // onNodeHover={handleNodeHover}
+          // onLinkHover={handleLinkHover}
+          onNodeClick={handleNodeHover}
+          onLinkClick={handleLinkHover}
           // nodeThreeObject={(node) => {
           //   const s = new THREE.SphereGeometry(node.size);
           //   const canvas1 = document.createElement('canvas');

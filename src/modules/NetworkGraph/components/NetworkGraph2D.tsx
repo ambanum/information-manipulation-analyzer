@@ -1,4 +1,5 @@
 import ForceGraph2D, { ForceGraphProps } from 'react-force-graph-2d';
+
 import type { NetworkGraphJson } from './NetworkGraph.d';
 // @ts-nocheck
 import React from 'react';
@@ -118,8 +119,10 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
         linkDirectionalParticleWidth={(link) => (highlightLinks.has(link) ? 2 : 0)}
         // nodeCanvasObjectMode={(node) => (highlightNodes.has(node) ? 'before' : undefined)}
         nodeCanvasObject={paintRing}
-        onNodeHover={handleNodeHover}
-        onLinkHover={handleLinkHover}
+        // onNodeHover={handleNodeHover}
+        // onLinkHover={handleLinkHover}
+        onNodeClick={handleNodeHover}
+        onLinkClick={handleLinkHover}
         /* Fit graph to canvas (source) */
         /* https://github.com/vasturiano/react-force-graph */
         /* */
