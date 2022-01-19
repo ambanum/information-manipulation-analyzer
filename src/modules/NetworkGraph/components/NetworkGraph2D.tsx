@@ -81,7 +81,8 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
 
       ctx.beginPath();
       ctx.arc(node.x, node.y, 1, 0, 2 * Math.PI, false);
-      ctx.fillStyle = node.color.substr(0, node.color.length - 2);
+      // ctx.fillStyle = node.color.substr(0, node.color.length - 2);
+      ctx.fillStyle = node.color;
       ctx.fill();
     },
     [hoverNode]
@@ -91,21 +92,37 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
     <div className={classNames(className)} {...props}>
       <ForceGraph2D
         ref={fgRef}
-        backgroundColor="#1b1b35"
         graphData={{ nodes: graph.nodes, links: graph.edges }}
+        backgroundColor="#1b1b35"
+        nodeAutoColorBy="color"
+        nodeVal={(node) => node.size}
+        nodeRelSize={2}
         nodeLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
-        linkCurvature={0} /* curve edges */
-        nodeAutoColorBy="color" /* give color to node */
         linkDirectionalArrowRelPos={0.5} /* if arrow is on the edge or in the middle */
-        linkDirectionalArrowLength={5} /* Size of arrow */
+        linkDirectionalArrowLength={6} /* Size of arrow */
+        linkDirectionalArrowColor={() => '#abb8df'} /* Arrow color */
+        linkColor={() => '#41548e'}
+        linkCurvature={0.25} /* curvature radius of the link line */
+        linkLabel={({ label, size, source, target, ...rest }) => {
+          return `${source?.label} ${label} ${target?.label} (${size} time${size >= 2 ? 's' : ''})`;
+        }}
+        linkWidth={({ size }) => Math.sqrt(size)}
+        enableNodeDrag={false} /* disable node drag */
+        // nodeLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
+        // linkCurvature={0.25} /* curvature radius of the link line */
+        // linkOpacity={0.1} /* Links opacity, between 0 and 1 */
+        // linkDirectionalArrowColor={() => '#fff'} /* Arrow color */
+        // linkDirectionalArrowRelPos={0.5} /* if arrow is on the edge or in the middle */
+        // linkDirectionalArrowLength={5} /* Size of arrow */
+
         /* Edges */
         /* animating edges
         linkDirectionalParticles="size"
         linkDirectionalParticleSpeed={(d) => d.size * 0.001}
         */
-        linkColor={({ color }) => `${color}1A`}
-        linkLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
-        linkWidth={({ size }) => Math.sqrt(size)}
+        // linkColor={({ color }) => `${color}1A`}
+        // linkLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
+        // linkWidth={({ size }) => Math.sqrt(size)}
         /* Curved lines and self links (source) */
         /* https://github.com/vasturiano/react-force-graph */
         /* linkCurvature="curvature"
@@ -114,11 +131,11 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
 
         /* Highlight nodes/links (source) */
         /* https://github.com/vasturiano/react-force-graph */
-        linkDirectionalParticles={({ size }) => size}
-        linkDirectionalParticleColor="black"
-        linkDirectionalParticleWidth={(link) => (highlightLinks.has(link) ? 2 : 0)}
+        // linkDirectionalParticles={({ size }) => size}
+        // linkDirectionalParticleColor="black"
+        // linkDirectionalParticleWidth={(link) => (highlightLinks.has(link) ? 2 : 0)}
         // nodeCanvasObjectMode={(node) => (highlightNodes.has(node) ? 'before' : undefined)}
-        nodeCanvasObject={paintRing}
+        // nodeCanvasObject={paintRing}
         // onNodeHover={handleNodeHover}
         // onLinkHover={handleLinkHover}
         onNodeClick={handleNodeHover}
