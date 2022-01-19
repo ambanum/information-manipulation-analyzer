@@ -54,18 +54,21 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
     console.log('╚════END════node══════════════════════════════════════════════════'); //eslint-disable-line
   };
 
-  const handleLinkHover = (link) => {
-    highlightNodes.clear();
-    highlightLinks.clear();
+  const handleLinkHover = React.useCallback(
+    (link) => {
+      highlightNodes.clear();
+      highlightLinks.clear();
 
-    if (link) {
-      highlightLinks.add(link);
-      highlightNodes.add(link.source);
-      highlightNodes.add(link.target);
-    }
+      if (link) {
+        highlightLinks.add(link);
+        highlightNodes.add(link.source);
+        highlightNodes.add(link.target);
+      }
 
-    updateHighlight();
-  };
+      updateHighlight();
+    },
+    [highlightNodes, highlightLinks, setHighlightNodes, setHighlightLinks]
+  );
 
   return (
     <div className={classNames(className)} {...props}>
