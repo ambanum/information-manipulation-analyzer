@@ -138,7 +138,7 @@ const highlightNodesAndEdges = (
     //   console.log(`${node?.metadata?.botscore} %c${node.color}`, `color: ${node.color}`); //eslint-disable-line
     // }
 
-    node.color = nodeColors[node?.community_id];
+    node.color = nodeColors[node?.community_id || 0];
 
     node.size = endDate
       ? newData.edges
