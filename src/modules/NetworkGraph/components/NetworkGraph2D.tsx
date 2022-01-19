@@ -88,10 +88,10 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
     <div className={classNames(className)} {...props}>
       <ForceGraph2D
         ref={fgRef}
-        graphData={data}
+        backgroundColor="#1b1b35"
+        graphData={{ nodes: data.nodes, links: data.edges }}
         nodeLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
         linkCurvature={0} /* curve edges */
-        backgroundColor="white"
         nodeAutoColorBy="color" /* give color to node */
         linkDirectionalArrowRelPos={0.5} /* if arrow is on the edge or in the middle */
         linkDirectionalArrowLength={5} /* Size of arrow */
@@ -100,7 +100,7 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
         linkDirectionalParticles="size"
         linkDirectionalParticleSpeed={(d) => d.size * 0.001}
         */
-        linkAutoColorBy="color"
+        linkColor={({ color }) => `${color}1A`}
         linkLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
         linkWidth={({ size }) => Math.sqrt(size)}
         /* Curved lines and self links (source) */
