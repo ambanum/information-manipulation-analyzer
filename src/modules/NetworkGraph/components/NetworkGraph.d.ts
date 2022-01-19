@@ -31,33 +31,58 @@ export type OnClickEvent = {
 };
 
 export interface GraphNode {
+  id: string;
   label: string;
+  size: number;
+  from: 'has RT' | 'original' | 'has quoted';
   x: number;
   y: number;
-  id: string;
-  attributes?: { 'Modularity Class': string };
-  color: string;
+  community_id: number;
   metadata: {
-    botScore: number;
-    date: string[];
+    botscore: number;
+    dates: string[];
+    tweets: string[];
+    quoted: string[];
+    retweets: string[];
+    dates_edges: string[];
   };
-  size: number;
+  // post computed
+  color?: string;
+  active?: boolean;
 }
 
 export interface GraphEdge {
   source: string;
   target: string;
-  id: string;
-  attributes: {
-    [key: string]: any;
-  };
-  color: string;
   size: number;
+  label: string;
+  id: string;
+  type: 'arrow';
+  metadata: {
+    dates: string[];
+    quoted: string[];
+    retweets: string[];
+  };
+  // post computed
+  color?: string;
+  active?: boolean;
+}
+export interface GraphMetadata {
+  search: string;
+  since: string;
+  type_search: string;
+  maxresults: number;
+  minretweets: number;
+  last_collected_tweet: number;
+  last_collected_date: string;
+  data_collection_date: string;
+  most_recent_tweet: string;
 }
 
 export interface NetworkGraphJson {
   nodes: GraphNode[];
   edges: GraphEdge[];
+  metadata: GraphMetadata;
 }
 
 export type NetworkGraphProps = {

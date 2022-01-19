@@ -1,49 +1,51 @@
 import * as THREE from 'three';
 
-import ForceGraph3D from 'react-force-graph-3d';
+import ForceGraph3D, { ForceGraphProps } from 'react-force-graph-3d';
 import type { NetworkGraphJson } from './NetworkGraph.d';
 // @ts-nocheck
 import React from 'react';
 import SpriteText from 'three-spritetext';
 import classNames from 'classnames';
 
-type NetworkGraphReactTreeProps = {
+type NetworkGraphReact3DProps = {
   graph: NetworkGraphJson;
+  onLinkClick: any;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
+const NetworkGraphReactTree: React.FC<NetworkGraphReact3DProps> = ({
   children,
   className,
   graph,
+  onLinkClick,
   ...props
 }) => {
   const [highlightNodes, setHighlightNodes] = React.useState(new Set());
   const [highlightLinks, setHighlightLinks] = React.useState(new Set());
-  const [hoverNode, setHoverNode] = React.useState(null);
+  // const [hoverNode, setHoverNode] = React.useState<any>(null);
 
   const updateHighlight = () => {
     setHighlightNodes(highlightNodes);
     setHighlightLinks(highlightLinks);
   };
 
-  const handleNodeHover = (node) => {
-    highlightNodes.clear();
-    highlightLinks.clear();
-    if (node) {
-      highlightNodes.add(node);
-      if (node.neighbors) {
-        node.neighbors.forEach((neighbor) => highlightNodes.add(neighbor));
-      }
-      if (node.links) {
-        node.links.forEach((link) => highlightLinks.add(link));
-      }
-    }
+  // const handleNodeHover: ForceGraphProps['onNodeHover'] = (node) => {
+  //   highlightNodes.clear();
+  //   highlightLinks.clear();
+  //   if (node) {
+  //     highlightNodes.add(node);
+  //     if (node.neighbors) {
+  //       node.neighbors.forEach((neighbor) => highlightNodes.add(neighbor));
+  //     }
+  //     if (node.links) {
+  //       node.links.forEach((link) => highlightLinks.add(link));
+  //     }
+  //   }
 
-    setHoverNode(node || null);
-    updateHighlight();
-  };
+  //   setHoverNode(node || null);
+  //   updateHighlight();
+  // };
 
-  const onNodeHover = (node) => {
+  const onNodeHover: ForceGraphProps['onNodeHover'] = (node) => {
     if (!node) {
       return;
     }
@@ -73,9 +75,10 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
   return (
     <div className={classNames(className)} {...props}>
       <ForceGraph3D
-        graphData={graph}
+        graphData={{ nodes: graph.nodes, links: graph.edges }}
         backgroundColor="#1b1b35"
         nodeAutoColorBy="color"
+        linkAutoColorBy="color"
         nodeVal={(node) => node.size}
         nodeLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
         nodeOpacity={1} /* Nodes sphere opacity, between [0,1 */
@@ -85,14 +88,16 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
         linkDirectionalArrowColor={() => '#fff'} /* Arrow color */
         linkDirectionalArrowResolution={3} /* Arrow resolution */
         linkResolution={2}
-        linkColor={() => '#f8f8f8'}
         linkOpacity={0.1} /* Links opacity, between 0 and 1 */
         linkCurvature={0.25} /* curvature radius of the link line */
-        linkLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
+        linkLabel={({ label, size, source, target, ...rest }) => {
+          return `${source?.label} ${label} ${target?.label} (${size} time${size >= 2 ? 's' : ''})`;
+        }}
         linkWidth={({ size }) => Math.sqrt(size)}
         enableNodeDrag={false} /* disable node drag */
         onNodeHover={onNodeHover}
         onLinkHover={handleLinkHover}
+        onLinkClick={onLinkClick}
         // nodeThreeObject={(node) => {
         //   const s = new THREE.SphereGeometry(node.size);
         //   const canvas1 = document.createElement('canvas');
