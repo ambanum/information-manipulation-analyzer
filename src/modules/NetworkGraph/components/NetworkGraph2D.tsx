@@ -37,6 +37,8 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
     if (onNodeHover) onNodeHover(node, ...rest);
   };
 
+  window.devicePixelRatio = 1; // force 1x pixel density
+
   // const handleNodeHover = (node) => {
   //   highlightNodes.clear();
   //   highlightLinks.clear();
@@ -111,6 +113,9 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
         linkWidth={({ size }) => Math.sqrt(size)}
         enableNodeDrag={false} /* disable node drag */
         onNodeClick={onNodeClick}
+        cooldownTime={
+          60000
+        } /* Getter/setter for how long (ms) to render for before stopping and freezing the layout engine. */
         // onLinkClick={handleLinkHover}
       />
     </div>
