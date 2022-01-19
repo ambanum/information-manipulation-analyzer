@@ -1,4 +1,4 @@
-import ForceGraph2D from 'react-force-graph-2d';
+import ForceGraph2D, { ForceGraphProps } from 'react-force-graph-2d';
 import type { NetworkGraphJson } from './NetworkGraph.d';
 // @ts-nocheck
 import React from 'react';
@@ -6,12 +6,16 @@ import classNames from 'classnames';
 
 type NetworkGraphReact2DProps = {
   graph: NetworkGraphJson;
+  onNodeHover: ForceGraphProps['onNodeHover'];
+  onLinkHover: ForceGraphProps['onLinkHover'];
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   children,
   className,
   graph,
+  onNodeHover,
+  onLinkHover,
   ...props
 }) => {
   const fgRef = React.useRef();
@@ -24,46 +28,45 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
     setHighlightNodes(highlightNodes);
     setHighlightLinks(highlightLinks);
   };
-
-  const handleNodeHover = (node) => {
-    highlightNodes.clear();
-    highlightLinks.clear();
-    if (node) {
-      highlightNodes.add(node);
-      if (node.neighbors) {
-        node.neighbors.forEach((neighbor) => highlightNodes.add(neighbor));
-      }
-      if (node.links) {
-        node.links.forEach((link) => highlightLinks.add(link));
-      }
-    }
-
-    setHoverNode(node || null);
-    updateHighlight();
-  };
-
-  const onNodeHover = (node) => {
+  const handleNodeHover: ForceGraphProps['onNodeHover'] = (node, ...rest) => {
     if (!node) {
       return;
     }
-    console.log(''); //eslint-disable-line
-    console.log('╔════START══node══════════════════════════════════════════════════'); //eslint-disable-line
-    console.log(node); //eslint-disable-line
-    console.log('╚════END════node══════════════════════════════════════════════════'); //eslint-disable-line
+    if (onNodeHover) onNodeHover(node, ...rest);
   };
 
-  const handleLinkHover = (link) => {
-    highlightNodes.clear();
-    highlightLinks.clear();
+  // const handleNodeHover = (node) => {
+  //   highlightNodes.clear();
+  //   highlightLinks.clear();
+  //   if (node) {
+  //     highlightNodes.add(node);
+  //     if (node.neighbors) {
+  //       node.neighbors.forEach((neighbor) => highlightNodes.add(neighbor));
+  //     }
+  //     if (node.links) {
+  //       node.links.forEach((link) => highlightLinks.add(link));
+  //     }
+  //   }
 
-    if (link) {
-      highlightLinks.add(link);
-      highlightNodes.add(link.source);
-      highlightNodes.add(link.target);
-    }
+  //   setHoverNode(node || null);
+  //   updateHighlight();
+  // };
+  const handleLinkHover = React.useCallback(
+    (link, previousLink) => {
+      highlightNodes.clear();
+      highlightLinks.clear();
 
-    updateHighlight();
-  };
+      if (link) {
+        highlightLinks.add(link);
+        highlightNodes.add(link.source);
+        highlightNodes.add(link.target);
+      }
+
+      updateHighlight();
+      if (onLinkHover && link) onLinkHover(link, previousLink);
+    },
+    [highlightNodes, highlightLinks, setHighlightNodes, setHighlightLinks]
+  );
 
   const paintRing = React.useCallback(
     (node, ctx) => {
@@ -115,8 +118,7 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
         linkDirectionalParticleWidth={(link) => (highlightLinks.has(link) ? 2 : 0)}
         // nodeCanvasObjectMode={(node) => (highlightNodes.has(node) ? 'before' : undefined)}
         nodeCanvasObject={paintRing}
-        // onNodeHover={handleNodeHover}
-        onNodeHover={onNodeHover}
+        onNodeHover={handleNodeHover}
         onLinkHover={handleLinkHover}
         /* Fit graph to canvas (source) */
         /* https://github.com/vasturiano/react-force-graph */
