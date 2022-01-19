@@ -1,5 +1,8 @@
+import { Col, Container, Row } from '@dataesr/react-dsfr';
+
 import { GetServerSideProps } from 'next';
 import GraphDetail from 'modules/NetworkGraph/components/GraphDetail';
+import Layout from 'modules/Embassy/components/Layout';
 import React from 'react';
 import { Select } from '@dataesr/react-dsfr';
 import fs from 'fs';
@@ -76,16 +79,28 @@ const NetworkGraphDebugPage = ({ files }: any) => {
   });
 
   return (
-    <>
-      <Select label="Select file" onChange={onChange} options={selectOptions} selected={selected} />
-      <pre
-        className="fr-mx-2w fr-my-1w fr-px-1w text-xs"
-        style={{ fontSize: '10px', background: '#333', color: '#FFF', borderRadius: '4px' }}
-      >
-        graphgenerator "{metadata.search}" -j ./public/graph/{file.name}
-      </pre>
+    <Layout title="Twitter community graph generator">
+      <Container>
+        <Row>
+          <Col>
+            <Select
+              label="Select file"
+              onChange={onChange}
+              options={selectOptions}
+              selected={selected}
+            />
+            <pre
+              className="fr-mx-2w fr-my-1w fr-px-1w text-xs"
+              style={{ fontSize: '10px', background: '#333', color: '#FFF', borderRadius: '4px' }}
+            >
+              graphgenerator "{metadata.search}" -j ./public/graph/{file.name}
+            </pre>
+          </Col>
+        </Row>
+      </Container>
+
       <GraphDetail colors={dsfrColors} {...file} />
-    </>
+    </Layout>
   );
 };
 export const getServerSideProps: GetServerSideProps = async () => {

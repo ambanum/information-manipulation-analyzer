@@ -1,4 +1,6 @@
-import { Modal, ModalClose, ModalContent, ModalFooter, ModalTitle } from '@dataesr/react-dsfr';
+import { Button, ButtonGroup } from '@dataesr/react-dsfr';
+import { Col, Container, Row } from '@dataesr/react-dsfr';
+import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
 import { Tab, Tabs } from '@dataesr/react-dsfr';
 
 import EdgeDetail from './EdgeDetail';
@@ -6,6 +8,7 @@ import EdgeDetail from './EdgeDetail';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
 import NodeDetail from './NodeDetail';
 import React from 'react';
+import { TextInput } from '@dataesr/react-dsfr';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
@@ -214,7 +217,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
   });
 
   return (
-    <div className={s.wrapper}>
+    <>
       <Modal isOpen={isModalOpen} hide={() => setIsModalOpen(false)}>
         <ModalClose hide={() => setIsModalOpen(false)} title="Close the modal window">
           Close
@@ -222,107 +225,115 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
         <ModalTitle icon="ri-arrow-right-fill">{modalTitle}</ModalTitle>
         <ModalContent>{modalContent}</ModalContent>
       </Modal>
-      <div className="fr-mx-2w fr-my-2w">
-        From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
-        <strong title={endDate}>{dayjs(endDate).format('llll')}</strong>
-      </div>
-      <div className="fr-mx-2w fr-my-2w text-right">
-        <span className="fr-mx-2w fr-my-2w">
-          <small>
-            <strong>{tick || 0}</strong> / {dates.length} dates
-          </small>{' '}
-          <small>
-            <strong>{nodes.length}</strong> nodes
-          </small>{' '}
-          <small>
-            <strong>{edges.length}</strong> edges
-          </small>
-        </span>
-        <div className="fr-input-group">
-          <input
-            onChange={(event) => setTickInterval(+event.target.value)}
-            value={tickInterval}
-            disabled={active}
-            size={4}
-            className="fr-input"
-          />
-          ms{' '}
-        </div>
-        <button
-          className="fr-btn--sm fr-btn fr-fi-arrow-left-s-line-double fr-btn--icon-left"
-          onClick={() => setTick((tick || 0) - 1)}
-          disabled={active || (tick || 0) === 0}
-        >
-          Before
-        </button>{' '}
-        <button
-          onClick={toggleActive}
-          className={`fr-btn--sm fr-btn fr-fi-${active ? 'pause' : 'play'}-line fr-btn--icon-left`}
-        >
-          {active ? 'Pause' : 'Play'}
-        </button>{' '}
-        <button
-          onClick={() => setTick((tick || 0) + 1)}
-          disabled={active || (tick || 0) === nodes.length || !tick}
-          className="fr-btn--sm fr-btn fr-fi-arrow-right-s-line-double fr-btn--icon-left"
-        >
-          After
-        </button>{' '}
-        <button
-          onClick={() => {
-            toggleActive(false);
-            setTick(undefined);
-          }}
-          disabled={tick === 0 || !tick}
-          className="fr-btn--sm fr-btn fr-fi-refresh-line fr-btn--icon-left"
-        >
-          Reset
-        </button>
-      </div>
-
-      <Tabs>
-        <Tab label="ForceGraph3D">
-          <h3>
-            <a target="_blank" href="https://github.vasturiano/react-force-graph">
-              react-force-graph-3d
-            </a>
-          </h3>
-          <div className={s.graphWrapper}>
-            <NetworkGraph3D
-              graph={filteredNodes}
-              onNodeHover={onNodeHover}
-              onLinkHover={onEdgeHover}
+      <Container spacing="mt-12w">
+        <Row>
+          <Col>
+            From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
+            <strong title={endDate}>{dayjs(endDate).format('llll')}</strong>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <span className="fr-mx-2w fr-my-2w">
+              <small>
+                <strong>{tick || 0}</strong> / {dates.length} dates
+              </small>{' '}
+              <small>
+                <strong>{nodes.length}</strong> nodes
+              </small>{' '}
+              <small>
+                <strong>{edges.length}</strong> edges
+              </small>
+            </span>
+          </Col>
+          <Col>
+            <TextInput
+              onChange={(event) => setTickInterval(+event.target.value)}
+              value={tickInterval}
+              disabled={active}
+              hint="ms"
             />
-          </div>
-        </Tab>
+            <ButtonGroup size="sm" isInlineFrom="xs">
+              <Button
+                onClick={() => setTick((tick || 0) - 1)}
+                icon="fr-fi-arrow-left-s-line-double"
+                disabled={active || (tick || 0) === 0}
+              >
+                Before
+              </Button>
+              <Button onClick={toggleActive} icon={`fr-fi-${active ? 'pause' : 'play'}-line `}>
+                {active ? 'Pause' : 'Play'}
+              </Button>
+              <Button
+                onClick={() => setTick((tick || 0) + 1)}
+                disabled={active || (tick || 0) === nodes.length || !tick}
+                icon="fr-fi-arrow-right-s-line-double"
+              >
+                After
+              </Button>
+              <Button
+                onClick={() => {
+                  toggleActive(false);
+                  setTick(undefined);
+                }}
+                disabled={tick === 0 || !tick}
+                icon="fr-fi-refresh-line"
+              >
+                Reset
+              </Button>
+            </ButtonGroup>
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+            <Tabs>
+              <Tab label="ForceGraph3D">
+                <h3>
+                  <a target="_blank" href="https://github.vasturiano/react-force-graph">
+                    react-force-graph-3d
+                  </a>
+                </h3>
+                <div className={s.graphWrapper}>
+                  <NetworkGraph3D
+                    graph={filteredNodes}
+                    onNodeHover={onNodeHover}
+                    onLinkHover={onEdgeHover}
+                  />
+                </div>
+              </Tab>
 
-        <Tab label="Sigma">
-          <h3>
-            <a target="_blank" href="https://github.com/dunnock/react-sigma">
-              react-sigma
-            </a>
-          </h3>
-          <div className={s.graphWrapper}>
-            <NetworkGraph
-              // @ts-ignore
-              graph={filteredNodes}
-              onClickNode={onClickNode}
-            />
-          </div>
-        </Tab>
+              <Tab label="Sigma">
+                <h3>
+                  <a target="_blank" href="https://github.com/dunnock/react-sigma">
+                    react-sigma
+                  </a>
+                </h3>
+                <div className={s.graphWrapper}>
+                  <NetworkGraph
+                    // @ts-ignore
+                    graph={filteredNodes}
+                    onClickNode={onClickNode}
+                  />
+                </div>
+              </Tab>
 
-        <Tab label="ForceGraph2D">
-          <h3>
-            <a target="_blank" href="https://github.vasturiano/react-force-graph">
-              react-force-graph-2d
-            </a>
-          </h3>
-          <div className={s.graphWrapper}>
-            <NetworkGraph2D graph={filteredNodes} onNodeClick={onNodeClick} />
-          </div>
-        </Tab>
-      </Tabs>
-    </div>
+              <Tab label="ForceGraph2D">
+                <h3>
+                  <a target="_blank" href="https://github.vasturiano/react-force-graph">
+                    react-force-graph-2d
+                  </a>
+                </h3>
+                <div className={s.graphWrapper}>
+                  <NetworkGraph2D graph={filteredNodes} onNodeClick={onNodeClick} />
+                </div>
+              </Tab>
+            </Tabs>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
 
