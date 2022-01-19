@@ -111,12 +111,13 @@ interface GraphDetailProps {
 }
 
 const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
-  const [info, setInfo] = React.useState<React.ReactNode>();
+  const [modalContent, setModalContent] = React.useState<React.ReactNode>();
+  const [modalTitle, setModalTitle] = React.useState<React.ReactNode>();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [tick, setTick] = React.useState<number | undefined>();
   const [tickInterval, setTickInterval] = React.useState<number>(200);
   const [active, toggleActive] = useToggle(false);
   const { nodes, edges } = json;
-  const [isOpen, setIsOpen] = useState(false);
 
   const dates = [
     ...nodes.reduce((acc: string[], node) => [...acc, ...(node?.metadata?.dates || [])], []),
@@ -159,40 +160,52 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
   const onNodeHover = React.useCallback(
     (node: any) => {
       toggleActive(true);
-      setInfo(
+      setModalContent(
         <div>
           Node<pre>{JSON.stringify(node, null, 2)}</pre>
         </div>
       );
       toggleActive(false);
     },
-    [setInfo]
+    [setModalContent]
   );
 
   const onEdgeHover = React.useCallback(
     (edge: any) => {
       toggleActive(true);
-      setInfo(
+      setModalContent(
         <div>
           Edge<pre>{JSON.stringify(edge, null, 2)}</pre>
         </div>
       );
       toggleActive(false);
     },
-    [setInfo]
+    [setModalContent]
   );
 
-  const onNodeClick = React.useCallback(
+  const updateModalContent = React.useCallback(
     (node: any) => {
-      setIsOpen(true);
-      setInfo(
+      setIsModalOpen(true);
+      setModalContent(
         <>
           <pre>{JSON.stringify(node, null, 2)}</pre>
         </>
       );
     },
-    [setInfo]
+    [setModalContent]
   );
+
+  const updateModalTitle = React.useCallback(
+    (node: any) => {
+      setModalTitle(<>{node.label}</>);
+    },
+    [setModalContent]
+  );
+
+  const onNodeClick = (node: any) => {
+    updateModalContent(node);
+    updateModalTitle(node);
+  };
 
   const filteredNodes = highlightNodesAndEdges(json, colors, {
     active,
@@ -202,12 +215,12 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
 
   return (
     <div className={s.wrapper}>
-      <Modal isOpen={isOpen} hide={() => setIsOpen(false)}>
-        <ModalClose hide={() => setIsOpen(false)} title="Close the modal window">
+      <Modal isOpen={isModalOpen} hide={() => setIsModalOpen(false)}>
+        <ModalClose hide={() => setIsModalOpen(false)} title="Close the modal window">
           Close
         </ModalClose>
-        <ModalTitle icon="ri-arrow-right-fill">Modal Title</ModalTitle>
-        <ModalContent>{info}</ModalContent>
+        <ModalTitle icon="ri-arrow-right-fill">{modalTitle}</ModalTitle>
+        <ModalContent>{modalContent}</ModalContent>
       </Modal>
       <div className="fr-mx-2w fr-my-2w">
         From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
