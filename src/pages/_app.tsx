@@ -16,7 +16,6 @@ import { AppProps } from 'next/app';
 import { AuthProvider } from 'modules/Auth';
 import { NotifierContainer } from 'hooks/useNotifier';
 import { SWRConfig } from 'swr';
-import Script from 'next/script';
 import { fetcher } from 'utils/api';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -27,16 +26,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           fetcher,
         }}
       >
-        {/* See https://github.com/GouvernementFR/dsfr/issues/39 */}
-        <Script
-          type="module"
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/@gouvfr/dsfr/dist/js/dsfr.module.js`}
-        />
-        <Script
-          type="text/javascript"
-          noModule={true}
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/@gouvfr/dsfr/dist/js/dsfr.nomodule.js`}
-        />
         <NotifierContainer />
         <Analytics />
         <Component {...pageProps} />

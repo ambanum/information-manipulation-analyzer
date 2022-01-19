@@ -30,8 +30,8 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
-    "@dataesr/react-dsfr": "0.7.4",
-    "@gouvfr/dsfr": "1.1.0",
+    "@dataesr/react-dsfr": "^0.9.8",
+    "@gouvfr/dsfr": "^1.3.0",
     "@lolpants/ptimeout": "^1.0.3",
     "@socialgouv/matomo-next": "1.2.2",
     "@welldone-software/why-did-you-render": "6.2.1",

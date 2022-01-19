@@ -1,7 +1,10 @@
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { Modal, ModalClose, ModalContent, ModalFooter, ModalTitle } from '@dataesr/react-dsfr';
+import { Tab, Tabs } from '@dataesr/react-dsfr';
 
+import EdgeDetail from './EdgeDetail';
 // import Gradient from 'javascript-color-gradient';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
+import NodeDetail from './NodeDetail';
 import React from 'react';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -9,11 +12,9 @@ import dynamic from 'next/dynamic';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
-import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
-import { useToggle } from 'react-use';
-import NodeDetail from './NodeDetail';
-import EdgeDetail from './EdgeDetail';
 import s from './GraphDetail.module.css';
+import { useState } from 'react';
+import { useToggle } from 'react-use';
 
 const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
   ssr: false,
@@ -115,6 +116,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
   const [tickInterval, setTickInterval] = React.useState<number>(200);
   const [active, toggleActive] = useToggle(false);
   const { nodes, edges } = json;
+  const [isOpen, setIsOpen] = useState(false);
 
   const dates = [
     ...nodes.reduce((acc: string[], node) => [...acc, ...(node?.metadata?.dates || [])], []),
@@ -166,6 +168,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
     },
     [setInfo]
   );
+
   const onEdgeHover = React.useCallback(
     (edge: any) => {
       toggleActive(true);
@@ -179,21 +182,33 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
     [setInfo]
   );
 
+  const onNodeClick = React.useCallback(
+    (node: any) => {
+      setIsOpen(true);
+      setInfo(
+        <>
+          <pre>{JSON.stringify(node, null, 2)}</pre>
+        </>
+      );
+    },
+    [setInfo]
+  );
+
   const filteredNodes = highlightNodesAndEdges(json, colors, {
     active,
     startDate,
     endDate,
   });
 
-  const infoCard = info ? (
-    <div className={s.infoCard}>
-      <button onClick={() => setInfo(undefined)}>Close</button>
-      {info}
-    </div>
-  ) : null;
-
   return (
     <div className={s.wrapper}>
+      <Modal isOpen={isOpen} hide={() => setIsOpen(false)}>
+        <ModalClose hide={() => setIsOpen(false)} title="Close the modal window">
+          Close
+        </ModalClose>
+        <ModalTitle icon="ri-arrow-right-fill">Modal Title</ModalTitle>
+        <ModalContent>{info}</ModalContent>
+      </Modal>
       <div className="fr-mx-2w fr-my-2w">
         From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
         <strong title={endDate}>{dayjs(endDate).format('llll')}</strong>
@@ -210,13 +225,16 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
             <strong>{edges.length}</strong> edges
           </small>
         </span>
-        <input
-          onChange={(event) => setTickInterval(+event.target.value)}
-          value={tickInterval}
-          disabled={active}
-          size={4}
-        />
-        ms{' '}
+        <div className="fr-input-group">
+          <input
+            onChange={(event) => setTickInterval(+event.target.value)}
+            value={tickInterval}
+            disabled={active}
+            size={4}
+            className="fr-input"
+          />
+          ms{' '}
+        </div>
         <button
           className="fr-btn--sm fr-btn fr-fi-arrow-left-s-line-double fr-btn--icon-left"
           onClick={() => setTick((tick || 0) - 1)}
@@ -248,73 +266,48 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
           Reset
         </button>
       </div>
-      <Tabs
-        selectedTabClassName={classNames(sReactTabs.selectedTab, 'react-tabs__tab--selected"')}
-        selectedTabPanelClassName={classNames(
-          sReactTabs.selectedTabPanel,
-          'react-tabs__tab-panel--selected'
-        )}
-      >
-        <div className="">
-          <TabList
-            className={classNames(
-              'fr-grid-row fr-grid-row--gutters react-tabs__tab-list',
-              sReactTabs.tabList
-            )}
-          >
-            <Tab className={sReactTabs.tab}>ForceGraph3D</Tab>
-            <Tab className={sReactTabs.tab}>Sigma</Tab>
-            <Tab className={sReactTabs.tab}>ForceGraph2D</Tab>
-          </TabList>
-        </div>
-        <div>
-          <TabPanel>
-            <h3>
-              <a target="_blank" href="https://github.vasturiano/react-force-graph">
-                react-force-graph-3d
-              </a>
-            </h3>
-            <div className={s.graphWrapper}>
-              {infoCard}
-              <NetworkGraph3D
-                graph={filteredNodes}
-                onNodeHover={onNodeHover}
-                onLinkHover={onEdgeHover}
-              />
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <h3>
-              <a target="_blank" href="https://github.com/dunnock/react-sigma">
-                react-sigma
-              </a>
-            </h3>
-            <div className={s.graphWrapper}>
-              {infoCard}
-              <NetworkGraph
-                // @ts-ignore
-                graph={filteredNodes}
-                onClickNode={onClickNode}
-              />
-            </div>
-          </TabPanel>
 
-          <TabPanel>
-            <h3>
-              <a target="_blank" href="https://github.vasturiano/react-force-graph">
-                react-force-graph-2d
-              </a>
-            </h3>
-            <div className={s.graphWrapper}>
-              {infoCard}
-              <NetworkGraph2D
-                graph={filteredNodes}
-                onNodeHover={onNodeHover}
-                onLinkHover={onEdgeHover}
-              />
-            </div>
-          </TabPanel>
-        </div>
+      <Tabs>
+        <Tab label="ForceGraph3D">
+          <h3>
+            <a target="_blank" href="https://github.vasturiano/react-force-graph">
+              react-force-graph-3d
+            </a>
+          </h3>
+          <div className={s.graphWrapper}>
+            <NetworkGraph3D
+              graph={filteredNodes}
+              onNodeHover={onNodeHover}
+              onLinkHover={onEdgeHover}
+            />
+          </div>
+        </Tab>
+
+        <Tab label="Sigma">
+          <h3>
+            <a target="_blank" href="https://github.com/dunnock/react-sigma">
+              react-sigma
+            </a>
+          </h3>
+          <div className={s.graphWrapper}>
+            <NetworkGraph
+              // @ts-ignore
+              graph={filteredNodes}
+              onClickNode={onClickNode}
+            />
+          </div>
+        </Tab>
+
+        <Tab label="ForceGraph2D">
+          <h3>
+            <a target="_blank" href="https://github.vasturiano/react-force-graph">
+              react-force-graph-2d
+            </a>
+          </h3>
+          <div className={s.graphWrapper}>
+            <NetworkGraph2D graph={filteredNodes} onNodeClick={onNodeClick} />
+          </div>
+        </Tab>
       </Tabs>
     </div>
   );
