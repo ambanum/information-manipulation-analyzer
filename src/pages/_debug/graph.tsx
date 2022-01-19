@@ -1,10 +1,12 @@
 import { GetServerSideProps } from 'next';
 import GraphDetail from 'modules/NetworkGraph/components/GraphDetail';
 import React from 'react';
+import { Select } from '@dataesr/react-dsfr';
 import fs from 'fs';
 import path from 'path';
-import useUrl from 'hooks/useUrl';
 import shuffle from 'lodash/fp/shuffle';
+import { useState } from 'react';
+import useUrl from 'hooks/useUrl';
 
 const dsfrColors = shuffle([
   '#91ae4f',
@@ -52,11 +54,13 @@ const dsfrColors = shuffle([
 ]);
 
 const NetworkGraphDebugPage = ({ files }: any) => {
+  const [selected, setSelected] = useState('');
   const { queryParams, pushQueryParam } = useUrl();
   const selectedFile = queryParams.selected || 1;
   const file = files[selectedFile];
 
   const onChange = (event: any) => {
+    setSelected(event.target.value);
     pushQueryParam('selected', undefined, { shallow: true })(event.target.value);
   };
 
@@ -64,17 +68,16 @@ const NetworkGraphDebugPage = ({ files }: any) => {
     return <div>No files found</div>;
   }
   const metadata = file.json.metadata || {};
+  const selectOptions = files.map((file: any, index: number) => {
+    return {
+      value: index,
+      label: file.name,
+    };
+  });
+
   return (
     <>
-      <h3 className="fr-mx-2w fr-my-2w">
-        <select onChange={onChange}>
-          {files.map((file: any, index: number) => (
-            <option value={index} selected={index === selectedFile}>
-              {file.name}
-            </option>
-          ))}
-        </select>
-      </h3>
+      <Select label="Select file" onChange={onChange} options={selectOptions} selected={selected} />
       <pre
         className="fr-mx-2w fr-my-1w fr-px-1w text-xs"
         style={{ fontSize: '10px', background: '#333', color: '#FFF', borderRadius: '4px' }}
