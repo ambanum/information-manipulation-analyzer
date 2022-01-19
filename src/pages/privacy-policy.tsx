@@ -1,28 +1,15 @@
-import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
-import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
+import { Col, Container, Row } from '@dataesr/react-dsfr';
+
 import Layout from 'modules/Embassy/components/Layout';
 import React from 'react';
 import { useRouter } from 'next/router';
 
 export default function PrivacyPolicy() {
-  const router = useRouter();
-
   return (
     <Layout title="Privacy Policy - Information Manipulation Analyzer">
-      <div className="fr-container fr-container-fluid">
-        <div className="fr-grid-row">
-          <div className="fr-col fr-col-12 ">
-            <Breadcrumb>
-              <BreadcrumbItem onClick={() => router.back()}>Back</BreadcrumbItem>
-              <BreadcrumbItem isCurrent={true}>Privacy Policy</BreadcrumbItem>
-            </Breadcrumb>
-          </div>
-        </div>
-      </div>
-
-      <div className="fr-container fr-container-fluid fr-my-2w">
-        <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col fr-col-12 fr-col-sm-12 fr-col-md-12 fr-col-lg-10 fr-col-xl-10">
+      <Container spacing="mt-12w">
+        <Row>
+          <Col className="fr-col-12 fr-col-sm-12 fr-col-md-12 fr-col-lg-10 fr-col-xl-10">
             <h1>Privacy Policy</h1>
 
             <p>
@@ -74,9 +61,9 @@ export default function PrivacyPolicy() {
               Any questions regarding this policy and our privacy practices should be sent by email
               to ima@disinfo.beta.gouv.fr.
             </p>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </Layout>
   );
 }
