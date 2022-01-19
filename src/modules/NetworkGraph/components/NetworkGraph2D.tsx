@@ -4,18 +4,17 @@ import type { NetworkGraphJson } from './NetworkGraph.d';
 import React from 'react';
 import classNames from 'classnames';
 
-type NetworkGraphReactTreeProps = {
+type NetworkGraphReact2DProps = {
   graph: NetworkGraphJson;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
+const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   children,
   className,
   graph,
   ...props
 }) => {
   const fgRef = React.useRef();
-  const [data, setData] = React.useState(graph);
 
   const [highlightNodes, setHighlightNodes] = React.useState(new Set());
   const [highlightLinks, setHighlightLinks] = React.useState(new Set());
@@ -89,7 +88,7 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
       <ForceGraph2D
         ref={fgRef}
         backgroundColor="#1b1b35"
-        graphData={{ nodes: data.nodes, links: data.edges }}
+        graphData={{ nodes: graph.nodes, links: graph.edges }}
         nodeLabel={({ label, size }) => `${label} (${size} time${size >= 2 ? 's' : ''})`}
         linkCurvature={0} /* curve edges */
         nodeAutoColorBy="color" /* give color to node */
@@ -134,4 +133,4 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReactTreeProps> = ({
   );
 };
 
-export default NetworkGraphReactTree;
+export default NetworkGraphReact2D;
