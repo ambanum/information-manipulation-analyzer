@@ -1,7 +1,7 @@
-import { Button, ButtonGroup, Select, Col, Container, Row } from '@dataesr/react-dsfr';
+import { Button, ButtonGroup, Col, Container, Row, Select } from '@dataesr/react-dsfr';
 import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
 import { Tab, Tabs } from '@dataesr/react-dsfr';
-import useUrl from 'hooks/useUrl';
+
 import EdgeDetail from './EdgeDetail';
 import Gradient from 'javascript-color-gradient';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
@@ -17,6 +17,7 @@ import localizedFormat from 'dayjs/plugin/localizedFormat';
 import s from './GraphDetail.module.css';
 import { useState } from 'react';
 import { useToggle } from 'react-use';
+import useUrl from 'hooks/useUrl';
 
 const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
   ssr: false,
@@ -248,14 +249,12 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
       </Modal>
       <Container spacing="mt-12w">
         <Row>
-          <Col>
+          <Col n="6">
             From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
             <strong title={endDate}>{dayjs(endDate).format('llll')}</strong>
           </Col>
-        </Row>
-        <Row>
-          <Col>
-            <span className="fr-mx-2w fr-my-2w">
+          <Col n="4" offset="2">
+            <div className="" style={{ textAlign: 'right' }}>
               <small>
                 <strong>{tick || 0}</strong> / {dates.length} dates
               </small>{' '}
@@ -265,29 +264,20 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
               <small>
                 <strong>{edges.length}</strong> edges
               </small>
-            </span>
+            </div>
           </Col>
-          <Col>
-            <ButtonGroup size="sm" isInlineFrom="xs">
-              {COLOR_MODES.map((colorModeInList) => (
-                <Button
-                  onClick={() =>
-                    pushQueryParam('colorMode', undefined, { shallow: true, scroll: false })(
-                      colorModeInList
-                    )
-                  }
-                  disabled={colorMode === colorModeInList}
-                >
-                  {colorModeInList}
-                </Button>
-              ))}
-            </ButtonGroup>
+        </Row>
+
+        <Row className="fr-mt-4w" justifyContent="center">
+          <Col n="1">
             <TextInput
               onChange={(event) => setTickInterval(+event.target.value)}
               value={tickInterval}
               disabled={active}
-              hint="ms"
+              label="ms"
             />
+          </Col>
+          <Col className="fr-mt-4w fr-ml-2w">
             <ButtonGroup size="sm" isInlineFrom="xs">
               <Button
                 onClick={() => setTick((tick || 0) - 1)}
@@ -316,11 +306,23 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
               >
                 Reset
               </Button>
+              {COLOR_MODES.map((colorModeInList) => (
+                <Button
+                  onClick={() =>
+                    pushQueryParam('colorMode', undefined, { shallow: true, scroll: false })(
+                      colorModeInList
+                    )
+                  }
+                  disabled={colorMode === colorModeInList}
+                >
+                  {colorModeInList}
+                </Button>
+              ))}
             </ButtonGroup>
           </Col>
         </Row>
       </Container>
-      <Container>
+      <Container className="fr-mt-4w">
         <Tabs>
           <Tab label="Sigma">
             <h3>
