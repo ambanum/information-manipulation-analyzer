@@ -71,12 +71,10 @@ const NetworkGraphDebugPage = ({ files }: any) => {
     return <div>No files found</div>;
   }
   const metadata = file.json.metadata || {};
-  const selectOptions = files.map((file: any, index: number) => {
-    return {
-      value: index,
-      label: file.name,
-    };
-  });
+  const selectOptions = files.map((file: any, index: number) => ({
+    value: index,
+    label: file.name,
+  }));
 
   return (
     <Layout title="Twitter community graph generator">
