@@ -4,7 +4,7 @@ import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr
 import { Tab, Tabs } from '@dataesr/react-dsfr';
 
 import EdgeDetail from './EdgeDetail';
-// import Gradient from 'javascript-color-gradient';
+import Gradient from 'javascript-color-gradient';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
 import NodeDetail from './NodeDetail';
 import React from 'react';
@@ -33,15 +33,35 @@ dayjs.extend(localizedFormat);
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 
+interface GraphDetailProps {
+  name: string;
+  json: NetworkGraphJson;
+  colors: string[];
+}
+
+type ColorMode = 'community' | 'botscore';
+const COLOR_MODES: ColorMode[] = ['community', 'botscore'];
+
 // for bot score color
-// const colorGradient = new Gradient();
-// colorGradient.setGradient('#008000', '#e1000f'); // from red to green
-// colorGradient.setMidpoint(0.5);
+const colorGradient = new Gradient();
+colorGradient.setGradient('#008000', '#e1000f'); // from red to green
+colorGradient.setMidpoint(0.5);
 
 const highlightNodesAndEdges = (
   data: NetworkGraphJson,
-  colors: string[],
-  { active, startDate, endDate }: { active?: boolean; startDate?: string; endDate?: string }
+  {
+    active,
+    startDate,
+    endDate,
+    colorMode,
+    colors,
+  }: {
+    colors: string[];
+    colorMode: ColorMode;
+    active?: boolean;
+    startDate?: string;
+    endDate?: string;
+  }
 ) => {
   if (!startDate && !endDate) {
     return data;
@@ -77,13 +97,16 @@ const highlightNodesAndEdges = (
       node.color = '#1b1b35AA';
     } else {
       node.active = true;
-      // @ts-ignore
-      // node.color = node?.metadata?.botscore
-      //   ? colorGradient.getColor(node?.metadata?.botscore)
-      //   : '#FA0000AA';
-      // for debug
-      // console.log(`${node?.metadata?.botscore} %c${node.color}`, `color: ${node.color}`); //eslint-disable-line
-      node.color = colors[node?.community_id || 0];
+      if (colorMode === 'botscore') {
+        // @ts-ignore
+        node.color = node?.metadata?.botscore
+          ? colorGradient.getColor(node?.metadata?.botscore)
+          : '#1b1b35AA';
+        // for debug
+        // console.log(`${node?.metadata?.botscore} %c${node.color}`, `color: ${node.color}`); //eslint-disable-line
+      } else {
+        node.color = colors[node?.community_id || 0];
+      }
     }
 
     node.size = endDate
@@ -107,16 +130,11 @@ const highlightNodesAndEdges = (
   return newData;
 };
 
-interface GraphDetailProps {
-  name: string;
-  json: NetworkGraphJson;
-  colors: string[];
-}
-
 const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
   const [modalContent, setModalContent] = React.useState<React.ReactNode>();
   const [modalTitle, setModalTitle] = React.useState<React.ReactNode>();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [colorMode, setColorMode] = React.useState<ColorMode>('community');
   const [tick, setTick] = React.useState<number | undefined>();
   const [tickInterval, setTickInterval] = React.useState<number>(200);
   const [active, toggleActive] = useToggle(false);
@@ -210,7 +228,9 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
     updateModalTitle(node);
   };
 
-  const filteredNodes = highlightNodesAndEdges(json, colors, {
+  const filteredNodes = highlightNodesAndEdges(json, {
+    colors,
+    colorMode,
     active,
     startDate,
     endDate,
@@ -247,6 +267,16 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
             </span>
           </Col>
           <Col>
+            <ButtonGroup size="sm" isInlineFrom="xs">
+              {COLOR_MODES.map((colorModeInList) => (
+                <Button
+                  onClick={() => setColorMode(colorModeInList)}
+                  disabled={colorMode === colorModeInList}
+                >
+                  {colorModeInList}
+                </Button>
+              ))}
+            </ButtonGroup>
             <TextInput
               onChange={(event) => setTickInterval(+event.target.value)}
               value={tickInterval}
