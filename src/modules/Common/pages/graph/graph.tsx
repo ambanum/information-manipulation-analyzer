@@ -1,13 +1,13 @@
-import { Col, Container, Row } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Text } from '@dataesr/react-dsfr';
 
 import { GetServerSideProps } from 'next';
 import GraphDetail from 'modules/NetworkGraph/components/GraphDetail';
 import Layout from 'modules/Embassy/components/Layout';
 import React from 'react';
 import { Select } from '@dataesr/react-dsfr';
+import dayjs from 'dayjs';
 import fs from 'fs';
 import path from 'path';
-import dayjs from 'dayjs';
 import shuffle from 'lodash/fp/shuffle';
 import useUrl from 'hooks/useUrl';
 
@@ -82,22 +82,33 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
 
   return (
     <Layout title="Twitter community graph generator">
-      <Container>
-        <Row>
-          <Col>
+      <Container spacing="mt-12w">
+        <Row gutters>
+          <Col n="4">
             <Select
-              label="Select file"
+              label="Select a file"
               onChange={onChange}
               options={selectOptions}
               selected={selected}
+              size="medium"
             />
-            <small>
+          </Col>
+          <Col n="8">
+            <Text size="sm" className="fr-mb-0">
               Collected from {dayjs(metadata.last_collected_date).format()} to{' '}
               {dayjs(metadata.data_collection_date).format()}{' '}
-            </small>
+            </Text>
+
             <pre
-              className="fr-mx-2w fr-my-1w fr-px-1w text-xs"
-              style={{ fontSize: '10px', background: '#333', color: '#FFF', borderRadius: '4px' }}
+              className="fr-p-1w fr text-xs"
+              style={{
+                fontSize: '10px',
+                background: 'var(--grey-50)',
+                color: 'var(--grey-950)',
+                borderRadius: '4px',
+                whiteSpace: 'pre-wrap',
+                wordWrap: 'break-word',
+              }}
             >
               graphgenerator "{metadata.search}" -j ./public/graph/{file.name} -i ./public/graph/
               {file.name.replace('.json', '.jpg')}
