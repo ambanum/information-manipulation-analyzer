@@ -5,6 +5,7 @@ import {
   HeaderOperator,
   Logo,
   NavItem,
+  NavSubItem,
   Service,
 } from '@dataesr/react-dsfr';
 
@@ -255,7 +256,10 @@ const Header = () => (
       />
     </HeaderBody>
     <HeaderNav>
-      <NavItem title="Search" link="/" current />
+      <NavItem title="Twitter" current>
+        <NavSubItem title="Search" link="/" />
+        <NavSubItem title="Network graph" link="/graph" />
+      </NavItem>
       <NavItem title="What is a bot ?" link="/bot-probability" />
     </HeaderNav>
   </DSFRHeader>
