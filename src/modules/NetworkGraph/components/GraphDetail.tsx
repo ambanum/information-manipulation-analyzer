@@ -286,52 +286,48 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
         </Row>
       </Container>
       <Container>
-        <Row>
-          <Col>
-            <Tabs>
-              <Tab label="ForceGraph3D">
-                <h3>
-                  <a target="_blank" href="https://github.vasturiano/react-force-graph">
-                    react-force-graph-3d
-                  </a>
-                </h3>
-                <div className={s.graphWrapper}>
-                  <NetworkGraph3D
-                    graph={filteredNodes}
-                    onNodeHover={onNodeHover}
-                    onLinkHover={onEdgeHover}
-                  />
-                </div>
-              </Tab>
+        <Tabs>
+          <Tab label="ForceGraph3D">
+            <h3>
+              <a target="_blank" href="https://github.vasturiano/react-force-graph">
+                react-force-graph-3d
+              </a>
+            </h3>
+            <div className={s.graphWrapper}>
+              <NetworkGraph3D
+                graph={filteredNodes}
+                onNodeHover={onNodeHover}
+                onLinkHover={onEdgeHover}
+              />
+            </div>
+          </Tab>
 
-              <Tab label="Sigma">
-                <h3>
-                  <a target="_blank" href="https://github.com/dunnock/react-sigma">
-                    react-sigma
-                  </a>
-                </h3>
-                <div className={s.graphWrapper}>
-                  <NetworkGraph
-                    // @ts-ignore
-                    graph={filteredNodes}
-                    onClickNode={onClickNode}
-                  />
-                </div>
-              </Tab>
+          <Tab label="Sigma">
+            <h3>
+              <a target="_blank" href="https://github.com/dunnock/react-sigma">
+                react-sigma
+              </a>
+            </h3>
+            <div className={s.graphWrapper}>
+              <NetworkGraph
+                // @ts-ignore
+                graph={filteredNodes}
+                onClickNode={onClickNode}
+              />
+            </div>
+          </Tab>
 
-              <Tab label="ForceGraph2D">
-                <h3>
-                  <a target="_blank" href="https://github.vasturiano/react-force-graph">
-                    react-force-graph-2d
-                  </a>
-                </h3>
-                <div className={s.graphWrapper}>
-                  <NetworkGraph2D graph={filteredNodes} onNodeClick={onNodeClick} />
-                </div>
-              </Tab>
-            </Tabs>
-          </Col>
-        </Row>
+          <Tab label="ForceGraph2D">
+            <h3>
+              <a target="_blank" href="https://github.vasturiano/react-force-graph">
+                react-force-graph-2d
+              </a>
+            </h3>
+            <div className={s.graphWrapper}>
+              <NetworkGraph2D graph={filteredNodes} onNodeClick={onNodeClick} />
+            </div>
+          </Tab>
+        </Tabs>
       </Container>
     </>
   );
