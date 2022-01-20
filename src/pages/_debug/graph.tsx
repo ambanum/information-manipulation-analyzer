@@ -57,10 +57,10 @@ const dsfrColors = shuffle([
 ]);
 
 const NetworkGraphDebugPage = ({ files }: any) => {
-  const [selected, setSelected] = useState('');
   const { queryParams, pushQueryParam } = useUrl();
-  const selectedFile = queryParams.selected || 1;
-  const file = files[selectedFile];
+  const [selected, setSelected] = useState(queryParams.selected || 1);
+
+  const file = files[selected];
 
   const onChange = (event: any) => {
     setSelected(event.target.value);
