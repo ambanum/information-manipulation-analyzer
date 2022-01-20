@@ -2,7 +2,7 @@ import { Button, ButtonGroup } from '@dataesr/react-dsfr';
 import { Col, Container, Row } from '@dataesr/react-dsfr';
 import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
 import { Tab, Tabs } from '@dataesr/react-dsfr';
-
+import useUrl from 'hooks/useUrl';
 import EdgeDetail from './EdgeDetail';
 import Gradient from 'javascript-color-gradient';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
@@ -131,10 +131,14 @@ const highlightNodesAndEdges = (
 };
 
 const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
+  const { queryParams, pushQueryParam } = useUrl();
   const [modalContent, setModalContent] = React.useState<React.ReactNode>();
   const [modalTitle, setModalTitle] = React.useState<React.ReactNode>();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [colorMode, setColorMode] = React.useState<ColorMode>('community');
+
+  const [colorMode, setColorMode] = React.useState<ColorMode>(
+    queryParams.colorMode || COLOR_MODES[0]
+  );
   const [tick, setTick] = React.useState<number | undefined>();
   const [tickInterval, setTickInterval] = React.useState<number>(200);
   const [active, toggleActive] = useToggle(false);
@@ -152,6 +156,10 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
     setTick(0);
     toggleActive(false);
   }, [name]);
+
+  React.useEffect(() => {
+    setColorMode(queryParams.colorMode);
+  }, [queryParams.colorMode, setColorMode]);
 
   React.useEffect(() => {
     let interval: NodeJS.Timer;
@@ -270,7 +278,11 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
             <ButtonGroup size="sm" isInlineFrom="xs">
               {COLOR_MODES.map((colorModeInList) => (
                 <Button
-                  onClick={() => setColorMode(colorModeInList)}
+                  onClick={() =>
+                    pushQueryParam('colorMode', undefined, { shallow: true, scroll: false })(
+                      colorModeInList
+                    )
+                  }
                   disabled={colorMode === colorModeInList}
                 >
                   {colorModeInList}
