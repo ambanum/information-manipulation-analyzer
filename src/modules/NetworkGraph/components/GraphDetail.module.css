@@ -2,6 +2,9 @@
   position: relative;
 }
 
+.graphWrapper img {
+  max-width: 100%;
+}
 .infoCard {
   position: absolute;
   z-index: 1;

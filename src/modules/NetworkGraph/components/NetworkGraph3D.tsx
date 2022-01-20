@@ -11,12 +11,22 @@ import classNames from 'classnames';
 type NetworkGraphReact3DProps = {
   graph: NetworkGraphJson;
   onLinkClick: any;
+  onNodeClick: ForceGraphProps['onNodeClick'];
   onNodeHover: ForceGraphProps['onNodeHover'];
   onLinkHover: ForceGraphProps['onLinkHover'];
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const NetworkGraphReactTree: React.FC<NetworkGraphReact3DProps> = React.memo(
-  ({ children, className, graph, onLinkClick, onNodeHover, onLinkHover, ...props }) => {
+  ({
+    children,
+    className,
+    graph,
+    onLinkClick,
+    onNodeClick,
+    onNodeHover,
+    onLinkHover,
+    ...props
+  }) => {
     const [highlightNodes, setHighlightNodes] = React.useState(new Set());
     const [highlightLinks, setHighlightLinks] = React.useState(new Set());
     // const [hoverNode, setHoverNode] = React.useState<any>(null);
@@ -93,7 +103,8 @@ const NetworkGraphReactTree: React.FC<NetworkGraphReact3DProps> = React.memo(
           enableNodeDrag={false} /* disable node drag */
           // onNodeHover={handleNodeHover}
           // onLinkHover={handleLinkHover}
-          onNodeClick={handleNodeHover}
+          onNodeHover={handleNodeHover}
+          onNodeClick={onNodeClick}
           onLinkClick={handleLinkHover}
           // nodeThreeObject={(node) => {
           //   const s = new THREE.SphereGeometry(node.size);

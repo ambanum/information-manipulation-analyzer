@@ -74,6 +74,13 @@ export interface GraphMetadata {
   maxresults: number;
   minretweets: number;
   last_collected_tweet: number;
+  community_algo?:
+    | 'greedy_modularity'
+    | 'asyn_lpa_communities'
+    | 'girvan_newman'
+    | 'label_propagation'
+    | 'louvain';
+  layout_algo?: 'circular' | 'kamada_kawai' | 'spring' | 'random' | 'spiral';
   last_collected_date: string;
   data_collection_date: string;
   most_recent_tweet: string;
@@ -94,4 +101,6 @@ export type NetworkGraphProps = {
   width?: string;
   height?: string;
   onClickNode?: (event: OnClickEvent) => any;
+  onHoverEdge?: (event: any) => any;
+  onHoverNode?: (event: any) => any;
 } & React.HTMLAttributes<HTMLDivElement>;

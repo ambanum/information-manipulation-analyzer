@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   EdgeShapes,
   ForceAtlas2,
@@ -12,7 +11,7 @@ import {
 } from 'react-sigma';
 // import 'react-sigma/sigma/plugins/sigma.renderers.customShapes/shape-library.js';
 // import 'react-sigma/sigma/plugins/sigma.renderers.customShapes/sigma.renderers.customShapes.js';
-
+import Loading from 'components/Loading';
 import dayjs from 'dayjs';
 import Gradient from 'javascript-color-gradient';
 const colorGradient = new Gradient();
@@ -26,6 +25,7 @@ import classNames from 'classnames';
 import s from './NetworkGraph.module.css';
 import { useToggle } from 'react-use';
 import pick from 'lodash/fp/pick';
+import omit from 'lodash/fp/omit';
 
 const Position = (props: any) => (
   <RandomizeNodePositions {...props}>
@@ -40,47 +40,40 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
   path,
   gexf,
   url,
-  graph,
+  graph: graphDefault,
   startDate,
   endDate,
   width = '100%',
   height = '600px',
   onClickNode,
+  onHoverEdge,
+  onHoverNode,
   ...props
 }) => {
   const graphRef = React.useRef<typeof Sigma>();
-  // const [graph, setGraph] = React.useState<NetworkGraphJson>(graphDefault);
-  // const [loading, toggleLoading] = useToggle(!!url);
-
-  // React.useEffect(() => {
-  //   if (!url) {
-  //     return;
-  //   }
-  //   const fetchUrl = async () => {
-  //     const { data } = await axios.get<NetworkGraphJson>(url);
-  //     setGraph(highlightNodesAndEdges(data, { startDate, endDate }));
-  //     toggleLoading(false);
-  //   };
-  //   fetchUrl();
-  // }, [url]);
+  const [graph, setGraph] = React.useState<NetworkGraphJson | undefined>(graphDefault);
 
   React.useEffect(() => {
     const { sigma } = graphRef?.current || {};
     if (!graph || !sigma) {
       return;
     }
-    sigma.graph.nodes().forEach((n: GraphNode) => {
-      var updated = graph.nodes.find((e) => e.id === n.id);
-      Object.assign(n, pick(['color'])(updated));
-    });
-    sigma.graph.edges().forEach((n: GraphEdge) => {
-      var updated = graph.edges.find((e) => e.id === n.id);
+    setGraph(undefined);
 
-      Object.assign(n, pick(['color'])(updated));
-    });
-
-    sigma.refresh();
-  }, [graph]);
+    setTimeout(() => {
+      setGraph(graphDefault);
+      setTimeout(() => {
+        try {
+          sigma?.refresh();
+        } catch (e) {
+          console.log(''); //eslint-disable-line
+          console.log('╔════START══e══════════════════════════════════════════════════'); //eslint-disable-line
+          console.log(e); //eslint-disable-line
+          console.log('╚════END════e══════════════════════════════════════════════════'); //eslint-disable-line
+        }
+      }, 200);
+    }, 200);
+  }, [graphDefault]);
 
   const position = graph ? (
     <Position />
@@ -94,6 +87,10 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
     </LoadGEXF>
   );
 
+  if (!graph) {
+    return <Loading />;
+  }
+
   return (
     <div className={classNames(s.wrapper, className)} {...props}>
       <Sigma
@@ -105,53 +102,41 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
           height,
           margin: '0 auto',
         }}
-        onClickNode={onClickNode}
-        onHoverNode={(props) => {
-          console.log(''); //eslint-disable-line
-          console.log('╔════START══props══════════════════════════════════════════════════'); //eslint-disable-line
-          console.log(props); //eslint-disable-line
-          console.log('╚════END════props══════════════════════════════════════════════════'); //eslint-disable-line
+        onClickNode={({ data }) => onClickNode(data.node)}
+        onHoverNode={onHoverNode}
+        onHoverEdge={onHoverEdge}
+        settings={{
+          // // Performance
+          // hideEdgesOnMove: false,
+          // hideLabelsOnMove: false,
+          // renderLabels: true,
+          // renderEdgeLabels: true,
+          // // Component rendering
+          // defaultNodeColor: '#999',
+          // defaultNodeType: 'circle',
+          // defaultEdgeColor: '#ccc',
+          // defaultEdgeType: 'line',
+          // labelFont: 'MarianneBold',
+          // labelSize: 16,
+          // labelWeight: 'normal',
+          // edgeLabelFont: 'Arial',
+          // edgeLabelSize: 14,
+          // edgeLabelWeight: 'normal',
+          // stagePadding: 30,
+          // // Labels
+          // labelDensity: 0.07,
+          // labelGridCellSize: 60,
+          // labelRenderedSizeThreshold: 6,
+          drawEdges: true,
+          renderEdgeLabels: true,
+          // defaultLabelSize: 16,
+          // font: 'MarianneBold',
+          // // minEdgeSize: 0.5,
+          // // maxEdgeSize: 1,
+          // // minNodeSize: 1,
+          // // maxNodeSize: 12,
+          // animationsTime: 100,
         }}
-        onHoverEdge={(props) => {
-          console.log(''); //eslint-disable-line
-          console.log('╔════START══props══════════════════════════════════════════════════'); //eslint-disable-line
-          console.log(props); //eslint-disable-line
-          console.log('╚════END════props══════════════════════════════════════════════════'); //eslint-disable-line
-        }}
-        settings={
-          {
-            // // Performance
-            // hideEdgesOnMove: false,
-            // hideLabelsOnMove: false,
-            // renderLabels: true,
-            // renderEdgeLabels: true,
-            // // Component rendering
-            // defaultNodeColor: '#999',
-            // defaultNodeType: 'circle',
-            // defaultEdgeColor: '#ccc',
-            // defaultEdgeType: 'line',
-            // labelFont: 'MarianneBold',
-            // labelSize: 16,
-            // labelWeight: 'normal',
-            // edgeLabelFont: 'Arial',
-            // edgeLabelSize: 14,
-            // edgeLabelWeight: 'normal',
-            // stagePadding: 30,
-            // // Labels
-            // labelDensity: 0.07,
-            // labelGridCellSize: 60,
-            // labelRenderedSizeThreshold: 6,
-            // drawEdges: true,
-            // renderEdgeLabels: true,
-            // defaultLabelSize: 16,
-            // font: 'MarianneBold',
-            // // minEdgeSize: 0.5,
-            // // maxEdgeSize: 1,
-            // // minNodeSize: 1,
-            // // maxNodeSize: 12,
-            // animationsTime: 100,
-          }
-        }
       >
         <EdgeShapes default="curvedArrow" />
         <NodeShapes default="star" />
