@@ -7,8 +7,8 @@ import React from 'react';
 import { Select } from '@dataesr/react-dsfr';
 import fs from 'fs';
 import path from 'path';
+import dayjs from 'dayjs';
 import shuffle from 'lodash/fp/shuffle';
-import { useState } from 'react';
 import useUrl from 'hooks/useUrl';
 
 const dsfrColors = shuffle([
@@ -56,24 +56,28 @@ const dsfrColors = shuffle([
   '#a26859',
 ]);
 
-const NetworkGraphDebugPage = ({ files }: any) => {
+const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
   const { queryParams, pushQueryParam } = useUrl();
-  const [selected, setSelected] = useState(queryParams.selected || 1);
-
-  const file = files[selected];
+  const [selected, setSelected] = React.useState<number>(selectedInUrl);
 
   const onChange = (event: any) => {
-    setSelected(event.target.value);
     pushQueryParam('selected', undefined, { shallow: true })(event.target.value);
   };
+
+  React.useEffect(() => {
+    setSelected(queryParams.selected);
+  }, [queryParams.selected]);
+  const file = files[selected];
 
   if (!files.length) {
     return <div>No files found</div>;
   }
-  const metadata = file.json.metadata || {};
+
+  const metadata = file?.json?.metadata || {};
   const selectOptions = files.map((file: any, index: number) => ({
     value: index,
     label: file.name,
+    disabled: selected === index,
   }));
 
   return (
@@ -87,33 +91,55 @@ const NetworkGraphDebugPage = ({ files }: any) => {
               options={selectOptions}
               selected={selected}
             />
+            <small>
+              Collected from {dayjs(metadata.last_collected_date).format()} to{' '}
+              {dayjs(metadata.data_collection_date).format()}{' '}
+            </small>
             <pre
               className="fr-mx-2w fr-my-1w fr-px-1w text-xs"
               style={{ fontSize: '10px', background: '#333', color: '#FFF', borderRadius: '4px' }}
             >
-              graphgenerator "{metadata.search}" -j ./public/graph/{file.name}
+              graphgenerator "{metadata.search}" -j ./public/graph/{file.name} -i ./public/graph/
+              {file.name.replace('.json', '.jpg')}
+              {!!metadata.maxresults ? ` -m ${metadata.maxresults}` : ''}
+              {!!metadata.minretweets ? ` -r ${metadata.minretweets}` : ''}
+              {!!metadata.community_algo ? ` -c ${metadata.community_algo}` : ''}
+              {!!metadata.layout_algo ? ` -a ${metadata.layout_algo}` : ''}
+              <br />
+              npx prettier ./public/graph/*.json --write
             </pre>
           </Col>
         </Row>
       </Container>
-
-      <GraphDetail colors={dsfrColors} {...file} />
+      <GraphDetail
+        colors={dsfrColors}
+        {...file}
+        imageUri={`${String(process.env.NEXT_PUBLIC_BASE_PATH)}${file.path
+          .replace('.json', '.jpg')
+          .replace('public/', '/')}`}
+      />
     </Layout>
   );
 };
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const FOLDER = 'public/graph';
   const files = fs.readdirSync(path.join(FOLDER));
 
   const validFiles = [];
+  // let i = 0;
   for (const file of files.filter((file) => file.endsWith('.json'))) {
     try {
-      const json = JSON.parse(fs.readFileSync(`${FOLDER}/${file}`).toString());
-      validFiles.push({
+      const validFile: any = {
         name: file,
         path: path.join(FOLDER, file),
-        json,
-      });
+      };
+
+      // if (i === +(query.selected || 1)) {
+      const json = JSON.parse(fs.readFileSync(`${FOLDER}/${file}`).toString());
+      validFile.json = json;
+      // }
+      validFiles.push(validFile);
+      i++;
     } catch (e) {
       console.error(e);
     }
@@ -122,6 +148,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       files: validFiles,
+      selected: query.selected || 1,
     },
   };
 };

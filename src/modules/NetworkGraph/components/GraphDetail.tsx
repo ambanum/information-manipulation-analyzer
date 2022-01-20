@@ -1,5 +1,4 @@
-import { Button, ButtonGroup } from '@dataesr/react-dsfr';
-import { Col, Container, Row } from '@dataesr/react-dsfr';
+import { Button, ButtonGroup, Select, Col, Container, Row } from '@dataesr/react-dsfr';
 import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
 import { Tab, Tabs } from '@dataesr/react-dsfr';
 import useUrl from 'hooks/useUrl';
@@ -35,6 +34,7 @@ dayjs.extend(isSameOrAfter);
 
 interface GraphDetailProps {
   name: string;
+  imageUri?: string;
   json: NetworkGraphJson;
   colors: string[];
 }
@@ -130,7 +130,7 @@ const highlightNodesAndEdges = (
   return newData;
 };
 
-const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
+const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri }) => {
   const { queryParams, pushQueryParam } = useUrl();
   const [modalContent, setModalContent] = React.useState<React.ReactNode>();
   const [modalTitle, setModalTitle] = React.useState<React.ReactNode>();
@@ -178,13 +178,6 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
     }
     return () => clearInterval(interval);
   }, [active, dates.length]);
-
-  const onClickNode = (event: any) => {
-    console.log(''); //eslint-disable-line
-    console.log('╔════START═onClickNode══════════════════════════════════════════════'); //eslint-disable-line
-    console.log(event); //eslint-disable-line
-    console.log('╚════END═══onClickNode══════════════════════════════════════════════'); //eslint-disable-line
-  };
 
   const onNodeHover = React.useCallback(
     (node: any) => {
@@ -329,6 +322,22 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
       </Container>
       <Container>
         <Tabs>
+          <Tab label="Sigma">
+            <h3>
+              <a target="_blank" href="https://github.com/dunnock/react-sigma">
+                react-sigma
+              </a>
+            </h3>
+            <div className={s.graphWrapper}>
+              <NetworkGraph
+                // @ts-ignore
+                graph={filteredNodes}
+                onClickNode={onNodeClick}
+                onHoverNode={onNodeHover}
+                onHoverEdge={onEdgeHover}
+              />
+            </div>
+          </Tab>
           <Tab label="ForceGraph3D">
             <h3>
               <a target="_blank" href="https://github.vasturiano/react-force-graph">
@@ -340,21 +349,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
                 graph={filteredNodes}
                 onNodeHover={onNodeHover}
                 onLinkHover={onEdgeHover}
-              />
-            </div>
-          </Tab>
-
-          <Tab label="Sigma">
-            <h3>
-              <a target="_blank" href="https://github.com/dunnock/react-sigma">
-                react-sigma
-              </a>
-            </h3>
-            <div className={s.graphWrapper}>
-              <NetworkGraph
-                // @ts-ignore
-                graph={filteredNodes}
-                onClickNode={onClickNode}
+                onNodeClick={onNodeClick}
               />
             </div>
           </Tab>
@@ -366,7 +361,17 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
               </a>
             </h3>
             <div className={s.graphWrapper}>
-              <NetworkGraph2D graph={filteredNodes} onNodeClick={onNodeClick} />
+              <NetworkGraph2D
+                graph={filteredNodes}
+                onNodeClick={onNodeClick}
+                onNodeHover={onNodeHover}
+                onLinkHover={onEdgeHover}
+              />
+            </div>
+          </Tab>
+          <Tab label="Generated image">
+            <div className={s.graphWrapper}>
+              <img src={imageUri} />
             </div>
           </Tab>
         </Tabs>
