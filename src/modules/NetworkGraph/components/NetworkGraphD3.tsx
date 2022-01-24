@@ -46,10 +46,6 @@ const NetworkGraphD3: React.FC<NetworkGraphD3Props> = ({
   const onClickLink = function (source, target) {
     window.alert(`Clicked link between ${source} and ${target}`);
   };
-  console.log(''); //eslint-disable-line
-  console.log('╔════START════════════════════════════════════════════════════'); //eslint-disable-line
-  console.log({ nodes: graph.nodes, links: graph.edges }); //eslint-disable-line
-  console.log('╚════END══════════════════════════════════════════════════════'); //eslint-disable-line
 
   return (
     <Graph

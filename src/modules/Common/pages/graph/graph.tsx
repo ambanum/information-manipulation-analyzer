@@ -77,7 +77,7 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
 
   const metadata = file?.json?.metadata || {};
   const selectOptions = files.map((file: any, index: number) => ({
-    value: index,
+    value: `${index}`,
     label: file.name,
     disabled: selected === index,
   }));
