@@ -65,7 +65,9 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
   };
 
   React.useEffect(() => {
-    setSelected(queryParams.selected);
+    if (queryParams.selected) {
+      setSelected(queryParams.selected);
+    }
   }, [queryParams.selected]);
   const file = files[selected];
 
@@ -150,7 +152,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       validFile.json = json;
       // }
       validFiles.push(validFile);
-      i++;
+      // i++;
     } catch (e) {
       console.error(e);
     }
