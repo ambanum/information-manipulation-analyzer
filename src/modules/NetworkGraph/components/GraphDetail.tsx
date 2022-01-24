@@ -28,6 +28,9 @@ const NetworkGraph2D = dynamic(() => import('modules/NetworkGraph/components/Net
 const NetworkGraph3D = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph3D'), {
   ssr: false,
 });
+const NetworkGraphVis = dynamic(() => import('modules/NetworkGraph/components/NetworkGraphVis'), {
+  ssr: false,
+});
 
 dayjs.extend(localizedFormat);
 dayjs.extend(isSameOrBefore);
@@ -324,6 +327,22 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
       </Container>
       <Container className="fr-mt-4w">
         <Tabs>
+          <Tab label="ReactGraphVis">
+            <h3>
+              <a target="_blank" href="https://github.com/crubier/react-graph-vis">
+                react-graph-vis
+              </a>
+            </h3>
+            <div className={s.graphWrapper}>
+              <NetworkGraphVis
+                // @ts-ignore
+                graph={filteredNodes}
+                onClickNode={onNodeClick}
+                onHoverNode={onNodeHover}
+                onHoverEdge={onEdgeHover}
+              />
+            </div>
+          </Tab>
           <Tab label="Sigma">
             <h3>
               <a target="_blank" href="https://github.com/dunnock/react-sigma">
@@ -340,6 +359,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
               />
             </div>
           </Tab>
+
           <Tab label="ForceGraph3D">
             <h3>
               <a target="_blank" href="https://github.vasturiano/react-force-graph">
