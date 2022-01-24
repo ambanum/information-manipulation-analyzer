@@ -31,6 +31,9 @@ const NetworkGraph3D = dynamic(() => import('modules/NetworkGraph/components/Net
 const NetworkGraphVis = dynamic(() => import('modules/NetworkGraph/components/NetworkGraphVis'), {
   ssr: false,
 });
+const NetworkGraphD3 = dynamic(() => import('modules/NetworkGraph/components/NetworkGraphD3'), {
+  ssr: false,
+});
 
 dayjs.extend(localizedFormat);
 dayjs.extend(isSameOrBefore);
@@ -327,6 +330,22 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
       </Container>
       <Container className="fr-mt-4w">
         <Tabs>
+          <Tab label="ReactGraphD3">
+            <h3>
+              <a target="_blank" href="https://github.com/danielcaldas/react-d3-graph">
+                react-graph-d3
+              </a>
+            </h3>
+            <div className={s.graphWrapper}>
+              <NetworkGraphD3
+                // @ts-ignore
+                graph={filteredNodes}
+                onClickNode={onNodeClick}
+                onHoverNode={onNodeHover}
+                onHoverEdge={onEdgeHover}
+              />
+            </div>
+          </Tab>
           <Tab label="ReactGraphVis">
             <h3>
               <a target="_blank" href="https://github.com/crubier/react-graph-vis">
