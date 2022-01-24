@@ -55,6 +55,7 @@
     "react-dom": "17.0.2",
     "react-force-graph-2d": "^1.23.8",
     "react-force-graph-3d": "^1.21.10",
+    "react-graph-vis": "^1.0.7",
     "react-icons": "4.3.1",
     "react-sigma": "^1.2.35",
     "react-table": "7.7.0",
