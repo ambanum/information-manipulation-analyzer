@@ -3,8 +3,8 @@ import ForceGraph2D, { ForceGraphProps } from 'react-force-graph-2d';
 import type { NetworkGraphJson } from './NetworkGraph.d';
 // @ts-nocheck
 import React from 'react';
-import { useToggle } from 'react-use';
 import classNames from 'classnames';
+import { useToggle } from 'react-use';
 
 type NetworkGraphReact2DProps = {
   graph: NetworkGraphJson;
@@ -96,11 +96,14 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   // );
 
   const RATIO = 1000;
+  const canvasWidth = document?.getElementById('forceGraph2DWrapper')?.clientWidth;
 
   return (
-    <div className={classNames(className)} {...props}>
+    <div className={classNames(className)} {...props} id="forceGraph2DWrapper">
       <ForceGraph2D
         ref={fgRef}
+        width={canvasWidth}
+        height={canvasWidth}
         graphData={{ nodes: graph.nodes, links: graph.edges }}
         backgroundColor="#1b1b35"
         nodeAutoColorBy="color"
