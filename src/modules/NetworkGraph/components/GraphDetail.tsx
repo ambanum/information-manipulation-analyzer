@@ -83,10 +83,10 @@ const highlightNodesAndEdges = (
       (endDate && dayjs(date).isAfter(endDate))
     ) {
       edge.active = false;
-      edge.color = '#999999';
+      edge.color = '#41548e1A';
     } else {
       edge.active = true;
-      edge.color = '#f8f8f8';
+      edge.color = '#41548e';
     }
 
     edge.size = endDate ? edge.metadata.dates.length || 1 : edge.size;
@@ -122,14 +122,14 @@ const highlightNodesAndEdges = (
           .reduce((acc, val) => acc + val.size, 0)
       : node.size;
 
-    if (active) {
-      // @ts-ignore
-      node.fx = node.x;
-      // @ts-ignore
-      node.fy = node.y;
-      // @ts-ignore
-      node.fz = node.z;
-    }
+    // if (active) {
+    // @ts-ignore
+    node.fx = node.x;
+    // @ts-ignore
+    node.fy = node.y;
+    // @ts-ignore
+    node.fz = node.z;
+    // }
 
     return node;
   });
@@ -142,6 +142,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
   const [modalContent, setModalContent] = React.useState<React.ReactNode>();
   const [modalTitle, setModalTitle] = React.useState<React.ReactNode>();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [firstTime, setFirstTime] = useState(true);
 
   const [colorMode, setColorMode] = React.useState<ColorMode>(
     queryParams.colorMode || COLOR_MODES[0]
@@ -330,6 +331,26 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
       </Container>
       <Container className="fr-mt-4w">
         <Tabs>
+          <Tab label="ForceGraph2D">
+            <h3>
+              <a target="_blank" href="https://github.vasturiano/react-force-graph">
+                react-force-graph-2d
+              </a>
+            </h3>
+            <div className={s.graphWrapper}>
+              <NetworkGraph2D
+                graph={filteredNodes}
+                onNodeClick={onNodeClick}
+                onNodeHover={onNodeHover}
+                onLinkHover={onEdgeHover}
+              />
+            </div>
+          </Tab>
+          <Tab label="Generated image">
+            <div className={s.graphWrapper}>
+              <img src={imageUri} />
+            </div>
+          </Tab>
           <Tab label="ReactGraphD3">
             <h3>
               <a target="_blank" href="https://github.com/danielcaldas/react-d3-graph">
@@ -392,27 +413,6 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
                 onLinkHover={onEdgeHover}
                 onNodeClick={onNodeClick}
               />
-            </div>
-          </Tab>
-
-          <Tab label="ForceGraph2D">
-            <h3>
-              <a target="_blank" href="https://github.vasturiano/react-force-graph">
-                react-force-graph-2d
-              </a>
-            </h3>
-            <div className={s.graphWrapper}>
-              <NetworkGraph2D
-                graph={filteredNodes}
-                onNodeClick={onNodeClick}
-                onNodeHover={onNodeHover}
-                onLinkHover={onEdgeHover}
-              />
-            </div>
-          </Tab>
-          <Tab label="Generated image">
-            <div className={s.graphWrapper}>
-              <img src={imageUri} />
             </div>
           </Tab>
         </Tabs>
