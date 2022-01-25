@@ -2,7 +2,6 @@ import { Col, Container, Row } from '@dataesr/react-dsfr';
 
 import Layout from 'modules/Embassy/components/Layout';
 import React from 'react';
-import { useRouter } from 'next/router';
 
 export default function PrivacyPolicy() {
   return (

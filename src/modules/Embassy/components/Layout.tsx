@@ -1,4 +1,3 @@
-import { Container, Row } from '@dataesr/react-dsfr';
 import React, { ReactNode } from 'react';
 
 import Footer from './Footer';

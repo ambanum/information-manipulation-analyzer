@@ -1,14 +1,11 @@
-import { Button, ButtonGroup, Col, Container, Row, Select } from '@dataesr/react-dsfr';
+import { Button, ButtonGroup, Col, Container, Row } from '@dataesr/react-dsfr';
 import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
 import { Tab, Tabs } from '@dataesr/react-dsfr';
 
-import EdgeDetail from './EdgeDetail';
 import Gradient from 'javascript-color-gradient';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
-import NodeDetail from './NodeDetail';
 import React from 'react';
 import { TextInput } from '@dataesr/react-dsfr';
-import classNames from 'classnames';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
@@ -45,7 +42,6 @@ colorGradient.setMidpoint(0.5);
 const highlightNodesAndEdges = (
   data: NetworkGraphJson,
   {
-    active,
     startDate,
     endDate,
     colorMode,
@@ -53,7 +49,6 @@ const highlightNodesAndEdges = (
   }: {
     colors: string[];
     colorMode: ColorMode;
-    active?: boolean;
     startDate?: string;
     endDate?: string;
   }
@@ -110,14 +105,14 @@ const highlightNodesAndEdges = (
           .reduce((acc, val) => acc + val.size, 0)
       : node.size;
 
-    // if (active) {
+    // Here positions are fixed so that it reflects the exact position of the node
+    // given in the json file
     // @ts-ignore
     node.fx = node.x;
     // @ts-ignore
     node.fy = node.y;
     // @ts-ignore
     node.fz = node.z;
-    // }
 
     return node;
   });
@@ -228,7 +223,6 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
   const filteredNodes = highlightNodesAndEdges(json, {
     colors,
     colorMode,
-    active,
     startDate,
     endDate,
   });
@@ -266,7 +260,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
         <Row className="fr-mt-4w" justifyContent="center">
           <Col n="1">
             <TextInput
-              onChange={(event) => setTickInterval(+event.target.value)}
+              onChange={(event: any) => setTickInterval(+event.target.value)}
               value={tickInterval}
               disabled={active}
               label="ms"

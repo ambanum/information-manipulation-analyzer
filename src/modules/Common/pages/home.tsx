@@ -6,7 +6,6 @@ import { CreateSearchResponse } from 'modules/Common/interfaces';
 import LastSearches from '../data-components/LastSearches';
 import Layout from 'modules/Embassy/components/Layout';
 import React from 'react';
-import SearchBar from '@dataesr/react-dsfr';
 import api from 'utils/api';
 import useNotifier from 'hooks/useNotifier';
 import { useRouter } from 'next/router';
