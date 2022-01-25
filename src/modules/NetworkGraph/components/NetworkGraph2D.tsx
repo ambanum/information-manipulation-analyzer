@@ -1,5 +1,4 @@
-// @ts-nocheck
-import ForceGraph2D, { ForceGraphProps } from 'react-force-graph-2d';
+import ForceGraph2D, { ForceGraphProps, ForceGraphMethods } from 'react-force-graph-2d';
 
 import type { NetworkGraphJson } from './NetworkGraph.d';
 import React from 'react';
@@ -21,9 +20,20 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   onLinkHover,
   ...props
 }) => {
-  const fgRef = React.useRef();
-  const wrapperRef = React.useRef<HTMLDivElement>();
+  const fgRef = React.useRef<ForceGraphMethods>();
   const wrapperRef = React.useRef<HTMLDivElement>(null);
+
+  // if it's needed, we need a comment
+  // window.devicePixelRatio = 1; // force 1x pixel density
+
+  const sizeRange = graph.nodes.reduce(
+    (acc, node) => ({
+      min: Math.min(node.size, acc.min),
+      max: Math.max(node.size, acc.max),
+      sizes: { ...acc.sizes, [node.size]: (acc.sizes[node.size] || 0) + 1 },
+    }),
+    { min: Infinity, max: -1, sizes: {} as any }
+  );
 
   const [highlightNodes, setHighlightNodes] = React.useState(new Set());
   const [zoomed, toggleZoom] = useToggle(false);
@@ -41,8 +51,6 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   //   }
   //   if (onNodeHover) onNodeHover(node, ...rest);
   // };
-
-  window.devicePixelRatio = 1; // force 1x pixel density
 
   // const handleNodeHover = (node) => {
   //   highlightNodes.clear();
@@ -78,29 +86,42 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
     [highlightNodes, highlightLinks, setHighlightNodes, setHighlightLinks]
   );
 
-  // const paintRing = React.useCallback(
-  //   (node, ctx) => {
-  //     // add ring just for highlighted nodes
-  //     ctx.beginPath();
-  //     const radius = Math.sqrt(node.size);
-  //     ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false);
-  //     ctx.fillStyle =
-  //       node === hoverNode ? node.color.substr(0, node.color.length - 2) + '00' : node.color;
-  //     ctx.fill();
-
-  //     ctx.beginPath();
-  //     ctx.arc(node.x, node.y, 1, 0, 2 * Math.PI, false);
-  //     // ctx.fillStyle = node.color.substr(0, node.color.length - 2);
-  //     ctx.fillStyle = node.color;
-  //     ctx.fill();
-  //   },
-  //   [hoverNode]
-  // );
-
   const RATIO = 1000;
 
+  const drawMenu = React.useCallback(
+    (node, ctx, globalScale) => {
+      const label = node.label;
+      const fontSize = Math.max(12 / globalScale, 0.01);
+
+      ctx.font = `${fontSize}px Arial`;
+      // it shouold work with the below but we have a ratio problem on the x and y generated
+      // const textWidth = ctx.measureText(label).width * RATIO;
+      // // const textWidth = 40;
+      // const bckgDimensions = [textWidth, fontSize].map((n) => n + fontSize * 0.2);
+      let size = node.size;
+      if (sizeRange.max - sizeRange.min > 1000) {
+        // use sqrt when difference between biggest node and smallest is too big
+        size = Math.sqrt(node.size);
+      }
+
+      ctx.beginPath();
+      ctx.globalAlpha = 0.8;
+      ctx.arc(node.fx, node.fy, size / RATIO, 0, 2 * Math.PI, false);
+      ctx.fillStyle = node.color;
+      ctx.fill();
+
+      if (node.size <= 1) {
+        return;
+      }
+      ctx.globalAlpha = 1;
+      ctx.fillText(label, node.fx, node.fy);
+      ctx.fill();
+    },
+    [sizeRange]
+  );
+
   return (
-    <div className={classNames(className)} {...props} ref={wrapperRef}>
+    <div ref={wrapperRef} className={classNames(className)} {...props}>
       <ForceGraph2D
         ref={fgRef}
         width={wrapperRef?.current?.clientWidth}
@@ -109,29 +130,35 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
         backgroundColor="#1b1b35"
         nodeAutoColorBy="color"
         enableZoomInteraction={true}
-        nodeVal={(node) => Math.sqrt(node.size)}
+        nodeVal={(node: any) => node.size}
         nodeRelSize={1 / RATIO}
-        nodeLabel={({ label, size }) => `${label} (RT ${size} time${size >= 2 ? 's' : ''})`}
-        linkDirectionalArrowRelPos={0.5} /* if arrow is on the edge or in the middle */
-        linkDirectionalArrowLength={2 / RATIO} /* Size of arrow */
+        nodeLabel={({ label, size }: any) => `${label} (RT ${size} time${size >= 2 ? 's' : ''})`}
+        /* so that if there is a retweet in both ways, we still see it correctly */
+        linkDirectionalArrowRelPos={0.48}
+        /* Diminish size of arrow every thousand node to keep readability */
+        linkDirectionalArrowLength={Math.min(1, 5 - Math.floor(graph.nodes.length / 1000)) / RATIO}
         linkDirectionalArrowColor={() => '#abb8df'} /* Arrow color */
         linkAutoColorBy="color"
         // linkCurvature={0.25} /* curvature radius of the link line */
-        linkLabel={({ label, size, source, target, ...rest }) => {
+        linkLabel={({ label, size, source, target }: any) => {
           return `${source?.label} ${label} ${target?.label} (${size} time${size >= 2 ? 's' : ''})`;
         }}
         maxZoom={1000 * RATIO}
-        linkWidth={({ size }) => Math.sqrt(size)}
+        linkWidth={({ size }: any) => Math.sqrt(size)}
         enableNodeDrag={false} /* disable node drag */
         onNodeClick={onNodeClick}
         cooldownTicks={1} /* Need to be at least one for zoom to occur */
+        nodeCanvasObject={drawMenu}
+        // nodeCanvasObjectMode="after"
+        /* Getter/setter for how long (ms) to render for before stopping and freezing the layout engine. */
         // cooldownTime={
         //   60000
-        // } /* Getter/setter for how long (ms) to render for before stopping and freezing the layout engine. */
+        //   60000
+        // }
         onLinkClick={handleLinkHover}
         onEngineStop={() => {
           if (!zoomed) {
-            (fgRef?.current as any)?.zoomToFit(50, 100);
+            fgRef?.current?.zoomToFit(50, 100);
             toggleZoom(true);
           }
         }}
