@@ -22,6 +22,8 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   ...props
 }) => {
   const fgRef = React.useRef();
+  const wrapperRef = React.useRef<HTMLDivElement>();
+  const wrapperRef = React.useRef<HTMLDivElement>(null);
 
   const [highlightNodes, setHighlightNodes] = React.useState(new Set());
   const [zoomed, toggleZoom] = useToggle(false);
@@ -96,14 +98,13 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   // );
 
   const RATIO = 1000;
-  const canvasWidth = document?.getElementById('forceGraph2DWrapper')?.clientWidth;
 
   return (
-    <div className={classNames(className)} {...props} id="forceGraph2DWrapper">
+    <div className={classNames(className)} {...props} ref={wrapperRef}>
       <ForceGraph2D
         ref={fgRef}
-        width={canvasWidth}
-        height={canvasWidth}
+        width={wrapperRef?.current?.clientWidth}
+        height={wrapperRef?.current?.clientHeight}
         graphData={{ nodes: graph.nodes, links: graph.edges }}
         backgroundColor="#1b1b35"
         nodeAutoColorBy="color"
