@@ -6,11 +6,6 @@ import {
   FooterCopy,
   FooterLink,
   FooterOperator,
-  FooterPartners,
-  FooterPartnersLogo,
-  FooterPartnersTitle,
-  FooterTop,
-  FooterTopCategory,
   Logo,
 } from '@dataesr/react-dsfr';
 

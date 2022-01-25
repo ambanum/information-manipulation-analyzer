@@ -2,12 +2,12 @@ import { GetSearchGraphResponse } from '../interfaces';
 import { NetworkGraphProps } from 'modules/NetworkGraph/components/NetworkGraph.d';
 import React from 'react';
 import classNames from 'classnames';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import s from './Graph.module.css';
 import useSwr from 'swr';
-const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
-  ssr: false,
-});
+// const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
+//   ssr: false,
+// });
 
 export type GraphProps = {
   search?: string;
@@ -45,7 +45,7 @@ const Graph: React.FC<GraphProps> = ({
 
   return (
     <div className={classNames(s.wrapper, className)} {...props}>
-      <NetworkGraph url={data.url} width={width} height={height} onClickNode={onClickNode} />
+      TODO
     </div>
   );
 };

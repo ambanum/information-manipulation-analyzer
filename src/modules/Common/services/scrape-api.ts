@@ -30,5 +30,5 @@ export const getUserBotScore = async (username: string) => {
 export const getGraph = async (search: string) => {
   console.log(`${PROCESSOR_API_URL}/graph/twitter/search/${search}`);
 
-  return axios.get<SearchGraphResponse>(`${PROCESSOR_API_URL}/graph/twitter/hashtag/${hashtag}`);
+  return axios.get<SearchGraphResponse>(`${PROCESSOR_API_URL}/graph/twitter/search/${search}`);
 };

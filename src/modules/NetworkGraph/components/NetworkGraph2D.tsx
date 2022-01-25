@@ -1,7 +1,7 @@
+// @ts-nocheck
 import ForceGraph2D, { ForceGraphProps } from 'react-force-graph-2d';
 
 import type { NetworkGraphJson } from './NetworkGraph.d';
-// @ts-nocheck
 import React from 'react';
 import classNames from 'classnames';
 import { useToggle } from 'react-use';
@@ -26,19 +26,19 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   const [highlightNodes, setHighlightNodes] = React.useState(new Set());
   const [zoomed, toggleZoom] = useToggle(false);
   const [highlightLinks, setHighlightLinks] = React.useState(new Set());
-  const [hoverNode, setHoverNode] = React.useState(null);
+  // const [hoverNode, setHoverNode] = React.useState(null);
 
   const updateHighlight = () => {
     setHighlightNodes(highlightNodes);
     setHighlightLinks(highlightLinks);
   };
 
-  const handleNodeHover: ForceGraphProps['onNodeHover'] = (node, ...rest) => {
-    if (!node) {
-      return;
-    }
-    if (onNodeHover) onNodeHover(node, ...rest);
-  };
+  // const handleNodeHover: ForceGraphProps['onNodeHover'] = (node, ...rest) => {
+  //   if (!node) {
+  //     return;
+  //   }
+  //   if (onNodeHover) onNodeHover(node, ...rest);
+  // };
 
   window.devicePixelRatio = 1; // force 1x pixel density
 
