@@ -22,9 +22,6 @@ import useUrl from 'hooks/useUrl';
 const NetworkGraph2D = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph2D'), {
   ssr: false,
 });
-const NetworkGraph3D = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph3D'), {
-  ssr: false,
-});
 
 dayjs.extend(localizedFormat);
 dayjs.extend(isSameOrBefore);
@@ -340,21 +337,6 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
           <Tab label="Generated image">
             <div className={s.graphWrapper}>
               <img src={imageUri} />
-            </div>
-          </Tab>
-          <Tab label="ForceGraph3D">
-            <h3>
-              <a target="_blank" href="https://github.vasturiano/react-force-graph">
-                react-force-graph-3d
-              </a>
-            </h3>
-            <div className={s.graphWrapper}>
-              <NetworkGraph3D
-                graph={filteredNodes}
-                onNodeHover={onNodeHover}
-                onLinkHover={onEdgeHover}
-                onNodeClick={onNodeClick}
-              />
             </div>
           </Tab>
         </Tabs>
