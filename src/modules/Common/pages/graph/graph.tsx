@@ -1,4 +1,4 @@
-import { Col, Container, Row, Text } from '@dataesr/react-dsfr';
+import { Button, Col, Container, Row, SearchBar, Text, TextInput } from '@dataesr/react-dsfr';
 
 import { GetServerSideProps } from 'next';
 import GraphDetail from 'modules/NetworkGraph/components/GraphDetail';
@@ -83,7 +83,26 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
   }));
 
   return (
-    <Layout title="Twitter community graph generator">
+    <Layout title="Twitter network graph generator">
+      <Container className="fr-mt-12w">
+        <Row justifyContent="center" gutters>
+          <Col>
+            <Text size="lead" className="text-center ">
+              Generate a network graph
+            </Text>
+          </Col>
+        </Row>
+        <Row alignItems="bottom" justifyContent="center" gutters>
+          <Col className="fr-col-12 fr-col-lg-6">
+            <TextInput label="Fill a keyworkd or a #hashtag" />
+          </Col>
+          <Col className="fr-col-12 fr-col-lg-2">
+            <Button size="md" title="title">
+              Generate
+            </Button>
+          </Col>
+        </Row>
+      </Container>
       <Container spacing="mt-12w">
         <Row gutters>
           <Col n="4">
