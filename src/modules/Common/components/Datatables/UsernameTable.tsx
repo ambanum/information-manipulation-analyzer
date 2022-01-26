@@ -85,7 +85,13 @@ const UsernameTable = ({
       size: 1,
     },
     {
-      Header: 'Nb of use',
+      Header: (
+        <>
+          Nb of
+          <br />
+          use
+        </>
+      ),
       accessor: 'value',
       align: 'right',
       size: 1,
