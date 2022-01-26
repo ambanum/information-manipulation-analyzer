@@ -92,6 +92,20 @@ const UsernameTable = ({
       Cell: ({ value }: any) => value.toLocaleString('en'),
     },
     {
+      Header: (
+        <>
+          % of all
+          <br />
+          tweets
+        </>
+      ),
+      accessor: 'percentage',
+      align: 'right',
+      size: 1,
+      Cell: ({ value }: any) =>
+        value.toLocaleString('en', { style: 'percent', maximumFractionDigits: 2 }),
+    },
+    {
       Header: 'Actions',
       align: 'right',
       Cell: ({ row }: any) => {
