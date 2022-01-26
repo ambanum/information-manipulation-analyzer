@@ -85,11 +85,31 @@ const UsernameTable = ({
       size: 1,
     },
     {
-      Header: 'Nb of use',
+      Header: (
+        <>
+          Nb of
+          <br />
+          use
+        </>
+      ),
       accessor: 'value',
       align: 'right',
       size: 1,
       Cell: ({ value }: any) => value.toLocaleString('en'),
+    },
+    {
+      Header: (
+        <>
+          % of all
+          <br />
+          tweets
+        </>
+      ),
+      accessor: 'percentage',
+      align: 'right',
+      size: 1,
+      Cell: ({ value }: any) =>
+        value.toLocaleString('en', { style: 'percent', maximumFractionDigits: 2 }),
     },
     {
       Header: 'Actions',
