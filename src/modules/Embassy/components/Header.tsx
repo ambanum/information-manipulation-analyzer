@@ -257,10 +257,10 @@ const Header = () => (
     </HeaderBody>
     <HeaderNav>
       <NavItem title="Twitter" current>
-        <NavSubItem title="Search" link="/" />
-        <NavSubItem title="Network graph" link="/graph" />
+        <NavSubItem title="Search for narratives" link="/" />
+        <NavSubItem title="Network graph generator" link="/graph" />
+        <NavSubItem title="What is a bot ?" link="/bot-probability" />
       </NavItem>
-      <NavItem title="What is a bot ?" link="/bot-probability" />
     </HeaderNav>
   </DSFRHeader>
 );
