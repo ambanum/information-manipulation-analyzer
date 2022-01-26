@@ -13,6 +13,7 @@ if (typeof Highcharts === 'object') {
 const BotProbabilityGraph = ({
   title,
   subtitle,
+  yAxisTitle,
   data,
   ...props
 }: BarGraphProps & HighchartsReact.Props) => {
@@ -26,7 +27,7 @@ const BotProbabilityGraph = ({
     colors: paletteColors,
     yAxis: {
       title: {
-        text: 'Nb users',
+        text: yAxisTitle,
       },
     },
     series: [
@@ -38,12 +39,6 @@ const BotProbabilityGraph = ({
     ],
     ...props,
   };
-
-  console.log(''); //eslint-disable-line
-  console.log('╔════START══options══════════════════════════════════════════════════'); //eslint-disable-line
-  console.log(props); //eslint-disable-line
-  console.log(options); //eslint-disable-line
-  console.log('╚════END════options══════════════════════════════════════════════════'); //eslint-disable-line
 
   return (
     <>
