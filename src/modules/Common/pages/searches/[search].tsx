@@ -577,7 +577,7 @@ const SearchPage = ({
 
           {/* Tabs */}
           <Tabs
-            forceRenderTabPanel={true}
+            forceRenderTabPanel={false}
             selectedTabClassName={classNames(sReactTabs.selectedTab, 'react-tabs__tab--selected"')}
             selectedTabPanelClassName={classNames(
               sReactTabs.selectedTabPanel,
