@@ -62,10 +62,10 @@ const DataUsername = ({
     [...Array(100)].map(() => 0)
   );
 
-  const { max: maxTweetsPerUser } = usernames.reduce(
-    (acc, user) => ({ min: Math.min(acc.min, user.value), max: Math.max(acc.max, user.value) }),
-    { min: Infinity, max: -1 }
-  );
+  // const { max: maxTweetsPerUser } = usernames.reduce(
+  //   (acc, user) => ({ min: Math.min(acc.min, user.value), max: Math.max(acc.max, user.value) }),
+  //   { min: Infinity, max: -1 }
+  // );
 
   const nbTweetsPerUserRepartition: any = usernames.reduce(
     (repartition, { value }) => {
