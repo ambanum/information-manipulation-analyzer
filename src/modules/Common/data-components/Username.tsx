@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Alert from '../components/Alert/Alert';
-import BotProbabilityGraph from '../components/Charts/BotProbabilityGraph';
+import BarGraph from '../components/Charts/BarGraph';
 import { GetSearchUsernamesResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import UsernameTable from '../components/Datatables/UsernameTable';
@@ -74,11 +74,18 @@ const DataUsername = ({
         exportName={exportName}
       />
       <div className="fr-mt-8w">
-        <BotProbabilityGraph
+        <BarGraph
+          title="Bot probability"
+          subtitle="In number of users, views on bar chart"
           data={botRepartition.map((value: number, index: number) => ({
             x: index,
             y: value,
           }))}
+          xAxis={{
+            categories: [...Array(botRepartition.length)].map((_, index) => `${index}%`),
+          }}
+        />
+      </div>
         />
       </div>
       {/* <div className="fr-mt-8w">
