@@ -262,24 +262,28 @@ const VolumetryGraph = ({
       <div
         className={`fr-btns-group fr-btns-group--sm fr-btns-group--inline fr-btns-group--right ${styles.buttonBar}`}
       >
-        <button
-          className={`fr-btn fr-btn--sm fr-btn--secondary ${
-            chartXscaleDisplay === 'hour' ? 'fr-fi-eye-line fr-btn--icon-left' : ''
-          }`}
-          onClick={changeXScale('hour')}
-          disabled={chartXscaleDisplay === 'hour'}
-        >
-          hour
-        </button>
-        <button
-          className={`fr-btn fr-btn--sm fr-btn--secondary ${
-            chartXscaleDisplay === 'day' ? 'fr-fi-eye-line fr-btn--icon-left' : ''
-          }`}
-          onClick={changeXScale('day')}
-          disabled={chartXscaleDisplay === 'day'}
-        >
-          day
-        </button>
+        <li>
+          <button
+            className={`fr-btn fr-btn--sm fr-btn--secondary ${
+              chartXscaleDisplay === 'hour' ? 'fr-fi-eye-line fr-btn--icon-left' : ''
+            }`}
+            onClick={changeXScale('hour')}
+            disabled={chartXscaleDisplay === 'hour'}
+          >
+            hour
+          </button>
+        </li>
+        <li>
+          <button
+            className={`fr-btn fr-btn--sm fr-btn--secondary ${
+              chartXscaleDisplay === 'day' ? 'fr-fi-eye-line fr-btn--icon-left' : ''
+            }`}
+            onClick={changeXScale('day')}
+            disabled={chartXscaleDisplay === 'day'}
+          >
+            day
+          </button>
+        </li>
       </div>
       <HighchartsReact
         highcharts={Highcharts}
