@@ -86,11 +86,11 @@ type VolumetrySeries = Highcharts.SeriesOptionsType & { data: [number, number][]
 
 const dataToSeries = (data: VolumetryGraphProps['data']) => {
   const series: VolumetrySeries[] = [
-    { id: 'nbTweets', name: 'nbTweets', type: 'spline', showInLegend: true, data: [] },
-    { id: 'nbRetweets', name: 'nbRetweets', type: 'spline', showInLegend: true, data: [] },
-    { id: 'nbLikes', name: 'nbLikes', type: 'spline', showInLegend: true, data: [] },
-    { id: 'nbQuotes', name: 'nbQuotes', type: 'spline', showInLegend: true, data: [] },
-    { id: 'nbReplies', name: 'nbReplies', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbTweets', name: 'Tweets', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbRetweets', name: 'Retweets', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbLikes', name: 'Likes', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbQuotes', name: 'Quotes', type: 'spline', showInLegend: true, data: [] },
+    { id: 'nbReplies', name: 'Replies', type: 'spline', showInLegend: true, data: [] },
   ];
 
   data.forEach(({ hour, nbTweets, nbRetweets, nbLikes, nbQuotes, nbReplies }) => {
