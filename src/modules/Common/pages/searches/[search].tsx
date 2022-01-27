@@ -553,10 +553,10 @@ const SearchPage = ({
               <div className="fr-col">
                 <h4 className="fr-mb-1v">Volumetry</h4>
                 <p className="fr-mb-0">
-                  <strong>{nbTweets === undefined ? '-' : humanize(nbTweets)}</strong> tweets{' '}
-                  <strong>{humanize(nbRetweets)}</strong> retweets{' '}
-                  <strong>{humanize(nbLikes)}</strong> likes <strong>{humanize(nbQuotes)}</strong>{' '}
-                  quotes <strong>{humanize(nbReplies)}</strong> replies
+                  <strong>{nbTweets === undefined ? '-' : humanize(nbTweets)}</strong> tweets,{' '}
+                  <strong>{humanize(nbRetweets)}</strong> retweets,{' '}
+                  <strong>{humanize(nbLikes)}</strong> likes, <strong>{humanize(nbQuotes)}</strong>{' '}
+                  quotes, <strong>{humanize(nbReplies)}</strong> replies
                 </p>
               </div>
             </div>
