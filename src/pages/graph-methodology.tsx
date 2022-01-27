@@ -1,6 +1,7 @@
 import { Col, Container, Row } from '@dataesr/react-dsfr';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
+import Article from 'modules/Common/components/Article/Article';
 import Layout from 'modules/Embassy/components/Layout';
 import { NextPage } from 'next';
 import React from 'react';
@@ -14,10 +15,12 @@ interface Props {
 const GraphMethdology: NextPage<Props> = ({ mdxContent }) => {
   return (
     <Layout title="Network of interactions graph methodology - Information Manipulation Analyzer">
-      <Container spacing="mt-12w">
+      <Container spacing="mt-12w mb-8w">
         <Row>
           <Col className="fr-col-12 fr-col-sm-12 fr-col-md-12 fr-col-lg-10 fr-col-xl-10">
-            <MDXRemote {...(mdxContent as any)} components={{}} />
+            <Article>
+              <MDXRemote {...(mdxContent as any)} components={{}} />
+            </Article>
           </Col>
         </Row>
       </Container>
