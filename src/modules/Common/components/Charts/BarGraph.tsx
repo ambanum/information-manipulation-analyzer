@@ -1,7 +1,7 @@
 import * as Highcharts from 'highcharts';
 import * as React from 'react';
 
-import { BotProbabilityGraphProps } from './BotProbabilityGraph.d';
+import { BarGraphProps } from './BarGraph.d';
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsReact from 'highcharts-react-official';
 import { paletteColors } from './config';
@@ -10,8 +10,14 @@ if (typeof Highcharts === 'object') {
   HighchartsExporting(Highcharts);
 }
 
-const BotProbabilityGraph = (props: BotProbabilityGraphProps & HighchartsReact.Props) => {
-  const data: Highcharts.Options = {
+const BotProbabilityGraph = ({
+  title,
+  subtitle,
+  yAxisTitle,
+  data,
+  ...props
+}: BarGraphProps & HighchartsReact.Props) => {
+  const options: Highcharts.Options = {
     title: {
       text: '',
     },
@@ -19,30 +25,29 @@ const BotProbabilityGraph = (props: BotProbabilityGraphProps & HighchartsReact.P
       type: 'column',
     },
     colors: paletteColors,
-    xAxis: {
-      categories: [...Array(props.data.length)].map((_, index) => `${index}%`),
-    },
     yAxis: {
       title: {
-        text: 'Nb users',
+        text: yAxisTitle,
       },
     },
     series: [
       {
-        name: 'Bot probability',
+        name: title,
         type: 'column',
-        data: props.data,
+        data,
       },
     ],
+    ...props,
   };
+
   return (
     <>
       <div className="fr-mb-2w">
-        <h4 className="fr-mb-1v">Bot probability</h4>
-        <p className="fr-mb-0">In number of users, views on bar chart</p>
+        <h4 className="fr-mb-1v">{title}</h4>
+        <p className="fr-mb-0">{subtitle}</p>
       </div>
       <div className="fr-mt-4w">
-        <HighchartsReact highcharts={Highcharts} options={data} {...props} />
+        <HighchartsReact highcharts={Highcharts} options={options} {...props} />
       </div>
     </>
   );
