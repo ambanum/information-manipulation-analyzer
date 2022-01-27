@@ -1,6 +1,11 @@
 .search {
+  background-color: var(--grey-975);
 }
 
 .searchInput {
-  background-color: var(--w);
+  background-color: var(--grey-1000) !important;
+}
+
+.searchButton__noicon:before {
+  content: '' !important;
 }

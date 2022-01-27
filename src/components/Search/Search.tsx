@@ -4,6 +4,9 @@ import classNames from 'classnames';
 import s from './Search.module.css';
 
 export interface SearchProps {
+  title: string;
+  baseline: string;
+  icon?: boolean;
   label?: React.ReactNode;
   className?: string;
   placeholder?: string;
@@ -15,6 +18,9 @@ export interface SearchProps {
 // https://gouvfr.atlassian.net/wiki/spaces/DB/pages/217186376/Barre+de+recherche+-+Search+bar
 
 const Search = ({
+  title,
+  baseline,
+  icon = true,
   label,
   className,
   placeholder,
@@ -48,9 +54,7 @@ const Search = ({
       >
         <div className="fr-grid-row">
           <div className="fr-col">
-            <p className="text-center fr-text--lead fr-mt-0 fr-mb-2w">
-              What do you want to search?
-            </p>
+            <p className="text-center fr-text--lead fr-mt-0 fr-mb-2w">{title}</p>
             <div className="fr-search-bar fr-search-bar--lg fr-mx-md-12w" {...props} role="search">
               {label && <label className="fr-label">{label}</label>}
               <input
@@ -61,7 +65,11 @@ const Search = ({
                 name="search-input-input"
                 onChange={handleChange}
               />
-              <button className="fr-btn" title={buttonLabel} onClick={handleSubmit}>
+              <button
+                className={classNames('fr-btn', icon === false && s.searchButton__noicon)}
+                title={buttonLabel}
+                onClick={handleSubmit}
+              >
                 {buttonLabel}
               </button>
             </div>
@@ -84,7 +92,7 @@ const Search = ({
               </Alert>
             )}
             <p className="fr-text--sm text-center fr-mt-1w fr-mb-0">
-              <em>Finally get a real idea on whether a trend is worth the hype</em>
+              <em>{baseline}</em>
             </p>
           </div>
         </div>
