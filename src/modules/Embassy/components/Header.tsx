@@ -262,7 +262,8 @@ const Header = () => (
           title="Create a network of interactions graph"
           link="/network-of-interactions-graph"
         />
-        <NavSubItem title="What is a bot ?" link="/bot-probability" />
+        <NavSubItem title="What is a bot?" link="/bot-probability" />
+        <NavSubItem title="How do we generate an interaction graph?" link="/graph-methodology" />
       </NavItem>
     </HeaderNav>
   </DSFRHeader>
