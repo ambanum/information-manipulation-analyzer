@@ -257,8 +257,11 @@ const Header = () => (
     </HeaderBody>
     <HeaderNav>
       <NavItem title="Twitter" current>
-        <NavSubItem title="Search for narratives" link="/" />
-        <NavSubItem title="Network graph generator" link="/graph" />
+        <NavSubItem title="Explore narratives" link="/" />
+        <NavSubItem
+          title="Create a network of interactions graph"
+          link="/network-of-interactions-graph"
+        />
         <NavSubItem title="What is a bot ?" link="/bot-probability" />
       </NavItem>
     </HeaderNav>

@@ -34,10 +34,10 @@ const HomePage = () => {
   return (
     <Layout title="Information Manipulation Analyzer">
       <Search
-        title="What do you want to search?"
-        baseline="Finally get a real idea on whether a trend is worth the hype."
-        label="Search"
-        buttonLabel="Search"
+        title="What do you want to explore?"
+        baseline="Finally get a real idea on whether a narrative is worth the hype."
+        label="Explore"
+        buttonLabel="Explore"
         placeholder="Enter a #hashtag, a keyword, a @mention, a $cashtag or a https://url"
         onSearchSubmit={onSubmit}
         onSearchChange={onSearchChange}
