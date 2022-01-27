@@ -1,4 +1,5 @@
 import { Button, Col, Container, Row, SearchBar, Text, TextInput } from '@dataesr/react-dsfr';
+import Search, { SearchProps } from 'components/Search/Search';
 
 import { GetServerSideProps } from 'next';
 import GraphDetail from 'modules/NetworkGraph/components/GraphDetail';
@@ -56,6 +57,9 @@ const dsfrColors = shuffle([
   '#a26859',
 ]);
 
+const onSubmit: SearchProps['onSearchSubmit'] = async (search: string) => {};
+const onSearchChange = (searchValue: string) => {};
+
 const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
   const { queryParams, pushQueryParam } = useUrl();
   const [selected, setSelected] = React.useState<number>(selectedInUrl);
@@ -83,26 +87,17 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
   }));
 
   return (
-    <Layout title="Twitter network graph generator">
-      <Container className="fr-mt-12w">
-        <Row justifyContent="center" gutters>
-          <Col>
-            <Text size="lead" className="text-center ">
-              Generate a network graph
-            </Text>
-          </Col>
-        </Row>
-        <Row alignItems="bottom" justifyContent="center" gutters>
-          <Col className="fr-col-12 fr-col-lg-6">
-            <TextInput label="Fill a keyworkd or a #hashtag" />
-          </Col>
-          <Col className="fr-col-12 fr-col-lg-2">
-            <Button size="md" title="title">
-              Generate
-            </Button>
-          </Col>
-        </Row>
-      </Container>
+    <Layout title="Twitter network of interaction graph">
+      <Search
+        title="On what do you want to create a network of interactions graph?"
+        baseline="Replay the propagation of a narrative over the last 7 days."
+        icon={false}
+        label="Create"
+        buttonLabel="Create"
+        placeholder="Enter a #hashtag, a keyword, a @mention, a $cashtag or a https://url"
+        onSearchSubmit={onSubmit}
+        onSearchChange={onSearchChange}
+      />
       <Container spacing="mt-12w">
         <Row gutters>
           <Col n="4">

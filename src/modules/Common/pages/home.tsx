@@ -33,19 +33,15 @@ const HomePage = () => {
 
   return (
     <Layout title="Information Manipulation Analyzer">
-      <Container>
-        <Row>
-          <Col>
-            <Search
-              label="Search"
-              buttonLabel="Search"
-              placeholder="Enter a #hashtag, a keyword, a @mention, a $cashtag or a https://url"
-              onSearchSubmit={onSubmit}
-              onSearchChange={onSearchChange}
-            />
-          </Col>
-        </Row>
-      </Container>
+      <Search
+        title="What do you want to search?"
+        baseline="Finally get a real idea on whether a trend is worth the hype."
+        label="Search"
+        buttonLabel="Search"
+        placeholder="Enter a #hashtag, a keyword, a @mention, a $cashtag or a https://url"
+        onSearchSubmit={onSubmit}
+        onSearchChange={onSearchChange}
+      />
 
       <Container>
         <Row>
