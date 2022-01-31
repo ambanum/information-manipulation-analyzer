@@ -19,7 +19,7 @@ const useUrl = () => {
   const queryParams: any =
     typeof window !== 'undefined'
       ? queryString.parse(window.location.search, { arrayFormat: 'bracket' })
-      : {};
+      : router.query;
 
   let pathname = router.asPath.split('?')[0];
 
