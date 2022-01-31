@@ -1,6 +1,6 @@
 import { Button, ButtonGroup, Col, Container, Row } from '@dataesr/react-dsfr';
 import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
-import { Tab, Tabs } from '@dataesr/react-dsfr';
+import { Radio, RadioGroup, Text, Title } from '@dataesr/react-dsfr';
 
 import Gradient from 'javascript-color-gradient';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
@@ -141,6 +141,7 @@ const fixNodePositions = (
 };
 
 const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri }) => {
+  const wrapperRef = React.useRef<HTMLDivElement>(null);
   const { queryParams, pushQueryParam } = useUrl();
   const [modalContent, setModalContent] = React.useState<React.ReactNode>();
   const [modalTitle, setModalTitle] = React.useState<React.ReactNode>();
@@ -254,127 +255,104 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
         <ModalTitle icon="ri-arrow-right-fill">{modalTitle}</ModalTitle>
         <ModalContent>{modalContent}</ModalContent>
       </Modal>
-      <Container spacing="mt-12w">
-        <Row>
-          <Col n="6">
-            From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
-            <strong title={endDate}>{dayjs(endDate).format('llll')}</strong>
-          </Col>
-          <Col n="4" offset="2">
-            <div className="" style={{ textAlign: 'right' }}>
-              <small>
-                <strong>{tick || 0}</strong> / {dates.length} dates
-              </small>{' '}
-              <small>
-                <strong>{nodes.length}</strong> nodes
-              </small>{' '}
-              <small>
-                <strong>{edges.length}</strong> edges
-              </small>
-            </div>
-          </Col>
-        </Row>
-
-        <Row className="fr-mt-4w" justifyContent="center">
-          <Col n="1">
-            <TextInput
-              onChange={(event: any) => setTickInterval(+event.target.value)}
-              value={tickInterval}
-              disabled={active}
-              label="ms"
-            />
-          </Col>
-          <Col className="fr-mt-4w fr-ml-2w">
-            <ButtonGroup size="sm" isInlineFrom="xs">
-              <Button
-                onClick={() => setTick((tick || 0) - 1)}
-                icon="fr-fi-arrow-left-s-line-double"
-                disabled={active || (tick || 0) === 0}
-              >
-                Before
-              </Button>
-              <Button onClick={toggleActive} icon={`fr-fi-${active ? 'pause' : 'play'}-line `}>
-                {active ? 'Pause' : 'Play'}
-              </Button>
-              <Button
-                onClick={() => setTick((tick || 0) + 1)}
-                disabled={active || (tick || 0) === nodes.length || !tick}
-                icon="fr-fi-arrow-right-s-line-double"
-              >
-                After
-              </Button>
-              <Button
-                onClick={() => {
-                  toggleActive(false);
-                  setTick(undefined);
-                }}
-                disabled={tick === 0 || !tick}
-                icon="fr-fi-refresh-line"
-              >
-                Reset
-              </Button>
-            </ButtonGroup>
-          </Col>
-          <Col className="fr-mt-4w fr-ml-2w">
-            <ButtonGroup size="sm" isInlineFrom="xs">
-              {COLOR_MODES.map((colorModeInList) => (
-                <Button
-                  key={colorModeInList}
-                  onClick={() =>
-                    pushQueryParam('colorMode', undefined, { shallow: true, scroll: false })(
-                      colorModeInList
-                    )
-                  }
-                  disabled={colorMode === colorModeInList}
-                >
-                  {colorModeInList}
-                </Button>
-              ))}
-            </ButtonGroup>
-          </Col>
-          <Col className="fr-mt-4w fr-ml-2w">
-            <ButtonGroup size="sm" isInlineFrom="xs">
-              {POSITION_MODES.map((positionModeInList) => (
-                <Button
-                  key={positionModeInList}
-                  onClick={() =>
-                    pushQueryParam('positionMode', undefined, { shallow: true, scroll: false })(
-                      positionModeInList
-                    )
-                  }
-                  disabled={positionMode === positionModeInList}
-                >
-                  {positionModeInList}
-                </Button>
-              ))}
-            </ButtonGroup>
-          </Col>
-        </Row>
-      </Container>
-      <Container className="fr-mt-4w">
-        <Tabs>
-          <Tab label="ForceGraph2D">
-            <h3>
-              <a target="_blank" href="https://github.vasturiano/react-force-graph">
-                react-force-graph-2d
-              </a>
-            </h3>
-            <div className={s.graphWrapper}>
-              <NetworkGraph2D
-                graph={positionedNodes}
-                onNodeClick={onNodeClick}
-                onLinkClick={onEdgeClick}
-                auto={auto}
+      <div style={{ backgroundColor: '#00006D', position: 'relative' }}>
+        <div className={s.graphOptions}>
+          <Title as="h6" look="h6">
+            Options
+          </Title>
+          <RadioGroup legend="Color nodes by">
+            {COLOR_MODES.map((colorModeInList) => (
+              <Radio
+                label={colorModeInList}
+                value={colorModeInList}
+                onClick={() =>
+                  pushQueryParam('colorMode', undefined, { shallow: true, scroll: false })(
+                    colorModeInList
+                  )
+                }
+                defaultChecked={colorMode === colorModeInList}
               />
-            </div>
-          </Tab>
-          <Tab label="Generated image">
-            <div className={s.graphWrapper}>
-              <img src={imageUri} />
-            </div>
-          </Tab>
-        </Tabs>
-      </Container>
+            ))}
+          </RadioGroup>
+          <RadioGroup legend="Layout ">
+            {POSITION_MODES.map((positionModeInList) => (
+              <Radio
+                label={positionModeInList}
+                value={positionModeInList}
+                onClick={() =>
+                  pushQueryParam('positionMode', undefined, { shallow: true, scroll: false })(
+                    positionModeInList
+                  )
+                }
+                defaultChecked={positionMode === positionModeInList}
+              />
+            ))}
+          </RadioGroup>
+          <TextInput
+            onChange={(event: any) => setTickInterval(+event.target.value)}
+            value={tickInterval}
+            disabled={active}
+            label="Play speed"
+          />
+        </div>
+        <div ref={wrapperRef} style={{ zIndex: 0 }}>
+          <NetworkGraph2D
+            graph={positionedNodes}
+            onNodeClick={onNodeClick}
+            onLinkClick={onEdgeClick}
+            auto={auto}
+            width={wrapperRef?.current?.clientWidth}
+            height={740}
+          />
+        </div>
+      </div>
+      <div style={{ backgroundColor: '#1e1e1e' }}>
+        <Container>
+          <Row className="" justifyContent="center">
+            <Col className="fr-mt-4w fr-ml-2w">
+              <ButtonGroup size="sm" isInlineFrom="xs" align="center">
+                <Button
+                  onClick={() => setTick((tick || 0) - 1)}
+                  icon="fr-fi-arrow-left-s-line-double"
+                  disabled={active || (tick || 0) === 0}
+                >
+                  Previous
+                </Button>
+                <Button onClick={toggleActive} icon={`fr-fi-${active ? 'pause' : 'play'}-line `}>
+                  {active ? 'Pause' : 'Play'}
+                </Button>
+                <Button
+                  onClick={() => setTick((tick || 0) + 1)}
+                  disabled={active || (tick || 0) === nodes.length || !tick}
+                  icon="fr-fi-arrow-right-s-line-double"
+                >
+                  Next
+                </Button>
+                <Button
+                  onClick={() => {
+                    toggleActive(false);
+                    setTick(undefined);
+                  }}
+                  disabled={tick === 0 || !tick}
+                  icon="fr-fi-refresh-line"
+                >
+                  Reset
+                </Button>
+              </ButtonGroup>
+              <div style={{ color: 'var(--grey-850)' }}>
+                <Text className="text-center fr-mb-0">
+                  From <strong title={startDate}>{dayjs(startDate).format('llll')}</strong> to{' '}
+                  <strong title={endDate}>{dayjs(endDate).format('llll')}</strong>
+                </Text>
+                <Text size="sm" className="text-center fr-mt-0">
+                  <strong>{tick || 0}</strong> / {dates.length} dates{' '}
+                  <strong>{nodes.length}</strong> nodes <strong>{edges.length}</strong> edges
+                </Text>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };
