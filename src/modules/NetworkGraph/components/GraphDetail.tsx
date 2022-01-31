@@ -34,6 +34,9 @@ interface GraphDetailProps {
 type ColorMode = 'community' | 'botscore';
 const COLOR_MODES: ColorMode[] = ['community', 'botscore'];
 
+type PositionMode = 'auto' | 'fixed';
+const POSITION_MODES: PositionMode[] = ['auto', 'fixed'];
+
 // for bot score color
 const colorGradient = new Gradient();
 colorGradient.setGradient('#008000', '#e1000f'); // from red to green
@@ -105,14 +108,27 @@ const highlightNodesAndEdges = (
           .reduce((acc, val) => acc + val.size, 0)
       : node.size;
 
-    // Here positions are fixed so that it reflects the exact position of the node
-    // given in the json file
-    // @ts-ignore
-    node.fx = node.x;
-    // @ts-ignore
-    node.fy = node.y;
-    // @ts-ignore
-    node.fz = node.z;
+    return node;
+  });
+
+  return newData;
+};
+
+const fixNodePositions = (
+  data: NetworkGraphJson,
+  { auto, active }: { auto: boolean; active: boolean }
+) => {
+  const newData = { ...data };
+
+  newData.nodes.map((node) => {
+    if (!auto || (auto && active)) {
+      // @ts-ignore
+      node.fx = node.x;
+      // @ts-ignore
+      node.fy = node.y;
+      // @ts-ignore
+      node.fz = node.z;
+    }
 
     return node;
   });
@@ -129,6 +145,9 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
 
   const [colorMode, setColorMode] = React.useState<ColorMode>(
     queryParams.colorMode || COLOR_MODES[0]
+  );
+  const [positionMode, setPositionModeMode] = React.useState<PositionMode>(
+    queryParams.positionMode || POSITION_MODES[0]
   );
   const [tick, setTick] = React.useState<number | undefined>();
   const [tickInterval, setTickInterval] = React.useState<number>(200);
@@ -149,8 +168,16 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
   }, [name]);
 
   React.useEffect(() => {
-    setColorMode(queryParams.colorMode);
+    if (queryParams.colorMode) {
+      setColorMode(queryParams.colorMode);
+    }
   }, [queryParams.colorMode, setColorMode]);
+
+  React.useEffect(() => {
+    if (queryParams.positionMode) {
+      setPositionModeMode(queryParams.positionMode);
+    }
+  }, [queryParams.positionMode, setPositionModeMode]);
 
   React.useEffect(() => {
     let interval: NodeJS.Timer;
@@ -170,28 +197,13 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
     return () => clearInterval(interval);
   }, [active, dates.length]);
 
-  const onNodeHover = React.useCallback(
-    (node: any) => {
-      toggleActive(true);
-      setModalContent(
-        <div>
-          Node<pre>{JSON.stringify(node, null, 2)}</pre>
-        </div>
-      );
-      toggleActive(false);
-    },
-    [setModalContent]
-  );
-
-  const onEdgeHover = React.useCallback(
+  const onEdgeClick = React.useCallback(
     (edge: any) => {
-      toggleActive(true);
       setModalContent(
         <div>
           Edge<pre>{JSON.stringify(edge, null, 2)}</pre>
         </div>
       );
-      toggleActive(false);
     },
     [setModalContent]
   );
@@ -226,6 +238,8 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
     startDate,
     endDate,
   });
+  const auto = positionMode === 'auto';
+  const positionedNodes = fixNodePositions(filteredNodes, { auto, active });
 
   return (
     <>
@@ -295,8 +309,13 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
               >
                 Reset
               </Button>
+            </ButtonGroup>
+          </Col>
+          <Col className="fr-mt-4w fr-ml-2w">
+            <ButtonGroup size="sm" isInlineFrom="xs">
               {COLOR_MODES.map((colorModeInList) => (
                 <Button
+                  key={colorModeInList}
                   onClick={() =>
                     pushQueryParam('colorMode', undefined, { shallow: true, scroll: false })(
                       colorModeInList
@@ -305,6 +324,23 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
                   disabled={colorMode === colorModeInList}
                 >
                   {colorModeInList}
+                </Button>
+              ))}
+            </ButtonGroup>
+          </Col>
+          <Col className="fr-mt-4w fr-ml-2w">
+            <ButtonGroup size="sm" isInlineFrom="xs">
+              {POSITION_MODES.map((positionModeInList) => (
+                <Button
+                  key={positionModeInList}
+                  onClick={() =>
+                    pushQueryParam('positionMode', undefined, { shallow: true, scroll: false })(
+                      positionModeInList
+                    )
+                  }
+                  disabled={positionMode === positionModeInList}
+                >
+                  {positionModeInList}
                 </Button>
               ))}
             </ButtonGroup>
@@ -321,10 +357,10 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
             </h3>
             <div className={s.graphWrapper}>
               <NetworkGraph2D
-                graph={filteredNodes}
+                graph={positionedNodes}
                 onNodeClick={onNodeClick}
-                onNodeHover={onNodeHover}
-                onLinkHover={onEdgeHover}
+                onLinkClick={onEdgeClick}
+                auto={auto}
               />
             </div>
           </Tab>
