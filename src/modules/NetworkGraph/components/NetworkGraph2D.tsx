@@ -1,4 +1,4 @@
-import ForceGraph2D, { ForceGraphProps, ForceGraphMethods } from 'react-force-graph-2d';
+import ForceGraph2D, { ForceGraphMethods, ForceGraphProps } from 'react-force-graph-2d';
 
 import type { NetworkGraphJson } from './NetworkGraph.d';
 import React from 'react';
@@ -10,6 +10,8 @@ type NetworkGraphReact2DProps = {
   onNodeClick: ForceGraphProps['onNodeClick'];
   onLinkClick: ForceGraphProps['onLinkClick'];
   auto: boolean;
+  width: number | undefined;
+  height: number | undefined;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
@@ -19,6 +21,8 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   auto = false,
   onNodeClick,
   onLinkClick,
+  width,
+  height,
   ...props
 }) => {
   const fgRef = React.useRef<ForceGraphMethods>();
@@ -117,13 +121,15 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
       };
 
   return (
-    <div ref={wrapperRef} className={classNames(className)} {...props}>
+    <div className={classNames(className)} {...props}>
       <ForceGraph2D
         ref={fgRef}
-        width={wrapperRef?.current?.clientWidth}
-        height={wrapperRef?.current?.clientHeight}
+        // width={wrapperRef?.current?.clientWidth}
+        // height={wrapperRef?.current?.clientHeight}
+        width={width}
+        height={height}
         graphData={show ? { nodes: graph.nodes, links: graph.edges } : { nodes: [], links: [] }}
-        backgroundColor="#1b1b35"
+        backgroundColor="#1e1e1e"
         nodeAutoColorBy="color"
         enableZoomInteraction={true}
         nodeVal={(node: any) => node.size}

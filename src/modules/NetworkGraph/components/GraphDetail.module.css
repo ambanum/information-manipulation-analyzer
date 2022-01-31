@@ -1,5 +1,6 @@
 .graphWrapper {
   position: relative;
+  border: 1px solid red;
 }
 
 .graphWrapper img {
@@ -26,4 +27,15 @@
 
 .infoCard pre {
   font-size: 12px;
+}
+
+.graphOptions {
+  border: 1x solid red;
+  background-color: var(--grey-1000);
+  max-width: 280px;
+  padding: 1rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 1;
 }

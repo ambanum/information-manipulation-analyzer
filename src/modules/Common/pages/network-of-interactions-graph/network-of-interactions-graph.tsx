@@ -102,6 +102,14 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
         onSearchSubmit={onSubmit}
         onSearchChange={onSearchChange}
       />
+
+      <GraphDetail
+        colors={dsfrColors}
+        {...file}
+        imageUri={`${String(process.env.NEXT_PUBLIC_BASE_PATH)}${file.path
+          .replace('.json', '.jpg')
+          .replace('public/', '/')}`}
+      />
       <Container spacing="mt-12w">
         <Row gutters>
           <Col n="4">
@@ -142,13 +150,6 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
           </Col>
         </Row>
       </Container>
-      <GraphDetail
-        colors={dsfrColors}
-        {...file}
-        imageUri={`${String(process.env.NEXT_PUBLIC_BASE_PATH)}${file.path
-          .replace('.json', '.jpg')
-          .replace('public/', '/')}`}
-      />
     </Layout>
   );
 };
