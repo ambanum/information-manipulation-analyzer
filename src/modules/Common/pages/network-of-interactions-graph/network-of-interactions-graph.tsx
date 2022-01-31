@@ -1,4 +1,4 @@
-import { Col, Container, Row, Text } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 import Search, { SearchProps } from 'components/Search/Search';
 
 import { GetServerSideProps } from 'next';
@@ -102,7 +102,20 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
         onSearchSubmit={onSubmit}
         onSearchChange={onSearchChange}
       />
-
+      <Container className="fr-py-12w">
+        <Row gutters={true}>
+          <Col>
+            <div className="text-center">
+              <Title>search name</Title>
+            </div>
+            <div className="text-center" style={{ color: 'var(--grey-425)' }}>
+              <Text size="sm">
+                <em>status, from, until</em>
+              </Text>
+            </div>
+          </Col>
+        </Row>
+      </Container>
       <GraphDetail
         colors={dsfrColors}
         {...file}
