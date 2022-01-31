@@ -257,13 +257,22 @@ const Header = () => (
     </HeaderBody>
     <HeaderNav>
       <NavItem title="Twitter" current>
-        <NavSubItem title="Explore narratives" link="/" />
+        <NavSubItem
+          title="Explore narratives"
+          link={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}
+        />
         <NavSubItem
           title="Create a network of interactions graph"
-          link="/network-of-interactions-graph"
+          link={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/network-of-interactions-graph`}
         />
-        <NavSubItem title="What is a bot?" link="/bot-probability" />
-        <NavSubItem title="How do we generate an interaction graph?" link="/graph-methodology" />
+        <NavSubItem
+          title="What is a bot?"
+          link={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/bot-probability`}
+        />
+        <NavSubItem
+          title="How do we generate an interaction graph?"
+          link={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/graph-methodology`}
+        />
       </NavItem>
     </HeaderNav>
   </DSFRHeader>
