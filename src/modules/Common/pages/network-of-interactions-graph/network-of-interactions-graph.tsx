@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row, SearchBar, Text, TextInput } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Text } from '@dataesr/react-dsfr';
 import Search, { SearchProps } from 'components/Search/Search';
 
 import { GetServerSideProps } from 'next';
@@ -57,8 +57,12 @@ const dsfrColors = shuffle([
   '#a26859',
 ]);
 
-const onSubmit: SearchProps['onSearchSubmit'] = async (search: string) => {};
-const onSearchChange = (searchValue: string) => {};
+const onSubmit: SearchProps['onSearchSubmit'] = async (search: string) => {
+  alert(`This feature onSearchSubmit is not yet available: ${search}`);
+};
+const onSearchChange = (searchValue: string) => {
+  alert(`This feature onSearchChange is not yet available: ${searchValue}`);
+};
 
 const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
   const { queryParams, pushQueryParam } = useUrl();
