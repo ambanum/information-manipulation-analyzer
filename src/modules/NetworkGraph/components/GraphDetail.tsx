@@ -40,7 +40,11 @@ const POSITION_MODES: PositionMode[] = ['auto', 'fixed'];
 // for bot score color
 const colorGradient = new Gradient();
 colorGradient.setGradient('#008000', '#e1000f'); // from red to green
-colorGradient.setMidpoint(0.5);
+colorGradient.setMidpoint(1);
+
+[0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.99].forEach((col) => {
+  console.log(`${col} %c${colorGradient.getColor(col)}`, `color: ${colorGradient.getColor(col)}`);
+});
 
 const highlightNodesAndEdges = (
   data: NetworkGraphJson,
