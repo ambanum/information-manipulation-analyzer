@@ -1,6 +1,6 @@
 import { Button, ButtonGroup, Col, Container, Row } from '@dataesr/react-dsfr';
+import { Link, Radio, RadioGroup, Text, Title } from '@dataesr/react-dsfr';
 import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
-import { Radio, RadioGroup, Text, Title } from '@dataesr/react-dsfr';
 
 import Gradient from 'javascript-color-gradient';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
@@ -218,7 +218,52 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
       setIsModalOpen(true);
       setModalContent(
         <>
-          <pre>{JSON.stringify(node, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(node, null, 2)}</pre> */}
+          {console.log(node)}
+          <Title as="h6" look="h6">
+            Tweets: {node.metadata?.tweets?.length}
+          </Title>
+          {node.metadata?.tweets?.map((tweet: any, index: number) => {
+            return (
+              <div style={{ border: '1px solid var(--grey-950' }} className="fr-p-2w fr-mb-2w">
+                <Text size="sm" className="fr-mb-0">
+                  {dayjs(node.metadata?.dates[index]).format('llll')}
+                </Text>
+                <Link target="_blank" href={tweet}>
+                  {tweet}
+                </Link>
+              </div>
+            );
+          })}
+
+          <Title as="h6" look="h6">
+            Edges: {node.metadata?.dates_edges?.length}
+          </Title>
+          <div style={{ border: '1px solid var(--grey-950' }} className="fr-p-2w fr-mb-2w">
+            <Text size="sm" className="fr-mb-0">
+              {node.metadata?.dates_edges?.map((dates_edge: any, index: number) => {
+                return (
+                  <Text as="span">{dayjs(node.dates_edge?.dates[index]).format('llll')} - </Text>
+                );
+              })}
+            </Text>
+          </div>
+          <Title as="h6" look="h6">
+            Retweets: {node.metadata?.retweets?.length}
+          </Title>
+          <Title as="h6" look="h6">
+            Quoted: {node.metadata?.quoted?.length}
+          </Title>
+
+          <Title as="h6" look="h6">
+            Botscore: {node.metadata?.botscore}
+          </Title>
+          <Title as="h6" look="h6">
+            Community ID: {node.community_id}
+          </Title>
+          <Title as="h6" look="h6">
+            Node size: {node.size}
+          </Title>
         </>
       );
     },
@@ -227,7 +272,11 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
 
   const updateModalTitle = React.useCallback(
     (node: any) => {
-      setModalTitle(<>{node.label}</>);
+      setModalTitle(
+        <Title as="h2" look="h2">
+          {node.label}
+        </Title>
+      );
     },
     [setModalContent]
   );
