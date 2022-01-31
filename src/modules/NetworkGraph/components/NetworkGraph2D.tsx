@@ -8,23 +8,30 @@ import { useToggle } from 'react-use';
 type NetworkGraphReact2DProps = {
   graph: NetworkGraphJson;
   onNodeClick: ForceGraphProps['onNodeClick'];
-  onNodeHover: ForceGraphProps['onNodeHover'];
-  onLinkHover: ForceGraphProps['onLinkHover'];
+  onLinkClick: ForceGraphProps['onLinkClick'];
+  auto: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   children,
   className,
   graph,
+  auto = false,
   onNodeClick,
-  onLinkHover,
+  onLinkClick,
   ...props
 }) => {
   const fgRef = React.useRef<ForceGraphMethods>();
   const wrapperRef = React.useRef<HTMLDivElement>(null);
+  const [show, toggleShow] = useToggle(true);
 
   // if it's needed, we need a comment
   // window.devicePixelRatio = 1; // force 1x pixel density
+
+  React.useEffect(() => {
+    toggleShow(false);
+    setTimeout(() => toggleShow(true), 0);
+  }, [auto, graph]);
 
   const sizeRange = graph.nodes.reduce(
     (acc, node) => ({
@@ -38,38 +45,13 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   const [highlightNodes, setHighlightNodes] = React.useState(new Set());
   const [zoomed, toggleZoom] = useToggle(false);
   const [highlightLinks, setHighlightLinks] = React.useState(new Set());
-  // const [hoverNode, setHoverNode] = React.useState(null);
 
   const updateHighlight = () => {
     setHighlightNodes(highlightNodes);
     setHighlightLinks(highlightLinks);
   };
 
-  // const handleNodeHover: ForceGraphProps['onNodeHover'] = (node, ...rest) => {
-  //   if (!node) {
-  //     return;
-  //   }
-  //   if (onNodeHover) onNodeHover(node, ...rest);
-  // };
-
-  // const handleNodeHover = (node) => {
-  //   highlightNodes.clear();
-  //   highlightLinks.clear();
-  //   if (node) {
-  //     highlightNodes.add(node);
-  //     if (node.neighbors) {
-  //       node.neighbors.forEach((neighbor) => highlightNodes.add(neighbor));
-  //     }
-  //     if (node.links) {
-  //       node.links.forEach((link) => highlightLinks.add(link));
-  //     }
-  //   }
-
-  //   setHoverNode(node || null);
-  //   updateHighlight();
-  // };
-
-  const handleLinkHover = React.useCallback(
+  const handleLinkClick = React.useCallback(
     (link, previousLink) => {
       highlightNodes.clear();
       highlightLinks.clear();
@@ -81,7 +63,7 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
       }
 
       updateHighlight();
-      if (onLinkHover && link) onLinkHover(link, previousLink);
+      if (onLinkClick && link) onLinkClick(link, previousLink);
     },
     [highlightNodes, highlightLinks, setHighlightNodes, setHighlightLinks]
   );
@@ -120,18 +102,31 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
     [sizeRange]
   );
 
+  const additionalProps = auto
+    ? { cooldownTicks: 10000, cooldownTime: 10000 }
+    : {
+        cooldownTicks: 1,
+        nodeCanvasObject: drawMenu,
+        nodeRelSize: 1 / RATIO,
+        onEngineStop: () => {
+          if (!zoomed) {
+            fgRef?.current?.zoomToFit(50, 100);
+            toggleZoom(true);
+          }
+        },
+      };
+
   return (
     <div ref={wrapperRef} className={classNames(className)} {...props}>
       <ForceGraph2D
         ref={fgRef}
         width={wrapperRef?.current?.clientWidth}
         height={wrapperRef?.current?.clientHeight}
-        graphData={{ nodes: graph.nodes, links: graph.edges }}
+        graphData={show ? { nodes: graph.nodes, links: graph.edges } : { nodes: [], links: [] }}
         backgroundColor="#1b1b35"
         nodeAutoColorBy="color"
         enableZoomInteraction={true}
         nodeVal={(node: any) => node.size}
-        nodeRelSize={1 / RATIO}
         nodeLabel={({ label, size }: any) => `${label} (RT ${size} time${size >= 2 ? 's' : ''})`}
         /* so that if there is a retweet in both ways, we still see it correctly */
         linkDirectionalArrowRelPos={0.48}
@@ -147,21 +142,9 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
         linkWidth={({ size }: any) => Math.sqrt(size)}
         enableNodeDrag={false} /* disable node drag */
         onNodeClick={onNodeClick}
-        cooldownTicks={1} /* Need to be at least one for zoom to occur */
-        nodeCanvasObject={drawMenu}
+        onLinkClick={handleLinkClick}
         // nodeCanvasObjectMode="after"
-        /* Getter/setter for how long (ms) to render for before stopping and freezing the layout engine. */
-        // cooldownTime={
-        //   60000
-        //   60000
-        // }
-        onLinkClick={handleLinkHover}
-        onEngineStop={() => {
-          if (!zoomed) {
-            fgRef?.current?.zoomToFit(50, 100);
-            toggleZoom(true);
-          }
-        }}
+        {...additionalProps}
       />
     </div>
   );
