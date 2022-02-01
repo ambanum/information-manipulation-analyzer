@@ -1,3 +1,4 @@
+import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 
 import Alert from '../../components/Alert/Alert';
@@ -96,6 +97,18 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
                 <em>status, from, until</em>
               </Text>
             </div>
+          </Col>
+        </Row>
+      </Container>
+      <Container className="fr-mt-0">
+        <Row>
+          <Col>
+            <Breadcrumb>
+              <BreadcrumbItem href="/">Twitter</BreadcrumbItem>
+              <BreadcrumbItem href="/">Explore narratives</BreadcrumbItem>
+              <BreadcrumbItem href="/">$search</BreadcrumbItem>
+              <BreadcrumbItem>Network of interaction graph</BreadcrumbItem>
+            </Breadcrumb>
           </Col>
         </Row>
       </Container>
