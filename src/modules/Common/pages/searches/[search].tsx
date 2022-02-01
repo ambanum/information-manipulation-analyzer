@@ -12,6 +12,7 @@ import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
 import { LanguageTableProps } from 'modules/Common/components/Datatables/LanguageTable.d';
 import Layout from 'modules/Embassy/components/Layout';
+import Link from 'next/link';
 import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';
@@ -568,9 +569,9 @@ const SearchPage = ({
             </Text>
           </Col>
           <Col n="12" className="fr-col-md-4">
-            <Button title="create" href="/network-of-interactions-graph">
-              Create now
-            </Button>
+            <a href="/network-of-interactions-graph">
+              <Button title="create">Create now</Button>
+            </a>
           </Col>
         </Row>
       </Container>
