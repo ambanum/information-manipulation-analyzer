@@ -92,16 +92,6 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
 
   return (
     <Layout title="Twitter network of interaction graph">
-      <Search
-        title="On what do you want to create a network of interactions graph?"
-        baseline="Replay the propagation of a narrative over the last 7 days."
-        icon={false}
-        label="Create"
-        buttonLabel="Create"
-        placeholder="Enter a #hashtag, a keyword, a @mention, a $cashtag or a https://url"
-        onSearchSubmit={onSubmit}
-        onSearchChange={onSearchChange}
-      />
       <Container className="fr-py-12w">
         <Row gutters={true}>
           <Col>
