@@ -1,12 +1,13 @@
 import 'react-tabs/style/react-tabs.css';
 
+import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import Alert from 'modules/Common/components/Alert/Alert';
 import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
 import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
+import { Button } from '@dataesr/react-dsfr';
 import { GetSearchResponse } from '../../interfaces';
-import Graph from '../../data-components/Graph';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
 import { LanguageTableProps } from 'modules/Common/components/Datatables/LanguageTable.d';
@@ -539,16 +540,50 @@ const SearchPage = ({
         </h4>
       )}
 
+      <Container className="fr-mt-6w">
+        <Row gutters>
+          <Col>
+            <Title as="h3" look="h3">
+              Explore narrative
+            </Title>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container className="">
+        <Row>
+          <Col>
+            <Title as="h4" look="h4">
+              Network of interaction graph
+            </Title>
+          </Col>
+        </Row>
+        <Row gutters alignItems="middle">
+          <Col n="12" className="fr-col-md-8">
+            <Text size="md" className="fr-mb-0">
+              New: you now have the possibility to generate an network of interaction graph, which
+              allows you to visually explore a narrative and replay its propagation. This feature
+              allows you to explore up to 7 days back in time.
+            </Text>
+          </Col>
+          <Col n="12" className="fr-col-md-4">
+            <Button title="create" href="/network-of-interactions-graph">
+              Create now
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+
       {/* Volumetry */}
       {hasVolumetry && (
         <>
-          <div className="fr-container fr-container-fluid fr-mt-6w fr-mt-md-12w">
-            <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col">
-                <h3>Explore</h3>
-              </div>
-            </div>
-          </div>
+          <Container className="fr-mt-4w">
+            <Row>
+              <Col>
+                <hr />
+              </Col>
+            </Row>
+          </Container>
           <div className="fr-container fr-container-fluid">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
