@@ -1,4 +1,5 @@
 import 'modules/Wdyr';
+import 'modules/Embassy/styles/dsfr_old_vars.css';
 import 'modules/Embassy/styles/embassy.scss';
 import 'components/Loading/Loading.scss';
 // NProgress
