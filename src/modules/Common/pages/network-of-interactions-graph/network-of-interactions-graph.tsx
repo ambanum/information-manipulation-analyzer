@@ -1,6 +1,6 @@
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
-import Search, { SearchProps } from 'components/Search/Search';
 
+import Alert from '../../components/Alert/Alert';
 import { GetServerSideProps } from 'next';
 import GraphDetail from 'modules/NetworkGraph/components/GraphDetail';
 import Layout from 'modules/Embassy/components/Layout';
@@ -57,13 +57,6 @@ const dsfrColors = shuffle([
   '#a26859',
 ]);
 
-const onSubmit: SearchProps['onSearchSubmit'] = async (search: string) => {
-  alert(`This feature onSearchSubmit is not yet available: ${search}`);
-};
-const onSearchChange = (searchValue: string) => {
-  alert(`This feature onSearchChange is not yet available: ${searchValue}`);
-};
-
 const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
   const { queryParams, pushQueryParam } = useUrl();
   const [selected, setSelected] = React.useState<number>(selectedInUrl);
@@ -103,6 +96,17 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
                 <em>status, from, until</em>
               </Text>
             </div>
+          </Col>
+        </Row>
+      </Container>
+      <Container className="fr-mb-6w">
+        <Row>
+          <Col>
+            <Alert size="small" className="">
+              Due to the amount of data processed, the graph generation{' '}
+              <strong>can take several minutes</strong> (be patient) and this requires a{' '}
+              <strong>recent machine to be used properly</strong> (on mobile it is not feasible).
+            </Alert>
           </Col>
         </Row>
       </Container>
