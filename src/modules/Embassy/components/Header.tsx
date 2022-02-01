@@ -262,10 +262,6 @@ const Header = () => (
           link={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}
         />
         <NavSubItem
-          title="Create a network of interactions graph"
-          link={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/network-of-interactions-graph`}
-        />
-        <NavSubItem
           title="What is a bot?"
           link={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/bot-probability`}
         />
