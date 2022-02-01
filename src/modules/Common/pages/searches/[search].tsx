@@ -544,7 +544,7 @@ const SearchPage = ({
         <Row gutters>
           <Col>
             <Title as="h3" look="h3">
-              Explore narrative
+              Explore the narrative
             </Title>
           </Col>
         </Row>
@@ -553,6 +553,7 @@ const SearchPage = ({
       <Container className="">
         <Row>
           <Col>
+            <hr />
             <Title as="h4" look="h4">
               Network of interaction graph
             </Title>
