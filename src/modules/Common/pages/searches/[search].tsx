@@ -1,18 +1,16 @@
 import 'react-tabs/style/react-tabs.css';
 
+import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import Alert from 'modules/Common/components/Alert/Alert';
-import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
-import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import { Button } from '@dataesr/react-dsfr';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
 import { LanguageTableProps } from 'modules/Common/components/Datatables/LanguageTable.d';
 import Layout from 'modules/Embassy/components/Layout';
-import Link from 'next/link';
 import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';
@@ -481,21 +479,22 @@ const SearchPage = ({
       )}
 
       {/* Breadcrumb */}
-      <div className="fr-container fr-container-fluid fr-mt-0">
-        <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col">
+      <Container className="fr-mt-0">
+        <Row>
+          <Col>
             <Breadcrumb>
-              <BreadcrumbItem href="/">All searches</BreadcrumbItem>
+              <BreadcrumbItem href="/">Twitter</BreadcrumbItem>
+              <BreadcrumbItem href="/">Explore narratives</BreadcrumbItem>
               {queryParams.fromsearch && (
                 <BreadcrumbItem href={`/searches/${encodeURIComponent(queryParams.fromsearch)}`}>
                   {queryParams.fromsearch}
                 </BreadcrumbItem>
               )}
-              <BreadcrumbItem isCurrent={true}>{title}</BreadcrumbItem>
+              <BreadcrumbItem>{title}</BreadcrumbItem>
             </Breadcrumb>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
 
       {/* Overview */}
       {totalNbTweets > 0 && (
