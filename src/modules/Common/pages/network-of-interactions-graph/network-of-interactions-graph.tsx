@@ -86,20 +86,22 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
 
   return (
     <Layout title="Twitter network of interaction graph">
-      <Container className="fr-py-12w">
-        <Row gutters={true}>
-          <Col>
-            <div className="text-center">
-              <Title>search name</Title>
-            </div>
-            <div className="text-center" style={{ color: 'var(--grey-425)' }}>
-              <Text size="sm">
-                <em>status, from, until</em>
-              </Text>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <div style={{ backgroundColor: 'var(--grey-975)' }}>
+        <Container className="fr-py-12w">
+          <Row gutters={true}>
+            <Col>
+              <div className="text-center">
+                <Title>search name</Title>
+              </div>
+              <div className="text-center" style={{ color: 'var(--grey-425)' }}>
+                <Text size="sm">
+                  <em>status, from, until</em>
+                </Text>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
       <Container className="fr-mt-0">
         <Row>
           <Col>
