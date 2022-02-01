@@ -599,13 +599,7 @@ const SearchPage = ({
             }
           >
             <div className="fr-container fr-container-fluid fr-mt-6w">
-              <TabList
-                className={classNames(
-                  'fr-grid-row fr-grid-row--gutters react-tabs__tab-list',
-                  sReactTabs.tabList
-                )}
-              >
-                <Tab className={sReactTabs.tab}>Graph</Tab>
+              <TabList className={classNames('react-tabs__tab-list', sReactTabs.tabList)}>
                 <Tab className={sReactTabs.tab}>Languages</Tab>
                 <Tab className={sReactTabs.tab}>Users</Tab>
                 <Tab className={sReactTabs.tab}>Associated hashtags</Tab>
@@ -615,9 +609,6 @@ const SearchPage = ({
               </TabList>
             </div>
             <div className="fr-container fr-container-fluid">
-              <TabPanel>
-                <Graph search={search?.name} />
-              </TabPanel>
               <TabPanel>
                 <LanguageData
                   search={searchName}
