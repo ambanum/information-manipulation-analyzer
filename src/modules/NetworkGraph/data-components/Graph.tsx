@@ -1,4 +1,3 @@
-import { GetSearchGraphResponse } from '../interfaces';
 import { NetworkGraphProps } from 'modules/NetworkGraph/components/NetworkGraph.d';
 import React from 'react';
 import classNames from 'classnames';
@@ -25,7 +24,7 @@ const Graph: React.FC<GraphProps> = ({
   onClickNode,
   ...props
 }) => {
-  const { data, isValidating } = useSwr<GetSearchGraphResponse>(`/api/graph/${search}`);
+  const { data, isValidating } = useSwr(`/api/graph/${search}`);
 
   if (isValidating) {
     return (

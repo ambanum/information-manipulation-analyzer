@@ -1,28 +1,20 @@
-import * as SearchManager from '../../managers/SearchManager';
-
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { GetSearchGraphResponse } from 'modules/Common/interfaces';
 import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
 const get =
   ({ search }: { search: string }) =>
-  async (res: NextApiResponse<GetSearchGraphResponse>) => {
+  async (res: NextApiResponse) => {
     try {
-      const { graphUrl, graphMetadata, graphUpdatedAt, graphProvider } =
-        await SearchManager.getGraph({ name: search });
+      console.log(search);
 
       res.statusCode = HttpStatusCode.OK;
       // res.setHeader('Cache-Control', `max-age=${60 * 60 * 1000}`);
       res.json({
         status: 'ok',
         message: 'search, nextgraph',
-        url: graphUrl,
-        metadata: graphMetadata,
-        updatedAt: graphUpdatedAt,
-        provider: graphProvider,
       });
       return res;
     } catch (e: any) {

@@ -26,7 +26,6 @@ dayjs.extend(isSameOrAfter);
 
 interface GraphDetailProps {
   name: string;
-  imageUri?: string;
   json: NetworkGraphJson;
   colors: string[];
 }
@@ -140,7 +139,7 @@ const fixNodePositions = (
   return newData;
 };
 
-const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri }) => {
+const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const { queryParams, pushQueryParam } = useUrl();
   const [modalContent, setModalContent] = React.useState<React.ReactNode>();
@@ -241,7 +240,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors, imageUri 
           </Title>
           <div style={{ border: '1px solid var(--grey-950' }} className="fr-p-2w fr-mb-2w">
             <Text size="sm" className="fr-mb-0">
-              {node.metadata?.dates_edges?.map((dates_edge: any, index: number) => {
+              {node.metadata?.dates_edges?.map((_: any, index: number) => {
                 return (
                   <Text as="span">{dayjs(node.dates_edge?.dates[index]).format('llll')} - </Text>
                 );
