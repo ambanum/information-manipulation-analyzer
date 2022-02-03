@@ -3,6 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import Link from 'next/link';
 
 import Alert from 'modules/Common/components/Alert/Alert';
 import { Button } from '@dataesr/react-dsfr';
@@ -568,9 +569,13 @@ const SearchPage = ({
             </Text>
           </Col>
           <Col n="12" className="fr-col-md-4">
-            <a href="/network-of-interactions-graph">
-              <Button title="create">Create now</Button>
-            </a>
+            <Link
+              href={`/network-of-interactions-graph/${encodeURIComponent(searchName as string)}`}
+            >
+              <a>
+                <Button title="create">Create now</Button>
+              </a>
+            </Link>
           </Col>
         </Row>
       </Container>

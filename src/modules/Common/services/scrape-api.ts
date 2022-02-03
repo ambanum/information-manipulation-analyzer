@@ -26,9 +26,3 @@ export const getUserBotScore = async (username: string) => {
     `${PROCESSOR_API_URL}/scrape/twitter/user/${username}/botscore`
   );
 };
-
-export const getGraph = async (search: string) => {
-  console.log(`${PROCESSOR_API_URL}/graph/twitter/search/${search}`);
-
-  return axios.get<SearchGraphResponse>(`${PROCESSOR_API_URL}/graph/twitter/search/${search}`);
-};

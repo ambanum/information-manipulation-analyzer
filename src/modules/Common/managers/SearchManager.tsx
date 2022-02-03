@@ -7,8 +7,6 @@ import SearchModel, { SearchTypes } from '../models/Search';
 import TweetModel from '../models/Tweet';
 import dayjs from 'dayjs';
 import sumBy from 'lodash/fp/sumBy';
-import pick from 'lodash/fp/pick';
-import * as scrapeApi from '../services/scrape-api';
 interface SearchFilter {
   searchIds: string[];
   startDate?: string;
@@ -673,31 +671,4 @@ export const getTweets = async (filters: SearchFilter) => {
     mostQuotedTweets: await TweetModel.aggregate(sortTweetsAggregation({ quoteCount: -1 })),
     mostCommentedTweets: await TweetModel.aggregate(sortTweetsAggregation({ replyCount: -1 })),
   };
-};
-
-export const retrieveAndUpdateGraph = async (
-  name: string
-): Promise<Partial<Search> | undefined> => {
-  const { data: searchGraphData } = await scrapeApi.getGraph(name);
-
-  return searchGraphData;
-};
-
-export const getGraph = async (filter: { name: string }): Promise<Partial<Search>> => {
-  try {
-    const { name } = filter;
-    let search: Partial<Search> | null = await SearchModel.findOne(filter);
-    if (!search) {
-      throw new Error('Could not find search');
-    }
-    if (!search.graphUrl) {
-      // scrape it
-      search = (await retrieveAndUpdateGraph(name)) || search;
-    }
-
-    return pick(graphPickFields)(search);
-  } catch (e) {
-    console.error(e);
-    throw new Error('Could not find search');
-  }
 };

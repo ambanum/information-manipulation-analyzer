@@ -1,7 +1,7 @@
 import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 
-import Alert from '../../components/Alert/Alert';
+import Alert from 'modules/Common/components/Alert/Alert';
 import { GetServerSideProps } from 'next';
 import GraphDetail from 'modules/NetworkGraph/components/GraphDetail';
 import Layout from 'modules/Embassy/components/Layout';
@@ -58,7 +58,7 @@ const dsfrColors = shuffle([
   '#a26859',
 ]);
 
-const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
+const NetworkGraphDebugPage = ({ search, files, selected: selectedInUrl }: any) => {
   const { queryParams, pushQueryParam } = useUrl();
   const [selected, setSelected] = React.useState<number>(selectedInUrl);
 
@@ -91,7 +91,7 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
           <Row gutters={true}>
             <Col>
               <div className="text-center">
-                <Title>search name</Title>
+                <Title>{search}</Title>
               </div>
               <div className="text-center" style={{ color: 'var(--grey-425)' }}>
                 <Text size="sm">
@@ -106,9 +106,19 @@ const NetworkGraphDebugPage = ({ files, selected: selectedInUrl }: any) => {
         <Row>
           <Col>
             <Breadcrumb>
-              <BreadcrumbItem href="/">Twitter</BreadcrumbItem>
-              <BreadcrumbItem href="/">Explore narratives</BreadcrumbItem>
-              <BreadcrumbItem href="/">$search</BreadcrumbItem>
+              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
+                Twitter
+              </BreadcrumbItem>
+              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
+                Explore narratives
+              </BreadcrumbItem>
+              <BreadcrumbItem
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/search/${encodeURIComponent(
+                  search
+                )}`}
+              >
+                {search}
+              </BreadcrumbItem>
               <BreadcrumbItem>Network of interaction graph</BreadcrumbItem>
             </Breadcrumb>
           </Col>
@@ -203,6 +213,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     props: {
       files: validFiles,
       selected: query.selected || 1,
+      search: query.search,
     },
   };
 };

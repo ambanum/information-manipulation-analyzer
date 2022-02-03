@@ -26,7 +26,6 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   ...props
 }) => {
   const fgRef = React.useRef<ForceGraphMethods>();
-  const wrapperRef = React.useRef<HTMLDivElement>(null);
   const [show, toggleShow] = useToggle(true);
 
   // if it's needed, we need a comment
@@ -72,12 +71,13 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
     [highlightNodes, highlightLinks, setHighlightNodes, setHighlightLinks]
   );
 
-  const RATIO = 1000;
+  const RATIO = 1;
 
   const drawMenu = React.useCallback(
     (node, ctx, globalScale) => {
       const label = node.label;
       const fontSize = Math.max(12 / globalScale, 0.01);
+      // const fontSize = 12 / globalScale;
 
       ctx.font = `${fontSize}px Arial`;
       // it shouold work with the below but we have a ratio problem on the x and y generated
@@ -107,7 +107,7 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   );
 
   const additionalProps = auto
-    ? { cooldownTicks: 10000, cooldownTime: 10000 }
+    ? { cooldownTicks: 10000, cooldownTime: 10000, nodeRelSize: 4 }
     : {
         cooldownTicks: 1,
         nodeCanvasObject: drawMenu,
