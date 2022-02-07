@@ -135,14 +135,13 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
         /* so that if there is a retweet in both ways, we still see it correctly */
         linkDirectionalArrowRelPos={0.48}
         /* Diminish size of arrow every thousand node to keep readability */
-        linkDirectionalArrowLength={Math.min(1, 5 - Math.floor(graph.nodes.length / 1000)) / RATIO}
+        linkDirectionalArrowLength={Math.min(1, 5 - Math.floor(graph.nodes.length / 1000))}
         linkDirectionalArrowColor={() => '#abb8df'} /* Arrow color */
         linkAutoColorBy="color"
         // linkCurvature={0.25} /* curvature radius of the link line */
         linkLabel={({ label, size, source, target }: any) => {
           return `${source?.label} ${label} ${target?.label} (${size} time${size >= 2 ? 's' : ''})`;
         }}
-        maxZoom={1000 * RATIO}
         linkWidth={({ size }: any) => Math.sqrt(size)}
         enableNodeDrag={false} /* disable node drag */
         onNodeClick={onNodeClick}
