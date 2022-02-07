@@ -94,8 +94,7 @@ const highlightNodesAndEdges = (
     } else {
       node.active = true;
       if (colorMode === 'botscore') {
-        // @ts-ignore
-        node.color = node?.metadata?.botscore
+        node.color = !isNaN(node?.metadata?.botscore)
           ? colorGradient.getColor(node?.metadata?.botscore)
           : '#1b1b35AA';
         // for debug

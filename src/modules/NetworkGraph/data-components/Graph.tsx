@@ -1,26 +1,16 @@
 import React from 'react';
-import { NetworkGraphProps } from 'modules/NetworkGraph/components/NetworkGraph.d';
 import classNames from 'classnames';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import s from './Graph.module.css';
 import useSWR from 'swr';
-// const NetworkGraph = dynamic(() => import('modules/NetworkGraph/components/NetworkGraph'), {
-//   ssr: false,
-// });
+const GraphDetail = dynamic(() => import('modules/NetworkGraph/components/GraphDetail'), {
+  ssr: false,
+});
 import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 
 import Alert from 'modules/Common/components/Alert/Alert';
-import { GetServerSideProps } from 'next';
-import GraphDetail from 'modules/NetworkGraph/components/GraphDetail';
-import Layout from 'modules/Embassy/components/Layout';
-import { Select } from '@dataesr/react-dsfr';
-import dayjs from 'dayjs';
-import fs from 'fs';
-import path from 'path';
 import shuffle from 'lodash/fp/shuffle';
-import useUrl from 'hooks/useUrl';
-// import Graph from '../data-components/Graph';
 import Loading from 'components/Loading';
 
 const dsfrColors = shuffle([
@@ -88,25 +78,12 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
   });
   const loading = !data && isValidating;
   const json = data?.searchGraph?.result;
-  const metadata = json?.metadata || {};
   const status = data?.searchGraph?.status;
   const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
 
   React.useEffect(() => {
     setRefreshInterval(calculatedRefreshInterval);
   }, [setRefreshInterval, calculatedRefreshInterval]);
-
-  if (!loading && error) {
-    return (
-      <div className={classNames(s.noData, className)} {...props}>
-        <Alert type="error">{error.toString()}</Alert>
-      </div>
-    );
-  }
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <div className={classNames(s.wrapper, className)} {...props}>
@@ -137,7 +114,7 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                   Explore narratives
                 </BreadcrumbItem>
                 <BreadcrumbItem
-                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/search/${encodeURIComponent(
+                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${encodeURIComponent(
                     search
                   )}`}
                 >
@@ -148,20 +125,33 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
             </Col>
           </Row>
         </Container>
-        <Container className="fr-mb-6w">
-          <Row>
-            <Col>
-              <Alert size="small" className="">
-                Due to the amount of data processed, the graph generation{' '}
-                <strong>can take several minutes</strong> (be patient) and this requires a{' '}
-                <strong>recent machine to be used properly</strong> (on mobile it is not feasible).
-              </Alert>
-            </Col>
-          </Row>
-        </Container>
-        {['PENDING', 'PROCESSING'].includes(status)}
-        {status === 'DONE_ERROR' && <Alert type="error">{data?.searchGraph.error}</Alert>}
-        {status === 'DONE' && <GraphDetail colors={dsfrColors} name={search} json={json} />}
+        {!loading && error ? (
+          <div className={classNames(s.noData, className)} {...props}>
+            <Alert type="error">{error.toString()}</Alert>
+          </div>
+        ) : loading ? (
+          <Loading />
+        ) : (
+          <>
+            <Container className="fr-mb-6w">
+              <Row>
+                <Col>
+                  <Alert size="small">
+                    Due to the amount of data processed, the graph generation{' '}
+                    <strong>can take several minutes</strong> (be patient) and this requires a{' '}
+                    <strong>recent machine to be used properly</strong> (on mobile it is not
+                    feasible).
+                  </Alert>
+                </Col>
+              </Row>
+              <pre>{JSON.stringify(json?.metadata, null, 2)}</pre>
+            </Container>
+            {[undefined, 'PENDING', 'PROCESSING'].includes(status) && <Loading />}
+            {status === 'DONE_ERROR' && <Alert type="error">{data?.searchGraph.error}</Alert>}
+            {status === 'DONE' && <GraphDetail colors={dsfrColors} name={search} json={json} />}
+          </>
+        )}
+        {loading && <Loading />}
       </div>
     </div>
   );
