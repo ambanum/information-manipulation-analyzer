@@ -48,16 +48,20 @@ export interface GraphsSearchResponse {
 
 export const get = async (search: string) => {
   const { data } = await axios.get<GraphSearchResponse>(
-    `${GRAPH_API_URL}/graph-search/${encodeURIComponent(search)}`
+    `${GRAPH_API_URL}/graph-search/${encodeURIComponent(search)}`,
+    { timeout: 5000 }
   );
   return data;
 };
+
 export const create = async (search: string) => {
   const { data } = await axios.post<GraphSearchResponse>(
-    `${GRAPH_API_URL}/graph-search/${encodeURIComponent(search)}`
+    `${GRAPH_API_URL}/graph-search/${encodeURIComponent(search)}`,
+    { timeout: 5000 }
   );
   return data;
 };
+
 export const list = async () => {
   const { data } = await axios.get<GraphsSearchResponse>(`${GRAPH_API_URL}/graph-searches`);
   return data;

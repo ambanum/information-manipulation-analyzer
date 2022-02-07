@@ -9,19 +9,24 @@ const get =
   ({ search: searchQuery }: { search: string }) =>
   async (res: NextApiResponse) => {
     try {
-      const { search } = await graphApi.get(searchQuery);
+      const { search, status, message, error } = await graphApi.get(searchQuery);
 
+      if (status === 'ko') {
+        res.statusCode = HttpStatusCode.BAD_REQUEST;
+        res.json({ status, message, error });
+        return res;
+      }
       res.statusCode = HttpStatusCode.OK;
       res.json({
         status: 'ok',
         message: 'search, nextgraph',
         searchGraph: search,
       });
-      return res;
     } catch (e: any) {
       res.statusCode = HttpStatusCode.METHOD_FAILURE;
       res.json({ status: 'ko', message: e.toString() });
     }
+    return res;
   };
 
 const graph = async (req: NextApiRequest, res: NextApiResponse) => {
