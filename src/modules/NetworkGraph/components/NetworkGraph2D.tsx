@@ -26,6 +26,7 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   ...props
 }) => {
   const fgRef = React.useRef<ForceGraphMethods>();
+  const wrapperRef = React.useRef<HTMLDivElement>(null);
   const [show, toggleShow] = useToggle(true);
 
   // if it's needed, we need a comment
@@ -71,20 +72,17 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
     [highlightNodes, highlightLinks, setHighlightNodes, setHighlightLinks]
   );
 
-  const RATIO = 1;
-
   const drawMenu = React.useCallback(
     (node, ctx, globalScale) => {
       const label = node.label;
-      const fontSize = Math.max(12 / globalScale, 0.01);
-      // const fontSize = 12 / globalScale;
-
+      const fontSize = 2*(1+Math.log(node.size+1)) / globalScale;
       ctx.font = `${fontSize}px Arial`;
+
       // it shouold work with the below but we have a ratio problem on the x and y generated
-      // const textWidth = ctx.measureText(label).width * RATIO;
+      const textWidth = ctx.measureText(label).width;
       // // const textWidth = 40;
-      // const bckgDimensions = [textWidth, fontSize].map((n) => n + fontSize * 0.2);
-      let size = node.size;
+      const bckgDimensions = [textWidth, fontSize].map((n) => n + fontSize * 0.2);
+      let size = 4*(1+Math.log(node.size+1));
       if (sizeRange.max - sizeRange.min > 1000) {
         // use sqrt when difference between biggest node and smallest is too big
         size = Math.sqrt(node.size);
@@ -92,7 +90,8 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
 
       ctx.beginPath();
       ctx.globalAlpha = 0.8;
-      ctx.arc(node.fx, node.fy, size / RATIO, 0, 2 * Math.PI, false);
+      ctx.arc(node.fx, node.fy, size, 0, 2 * Math.PI, false);
+
       ctx.fillStyle = node.color;
       ctx.fill();
 
@@ -107,11 +106,10 @@ const NetworkGraphReact2D: React.FC<NetworkGraphReact2DProps> = ({
   );
 
   const additionalProps = auto
-    ? { cooldownTicks: 10000, cooldownTime: 10000, nodeRelSize: 4 }
+    ? { cooldownTicks: 10000, cooldownTime: 10000 }
     : {
         cooldownTicks: 1,
-        nodeCanvasObject: drawMenu,
-        nodeRelSize: 1 / RATIO,
+        //  nodeCanvasObject: drawMenu,
         onEngineStop: () => {
           if (!zoomed) {
             fgRef?.current?.zoomToFit(50, 100);
