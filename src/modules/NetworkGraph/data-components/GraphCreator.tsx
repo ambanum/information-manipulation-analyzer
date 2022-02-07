@@ -2,12 +2,31 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
+import { GraphSearchResponse } from '../interfaces';
+import useSWR from 'swr';
+import api from 'utils/api';
+import { useRouter } from 'next/router';
+import Loading from 'components/Loading';
+import Alert from 'modules/Common/components/Alert/Alert';
+import { useToggle } from 'react-use';
 
 type GraphCreatorProps = {
   search: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
+  const encodedSearch = encodeURIComponent(search);
+  const [creating, toggleCreating] = useToggle(false);
+  const router = useRouter();
+  const { data, isValidating } = useSWR<GraphSearchResponse>(`/api/graph/${encodedSearch}`);
+  const createGraph = async () => {
+    toggleCreating(true);
+    await api.post(`/api/graph`, { search });
+    router.push(`/network-of-interactions-graph/${encodedSearch}`);
+  };
+
+  const loading = isValidating && !data;
+
   return (
     <div {...props}>
       <Container className="">
@@ -28,11 +47,24 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
             </Text>
           </Col>
           <Col n="12" className="fr-col-md-4">
-            <Link href={`/network-of-interactions-graph/${encodeURIComponent(search)}`}>
-              <a>
-                <Button title="create">Create now</Button>
-              </a>
-            </Link>
+            {loading && <Loading size="sm" />}
+            {data?.status === 'ko' && <Alert type="error">{data.error}</Alert>}
+            {data?.status === 'ok' && (
+              <>
+                {data?.searchGraph && (
+                  <Link href={`/network-of-interactions-graph/${encodedSearch}`}>
+                    <a>
+                      <Button title="create">Explore the graph</Button>
+                    </a>
+                  </Link>
+                )}
+                {!data?.searchGraph && (
+                  <Button title="create" onClick={createGraph} disabled={creating}>
+                    {creating ? <Loading size="sm" /> : 'Create now'}
+                  </Button>
+                )}
+              </>
+            )}
           </Col>
         </Row>
       </Container>

@@ -33,16 +33,32 @@ export interface GraphSearch extends Document {
 }
 
 export interface GraphSearchResponse {
+  status: 'ok' | 'ko';
   search: GraphSearch;
+  error?: string;
+  message?: string;
 }
 
 export interface GraphsSearchResponse {
+  status: 'ok' | 'ko';
   searches: GraphSearch[];
+  error?: string;
+  message?: string;
 }
 
 export const get = async (search: string) => {
-  return axios.get<GraphSearchResponse>(`${GRAPH_API_URL}/graph-search/${search}`);
+  const { data } = await axios.get<GraphSearchResponse>(
+    `${GRAPH_API_URL}/graph-search/${encodeURIComponent(search)}`
+  );
+  return data;
+};
+export const create = async (search: string) => {
+  const { data } = await axios.post<GraphSearchResponse>(
+    `${GRAPH_API_URL}/graph-search/${encodeURIComponent(search)}`
+  );
+  return data;
 };
 export const list = async () => {
-  return axios.get<GraphsSearchResponse>(`${GRAPH_API_URL}/graph-search`);
+  const { data } = await axios.get<GraphsSearchResponse>(`${GRAPH_API_URL}/graph-searches`);
+  return data;
 };
