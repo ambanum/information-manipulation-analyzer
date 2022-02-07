@@ -3,18 +3,19 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
+import * as graphApi from '../services/graph-api';
 
 const get =
-  ({ search }: { search: string }) =>
+  ({ search: searchQuery }: { search: string }) =>
   async (res: NextApiResponse) => {
     try {
-      console.log(search);
+      const { search } = await graphApi.get(searchQuery);
 
       res.statusCode = HttpStatusCode.OK;
-      // res.setHeader('Cache-Control', `max-age=${60 * 60 * 1000}`);
       res.json({
         status: 'ok',
         message: 'search, nextgraph',
+        searchGraph: search,
       });
       return res;
     } catch (e: any) {

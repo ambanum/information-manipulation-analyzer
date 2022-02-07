@@ -1,7 +1,7 @@
 import 'react-tabs/style/react-tabs.css';
 
 import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
-import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import Alert from 'modules/Common/components/Alert/Alert';
