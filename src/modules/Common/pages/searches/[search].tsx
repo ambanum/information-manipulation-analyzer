@@ -1,10 +1,10 @@
 import 'react-tabs/style/react-tabs.css';
 
+import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import Alert from 'modules/Common/components/Alert/Alert';
-import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
-import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
 import { GetSearchResponse } from '../../interfaces';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
@@ -29,6 +29,7 @@ import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useRouter } from 'next/router';
 import useSplitSWR from 'hooks/useSplitSWR';
 import useUrl from 'hooks/useUrl';
+import GraphCreator from 'modules/NetworkGraph/data-components/GraphCreator';
 
 const ssrConfig = {
   loading: () => <Loading />,
@@ -478,21 +479,30 @@ const SearchPage = ({
       )}
 
       {/* Breadcrumb */}
-      <div className="fr-container fr-container-fluid fr-mt-0">
-        <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col">
+      <Container className="fr-mt-0">
+        <Row>
+          <Col>
             <Breadcrumb>
-              <BreadcrumbItem href="/">All searches</BreadcrumbItem>
+              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
+                Twitter
+              </BreadcrumbItem>
+              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
+                Explore narratives
+              </BreadcrumbItem>
               {queryParams.fromsearch && (
-                <BreadcrumbItem href={`/searches/${encodeURIComponent(queryParams.fromsearch)}`}>
+                <BreadcrumbItem
+                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${encodeURIComponent(
+                    queryParams.fromsearch
+                  )}`}
+                >
                   {queryParams.fromsearch}
                 </BreadcrumbItem>
               )}
-              <BreadcrumbItem isCurrent={true}>{title}</BreadcrumbItem>
+              <BreadcrumbItem>{title}</BreadcrumbItem>
             </Breadcrumb>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
 
       {/* Overview */}
       {totalNbTweets > 0 && (
@@ -538,16 +548,27 @@ const SearchPage = ({
         </h4>
       )}
 
+      <Container className="fr-mt-6w">
+        <Row gutters>
+          <Col>
+            <Title as="h3" look="h3">
+              Explore the narrative
+            </Title>
+          </Col>
+        </Row>
+      </Container>
+      <GraphCreator search={searchName} />
+
       {/* Volumetry */}
       {hasVolumetry && (
         <>
-          <div className="fr-container fr-container-fluid fr-mt-6w fr-mt-md-12w">
-            <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col">
-                <h3>Explore</h3>
-              </div>
-            </div>
-          </div>
+          <Container className="fr-mt-4w">
+            <Row>
+              <Col>
+                <hr />
+              </Col>
+            </Row>
+          </Container>
           <div className="fr-container fr-container-fluid">
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
@@ -598,12 +619,7 @@ const SearchPage = ({
             }
           >
             <div className="fr-container fr-container-fluid fr-mt-6w">
-              <TabList
-                className={classNames(
-                  'fr-grid-row fr-grid-row--gutters react-tabs__tab-list',
-                  sReactTabs.tabList
-                )}
-              >
+              <TabList className={classNames('react-tabs__tab-list', sReactTabs.tabList)}>
                 <Tab className={sReactTabs.tab}>Languages</Tab>
                 <Tab className={sReactTabs.tab}>Users</Tab>
                 <Tab className={sReactTabs.tab}>Associated hashtags</Tab>

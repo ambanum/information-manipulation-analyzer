@@ -45,6 +45,7 @@
       AUTH_JWT_SECRET: "{{ nextauth_secret if nextauth_secret is defined else '' }}"
       PROCESSOR_API_URL: "{{ api_url if api_url is defined else '' }}"
       VERSION: '{{ git_clone_result.after[:7] }}'
+      GRAPH_API_URL: "{{ graph_api_url if graph_api_url is defined else '' }}"
     ports:
       - '{{ app_port }}:3000'
 

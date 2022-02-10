@@ -7,7 +7,6 @@ import SearchModel, { SearchTypes } from '../models/Search';
 import TweetModel from '../models/Tweet';
 import dayjs from 'dayjs';
 import sumBy from 'lodash/fp/sumBy';
-
 interface SearchFilter {
   searchIds: string[];
   startDate?: string;

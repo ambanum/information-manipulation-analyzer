@@ -16,16 +16,18 @@ const useUrl = () => {
   const router = useRouter();
   // Here we do not use next router because on first request, queryParams will be empty
   // https://github.com/vercel/next.js/issues/10521
-  const queryParams: any =
-    typeof window !== 'undefined'
+  const queryParams: any = {
+    ...router.query,
+    ...(typeof window !== 'undefined'
       ? queryString.parse(window.location.search, { arrayFormat: 'bracket' })
-      : {};
+      : {}),
+  };
 
   let pathname = router.asPath.split('?')[0];
 
   const setQueryParameter = React.useCallback(
     ({ url, param, value }: IParams) => {
-      const parsed = queryString.parse(window.location.search, { arrayFormat: 'bracket' });
+      const parsed = { ...queryParams };
 
       if (value === '' || value === null || (Array.isArray(value) && value.length === 0)) {
         delete parsed[param];
@@ -58,7 +60,7 @@ const useUrl = () => {
       asUrl?: Parameters<typeof router.push>[1],
       options?: Parameters<typeof router.push>[2]
     ) => {
-      const parsed = queryString.parse(window.location.search, { arrayFormat: 'bracket' });
+      const parsed = { ...queryParams };
 
       for (const newUrlParam in newUrlParams) {
         const value: any = newUrlParams[newUrlParam];

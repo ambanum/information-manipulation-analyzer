@@ -8,7 +8,7 @@
 }
 
 .tabList > li:first-child {
-  margin-left: 0;
+  /* margin-left: 0; */
 }
 
 .tab {

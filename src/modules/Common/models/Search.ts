@@ -44,6 +44,11 @@ export interface Search extends Document {
   error?: string;
   createdAt?: string | Date;
   updatedAt?: string | Date;
+
+  graphUrl?: string;
+  graphMetadata?: any;
+  graphUpdatedAt?: string;
+  graphProvider?: string;
 }
 
 const schema = new Schema(

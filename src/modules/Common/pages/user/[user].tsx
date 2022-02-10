@@ -75,9 +75,15 @@ const UserPage = ({ user }: { user: string }) => {
         <div className="fr-grid-row fr-grid-row--gutters">
           <div className="fr-col">
             <Breadcrumb>
-              <BreadcrumbItem href="/">All hashtags</BreadcrumbItem>
+              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
+                All hashtags
+              </BreadcrumbItem>
               {queryParams.fromsearch && (
-                <BreadcrumbItem href={`/searches/${queryParams.fromsearch}`}>
+                <BreadcrumbItem
+                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${
+                    queryParams.fromsearch
+                  }`}
+                >
                   {queryParams.fromsearch}
                 </BreadcrumbItem>
               )}

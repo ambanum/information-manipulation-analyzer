@@ -1,0 +1,41 @@
+.graphWrapper {
+  position: relative;
+  border: 1px solid red;
+}
+
+.graphWrapper img {
+  max-width: 100%;
+}
+.infoCard {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: white;
+  opacity: 0.95;
+  padding: 20px;
+  width: 300px;
+  overflow-y: auto;
+}
+
+.infoCard button {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.infoCard pre {
+  font-size: 12px;
+}
+
+.graphOptions {
+  border: 1x solid red;
+  background-color: var(--grey-1000);
+  max-width: 280px;
+  padding: 1rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 1;
+}

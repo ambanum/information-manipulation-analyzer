@@ -8,6 +8,13 @@ export interface UserBotScoreResponse {
   botScoreMetadata?: any;
 }
 
+export interface SearchGraphResponse {
+  graphUrl?: string;
+  graphProvider?: string;
+  graphUpdatedAt?: string;
+  graphMetadata?: any;
+}
+
 export const getUser = async (username: string) => {
   return axios.get<{ status: 'active' | 'suspended' | 'notfound'; user?: any }>(
     `${PROCESSOR_API_URL}/scrape/twitter/user/${username}`
