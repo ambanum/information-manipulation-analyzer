@@ -176,6 +176,9 @@ export interface GetSearchOutlinksResponse extends CommonResponse {
   outlinks?: OutlinksTableProps['data'];
 }
 
-export interface GetUserResponse extends CommonResponse {
-  user: ModelUser;
+/******************************************
+ * GetSearchTweetContentsResponse
+ ******************************************/
+export interface GetSearchTweetContentsResponse extends CommonResponse {
+  tweetContents?: TweetContentTableProps['data'];
 }
