@@ -34,7 +34,7 @@ type ColorMode = 'community' | 'botscore';
 const COLOR_MODES: ColorMode[] = ['community', 'botscore'];
 
 type PositionMode = 'auto' | 'fixed';
-const POSITION_MODES: PositionMode[] = ['auto', 'fixed'];
+const POSITION_MODES: PositionMode[] = ['fixed', 'auto'];
 
 // for bot score color
 const colorGradient = new Gradient();
