@@ -22,10 +22,6 @@ const useUrl = () => {
       ? queryString.parse(window.location.search, { arrayFormat: 'bracket' })
       : {}),
   };
-  console.log(''); //eslint-disable-line
-  console.log('╔════START════════════════════════════════════════════════════'); //eslint-disable-line
-  console.log('queryParams', queryParams); //eslint-disable-line
-  console.log('╚════END══════════════════════════════════════════════════════'); //eslint-disable-line
 
   let pathname = router.asPath.split('?')[0];
 
