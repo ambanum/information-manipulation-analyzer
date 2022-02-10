@@ -483,10 +483,18 @@ const SearchPage = ({
         <Row>
           <Col>
             <Breadcrumb>
-              <BreadcrumbItem href="/">Twitter</BreadcrumbItem>
-              <BreadcrumbItem href="/">Explore narratives</BreadcrumbItem>
+              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
+                Twitter
+              </BreadcrumbItem>
+              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
+                Explore narratives
+              </BreadcrumbItem>
               {queryParams.fromsearch && (
-                <BreadcrumbItem href={`/searches/${encodeURIComponent(queryParams.fromsearch)}`}>
+                <BreadcrumbItem
+                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${encodeURIComponent(
+                    queryParams.fromsearch
+                  )}`}
+                >
                   {queryParams.fromsearch}
                 </BreadcrumbItem>
               )}
