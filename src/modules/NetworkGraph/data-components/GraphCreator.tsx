@@ -33,9 +33,9 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
       <Container className="">
         <Row>
           <Col>
-            <Callout>
-              <CalloutTitle>Network of interaction graph</CalloutTitle>
-              <CalloutText size="md">
+            <Callout colorFamily="beige-gris-galet">
+              <CalloutTitle size="lg">Network of interaction graph</CalloutTitle>
+              <CalloutText size="sm">
                 Visually explore a narrative and replay its propagation up to 7 days back.
               </CalloutText>
               {loading && <Loading size="sm" />}
