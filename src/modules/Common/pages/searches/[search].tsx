@@ -6,10 +6,12 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import Alert from 'modules/Common/components/Alert/Alert';
 import { GetSearchResponse } from '../../interfaces';
+import GraphCreator from 'modules/NetworkGraph/data-components/GraphCreator';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
 import { LanguageTableProps } from 'modules/Common/components/Datatables/LanguageTable.d';
 import Layout from 'modules/Embassy/components/Layout';
+import Link from 'next/link';
 import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';
@@ -29,7 +31,6 @@ import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useRouter } from 'next/router';
 import useSplitSWR from 'hooks/useSplitSWR';
 import useUrl from 'hooks/useUrl';
-import GraphCreator from 'modules/NetworkGraph/data-components/GraphCreator';
 
 const ssrConfig = {
   loading: () => <Loading />,
@@ -372,44 +373,40 @@ const SearchPage = ({
               background: 'var(--info)',
             }}
           />
-          <div className="fr-container fr-container--fluid fr-py-12w">
+          <div className="fr-container fr-container--fluid fr-pt-12w fr-pb-4w">
             <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col fr-p-0">
-                <h1 className="text-center ">{title}</h1>
-
+              <div className="fr-col fr-p-0 text-center">
+                <h1 className="fr-mb-0 ">{title}</h1>
                 <>
-                  {status === 'PROCESSING_PREVIOUS' && (
-                    <Loading size="sm" className="text-center fr-my-2w" />
-                  )}
-
-                  <div className="text-center fr-text--xs fr-mb-0 fr-text-color--g500">
-                    <em>
-                      {status !== 'PENDING' && status !== 'PROCESSING' ? 'Crawled' : ''}
-                      {status === 'PROCESSING_PREVIOUS' && (
-                        <>
-                          {' '}
-                          from{' '}
-                          <strong>
-                            {oldestProcessedDate
-                              ? dayjs(oldestProcessedDate).format('llll')
-                              : 'Searching...'}
-                          </strong>
-                        </>
-                      )}
-                      {newestProcessedDate && (
-                        <>
-                          {' '}
-                          until{' '}
-                          <strong>
-                            {newestProcessedDate
-                              ? dayjs(newestProcessedDate).format('llll')
-                              : 'Searching...'}
-                          </strong>
-                        </>
-                      )}
-                    </em>
-                  </div>
+                  {status === 'PROCESSING_PREVIOUS' && <Loading size="sm" className=" fr-my-2w" />}
                 </>
+                <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
+                  <em>
+                    {status !== 'PENDING' && status !== 'PROCESSING' ? 'Crawled' : ''}
+                    {status === 'PROCESSING_PREVIOUS' && (
+                      <>
+                        {' '}
+                        from{' '}
+                        <strong>
+                          {oldestProcessedDate
+                            ? dayjs(oldestProcessedDate).format('llll')
+                            : 'Searching...'}
+                        </strong>
+                      </>
+                    )}
+                    {newestProcessedDate && (
+                      <>
+                        {' '}
+                        until{' '}
+                        <strong>
+                          {newestProcessedDate
+                            ? dayjs(newestProcessedDate).format('llll')
+                            : 'Searching...'}
+                        </strong>
+                      </>
+                    )}
+                  </em>
+                </div>
               </div>
             </div>
           </div>
@@ -422,56 +419,6 @@ const SearchPage = ({
               <Alert size="small" type="info" className="fr-mb-2w">
                 As there is a large quantity of data, please wait for it to load completely (
                 {nbLoaded}/{nbToLoad}).
-              </Alert>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {(gatheringData || router.isFallback) && <Loading />}
-
-      {status === 'PENDING' && (
-        <div className="fr-container fr-container-fluid fr-mt-4w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <Alert size="small" type="info" className="fr-mb-2w">
-                Your request is in the queue and will begin shortly.
-              </Alert>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {status === 'PROCESSING' && (
-        <div className="fr-container fr-container-fluid fr-mt-4w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <Alert size="small" type="info" className="fr-mb-2w">
-                Data is being extracted from twitter, please be patient.
-              </Alert>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {status === 'DONE_ERROR' && (
-        <div className="fr-container fr-container-fluid fr-mt-4w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <Alert size="small" type="error" className="fr-mb-2w">
-                An error occured and processing stopped, please contact the administrator if you
-                need more data on this hashtag.
-              </Alert>
-            </div>
-          </div>
-        </div>
-      )}
-      {error && (
-        <div className="fr-container fr-container-fluid fr-mt-4w">
-          <div className="fr-grid-row fr-grid-row--gutters">
-            <div className="fr-col">
-              <Alert size="small" type="error" className="fr-mb-2w">
-                {error}
               </Alert>
             </div>
           </div>
@@ -506,7 +453,7 @@ const SearchPage = ({
 
       {/* Overview */}
       {totalNbTweets > 0 && (
-        <Overview searchName={searchName}>
+        <Overview searchName={searchName} className="fr-pb-4w">
           <div className="fr-col">
             <Tile
               title={firstOccurenceDate ? dayjs(firstOccurenceDate).format('lll') : 'Searching...'}
@@ -542,45 +489,63 @@ const SearchPage = ({
         </Overview>
       )}
 
-      {totalNbTweets === 0 && status === 'DONE' && (
-        <h4 className="text-center fr-mb-12w fr-text-color--os500">
-          Sorry, we did not found any data for this
-        </h4>
-      )}
+      {hasVolumetry && <GraphCreator search={searchName} className="fr-pb-4w" />}
 
-      <Container className="fr-mt-6w">
-        <Row gutters>
-          <Col>
-            <Title as="h3" look="h3">
-              Explore the narrative
-            </Title>
+      <Container>
+        {hasVolumetry && (
+          <Row gutters>
+            <Col>
+              <Title as="h3" look="h3" className="fr-mb-1w">
+                Volumetry
+              </Title>
+              <p className="fr-mb-0">
+                <strong>{nbTweets === undefined ? '-' : humanize(nbTweets)}</strong> tweets,{' '}
+                <strong>{humanize(nbRetweets)}</strong> retweets,{' '}
+                <strong>{humanize(nbLikes)}</strong> likes, <strong>{humanize(nbQuotes)}</strong>{' '}
+                quotes, <strong>{humanize(nbReplies)}</strong> replies
+              </p>
+            </Col>
+          </Row>
+        )}
+        <Row className="fr-mt-4w">
+          <Col>{(gatheringData || router.isFallback) && <Loading />}</Col>
+        </Row>
+        <Row className="fr-mt-2w fr-mb-8w" justifyContent="center" gutters>
+          <Col n="6">
+            {status === 'PENDING' && (
+              <Alert size="small" type="info" className="fr-mb-2w">
+                Your request is in the queue and will begin shortly.
+              </Alert>
+            )}
+            {status === 'PROCESSING' && (
+              <Alert size="small" type="info" className="fr-mb-2w">
+                Data is being extracted from twitter, please be patient.
+              </Alert>
+            )}
+            {status === 'DONE_ERROR' && (
+              <Alert size="small" type="error" className="fr-mb-2w">
+                An error occured and processing stopped, please contact the administrator if you
+                need more data on this hashtag.
+              </Alert>
+            )}
+            {error && (
+              <Alert size="small" type="error" className="fr-mb-2w">
+                {error}
+              </Alert>
+            )}
+            {totalNbTweets === 0 && status === 'DONE' && (
+              <h4 className="text-center fr-mb-12w fr-text-color--os500">
+                Sorry, we did not found any data for this
+              </h4>
+            )}
           </Col>
         </Row>
       </Container>
-      <GraphCreator search={searchName} />
 
       {/* Volumetry */}
       {hasVolumetry && (
         <>
-          <Container className="fr-mt-4w">
-            <Row>
-              <Col>
-                <hr />
-              </Col>
-            </Row>
-          </Container>
           <div className="fr-container fr-container-fluid">
-            <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col">
-                <h4 className="fr-mb-1v">Volumetry</h4>
-                <p className="fr-mb-0">
-                  <strong>{nbTweets === undefined ? '-' : humanize(nbTweets)}</strong> tweets,{' '}
-                  <strong>{humanize(nbRetweets)}</strong> retweets,{' '}
-                  <strong>{humanize(nbLikes)}</strong> likes, <strong>{humanize(nbQuotes)}</strong>{' '}
-                  quotes, <strong>{humanize(nbReplies)}</strong> replies
-                </p>
-              </div>
-            </div>
             <div className="fr-grid-row fr-grid-row--gutters">
               <div className="fr-col">
                 <VolumetryGraph
