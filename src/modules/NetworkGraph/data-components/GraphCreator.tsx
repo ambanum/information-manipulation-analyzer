@@ -36,9 +36,7 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
             <Callout>
               <CalloutTitle>Network of interaction graph</CalloutTitle>
               <CalloutText size="md">
-                You now have the possibility to generate an network of interaction graph, which
-                allows you to visually explore a narrative and replay its propagation. This feature
-                allows you to explore up to 7 days back in time.
+                Visually explore a narrative and replay its propagation up to 7 days back.
               </CalloutText>
               {loading && <Loading size="sm" />}
               {data?.status === 'ko' && <Alert type="error">{data.error}</Alert>}
