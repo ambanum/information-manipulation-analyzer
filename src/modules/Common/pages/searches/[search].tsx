@@ -434,7 +434,7 @@ const SearchPage = ({
                 Twitter
               </BreadcrumbItem>
               <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                Explore narratives
+                Explore narrativesHide
               </BreadcrumbItem>
               {queryParams.fromsearch && (
                 <BreadcrumbItem
@@ -450,6 +450,8 @@ const SearchPage = ({
           </Col>
         </Row>
       </Container>
+
+      {hasVolumetry && <GraphCreator search={searchName} className="fr-pb-4w" />}
 
       {/* Overview */}
       {totalNbTweets > 0 && (
@@ -489,13 +491,11 @@ const SearchPage = ({
         </Overview>
       )}
 
-      {hasVolumetry && <GraphCreator search={searchName} className="fr-pb-4w" />}
-
       <Container>
         {hasVolumetry && (
-          <Row gutters>
+          <Row gutters className="fr-mt-2w">
             <Col>
-              <Title as="h3" look="h3" className="fr-mb-1w">
+              <Title as="h4" look="h4" className="fr-mb-1w">
                 Volumetry
               </Title>
               <p className="fr-mb-0">
@@ -507,47 +507,67 @@ const SearchPage = ({
             </Col>
           </Row>
         )}
-        <Row className="fr-mt-4w">
-          <Col>{(gatheringData || router.isFallback) && <Loading />}</Col>
-        </Row>
-        <Row className="fr-mt-2w fr-mb-8w" justifyContent="center" gutters>
-          <Col n="6">
-            {status === 'PENDING' && (
+        {(gatheringData || router.isFallback) && (
+          <Row className="fr-mt-4w">
+            <Col>
+              <Loading />
+            </Col>
+          </Row>
+        )}
+        {status === 'PENDING' && (
+          <Row className="fr-mt-2w fr-mb-8w" justifyContent="center" gutters>
+            <Col n="6">
               <Alert size="small" type="info" className="fr-mb-2w">
                 Your request is in the queue and will begin shortly.
               </Alert>
-            )}
-            {status === 'PROCESSING' && (
+            </Col>
+          </Row>
+        )}
+        {status === 'PROCESSING' && (
+          <Row className="fr-mt-2w fr-mb-8w" justifyContent="center" gutters>
+            <Col n="6">
               <Alert size="small" type="info" className="fr-mb-2w">
                 Data is being extracted from twitter, please be patient.
               </Alert>
-            )}
-            {status === 'DONE_ERROR' && (
+            </Col>
+          </Row>
+        )}
+        {status === 'DONE_ERROR' && (
+          <Row className="fr-mt-2w fr-mb-8w" justifyContent="center" gutters>
+            <Col n="6">
               <Alert size="small" type="error" className="fr-mb-2w">
                 An error occured and processing stopped, please contact the administrator if you
                 need more data on this hashtag.
               </Alert>
-            )}
-            {error && (
+            </Col>
+          </Row>
+        )}
+        {error && (
+          <Row className="fr-mt-2w fr-mb-8w" justifyContent="center" gutters>
+            <Col n="6">
               <Alert size="small" type="error" className="fr-mb-2w">
                 {error}
               </Alert>
-            )}
-            {totalNbTweets === 0 && status === 'DONE' && (
+            </Col>
+          </Row>
+        )}
+        {totalNbTweets === 0 && status === 'DONE' && (
+          <Row className="fr-mt-2w fr-mb-8w" justifyContent="center" gutters>
+            <Col n="6">
               <h4 className="text-center fr-mb-12w fr-text-color--os500">
                 Sorry, we did not found any data for this
               </h4>
-            )}
-          </Col>
-        </Row>
+            </Col>
+          </Row>
+        )}
       </Container>
 
       {/* Volumetry */}
       {hasVolumetry && (
         <>
-          <div className="fr-container fr-container-fluid">
-            <div className="fr-grid-row fr-grid-row--gutters">
-              <div className="fr-col">
+          <Container>
+            <Row gutters>
+              <Col>
                 <VolumetryGraph
                   data={volumetry}
                   min={queryParams.min}
@@ -555,9 +575,9 @@ const SearchPage = ({
                   onPointClick={onLineClick}
                   onFilterDateChange={onFilterDateChange}
                 />
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Container>
 
           <UrlFilters />
 
@@ -582,6 +602,7 @@ const SearchPage = ({
                 return pushQueryParam('tabIndex', undefined, options)(tabIndex);
               }) as any
             }
+            className="fr-mb-8w"
           >
             <div className="fr-container fr-container-fluid fr-mt-6w">
               <TabList className={classNames('react-tabs__tab-list', sReactTabs.tabList)}>
