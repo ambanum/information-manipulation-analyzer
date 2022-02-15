@@ -2,7 +2,7 @@ import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 
 import Alert from 'modules/Common/components/Alert/Alert';
-import Link from 'next/Link';
+import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
 import classNames from 'classnames';
