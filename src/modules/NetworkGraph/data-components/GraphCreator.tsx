@@ -73,13 +73,9 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
                 {!creating && data?.searchGraph?.createdAt && (
                   <>
                     <Link href={`/network-of-interactions-graph/${encodedSearch}`}>
-                      <LinkDSFR
-                        icon="fr-fi-arrow-right-line f"
-                        iconPosition="right"
-                        title="View the graph"
-                      >
+                      <a className="fr-link fr-fi-arrow-right-line fr-link--icon-right">
                         View the graph
-                      </LinkDSFR>
+                      </a>
                     </Link>
                     <Text size="sm">
                       Created the {dayjs(data.searchGraph.createdAt).format('llll')}
