@@ -378,7 +378,9 @@ const SearchPage = ({
               <div className="fr-col fr-p-0 text-center">
                 <h1 className="fr-mb-0 ">{title}</h1>
                 <>
-                  {status === 'PROCESSING_PREVIOUS' && <Loading size="sm" className=" fr-my-2w" />}
+                  {status === 'PROCESSING_PREVIOUS' && (
+                    <Loading size="sm" showMessage={false} className=" fr-my-2w" />
+                  )}
                 </>
                 <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
                   <em>
@@ -434,7 +436,7 @@ const SearchPage = ({
                 Twitter
               </BreadcrumbItem>
               <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                Explore narrativesHide
+                Explore narrative
               </BreadcrumbItem>
               {queryParams.fromsearch && (
                 <BreadcrumbItem
@@ -450,8 +452,6 @@ const SearchPage = ({
           </Col>
         </Row>
       </Container>
-
-      {hasVolumetry && <GraphCreator search={searchName} className="fr-pb-4w" />}
 
       {/* Overview */}
       {totalNbTweets > 0 && (
@@ -491,21 +491,25 @@ const SearchPage = ({
         </Overview>
       )}
 
+      {hasVolumetry && <GraphCreator search={searchName} />}
+
       <Container>
         {hasVolumetry && (
-          <Row gutters className="fr-mt-2w">
-            <Col>
-              <Title as="h4" look="h4" className="fr-mb-1w">
-                Volumetry
-              </Title>
-              <p className="fr-mb-0">
-                <strong>{nbTweets === undefined ? '-' : humanize(nbTweets)}</strong> tweets,{' '}
-                <strong>{humanize(nbRetweets)}</strong> retweets,{' '}
-                <strong>{humanize(nbLikes)}</strong> likes, <strong>{humanize(nbQuotes)}</strong>{' '}
-                quotes, <strong>{humanize(nbReplies)}</strong> replies
-              </p>
-            </Col>
-          </Row>
+          <>
+            <Row gutters className="">
+              <Col>
+                <Title as="h4" look="h4" className="fr-mb-1w">
+                  Volumetry
+                </Title>
+                <p className="fr-mb-0">
+                  <strong>{nbTweets === undefined ? '-' : humanize(nbTweets)}</strong> tweets,{' '}
+                  <strong>{humanize(nbRetweets)}</strong> retweets,{' '}
+                  <strong>{humanize(nbLikes)}</strong> likes, <strong>{humanize(nbQuotes)}</strong>{' '}
+                  quotes, <strong>{humanize(nbReplies)}</strong> replies
+                </p>
+              </Col>
+            </Row>
+          </>
         )}
         {(gatheringData || router.isFallback) && (
           <Row className="fr-mt-4w">
@@ -554,9 +558,9 @@ const SearchPage = ({
         {totalNbTweets === 0 && status === 'DONE' && (
           <Row className="fr-mt-2w fr-mb-8w" justifyContent="center" gutters>
             <Col n="6">
-              <h4 className="text-center fr-mb-12w fr-text-color--os500">
-                Sorry, we did not found any data for this
-              </h4>
+              <Alert size="small" type="error" className="fr-mb-2w">
+                Sorry, we did not found any data for <strong>{searchName}</strong>
+              </Alert>
             </Col>
           </Row>
         )}

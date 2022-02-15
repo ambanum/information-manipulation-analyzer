@@ -1,10 +1,23 @@
 import React from 'react';
 
-const Loading = ({ size, className }: { size?: 'sm'; className?: string }) => {
+const Loading = ({
+  size,
+  className,
+  message = 'Loading...',
+  showMessage = true,
+}: {
+  size?: 'sm';
+  className?: string;
+  message?: string;
+  showMessage?: boolean;
+}) => {
   if (size === 'sm') {
     return (
       <div className={`loading--sm ${className || ''}`}>
         <div className="spinner-icon"></div>
+        {message && showMessage && (
+          <div className="fr-text--sm text-center msgsmall">{message}</div>
+        )}
       </div>
     );
   }
@@ -30,7 +43,7 @@ const Loading = ({ size, className }: { size?: 'sm'; className?: string }) => {
         </div>
       </div>
       <div className="hex"></div>
-      <div className="fr-text--sm text-center msg">Loading...</div>
+      {message && showMessage && <div className="fr-text--sm text-center msg">{message}</div>}
     </section>
   );
 };

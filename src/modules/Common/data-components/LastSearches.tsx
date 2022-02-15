@@ -36,7 +36,7 @@ const TagsList = ({ searches }: { searches: Search[]; keyIndex?: number }) => {
               {loading ? (
                 <a className="fr-tag fr-m-1v">
                   {search.name}
-                  <Loading size="sm" className="fr-ml-2v" />
+                  <Loading size="sm" showMessage={false} className="fr-ml-2v" />
                 </a>
               ) : search.status === 'DONE_ERROR' ? (
                 <a
@@ -93,7 +93,7 @@ const UrlsList = ({ searches }: { searches: Search[] }) => {
               {loading ? (
                 <a className="fr-tag fr-m-1v">
                   {title}
-                  <Loading size="sm" className="fr-ml-2v" />
+                  <Loading size="sm" showMessage={false} className="fr-ml-2v" />
                 </a>
               ) : search.status === 'DONE_ERROR' ? (
                 <a
@@ -144,7 +144,7 @@ const LastSearches = ({
   return (
     <div {...props}>
       {filter && (
-        <Alert size="small" className="fr-mt-2w">
+        <Alert size="small" className="fr-my-4w">
           All searches containing <strong>{filter}</strong>
         </Alert>
       )}

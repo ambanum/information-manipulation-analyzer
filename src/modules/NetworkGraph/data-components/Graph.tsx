@@ -1,17 +1,18 @@
-import React from 'react';
-import classNames from 'classnames';
-import dynamic from 'next/dynamic';
-import s from './Graph.module.css';
-import useSWR from 'swr';
-const GraphDetail = dynamic(() => import('modules/NetworkGraph/components/GraphDetail'), {
-  ssr: false,
-});
 import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 
 import Alert from 'modules/Common/components/Alert/Alert';
-import shuffle from 'lodash/fp/shuffle';
 import Loading from 'components/Loading';
+import React from 'react';
+import classNames from 'classnames';
+import dynamic from 'next/dynamic';
+import s from './Graph.module.css';
+import shuffle from 'lodash/fp/shuffle';
+import useSWR from 'swr';
+const GraphDetail = dynamic(() => import('modules/NetworkGraph/components/GraphDetail'), {
+  ssr: false,
+});
+
 
 const dsfrColors = shuffle([
   '#91ae4f',
@@ -97,7 +98,7 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
               <div className="text-center" style={{ color: 'var(--grey-425)' }}>
                 <Text size="sm">
                   <em>{status === 'PROCESSING' && <p>Data is being gathered</p>}</em>
-                  {/* <em>{status === 'PENDING' && <Loading size="sm" />}</em> */}
+                  {/* <em>{status === 'PENDING' && <Loading size="sm" showMessage={false} />}</em> */}
                 </Text>
               </div>
             </Col>
