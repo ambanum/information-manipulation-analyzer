@@ -46,9 +46,6 @@ const HomePage = () => {
       <Container>
         <Row>
           <Col>
-            <Alert size="small" close={true} autoCloseDelay={7000} className="fr-mt-4w">
-              For transparency purposes, the search history is displayed below.
-            </Alert>
             <LastSearches filter={filter} />
           </Col>
         </Row>

@@ -22,7 +22,7 @@ const Overview: React.FC<OverviewProps> = ({ children, className, searchName, ..
         )}
       >
         <div className="fr-col-12 fr-col-sm-6">
-          <h3>Overview</h3>
+          <h3>Narrative overview</h3>
         </div>
         <div className={classNames('fr-col-12 fr-col-sm-6', s.overviewHeader_externalLink)}>
           <Link href={getTwitterLink(`${searchName}`, {})}>
