@@ -237,7 +237,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
           <Title as="h6" look="h6">
             Edges: {node.metadata?.dates_edges?.length}
           </Title>
-          <div style={{ border: '1px solid var(--grey-950' }} className="fr-p-2w fr-mb-2w">
+          {/* <div style={{ border: '1px solid var(--grey-950' }} className="fr-p-2w fr-mb-2w">
             <Text size="sm" className="fr-mb-0">
               {node.metadata?.dates_edges?.map((_: any, index: number) => {
                 return (
@@ -245,7 +245,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
                 );
               })}
             </Text>
-          </div>
+          </div> */}
           <Title as="h6" look="h6">
             Retweets: {node.metadata?.retweets?.length}
           </Title>
