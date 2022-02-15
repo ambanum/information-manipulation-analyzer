@@ -2,6 +2,7 @@ import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 
 import Alert from 'modules/Common/components/Alert/Alert';
+import Link from 'next/Link';
 import Loading from 'components/Loading';
 import React from 'react';
 import classNames from 'classnames';
@@ -142,7 +143,10 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                   Due to the amount of data processed, the graph generation{' '}
                   <strong>can take several minutes</strong> (be patient) and this requires a{' '}
                   <strong>recent machine to be used properly</strong> (on mobile it is not
-                  feasible).
+                  feasible). To learn more about how we generate this graph{' '}
+                  <Link href="https://github.com/ambanum/social-networks-graph-generator/blob/main/explanation.md">
+                    <a target="_blank">read the explanation here.</a>
+                  </Link>
                 </Alert>
               </Col>
             </Row>
