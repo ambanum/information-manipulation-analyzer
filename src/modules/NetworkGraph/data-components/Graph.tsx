@@ -9,10 +9,10 @@ import dynamic from 'next/dynamic';
 import s from './Graph.module.css';
 import shuffle from 'lodash/fp/shuffle';
 import useSWR from 'swr';
+
 const GraphDetail = dynamic(() => import('modules/NetworkGraph/components/GraphDetail'), {
   ssr: false,
 });
-
 
 const dsfrColors = shuffle([
   '#91ae4f',
@@ -104,56 +104,55 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
             </Col>
           </Row>
         </Container>
-        <Container className="fr-mt-0">
-          <Row>
-            <Col>
-              <Breadcrumb>
-                <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                  Twitter
-                </BreadcrumbItem>
-                <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                  Explore narratives
-                </BreadcrumbItem>
-                <BreadcrumbItem
-                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${encodeURIComponent(
-                    search
-                  )}`}
-                >
-                  {search}
-                </BreadcrumbItem>
-                <BreadcrumbItem>Network of interaction graph</BreadcrumbItem>
-              </Breadcrumb>
-            </Col>
-          </Row>
-        </Container>
-        {!loading && error ? (
-          <div className={classNames(s.noData, className)} {...props}>
-            <Alert type="error">{error.toString()}</Alert>
-          </div>
-        ) : loading ? (
-          <Loading />
-        ) : (
-          <>
-            <Container className="fr-mb-6w">
-              <Row>
-                <Col>
-                  <Alert size="small">
-                    Due to the amount of data processed, the graph generation{' '}
-                    <strong>can take several minutes</strong> (be patient) and this requires a{' '}
-                    <strong>recent machine to be used properly</strong> (on mobile it is not
-                    feasible).
-                  </Alert>
-                </Col>
-              </Row>
-              <pre>{JSON.stringify(json?.metadata, null, 2)}</pre>
-            </Container>
-            {[undefined, 'PENDING', 'PROCESSING'].includes(status) && <Loading />}
-            {status === 'DONE_ERROR' && <Alert type="error">{data?.searchGraph.error}</Alert>}
-            {status === 'DONE' && <GraphDetail colors={dsfrColors} name={search} json={json} />}
-          </>
-        )}
-        {loading && <Loading />}
       </div>
+      <Container className="fr-mt-0">
+        <Row>
+          <Col>
+            <Breadcrumb>
+              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
+                Twitter
+              </BreadcrumbItem>
+              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
+                Explore narratives
+              </BreadcrumbItem>
+              <BreadcrumbItem
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${encodeURIComponent(
+                  search
+                )}`}
+              >
+                {search}
+              </BreadcrumbItem>
+              <BreadcrumbItem>Network of interaction graph</BreadcrumbItem>
+            </Breadcrumb>
+          </Col>
+        </Row>
+      </Container>
+      {!loading && error ? (
+        <div className={classNames(s.noData, className)} {...props}>
+          <Alert type="error">{error.toString()}</Alert>
+        </div>
+      ) : loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Container className="fr-mb-6w">
+            <Row>
+              <Col>
+                <Alert size="small">
+                  Due to the amount of data processed, the graph generation{' '}
+                  <strong>can take several minutes</strong> (be patient) and this requires a{' '}
+                  <strong>recent machine to be used properly</strong> (on mobile it is not
+                  feasible).
+                </Alert>
+              </Col>
+            </Row>
+          </Container>
+          {[undefined, 'PENDING', 'PROCESSING'].includes(status) && <Loading />}
+          {status === 'DONE_ERROR' && <Alert type="error">{data?.searchGraph.error}</Alert>}
+          {status === 'DONE' && <GraphDetail colors={dsfrColors} name={search} json={json} />}
+        </>
+      )}
+      {loading && <Loading />}
     </div>
   );
 };
