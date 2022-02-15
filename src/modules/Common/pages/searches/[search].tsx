@@ -11,7 +11,6 @@ import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
 import Hero from 'modules/Common/components/Hero/Hero';
 import { LanguageTableProps } from 'modules/Common/components/Datatables/LanguageTable.d';
 import Layout from 'modules/Embassy/components/Layout';
-import Link from 'next/link';
 import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';

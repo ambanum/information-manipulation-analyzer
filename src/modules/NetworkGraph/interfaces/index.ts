@@ -10,7 +10,7 @@ export interface CommonResponse {
 }
 
 export interface CommonError {
-  status: 'ko';
+  status: 'ok' | 'ko';
   error?: string;
   message?: string;
 }
@@ -25,7 +25,7 @@ export type GraphSearchResponse =
       searchGraph: GraphSearch;
       message?: string;
     }
-  | CommonError;
+  | (CommonError & { searchGraph?: undefined });
 
 export type GraphsSearchResponse =
   | {

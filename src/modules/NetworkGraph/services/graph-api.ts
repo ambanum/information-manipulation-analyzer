@@ -30,6 +30,7 @@ export interface GraphSearch extends Document {
     url: any;
   };
   error?: string;
+  createdAt?: string;
 }
 
 export interface GraphSearchResponse {
