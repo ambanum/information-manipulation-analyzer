@@ -1,5 +1,5 @@
 import { Callout, CalloutText, CalloutTitle } from '@dataesr/react-dsfr';
-import { Col, Container, Link as LinkDSFR, Row, Text, Title } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
 
 import Alert from 'modules/Common/components/Alert/Alert';
 import { Button } from '@dataesr/react-dsfr';
@@ -22,15 +22,13 @@ type GraphCreatorProps = {
 const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
   const encodedSearch = encodeURIComponent(search);
   const [creating, toggleCreating] = useToggle(false);
-  const { data, isValidating, mutate } = useSWR<GraphSearchResponse>(`/api/graph/${encodedSearch}`);
+  const { data, mutate } = useSWR<GraphSearchResponse>(`/api/graph/${encodedSearch}`);
   const createGraph = async () => {
     toggleCreating(true);
     await api.post(`/api/graph`, { search });
     // @ts-ignore
     mutate(`/api/graph/${encodedSearch}`);
   };
-
-  const loading = isValidating && !data;
 
   return (
     <div {...props}>

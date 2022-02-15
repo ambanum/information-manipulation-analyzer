@@ -1,7 +1,6 @@
 import { Col, Container, Row } from '@dataesr/react-dsfr';
 import Search, { SearchProps } from 'components/Search/Search';
 
-import Alert from '../components/Alert/Alert';
 import { CreateSearchResponse } from 'modules/Common/interfaces';
 import LastSearches from '../data-components/LastSearches';
 import Layout from 'modules/Embassy/components/Layout';
