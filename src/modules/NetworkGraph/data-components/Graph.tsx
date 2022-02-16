@@ -151,11 +151,11 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
               </Col>
             </Row>
           </Container>
-          {[undefined, 'PENDING', 'PROCESSING'].includes(status) && (
-            <Loading message="Loading..." />
-          )}
+          {[undefined, 'PENDING'].includes(status) && <Loading message="Loading..." />}
           {status === 'DONE_ERROR' && <Alert type="error">{data?.searchGraph.error}</Alert>}
-          {status === 'DONE' && <GraphDetail colors={dsfrColors} name={search} json={json} />}
+          {['DONE', 'PROCESSING'].includes(status) && (
+            <GraphDetail colors={dsfrColors} name={search} json={json} />
+          )}
         </>
       )}
       {loading && <Loading message="Loading..." />}
