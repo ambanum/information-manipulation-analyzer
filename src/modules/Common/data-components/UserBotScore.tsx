@@ -20,7 +20,7 @@ const UserBotScore: React.FC<UserBotScoreProps> = React.memo(
     if (isValidating) {
       return (
         <div {...props}>
-          <Loading size="sm" showMessage={false} />
+          <Loading size="sm" />
         </div>
       );
     }

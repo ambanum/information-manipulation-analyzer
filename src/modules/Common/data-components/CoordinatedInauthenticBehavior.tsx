@@ -40,7 +40,7 @@ const DataCoordinatedInauthenticBehavior = ({
           Due to the big amount of data, this table may take some time to display. Please be
           patient.
         </Alert>
-        <Loading />
+        <Loading message="Loading..." />
       </>
     );
   }

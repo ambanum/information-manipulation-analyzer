@@ -36,7 +36,7 @@ const TagsList = ({ searches }: { searches: Search[]; keyIndex?: number }) => {
               {loading ? (
                 <a className="fr-tag fr-m-1v">
                   {search.name}
-                  <Loading size="sm" showMessage={false} className="fr-ml-2v" />
+                  <Loading size="sm" className="fr-ml-2v" />
                 </a>
               ) : search.status === 'DONE_ERROR' ? (
                 <a
@@ -93,7 +93,7 @@ const UrlsList = ({ searches }: { searches: Search[] }) => {
               {loading ? (
                 <a className="fr-tag fr-m-1v">
                   {title}
-                  <Loading size="sm" showMessage={false} className="fr-ml-2v" />
+                  <Loading size="sm" className="fr-ml-2v" />
                 </a>
               ) : search.status === 'DONE_ERROR' ? (
                 <a
@@ -126,7 +126,7 @@ const LastSearches = ({
   const { data } = useSwr<GetSearchesResponse>('/api/searches', { refreshInterval: 1000 * 1 * 60 });
 
   if (!data) {
-    return <Loading />;
+    return <Loading message="Loading..." />;
   }
 
   const searches = data?.searches || [];

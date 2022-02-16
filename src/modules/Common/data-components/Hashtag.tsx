@@ -35,7 +35,7 @@ const DataHashtag = ({
     }
   );
   if (isValidating || !data) {
-    return <Loading />;
+    return <Loading message="Loading..." />;
   }
   const hashtags = data?.hashtags || [];
 

@@ -20,7 +20,7 @@ const DataPhotos = ({ search, queryParamsStringified = '', exportName }: DataPho
   );
 
   if (!data) {
-    return <Loading />;
+    return <Loading message="Loading..." />;
   }
 
   const photos = data?.photos || [];

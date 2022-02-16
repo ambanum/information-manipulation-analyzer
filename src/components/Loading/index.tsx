@@ -3,21 +3,17 @@ import React from 'react';
 const Loading = ({
   size,
   className,
-  message = 'Loading...',
-  showMessage = true,
+  message,
 }: {
   size?: 'sm';
   className?: string;
   message?: string;
-  showMessage?: boolean;
 }) => {
   if (size === 'sm') {
     return (
       <div className={`loading--sm ${className || ''}`}>
         <div className="spinner-icon"></div>
-        {message && showMessage && (
-          <div className="fr-text--sm text-center msgsmall">{message}</div>
-        )}
+        {message && <div className="fr-text--sm text-center msgsmall">{message}</div>}
       </div>
     );
   }
@@ -43,7 +39,7 @@ const Loading = ({
         </div>
       </div>
       <div className="hex"></div>
-      {message && showMessage && <div className="fr-text--sm text-center msg">{message}</div>}
+      {message && <div className="fr-text--sm text-center msg">{message}</div>}
     </section>
   );
 };

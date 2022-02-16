@@ -20,7 +20,7 @@ const DataVideos = ({ search, queryParamsStringified = '', exportName }: DataVid
   );
 
   if (!data) {
-    return <Loading />;
+    return <Loading message="Loading..." />;
   }
 
   const videos = data?.videos || [];

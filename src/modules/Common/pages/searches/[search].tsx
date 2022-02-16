@@ -32,7 +32,7 @@ import useSplitSWR from 'hooks/useSplitSWR';
 import useUrl from 'hooks/useUrl';
 
 const ssrConfig = {
-  loading: () => <Loading />,
+  loading: () => <Loading message="Loading..." />,
   ssr: false,
 };
 
@@ -377,9 +377,7 @@ const SearchPage = ({
               <div className="fr-col fr-p-0 text-center">
                 <h1 className="fr-mb-0 ">{title}</h1>
                 <>
-                  {status === 'PROCESSING_PREVIOUS' && (
-                    <Loading size="sm" showMessage={false} className=" fr-my-2w" />
-                  )}
+                  {status === 'PROCESSING_PREVIOUS' && <Loading size="sm" className=" fr-my-2w" />}
                 </>
                 <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
                   <em>
@@ -513,7 +511,7 @@ const SearchPage = ({
         {(gatheringData || router.isFallback) && (
           <Row className="fr-mt-4w">
             <Col>
-              <Loading />
+              <Loading message="Loading..." />
             </Col>
           </Row>
         )}
