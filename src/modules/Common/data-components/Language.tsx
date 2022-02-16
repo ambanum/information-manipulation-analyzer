@@ -35,7 +35,7 @@ const DataLanguage = ({
   );
 
   if (!data) {
-    return <Loading />;
+    return <Loading message="Loading..." />;
   }
 
   const languages = data?.languages || [];

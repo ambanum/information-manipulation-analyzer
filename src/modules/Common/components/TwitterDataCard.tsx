@@ -42,7 +42,7 @@ const TwitterDataCard: React.FC<TwitterDataCardProps> = React.memo(
             <IconUser aria-label="Created" color="#9C9C9C" />
           </div>
           {image && <img src={image} width="40" height="40" className={s.imageWrapper_img} />}
-          {loading && <Loading size="sm" showMessage={false} className={s.imageWrapper_loading} />}
+          {loading && <Loading size="sm" className={s.imageWrapper_loading} />}
         </div>
         <div className={s.infosWrapper}>
           {displayname && (

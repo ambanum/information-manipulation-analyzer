@@ -20,7 +20,7 @@ const DataOutlinks = ({ search, queryParamsStringified = '', exportName }: DataO
   );
 
   if (!data) {
-    return <Loading />;
+    return <Loading message="Loading..." />;
   }
 
   const outlinks = data?.outlinks || [];

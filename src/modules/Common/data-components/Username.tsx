@@ -38,7 +38,7 @@ const DataUsername = ({
     }
   );
   if (isValidating || !data) {
-    return <Loading />;
+    return <Loading message="Loading..." />;
   }
   const usernames = data?.usernames || [];
   if (usernames.length === 0) {

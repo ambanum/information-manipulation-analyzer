@@ -24,7 +24,7 @@ export { default as getStaticPaths } from './[user].staticPaths';
 export { default as getStaticProps } from './[user].staticProps';
 
 const ssrConfig = {
-  loading: () => <Loading />,
+  loading: () => <Loading message="Loading..." />,
   ssr: false,
 };
 

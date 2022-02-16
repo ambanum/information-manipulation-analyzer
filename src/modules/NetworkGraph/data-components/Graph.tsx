@@ -99,7 +99,7 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
               <div className="text-center" style={{ color: 'var(--grey-425)' }}>
                 <Text size="sm">
                   <em>{status === 'PROCESSING' && <p>Data is being gathered</p>}</em>
-                  {/* <em>{status === 'PENDING' && <Loading size="sm" showMessage={false} />}</em> */}
+                  {/* <em>{status === 'PENDING' && <Loading size="sm" />}</em> */}
                 </Text>
               </div>
             </Col>
@@ -133,7 +133,7 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
           <Alert type="error">{error.toString()}</Alert>
         </div>
       ) : loading ? (
-        <Loading />
+        <Loading message="Loading..." />
       ) : (
         <>
           <Container className="fr-mb-6w">
@@ -151,12 +151,14 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
               </Col>
             </Row>
           </Container>
-          {[undefined, 'PENDING', 'PROCESSING'].includes(status) && <Loading />}
+          {[undefined, 'PENDING', 'PROCESSING'].includes(status) && (
+            <Loading message="Loading..." />
+          )}
           {status === 'DONE_ERROR' && <Alert type="error">{data?.searchGraph.error}</Alert>}
           {status === 'DONE' && <GraphDetail colors={dsfrColors} name={search} json={json} />}
         </>
       )}
-      {loading && <Loading />}
+      {loading && <Loading message="Loading..." />}
     </div>
   );
 };
