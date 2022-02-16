@@ -68,7 +68,7 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
                   </Title>
                 </Col>
                 <Col className="text-right">
-                  {creating && <Loading size="sm" />}
+                  {creating && <Loading size="sm" message="Loading..." />}
                   {!creating && data?.searchGraph?.createdAt && (
                     <>
                       <Link href={`/network-of-interactions-graph/${encodedSearch}`}>
