@@ -4,7 +4,6 @@ RUN mkdir -p /usr/src/app
 
 ENV PORT 3000
 
-ARG ENV_FILE=".env.production"
 
 WORKDIR /usr/src/app
 
@@ -12,8 +11,6 @@ COPY package.json /usr/src/app
 COPY yarn.lock /usr/src/app
 
 COPY . /usr/src/app
-RUN rm .env.*
-COPY ./docker/$ENV_FILE /usr/src/app/.env.production
 
 # Run install before setting NODE_ENV to install all development modules
 RUN yarn
