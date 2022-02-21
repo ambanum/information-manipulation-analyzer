@@ -25,7 +25,6 @@
     timeout: 600 # Build can take a long time as it pre-creates all pages
     source: build
     build:
-      network: host
       pull: yes
       path: '/home/{{ ansible_user }}/{{ directory }}'
     name: '{{ directory }}:{{ git_clone_result.after[:7] }}'
