@@ -282,7 +282,6 @@ const SearchPage = ({
     },
     [searchName]
   );
-
   const onFilterDateChange: any = React.useCallback(
     debounce(async ({ type, dataMin, /*dataMax,*/ min, max }: any) => {
       if (
@@ -295,10 +294,24 @@ const SearchPage = ({
         // For an unknown reason dataMax is always different than max, so dataMin === min is on purpose
         const newMax = dataMin === min ? undefined : `${Math.round(max)}`;
         if (queryParams.min !== newMin || queryParams.max !== newMax) {
-          pushQueryParams({ min: newMin, max: newMax }, undefined, {
-            scroll: false,
-            shallow: true,
-          });
+          // FIXME we recalculate here from the existing url as using queryParams.tabIndex
+          // does not work as expected
+          // even when passing it through the useCallback dependencies
+          const existingTabIndex =
+            new URLSearchParams(window.location.search).get('tabIndex') || '0';
+
+          pushQueryParams(
+            {
+              tabIndex: existingTabIndex,
+              min: newMin,
+              max: newMax,
+            },
+            undefined,
+            {
+              scroll: false,
+              shallow: true,
+            }
+          );
         }
       }
     }, 500),
@@ -582,9 +595,7 @@ const SearchPage = ({
               </Col>
             </Row>
           </Container>
-
           <UrlFilters />
-
           {/* Tabs */}
           <Tabs
             forceRenderTabPanel={false}
