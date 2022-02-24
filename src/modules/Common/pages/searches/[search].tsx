@@ -509,7 +509,7 @@ const SearchPage = ({
           </>
         )}
         {(gatheringData || router.isFallback) && (
-          <Row className="fr-mt-4w">
+          <Row className="fr-my-4w">
             <Col>
               <Loading message="Loading..." />
             </Col>
@@ -528,7 +528,7 @@ const SearchPage = ({
           <Row className="fr-mt-2w fr-mb-8w" justifyContent="center" gutters>
             <Col n="6">
               <Alert size="small" type="info" className="fr-mb-2w">
-                Data is being extracted from twitter, please be patient.
+                Data is being extracted from Twitter, please be patient.
               </Alert>
             </Col>
           </Row>
