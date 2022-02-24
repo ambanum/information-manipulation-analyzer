@@ -41,9 +41,9 @@ const colorGradient = new Gradient();
 colorGradient.setGradient('#008941', '#6A6A6A', '#E10600'); // from red to green
 colorGradient.setMidpoint(1);
 
-[0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.99].forEach((col) => {
-  console.log(`${col} %c${colorGradient.getColor(col)}`, `color: ${colorGradient.getColor(col)}`);
-});
+// [0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.99].forEach((col) => {
+//   console.log(`${col} %c${colorGradient.getColor(col)}`, `color: ${colorGradient.getColor(col)}`);
+// });
 
 const highlightNodesAndEdges = (
   data: NetworkGraphJson,
@@ -217,7 +217,6 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
       setModalContent(
         <>
           {/* <pre>{JSON.stringify(node, null, 2)}</pre> */}
-          {console.log(node)}
           <Title as="h6" look="h6">
             Tweets: {node.metadata?.tweets?.length}
           </Title>
@@ -341,6 +340,15 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
             disabled={active}
             label="Play speed"
           />
+          <Text size="sm">
+            To learn more about how we generate this graph{' '}
+            <Link
+              href="https://github.com/ambanum/social-networks-graph-generator/blob/main/explanation.md"
+              target="_blank"
+            >
+              read the explanation here.
+            </Link>
+          </Text>
         </div>
         <div ref={wrapperRef} style={{ zIndex: 0 }}>
           <NetworkGraph2D
