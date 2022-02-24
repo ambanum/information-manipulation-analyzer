@@ -1,4 +1,12 @@
-#!/bin/sh
+#!/bin/bash
+echo "precommit"
 . "$(dirname "$0")/_/husky.sh"
 
-yarn run precommit
+# TODO Not working, should be FIXED
+# ENCRYPTED_FILES=$(git diff --diff-filter=AM --name-only --staged | grep .env.secrets | xargs -n1 cat | grep ANSIBLE) 
+# if [ -z "$ENCRYPTED_FILES" ]
+# then
+#     echo "\$Files are not encrypted"
+#     exit 1
+# fi
+
