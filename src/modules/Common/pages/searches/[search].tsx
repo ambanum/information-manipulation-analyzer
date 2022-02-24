@@ -1,6 +1,5 @@
 import 'react-tabs/style/react-tabs.css';
 
-import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
@@ -30,6 +29,7 @@ import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useRouter } from 'next/router';
 import useSplitSWR from 'hooks/useSplitSWR';
 import useUrl from 'hooks/useUrl';
+import Breadcrumb from 'modules/Common/components/Breadcrumb';
 
 const ssrConfig = {
   loading: () => <Loading message="Loading..." />,
@@ -282,7 +282,6 @@ const SearchPage = ({
     },
     [searchName]
   );
-
   const onFilterDateChange: any = React.useCallback(
     debounce(async ({ type, dataMin, /*dataMax,*/ min, max }: any) => {
       if (
@@ -295,10 +294,24 @@ const SearchPage = ({
         // For an unknown reason dataMax is always different than max, so dataMin === min is on purpose
         const newMax = dataMin === min ? undefined : `${Math.round(max)}`;
         if (queryParams.min !== newMin || queryParams.max !== newMax) {
-          pushQueryParams({ min: newMin, max: newMax }, undefined, {
-            scroll: false,
-            shallow: true,
-          });
+          // FIXME we recalculate here from the existing url as using queryParams.tabIndex
+          // does not work as expected
+          // even when passing it through the useCallback dependencies
+          const existingTabIndex =
+            new URLSearchParams(window.location.search).get('tabIndex') || '0';
+
+          pushQueryParams(
+            {
+              tabIndex: existingTabIndex,
+              min: newMin,
+              max: newMax,
+            },
+            undefined,
+            {
+              scroll: false,
+              shallow: true,
+            }
+          );
         }
       }
     }, 500),
@@ -428,24 +441,27 @@ const SearchPage = ({
       <Container className="fr-mt-0">
         <Row>
           <Col>
-            <Breadcrumb>
-              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                Twitter
-              </BreadcrumbItem>
-              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                Explore narrative
-              </BreadcrumbItem>
-              {queryParams.fromsearch && (
-                <BreadcrumbItem
-                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${encodeURIComponent(
-                    queryParams.fromsearch
-                  )}`}
-                >
-                  {queryParams.fromsearch}
-                </BreadcrumbItem>
-              )}
-              <BreadcrumbItem>{title}</BreadcrumbItem>
-            </Breadcrumb>
+            <Breadcrumb
+              items={[
+                {
+                  name: 'Twitter',
+                  url: `/`,
+                },
+                {
+                  name: 'Explore narrative',
+                  url: `/`,
+                },
+                ...(queryParams?.fromsearch
+                  ? [
+                      {
+                        name: queryParams.fromsearch,
+                        url: `/searches/${encodeURIComponent(queryParams.fromsearch)}`,
+                      },
+                    ]
+                  : []),
+                { name: title },
+              ]}
+            />
           </Col>
         </Row>
       </Container>
@@ -579,9 +595,7 @@ const SearchPage = ({
               </Col>
             </Row>
           </Container>
-
           <UrlFilters />
-
           {/* Tabs */}
           <Tabs
             forceRenderTabPanel={false}
