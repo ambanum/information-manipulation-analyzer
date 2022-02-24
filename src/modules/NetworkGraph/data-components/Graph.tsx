@@ -1,6 +1,6 @@
-import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
 import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
 
+import Breadcrumb from 'modules/Common/components/Breadcrumb';
 import Alert from 'modules/Common/components/Alert/Alert';
 import Loading from 'components/Loading';
 import React from 'react';
@@ -126,22 +126,23 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
       <Container className="fr-mt-0">
         <Row>
           <Col>
-            <Breadcrumb>
-              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                Twitter
-              </BreadcrumbItem>
-              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                Explore narratives
-              </BreadcrumbItem>
-              <BreadcrumbItem
-                href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${encodeURIComponent(
-                  search
-                )}`}
-              >
-                {search}
-              </BreadcrumbItem>
-              <BreadcrumbItem>Network of interaction graph</BreadcrumbItem>
-            </Breadcrumb>
+            <Breadcrumb
+              items={[
+                {
+                  name: 'Twitter',
+                  url: `/`,
+                },
+                {
+                  name: 'Explore narrative',
+                  url: `/`,
+                },
+                {
+                  name: search,
+                  url: `/searches/${encodeURIComponent(search)}`,
+                },
+                { name: 'Network of interaction graph' },
+              ]}
+            />
           </Col>
         </Row>
       </Container>
