@@ -1,11 +1,11 @@
 import { Breadcrumb, BreadcrumbItem } from '@dataesr/react-dsfr';
-import { Col, Container, Row, Text, Title } from '@dataesr/react-dsfr';
+import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
 
 import Alert from 'modules/Common/components/Alert/Alert';
-import Link from 'next/link';
 import Loading from 'components/Loading';
 import React from 'react';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 import s from './Graph.module.css';
 import shuffle from 'lodash/fp/shuffle';
@@ -94,14 +94,31 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
           <Row gutters={true}>
             <Col>
               <div className="text-center">
-                <Title>{search}</Title>
+                <Title as="h1" look="h1">
+                  {search}
+                </Title>
+                {json?.metadata?.data_collection_date && (
+                  <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
+                    <em>
+                      Created the{' '}
+                      <strong>{dayjs(json.metadata.data_collection_date).format('llll')}</strong>
+                    </em>
+                  </div>
+                )}
               </div>
-              <div className="text-center" style={{ color: 'var(--grey-425)' }}>
-                <Text size="sm">
-                  <em>{status === 'PROCESSING' && <p>Data is being gathered</p>}</em>
-                  {/* <em>{status === 'PENDING' && <Loading size="sm" />}</em> */}
-                </Text>
-              </div>
+              {status === 'PROCESSING' && (
+                <div className="text-center">
+                  <Loading size="sm" message="Data is being gathered" />
+                </div>
+              )}
+              {status === 'PENDING' && (
+                <div className="text-center">
+                  <Loading
+                    size="sm"
+                    message="Your request is in the queue and will begin shortly."
+                  />
+                </div>
+              )}
             </Col>
           </Row>
         </Container>
@@ -133,24 +150,27 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
           <Alert type="error">{error.toString()}</Alert>
         </div>
       ) : loading ? (
-        <Loading message="Loading..." />
-      ) : (
         <>
           <Container className="fr-mb-6w">
+            <Row>
+              <Col>
+                <Loading message="Loading..." />
+              </Col>
+            </Row>
             <Row>
               <Col>
                 <Alert size="small">
                   Due to the amount of data processed, the graph generation{' '}
                   <strong>can take several minutes</strong> (be patient) and this requires a{' '}
                   <strong>recent machine to be used properly</strong> (on mobile it is not
-                  feasible). To learn more about how we generate this graph{' '}
-                  <Link href="https://github.com/ambanum/social-networks-graph-generator/blob/main/explanation.md">
-                    <a target="_blank">read the explanation here.</a>
-                  </Link>
+                  feasible).
                 </Alert>
               </Col>
             </Row>
           </Container>
+        </>
+      ) : (
+        <>
           {[undefined, 'PENDING'].includes(status) && <Loading message="Loading..." />}
           {status === 'DONE_ERROR' && <Alert type="error">{data?.searchGraph.error}</Alert>}
           {['DONE', 'PROCESSING'].includes(status) && (
