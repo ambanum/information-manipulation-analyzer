@@ -554,6 +554,13 @@ export const countUsernames = async (filters: SearchFilter) => {
       $match: match,
     },
     {
+      $project: {
+        username: 1,
+        hour: 1,
+        searches: 1,
+      },
+    },
+    {
       $group: {
         _id: '$username',
         count: { $sum: 1 },
