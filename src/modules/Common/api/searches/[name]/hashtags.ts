@@ -18,20 +18,24 @@ const getHashtags =
         res.json({ status: 'ko', message: 'Search was not found' });
         return;
       }
-      const hashtags = await SearchManager.getHashtags({
-        searchIds: [search._id],
-        startDate: filter.min,
-        endDate: filter.max,
-        lang: filter.lang,
-        username: filter.username,
-        hashtag: filter.hashtag,
-        content: filter.content,
-      });
+      const { hashtags, count } = await SearchManager.getHashtags(
+        {
+          searchIds: [search._id],
+          startDate: filter.min,
+          endDate: filter.max,
+          lang: filter.lang,
+          username: filter.username,
+          hashtag: filter.hashtag,
+          content: filter.content,
+        },
+        1000
+      );
+
       if (filter.min && filter.max) {
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);
       }
       res.statusCode = HttpStatusCode.OK;
-      res.json({ status: 'ok', message: 'Search Languages details', hashtags });
+      res.json({ status: 'ok', message: 'Search Languages details', hashtags, count });
       return res;
     } catch (e: any) {
       res.statusCode = HttpStatusCode.METHOD_FAILURE;

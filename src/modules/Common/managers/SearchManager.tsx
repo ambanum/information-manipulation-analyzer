@@ -314,12 +314,13 @@ export const getLanguages = async (filters: SearchFilter) => {
   }));
 };
 
-export const getHashtags = async (filters: SearchFilter) => {
+export const getHashtags = async (filters: SearchFilter, limit?: number) => {
   const match: any = getMatch(filters);
   const aggregation = [
     {
       $match: match,
     },
+    { $project: { hashtags: 1 } },
     { $unwind: '$hashtags' },
     {
       $group: {
@@ -334,12 +335,15 @@ export const getHashtags = async (filters: SearchFilter) => {
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
   const nbHashtags = sumBy('count')(rawResults);
 
-  return rawResults.map((rawResult: any) => ({
-    id: rawResult._id.hashtag,
-    label: rawResult._id.hashtag,
-    value: rawResult.count,
-    percentage: rawResult.count / nbHashtags,
-  }));
+  return {
+    count: rawResults.length,
+    hashtags: rawResults.slice(0, limit).map((rawResult: any) => ({
+      id: rawResult._id.hashtag,
+      label: rawResult._id.hashtag,
+      value: rawResult.count,
+      percentage: rawResult.count / nbHashtags,
+    })),
+  };
 };
 
 export const countHashtags = async (filters: SearchFilter) => {

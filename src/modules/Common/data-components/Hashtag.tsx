@@ -38,8 +38,9 @@ const DataHashtag = ({
     return <Loading message="Loading..." />;
   }
   const hashtags = data?.hashtags || [];
+  const nbHashtags = data?.count || 0;
 
-  if (hashtags.length === 0) {
+  if (nbHashtags === 0) {
     return (
       <Alert type="info" size="small">
         No associated hashtags found.
@@ -50,7 +51,7 @@ const DataHashtag = ({
   return (
     <div className="fr-col">
       <HashtagTable
-        nbData={hashtags.length}
+        nbData={nbHashtags}
         data={hashtags}
         onHashtagClick={onHashtagClick}
         onHashtagSearchClick={onHashtagSearchClick}

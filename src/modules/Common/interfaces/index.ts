@@ -118,6 +118,7 @@ export interface GetSearchLanguagesResponse extends CommonResponse {
  ******************************************/
 export interface GetSearchHashtagsResponse extends CommonResponse {
   hashtags?: HashtagTableProps['data'];
+  count?: number;
 }
 /******************************************
  * Usernames
