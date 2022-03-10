@@ -207,7 +207,15 @@ const SearchPage = ({
   });
 
   const gatheringData = ['PROCESSING', 'PENDING', undefined, ''].includes(status);
-  const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
+
+  const additionalRefreshTime =
+    nbTweets && nbTweets > 500000 && status.includes('PROCESSING')
+      ? (nbTweets * 5 * 60 * 1000) / 1000000 // additional 5 minute per 1,000,000 tweets
+      : 0;
+
+  const calculatedRefreshInterval: number =
+    ((REFRESH_INTERVALS as any)[status] || 0) + additionalRefreshTime;
+
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (scale, point) => {
       window.open(
