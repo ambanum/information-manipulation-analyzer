@@ -584,8 +584,11 @@ export const splitRequests = async ({ name, min, max, ...commonParams }: CommonG
       searchIds: [search._id],
       ...commonParams,
     });
+    console.time('countTweets');
+    // console.log(JSON.stringify(match, null, 2)); //eslint-disable-line
 
     const nbTweets = await TweetModel.count(match);
+    console.timeEnd('countTweets');
     const batchNumber = 30000;
     const nbBatches = Math.ceil(nbTweets / batchNumber);
 
@@ -608,16 +611,19 @@ export const splitRequests = async ({ name, min, max, ...commonParams }: CommonG
           : match;
 
         const aggregation: any = lastRequest
-          ? [{ $sort: { hour: 1 } }, { $match: match }, { $limit: 1 }]
+          ? [{ $match: match }, { $sort: { hour: 1 } }, { $limit: 1 }]
           : [
-              { $sort: { hour: -1 } },
               { $match: paginationMatch },
+              { $sort: { hour: -1 } },
               { $skip: batchNumber },
               { $limit: 1 },
             ];
 
         try {
+          console.time(`aggregateTweets ${i}`);
+          // console.log(JSON.stringify(aggregation, null, 2)); //eslint-disable-line
           const [tweet] = await TweetModel.aggregate(aggregation).exec();
+          console.timeEnd(`aggregateTweets ${i}`);
 
           if (!tweet) {
             break;
