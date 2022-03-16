@@ -18,6 +18,7 @@ const UsernameTable = ({
   onUsernameSearchClick,
   onUsernameFilterClick,
   nbData,
+  nbPerPage,
 }: UsernameTableProps) => {
   const columns = [
     {
@@ -157,6 +158,16 @@ const UsernameTable = ({
     },
   ];
 
+  const nbUsernames = nbData || data.length;
+  const additionalInfo =
+    nbPerPage && nbUsernames > nbPerPage ? (
+      <>
+        <br />
+        <small> ℹ Only the first {nbPerPage} are listed here</small>
+      </>
+    ) : (
+      ''
+    );
   return (
     <Table<Username>
       title={`Active users`}
@@ -164,7 +175,7 @@ const UsernameTable = ({
         <>
           <strong>{(nbData || data.length).toLocaleString('en')}</strong> users listed by number of
           use - <strong>{data.filter((user) => user.verified).length.toLocaleString('en')}</strong>{' '}
-          verified users
+          verified users{additionalInfo}
         </>
       }
       columns={columns}

@@ -125,6 +125,8 @@ export interface GetSearchHashtagsResponse extends CommonResponse {
  ******************************************/
 export interface GetSearchUsernamesResponse extends CommonResponse {
   usernames?: UsernameTableProps['data'];
+  count?: number;
+  nbPerPage?: number;
 }
 
 /******************************************

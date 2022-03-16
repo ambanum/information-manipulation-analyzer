@@ -371,7 +371,7 @@ export const countHashtags = async (filters: SearchFilter) => {
   return rawResults[0]?.count;
 };
 
-export const getUsernames = async (filters: SearchFilter) => {
+export const getUsernames = async (filters: SearchFilter, limit: number = 0) => {
   const match: any = getMatch(filters);
   const aggregation = [
     {
@@ -384,6 +384,9 @@ export const getUsernames = async (filters: SearchFilter) => {
       },
     },
     { $sort: { count: -1 } },
+    // because some users may not have looked up users, we take an arbitrary 30% more
+    // to refilter them when returning, to make sure the number returned is exactly the limit chosen
+    { $limit: limit * 1.3 },
     {
       $lookup: {
         from: 'users',
@@ -399,18 +402,21 @@ export const getUsernames = async (filters: SearchFilter) => {
 
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
-  const nbUsernames = sumBy('count')(rawResults);
+  const nbUsernames = await countUsernames(filters);
 
-  return rawResults.map((rawResult: any) => ({
-    id: rawResult._id,
-    label: rawResult._id,
-    value: rawResult.count,
-    percentage: rawResult.count / nbUsernames,
-    botScore: rawResult.user.botScore,
-    verified: rawResult.user.verified,
-    creationDate: rawResult.user.created,
-    followersCount: rawResult.user.followersCount,
-  }));
+  return {
+    count: nbUsernames,
+    usernames: rawResults.slice(0, limit).map((rawResult: any) => ({
+      id: rawResult._id,
+      label: rawResult._id,
+      value: rawResult.count,
+      percentage: rawResult.count / nbUsernames,
+      botScore: rawResult.user.botScore,
+      verified: rawResult.user.verified,
+      creationDate: rawResult.user.created,
+      followersCount: rawResult.user.followersCount,
+    })),
+  };
 };
 
 // Get Photos

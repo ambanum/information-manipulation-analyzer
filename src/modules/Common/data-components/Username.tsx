@@ -41,7 +41,9 @@ const DataUsername = ({
     return <Loading message="Loading..." />;
   }
   const usernames = data?.usernames || [];
-  if (usernames.length === 0) {
+  const nbUsernames = data?.count || 0;
+  const nbPerPage = data?.nbPerPage;
+  if (nbUsernames === 0) {
     return (
       <Alert size="small" type="info">
         No users found.
@@ -97,7 +99,8 @@ const DataUsername = ({
   return (
     <div className="fr-col">
       <UsernameTable
-        nbData={usernames.length}
+        nbData={nbUsernames}
+        nbPerPage={nbPerPage}
         data={usernames}
         onUsernameClick={onUsernameClick}
         onUsernameViewClick={onUsernameViewClick}
