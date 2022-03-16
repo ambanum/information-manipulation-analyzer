@@ -139,6 +139,10 @@ export interface GetSearchNbTweetsRepartitionResponse extends CommonResponse {
   };
   count?: number;
 }
+export interface GetSearchBotRepartitionResponse extends CommonResponse {
+  repartition?: number[];
+  count?: number;
+}
 
 /******************************************
  * Tweets

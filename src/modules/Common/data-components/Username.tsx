@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import Alert from '../components/Alert/Alert';
-import BarGraph from '../components/Charts/BarGraph';
 import { GetSearchUsernamesResponse } from '../interfaces';
 import Loading from 'components/Loading';
 import UsernameTable from '../components/Datatables/UsernameTable';
@@ -51,19 +50,6 @@ const DataUsername = ({
     );
   }
 
-  const botRepartition: any = usernames.reduce(
-    (repartition, user) => {
-      if (!user || !user.botScore) {
-        return repartition;
-      }
-      const value = Math.round(user.botScore * 100);
-      repartition[value]++;
-      return repartition;
-    },
-
-    [...Array(100)].map(() => 0)
-  );
-
   return (
     <div className="fr-col">
       <UsernameTable
@@ -76,20 +62,6 @@ const DataUsername = ({
         onUsernameFilterClick={onUsernameFilterClick}
         exportName={exportName}
       />
-      <div className="fr-mt-8w">
-        <BarGraph
-          title="Bot probability"
-          subtitle="In number of users, views on bar chart"
-          yAxisTitle="Nb of users"
-          data={botRepartition.map((value: number, index: number) => ({
-            x: index,
-            y: value,
-          }))}
-          xAxis={{
-            categories: [...Array(botRepartition.length)].map((_, index) => `${index}%`),
-          }}
-        />
-      </div>
     </div>
   );
 };

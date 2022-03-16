@@ -469,6 +469,25 @@ export const getNbTweetsRepartition = async (filters: SearchFilter) => {
   };
 };
 
+export const getUsernamesValues = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: match,
+    },
+    { $group: { _id: null, usernames: { $addToSet: '$username' } } },
+    { $project: { _id: 0, usernames: true } },
+  ];
+
+  const [{ usernames }] = await TweetModel.aggregate<{ usernames: string[] }>(
+    aggregation
+  ).allowDiskUse(true);
+
+  console.timeEnd(timer);
+
+  return usernames;
+};
+
 // Get Photos
 export const getPhotos = async (filters: SearchFilter) => {
   const match: any = getMatch(filters);
