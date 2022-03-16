@@ -10,6 +10,8 @@ import dynamic from 'next/dynamic';
 import s from './Graph.module.css';
 import shuffle from 'lodash/fp/shuffle';
 import useSWR from 'swr';
+import { Button } from '@dataesr/react-dsfr';
+import api from 'utils/api';
 import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 
@@ -77,13 +79,19 @@ export type GraphProps = {
 const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
   const [refreshInterval, setRefreshInterval] = React.useState(REFRESH_INTERVALS['']);
 
-  const { data, isValidating, error } = useSWR(`/api/graph/${encodeURIComponent(search)}`, {
+  const { data, isValidating, error, mutate } = useSWR(`/api/graph/${encodeURIComponent(search)}`, {
     refreshInterval,
   });
   const loading = !data && isValidating;
   const json = data?.searchGraph?.result;
   const status = data?.searchGraph?.status;
   const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
+  const collectionDate = json?.metadata?.data_collection_date;
+
+  const onReprocessClick = async () => {
+    await api.put(`/api/graph/${encodeURIComponent(search)}`);
+    mutate();
+  };
 
   React.useEffect(() => {
     setRefreshInterval(calculatedRefreshInterval);
@@ -99,11 +107,10 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                 <Title as="h1" look="h1">
                   {search}
                 </Title>
-                {json?.metadata?.data_collection_date && (
+                {collectionDate && (
                   <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
                     <em>
-                      Created{' '}
-                      <strong>{dayjs(json.metadata.data_collection_date).format('llll')}</strong>
+                      Created <strong>{dayjs(collectionDate).format('llll')}</strong>
                     </em>
                   </div>
                 )}
@@ -147,11 +154,14 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
             />
           </Col>
         </Row>
-        {dayjs().diff(json.metadata.data_collection_date, 'minute') >= 1 && (
+        {collectionDate && dayjs().diff(collectionDate, 'minute') >= 1 && (
           <Row className="fr-text--sm fr-mb-4w text-right">
             <Col>
-              Graph has been processed{' '}
-              <strong>{dayjs(json.metadata.data_collection_date).fromNow()}</strong>.
+              Graph has been processed <strong>{dayjs(collectionDate).fromNow()}</strong>. You can
+              now safely{' '}
+              <Button size="sm" onClick={onReprocessClick} secondary>
+                reprocess it
+              </Button>
             </Col>
           </Row>
         )}
