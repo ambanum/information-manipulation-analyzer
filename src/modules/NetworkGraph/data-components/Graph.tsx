@@ -87,6 +87,7 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
   const status = data?.searchGraph?.status;
   const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
   const collectionDate = json?.metadata?.data_collection_date;
+  const oldestProcessedDate = json?.metadata?.last_collected_date;
 
   const onReprocessClick = async () => {
     await api.put(`/api/graph/${encodeURIComponent(search)}`);
@@ -107,13 +108,31 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                 <Title as="h1" look="h1">
                   {search}
                 </Title>
-                {collectionDate && (
-                  <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
-                    <em>
-                      Created <strong>{dayjs(collectionDate).format('llll')}</strong>
-                    </em>
-                  </div>
-                )}
+                <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
+                  <em>
+                    {status !== 'PENDING' ? 'Crawled' : ''}
+                    {status === 'PROCESSING' && (
+                      <>
+                        {' '}
+                        from{' '}
+                        <strong>
+                          {oldestProcessedDate
+                            ? dayjs(oldestProcessedDate).format('llll')
+                            : 'Searching...'}
+                        </strong>
+                      </>
+                    )}
+                    {collectionDate && (
+                      <>
+                        {' '}
+                        until{' '}
+                        <strong>
+                          {collectionDate ? dayjs(collectionDate).format('llll') : 'Searching...'}
+                        </strong>
+                      </>
+                    )}
+                  </em>
+                </div>
               </div>
               {status === 'PROCESSING' && (
                 <div className="text-center">
