@@ -10,6 +10,8 @@ import dynamic from 'next/dynamic';
 import s from './Graph.module.css';
 import shuffle from 'lodash/fp/shuffle';
 import useSWR from 'swr';
+import relativeTime from 'dayjs/plugin/relativeTime';
+dayjs.extend(relativeTime);
 
 const GraphDetail = dynamic(() => import('modules/NetworkGraph/components/GraphDetail'), {
   ssr: false,
@@ -100,7 +102,7 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                 {json?.metadata?.data_collection_date && (
                   <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
                     <em>
-                      Created the{' '}
+                      Created{' '}
                       <strong>{dayjs(json.metadata.data_collection_date).format('llll')}</strong>
                     </em>
                   </div>
@@ -145,6 +147,14 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
             />
           </Col>
         </Row>
+        {dayjs().diff(json.metadata.data_collection_date, 'minute') >= 1 && (
+          <Row className="fr-text--sm fr-mb-4w text-right">
+            <Col>
+              Graph has been processed{' '}
+              <strong>{dayjs(json.metadata.data_collection_date).fromNow()}</strong>.
+            </Col>
+          </Row>
+        )}
       </Container>
       {!loading && error ? (
         <div className={classNames(s.noData, className)} {...props}>
