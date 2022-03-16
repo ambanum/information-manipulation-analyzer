@@ -407,7 +407,7 @@ const SearchPage = ({
                 </>
                 <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
                   <em>
-                    {status !== 'PENDING' && status !== 'PROCESSING' ? 'Crawled' : ''}
+                    {status !== 'PENDING' && !status.includes('PROCESSING') ? 'Crawled' : ''}
                     {status === 'PROCESSING_PREVIOUS' && (
                       <>
                         {' '}
