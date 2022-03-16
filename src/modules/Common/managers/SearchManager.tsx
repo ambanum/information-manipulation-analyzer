@@ -7,7 +7,7 @@ import SearchModel, { SearchTypes } from '../models/Search';
 import TweetModel from '../models/Tweet';
 import dayjs from 'dayjs';
 import sumBy from 'lodash/fp/sumBy';
-interface SearchFilter {
+export interface SearchFilter {
   searchIds: string[];
   startDate?: string;
   endDate?: string;
@@ -416,6 +416,56 @@ export const getUsernames = async (filters: SearchFilter, limit: number = 0) => 
       creationDate: rawResult.user.created,
       followersCount: rawResult.user.followersCount,
     })),
+  };
+};
+
+export const getNbTweetsRepartition = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: match,
+    },
+    {
+      $group: {
+        _id: '$username',
+        count: { $sum: 1 },
+      },
+    },
+  ];
+
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
+
+  const nbTweetsPerUserRepartition: any = rawResults.reduce(
+    (repartition, { count }) => {
+      if (count === 1) {
+        repartition['1']++;
+      } else if (count >= 2 && count <= 5) {
+        repartition['2-5']++;
+      } else if (count >= 6 && count <= 10) {
+        repartition['6-10']++;
+      } else if (count >= 11 && count <= 50) {
+        repartition['11-50']++;
+      } else if (count >= 50 && count <= 200) {
+        repartition['50-200']++;
+      } else if (count > 200) {
+        repartition['200+']++;
+      }
+      return repartition;
+    },
+    {
+      '1': 0,
+      '2-5': 0,
+      '6-10': 0,
+      '11-50': 0,
+      '50-200': 0,
+      '200+': 0,
+    }
+  );
+
+  return {
+    repartition: nbTweetsPerUserRepartition,
+    count: rawResults.length,
   };
 };
 
