@@ -90,7 +90,7 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
                       </a>
                     </Link>
                     <Text size="sm">
-                      Created the {dayjs(data.searchGraph.createdAt).format('llll')}
+                      Created {dayjs(data.searchGraph.createdAt).format('llll')}
                     </Text>
                   </>
                 )}

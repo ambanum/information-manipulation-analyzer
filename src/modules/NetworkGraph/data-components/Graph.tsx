@@ -88,6 +88,7 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
   const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
   const collectionDate = json?.metadata?.data_collection_date;
   const oldestProcessedDate = json?.metadata?.last_collected_date;
+  const nbAnalyzedTweets = json?.metadata?.n_analyzed_tweets;
 
   const onReprocessClick = async () => {
     await api.put(`/api/graph/${encodeURIComponent(search)}`);
@@ -136,7 +137,19 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
               </div>
               {status === 'PROCESSING' && (
                 <div className="text-center">
-                  <Loading size="sm" message="Data is being gathered" />
+                  <Loading
+                    size="sm"
+                    message={
+                      <>
+                        {!nbAnalyzedTweets && 'Data is being gathered...'}
+                        {nbAnalyzedTweets && (
+                          <>
+                            <strong>{nbAnalyzedTweets}</strong> tweets analyzed
+                          </>
+                        )}
+                      </>
+                    }
+                  />
                 </div>
               )}
               {status === 'PENDING' && (
@@ -176,7 +189,7 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
         {collectionDate && dayjs().diff(collectionDate, 'minute') >= 1 && (
           <Row className="fr-text--sm fr-mb-4w text-right">
             <Col>
-              Graph has been processed <strong>{dayjs(collectionDate).fromNow()}</strong>. You can
+              Graph started processing <strong>{dayjs(collectionDate).fromNow()}</strong>. You can
               now safely{' '}
               <Button size="sm" onClick={onReprocessClick} secondary>
                 reprocess it
