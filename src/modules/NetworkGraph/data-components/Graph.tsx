@@ -68,7 +68,7 @@ const REFRESH_INTERVALS = {
   DONE: 60 * 60 * 1000,
   DONE_ERROR: 0,
   PENDING: 5 * 1000,
-  PROCESSING: 15 * 1000,
+  PROCESSING: 60 * 1000,
   '': 5 * 1000,
 };
 
