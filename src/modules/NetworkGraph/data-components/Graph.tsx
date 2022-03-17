@@ -111,25 +111,16 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                 </Title>
                 <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
                   <em>
-                    {status !== 'PENDING' ? 'Crawled' : ''}
-                    {status === 'PROCESSING' && (
+                    {status !== 'PENDING' && (oldestProcessedDate || collectionDate) && 'Crawled '}
+                    {status !== 'PENDING' && oldestProcessedDate && (
                       <>
-                        {' '}
-                        from{' '}
-                        <strong>
-                          {oldestProcessedDate
-                            ? dayjs(oldestProcessedDate).format('llll')
-                            : 'Searching...'}
-                        </strong>
+                        from <strong>{dayjs(oldestProcessedDate).format('llll')}</strong>
                       </>
                     )}
                     {collectionDate && (
                       <>
                         {' '}
-                        until{' '}
-                        <strong>
-                          {collectionDate ? dayjs(collectionDate).format('llll') : 'Searching...'}
-                        </strong>
+                        until <strong>{dayjs(collectionDate).format('llll')}</strong>
                       </>
                     )}
                   </em>
@@ -141,15 +132,20 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                     size="sm"
                     message={
                       <>
-                        {!nbCollectedTweets && 'Data is being gathered...'}
-                        {nbCollectedTweets && (
+                        {typeof nbCollectedTweets !== 'number' && 'Data is being gathered...'}
+                        {typeof nbCollectedTweets === 'number' && (
                           <>
-                            <strong>{nbCollectedTweets}</strong> tweets collected
+                            <strong>{nbCollectedTweets}</strong> retweets collected
                           </>
                         )}
                       </>
                     }
                   />
+                </div>
+              )}
+              {status === 'DONE' && typeof nbCollectedTweets === 'number' && (
+                <div className="text-center">
+                  <strong>{nbCollectedTweets}</strong> retweets collected
                 </div>
               )}
               {status === 'PENDING' && (
