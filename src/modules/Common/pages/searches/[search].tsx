@@ -39,6 +39,11 @@ const ssrConfig = {
 const LanguageData = dynamic(() => import('../../data-components/Language'), ssrConfig);
 const HashtagData = dynamic(() => import('../../data-components/Hashtag'), ssrConfig);
 const UsernameData = dynamic(() => import('../../data-components/Username'), ssrConfig);
+const NbTweetsRepartition = dynamic(
+  () => import('../../data-components/NbTweetsRepartition'),
+  ssrConfig
+);
+const BotRepartition = dynamic(() => import('../../data-components/BotRepartition'), ssrConfig);
 const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), ssrConfig);
 const TweetsData = dynamic(() => import('../../data-components/Tweets'), ssrConfig);
 const VideosData = dynamic(() => import('../../data-components/Videos'), ssrConfig);
@@ -207,7 +212,15 @@ const SearchPage = ({
   });
 
   const gatheringData = ['PROCESSING', 'PENDING', undefined, ''].includes(status);
-  const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
+
+  const additionalRefreshTime =
+    nbTweets && nbTweets > 500000 && status.includes('PROCESSING')
+      ? (nbTweets * 5 * 60 * 1000) / 1000000 // additional 5 minute per 1,000,000 tweets
+      : 0;
+
+  const calculatedRefreshInterval: number =
+    ((REFRESH_INTERVALS as any)[status] || 0) + additionalRefreshTime;
+
   const onLineClick: VolumetryGraphProps['onClick'] = React.useCallback(
     (scale, point) => {
       window.open(
@@ -394,7 +407,7 @@ const SearchPage = ({
                 </>
                 <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
                   <em>
-                    {status !== 'PENDING' && status !== 'PROCESSING' ? 'Crawled' : ''}
+                    {status !== 'PENDING' && !status.includes('PROCESSING') ? 'Crawled' : ''}
                     {status === 'PROCESSING_PREVIOUS' && (
                       <>
                         {' '}
@@ -656,6 +669,20 @@ const SearchPage = ({
                     'YYYYMMDDHH'
                   )}__${searchName}__associated-usernames`}
                 />
+                <div className="fr-mt-8w">
+                  <NbTweetsRepartition
+                    search={searchName}
+                    refreshInterval={refreshInterval}
+                    queryParamsStringified={queryParamsStringified}
+                  />
+                </div>
+                <div className="fr-mt-8w">
+                  <BotRepartition
+                    search={searchName}
+                    refreshInterval={refreshInterval}
+                    queryParamsStringified={queryParamsStringified}
+                  />
+                </div>
               </TabPanel>
 
               <TabPanel>

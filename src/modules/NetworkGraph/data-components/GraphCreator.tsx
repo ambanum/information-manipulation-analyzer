@@ -23,7 +23,7 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
   const encodedSearch = encodeURIComponent(search);
   const [creating, toggleCreating] = useToggle(false);
 
-  const { data, mutate } = useSWR<GraphSearchResponse>(`/api/graph/${encodedSearch}`);
+  const { data, mutate, error } = useSWR<GraphSearchResponse>(`/api/graph/${encodedSearch}`);
 
   const createGraph = async () => {
     toggleCreating(true);
@@ -32,13 +32,11 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
     mutate(createdData, false);
   };
 
-  if (!data) {
+  if (!data && !error) {
     return (
       <Container className="fr-mb-4w">
         <Row>
-          <Col>
-            <Loading size="sm"></Loading>
-          </Col>
+          <Col>{<Loading size="sm"></Loading>}</Col>
         </Row>
       </Container>
     );
@@ -56,7 +54,9 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
                   Visually explore a narrative and replay its propagation up to 7 days back.
                 </CalloutText>
 
-                {data?.status === 'ko' && <Alert type="error">{data.error}</Alert>}
+                {(data?.status === 'ko' || error) && (
+                  <Alert type="error">{(error && error.toString()) || data?.error}</Alert>
+                )}
                 {data?.status === 'ok' && (
                   <Button title="create" onClick={createGraph} disabled={creating}>
                     Create now
@@ -90,7 +90,7 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
                       </a>
                     </Link>
                     <Text size="sm">
-                      Created the {dayjs(data.searchGraph.createdAt).format('llll')}
+                      Created {dayjs(data.searchGraph.createdAt).format('llll')}
                     </Text>
                   </>
                 )}

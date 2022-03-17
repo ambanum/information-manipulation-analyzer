@@ -1,6 +1,8 @@
 import * as scrapeApi from '../services/scrape-api';
 
 import UserModel, { User, UserBotScore } from '../models/User';
+import * as SearchManager from './SearchManager';
+import type { SearchFilter } from './SearchManager';
 
 import dayjs from 'dayjs';
 import pick from 'lodash/fp/pick';
@@ -174,4 +176,25 @@ export const list = async ({ limit }: { limit: number } = { limit: 10000 }) => {
     console.error(e);
     throw new Error('Could not find users');
   }
+};
+
+export const getBotRepartition = async (filters: SearchFilter) => {
+  const usernames = await SearchManager.getUsernamesValues(filters);
+
+  const users = await UserModel.find({ username: { $in: usernames } }).select('botScore');
+
+  const botRepartition: number[] = users.reduce(
+    (repartition, user) => {
+      if (!user || !user.botScore) {
+        return repartition;
+      }
+      const value = Math.round(user.botScore * 100);
+      repartition[value]++;
+      return repartition;
+    },
+
+    [...Array(100)].map(() => 0)
+  );
+
+  return { repartition: botRepartition, count: users.length };
 };

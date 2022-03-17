@@ -10,6 +10,10 @@ import dynamic from 'next/dynamic';
 import s from './Graph.module.css';
 import shuffle from 'lodash/fp/shuffle';
 import useSWR from 'swr';
+import { Button } from '@dataesr/react-dsfr';
+import api from 'utils/api';
+import relativeTime from 'dayjs/plugin/relativeTime';
+dayjs.extend(relativeTime);
 
 const GraphDetail = dynamic(() => import('modules/NetworkGraph/components/GraphDetail'), {
   ssr: false,
@@ -64,7 +68,7 @@ const REFRESH_INTERVALS = {
   DONE: 60 * 60 * 1000,
   DONE_ERROR: 0,
   PENDING: 5 * 1000,
-  PROCESSING: 15 * 1000,
+  PROCESSING: 60 * 1000,
   '': 5 * 1000,
 };
 
@@ -75,13 +79,21 @@ export type GraphProps = {
 const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
   const [refreshInterval, setRefreshInterval] = React.useState(REFRESH_INTERVALS['']);
 
-  const { data, isValidating, error } = useSWR(`/api/graph/${encodeURIComponent(search)}`, {
+  const { data, isValidating, error, mutate } = useSWR(`/api/graph/${encodeURIComponent(search)}`, {
     refreshInterval,
   });
   const loading = !data && isValidating;
   const json = data?.searchGraph?.result;
   const status = data?.searchGraph?.status;
   const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
+  const collectionDate = json?.metadata?.data_collection_date;
+  const oldestProcessedDate = json?.metadata?.last_collected_date;
+  const nbAnalyzedTweets = json?.metadata?.n_analyzed_tweets;
+
+  const onReprocessClick = async () => {
+    await api.put(`/api/graph/${encodeURIComponent(search)}`);
+    mutate();
+  };
 
   React.useEffect(() => {
     setRefreshInterval(calculatedRefreshInterval);
@@ -97,18 +109,47 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                 <Title as="h1" look="h1">
                   {search}
                 </Title>
-                {json?.metadata?.data_collection_date && (
-                  <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
-                    <em>
-                      Created the{' '}
-                      <strong>{dayjs(json.metadata.data_collection_date).format('llll')}</strong>
-                    </em>
-                  </div>
-                )}
+                <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
+                  <em>
+                    {status !== 'PENDING' ? 'Crawled' : ''}
+                    {status === 'PROCESSING' && (
+                      <>
+                        {' '}
+                        from{' '}
+                        <strong>
+                          {oldestProcessedDate
+                            ? dayjs(oldestProcessedDate).format('llll')
+                            : 'Searching...'}
+                        </strong>
+                      </>
+                    )}
+                    {collectionDate && (
+                      <>
+                        {' '}
+                        until{' '}
+                        <strong>
+                          {collectionDate ? dayjs(collectionDate).format('llll') : 'Searching...'}
+                        </strong>
+                      </>
+                    )}
+                  </em>
+                </div>
               </div>
               {status === 'PROCESSING' && (
                 <div className="text-center">
-                  <Loading size="sm" message="Data is being gathered" />
+                  <Loading
+                    size="sm"
+                    message={
+                      <>
+                        {!nbAnalyzedTweets && 'Data is being gathered...'}
+                        {nbAnalyzedTweets && (
+                          <>
+                            <strong>{nbAnalyzedTweets}</strong> tweets analyzed
+                          </>
+                        )}
+                      </>
+                    }
+                  />
                 </div>
               )}
               {status === 'PENDING' && (
@@ -145,6 +186,17 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
             />
           </Col>
         </Row>
+        {collectionDate && dayjs().diff(collectionDate, 'minute') >= 1 && (
+          <Row className="fr-text--sm fr-mb-4w text-right">
+            <Col>
+              Graph started processing <strong>{dayjs(collectionDate).fromNow()}</strong>. You can
+              now safely{' '}
+              <Button size="sm" onClick={onReprocessClick} secondary>
+                reprocess it
+              </Button>
+            </Col>
+          </Row>
+        )}
       </Container>
       {!loading && error ? (
         <div className={classNames(s.noData, className)} {...props}>

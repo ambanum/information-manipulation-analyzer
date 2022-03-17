@@ -2,6 +2,7 @@ export interface UsernameTableProps {
   exportName: string;
   data: Username[];
   nbData?: number;
+  nbPerPage?: number;
   onUsernameClick: (username: string) => any;
   onUsernameViewClick: (username: string) => any;
   onUsernameSearchClick: (username: string) => any;

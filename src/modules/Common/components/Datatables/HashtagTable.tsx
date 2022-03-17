@@ -82,10 +82,18 @@ const HashtagTable = ({
     },
   ];
 
+  const nbHashtags = nbData || data.length;
+  const additionalInfo =
+    nbHashtags > 1000 ? <small> ℹ Only the first 1000 are listed here</small> : '';
+
   return (
     <Table<Hashtag>
       title="Associated hashtags"
-      subtitle={`${(nbData || data.length).toLocaleString('en')} hashtags listed by number of use`}
+      subtitle={
+        <>
+          {nbHashtags.toLocaleString('en')} hashtags listed by number of use{additionalInfo}
+        </>
+      }
       columns={columns}
       data={data}
       sortBy={[

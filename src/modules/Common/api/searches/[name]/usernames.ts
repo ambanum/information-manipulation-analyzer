@@ -8,6 +8,9 @@ import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
+// As we want tthe result of the request to not be too heavy, we limit the number of returned users
+const MAX_NB_USERS_RETURNED = 1000;
+
 const getUsernames =
   (filter: CommonGetFilters) => async (res: NextApiResponse<GetSearchUsernamesResponse>) => {
     try {
@@ -18,20 +21,29 @@ const getUsernames =
         res.json({ status: 'ko', message: 'Search was not found' });
         return;
       }
-      const usernames = await SearchManager.getUsernames({
-        searchIds: [search._id],
-        startDate: filter.min,
-        endDate: filter.max,
-        lang: filter.lang,
-        username: filter.username,
-        hashtag: filter.hashtag,
-        content: filter.content,
-      });
+      const { usernames, count } = await SearchManager.getUsernames(
+        {
+          searchIds: [search._id],
+          startDate: filter.min,
+          endDate: filter.max,
+          lang: filter.lang,
+          username: filter.username,
+          hashtag: filter.hashtag,
+          content: filter.content,
+        },
+        MAX_NB_USERS_RETURNED
+      );
       if (filter.min && filter.max) {
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);
       }
       res.statusCode = HttpStatusCode.OK;
-      res.json({ status: 'ok', message: 'Search Usernames details', usernames });
+      res.json({
+        status: 'ok',
+        message: 'Search Usernames details',
+        usernames,
+        count,
+        nbPerPage: MAX_NB_USERS_RETURNED,
+      });
       return res;
     } catch (e: any) {
       res.statusCode = HttpStatusCode.METHOD_FAILURE;
