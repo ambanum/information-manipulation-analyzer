@@ -155,7 +155,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
   const [tick, setTick] = React.useState<number | undefined>();
   const [tickInterval, setTickInterval] = React.useState<number>(200);
   const [active, toggleActive] = useToggle(false);
-  const { nodes, edges } = json;
+  const { nodes = [], edges = [] } = json || {};
 
   const dates = [
     ...nodes.reduce((acc: string[], node) => [...acc, ...(node?.metadata?.dates || [])], []),
