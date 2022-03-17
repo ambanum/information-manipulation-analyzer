@@ -63,6 +63,14 @@ export const create = async (search: string) => {
   return data;
 };
 
+export const refresh = async (search: string) => {
+  const { data } = await axios.put<GraphSearchResponse>(
+    `${GRAPH_API_URL}/graph-search/${encodeURIComponent(search)}`,
+    { timeout: 5000 }
+  );
+  return data;
+};
+
 export const list = async () => {
   const { data } = await axios.get<GraphsSearchResponse>(`${GRAPH_API_URL}/graph-searches`);
   return data;

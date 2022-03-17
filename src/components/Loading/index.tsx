@@ -7,7 +7,7 @@ const Loading = ({
 }: {
   size?: 'sm';
   className?: string;
-  message?: string;
+  message?: React.ReactNode;
 }) => {
   if (size === 'sm') {
     return (
