@@ -2,6 +2,9 @@ import { Button, ButtonGroup, Col, Container, Row } from '@dataesr/react-dsfr';
 import { Link, Radio, RadioGroup, Text, Title } from '@dataesr/react-dsfr';
 import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
 
+import { TwitterTweetEmbed } from 'react-twitter-embed';
+import Loading from 'components/Loading';
+
 import Gradient from 'javascript-color-gradient';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
 import React from 'react';
@@ -155,7 +158,7 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
   const [tick, setTick] = React.useState<number | undefined>();
   const [tickInterval, setTickInterval] = React.useState<number>(200);
   const [active, toggleActive] = useToggle(false);
-  const { nodes, edges } = json;
+  const { nodes = [], edges = [] } = json || {};
 
   const dates = [
     ...nodes.reduce((acc: string[], node) => [...acc, ...(node?.metadata?.dates || [])], []),
@@ -213,23 +216,23 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
 
   const updateModalContent = React.useCallback(
     (node: any) => {
+      const notEmptyTweets = (node.metadata?.tweets || []).filter(Boolean);
+      const notEmptyRetweets = (node.metadata?.retweets || []).filter(Boolean);
+      const notEmptyQuoted = (node.metadata?.quoted || []).filter(Boolean);
+
       setIsModalOpen(true);
       setModalContent(
         <>
           {/* <pre>{JSON.stringify(node, null, 2)}</pre> */}
           <Title as="h6" look="h6">
-            Tweets: {node.metadata?.tweets?.length}
+            Tweets: {notEmptyTweets.length}
           </Title>
-          {node.metadata?.tweets?.map((tweet: any, index: number) => {
+          {notEmptyTweets?.map((tweet: any) => {
             return (
-              <div style={{ border: '1px solid var(--grey-950' }} className="fr-p-2w fr-mb-2w">
-                <Text size="sm" className="fr-mb-0">
-                  {dayjs(node.metadata?.dates[index]).format('llll')}
-                </Text>
-                <Link target="_blank" href={tweet}>
-                  {tweet}
-                </Link>
-              </div>
+              <TwitterTweetEmbed
+                tweetId={tweet.split('/').pop()}
+                placeholder={<Loading size="sm" />}
+              />
             );
           })}
 
@@ -246,10 +249,10 @@ const GraphDetail: React.FC<GraphDetailProps> = ({ name, json, colors }) => {
             </Text>
           </div> */}
           <Title as="h6" look="h6">
-            Retweets: {node.metadata?.retweets?.length}
+            Retweets: {notEmptyRetweets.length}
           </Title>
           <Title as="h6" look="h6">
-            Quoted: {node.metadata?.quoted?.length}
+            Quoted: {notEmptyQuoted.length}
           </Title>
 
           <Title as="h6" look="h6">
