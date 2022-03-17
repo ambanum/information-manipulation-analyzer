@@ -88,7 +88,7 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
   const calculatedRefreshInterval: number = (REFRESH_INTERVALS as any)[status];
   const collectionDate = json?.metadata?.data_collection_date;
   const oldestProcessedDate = json?.metadata?.last_collected_date;
-  const nbAnalyzedTweets = json?.metadata?.n_analyzed_tweets;
+  const nbCollectedTweets = json?.metadata?.n_collected_tweets;
 
   const onReprocessClick = async () => {
     await api.put(`/api/graph/${encodeURIComponent(search)}`);
@@ -141,10 +141,10 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                     size="sm"
                     message={
                       <>
-                        {!nbAnalyzedTweets && 'Data is being gathered...'}
-                        {nbAnalyzedTweets && (
+                        {!nbCollectedTweets && 'Data is being gathered...'}
+                        {nbCollectedTweets && (
                           <>
-                            <strong>{nbAnalyzedTweets}</strong> tweets analyzed
+                            <strong>{nbCollectedTweets}</strong> tweets collected
                           </>
                         )}
                       </>
