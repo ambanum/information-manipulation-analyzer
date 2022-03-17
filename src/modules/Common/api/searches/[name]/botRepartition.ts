@@ -1,6 +1,7 @@
 import * as SearchManager from '../../../managers/SearchManager';
+import * as UserManager from '../../../managers/UserManager';
 
-import { CommonGetFilters, GetSearchUsernamesResponse } from 'modules/Common/interfaces';
+import { CommonGetFilters, GetSearchBotRepartitionResponse } from 'modules/Common/interfaces';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -8,11 +9,8 @@ import HttpStatusCode from 'http-status-codes';
 import { withAuth } from 'modules/Auth';
 import { withDb } from 'utils/db';
 
-// As we want tthe result of the request to not be too heavy, we limit the number of returned users
-const MAX_NB_USERS_RETURNED = 1000;
-
-const getUsernames =
-  (filter: CommonGetFilters) => async (res: NextApiResponse<GetSearchUsernamesResponse>) => {
+const get =
+  (filter: CommonGetFilters) => async (res: NextApiResponse<GetSearchBotRepartitionResponse>) => {
     try {
       const search = await SearchManager.get({ name: filter.name });
 
@@ -21,28 +19,25 @@ const getUsernames =
         res.json({ status: 'ko', message: 'Search was not found' });
         return;
       }
-      const { usernames, count } = await SearchManager.getUsernames(
-        {
-          searchIds: [search._id],
-          startDate: filter.min,
-          endDate: filter.max,
-          lang: filter.lang,
-          username: filter.username,
-          hashtag: filter.hashtag,
-          content: filter.content,
-        },
-        MAX_NB_USERS_RETURNED
-      );
+      const { repartition, count } = await UserManager.getBotRepartition({
+        searchIds: [search._id],
+        startDate: filter.min,
+        endDate: filter.max,
+        lang: filter.lang,
+        username: filter.username,
+        hashtag: filter.hashtag,
+        content: filter.content,
+      });
+
       if (filter.min && filter.max) {
         res.setHeader('Cache-Control', `max-age=${10 * 60}`);
       }
       res.statusCode = HttpStatusCode.OK;
       res.json({
         status: 'ok',
-        message: 'Search Usernames details',
-        usernames,
+        message: 'Search BotRepartition details',
+        repartition,
         count,
-        nbPerPage: MAX_NB_USERS_RETURNED,
       });
       return res;
     } catch (e: any) {
@@ -53,7 +48,7 @@ const getUsernames =
 
 const search = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET' && req.query.name) {
-    return getUsernames(req.query as any)(res);
+    return get(req.query as any)(res);
   }
 
   res.statusCode = HttpStatusCode.FORBIDDEN;

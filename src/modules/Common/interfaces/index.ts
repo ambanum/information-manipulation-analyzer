@@ -125,6 +125,23 @@ export interface GetSearchHashtagsResponse extends CommonResponse {
  ******************************************/
 export interface GetSearchUsernamesResponse extends CommonResponse {
   usernames?: UsernameTableProps['data'];
+  count?: number;
+  nbPerPage?: number;
+}
+export interface GetSearchNbTweetsRepartitionResponse extends CommonResponse {
+  repartition?: {
+    '1': number;
+    '2-5': number;
+    '6-10': number;
+    '11-50': number;
+    '50-200': number;
+    '200+': number;
+  };
+  count?: number;
+}
+export interface GetSearchBotRepartitionResponse extends CommonResponse {
+  repartition?: number[];
+  count?: number;
 }
 
 /******************************************

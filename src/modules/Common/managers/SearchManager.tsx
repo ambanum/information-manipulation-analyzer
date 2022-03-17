@@ -7,7 +7,7 @@ import SearchModel, { SearchTypes } from '../models/Search';
 import TweetModel from '../models/Tweet';
 import dayjs from 'dayjs';
 import sumBy from 'lodash/fp/sumBy';
-interface SearchFilter {
+export interface SearchFilter {
   searchIds: string[];
   startDate?: string;
   endDate?: string;
@@ -371,7 +371,7 @@ export const countHashtags = async (filters: SearchFilter) => {
   return rawResults[0]?.count;
 };
 
-export const getUsernames = async (filters: SearchFilter) => {
+export const getUsernames = async (filters: SearchFilter, limit: number = 0) => {
   const match: any = getMatch(filters);
   const aggregation = [
     {
@@ -384,6 +384,9 @@ export const getUsernames = async (filters: SearchFilter) => {
       },
     },
     { $sort: { count: -1 } },
+    // because some users may not have looked up users, we take an arbitrary 30% more
+    // to refilter them when returning, to make sure the number returned is exactly the limit chosen
+    { $limit: limit * 1.3 },
     {
       $lookup: {
         from: 'users',
@@ -399,18 +402,90 @@ export const getUsernames = async (filters: SearchFilter) => {
 
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
-  const nbUsernames = sumBy('count')(rawResults);
+  const nbUsernames = await countUsernames(filters);
 
-  return rawResults.map((rawResult: any) => ({
-    id: rawResult._id,
-    label: rawResult._id,
-    value: rawResult.count,
-    percentage: rawResult.count / nbUsernames,
-    botScore: rawResult.user.botScore,
-    verified: rawResult.user.verified,
-    creationDate: rawResult.user.created,
-    followersCount: rawResult.user.followersCount,
-  }));
+  return {
+    count: nbUsernames,
+    usernames: rawResults.slice(0, limit).map((rawResult: any) => ({
+      id: rawResult._id,
+      label: rawResult._id,
+      value: rawResult.count,
+      percentage: rawResult.count / nbUsernames,
+      botScore: rawResult.user.botScore,
+      verified: rawResult.user.verified,
+      creationDate: rawResult.user.created,
+      followersCount: rawResult.user.followersCount,
+    })),
+  };
+};
+
+export const getNbTweetsRepartition = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: match,
+    },
+    {
+      $group: {
+        _id: '$username',
+        count: { $sum: 1 },
+      },
+    },
+  ];
+
+
+  const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
+
+  const nbTweetsPerUserRepartition: any = rawResults.reduce(
+    (repartition, { count }) => {
+      if (count === 1) {
+        repartition['1']++;
+      } else if (count >= 2 && count <= 5) {
+        repartition['2-5']++;
+      } else if (count >= 6 && count <= 10) {
+        repartition['6-10']++;
+      } else if (count >= 11 && count <= 50) {
+        repartition['11-50']++;
+      } else if (count >= 50 && count <= 200) {
+        repartition['50-200']++;
+      } else if (count > 200) {
+        repartition['200+']++;
+      }
+      return repartition;
+    },
+    {
+      '1': 0,
+      '2-5': 0,
+      '6-10': 0,
+      '11-50': 0,
+      '50-200': 0,
+      '200+': 0,
+    }
+  );
+
+  return {
+    repartition: nbTweetsPerUserRepartition,
+    count: rawResults.length,
+  };
+};
+
+export const getUsernamesValues = async (filters: SearchFilter) => {
+  const match: any = getMatch(filters);
+  const aggregation = [
+    {
+      $match: match,
+    },
+    { $group: { _id: null, usernames: { $addToSet: '$username' } } },
+    { $project: { _id: 0, usernames: true } },
+  ];
+
+  const [{ usernames }] = await TweetModel.aggregate<{ usernames: string[] }>(
+    aggregation
+  ).allowDiskUse(true);
+
+  console.timeEnd(timer);
+
+  return usernames;
 };
 
 // Get Photos

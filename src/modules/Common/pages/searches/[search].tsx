@@ -39,6 +39,11 @@ const ssrConfig = {
 const LanguageData = dynamic(() => import('../../data-components/Language'), ssrConfig);
 const HashtagData = dynamic(() => import('../../data-components/Hashtag'), ssrConfig);
 const UsernameData = dynamic(() => import('../../data-components/Username'), ssrConfig);
+const NbTweetsRepartition = dynamic(
+  () => import('../../data-components/NbTweetsRepartition'),
+  ssrConfig
+);
+const BotRepartition = dynamic(() => import('../../data-components/BotRepartition'), ssrConfig);
 const VolumetryGraph = dynamic(() => import('../../components/Charts/VolumetryGraph'), ssrConfig);
 const TweetsData = dynamic(() => import('../../data-components/Tweets'), ssrConfig);
 const VideosData = dynamic(() => import('../../data-components/Videos'), ssrConfig);
@@ -664,6 +669,20 @@ const SearchPage = ({
                     'YYYYMMDDHH'
                   )}__${searchName}__associated-usernames`}
                 />
+                <div className="fr-mt-8w">
+                  <NbTweetsRepartition
+                    search={searchName}
+                    refreshInterval={refreshInterval}
+                    queryParamsStringified={queryParamsStringified}
+                  />
+                </div>
+                <div className="fr-mt-8w">
+                  <BotRepartition
+                    search={searchName}
+                    refreshInterval={refreshInterval}
+                    queryParamsStringified={queryParamsStringified}
+                  />
+                </div>
               </TabPanel>
 
               <TabPanel>
