@@ -27,3 +27,7 @@ all:
           directory: 'ima-ambnum-production'
           port: '7025'
           env_directory: '.env.ambnum.production'
+        spis-production:
+          directory: 'ima-spis-production'
+          port: '7027'
+          env_directory: '.env.spis.production'
