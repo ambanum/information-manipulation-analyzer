@@ -433,7 +433,6 @@ export const getNbTweetsRepartition = async (filters: SearchFilter) => {
     },
   ];
 
-
   const rawResults: any[] = await TweetModel.aggregate(aggregation).allowDiskUse(true);
 
   const nbTweetsPerUserRepartition: any = rawResults.reduce(
@@ -482,8 +481,6 @@ export const getUsernamesValues = async (filters: SearchFilter) => {
   const [{ usernames }] = await TweetModel.aggregate<{ usernames: string[] }>(
     aggregation
   ).allowDiskUse(true);
-
-  console.timeEnd(timer);
 
   return usernames;
 };
