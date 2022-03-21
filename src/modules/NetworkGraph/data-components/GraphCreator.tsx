@@ -45,65 +45,46 @@ const GraphCreator: React.FC<GraphCreatorProps> = ({ search, ...props }) => {
   return (
     <div {...props}>
       <Container className="">
-        {!data?.searchGraph && (
-          <Row className="fr-mb-2w">
+        <>
+          <Row className="">
             <Col>
-              <Callout colorFamily="beige-gris-galet">
-                <CalloutTitle size="lg">Network of interaction graph</CalloutTitle>
-                <CalloutText size="sm">
-                  Visually explore a narrative and replay its propagation up to 7 days back.
-                </CalloutText>
-
-                {(data?.status === 'ko' || error) && (
-                  <Alert type="error">{(error && error.toString()) || data?.error}</Alert>
-                )}
-                {data?.status === 'ok' && (
-                  <Button title="create" onClick={createGraph} disabled={creating}>
-                    Create now
-                  </Button>
-                )}
-              </Callout>
+              <hr />
             </Col>
           </Row>
-        )}
-        {data?.searchGraph && (
-          <>
-            <Row className="">
-              <Col>
-                <hr />
-              </Col>
-            </Row>
 
-            <Row alignItems="middle">
-              <Col>
-                <Title as="h4" look="h4">
-                  Network of interaction graph
-                </Title>
-              </Col>
-              <Col className="text-right">
-                {creating && <Loading size="sm" message="Loading..." />}
-                {!creating && data?.searchGraph?.createdAt && (
-                  <>
-                    <Link href={`/network-of-interactions-graph/${encodedSearch}`}>
-                      <a className="fr-link fr-fi-arrow-right-line fr-link--icon-right">
-                        View the graph
-                      </a>
-                    </Link>
-                    <Text size="sm">
-                      Created {dayjs(data.searchGraph.createdAt).format('llll')}
-                    </Text>
-                  </>
-                )}
-              </Col>
-            </Row>
+          <Row alignItems="middle">
+            <Col>
+              <Title as="h4" look="h4" className="fr-mb-1w">
+                Network of interaction graph
+              </Title>
+              <p>Visually explore a narrative and replay its propagation up to 7 days back.</p>
+            </Col>
+            <Col className="text-right">
+              {creating && <Loading size="sm" message="Loading..." />}
+              {!creating && data?.searchGraph?.createdAt && (
+                <>
+                  <Link href={`/network-of-interactions-graph/${encodedSearch}`}>
+                    <a className="fr-link fr-fi-arrow-right-line fr-link--icon-right">
+                      View the graph
+                    </a>
+                  </Link>
+                  <Text size="sm">Created {dayjs(data.searchGraph.createdAt).format('llll')}</Text>
+                </>
+              )}
+              {!data?.searchGraph && !creating && (
+                <Button title="create" onClick={createGraph} disabled={creating}>
+                  Create now
+                </Button>
+              )}
+            </Col>
+          </Row>
 
-            <Row className="">
-              <Col>
-                <hr />
-              </Col>
-            </Row>
-          </>
-        )}
+          <Row className="">
+            <Col>
+              <hr />
+            </Col>
+          </Row>
+        </>
       </Container>
     </div>
   );
