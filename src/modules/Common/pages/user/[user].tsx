@@ -1,8 +1,7 @@
 import { Col, Container, Row } from '@dataesr/react-dsfr';
 import { Tab, Tabs, Title } from '@dataesr/react-dsfr';
 
-import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
-import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
+import Breadcrumb from 'modules/Common/components/Breadcrumb';
 import { GetUserResponse } from '../../interfaces';
 import Hero from 'modules/Common/components/Hero/Hero';
 import Layout from 'modules/Embassy/components/Layout';
@@ -32,7 +31,7 @@ const UserBotScore = dynamic(() => import('../../data-components/UserBotScore'),
 const UserPage = ({ user }: { user: string }) => {
   const username = (user || '').replace('@', '');
   const { data } = useSwr<GetUserResponse>(`/api/users/${username}`);
-  const { queryParams } = useUrl();
+  const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
   if (!username) return null;
   const image = data?.user?.profileImageUrl;
 
@@ -70,27 +69,33 @@ const UserPage = ({ user }: { user: string }) => {
       </Hero>
 
       {/* Breadcrumb */}
-      <div className="fr-container fr-container-fluid fr-mt-0">
-        <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col">
-            <Breadcrumb>
-              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                All hashtags
-              </BreadcrumbItem>
-              {queryParams.fromsearch && (
-                <BreadcrumbItem
-                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${
-                    queryParams.fromsearch
-                  }`}
-                >
-                  {queryParams.fromsearch}
-                </BreadcrumbItem>
-              )}
-              {username && <BreadcrumbItem isCurrent={true}>{username}</BreadcrumbItem>}
-            </Breadcrumb>
-          </div>
-        </div>
-      </div>
+      <Container className="fr-mt-0">
+        <Row>
+          <Col>
+            <Breadcrumb
+              items={[
+                {
+                  name: 'Twitter',
+                  url: `/`,
+                },
+                {
+                  name: 'Explore narrative',
+                  url: `/`,
+                },
+                ...(queryParams?.fromsearch
+                  ? [
+                      {
+                        name: queryParams.fromsearch,
+                        url: `/searches/${encodeURIComponent(queryParams.fromsearch)}`,
+                      },
+                    ]
+                  : []),
+                { name: `@${username}` },
+              ]}
+            />
+          </Col>
+        </Row>
+      </Container>
 
       <Overview searchName={`@${username}`} title="Overview">
         <div className="fr-col">
