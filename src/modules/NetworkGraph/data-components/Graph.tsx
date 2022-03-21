@@ -1,18 +1,19 @@
 import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
 
-import Breadcrumb from 'modules/Common/components/Breadcrumb';
 import Alert from 'modules/Common/components/Alert/Alert';
+import Breadcrumb from 'modules/Common/components/Breadcrumb';
+import { Button } from '@dataesr/react-dsfr';
 import Loading from 'components/Loading';
 import React from 'react';
+import api from 'utils/api';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import s from './Graph.module.css';
 import shuffle from 'lodash/fp/shuffle';
 import useSWR from 'swr';
-import { Button } from '@dataesr/react-dsfr';
-import api from 'utils/api';
-import relativeTime from 'dayjs/plugin/relativeTime';
+
 dayjs.extend(relativeTime);
 
 const GraphDetail = dynamic(() => import('modules/NetworkGraph/components/GraphDetail'), {
@@ -106,12 +107,14 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
           <Row gutters={true}>
             <Col>
               <div className="text-center">
-                <Title as="h1" look="h1">
+                <Title as="h1" look="h1" className="fr-mb-0 ">
                   {search}
                 </Title>
-                <div className="fr-text--xs fr-text-color--g500 fr-mb-4w">
+                <div className="fr-text--xs fr-text-color--g500">
                   <em>
-                    {status !== 'PENDING' && (oldestProcessedDate || collectionDate) && 'Crawled '}
+                    {status !== 'PENDING' &&
+                      (oldestProcessedDate || collectionDate) &&
+                      'Tweets crawled '}
                     {status !== 'PENDING' && oldestProcessedDate && (
                       <>
                         from <strong>{dayjs(oldestProcessedDate).format('llll')}</strong>
@@ -125,6 +128,16 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
                     )}
                   </em>
                 </div>
+                {collectionDate && dayjs().diff(collectionDate, 'minute') >= 1 && (
+                  <div className="fr-text-color--g500 fr-mb-4w">
+                    <p className="fr-mb-1w">
+                      Graph started processing <strong>{dayjs(collectionDate).fromNow()}</strong>.
+                    </p>
+                    <Button size="sm" onClick={onReprocessClick} secondary>
+                      Regenerate from now
+                    </Button>
+                  </div>
+                )}
               </div>
               {status === 'PROCESSING' && (
                 <div className="text-center">
@@ -182,17 +195,6 @@ const Graph: React.FC<GraphProps> = ({ className, search, ...props }) => {
             />
           </Col>
         </Row>
-        {collectionDate && dayjs().diff(collectionDate, 'minute') >= 1 && (
-          <Row className="fr-text--sm fr-mb-4w text-right">
-            <Col>
-              Graph started processing <strong>{dayjs(collectionDate).fromNow()}</strong>. You can
-              now safely{' '}
-              <Button size="sm" onClick={onReprocessClick} secondary>
-                reprocess it
-              </Button>
-            </Col>
-          </Row>
-        )}
       </Container>
       {!loading && error ? (
         <div className={classNames(s.noData, className)} {...props}>
