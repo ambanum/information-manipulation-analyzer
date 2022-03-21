@@ -4,6 +4,7 @@ import { Col, Container, Row, Title } from '@dataesr/react-dsfr';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import Alert from 'modules/Common/components/Alert/Alert';
+import Breadcrumb from 'modules/Common/components/Breadcrumb';
 import { GetSearchResponse } from '../../interfaces';
 import GraphCreator from 'modules/NetworkGraph/data-components/GraphCreator';
 import { HashtagTableProps } from '../../components/Datatables/HashtagTable.d';
@@ -29,7 +30,6 @@ import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import { useRouter } from 'next/router';
 import useSplitSWR from 'hooks/useSplitSWR';
 import useUrl from 'hooks/useUrl';
-import Breadcrumb from 'modules/Common/components/Breadcrumb';
 
 const ssrConfig = {
   loading: () => <Loading message="Loading..." />,
