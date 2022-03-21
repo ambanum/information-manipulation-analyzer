@@ -54,7 +54,7 @@ const TagsList = ({ searches }: { searches: Search[]; keyIndex?: number }) => {
           </React.Fragment>
         );
       })}
-      <hr className="fr-mt-2w fr-mt-md-6w" />
+      <hr className="fr-mt-2w fr-mt-md-6w fr-py-0" />
     </>
   );
 };
@@ -142,7 +142,7 @@ const LastSearches = ({
   const urls = filteredSearches.filter((search) => search.type === 'URL');
 
   return (
-    <div {...props}>
+    <div {...props} className="fr-pb-4w">
       {filter && (
         <Alert size="small" className="fr-my-4w">
           All searches containing <strong>{filter}</strong>
