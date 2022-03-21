@@ -213,7 +213,9 @@ const UserPage = ({ user }: { user: string }) => {
                   </Link>
                   .
                 </p>
-                <UserBotScore type="table" username={username} />
+                <div>
+                  <UserBotScore type="table" username={username} />
+                </div>
               </Tab>
             </Tabs>
           </Col>
