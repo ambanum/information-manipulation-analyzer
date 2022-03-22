@@ -6,9 +6,16 @@ import s from './Overview.module.css';
 
 type OverviewProps = {
   searchName: string;
+  title?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const Overview: React.FC<OverviewProps> = ({ children, className, searchName, ...props }) => {
+const Overview: React.FC<OverviewProps> = ({
+  children,
+  className,
+  searchName,
+  title = 'Narrative overview',
+  ...props
+}) => {
   searchName = searchName.length > 30 ? `${searchName.substring(0, 30)}...` : searchName;
   return (
     <div
@@ -22,7 +29,7 @@ const Overview: React.FC<OverviewProps> = ({ children, className, searchName, ..
         )}
       >
         <div className="fr-col-12 fr-col-sm-6">
-          <h3>Narrative overview</h3>
+          <h3>{title}</h3>
         </div>
         <div className={classNames('fr-col-12 fr-col-sm-6', s.overviewHeader_externalLink)}>
           <Link href={getTwitterLink(`${searchName}`, {})}>

@@ -8,7 +8,7 @@ const BotScoreMetadataTable = ({ exportName, data }: BotScoreMetadataTableProps)
     {
       Header: 'Features',
       accessor: 'title',
-      size: 1,
+      size: 2,
     },
     {
       Header: 'Value',
@@ -20,7 +20,9 @@ const BotScoreMetadataTable = ({ exportName, data }: BotScoreMetadataTableProps)
       Header: 'Description',
       accessor: 'description',
       align: 'left',
+      style: { whiteSpace: 'normal', overflowY: 'auto', lineHeight: '1.3em' },
       size: 3,
+      disableSortBy: true,
     },
   ];
 
@@ -28,7 +30,7 @@ const BotScoreMetadataTable = ({ exportName, data }: BotScoreMetadataTableProps)
     <Table<BotScoreMetadata>
       title="Test"
       hideTitle={true}
-      subtitle="Provider : "
+      subtitle="Provider: "
       columns={columns}
       data={data}
       layoutFixed

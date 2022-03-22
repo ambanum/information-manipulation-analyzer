@@ -1,7 +1,7 @@
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { Col, Container, Row } from '@dataesr/react-dsfr';
+import { Tab, Tabs, Title } from '@dataesr/react-dsfr';
 
-import Breadcrumb from 'modules/Common/components/Breadcrumb/Breadcrumb';
-import BreadcrumbItem from 'modules/Common/components/Breadcrumb/BreadcrumbItem';
+import Breadcrumb from 'modules/Common/components/Breadcrumb';
 import { GetUserResponse } from '../../interfaces';
 import Hero from 'modules/Common/components/Hero/Hero';
 import Layout from 'modules/Embassy/components/Layout';
@@ -10,11 +10,9 @@ import Loading from 'components/Loading';
 import Overview from 'modules/Common/components/Overview/Overview';
 import React from 'react';
 import Tile from 'modules/Common/components/Tile/Tile';
-import classNames from 'classnames';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import sReactTabs from 'modules/Embassy/styles/react-tabs.module.css';
 import useSwr from 'swr';
 import useUrl from 'hooks/useUrl';
 
@@ -33,7 +31,7 @@ const UserBotScore = dynamic(() => import('../../data-components/UserBotScore'),
 const UserPage = ({ user }: { user: string }) => {
   const username = (user || '').replace('@', '');
   const { data } = useSwr<GetUserResponse>(`/api/users/${username}`);
-  const { queryParams } = useUrl();
+  const { queryParams, pushQueryParams, queryParamsStringified } = useUrl();
   if (!username) return null;
   const image = data?.user?.profileImageUrl;
 
@@ -71,29 +69,35 @@ const UserPage = ({ user }: { user: string }) => {
       </Hero>
 
       {/* Breadcrumb */}
-      <div className="fr-container fr-container-fluid fr-mt-0">
-        <div className="fr-grid-row fr-grid-row--gutters">
-          <div className="fr-col">
-            <Breadcrumb>
-              <BreadcrumbItem href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/`}>
-                All hashtags
-              </BreadcrumbItem>
-              {queryParams.fromsearch && (
-                <BreadcrumbItem
-                  href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/searches/${
-                    queryParams.fromsearch
-                  }`}
-                >
-                  {queryParams.fromsearch}
-                </BreadcrumbItem>
-              )}
-              {username && <BreadcrumbItem isCurrent={true}>{username}</BreadcrumbItem>}
-            </Breadcrumb>
-          </div>
-        </div>
-      </div>
+      <Container className="fr-mt-0">
+        <Row>
+          <Col>
+            <Breadcrumb
+              items={[
+                {
+                  name: 'Twitter',
+                  url: `/`,
+                },
+                {
+                  name: 'Explore narrative',
+                  url: `/`,
+                },
+                ...(queryParams?.fromsearch
+                  ? [
+                      {
+                        name: queryParams.fromsearch,
+                        url: `/searches/${encodeURIComponent(queryParams.fromsearch)}`,
+                      },
+                    ]
+                  : []),
+                { name: `@${username}` },
+              ]}
+            />
+          </Col>
+        </Row>
+      </Container>
 
-      <Overview searchName={`@${username}`}>
+      <Overview searchName={`@${username}`} title="Overview">
         <div className="fr-col">
           <Tile
             title={<UserBotScore type="raw" username={username} />}
@@ -117,33 +121,15 @@ const UserPage = ({ user }: { user: string }) => {
         </div>
       </Overview>
 
-      <Tabs
-        forceRenderTabPanel={true}
-        selectedTabClassName={classNames(sReactTabs.selectedTab, 'react-tabs__tab--selected"')}
-        selectedTabPanelClassName={classNames(
-          sReactTabs.selectedTabPanel,
-          'react-tabs__tab-panel--selected'
-        )}
-      >
-        <div className="fr-container fr-container-fluid fr-mt-12w">
-          <TabList
-            className={classNames(
-              'fr-grid-row fr-grid-row--gutters react-tabs__tab-list',
-              sReactTabs.tabList
-            )}
-          >
-            <Tab className={sReactTabs.tab}>User infos</Tab>
-            <Tab className={sReactTabs.tab}>Bot Score details</Tab>
-          </TabList>
-        </div>
-        <div className="fr-container fr-container-fluid ">
-          <TabPanel>
-            <div className="fr-col">
-              <div>
-                <h4 className="fr-mb-1v">User infos</h4>
-                <p className="fr-mb-0">Everything we get about this user.</p>
-              </div>
-              <div className="fr-mt-2w">
+      <Container className="fr-py-12w">
+        <Row gutters={true}>
+          <Col>
+            <Title type="h3" look="h3">
+              Details
+            </Title>
+            <Tabs className="fr-mt-2w">
+              <Tab label="Account">
+                <p>Some informations about this user.</p>
                 <ul>
                   {username && (
                     <li>
@@ -213,36 +199,28 @@ const UserPage = ({ user }: { user: string }) => {
                     </li>
                   )}
                 </ul>
-              </div>
-            </div>
-          </TabPanel>
-
-          <TabPanel>
-            <div className="fr-col">
-              <div>
-                <h4 className="fr-mb-1v">Bot score details</h4>
-                <p className="fr-mb-0">Some explanation.</p>
-              </div>
-              <div className="fr-mt-2w">
-                <div className="fr-mb-2w">
-                  <p className="fr-mb-0">
-                    For the calculation of bot probability that we obtain for this user, we use{' '}
-                    <Link href="https://github.com/ambanum/social-networks-bot-finder">
-                      <a target="_blank">social-networks-bot-finder</a>
-                    </Link>{' '}
-                    and everything you need to know about how the bot score works is detailed{' '}
-                    <Link href="/bot-probability">
-                      <a>on our website</a>
-                    </Link>
-                    .
-                  </p>
+              </Tab>
+              <Tab label="Bot Score">
+                <p>Some explanation.</p>
+                <p>
+                  For the calculation of bot probability that we obtain for this user, we use{' '}
+                  <Link href="https://github.com/ambanum/social-networks-bot-finder">
+                    <a target="_blank">social-networks-bot-finder</a>
+                  </Link>{' '}
+                  and everything you need to know about how the bot score works is detailed{' '}
+                  <Link href="/bot-probability">
+                    <a>on our website</a>
+                  </Link>
+                  .
+                </p>
+                <div>
+                  <UserBotScore type="table" username={username} />
                 </div>
-                <UserBotScore type="table" username={username} />
-              </div>
-            </div>
-          </TabPanel>
-        </div>
-      </Tabs>
+              </Tab>
+            </Tabs>
+          </Col>
+        </Row>
+      </Container>
     </Layout>
   );
 };
