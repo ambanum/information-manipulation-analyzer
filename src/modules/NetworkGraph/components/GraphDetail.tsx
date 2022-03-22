@@ -1,21 +1,32 @@
-import { Button, ButtonGroup, Col, Container, Row } from '@dataesr/react-dsfr';
-import { Link, Radio, RadioGroup, Text, Title } from '@dataesr/react-dsfr';
-import { Modal, ModalClose, ModalContent, ModalTitle } from '@dataesr/react-dsfr';
-
-import { TwitterTweetEmbed } from 'react-twitter-embed';
-import Loading from 'components/Loading';
+import {
+  Button,
+  ButtonGroup,
+  Col,
+  Container,
+  Link,
+  Modal,
+  ModalClose,
+  ModalContent,
+  ModalTitle,
+  Radio,
+  RadioGroup,
+  Row,
+  Text,
+  TextInput,
+  Title,
+} from '@dataesr/react-dsfr';
+import React, { useState } from 'react';
 
 import Gradient from 'javascript-color-gradient';
+import Loading from 'components/Loading';
 import { NetworkGraphJson } from 'modules/NetworkGraph/components/NetworkGraph.d';
-import React from 'react';
-import { TextInput } from '@dataesr/react-dsfr';
+import { TwitterTweetEmbed } from 'react-twitter-embed';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import s from './GraphDetail.module.css';
-import { useState } from 'react';
 import { useToggle } from 'react-use';
 import useUrl from 'hooks/useUrl';
 
@@ -65,7 +76,7 @@ const highlightNodesAndEdges = (
   if (!startDate && !endDate) {
     return data;
   }
-  const newData = { ...data };
+  const newData = { nodes: [], edges: [], ...data };
 
   newData.edges.map((edge: any) => {
     const date = edge.metadata.dates[edge.metadata.dates.length - 1];
@@ -123,7 +134,7 @@ const fixNodePositions = (
   data: NetworkGraphJson,
   { auto, active }: { auto: boolean; active: boolean }
 ) => {
-  const newData = { ...data };
+  const newData = { nodes: [], edges: [], ...data };
 
   newData.nodes.map((node) => {
     if (!auto || (auto && active)) {
